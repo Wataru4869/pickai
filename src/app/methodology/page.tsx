@@ -146,6 +146,16 @@ export default function MethodologyPage() {
         ))}
       </Block>
 
+      <Block>
+        <div className="mt-4 pt-4 border-t border-[#e8e8ed] text-[12px] text-[#86868b] space-y-2">
+          <p className="font-semibold text-[#6e6e73]">免責事項</p>
+          <p>本サイトの評価は、Pick AI編集部が独自に設計したテストに基づく結果であり、特定のAIツールの品質を保証または否定するものではありません。</p>
+          <p>各AIツールは日々アップデートされており、評価時点のバージョンと現在のバージョンで性能が異なる場合があります。最新の情報は各社の公式サイトをご確認ください。</p>
+          <p>本サイトは特定の企業・製品との利害関係を持たず、テスト結果に基づく公平な比較情報の提供を目的としています。</p>
+          <p>テストに使用したプロンプト、採点基準、評価手法は本ページで全て公開しています。</p>
+        </div>
+      </Block>
+
       <Footer />
     </div>
   );
