@@ -53,7 +53,7 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
 
       {/* Model Header */}
       <div className="bg-white border-b border-[#d2d2d7] py-4">
-        <div className="max-w-[860px] mx-auto px-4">
+        <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
           <div className="flex items-center gap-2 mb-2">
             {overallRank > 0 && <RankBadge rank={overallRank} />}
             <span className="text-[11px] text-[#86868b]">総合（全16テスト）</span>

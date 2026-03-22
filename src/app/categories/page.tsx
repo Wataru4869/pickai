@@ -15,7 +15,7 @@ export default function CategoriesPage() {
     <div className="min-h-screen bg-[#fbfbfd]">
       <Header />
       <div className="bg-white py-6">
-        <div className="max-w-[860px] mx-auto px-4">
+        <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
           <h1 className="text-[20px] font-bold text-[#1d1d1f] mb-1">カテゴリ別AI比較</h1>
           <p className="text-[13px] text-[#6e6e73]">
             汎用AIチャットに加え、画像生成・動画生成・コーディング・エージェント・検索の5カテゴリを網羅。

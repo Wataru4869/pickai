@@ -340,7 +340,7 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
 
       {/* Article Header */}
       <div className="bg-white py-8">
-        <div className="max-w-[680px] mx-auto px-4">
+        <div className="max-w-full sm:max-w-[680px] mx-auto px-3 sm:px-4">
           <div className="text-[12px] text-[#86868b] mb-3">
             <a href="/blog" className="text-[#0066cc] hover:underline no-underline">コラム</a>
             {" > "}
@@ -365,7 +365,7 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
       {/* Article Sections */}
       {article.sections.map((section, i) => (
         <div key={i} className="bg-white">
-          <div className="max-w-[680px] mx-auto px-4">
+          <div className="max-w-full sm:max-w-[680px] mx-auto px-3 sm:px-4">
             {i > 0 && (
               <h2 className="text-[17px] font-semibold text-[#1d1d1f] mt-10 mb-4 pb-2 border-b border-[#e8e8ed]">
                 {section.heading}
@@ -383,7 +383,7 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
 
       {/* Article Footer */}
       <div className="bg-white py-8">
-        <div className="max-w-[680px] mx-auto px-4">
+        <div className="max-w-full sm:max-w-[680px] mx-auto px-3 sm:px-4">
           {/* Tags */}
           {article.tags.length > 0 && (
             <div className="flex items-center gap-2 flex-wrap mb-6 pt-6 border-t border-[#e8e8ed]">

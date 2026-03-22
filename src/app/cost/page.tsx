@@ -15,7 +15,7 @@ export default function CostPage() {
       <Header />
 
       <div className="bg-white border-b border-[#d2d2d7] py-4">
-        <div className="max-w-[860px] mx-auto px-4">
+        <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
           <h1 className="text-[20px] font-bold mb-1">コスト計算機</h1>
           <p className="text-[12px] text-[#6e6e73] leading-relaxed">
             3つの質問に答えるだけで最適プランを提案。テスト結果（30テスト）に基づくおすすめ付き。

@@ -55,7 +55,7 @@ export default function RecommendPage() {
       <Header />
 
       <div className="bg-white border-b border-[#d2d2d7] py-4">
-        <div className="max-w-[860px] mx-auto px-4">
+        <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
           <h1 className="text-[20px] font-bold mb-1">
             あなたに最適なAIを見つける
           </h1>
@@ -67,7 +67,7 @@ export default function RecommendPage() {
       </div>
 
       <div className="bg-white border-b border-[#d2d2d7]">
-        <div className="max-w-[860px] mx-auto px-4 py-2">
+        <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4 py-2">
           <div className="flex items-center gap-1">
             {steps.map((s, i) => {
               const isActive = s.key === step;
@@ -107,7 +107,7 @@ export default function RecommendPage() {
       {step === "role" && (
         <Block>
           <SectionHeader title="Q1. あなたの職種は？" />
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {recommendData.roles.map((role) => (
               <button
                 key={role.id}
@@ -136,7 +136,7 @@ export default function RecommendPage() {
               変更
             </button>
           </div>
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {filteredUseCases.map((uc) => (
               <button
                 key={uc.id}

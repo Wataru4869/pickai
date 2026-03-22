@@ -13,13 +13,13 @@ export function SectionHeader({ title }: { title: string }) {
 export function Block({ children, alt }: { children: React.ReactNode; alt?: boolean }) {
   return (
     <div className={`${alt ? "bg-[#f9f9fb]" : "bg-white"} py-4`}>
-      <div className="max-w-[860px] mx-auto px-4">{children}</div>
+      <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">{children}</div>
     </div>
   );
 }
 
 export function Container({ children }: { children: React.ReactNode }) {
-  return <div className="max-w-[860px] mx-auto px-4">{children}</div>;
+  return <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">{children}</div>;
 }
 
 export function RankBadge({ rank }: { rank: number }) {

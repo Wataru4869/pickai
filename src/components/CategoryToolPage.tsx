@@ -39,7 +39,7 @@ export function CategoryToolPage({ data }: { data: CategoryData }) {
 
       {/* Hero */}
       <div className="bg-white py-6">
-        <div className="max-w-[860px] mx-auto px-4">
+        <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
           <div className="text-[11px] text-[#86868b] mb-1">
             <a href="/" className="text-[#0066cc] hover:underline no-underline">トップ</a>
             {" ＞ "}

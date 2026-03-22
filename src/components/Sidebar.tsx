@@ -186,7 +186,7 @@ export function Sidebar({ children }: { children: React.ReactNode }) {
       )}
 
       {/* Main content */}
-      <main className="sm:ml-[200px]">
+      <main className="sm:ml-[200px] overflow-x-hidden">
         {children}
       </main>
     </div>

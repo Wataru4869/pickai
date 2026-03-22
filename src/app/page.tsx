@@ -61,11 +61,11 @@ export default function HomePage() {
 
       {/* Hero Dashboard */}
       <div className="bg-white py-5">
-        <div className="max-w-[860px] mx-auto px-4">
+        <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
           <h1 className="text-[20px] font-bold text-[#1d1d1f] mb-1">あなたに最適なAIが、すぐ見つかる。</h1>
           <p className="text-[13px] text-[#6e6e73] mb-3">独自30テスト × 6カテゴリ × 38ツール</p>
 
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <a href={`/model/${top?.id}`} className="bg-[#f5f5f7] rounded-lg p-3 no-underline text-inherit hover:bg-[#efefef] transition-colors">
               <div className="text-[10px] text-[#86868b]">総合1位</div>
               <div className="text-[16px] font-bold text-[#1d1d1f]">{top?.name}</div>
@@ -98,11 +98,11 @@ export default function HomePage() {
                 <span className="text-[20px] font-bold text-[#1d1d1f]">{top.name}</span>
                 <span className="text-[13px] font-normal text-[#86868b] ml-2">{top.provider}</span>
               </div>
-              <div className="text-[36px] font-bold" style={{ color: scoreColorHex(top.score) }}>
+              <div className="text-[28px] sm:text-[36px] font-bold" style={{ color: scoreColorHex(top.score) }}>
                 {top.score}
               </div>
             </div>
-            <div className="mt-3 grid grid-cols-4 gap-3">
+            <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-3">
               {[
                 { label: "文章生成", score: top.scores?.writing },
                 { label: "コーディング", score: top.scores?.coding },
@@ -124,7 +124,7 @@ export default function HomePage() {
         )}
 
         {/* 2nd-5th Place: 2-column grid cards */}
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {rankedModels.slice(1).map((m: any, i: number) => (
             <a
               key={m.id}

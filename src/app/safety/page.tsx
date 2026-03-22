@@ -36,7 +36,7 @@ export default function SafetyPage() {
       <Header />
 
       <div className="bg-white border-b border-[#d2d2d7] py-4">
-        <div className="max-w-[860px] mx-auto px-4">
+        <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
           <h1 className="text-[20px] font-bold mb-1">安全性比較</h1>
           <p className="text-[12px] text-[#6e6e73] leading-relaxed">
             14テスト（事実性・著作権・プライバシー・セキュリティ等）＋セキュリティ認証・法規制対応の2軸で評価。

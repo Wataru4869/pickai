@@ -12,7 +12,7 @@ export default function MethodologyPage() {
       <Header />
 
       <div className="bg-white border-b border-[#d2d2d7] py-4">
-        <div className="max-w-[860px] mx-auto px-4">
+        <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
           <h1 className="text-[20px] font-bold mb-1">評価方法論</h1>
           <p className="text-[12px] text-[#6e6e73] leading-relaxed">
             当サイトのテスト方法論を全て公開します。透明性と再現性を最優先に、全プロンプト・採点基準を開示しています。
@@ -27,7 +27,8 @@ export default function MethodologyPage() {
         <p className="text-[12px] text-[#6e6e73] leading-relaxed mb-3">
           5つの主要AIモデル（Claude / ChatGPT / Gemini / Grok / Perplexity）に対し、合計30テストを実施。全モデルに同一プロンプトを投入し、統一基準で採点しました。
         </p>
-        <table className="w-full text-[11px] border-collapse">
+        <div className="overflow-x-auto">
+        <table className="w-full text-[11px] border-collapse min-w-[400px]">
           <thead>
             <tr className="bg-[#f5f5f7]">
               <th className="p-1.5 text-left font-bold border-b-2 border-[#d2d2d7]">カテゴリ</th>
@@ -50,6 +51,7 @@ export default function MethodologyPage() {
             ))}
           </tbody>
         </table>
+        </div>
         <p className="text-[11px] text-[#86868b] mt-2">テスト実施: 2026年3月21-22日</p>
       </Block>
 

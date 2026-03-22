@@ -66,7 +66,7 @@ export default function SwitchGuidePage() {
       <Header />
 
       <div className="bg-white border-b border-[#d2d2d7] py-4">
-        <div className="max-w-[860px] mx-auto px-4">
+        <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
           <h1 className="text-[20px] font-bold mb-1">乗り換えガイド</h1>
           <p className="text-[12px] text-[#6e6e73]">
             今使っているAIを選ぶと、他モデルとの差分を一目で可視化。
