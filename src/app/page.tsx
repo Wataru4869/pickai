@@ -261,6 +261,33 @@ export default function HomePage() {
         </a>
       </Block>
 
+      {/* Latest Articles */}
+      <Block>
+        <SectionHeader title="最新コラム" />
+        <div className="space-y-2">
+          {[
+            { slug: "chatgpt-vs-claude-2026", title: "ChatGPT vs Claude 徹底比較【2026年最新】どっちを選ぶべき？", date: "2026-03-22" },
+            { slug: "ai-tools-how-to-choose-2026", title: "【2026年版】AIツールの選び方完全ガイド｜初心者向け", date: "2026-03-22" },
+            { slug: "gemini-vs-chatgpt-2026", title: "Gemini vs ChatGPT 比較【2026年版】Google派 vs OpenAI派", date: "2026-03-22" },
+          ].map((a) => (
+            <a
+              key={a.slug}
+              href={`/blog/${a.slug}`}
+              className="flex items-center justify-between p-3 border border-[#e8e8ed] rounded hover:bg-[#f5f5f7] transition-colors no-underline text-inherit"
+            >
+              <span className="text-[12px] font-medium text-[#1d1d1f]">{a.title}</span>
+              <span className="text-[10px] text-[#86868b] shrink-0 ml-2">{a.date}</span>
+            </a>
+          ))}
+        </div>
+        <a
+          href="/blog"
+          className="block text-center text-[11px] text-[#0066cc] mt-3 hover:underline no-underline"
+        >
+          全てのコラムを見る →
+        </a>
+      </Block>
+
       {/* Share */}
       <Block>
         <div className="flex items-center justify-between border border-[#d2d2d7] rounded p-3">

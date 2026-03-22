@@ -22,6 +22,7 @@ const MENU_ITEMS = [
   { href: "/safety", label: "安全性比較" },
   { href: "/cost", label: "コスト計算" },
   { href: "/methodology", label: "評価方法論" },
+  { href: "/blog", label: "コラム" },
 ] as const;
 
 type MenuItem = {
