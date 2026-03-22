@@ -1,5 +1,7 @@
 import { Header, Footer, Block, SectionHeader } from "@/components/ui";
 
+export const metadata = { title: "AIツールカテゴリ別比較【画像・動画・コーディング・エージェント・検索】| Pick AI" };
+
 const categories = [
   { id: "image-generation", label: "画像生成AI", icon: "🖼️", tools: 7, description: "Midjourney、DALL-E 3、Stable Diffusionなど" },
   { id: "video-generation", label: "動画生成AI", icon: "🎬", tools: 7, description: "Sora、Runway、Kling AIなど" },

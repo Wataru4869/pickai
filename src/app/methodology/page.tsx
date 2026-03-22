@@ -2,7 +2,7 @@ import { Header, Footer, Block, SectionHeader, TrustBadges } from "@/components/
 import { PromptAccordion } from "@/components/PromptAccordion";
 
 export const metadata = {
-  title: "評価方法論｜テスト手法・採点基準の全公開｜Pick AI",
+  title: "評価方法論・採点基準 | Pick AI",
   description: "30テストのプロンプト全文、3層スコアリング方式、公平性担保の仕組みを完全公開。第三者による追検証が可能です。",
 };
 

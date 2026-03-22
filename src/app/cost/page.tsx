@@ -3,7 +3,7 @@ import { CostCalculatorFlow } from "@/components/CostCalculatorFlow";
 import { getModels, scoreColorHex } from "@/lib/data";
 
 export const metadata = {
-  title: "AIコスト計算機｜用途×予算で最適プランを診断｜Pick AI",
+  title: "AI料金比較・コスト計算機【2026年最新】| Pick AI",
   description: "3つの質問に答えるだけで最適なAIプランを提案。ChatGPT/Claude/Gemini/Grok/Perplexityの料金を円建てで比較。",
 };
 

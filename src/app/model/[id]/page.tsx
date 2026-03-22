@@ -19,8 +19,8 @@ export function generateMetadata({ params }: { params: { id: string } }) {
   const model = models.find((m) => m.id === params.id);
   if (!model) return {};
   return {
-    title: `${model.name}の評価・スコア｜Pick AI`,
-    description: `${model.name}（${model.provider}）の独自30テスト評価結果。文章${model.scores.writing}点・コード${model.scores.coding}点・画像${model.scores.image}点・安全性${model.scores.safety}点。`,
+    title: `${model.name}の評価・料金【2026年最新】| Pick AI`,
+    description: `${model.name}（${model.provider}）を独自テストで評価。文章${model.scores.writing}点・コード${model.scores.coding}点・画像${model.scores.image}点・安全性${model.scores.safety}点。`,
   };
 }
 
@@ -199,7 +199,7 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
             </div>
           </div>
           <ShareButton
-            text={`${model.name}の評価：総合${model.scores.overall}点、コード${model.scores.coding}点、安全性${model.scores.safety}点 #PickAI https://pickai.vercel.app/model/${model.id}`}
+            text={`${model.name}の評価：総合${model.scores.overall}点、コード${model.scores.coding}点、安全性${model.scores.safety}点 #PickAI https://pickai.jp/model/${model.id}`}
           />
         </div>
       </Block>

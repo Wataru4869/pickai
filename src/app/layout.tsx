@@ -2,23 +2,24 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Pick AI — AIツール比較ガイド",
+  title: "【2026年最新】AIツール比較おすすめランキング | Pick AI",
   description:
-    "ChatGPT・Claude・Gemini・Grok・Perplexityを独自30テストで徹底比較。用途別のおすすめAIを提案します。",
+    "ChatGPT・Claude・Gemini・Grok・Perplexityを独自30テストで徹底比較。文章生成・コーディング・画像生成・安全性を5軸で採点。用途別おすすめAIが見つかります。",
   openGraph: {
-    title: "Pick AI — AIツール比較ガイド",
-    description: "独自30テストで5大AIモデルを徹底比較。あなたに最適なAIが見つかる。",
+    title: "【2026年最新】AIツール比較おすすめランキング | Pick AI",
+    description: "6カテゴリ38ツールを網羅。独自30テストで徹底比較。",
+    url: "https://pickai.jp",
     siteName: "Pick AI",
     locale: "ja_JP",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pick AI — AIツール比較ガイド",
-    description: "独自30テストで5大AIを徹底比較",
+    title: "【2026年最新】AIツール比較おすすめランキング | Pick AI",
+    description: "6カテゴリ38ツールを網羅。独自30テストで徹底比較。",
   },
   alternates: {
-    canonical: "https://pickai.vercel.app",
+    canonical: "https://pickai.jp",
   },
 };
 

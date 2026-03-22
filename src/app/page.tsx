@@ -37,6 +37,28 @@ export default function HomePage() {
     <div className="min-h-screen bg-[#fbfbfd]">
       <Header />
 
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Pick AI",
+          "url": "https://pickai.jp",
+          "description": "AIツール比較ガイド。6カテゴリ38ツールを独自テストで徹底比較。"
+        }) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "AIツール総合ランキング 2026",
+          "itemListOrder": "https://schema.org/ItemListOrderDescending",
+          "numberOfItems": 5,
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "ChatGPT", "url": "https://pickai.jp/model/chatgpt" },
+            { "@type": "ListItem", "position": 2, "name": "Claude", "url": "https://pickai.jp/model/claude" },
+            { "@type": "ListItem", "position": 3, "name": "Grok", "url": "https://pickai.jp/model/grok" },
+            { "@type": "ListItem", "position": 4, "name": "Perplexity", "url": "https://pickai.jp/model/perplexity" },
+            { "@type": "ListItem", "position": 5, "name": "Gemini", "url": "https://pickai.jp/model/gemini" }
+          ]
+        }) }} />
+
       {/* Hero */}
       <div className="bg-white py-6">
         <div className="max-w-[860px] mx-auto px-4">
@@ -249,7 +271,7 @@ export default function HomePage() {
               「2026年AI比較：総合1位ChatGPT、コード最強Claude、安全性もClaude #PickAI」
             </div>
           </div>
-          <ShareButton text="2026年AI比較：総合1位ChatGPT（86.5）コード最強Claude（94.3）安全性もClaude（93.7）#PickAI https://pickai.vercel.app" />
+          <ShareButton text="2026年AI比較：総合1位ChatGPT（86.5）コード最強Claude（94.3）安全性もClaude（93.7）#PickAI https://pickai.jp" />
         </div>
       </Block>
 
