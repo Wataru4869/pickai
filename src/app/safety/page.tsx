@@ -7,6 +7,7 @@ import {
 } from "@/lib/data";
 import { Header, Footer, Block, SectionHeader, TrustBadges, ShareButton } from "@/components/ui";
 import { SafetyHeatmap } from "@/components/SafetyHeatmap";
+import { SafetyAssessment } from "@/components/SafetyAssessment";
 
 export const metadata = {
   title: "AIの安全性比較ランキング【2026年版】| Pick AI",
@@ -110,6 +111,11 @@ export default function SafetyPage() {
             </tbody>
           </table>
         </div>
+      </Block>
+
+      {/* Safety Assessment */}
+      <Block alt>
+        <SafetyAssessment />
       </Block>
 
       {/* Key findings */}
