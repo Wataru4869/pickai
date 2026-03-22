@@ -123,7 +123,7 @@ export default function ComparePage({ params }: { params: { slug: string } }) {
             <div className="text-[11px] text-[#86868b] mt-0.5">総合</div>
           </div>
           <div className="flex items-center justify-center">
-            <div className="w-8 h-8 rounded-full bg-[#f5f5f7] flex items-center justify-center text-[11px] font-bold text-[#86868b]">
+            <div className="w-10 h-10 rounded-full bg-[#1d1d1f] text-white flex items-center justify-center text-[11px] font-bold">
               VS
             </div>
           </div>

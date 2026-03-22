@@ -27,10 +27,10 @@ export function CategoryTabs() {
           <button
             key={cat}
             onClick={() => setActive(cat)}
-            className={`px-3 py-1.5 rounded text-[11px] font-semibold border transition-colors cursor-pointer ${
+            className={`px-4 py-1.5 rounded-full text-[11px] font-semibold border transition-all duration-200 cursor-pointer ${
               active === cat
-                ? "border-[#1d1d1f] bg-[#f5f5f7] text-[#0066cc] border-2"
-                : "border-[#d2d2d7] bg-white text-[#6e6e73] hover:bg-[#f5f5f7]"
+                ? "bg-[#1d1d1f] text-white border-[#1d1d1f]"
+                : "bg-white border-[#e8e8ed] text-[#6e6e73] hover:bg-[#f5f5f7]"
             }`}
           >
             {CATEGORY_LABELS[cat]}

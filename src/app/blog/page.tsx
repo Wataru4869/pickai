@@ -83,17 +83,22 @@ export default function BlogIndexPage() {
             <a
               key={article.slug}
               href={`/blog/${article.slug}`}
-              className="block p-4 border border-[#e8e8ed] rounded-lg hover:bg-[#f5f5f7] transition-colors no-underline text-inherit"
+              className="block p-4 border border-[#e8e8ed] rounded-lg hover:bg-[#f5f5f7] hover:shadow-md transition-colors no-underline text-inherit"
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#f5f5f7] text-[#6e6e73] border border-[#e8e8ed] font-medium">
+                    <span className={`text-[10px] px-1.5 py-0.5 rounded font-medium ${
+                      article.category === 'comparison' ? 'bg-[#eef4fc] text-[#0066cc]' :
+                      article.category === 'guide' ? 'bg-[#ecf7ef] text-[#1d7d3f]' :
+                      article.category === 'analysis' ? 'bg-[#f3f0ff] text-[#6B46C1]' :
+                      'bg-[#f5f5f7] text-[#6e6e73]'
+                    } border-none`}>
                       {CATEGORY_LABELS[article.category] || article.category}
                     </span>
                     <span className="text-[10px] text-[#86868b]">{article.readingTime}</span>
                   </div>
-                  <div className="text-[14px] font-semibold text-[#1d1d1f] leading-snug">
+                  <div className="text-[15px] font-semibold text-[#1d1d1f] leading-snug">
                     {article.title}
                   </div>
                   <div className="text-[11px] text-[#86868b] mt-1 line-clamp-2">

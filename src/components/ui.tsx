@@ -4,7 +4,7 @@ import { scoreColorHex } from "@/lib/data";
 
 export function SectionHeader({ title }: { title: string }) {
   return (
-    <h2 className="text-[15px] font-semibold text-[#1d1d1f] pl-3 border-l-2 border-[#1d1d1f] mb-2">
+    <h2 className="text-[17px] font-bold text-[#1d1d1f] pl-3 border-l-[3px] border-[#1d1d1f] mb-4">
       {title}
     </h2>
   );

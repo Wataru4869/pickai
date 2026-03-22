@@ -52,7 +52,14 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
       <Header />
 
       {/* Model Header */}
-      <div className="bg-white border-b border-[#d2d2d7] py-4">
+      <div className={`border-b border-[#d2d2d7] py-6 ${
+        model.id === 'claude' ? 'bg-gradient-to-b from-[#f3f0ff] to-white' :
+        model.id === 'chatgpt' ? 'bg-gradient-to-b from-[#ecf9f4] to-white' :
+        model.id === 'gemini' ? 'bg-gradient-to-b from-[#eef4fc] to-white' :
+        model.id === 'grok' ? 'bg-gradient-to-b from-[#eef8fc] to-white' :
+        model.id === 'perplexity' ? 'bg-gradient-to-b from-[#ecfaf8] to-white' :
+        'bg-white'
+      }`}>
         <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
           <div className="flex items-center gap-2 mb-2">
             {overallRank > 0 && <RankBadge rank={overallRank} />}

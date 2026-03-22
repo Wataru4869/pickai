@@ -63,23 +63,23 @@ export default function HomePage() {
       <div className="bg-white py-5">
         <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
           <h1 className="text-[20px] font-bold text-[#1d1d1f] mb-1">あなたに最適なAIが、すぐ見つかる。</h1>
-          <p className="text-[13px] text-[#6e6e73] mb-3">独自30テスト × 6カテゴリ × 38ツール</p>
+          <p className="text-[13px] text-[#6e6e73] mb-4">独自30テスト × 6カテゴリ × 38ツール</p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <a href={`/model/${top?.id}`} className="bg-[#f5f5f7] rounded-lg p-3 no-underline text-inherit hover:bg-[#efefef] transition-colors">
-              <div className="text-[10px] text-[#86868b]">総合1位</div>
+            <a href={`/model/${top?.id}`} className="bg-gradient-to-br from-[#f0f7ff] to-[#e8f0fa] border border-[#c5d9f0] rounded-lg p-3 no-underline text-inherit hover:shadow-sm transition-all duration-200">
+              <span className="inline-block bg-[#0066cc] text-white px-2 py-0.5 rounded text-[10px] font-semibold mb-1">総合1位</span>
               <div className="text-[16px] font-bold text-[#1d1d1f]">{top?.name}</div>
-              <div className="text-[20px] font-bold" style={{ color: scoreColorHex(top?.score || 0) }}>{top?.score}</div>
+              <div className="text-[22px] font-bold" style={{ color: scoreColorHex(top?.score || 0) }}>{top?.score}</div>
             </a>
-            <a href={`/model/${codeBest?.id}`} className="bg-[#f5f5f7] rounded-lg p-3 no-underline text-inherit hover:bg-[#efefef] transition-colors">
-              <div className="text-[10px] text-[#86868b]">コード最強</div>
+            <a href={`/model/${codeBest?.id}`} className="bg-gradient-to-br from-[#f3f0ff] to-[#ede8fa] border border-[#c5c0e8] rounded-lg p-3 no-underline text-inherit hover:shadow-sm transition-all duration-200">
+              <span className="inline-block text-[10px] font-semibold text-[#6B46C1] mb-1">コード最強</span>
               <div className="text-[16px] font-bold text-[#1d1d1f]">{codeBest?.name}</div>
-              <div className="text-[20px] font-bold" style={{ color: scoreColorHex(codeBest?.scores?.coding || 0) }}>{codeBest?.scores?.coding}</div>
+              <div className="text-[22px] font-bold" style={{ color: scoreColorHex(codeBest?.scores?.coding || 0) }}>{codeBest?.scores?.coding}</div>
             </a>
-            <a href={`/model/${safetyBestModel?.id}`} className="bg-[#f5f5f7] rounded-lg p-3 no-underline text-inherit hover:bg-[#efefef] transition-colors">
-              <div className="text-[10px] text-[#86868b]">安全性1位</div>
+            <a href={`/model/${safetyBestModel?.id}`} className="bg-gradient-to-br from-[#ecf7ef] to-[#e0f0e5] border border-[#b5d8c0] rounded-lg p-3 no-underline text-inherit hover:shadow-sm transition-all duration-200">
+              <span className="inline-block text-[10px] font-semibold text-[#1d7d3f] mb-1">安全性1位</span>
               <div className="text-[16px] font-bold text-[#1d1d1f]">{safetyBestModel?.name}</div>
-              <div className="text-[20px] font-bold" style={{ color: scoreColorHex(safetyBest?.score || 0) }}>{safetyBest?.score}</div>
+              <div className="text-[22px] font-bold" style={{ color: scoreColorHex(safetyBest?.score || 0) }}>{safetyBest?.score}</div>
             </a>
           </div>
         </div>
@@ -91,14 +91,17 @@ export default function HomePage() {
 
         {/* 1st Place Card */}
         {top && (
-          <a href={`/model/${top.id}`} className="block bg-[#f5f5f7] rounded-lg p-5 mb-4 no-underline text-inherit hover:bg-[#efefef] transition-colors">
-            <div className="text-[11px] font-semibold text-[#a0820a] mb-1">総合1位</div>
+          <a
+            href={`/model/${top.id}`}
+            className="block bg-gradient-to-br from-[#f8f6f0] to-[#f5f5f7] border-2 border-[#c8a94e] rounded-lg p-5 mb-4 no-underline text-inherit hover:shadow-md transition-all duration-200"
+          >
+            <span className="inline-block bg-[#a0820a] text-white px-3 py-1 rounded-full text-[11px] font-semibold mb-2">総合1位</span>
             <div className="flex items-center justify-between">
               <div>
-                <span className="text-[20px] font-bold text-[#1d1d1f]">{top.name}</span>
+                <span className="text-[22px] sm:text-[24px] font-bold text-[#1d1d1f]">{top.name}</span>
                 <span className="text-[13px] font-normal text-[#86868b] ml-2">{top.provider}</span>
               </div>
-              <div className="text-[28px] sm:text-[36px] font-bold" style={{ color: scoreColorHex(top.score) }}>
+              <div className="text-[32px] sm:text-[40px] font-bold" style={{ color: scoreColorHex(top.score) }}>
                 {top.score}
               </div>
             </div>
@@ -114,31 +117,27 @@ export default function HomePage() {
                   <div className="text-[14px] font-semibold" style={{ color: scoreColorHex(cat.score || 0) }}>
                     {cat.score}
                   </div>
-                  <div className="w-full h-1.5 bg-[#e8e8ed] rounded-full mt-1">
+                  <div className="w-full h-2 bg-[#e8e8ed] rounded-full mt-1">
                     <div className="h-full rounded-full" style={{ width: `${cat.score}%`, backgroundColor: scoreColorHex(cat.score || 0) }} />
                   </div>
                 </div>
               ))}
             </div>
+            <div className="text-[12px] text-[#0066cc] mt-3">詳細を見る →</div>
           </a>
         )}
 
-        {/* 2nd-5th Place: 2-column grid cards */}
+        {/* 2nd-5th Place */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {rankedModels.slice(1).map((m: any, i: number) => (
             <a
               key={m.id}
               href={`/model/${m.id}`}
-              className="border border-[#e8e8ed] rounded-lg p-4 hover:border-[#86868b] transition-all duration-200 cursor-pointer no-underline text-inherit"
+              className="border border-[#e8e8ed] rounded-lg p-4 hover:border-[#d2d2d7] hover:shadow-sm transition-all duration-200 cursor-pointer no-underline text-inherit bg-white"
             >
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
-                  <span
-                    className="w-5 h-5 rounded text-white text-[9px] flex items-center justify-center font-semibold"
-                    style={{ backgroundColor: i === 0 ? "#6e6e73" : i === 1 ? "#8b6c4f" : "#d2d2d7" }}
-                  >
-                    {i + 2}
-                  </span>
+                  <span className="text-[18px] font-bold text-[#86868b]">{i + 2}</span>
                   <span className="text-[14px] font-semibold">{m.name}</span>
                   <span className="text-[10px] text-[#86868b]">{m.provider}</span>
                 </div>
@@ -155,7 +154,7 @@ export default function HomePage() {
                 ].map((cat) => (
                   <div key={cat.label} className="flex items-center gap-2 text-[10px]">
                     <span className="w-8 text-[#86868b] shrink-0">{cat.label}</span>
-                    <div className="flex-1 h-1 bg-[#e8e8ed] rounded-full">
+                    <div className="flex-1 h-1.5 bg-[#e8e8ed] rounded-full">
                       <div className="h-full rounded-full" style={{ width: `${cat.score}%`, backgroundColor: scoreColorHex(cat.score || 0) }} />
                     </div>
                     <span className="w-8 text-right font-semibold" style={{ color: scoreColorHex(cat.score || 0) }}>
@@ -184,10 +183,10 @@ export default function HomePage() {
         <UseCaseRecommendations />
       </Block>
 
-      {/* Category Links - horizontal scroll */}
+      {/* Category Links */}
       <Block alt>
         <SectionHeader title="カテゴリ別AI比較" />
-        <p className="text-[10px] text-[#86868b] mb-2">汎用AI以外の専門ツールも網羅。外部レビュー・ベンチマーク基準。</p>
+        <p className="text-[10px] text-[#86868b] mb-3">汎用AI以外の専門ツールも網羅。外部レビュー・ベンチマーク基準。</p>
         <div className="flex gap-3 overflow-x-auto pb-2">
           {[
             { href: "/categories/image-generation", label: "画像生成", count: 7, color: "#6B46C1" },
@@ -199,12 +198,12 @@ export default function HomePage() {
             <a
               key={cat.href}
               href={cat.href}
-              className="min-w-[150px] flex-shrink-0 p-3 border border-[#e8e8ed] rounded-lg hover:border-[#86868b] hover:-translate-y-0.5 transition-all duration-200 no-underline text-inherit bg-white"
-              style={{ borderLeft: `3px solid ${cat.color}` }}
+              className="min-w-[150px] flex-shrink-0 p-3 border border-[#e8e8ed] rounded-lg hover:border-[#86868b] hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 no-underline text-inherit bg-white"
+              style={{ borderLeft: `4px solid ${cat.color}` }}
             >
-              <div className="text-[12px] font-semibold text-[#1d1d1f]">{cat.label}</div>
-              <div className="text-[13px] font-semibold text-[#86868b] mt-0.5">{cat.count}ツール</div>
-              <div className="text-[10px] text-[#0066cc] mt-1">比較する →</div>
+              <div className="text-[15px] font-semibold text-[#1d1d1f]">{cat.label}</div>
+              <div className="text-[12px] font-bold text-[#0066cc] mt-0.5">{cat.count}ツール</div>
+              <div className="text-[10px] text-[#86868b] mt-1">比較する →</div>
             </a>
           ))}
         </div>
@@ -213,7 +212,7 @@ export default function HomePage() {
       {/* Safety Summary */}
       <Block>
         <SectionHeader title="安全性ランキング" />
-        <p className="text-[10px] text-[#6e6e73] mb-2">14テスト＋セキュリティ認証の加重スコア</p>
+        <p className="text-[10px] text-[#6e6e73] mb-3">14テスト＋セキュリティ認証の加重スコア</p>
         {safetyRanking.map((r: any, i: number) => {
           const model = models.find((m) => m.id === r.model);
           return (
@@ -285,9 +284,9 @@ export default function HomePage() {
             <a
               key={a.slug}
               href={`/blog/${a.slug}`}
-              className="flex items-center justify-between p-3 border border-[#e8e8ed] rounded-lg hover:border-[#86868b] transition-colors no-underline text-inherit"
+              className="flex items-center justify-between p-3 border border-[#e8e8ed] rounded-lg hover:border-[#d2d2d7] hover:shadow-sm transition-all duration-200 no-underline text-inherit"
             >
-              <span className="text-[12px] font-medium text-[#1d1d1f]">{a.title}</span>
+              <span className="text-[13px] font-medium text-[#1d1d1f]">{a.title}</span>
               <span className="text-[10px] text-[#86868b] shrink-0 ml-3">{a.date}</span>
             </a>
           ))}
