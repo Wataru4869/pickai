@@ -8,17 +8,20 @@ import a1 from "@/data/blog/chatgpt-vs-claude-2026.json";
 import a2 from "@/data/blog/ai-tools-how-to-choose-2026.json";
 import a3 from "@/data/blog/gemini-vs-chatgpt-2026.json";
 import a4 from "@/data/blog/claude-vs-gemini-2026.json";
-import a5 from "@/data/blog/grok-review-2026.json";
-import a6 from "@/data/blog/perplexity-review-2026.json";
-import a7 from "@/data/blog/ai-coding-tools-2026.json";
-import a8 from "@/data/blog/ai-image-generation-2026.json";
-import a9 from "@/data/blog/ai-free-tier-comparison-2026.json";
-import a10 from "@/data/blog/ai-safety-ranking-2026.json";
-import a11 from "@/data/blog/chatgpt-vs-grok-2026.json";
-import a12 from "@/data/blog/ai-for-business-writing-2026.json";
-import a13 from "@/data/blog/ai-video-generation-2026.json";
+import a5 from "@/data/blog/ai-coding-tools-2026.json";
+import a6 from "@/data/blog/ai-image-generation-2026.json";
+import a7 from "@/data/blog/ai-free-tier-comparison-2026.json";
+import a8 from "@/data/blog/ai-safety-ranking-2026.json";
+import a9 from "@/data/blog/chatgpt-vs-grok-2026.json";
+import a10 from "@/data/blog/ai-for-business-writing-2026.json";
+import a11 from "@/data/blog/ai-video-generation-2026.json";
+import a12 from "@/data/blog/chatgpt-review-2026.json";
+import a13 from "@/data/blog/claude-review-2026.json";
+import a14 from "@/data/blog/gemini-review-2026.json";
+import a15 from "@/data/blog/grok-review-2026.json";
+import a16 from "@/data/blog/perplexity-review-2026.json";
 
-const articles = [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13].sort(
+const articles = [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16].sort(
   (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
 );
 
