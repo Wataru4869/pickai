@@ -1,0 +1,483 @@
+{
+  "models": {
+    "chatgpt": {
+      "overview": "OpenAIが開発する世界最大のユーザー基盤を持つAIチャット。GPT-5系列への移行が進み、画像生成・音声・検索を統合した汎用AIプラットフォームとして進化を続けている。",
+      "currentModels": [
+        {
+          "name": "GPT-5.4 Thinking",
+          "availability": "Plus / Pro / Business / Enterprise",
+          "releaseDate": "2026年3月",
+          "description": "推論・コーディング・エージェント機能を統合したフラグシップモデル"
+        },
+        {
+          "name": "GPT-5.4 Pro",
+          "availability": "Pro",
+          "releaseDate": "2026年3月",
+          "description": "より多くの計算リソースを使用し高精度な回答を生成する最上位モデル"
+        },
+        {
+          "name": "GPT-5.4 mini / nano",
+          "availability": "全プラン（API含む）",
+          "releaseDate": "2026年3月",
+          "description": "高速・低コストの軽量モデル。コーディングやサブエージェント向け"
+        },
+        {
+          "name": "GPT-5.3 Instant",
+          "availability": "Free / Go / Plus / Pro",
+          "releaseDate": "2026年初頭",
+          "description": "GPT-5.1の後継。日常利用向けの高速応答モデル"
+        },
+        {
+          "name": "GPT-4o",
+          "availability": "全プラン（2026年4月3日に完全廃止予定）",
+          "releaseDate": "2024年5月",
+          "description": "前世代フラグシップ。既存連携向けに一時的に残存"
+        }
+      ],
+      "strengths": [
+        "全カテゴリで高水準のバランス型性能（Pick AI総合86.5点/1位）",
+        "画像生成92.0点で全モデル1位。DALL-E統合による高品質なビジュアル出力",
+        "安全性90.5点。SOC 2 Type II、ISO 27001等の認証取得済み"
+      ],
+      "weaknesses": [
+        "コーディング81.3点は3位。Claude（94.3点）やGrok（86.3点）に劣る",
+        "Pro（月額200ドル）は高額。コスト対効果の見極めが必要"
+      ],
+      "bestFor": [
+        "画像生成を含む汎用的なAI活用",
+        "ビジネス文書の翻訳（英日翻訳93点/1位）",
+        "AIを1つだけ選ぶなら最もバランスの良い選択肢"
+      ],
+      "notRecommendedFor": [
+        "コーディング特化の用途（Claudeが優位）",
+        "コストを最小限に抑えたい個人（Goプランの広告表示あり）"
+      ],
+      "history": "2022年11月にGPT-3.5ベースのChatGPTを公開し、AIチャット市場を創出。GPT-4（2023年3月）、GPT-4o（2024年5月）を経て、2025年後半からGPT-5系列に移行。2026年3月時点でGPT-5.4世代が最新。",
+      "uniqueFeatures": [
+        "DALL-E統合による画像生成（チャット内で直接生成）",
+        "Sora統合による動画生成（Plus以上で利用可能）",
+        "GPT-5.4 Thinkingによる推論・コーディング・エージェント統合",
+        "カスタムGPTs（独自AIアシスタントの作成）"
+      ],
+      "pricing": {
+        "free": "GPT-5.3 Instantへのアクセス。メッセージ数に制限あり。画像生成・ファイルアップロードも制限付きで利用可能",
+        "plans": [
+          {
+            "name": "ChatGPT Go",
+            "priceUSD": "$8/月",
+            "priceJPY": "約1,200円/月",
+            "features": "Free比10倍のメッセージ量、ファイルアップロード、画像生成。広告表示あり。Thinkingモデル・Soraは利用不可"
+          },
+          {
+            "name": "ChatGPT Plus",
+            "priceUSD": "$20/月",
+            "priceJPY": "約3,000円/月",
+            "features": "GPT-5.4 Thinking含む全モデル利用可能。Sora、Advanced Data Analysis、カスタムGPTs"
+          },
+          {
+            "name": "ChatGPT Pro",
+            "priceUSD": "$200/月",
+            "priceJPY": "約30,000円/月",
+            "features": "GPT-5.4 Pro含む最上位モデル。無制限アクセス。研究・ヘビーユーザー向け"
+          },
+          {
+            "name": "ChatGPT Team",
+            "priceUSD": "$25/ユーザー/月（年払い）",
+            "priceJPY": "約3,750円/ユーザー/月",
+            "features": "法人向け。デフォルトで学習不使用。管理者設定、チーム共有機能"
+          },
+          {
+            "name": "ChatGPT Enterprise",
+            "priceUSD": "要問い合わせ",
+            "priceJPY": "要問い合わせ",
+            "features": "SSO、SCIM、監査ログ、ZDR対応、カスタムデータ保持ポリシー"
+          }
+        ]
+      },
+      "securityCertifications": [
+        "SOC 2 Type II",
+        "ISO 27001:2022",
+        "ISO 27701:2019",
+        "ISO 42001:2023"
+      ],
+      "dataPolicy": "無料版・Plus・Proはデフォルトで学習に使用（オプトアウト可）。Team・Enterpriseはデフォルトで学習不使用。API経由は学習不使用、30日間保持後削除。Enterprise向けZDR対応あり。",
+      "verdict": "Pick AIの独自テストで総合86.5点（1位）。全5カテゴリで80点以上を記録した唯一のモデルであり、弱点がほぼない。画像生成92.0点は2位以下を大きく引き離す。「AIを1つだけ選ぶならChatGPT」がPick AIの結論だ。",
+      "lastVerified": "2026-03-23",
+      "sources": [
+        "https://openai.com/chatgpt/pricing/",
+        "https://help.openai.com/en/articles/20001051-retiring-gpt-4o-and-other-chatgpt-models",
+        "https://help.openai.com/en/articles/11989085-what-is-chatgpt-go",
+        "https://openai.com/api/pricing/"
+      ]
+    },
+    "claude": {
+      "overview": "Anthropicが開発するAI安全性を最優先に設計されたAIモデル。コーディング94.3点（1位）と安全性93.7点（1位）でトップを独占。開発者とコンプライアンス重視の企業に支持される。",
+      "currentModels": [
+        {
+          "name": "Claude Opus 4.6",
+          "availability": "Pro（Max） / Team / Enterprise / API",
+          "releaseDate": "2026年2月5日",
+          "description": "エージェントチーム機能を搭載した最上位モデル。128K出力対応"
+        },
+        {
+          "name": "Claude Sonnet 4.6",
+          "availability": "Free / Pro / Team / Enterprise / API",
+          "releaseDate": "2026年2月17日",
+          "description": "コーディング能力が大幅向上したバランスモデル。64K出力対応"
+        },
+        {
+          "name": "Claude Haiku 4.5",
+          "availability": "API",
+          "releaseDate": "2025年",
+          "description": "最速・最安の軽量モデル。大量処理向け"
+        }
+      ],
+      "strengths": [
+        "コーディング94.3点で全モデル1位。4テスト全てで90点以上",
+        "安全性93.7点で全モデル1位。ハルシネーション抑制と著作権配慮が最高水準",
+        "ISO 42001:2023（AI管理システム国際標準）を早期取得"
+      ],
+      "weaknesses": [
+        "画像生成41.0点（4位）。Anthropicは画像生成を非搭載としている",
+        "総合73.9点は2位だが、画像生成の低スコアが総合を押し下げている"
+      ],
+      "bestFor": [
+        "プログラミング・コーディング全般（全モデル中最強）",
+        "企業のコンプライアンス重視環境での利用",
+        "クレーム対応など繊細な文書作成（94点/1位）"
+      ],
+      "notRecommendedFor": [
+        "画像やビジュアルコンテンツの生成",
+        "AI1つで画像生成含む全業務をカバーしたい場合"
+      ],
+      "history": "2021年設立のAnthropicが開発。元OpenAI研究者のDario Amodei、Daniela Amodeiらが「AI安全性」を最優先に設立。Constitutional AIを提唱。Claude 3（2024年3月）、Claude 4シリーズ（2025年）を経て、2026年2月にClaude 4.6系列をリリース。",
+      "uniqueFeatures": [
+        "Claude Code（ターミナル型コーディングエージェント）",
+        "エージェントチーム機能（Opus 4.6で導入）",
+        "1Mトークンコンテキストウィンドウ（全モデル共通）",
+        "ゼロデータリテンション（ZDR）対応のAPI"
+      ],
+      "pricing": {
+        "free": "Claude Sonnet 4.6へのアクセス。日次メッセージ上限あり。ファイルアップロード対応",
+        "plans": [
+          {
+            "name": "Claude Pro",
+            "priceUSD": "$20/月（月払い）/ $17/月（年払い）",
+            "priceJPY": "約3,000円/月（月払い）",
+            "features": "Opus 4.6利用可能。拡張コンテキスト。優先アクセス"
+          },
+          {
+            "name": "Claude Max",
+            "priceUSD": "$100/月〜",
+            "priceJPY": "約15,000円/月〜",
+            "features": "Pro全機能 + 大幅に拡張された利用上限。ヘビーユーザー向け"
+          },
+          {
+            "name": "Claude Team",
+            "priceUSD": "$25/ユーザー/月（年払い）/ $30/月（月払い）",
+            "priceJPY": "約3,750円/ユーザー/月（年払い）",
+            "features": "法人向け。デフォルト学習不使用。管理者設定。Claude Code対応プレミアムシートは$150/月"
+          },
+          {
+            "name": "Claude Enterprise",
+            "priceUSD": "要問い合わせ",
+            "priceJPY": "要問い合わせ",
+            "features": "SSO/SAML、SCIM、監査ログ、ZDR、HIPAA BAA対応"
+          }
+        ]
+      },
+      "securityCertifications": [
+        "SOC 2 Type II",
+        "ISO 27001:2022",
+        "ISO 42001:2023",
+        "HIPAA BAA対応（ZDR契約下）"
+      ],
+      "dataPolicy": "商用プラン（Team/Enterprise/API）ではデフォルトでモデル学習に不使用。無料コンシューマーアカウントでは学習利用の可能性あり。APIではゼロデータリテンション（ZDR）オプションが利用可能。データ処理地域は米国。",
+      "verdict": "Pick AIの独自テストで総合73.9点（2位）。文章86.4点、コーディング94.3点、安全性93.7点の実力。画像41.0点を除けば実質最高性能であり、開発者と企業ユーザーにとってはベストチョイスだ。",
+      "lastVerified": "2026-03-23",
+      "sources": [
+        "https://claude.com/pricing",
+        "https://platform.claude.com/docs/en/about-claude/models/whats-new-claude-4-6",
+        "https://www.anthropic.com/news/claude-sonnet-4-6",
+        "https://platform.claude.com/docs/en/about-claude/pricing"
+      ]
+    },
+    "gemini": {
+      "overview": "Googleが開発するAIモデル。Google Workspaceとのネイティブ統合が最大の強み。Gemini 3系列への移行が進み、検索・メール・ドキュメントとのシームレスな連携で独自のポジションを築く。",
+      "currentModels": [
+        {
+          "name": "Gemini 3.1 Pro",
+          "availability": "Google AI Pro / Ultra / API",
+          "releaseDate": "2026年初頭",
+          "description": "Gemini 3系列の主力モデル。Workspace統合対応"
+        },
+        {
+          "name": "Gemini 3 Flash",
+          "availability": "Free / Google AI Pro / API",
+          "releaseDate": "2025年後半",
+          "description": "高速・低コストの軽量モデル。無料枠で利用可能"
+        },
+        {
+          "name": "Gemini 2.5 Pro",
+          "availability": "API（Vertex AI / AI Studio）",
+          "releaseDate": "2025年6月",
+          "description": "前世代の高性能モデル。200Kコンテキスト対応"
+        }
+      ],
+      "strengths": [
+        "Google Workspace統合（Gmail、Docs、Sheets、Calendar）が唯一無二の強み",
+        "企画書92点で全モデル1位。構造化された提案書作成に強い",
+        "Google Oneストレージ（2TB）がプランに含まれる高いコストパフォーマンス"
+      ],
+      "weaknesses": [
+        "コーディング43.3点（5位）。デバッグ16点はほぼ実用外",
+        "SNS投稿30点（5位）。カジュアルな文章生成が極端に苦手",
+        "総合60.3点は5モデル中最下位"
+      ],
+      "bestFor": [
+        "Google Workspace環境での業務効率化",
+        "企画書・提案書の作成（92点/1位）",
+        "Google Oneストレージと合わせたコスパ重視のAI導入"
+      ],
+      "notRecommendedFor": [
+        "コーディング全般（43.3点は実用に不安）",
+        "SNS運用・カジュアルなコピーライティング"
+      ],
+      "history": "2023年12月にGemini 1.0をリリース。Google DeepMindが開発。Gemini 1.5 Pro（2024年2月）で100万トークンコンテキストを実現。Gemini 2.0（2024年12月）、2.5 Pro（2025年6月）を経て、2025年後半からGemini 3系列に移行。2026年にはGoogle AI ProおよびUltraプランとして再編。",
+      "uniqueFeatures": [
+        "Google Workspace統合（Gmail、Docs、Sheets、Slides、Calendar）",
+        "Deep Research（複数ソースを横断する深い調査機能）",
+        "Google One 2TBストレージがプランに含まれる",
+        "Veo 2による動画生成（Ultraプランで利用可能）"
+      ],
+      "pricing": {
+        "free": "Gemini 3 Flashへのアクセス。基本的なチャット機能。回数制限あり",
+        "plans": [
+          {
+            "name": "Google AI Pro",
+            "priceUSD": "$19.99/月",
+            "priceJPY": "約3,000円/月",
+            "features": "Gemini 3.1 Pro、Deep Research、2TBストレージ、Workspace統合。プロモーション価格あり（年間$99.99）"
+          },
+          {
+            "name": "Google AI Ultra",
+            "priceUSD": "$249.99/月（初回3ヶ月50%オフの場合あり）",
+            "priceJPY": "約37,500円/月",
+            "features": "最上位モデル、最高利用上限、Veo 2/3での動画生成、最優先アクセス"
+          }
+        ]
+      },
+      "securityCertifications": [
+        "Google Cloudの既存認証群（SOC 2、ISO 27001等）が適用",
+        "Workspace法人プランにデータ処理契約（DPA）あり"
+      ],
+      "dataPolicy": "コンシューマー版（無料/有料）はデフォルトで学習に使用（オプトアウト可）。Workspace Business Standard以上ではデフォルトで学習不使用。Enterprise Starterは要管理者設定。Vertex AI有料APIは学習不使用。",
+      "verdict": "Pick AIの独自テストで総合60.3点（5位）。文章75.1点、コード43.3点、画像62.5点、安全性78.4点。企画書92点（1位）とWorkspace統合は唯一無二の価値。Google環境で業務する人には代替のない選択肢だ。",
+      "lastVerified": "2026-03-23",
+      "sources": [
+        "https://gemini.google/subscriptions/",
+        "https://one.google.com/intl/en/about/google-ai-plans/",
+        "https://ai.google.dev/gemini-api/docs/pricing",
+        "https://9to5google.com/2026/03/17/google-ai-pro-ultra-features/"
+      ]
+    },
+    "grok": {
+      "overview": "イーロン・マスクのxAI社が開発するAIモデル。X（旧Twitter）との深い連携とリアルタイム情報アクセスが特徴。文章生成86.8点で全モデル1位の実力を持つが、安全性69.3点に課題を抱える。",
+      "currentModels": [
+        {
+          "name": "Grok 4",
+          "availability": "SuperGrok / API",
+          "releaseDate": "2025年中期",
+          "description": "常時推論機能を搭載したフラグシップモデル"
+        },
+        {
+          "name": "Grok 4.2（パブリックベータ）",
+          "availability": "SuperGrok / API",
+          "releaseDate": "2026年初頭",
+          "description": "Grok 4の改良版。パブリックベータとして提供中"
+        },
+        {
+          "name": "Grok 4.1 Fast",
+          "availability": "API",
+          "releaseDate": "2025年後半",
+          "description": "高速・低コストのAPI向け軽量モデル"
+        },
+        {
+          "name": "Grok 3",
+          "availability": "Free（制限付き）/ X Premium+",
+          "releaseDate": "2025年2月",
+          "description": "前世代モデル。無料枠で利用可能"
+        }
+      ],
+      "strengths": [
+        "文章生成86.8点で全モデル1位。議事録95点、SNS投稿91点が突出",
+        "コーディング86.3点（2位）。HTML/CSS 93点はClaude（95点）に迫る",
+        "X（旧Twitter）との連携によるリアルタイム情報アクセス"
+      ],
+      "weaknesses": [
+        "安全性69.3点（4位）。著作権テストでの制限の緩さが減点要因",
+        "画像生成43.3点（4位）。ロゴデザイン9点は全モデル最低"
+      ],
+      "bestFor": [
+        "議事録作成（95点/1位）",
+        "SNS投稿・コピーライティング（91点/1位）",
+        "X上のリアルタイム情報を活用したリサーチ"
+      ],
+      "notRecommendedFor": [
+        "企業のコンプライアンス最優先環境（安全性69.3点）",
+        "画像やロゴの生成（43.3点）"
+      ],
+      "history": "2023年11月にGrok-1をリリース。xAI社はイーロン・マスクが2023年7月に設立。Grok-1.5（2024年3月）、Grok-2（2024年8月）を経て、2025年2月にGrok 3を発表。2025年中期にGrok 4を投入し、常時推論機能を搭載。2026年にはGrok 4.2のベータ提供を開始。",
+      "uniqueFeatures": [
+        "X（旧Twitter）との深い連携とリアルタイムデータアクセス",
+        "2Mトークンコンテキストウィンドウ（SuperGrok）",
+        "DeepSearch（複数ソースの横断調査）",
+        "マルチエージェントシステム（Grok 4.20 Betaで導入）"
+      ],
+      "pricing": {
+        "free": "Grok 3へのアクセス。約10プロンプト/2時間の制限。画像生成は1日3-10枚",
+        "plans": [
+          {
+            "name": "X Premium",
+            "priceUSD": "$8/月",
+            "priceJPY": "約1,200円/月",
+            "features": "Grokの基本アクセス。X Premium機能（長文投稿等）込み"
+          },
+          {
+            "name": "X Premium+",
+            "priceUSD": "$40/月",
+            "priceJPY": "約6,000円/月",
+            "features": "Grokの拡張アクセス。X全機能込み"
+          },
+          {
+            "name": "SuperGrok",
+            "priceUSD": "$30/月",
+            "priceJPY": "約4,500円/月",
+            "features": "Grok 4利用可能。2Mコンテキスト。DeepSearch。X機能は含まない"
+          },
+          {
+            "name": "SuperGrok Heavy",
+            "priceUSD": "$300/月",
+            "priceJPY": "約45,000円/月",
+            "features": "最上位プラン。最大利用上限。ヘビーユーザー・研究者向け"
+          },
+          {
+            "name": "Grok Business",
+            "priceUSD": "$30/シート/月",
+            "priceJPY": "約4,500円/シート/月",
+            "features": "法人向け。チーム管理機能"
+          }
+        ]
+      },
+      "securityCertifications": [
+        "SOC 2（X/Twitter経由の間接的な認証）",
+        "xAI独自の第三者認証は限定的"
+      ],
+      "dataPolicy": "X上の公開投稿はデフォルトでGrokの学習に使用される（オプトアウト可、遡及なし）。チャット入力もサービス改善に使用される可能性あり。データ保持期間は公式に明示されていない。EU域内では裁判所命令により公開投稿の学習利用が停止中。日本法人なし。",
+      "verdict": "Pick AIの独自テストで総合72.1点（3位）。文章生成86.8点（1位）とコーディング86.3点（2位）は強力だが、安全性69.3点と画像43.3点が総合を押し下げている。文章力に特化して使えば全モデル中最強。安全性を許容できるかが導入の分かれ目だ。",
+      "lastVerified": "2026-03-23",
+      "sources": [
+        "https://docs.x.ai/developers/models",
+        "https://x.ai/legal/privacy-policy",
+        "https://aitoolanalysis.com/supergrok-subscription-price-2026/",
+        "https://tech.co/news/grok-ai-pricing"
+      ]
+    },
+    "perplexity": {
+      "overview": "出典付き回答を特徴とするAI検索エンジン。ChatGPTやClaudeとは異なり「ウェブ検索とAI回答の融合」というポジションを取る。商品写真91点（全モデル1位）の意外な強みを持つ。",
+      "currentModels": [
+        {
+          "name": "Perplexity（デフォルトモデル）",
+          "availability": "Free / Pro / Max / Enterprise",
+          "releaseDate": "-",
+          "description": "複数の基盤モデルを組み合わせたハイブリッド構成"
+        },
+        {
+          "name": "Pro Search",
+          "availability": "Pro / Max / Enterprise（Freeは回数制限付き）",
+          "releaseDate": "-",
+          "description": "複数ソース横断調査。リサーチレポート形式で回答"
+        },
+        {
+          "name": "Sonar API",
+          "availability": "API",
+          "releaseDate": "-",
+          "description": "開発者向けAPI。ゼロデータリテンション対応"
+        }
+      ],
+      "strengths": [
+        "出典URL付き回答。情報の検証が即座に可能な唯一のAI",
+        "商品写真91点で全モデル1位。ChatGPT（88点）を上回る",
+        "Pro Searchによる複数ソース横断調査。リサーチ業務で威力を発揮"
+      ],
+      "weaknesses": [
+        "コーディング53.3点（4位）。デバッグ15点は実務レベルに達していない",
+        "安全性69.1点（5位）。全モデル最下位。出典情報の扱いに課題"
+      ],
+      "bestFor": [
+        "リサーチ・市場調査・競合分析",
+        "情報の裏取り・ファクトチェック",
+        "商品写真やビジュアル素材の生成（91点/1位）"
+      ],
+      "notRecommendedFor": [
+        "コーディング全般（53.3点/4位）",
+        "汎用AIを1つだけ選びたい場合（総合66.8点/4位）"
+      ],
+      "history": "2022年設立。元Google AI研究者のAravind Srinivas（CEO）らが創業。「AI検索エンジン」として市場を開拓。GPT-4o、Claude、独自モデルを組み合わせたハイブリッド構成で動作。2024年以降、Enterprise版の拡充とSonar APIの提供で法人市場にも進出。",
+      "uniqueFeatures": [
+        "出典URL付き回答（全ての回答にソースリンクを付与）",
+        "Pro Search（複数ソース横断調査・リサーチレポート生成）",
+        "基盤モデルの選択機能（Pro以上でGPT-4o、Claude等を選択可能）",
+        "Sonar API（ゼロデータリテンション対応のAPI）"
+      ],
+      "pricing": {
+        "free": "Quick Search無制限。Pro Searchは1日数回まで。基本的な検索AI機能と出典表示",
+        "plans": [
+          {
+            "name": "Perplexity Pro",
+            "priceUSD": "$20/月（年払いで$200/年）",
+            "priceJPY": "約3,000円/月",
+            "features": "Pro Search無制限、ファイルアップロード、モデル選択機能、画像生成拡張"
+          },
+          {
+            "name": "Perplexity Max",
+            "priceUSD": "$200/月",
+            "priceJPY": "約30,000円/月",
+            "features": "Pro全機能 + 無制限の高度AIモデルアクセス。利用制限なし"
+          },
+          {
+            "name": "Education Pro",
+            "priceUSD": "$10/月",
+            "priceJPY": "約1,500円/月",
+            "features": "学生・教育者向け割引プラン。SheerID認証必須"
+          },
+          {
+            "name": "Enterprise Pro",
+            "priceUSD": "$40/シート/月（年払いで$400/シート/年）",
+            "priceJPY": "約6,000円/シート/月",
+            "features": "チーム管理、管理者設定、データ保持しないポリシー、監査ログ"
+          },
+          {
+            "name": "Enterprise Max",
+            "priceUSD": "$325/シート/月（年払いで$3,250/シート/年）",
+            "priceJPY": "約48,750円/シート/月",
+            "features": "Enterprise Pro全機能 + 最高性能モデル、最大利用上限"
+          }
+        ]
+      },
+      "securityCertifications": [
+        "SOC 2 Type II（セキュリティ、可用性、処理完全性、機密性、プライバシーの全5基準）",
+        "Enterprise ProでGDPR・HIPAA準拠を表明"
+      ],
+      "dataPolicy": "Sonar APIはゼロデータリテンション。Enterprise Proはデータ保持しないポリシー。個人版のデータ扱いは一部不透明。アカウント削除後30日以内にデータ削除。サードパーティモデルプロバイダーとの間で顧客データの学習利用禁止契約あり。",
+      "verdict": "Pick AIの独自テストで総合66.8点（4位）。文章80.6点、コード53.3点、画像66.5点、安全性69.1点。出典付き回答という唯一無二の機能は数値に表れない価値がある。メインAIの補完としてリサーチ用途で併用するのが最も効果的だ。",
+      "lastVerified": "2026-03-23",
+      "sources": [
+        "https://www.perplexity.ai/enterprise/pricing",
+        "https://www.perplexity.ai/help-center/en/articles/11187416-which-perplexity-subscription-plan-is-right-for-you",
+        "https://www.perplexity.ai/hub/blog/introducing-perplexity-max",
+        "https://docs.perplexity.ai/guides/privacy-security"
+      ]
+    }
+  }
+}

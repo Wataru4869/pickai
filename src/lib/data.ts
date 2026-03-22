@@ -2,6 +2,7 @@ import modelsData from "@/data/models.json";
 import testsData from "@/data/tests.json";
 import safetyData from "@/data/safety.json";
 import categoriesData from "@/data/categories.json";
+import modelDetailsData from "@/data/model-details.json";
 
 export type Model = (typeof modelsData.models)[number];
 export type Test = (typeof testsData.tests)[number];
@@ -90,6 +91,10 @@ export function getCategories() {
 
 export function getCategoryById(id: string) {
   return categoriesData.categories.find((c) => c.id === id);
+}
+
+export function getModelDetails(id: string) {
+  return (modelDetailsData.models as any)[id] || null;
 }
 
 export const CATEGORY_LABELS: Record<string, string> = {
