@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { scoreColorHex } from "@/lib/data";
 
 interface TestScore {
   testId: string;
@@ -10,10 +9,30 @@ interface TestScore {
   score: number | null;
 }
 
+const CATEGORY_LABELS: Record<string, string> = {
+  writing: "文章生成",
+  coding: "コーディング",
+  image: "画像生成",
+};
+
+function scoreColor(score: number): string {
+  if (score >= 90) return "#1d7d3f";
+  if (score >= 70) return "#0066cc";
+  if (score >= 50) return "#a0820a";
+  return "#c4314b";
+}
+
 export function ModelScoreChart({ tests }: { tests: TestScore[] }) {
   const [filter, setFilter] = useState("全て");
   const categories = ["全て", ...Array.from(new Set(tests.map((t) => t.category)))];
   const filtered = filter === "全て" ? tests : tests.filter((t) => t.category === filter);
+
+  // Group by category
+  const grouped: Record<string, TestScore[]> = {};
+  filtered.forEach((t) => {
+    if (!grouped[t.category]) grouped[t.category] = [];
+    grouped[t.category].push(t);
+  });
 
   return (
     <div>
@@ -22,76 +41,45 @@ export function ModelScoreChart({ tests }: { tests: TestScore[] }) {
           <button
             key={c}
             onClick={() => setFilter(c)}
-            className={`px-2.5 py-1 rounded text-[11px] border cursor-pointer transition-colors ${
+            className={`px-4 py-1.5 rounded-full text-[11px] font-semibold border transition-all duration-200 cursor-pointer ${
               filter === c
-                ? "border-[#1d1d1f] border-2 bg-[#f5f5f7] text-[#0066cc] font-bold"
-                : "border-[#d2d2d7] bg-white text-[#6e6e73]"
+                ? "bg-[#1d1d1f] text-white border-[#1d1d1f]"
+                : "bg-white border-[#e8e8ed] text-[#6e6e73] hover:bg-[#f5f5f7]"
             }`}
           >
-            {c}
+            {c === "全て" ? "全て" : CATEGORY_LABELS[c] || c}
           </button>
         ))}
       </div>
 
-      <div className="space-y-1">
-        {filtered.map((t) => {
-          const score = t.score ?? 0;
-          const width = Math.max(score, 2);
-          return (
-            <div key={t.testId} className="flex items-center gap-2">
-              <div className="w-[72px] text-[11px] text-[#6e6e73] text-right shrink-0 truncate">
-                {t.nameJapanese}
+      <div className="space-y-0">
+        {Object.entries(grouped).map(([cat, catTests], catIdx) => (
+          <div key={cat}>
+            {(filter === "全て") && (
+              <div className={`text-[12px] font-semibold text-[#86868b] mt-4 mb-2 ${catIdx > 0 ? "pt-3 border-t border-[#e8e8ed]" : ""}`}>
+                {CATEGORY_LABELS[cat] || cat}
               </div>
-              <div className="flex-1 h-5 bg-[#f5f5f7] rounded-sm relative overflow-hidden">
-                <div
-                  className="h-full rounded-sm transition-all duration-300"
-                  style={{
-                    width: `${width}%`,
-                    backgroundColor:
-                      score === 100
-                        ? "#c8860a"
-                        : score >= 90
-                        ? "#1a854a"
-                        : score >= 70
-                        ? "#1a6dcc"
-                        : score >= 50
-                        ? "#e67700"
-                        : "#cc3333",
-                  }}
-                />
-                <span
-                  className="absolute right-1.5 top-0 h-full flex items-center text-[11px] font-bold"
-                  style={{ color: score > 60 ? "white" : scoreColorHex(score) }}
-                >
-                  {score}
-                </span>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      <div className="flex gap-2.5 mt-2 text-[10px] text-[#86868b]">
-        <span>
-          <span className="inline-block w-2.5 h-2.5 rounded-sm mr-0.5" style={{ backgroundColor: "#c8860a" }} />
-          100点
-        </span>
-        <span>
-          <span className="inline-block w-2.5 h-2.5 rounded-sm mr-0.5" style={{ backgroundColor: "#1a854a" }} />
-          90+
-        </span>
-        <span>
-          <span className="inline-block w-2.5 h-2.5 rounded-sm mr-0.5" style={{ backgroundColor: "#1a6dcc" }} />
-          70+
-        </span>
-        <span>
-          <span className="inline-block w-2.5 h-2.5 rounded-sm mr-0.5" style={{ backgroundColor: "#e67700" }} />
-          50+
-        </span>
-        <span>
-          <span className="inline-block w-2.5 h-2.5 rounded-sm mr-0.5" style={{ backgroundColor: "#cc3333" }} />
-          50未満
-        </span>
+            )}
+            {catTests.map((t) => {
+              const score = t.score ?? 0;
+              const color = scoreColor(score);
+              return (
+                <div key={t.testId} className="flex items-center gap-3 py-1.5">
+                  <span className="w-20 text-[13px] text-[#1d1d1f] shrink-0">{t.nameJapanese}</span>
+                  <div className="flex-1 h-2 bg-[#e8e8ed] rounded-full">
+                    <div
+                      className="h-full rounded-full transition-all duration-300"
+                      style={{ width: `${Math.max(score, 2)}%`, backgroundColor: color }}
+                    />
+                  </div>
+                  <span className="w-8 text-right text-[14px] font-semibold" style={{ color }}>
+                    {score}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        ))}
       </div>
     </div>
   );
