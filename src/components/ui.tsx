@@ -134,9 +134,9 @@ export function Header() {
             <a href="/categories" className="text-[#6e6e73] hover:text-[#1d1d1f] transition-colors no-underline">カテゴリ</a>
             <a href="/recommend" className="text-[#6e6e73] hover:text-[#1d1d1f] transition-colors no-underline">おすすめ</a>
             <a href="/switch" className="text-[#6e6e73] hover:text-[#1d1d1f] transition-colors no-underline">乗り換え</a>
-            <a href="/safety" className="text-[#6e6e73] hover:text-[#1d1d1f] transition-colors no-underline">安全性</a>
-            <a href="/cost" className="text-[#6e6e73] hover:text-[#1d1d1f] transition-colors no-underline">コスト</a>
-            <a href="/methodology" className="text-[#6e6e73] hover:text-[#1d1d1f] transition-colors no-underline">方法論</a>
+            <a href="/safety" className="hidden sm:inline text-[#6e6e73] hover:text-[#1d1d1f] transition-colors no-underline">安全性</a>
+            <a href="/cost" className="hidden sm:inline text-[#6e6e73] hover:text-[#1d1d1f] transition-colors no-underline">コスト</a>
+            <a href="/methodology" className="hidden sm:inline text-[#6e6e73] hover:text-[#1d1d1f] transition-colors no-underline">方法論</a>
           </nav>
         </div>
       </Container>
