@@ -1,24 +1,35 @@
 "use client";
 
 import { useState } from "react";
-import { Header, Footer, Block, SectionHeader } from "@/components/ui";
+import { Header, Footer, Block } from "@/components/ui";
 
-// Import articles statically for client component
-import article1 from "@/data/blog/chatgpt-vs-claude-2026.json";
-import article2 from "@/data/blog/ai-tools-how-to-choose-2026.json";
-import article3 from "@/data/blog/gemini-vs-chatgpt-2026.json";
+// Import all articles
+import a1 from "@/data/blog/chatgpt-vs-claude-2026.json";
+import a2 from "@/data/blog/ai-tools-how-to-choose-2026.json";
+import a3 from "@/data/blog/gemini-vs-chatgpt-2026.json";
+import a4 from "@/data/blog/claude-vs-gemini-2026.json";
+import a5 from "@/data/blog/grok-review-2026.json";
+import a6 from "@/data/blog/perplexity-review-2026.json";
+import a7 from "@/data/blog/ai-coding-tools-2026.json";
+import a8 from "@/data/blog/ai-image-generation-2026.json";
+import a9 from "@/data/blog/ai-free-tier-comparison-2026.json";
+import a10 from "@/data/blog/ai-safety-ranking-2026.json";
+import a11 from "@/data/blog/chatgpt-vs-grok-2026.json";
+import a12 from "@/data/blog/ai-for-business-writing-2026.json";
+import a13 from "@/data/blog/ai-video-generation-2026.json";
 
-const articles = [article1, article2, article3].sort(
+const articles = [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13].sort(
   (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
 );
 
 const CATEGORY_LABELS: Record<string, string> = {
   comparison: "比較",
   guide: "選び方",
+  analysis: "分析",
   news: "ニュース",
 };
 
-const FILTERS = ["全て", "comparison", "guide", "news"] as const;
+const FILTERS = ["全て", "comparison", "guide", "analysis"] as const;
 
 export default function BlogIndexPage() {
   const [filter, setFilter] = useState("全て");
@@ -38,6 +49,7 @@ export default function BlogIndexPage() {
           <p className="text-[13px] text-[#6e6e73]">
             ChatGPT・Claude・Geminiの比較、AIの選び方、最新トレンドなど。データに基づいた記事を掲載。
           </p>
+          <div className="text-[11px] text-[#86868b] mt-1">{articles.length}記事</div>
         </div>
       </div>
 
