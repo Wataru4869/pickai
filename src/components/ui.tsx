@@ -4,7 +4,7 @@ import { scoreColorHex } from "@/lib/data";
 
 export function SectionHeader({ title }: { title: string }) {
   return (
-    <h2 className="text-[15px] font-semibold text-[#1d1d1f] pb-2 mb-3 border-b border-[#e8e8ed]">
+    <h2 className="text-[15px] font-semibold text-[#1d1d1f] pl-3 border-l-2 border-[#1d1d1f] mb-3">
       {title}
     </h2>
   );
@@ -12,7 +12,7 @@ export function SectionHeader({ title }: { title: string }) {
 
 export function Block({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-white py-6">
+    <div className="bg-white py-5">
       <div className="max-w-[860px] mx-auto px-4">{children}</div>
     </div>
   );
@@ -88,6 +88,23 @@ export function TrustBadges() {
   );
 }
 
+export function Breadcrumb({ items }: { items: { label: string; href?: string }[] }) {
+  return (
+    <div className="text-[11px] text-[#86868b] mb-2">
+      {items.map((item, i) => (
+        <span key={i}>
+          {i > 0 && " ＞ "}
+          {item.href ? (
+            <a href={item.href} className="text-[#0066cc] hover:underline no-underline">{item.label}</a>
+          ) : (
+            <span>{item.label}</span>
+          )}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 export function ShareButton({ text }: { text: string }) {
   const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
   return (
@@ -104,7 +121,7 @@ export function ShareButton({ text }: { text: string }) {
 
 export function Footer() {
   return (
-    <footer className="bg-[#f5f5f7] py-6 text-[11px] text-[#86868b]">
+    <footer className="border-t border-[#e8e8ed] bg-[#f5f5f7] py-8 text-[11px] text-[#86868b]">
       <Container>
         <div className="flex items-center gap-6 flex-wrap">
           <a href="/" className="text-[#6e6e73] hover:text-[#1d1d1f] no-underline">トップ</a>
@@ -113,8 +130,9 @@ export function Footer() {
           <a href="/switch" className="text-[#6e6e73] hover:text-[#1d1d1f] no-underline">乗り換え</a>
           <a href="/safety" className="text-[#6e6e73] hover:text-[#1d1d1f] no-underline">安全性</a>
           <a href="/methodology" className="text-[#6e6e73] hover:text-[#1d1d1f] no-underline">方法論</a>
-          <span className="ml-auto">© 2026 Pick AI</span>
+          <span className="ml-auto font-medium text-[13px] text-[#6e6e73]">Pick AI</span>
         </div>
+        <div className="mt-2 text-[10px]">© 2026 Pick AI</div>
       </Container>
     </footer>
   );

@@ -62,11 +62,26 @@ export default function HomePage() {
       {/* Hero */}
       <div className="bg-white py-6">
         <div className="max-w-[860px] mx-auto px-4">
+          <h1 className="text-[22px] font-bold text-[#1d1d1f] mb-2">
+            あなたに最適なAIが、すぐ見つかる。
+          </h1>
           <p className="text-[13px] text-[#6e6e73] leading-relaxed">
             ChatGPT・Claude・Gemini・Grok・Perplexityを独自30テスト（文章8＋コード4＋画像4＋安全性14）で徹底比較。
             用途別のおすすめを提案します。
           </p>
           <TrustBadges />
+          <div className="mt-4 flex items-center gap-4 p-4 bg-[#f5f5f7] rounded-lg">
+            <div>
+              <div className="text-[11px] text-[#86868b]">総合1位</div>
+              <div className="text-[18px] font-bold text-[#1d1d1f]">{rankedModels[0]?.name}</div>
+              <div className="text-[12px] text-[#6e6e73]">{rankedModels[0]?.score}点 / 100</div>
+            </div>
+            <div className="ml-auto">
+              <a href={`/model/${rankedModels[0]?.id}`} className="text-[11px] no-underline text-[#0066cc] hover:underline">
+                詳細を見る →
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -95,30 +110,27 @@ export default function HomePage() {
                   <span className="text-[11px] text-[#86868b]">{m.provider}</span>
                 </div>
                 <div className="flex gap-3 mt-1 text-[11px] text-[#86868b]">
-                  <span>
-                    文{" "}
-                    <strong style={{ color: scoreColorHex(m.scores?.writing || 0) }}>
-                      {m.scores?.writing}
-                    </strong>
-                  </span>
-                  <span>
-                    コ{" "}
-                    <strong style={{ color: scoreColorHex(m.scores?.coding || 0) }}>
-                      {m.scores?.coding}
-                    </strong>
-                  </span>
-                  <span>
-                    画{" "}
-                    <strong style={{ color: scoreColorHex(m.scores?.image || 0) }}>
-                      {m.scores?.image}
-                    </strong>
-                  </span>
-                  <span>
-                    安{" "}
-                    <strong style={{ color: scoreColorHex(m.scores?.safety || 0) }}>
-                      {m.scores?.safety}
-                    </strong>
-                  </span>
+                  {[
+                    { label: "文", score: m.scores?.writing },
+                    { label: "コ", score: m.scores?.coding },
+                    { label: "画", score: m.scores?.image },
+                    { label: "安", score: m.scores?.safety },
+                  ].map((cat) => (
+                    <span key={cat.label} className="inline-flex flex-col items-start">
+                      <span>
+                        {cat.label}{" "}
+                        <strong style={{ color: scoreColorHex(cat.score || 0) }}>
+                          {cat.score}
+                        </strong>
+                      </span>
+                      <span className="w-10 h-0.5 bg-[#e8e8ed] rounded-full mt-0.5 inline-block">
+                        <span
+                          className="block h-full rounded-full"
+                          style={{ width: `${cat.score}%`, backgroundColor: scoreColorHex(cat.score || 0) }}
+                        />
+                      </span>
+                    </span>
+                  ))}
                 </div>
               </div>
               <ScoreDisplay score={m.score} size="lg" />
@@ -160,7 +172,7 @@ export default function HomePage() {
             <a
               key={cat.href}
               href={cat.href}
-              className="flex items-center gap-2 p-3 border border-[#e8e8ed] rounded-lg hover:bg-[#f5f5f7] transition-colors no-underline text-inherit"
+              className="flex items-center gap-2 p-3 border border-[#e8e8ed] rounded-lg hover:border-[#86868b] hover:bg-[#f5f5f7] hover:-translate-y-0.5 transition-all duration-200 no-underline text-inherit"
             >
               <div>
                 <div className="text-[12px] font-semibold text-[#1d1d1f]">{cat.label}</div>
