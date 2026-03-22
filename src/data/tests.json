@@ -1,0 +1,324 @@
+{
+  "tests": [
+    {
+      "testId": "TEST-01",
+      "name": "Business Email",
+      "nameJapanese": "営業メール",
+      "category": "writing",
+      "difficulty": "medium",
+      "results": {
+        "claude": 89,
+        "chatgpt": 84,
+        "grok": 82,
+        "perplexity": 78,
+        "gemini": 85
+      },
+      "bestPerformer": "claude",
+      "averageScore": 83.6
+    },
+    {
+      "testId": "TEST-02",
+      "name": "Weekly Report",
+      "nameJapanese": "社内報告",
+      "category": "writing",
+      "difficulty": "medium",
+      "results": {
+        "claude": 88,
+        "chatgpt": 88,
+        "grok": 80,
+        "perplexity": 82,
+        "gemini": 84
+      },
+      "bestPerformer": "claude",
+      "averageScore": 84.4
+    },
+    {
+      "testId": "TEST-03",
+      "name": "Complaint Response",
+      "nameJapanese": "クレーム対応",
+      "category": "writing",
+      "difficulty": "hard",
+      "results": {
+        "claude": 94,
+        "chatgpt": 73,
+        "grok": 88,
+        "perplexity": 84,
+        "gemini": 68
+      },
+      "bestPerformer": "claude",
+      "averageScore": 81.4
+    },
+    {
+      "testId": "TEST-04",
+      "name": "Business Plan",
+      "nameJapanese": "企画書",
+      "category": "writing",
+      "difficulty": "hard",
+      "results": {
+        "claude": 90,
+        "chatgpt": 83,
+        "grok": 84,
+        "perplexity": 86,
+        "gemini": 92
+      },
+      "bestPerformer": "gemini",
+      "averageScore": 87.0
+    },
+    {
+      "testId": "TEST-05",
+      "name": "Meeting Minutes",
+      "nameJapanese": "議事録要約",
+      "category": "writing",
+      "difficulty": "medium",
+      "results": {
+        "claude": 90,
+        "chatgpt": 89,
+        "grok": 95,
+        "perplexity": 69,
+        "gemini": 71
+      },
+      "bestPerformer": "grok",
+      "averageScore": 82.8
+    },
+    {
+      "testId": "TEST-06",
+      "name": "SNS Post",
+      "nameJapanese": "SNS投稿",
+      "category": "writing",
+      "difficulty": "easy",
+      "results": {
+        "claude": 79,
+        "chatgpt": 87,
+        "grok": 91,
+        "perplexity": 85,
+        "gemini": 30
+      },
+      "bestPerformer": "grok",
+      "averageScore": 74.4
+    },
+    {
+      "testId": "TEST-07",
+      "name": "EN-JP Translation",
+      "nameJapanese": "英→日翻訳",
+      "category": "writing",
+      "difficulty": "medium",
+      "results": {
+        "claude": 82,
+        "chatgpt": 93,
+        "grok": 82,
+        "perplexity": 80,
+        "gemini": 88
+      },
+      "bestPerformer": "chatgpt",
+      "averageScore": 85.0
+    },
+    {
+      "testId": "TEST-08",
+      "name": "Blog Introduction",
+      "nameJapanese": "ブログ導入文",
+      "category": "writing",
+      "difficulty": "easy",
+      "results": {
+        "claude": 79,
+        "chatgpt": 93,
+        "grok": 92,
+        "perplexity": 81,
+        "gemini": 83
+      },
+      "bestPerformer": "chatgpt",
+      "averageScore": 85.6
+    },
+    {
+      "testId": "TEST-CODE-01",
+      "name": "GAS Automation",
+      "nameJapanese": "GAS自動化",
+      "category": "coding",
+      "difficulty": "hard",
+      "results": {
+        "claude": 95,
+        "chatgpt": 86,
+        "grok": 88,
+        "perplexity": 81,
+        "gemini": 72
+      },
+      "bestPerformer": "claude",
+      "averageScore": 84.4
+    },
+    {
+      "testId": "TEST-CODE-02",
+      "name": "Python Analysis",
+      "nameJapanese": "Python分析",
+      "category": "coding",
+      "difficulty": "hard",
+      "results": {
+        "claude": 92,
+        "chatgpt": 78,
+        "grok": 85,
+        "perplexity": 67,
+        "gemini": 6
+      },
+      "bestPerformer": "claude",
+      "averageScore": 65.6
+    },
+    {
+      "testId": "TEST-CODE-03",
+      "name": "HTML/CSS/JS FAQ",
+      "nameJapanese": "HTML/CSS",
+      "category": "coding",
+      "difficulty": "medium",
+      "results": {
+        "claude": 95,
+        "chatgpt": 76,
+        "grok": 93,
+        "perplexity": 50,
+        "gemini": 79
+      },
+      "bestPerformer": "claude",
+      "averageScore": 78.6
+    },
+    {
+      "testId": "TEST-CODE-04",
+      "name": "Debug Python",
+      "nameJapanese": "デバッグ",
+      "category": "coding",
+      "difficulty": "hard",
+      "results": {
+        "claude": 95,
+        "chatgpt": 85,
+        "grok": 79,
+        "perplexity": 15,
+        "gemini": 16
+      },
+      "bestPerformer": "claude",
+      "averageScore": 58.0
+    },
+    {
+      "testId": "TEST-IMG-01",
+      "name": "Product Photo",
+      "nameJapanese": "商品写真",
+      "category": "image",
+      "difficulty": "medium",
+      "results": {
+        "claude": 45,
+        "chatgpt": 88,
+        "grok": 58,
+        "perplexity": 91,
+        "gemini": 55
+      },
+      "bestPerformer": "perplexity",
+      "averageScore": 67.4
+    },
+    {
+      "testId": "TEST-IMG-02",
+      "name": "Anime Character",
+      "nameJapanese": "アニメキャラ",
+      "category": "image",
+      "difficulty": "hard",
+      "results": {
+        "claude": 44,
+        "chatgpt": 94,
+        "grok": 73,
+        "perplexity": 83,
+        "gemini": 58
+      },
+      "bestPerformer": "chatgpt",
+      "averageScore": 70.4
+    },
+    {
+      "testId": "TEST-IMG-03",
+      "name": "JP Banner Ad",
+      "nameJapanese": "日本語バナー",
+      "category": "image",
+      "difficulty": "hard",
+      "results": {
+        "claude": 31,
+        "chatgpt": 93,
+        "grok": 33,
+        "perplexity": 61,
+        "gemini": 60
+      },
+      "bestPerformer": "chatgpt",
+      "averageScore": 55.6
+    },
+    {
+      "testId": "TEST-IMG-04",
+      "name": "Logo Design",
+      "nameJapanese": "ロゴデザイン",
+      "category": "image",
+      "difficulty": "hard",
+      "results": {
+        "claude": 44,
+        "chatgpt": 93,
+        "grok": 9,
+        "perplexity": 31,
+        "gemini": 77
+      },
+      "bestPerformer": "chatgpt",
+      "averageScore": 50.8
+    }
+  ],
+  "categorySummary": {
+    "writing": {
+      "averages": {
+        "claude": 86.4,
+        "chatgpt": 86.3,
+        "grok": 86.8,
+        "perplexity": 80.6,
+        "gemini": 75.1
+      },
+      "bestPerformer": "grok",
+      "bestScore": 86.8
+    },
+    "coding": {
+      "averages": {
+        "claude": 94.3,
+        "chatgpt": 81.3,
+        "grok": 86.3,
+        "perplexity": 53.3,
+        "gemini": 43.3
+      },
+      "bestPerformer": "claude",
+      "bestScore": 94.3
+    },
+    "image": {
+      "averages": {
+        "claude": 41.0,
+        "chatgpt": 92.0,
+        "grok": 43.3,
+        "perplexity": 66.5,
+        "gemini": 62.5
+      },
+      "bestPerformer": "chatgpt",
+      "bestScore": 92.0
+    }
+  },
+  "overallRanking": [
+    {
+      "rank": 1,
+      "model": "chatgpt",
+      "score": 86.5
+    },
+    {
+      "rank": 2,
+      "model": "claude",
+      "score": 73.9
+    },
+    {
+      "rank": 3,
+      "model": "grok",
+      "score": 72.1
+    },
+    {
+      "rank": 4,
+      "model": "perplexity",
+      "score": 66.8
+    },
+    {
+      "rank": 5,
+      "model": "gemini",
+      "score": 60.3
+    }
+  ],
+  "testDate": "2026-03-22",
+  "version": "2.1"
+}

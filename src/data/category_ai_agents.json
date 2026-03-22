@@ -1,0 +1,167 @@
+{
+  "categoryLabel": "AIエージェント",
+  "categoryIcon": "🤖",
+  "description": "Manus、Devin、Claude Computer Useなど主要AIエージェントをタスク遂行力・自律性・ツール連携・信頼性・コスパの5軸で比較。",
+  "evaluationAxes": [
+    { "key": "taskExecution", "label": "タスク遂行力", "maxScore": 20 },
+    { "key": "autonomy", "label": "自律性", "maxScore": 20 },
+    { "key": "toolIntegration", "label": "ツール連携", "maxScore": 20 },
+    { "key": "reliability", "label": "信頼性", "maxScore": 20 },
+    { "key": "costPerformance", "label": "コスパ", "maxScore": 20 }
+  ],
+  "tools": [
+    {
+      "id": "manus",
+      "name": "Manus",
+      "provider": "Manus AI",
+      "descriptionJapanese": "汎用AIエージェントプラットフォーム。ブラウザ操作・ファイル管理・コード実行など多様なタスクを自律的に遂行する。",
+      "url": "https://manus.im",
+      "scores": {
+        "taskExecution": 18,
+        "autonomy": 18,
+        "toolIntegration": 17,
+        "reliability": 14,
+        "costPerformance": 15
+      },
+      "strengths": [
+        "ブラウザ操作からコード実行まで幅広いタスクに対応",
+        "日本語でのタスク指示と応答が自然",
+        "複雑なマルチステップタスクの計画・実行能力が高い"
+      ],
+      "weaknesses": [
+        "タスクの実行時間が長くなることがある",
+        "エラー発生時のリカバリー能力にムラがある"
+      ],
+      "japaneseSupport": true,
+      "bestFor": "複雑なリサーチ・情報収集タスクの自動化",
+      "pricing": {
+        "freeTier": { "available": true },
+        "standardPlan": { "priceUSD": 39 }
+      }
+    },
+    {
+      "id": "devin",
+      "name": "Devin",
+      "provider": "Cognition",
+      "descriptionJapanese": "世界初のAIソフトウェアエンジニアを標榜するエージェント。独自のIDE・ブラウザ・ターミナルを持ち、開発タスクを自律的に遂行。",
+      "url": "https://devin.ai",
+      "scores": {
+        "taskExecution": 19,
+        "autonomy": 19,
+        "toolIntegration": 16,
+        "reliability": 15,
+        "costPerformance": 15
+      },
+      "strengths": [
+        "ソフトウェア開発タスクの自律遂行能力が最高レベル",
+        "独自環境でコード編集・テスト・デバッグを一貫実行",
+        "GitHubとの統合でPR作成まで自動化"
+      ],
+      "weaknesses": [
+        "ソフトウェア開発以外のタスクには対応が限定的",
+        "料金が高く個人開発者には導入しにくい"
+      ],
+      "japaneseSupport": false,
+      "bestFor": "ソフトウェア開発タスクの完全自動化",
+      "pricing": {
+        "freeTier": { "available": false },
+        "standardPlan": { "priceUSD": 500 }
+      }
+    },
+    {
+      "id": "claude-computer-use",
+      "name": "Claude Computer Use",
+      "provider": "Anthropic",
+      "descriptionJapanese": "Anthropicが開発したPC操作AIエージェント。画面を認識してマウス・キーボード操作を自律的に実行し、あらゆるデスクトップタスクに対応。",
+      "url": "https://claude.ai",
+      "scores": {
+        "taskExecution": 18,
+        "autonomy": 17,
+        "toolIntegration": 19,
+        "reliability": 17,
+        "costPerformance": 15
+      },
+      "strengths": [
+        "あらゆるデスクトップアプリを操作できる汎用性",
+        "画面認識の精度が高く複雑なUIでも正確に操作",
+        "日本語UIのアプリケーションにも対応"
+      ],
+      "weaknesses": [
+        "操作速度が人間より遅い場合がある",
+        "セキュリティ上の制約でアクセスできない操作がある"
+      ],
+      "japaneseSupport": true,
+      "bestFor": "デスクトップアプリの操作自動化・RPA代替",
+      "pricing": {
+        "freeTier": { "available": false },
+        "standardPlan": { "priceUSD": 20 }
+      }
+    },
+    {
+      "id": "openai-operator",
+      "name": "OpenAI Operator",
+      "provider": "OpenAI",
+      "descriptionJapanese": "OpenAIが提供するWebブラウジング特化のAIエージェント。Webサイトの操作・情報収集・フォーム入力などを自律的に実行。",
+      "url": "https://openai.com",
+      "scores": {
+        "taskExecution": 17,
+        "autonomy": 16,
+        "toolIntegration": 15,
+        "reliability": 16,
+        "costPerformance": 14
+      },
+      "strengths": [
+        "Webブラウジングタスクの遂行力が高い",
+        "ChatGPT Proユーザーはシームレスに利用可能",
+        "Webフォームの入力・操作が正確"
+      ],
+      "weaknesses": [
+        "Pro契約（$200/月）が必要で利用コストが高い",
+        "デスクトップアプリの操作には非対応"
+      ],
+      "japaneseSupport": false,
+      "bestFor": "Webベースの定型業務自動化",
+      "pricing": {
+        "freeTier": { "available": false },
+        "standardPlan": { "priceUSD": 200 }
+      }
+    },
+    {
+      "id": "genspark-claw",
+      "name": "Genspark Claw",
+      "provider": "Genspark",
+      "descriptionJapanese": "Gensparkが開発したAIエージェント。検索機能と連携し、リサーチ・分析タスクを効率的に実行する。",
+      "url": "https://genspark.ai",
+      "scores": {
+        "taskExecution": 15,
+        "autonomy": 15,
+        "toolIntegration": 16,
+        "reliability": 14,
+        "costPerformance": 14
+      },
+      "strengths": [
+        "Genspark検索エンジンとの統合でリサーチに強い",
+        "Webベースのタスク実行が手軽に開始できる",
+        "複数ソースからの情報統合・要約が得意"
+      ],
+      "weaknesses": [
+        "エージェント機能の成熟度が競合より低い",
+        "複雑なマルチステップタスクでの信頼性に課題"
+      ],
+      "japaneseSupport": false,
+      "bestFor": "リサーチ・情報収集の効率化",
+      "pricing": {
+        "freeTier": { "available": true },
+        "standardPlan": { "priceUSD": 19 }
+      }
+    }
+  ],
+  "ranking": [
+    { "rank": 1, "toolId": "claude-computer-use", "score": 86 },
+    { "rank": 2, "toolId": "devin", "score": 84 },
+    { "rank": 3, "toolId": "manus", "score": 82 },
+    { "rank": 4, "toolId": "openai-operator", "score": 78 },
+    { "rank": 5, "toolId": "genspark-claw", "score": 74 }
+  ],
+  "lastUpdated": "2026.03"
+}

@@ -1,0 +1,227 @@
+{
+  "categoryLabel": "画像生成AI",
+  "categoryIcon": "🖼️",
+  "description": "Midjourney、DALL-E 3、Stable Diffusionなど主要画像生成AIを品質・操作性・商用利用・日本語対応・コスパの5軸で比較。",
+  "evaluationAxes": [
+    { "key": "quality", "label": "画像品質", "maxScore": 20 },
+    { "key": "usability", "label": "操作性", "maxScore": 20 },
+    { "key": "commercial", "label": "商用利用", "maxScore": 20 },
+    { "key": "japanese", "label": "日本語対応", "maxScore": 20 },
+    { "key": "costPerformance", "label": "コスパ", "maxScore": 20 }
+  ],
+  "tools": [
+    {
+      "id": "midjourney",
+      "name": "Midjourney",
+      "provider": "Midjourney",
+      "descriptionJapanese": "Discordベースで動作する高品質画像生成AI。アート性の高い画像生成に定評があり、クリエイターから圧倒的な支持を集める。",
+      "url": "https://midjourney.com",
+      "scores": {
+        "quality": 20,
+        "usability": 16,
+        "commercial": 18,
+        "japanese": 14,
+        "costPerformance": 20
+      },
+      "strengths": [
+        "業界最高水準の画像品質とアート性",
+        "スタイルの一貫性が高くブランディングに最適",
+        "活発なコミュニティによる豊富なプロンプト共有"
+      ],
+      "weaknesses": [
+        "Discord経由の操作が初心者には分かりにくい",
+        "日本語プロンプトの精度が英語に比べて劣る"
+      ],
+      "japaneseSupport": false,
+      "bestFor": "アート・クリエイティブ制作",
+      "pricing": {
+        "freeTier": { "available": false },
+        "standardPlan": { "priceUSD": 10 }
+      }
+    },
+    {
+      "id": "dall-e-3",
+      "name": "DALL-E 3",
+      "provider": "OpenAI",
+      "descriptionJapanese": "OpenAIが開発した画像生成AI。ChatGPTと統合されており、自然言語での指示から高精度な画像を生成できる。",
+      "url": "https://openai.com",
+      "scores": {
+        "quality": 18,
+        "usability": 19,
+        "commercial": 18,
+        "japanese": 16,
+        "costPerformance": 14
+      },
+      "strengths": [
+        "ChatGPTとのシームレスな統合で直感的に操作可能",
+        "日本語プロンプトの理解力が高い",
+        "テキスト描画の精度が業界トップクラス"
+      ],
+      "weaknesses": [
+        "生成スタイルのカスタマイズ性が限定的",
+        "1枚あたりのコストが競合と比べてやや高い"
+      ],
+      "japaneseSupport": true,
+      "bestFor": "ChatGPTとの統合利用",
+      "pricing": {
+        "freeTier": { "available": true },
+        "standardPlan": { "priceUSD": 20 }
+      }
+    },
+    {
+      "id": "stable-diffusion",
+      "name": "Stable Diffusion",
+      "provider": "Stability AI",
+      "descriptionJapanese": "オープンソースの画像生成AI。ローカル環境で動作可能で、カスタマイズ性と拡張性に優れたモデル。",
+      "url": "https://stability.ai",
+      "scores": {
+        "quality": 17,
+        "usability": 12,
+        "commercial": 19,
+        "japanese": 12,
+        "costPerformance": 18
+      },
+      "strengths": [
+        "オープンソースで完全無料・ローカル実行可能",
+        "LoRA・ControlNetなど拡張機能が豊富",
+        "商用利用の制約が少なく自由度が高い"
+      ],
+      "weaknesses": [
+        "環境構築にGPUと技術知識が必要",
+        "日本語プロンプトへの対応が弱い"
+      ],
+      "japaneseSupport": false,
+      "bestFor": "カスタマイズ重視の開発者・研究者",
+      "pricing": {
+        "freeTier": { "available": true },
+        "standardPlan": { "priceUSD": 0 }
+      }
+    },
+    {
+      "id": "adobe-firefly",
+      "name": "Adobe Firefly",
+      "provider": "Adobe",
+      "descriptionJapanese": "Adobeが提供する商用利用に特化した画像生成AI。Creative Cloudと連携し、デザインワークフローに統合可能。",
+      "url": "https://firefly.adobe.com",
+      "scores": {
+        "quality": 17,
+        "usability": 18,
+        "commercial": 20,
+        "japanese": 15,
+        "costPerformance": 12
+      },
+      "strengths": [
+        "著作権クリアな学習データで商用利用に最も安心",
+        "Photoshop・Illustratorとのネイティブ連携",
+        "生成画像の編集・調整機能が充実"
+      ],
+      "weaknesses": [
+        "Creative Cloud契約が必要でコストが高い",
+        "アート性ではMidjourneyに及ばない"
+      ],
+      "japaneseSupport": true,
+      "bestFor": "商用デザイン・ブランド素材",
+      "pricing": {
+        "freeTier": { "available": true },
+        "standardPlan": { "priceUSD": 680 }
+      }
+    },
+    {
+      "id": "canva-ai",
+      "name": "Canva AI",
+      "provider": "Canva",
+      "descriptionJapanese": "デザインプラットフォームCanvaに統合された画像生成AI。テンプレートとの組み合わせで簡単にデザインが完成する。",
+      "url": "https://canva.com",
+      "scores": {
+        "quality": 14,
+        "usability": 20,
+        "commercial": 16,
+        "japanese": 14,
+        "costPerformance": 8
+      },
+      "strengths": [
+        "デザインテンプレートとの統合で即座に活用可能",
+        "非デザイナーでも直感的に操作できるUI",
+        "SNS投稿やプレゼン資料の作成に最適"
+      ],
+      "weaknesses": [
+        "画像生成の品質は専門ツールに劣る",
+        "高度なカスタマイズや細かい調整が難しい"
+      ],
+      "japaneseSupport": true,
+      "bestFor": "SNS・マーケティング素材の作成",
+      "pricing": {
+        "freeTier": { "available": true },
+        "standardPlan": { "priceJPY": 1500 }
+      }
+    },
+    {
+      "id": "ideogram",
+      "name": "Ideogram",
+      "provider": "Ideogram",
+      "descriptionJapanese": "テキスト描画に強みを持つ画像生成AI。ロゴやタイポグラフィを含む画像の生成精度が高い。",
+      "url": "https://ideogram.ai",
+      "scores": {
+        "quality": 17,
+        "usability": 17,
+        "commercial": 16,
+        "japanese": 16,
+        "costPerformance": 14
+      },
+      "strengths": [
+        "文字・テキスト入り画像の生成精度が業界最高",
+        "日本語テキストの描画にも対応",
+        "無料枠が比較的充実している"
+      ],
+      "weaknesses": [
+        "写実的な画像の品質はMidjourneyに劣る",
+        "コミュニティや情報がまだ少ない"
+      ],
+      "japaneseSupport": true,
+      "bestFor": "ロゴ・テキスト入り画像の生成",
+      "pricing": {
+        "freeTier": { "available": true },
+        "standardPlan": { "priceUSD": 8 }
+      }
+    },
+    {
+      "id": "leonardo-ai",
+      "name": "Leonardo AI",
+      "provider": "Leonardo AI",
+      "descriptionJapanese": "ゲーム・エンターテインメント向けに特化した画像生成AI。キャラクターやゲームアセットの生成に強みを持つ。",
+      "url": "https://leonardo.ai",
+      "scores": {
+        "quality": 16,
+        "usability": 16,
+        "commercial": 15,
+        "japanese": 12,
+        "costPerformance": 16
+      },
+      "strengths": [
+        "ゲームアセット・キャラクター生成に特化した機能",
+        "独自のファインチューニング機能を搭載",
+        "無料枠でも十分な生成回数を提供"
+      ],
+      "weaknesses": [
+        "日本語プロンプトの対応が不十分",
+        "汎用的なデザイン用途では他ツールに劣る"
+      ],
+      "japaneseSupport": false,
+      "bestFor": "ゲーム・エンタメ向けアセット制作",
+      "pricing": {
+        "freeTier": { "available": true },
+        "standardPlan": { "priceUSD": 12 }
+      }
+    }
+  ],
+  "ranking": [
+    { "rank": 1, "toolId": "midjourney", "score": 88 },
+    { "rank": 2, "toolId": "dall-e-3", "score": 85 },
+    { "rank": 3, "toolId": "adobe-firefly", "score": 82 },
+    { "rank": 4, "toolId": "ideogram", "score": 80 },
+    { "rank": 5, "toolId": "stable-diffusion", "score": 78 },
+    { "rank": 6, "toolId": "leonardo-ai", "score": 75 },
+    { "rank": 7, "toolId": "canva-ai", "score": 72 }
+  ],
+  "lastUpdated": "2026.03"
+}

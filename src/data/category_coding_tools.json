@@ -1,0 +1,227 @@
+{
+  "categoryLabel": "コーディングツール",
+  "categoryIcon": "💻",
+  "description": "Claude Code、Cursor、Windsurfなど主要AIコーディングツールをコード品質・マルチ言語・IDE統合・エージェント機能・コスパの5軸で比較。",
+  "evaluationAxes": [
+    { "key": "codeQuality", "label": "コード品質", "maxScore": 20 },
+    { "key": "multiLanguage", "label": "マルチ言語", "maxScore": 20 },
+    { "key": "ideIntegration", "label": "IDE統合", "maxScore": 20 },
+    { "key": "agentCapability", "label": "エージェント機能", "maxScore": 20 },
+    { "key": "costPerformance", "label": "コスパ", "maxScore": 20 }
+  ],
+  "tools": [
+    {
+      "id": "claude-code",
+      "name": "Claude Code",
+      "provider": "Anthropic",
+      "descriptionJapanese": "Anthropicが提供するCLIベースのAIコーディングアシスタント。大規模コードベースの理解力と自律的なタスク遂行力に優れる。",
+      "url": "https://claude.ai",
+      "scores": {
+        "codeQuality": 20,
+        "multiLanguage": 19,
+        "ideIntegration": 17,
+        "agentCapability": 20,
+        "costPerformance": 16
+      },
+      "strengths": [
+        "大規模コードベースの全体理解と的確なコード生成",
+        "自律的なマルチステップのタスク遂行能力",
+        "日本語での指示理解と応答品質が非常に高い"
+      ],
+      "weaknesses": [
+        "CLIベースのため初心者にはやや敷居が高い",
+        "使用量に応じてコストが増大する場合がある"
+      ],
+      "japaneseSupport": true,
+      "bestFor": "大規模プロジェクトの自律的開発・リファクタリング",
+      "pricing": {
+        "freeTier": { "available": false },
+        "standardPlan": { "priceUSD": 20 }
+      }
+    },
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "provider": "Cursor",
+      "descriptionJapanese": "AI機能を深く統合したコードエディタ。VS Codeベースで馴染みやすく、インラインでのコード生成・編集が強力。",
+      "url": "https://cursor.com",
+      "scores": {
+        "codeQuality": 18,
+        "multiLanguage": 18,
+        "ideIntegration": 20,
+        "agentCapability": 17,
+        "costPerformance": 15
+      },
+      "strengths": [
+        "VS Codeベースで既存の開発環境から移行しやすい",
+        "インラインコード編集とチャットの切り替えが快適",
+        "複数のAIモデルを切り替えて利用可能"
+      ],
+      "weaknesses": [
+        "無料枠の制限が厳しく実用にはPro契約が必要",
+        "大規模リポジトリではコンテキスト制限に当たることがある"
+      ],
+      "japaneseSupport": true,
+      "bestFor": "日常的なコーディングの生産性向上",
+      "pricing": {
+        "freeTier": { "available": true },
+        "standardPlan": { "priceUSD": 20 }
+      }
+    },
+    {
+      "id": "windsurf",
+      "name": "Windsurf",
+      "provider": "Codeium",
+      "descriptionJapanese": "Codeiumが開発したAIコーディングエディタ。フロー状態を維持する設計思想で、開発者の生産性を最大化する。",
+      "url": "https://windsurf.com",
+      "scores": {
+        "codeQuality": 17,
+        "multiLanguage": 17,
+        "ideIntegration": 19,
+        "agentCapability": 16,
+        "costPerformance": 15
+      },
+      "strengths": [
+        "Cascadeエージェントによる自律的なコード編集",
+        "コードベース全体を考慮した的確な補完",
+        "無料枠が比較的充実している"
+      ],
+      "weaknesses": [
+        "CursorやClaude Codeと比べてコミュニティが小さい",
+        "日本語での情報や解説が少ない"
+      ],
+      "japaneseSupport": false,
+      "bestFor": "フロー重視の効率的なコーディング",
+      "pricing": {
+        "freeTier": { "available": true },
+        "standardPlan": { "priceUSD": 15 }
+      }
+    },
+    {
+      "id": "github-copilot",
+      "name": "GitHub Copilot",
+      "provider": "GitHub/Microsoft",
+      "descriptionJapanese": "GitHubが提供するAIペアプログラマー。VS Code・JetBrainsなど主要IDEに対応し、リアルタイムのコード補完を提供。",
+      "url": "https://github.com/features/copilot",
+      "scores": {
+        "codeQuality": 17,
+        "multiLanguage": 18,
+        "ideIntegration": 19,
+        "agentCapability": 14,
+        "costPerformance": 14
+      },
+      "strengths": [
+        "主要IDE全てに対応した最も広いエディタサポート",
+        "GitHubとの深い統合でPR・Issue連携が便利",
+        "長年の実績と豊富な利用実績による安定性"
+      ],
+      "weaknesses": [
+        "エージェント機能は後発で成熟度がやや低い",
+        "コンテキストウィンドウが競合より小さい"
+      ],
+      "japaneseSupport": true,
+      "bestFor": "GitHub中心の開発ワークフロー",
+      "pricing": {
+        "freeTier": { "available": false },
+        "standardPlan": { "priceUSD": 10 }
+      }
+    },
+    {
+      "id": "codex",
+      "name": "Codex",
+      "provider": "OpenAI",
+      "descriptionJapanese": "OpenAIが提供するクラウドベースのコーディングエージェント。ChatGPT Plusから利用でき、並列タスク実行に対応。",
+      "url": "https://openai.com",
+      "scores": {
+        "codeQuality": 17,
+        "multiLanguage": 17,
+        "ideIntegration": 14,
+        "agentCapability": 18,
+        "costPerformance": 14
+      },
+      "strengths": [
+        "クラウド上で複数タスクを並列実行可能",
+        "ChatGPTとの統合で非エンジニアにもアクセスしやすい",
+        "サンドボックス環境での安全なコード実行"
+      ],
+      "weaknesses": [
+        "IDE統合がなくブラウザベースでの操作が中心",
+        "ローカル開発環境との連携がまだ弱い"
+      ],
+      "japaneseSupport": false,
+      "bestFor": "クラウドベースの並列コーディングタスク",
+      "pricing": {
+        "freeTier": { "available": false },
+        "standardPlan": { "priceUSD": 20 }
+      }
+    },
+    {
+      "id": "antigravity",
+      "name": "Antigravity",
+      "provider": "Anthropic",
+      "descriptionJapanese": "Anthropicが開発中のビジュアルアプリ構築ツール。自然言語からWebアプリを自動生成し、デプロイまで一貫して対応。",
+      "url": "https://antigravity.dev",
+      "scores": {
+        "codeQuality": 15,
+        "multiLanguage": 14,
+        "ideIntegration": 13,
+        "agentCapability": 17,
+        "costPerformance": 15
+      },
+      "strengths": [
+        "自然言語からフルスタックWebアプリを自動生成",
+        "プロトタイピングからデプロイまでワンストップ",
+        "ベータ期間中は無料で利用可能"
+      ],
+      "weaknesses": [
+        "ベータ版のため機能が不安定なことがある",
+        "複雑なアプリケーションの構築には制約が多い"
+      ],
+      "japaneseSupport": false,
+      "bestFor": "高速プロトタイピング・アプリ自動生成",
+      "pricing": {
+        "freeTier": { "available": true },
+        "standardPlan": { "priceUSD": 0 }
+      }
+    },
+    {
+      "id": "kiro",
+      "name": "Kiro",
+      "provider": "Amazon",
+      "descriptionJapanese": "Amazonが開発したAIコーディングIDE。仕様駆動開発（Spec-driven Development）を採用し、要件定義からコード生成まで体系的にサポート。",
+      "url": "https://kiro.dev",
+      "scores": {
+        "codeQuality": 16,
+        "multiLanguage": 16,
+        "ideIntegration": 16,
+        "agentCapability": 15,
+        "costPerformance": 13
+      },
+      "strengths": [
+        "仕様駆動開発で要件定義からコード生成を体系化",
+        "AWSサービスとの統合が容易",
+        "プレビュー期間中は無料で全機能を利用可能"
+      ],
+      "weaknesses": [
+        "AWS以外のクラウド環境では連携メリットが薄い",
+        "プレビュー版のため長期的な方針が不透明"
+      ],
+      "japaneseSupport": false,
+      "bestFor": "仕様駆動のAWS開発プロジェクト",
+      "pricing": {
+        "freeTier": { "available": true },
+        "standardPlan": { "priceUSD": 0 }
+      }
+    }
+  ],
+  "ranking": [
+    { "rank": 1, "toolId": "claude-code", "score": 92 },
+    { "rank": 2, "toolId": "cursor", "score": 88 },
+    { "rank": 3, "toolId": "windsurf", "score": 84 },
+    { "rank": 4, "toolId": "github-copilot", "score": 82 },
+    { "rank": 5, "toolId": "codex", "score": 80 },
+    { "rank": 6, "toolId": "kiro", "score": 76 },
+    { "rank": 7, "toolId": "antigravity", "score": 74 }
+  ],
+  "lastUpdated": "2026.03"
+}

@@ -1,0 +1,166 @@
+{
+  "categoryLabel": "AI検索",
+  "categoryIcon": "🔍",
+  "description": "Perplexity、Felo、Gensparkなど主要AI検索エンジンを回答精度・出典品質・リアルタイム性・日本語対応・コスパの5軸で比較。",
+  "evaluationAxes": [
+    { "key": "accuracy", "label": "回答精度", "maxScore": 20 },
+    { "key": "citations", "label": "出典品質", "maxScore": 20 },
+    { "key": "realtime", "label": "リアルタイム性", "maxScore": 20 },
+    { "key": "japanese", "label": "日本語対応", "maxScore": 20 },
+    { "key": "costPerformance", "label": "コスパ", "maxScore": 20 }
+  ],
+  "tools": [
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "provider": "Perplexity AI",
+      "descriptionJapanese": "出典付きで回答するAI検索エンジン。リアルタイムのWeb検索結果を基に正確な回答を生成し、情報の信頼性が高い。",
+      "url": "https://perplexity.ai",
+      "scores": {
+        "accuracy": 19,
+        "citations": 20,
+        "realtime": 18,
+        "japanese": 16,
+        "costPerformance": 15
+      },
+      "strengths": [
+        "出典リンク付きの回答で情報の検証が容易",
+        "リアルタイムのWeb検索で最新情報を反映",
+        "フォローアップ質問による深掘り検索が優秀"
+      ],
+      "weaknesses": [
+        "無料版ではPro Search回数に制限がある",
+        "日本語の情報ソースが英語に比べて少ないことがある"
+      ],
+      "japaneseSupport": true,
+      "bestFor": "出典重視のリサーチ・情報検証",
+      "pricing": {
+        "freeTier": { "available": true },
+        "standardPlan": { "priceUSD": 20 }
+      }
+    },
+    {
+      "id": "genspark",
+      "name": "Genspark",
+      "provider": "Genspark",
+      "descriptionJapanese": "AIエージェント機能を搭載した次世代検索エンジン。Sparkpageによる構造化された回答と、エージェントによるタスク実行が特徴。",
+      "url": "https://genspark.ai",
+      "scores": {
+        "accuracy": 17,
+        "citations": 17,
+        "realtime": 17,
+        "japanese": 14,
+        "costPerformance": 17
+      },
+      "strengths": [
+        "Sparkpageによる構造化された詳細な回答ページ生成",
+        "複数ソースを統合した包括的な情報まとめ",
+        "無料で高機能な検索が利用可能"
+      ],
+      "weaknesses": [
+        "知名度がまだ低く日本語の情報が少ない",
+        "日本語クエリに対する回答精度にムラがある"
+      ],
+      "japaneseSupport": false,
+      "bestFor": "包括的な情報収集・比較リサーチ",
+      "pricing": {
+        "freeTier": { "available": true },
+        "standardPlan": { "priceUSD": 19 }
+      }
+    },
+    {
+      "id": "felo",
+      "name": "Felo",
+      "provider": "Felo",
+      "descriptionJapanese": "多言語対応に特化したAI検索エンジン。日本語での検索精度が高く、海外の情報も日本語で要約して提供する。",
+      "url": "https://felo.ai",
+      "scores": {
+        "accuracy": 16,
+        "citations": 16,
+        "realtime": 16,
+        "japanese": 18,
+        "costPerformance": 12
+      },
+      "strengths": [
+        "日本語対応が最も充実したAI検索エンジン",
+        "海外ソースの情報を自然な日本語で要約",
+        "リアルタイム翻訳検索で言語の壁を解消"
+      ],
+      "weaknesses": [
+        "英語圏のPerplexityと比べると回答精度がやや劣る",
+        "出典の多様性と網羅性に改善の余地がある"
+      ],
+      "japaneseSupport": true,
+      "bestFor": "日本語での海外情報リサーチ",
+      "pricing": {
+        "freeTier": { "available": true },
+        "standardPlan": { "priceUSD": 15 }
+      }
+    },
+    {
+      "id": "google-ai-overview",
+      "name": "Google AI Overview",
+      "provider": "Google",
+      "descriptionJapanese": "Google検索に統合されたAI回答機能。従来の検索結果の上部にAIによる要約回答を表示し、情報アクセスを効率化。",
+      "url": "https://google.com",
+      "scores": {
+        "accuracy": 17,
+        "citations": 16,
+        "realtime": 19,
+        "japanese": 16,
+        "costPerformance": 12
+      },
+      "strengths": [
+        "Googleの圧倒的なインデックスに基づく情報網羅性",
+        "既存のGoogle検索とシームレスに統合",
+        "リアルタイム性が最も高い"
+      ],
+      "weaknesses": [
+        "AI回答が不正確な場合のフィードバックが困難",
+        "独立した検索体験ではなくGoogle検索の補助機能に留まる"
+      ],
+      "japaneseSupport": true,
+      "bestFor": "日常的な情報検索の効率化",
+      "pricing": {
+        "freeTier": { "available": true },
+        "standardPlan": { "priceUSD": 20 }
+      }
+    },
+    {
+      "id": "arc-search",
+      "name": "Arc Search",
+      "provider": "The Browser Company",
+      "descriptionJapanese": "ブラウザ一体型のAI検索ツール。Webページを自動で閲覧・要約し、質問に対する回答ページを瞬時に生成する。",
+      "url": "https://arc.net",
+      "scores": {
+        "accuracy": 15,
+        "citations": 14,
+        "realtime": 15,
+        "japanese": 12,
+        "costPerformance": 16
+      },
+      "strengths": [
+        "ブラウザと一体化した直感的な検索体験",
+        "Webページの自動要約機能が便利",
+        "無料で基本機能が利用可能"
+      ],
+      "weaknesses": [
+        "日本語対応が限定的で精度が低い",
+        "出典の詳細表示が他ツールより見劣りする"
+      ],
+      "japaneseSupport": false,
+      "bestFor": "ブラウザ一体型の手軽なAI検索",
+      "pricing": {
+        "freeTier": { "available": true }
+      }
+    }
+  ],
+  "ranking": [
+    { "rank": 1, "toolId": "perplexity", "score": 88 },
+    { "rank": 2, "toolId": "genspark", "score": 82 },
+    { "rank": 3, "toolId": "google-ai-overview", "score": 80 },
+    { "rank": 4, "toolId": "felo", "score": 78 },
+    { "rank": 5, "toolId": "arc-search", "score": 72 }
+  ],
+  "lastUpdated": "2026.03"
+}

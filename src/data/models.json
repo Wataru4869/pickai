@@ -1,0 +1,320 @@
+{
+  "models": [
+    {
+      "id": "claude",
+      "name": "Claude",
+      "nameJapanese": "クロード",
+      "provider": "Anthropic",
+      "logoPath": "/logos/claude.png",
+      "description": "Advanced AI with top coding ability and highest safety standards",
+      "descriptionJapanese": "コーディング最強＋安全性最高の高度なAIアシスタント",
+      "url": "https://claude.ai",
+      "scores": {
+        "overall": 73.9,
+        "writing": 86.4,
+        "coding": 94.3,
+        "image": 41.0,
+        "safety": 93.7
+      },
+      "pricing": {
+        "free": {
+          "available": true,
+          "limitations": [
+            "日次メッセージ制限",
+            "ファイルアップロード制限"
+          ]
+        },
+        "standard": {
+          "available": true,
+          "name": "Pro",
+          "priceUSD": 20,
+          "priceJPY": 3000
+        },
+        "premium": {
+          "available": true,
+          "name": "Max",
+          "priceUSD": 100,
+          "priceJPY": 15000
+        }
+      },
+      "strengths": [
+        "コーディング94.3点（全モデル1位）",
+        "安全性93.7点（全モデル1位）",
+        "クレーム対応94点（共感力最高）",
+        "日本語ビジネス文書の品質が最高",
+        "長文処理・要約に強い"
+      ],
+      "weaknesses": [
+        "画像生成41.0点（非対応/弱い）",
+        "消費税テストで詳細度不足",
+        "SNS投稿79点（カジュアルさ不足）"
+      ],
+      "japaneseSupport": true,
+      "apiAvailable": true,
+      "mobileApp": true
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "nameJapanese": "チャットGPT",
+      "provider": "OpenAI",
+      "logoPath": "/logos/chatgpt.png",
+      "description": "Overall #1 with dominant image generation and balanced performance",
+      "descriptionJapanese": "画像生成圧倒＋総合力No.1の汎用AI",
+      "url": "https://chatgpt.com",
+      "scores": {
+        "overall": 86.5,
+        "writing": 86.3,
+        "coding": 81.3,
+        "image": 92.0,
+        "safety": 90.5
+      },
+      "pricing": {
+        "free": {
+          "available": true,
+          "limitations": [
+            "GPT-5.2制限付",
+            "メッセージ数制限"
+          ]
+        },
+        "standard": {
+          "available": true,
+          "name": "Plus",
+          "priceUSD": 20,
+          "priceJPY": 3000
+        },
+        "premium": {
+          "available": true,
+          "name": "Pro",
+          "priceUSD": 200,
+          "priceJPY": 30000
+        }
+      },
+      "strengths": [
+        "画像生成92.0点（全モデル1位）",
+        "総合86.5点（全モデル1位）",
+        "翻訳93点・ブログ93点",
+        "マルチモーダル対応（音声・画像）",
+        "Custom GPTエコシステム"
+      ],
+      "weaknesses": [
+        "コーディングはClaude比-13.0点",
+        "クレーム対応73点（共感力不足）",
+        "2026年2月アップデート失敗で信頼低下"
+      ],
+      "japaneseSupport": true,
+      "apiAvailable": true,
+      "mobileApp": true
+    },
+    {
+      "id": "grok",
+      "name": "Grok",
+      "nameJapanese": "グロック",
+      "provider": "xAI",
+      "logoPath": "/logos/grok.png",
+      "description": "Top writing scorer with real-time X integration",
+      "descriptionJapanese": "文章生成1位＋X連携のリアルタイムAI",
+      "url": "https://grok.com",
+      "scores": {
+        "overall": 72.1,
+        "writing": 86.8,
+        "coding": 86.3,
+        "image": 43.3,
+        "safety": 69.3
+      },
+      "pricing": {
+        "free": {
+          "available": true,
+          "limitations": [
+            "レート制限あり"
+          ]
+        },
+        "standard": {
+          "available": true,
+          "name": "SuperGrok",
+          "priceUSD": 30,
+          "priceJPY": 4500
+        },
+        "premium": {
+          "available": true,
+          "name": "Heavy",
+          "priceUSD": 300,
+          "priceJPY": 45000
+        }
+      },
+      "strengths": [
+        "議事録要約95点（全テスト最高）",
+        "SNS投稿91点",
+        "ブログ導入文92点",
+        "著作権法解説が最も包括的",
+        "フィッシング拒否が最も説得力あり"
+      ],
+      "weaknesses": [
+        "画像生成43.3点（弱い）",
+        "安全性69.3点（著作権侵害リスク大）",
+        "歌詞全文出力＋画風2枚生成",
+        "日本法人なし・opt-outなし"
+      ],
+      "japaneseSupport": true,
+      "apiAvailable": true,
+      "mobileApp": false
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "nameJapanese": "パープレキシティ",
+      "provider": "Perplexity AI",
+      "logoPath": "/logos/perplexity.png",
+      "description": "Research-focused AI with citation and real-time search",
+      "descriptionJapanese": "出典付きリサーチ特化のAI検索エンジン",
+      "url": "https://www.perplexity.ai",
+      "scores": {
+        "overall": 66.8,
+        "writing": 80.6,
+        "coding": 53.3,
+        "image": 66.5,
+        "safety": 69.1
+      },
+      "pricing": {
+        "free": {
+          "available": true,
+          "limitations": [
+            "基本検索のみ",
+            "回数制限"
+          ]
+        },
+        "standard": {
+          "available": true,
+          "name": "Pro",
+          "priceUSD": 20,
+          "priceJPY": 3000
+        },
+        "premium": {
+          "available": true,
+          "name": "Max",
+          "priceUSD": 200,
+          "priceJPY": 30000
+        }
+      },
+      "strengths": [
+        "商品写真91点（IMG-01で1位）",
+        "出典リンク自動提示",
+        "リアルタイム情報検索",
+        "企画書86点"
+      ],
+      "weaknesses": [
+        "デバッグ15点（入力制限）",
+        "安全性69.1点（個人情報推測リスク）",
+        "商用利用禁止",
+        "日本語対応が発展途上"
+      ],
+      "japaneseSupport": false,
+      "apiAvailable": true,
+      "mobileApp": true
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "nameJapanese": "ジェミニ",
+      "provider": "Google",
+      "logoPath": "/logos/gemini.png",
+      "description": "Google-integrated AI with strong fact-checking",
+      "descriptionJapanese": "Google検索統合＋ファクトチェックに強いAI",
+      "url": "https://gemini.google.com",
+      "scores": {
+        "overall": 60.3,
+        "writing": 75.1,
+        "coding": 43.3,
+        "image": 62.5,
+        "safety": 78.4
+      },
+      "pricing": {
+        "free": {
+          "available": true,
+          "limitations": [
+            "基本機能のみ"
+          ]
+        },
+        "standard": {
+          "available": true,
+          "name": "AI Pro",
+          "priceUSD": 20,
+          "priceJPY": 3000
+        },
+        "premium": {
+          "available": true,
+          "name": "AI Ultra",
+          "priceUSD": 250,
+          "priceJPY": 37500
+        }
+      },
+      "strengths": [
+        "企画書92点（文章テスト1位）",
+        "消費税・医療テストで安全性高い",
+        "Google Workspace統合",
+        "プロンプトインジェクション耐性最高"
+      ],
+      "weaknesses": [
+        "SNS投稿30点（最低）",
+        "Python分析6点（文字化け問題）",
+        "画風模倣を無条件生成",
+        "個人情報推測に甘い"
+      ],
+      "japaneseSupport": true,
+      "apiAvailable": true,
+      "mobileApp": true
+    },
+    {
+      "id": "copilot",
+      "name": "Copilot",
+      "nameJapanese": "コパイロット",
+      "provider": "Microsoft",
+      "logoPath": "/logos/copilot.png",
+      "description": "Microsoft 365 integrated AI assistant",
+      "descriptionJapanese": "Microsoft 365統合のAIアシスタント",
+      "url": "https://copilot.microsoft.com",
+      "scores": {
+        "overall": null,
+        "writing": null,
+        "coding": null,
+        "image": null,
+        "safety": null
+      },
+      "pricing": {
+        "free": {
+          "available": true,
+          "limitations": [
+            "基本機能のみ"
+          ]
+        },
+        "standard": {
+          "available": true,
+          "name": "Pro",
+          "priceUSD": 20,
+          "priceJPY": 3200
+        },
+        "premium": {
+          "available": true,
+          "name": "Microsoft 365 Copilot",
+          "priceUSD": null,
+          "priceJPY": null
+        }
+      },
+      "strengths": [
+        "Microsoft 365との完璧な統合",
+        "エンタープライズセキュリティ",
+        "GitHub Copilot連携"
+      ],
+      "weaknesses": [
+        "独自テスト未完了",
+        "Microsoft環境外での価値が限定的",
+        "情報精度に課題"
+      ],
+      "japaneseSupport": true,
+      "apiAvailable": true,
+      "mobileApp": false
+    }
+  ],
+  "lastUpdated": "2026-03-22T00:00:00Z",
+  "version": "2.0"
+}

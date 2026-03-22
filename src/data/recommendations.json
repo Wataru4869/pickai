@@ -1,0 +1,189 @@
+{
+  "roles": [
+    { "id": "marketer", "label": "マーケター・広報", "icon": "📢" },
+    { "id": "engineer", "label": "エンジニア・開発者", "icon": "💻" },
+    { "id": "designer", "label": "デザイナー・クリエイター", "icon": "🎨" },
+    { "id": "sales", "label": "営業・カスタマーサポート", "icon": "🤝" },
+    { "id": "manager", "label": "マネージャー・経営者", "icon": "📊" },
+    { "id": "writer", "label": "ライター・編集者", "icon": "✍️" },
+    { "id": "student", "label": "学生・研究者", "icon": "📚" },
+    { "id": "general", "label": "その他・個人利用", "icon": "👤" }
+  ],
+  "useCases": [
+    { "id": "writing", "label": "文章作成・メール", "icon": "📝", "roles": ["marketer", "sales", "manager", "writer", "student", "general"] },
+    { "id": "coding", "label": "コーディング・自動化", "icon": "⚙️", "roles": ["engineer", "marketer", "manager"] },
+    { "id": "image", "label": "画像生成・デザイン", "icon": "🖼️", "roles": ["designer", "marketer", "writer", "general"] },
+    { "id": "research", "label": "リサーチ・情報収集", "icon": "🔍", "roles": ["marketer", "engineer", "manager", "writer", "student", "general"] },
+    { "id": "analysis", "label": "データ分析・レポート", "icon": "📈", "roles": ["engineer", "marketer", "manager", "student"] },
+    { "id": "customer", "label": "顧客対応・クレーム処理", "icon": "💬", "roles": ["sales", "manager"] },
+    { "id": "translation", "label": "翻訳・多言語対応", "icon": "🌐", "roles": ["marketer", "sales", "writer", "student", "general"] },
+    { "id": "planning", "label": "企画書・提案書作成", "icon": "📋", "roles": ["marketer", "sales", "manager", "writer"] }
+  ],
+  "budgets": [
+    { "id": "free", "label": "無料で使いたい", "priceMax": 0 },
+    { "id": "standard", "label": "月3,000円まで", "priceMax": 3000 },
+    { "id": "premium", "label": "月5,000円以上OK", "priceMax": 999999 }
+  ],
+  "recommendations": {
+    "writing": {
+      "free": {
+        "primary": "grok",
+        "secondary": "chatgpt",
+        "reason": "文章生成はGrokが91.25点で1位。議事録100点・SNS96点が強み。ChatGPTも90.25点でほぼ同等",
+        "prompt": "以下の条件でビジネスメールを作成してください：\n・宛先：{相手}\n・目的：{用件}\n・トーン：丁寧だが簡潔に\n・文字数：300字以内"
+      },
+      "standard": {
+        "primary": "claude",
+        "secondary": "chatgpt",
+        "reason": "Claude Proは長文・複雑な文書で真価を発揮。クレーム対応98点（共感力最高）。ChatGPT Plusは翻訳98点で補完",
+        "prompt": "あなたはプロのビジネスライターです。以下の要件で{文書タイプ}を作成してください：\n\n【背景】{状況説明}\n【目的】{達成したいこと}\n【対象読者】{誰に向けて}\n【トーン】{フォーマル/カジュアル}\n【制約】{文字数や形式}"
+      },
+      "premium": {
+        "primary": "claude",
+        "secondary": "chatgpt",
+        "reason": "Claude Max（¥15,000）は大量の文書処理に最適。長いコンテキストウィンドウで資料を丸ごと投入可能",
+        "prompt": "添付資料を全て読み込み、以下の形式で{成果物}を作成してください：\n\n1. エグゼクティブサマリー（200字）\n2. 本文（{セクション構成}）\n3. 次のアクション\n\n※ 資料間の矛盾があれば指摘してください"
+      }
+    },
+    "coding": {
+      "free": {
+        "primary": "claude",
+        "secondary": "grok",
+        "reason": "コーディングはClaude無料枠でも99.0点の実力。GAS自動化・デバッグ・HTML全て満点。Grokも91.0点で健闘",
+        "prompt": "以下の要件でGoogle Apps Scriptを作成してください：\n\n【目的】{自動化したい処理}\n【入力】{スプレッドシートの構造}\n【出力】{期待する結果}\n【トリガー】{実行タイミング}\n\n※ エラーハンドリングとログ出力を含めてください"
+      },
+      "standard": {
+        "primary": "claude",
+        "secondary": "chatgpt",
+        "reason": "Claude Proはコード生成で圧倒的。4テスト中3テスト満点（100点）。ChatGPT Plusはコードレビューの補完に",
+        "prompt": "以下のコードをレビューし、改善してください：\n\n```{言語}\n{コード}\n```\n\n【チェック項目】\n1. バグ・エッジケース\n2. パフォーマンス改善\n3. 可読性向上\n4. セキュリティリスク"
+      },
+      "premium": {
+        "primary": "claude",
+        "secondary": "chatgpt",
+        "reason": "Claude Max + Claude Codeの組み合わせが最強。ターミナルから直接コーディングタスクを委譲可能",
+        "prompt": "プロジェクト構造を分析し、以下の機能を実装してください：\n\n【機能要件】{詳細}\n【技術スタック】{使用技術}\n【既存コード】添付ファイル参照\n【制約】{パフォーマンス要件、互換性等}"
+      }
+    },
+    "image": {
+      "free": {
+        "primary": "chatgpt",
+        "secondary": "perplexity",
+        "reason": "画像生成はChatGPT無料枠が圧倒的。98.0点で3テスト満点。Perplexityは商品写真96点で特化用途に強い",
+        "prompt": "以下の画像を生成してください：\n\n【種類】{商品写真/バナー/イラスト}\n【被写体】{詳細な説明}\n【スタイル】{写実的/イラスト/フラットデザイン}\n【用途】{SNS投稿/Web/印刷}\n【サイズ比】{16:9/1:1/9:16}"
+      },
+      "standard": {
+        "primary": "chatgpt",
+        "secondary": "gemini",
+        "reason": "ChatGPT Plus（DALL-E 3）はバナー・ロゴ・アニメキャラ全て満点。Gemini AI Proは独自の画像理解力が補完に",
+        "prompt": "ブランドイメージに合う{成果物}を生成してください：\n\n【ブランド】{ブランド名・特徴}\n【カラー】{メインカラー・サブカラー}\n【テイスト】{高級感/ポップ/ナチュラル}\n【テキスト】{含めたい文字}\n【参考】{イメージに近い既存デザインの説明}"
+      },
+      "premium": {
+        "primary": "chatgpt",
+        "secondary": "claude",
+        "reason": "ChatGPT Pro（¥30,000）は無制限の画像生成。大量のバリエーション作成に。Claudeはクリエイティブディレクション（言語での指示出し）に",
+        "prompt": "以下のキャンペーン用クリエイティブを5パターン生成してください：\n\n【キャンペーン】{概要}\n【ターゲット】{属性}\n【サイズ】{1200x628, 1080x1080, 1080x1920}\n【トーン】{各パターンで変える要素}\n【必須要素】{ロゴ位置、CTA文言}"
+      }
+    },
+    "research": {
+      "free": {
+        "primary": "perplexity",
+        "secondary": "gemini",
+        "reason": "リサーチはPerplexityの出典リンク自動提示が圧倒的に便利。Geminiはファクトチェック（消費税・医療100点）で補完",
+        "prompt": "以下のテーマについてリサーチしてください：\n\n【テーマ】{調査対象}\n【目的】{何のための調査か}\n【必要な情報】{具体的に知りたいこと}\n【出典】信頼性の高いソースを優先\n【形式】要点を箇条書きで、各項目に出典URL付き"
+      },
+      "standard": {
+        "primary": "perplexity",
+        "secondary": "claude",
+        "reason": "Perplexity Pro（¥3,000）は深掘りリサーチに最適。Claude Proは収集した情報の分析・要約で併用がベスト",
+        "prompt": "以下の業界レポートを作成してください：\n\n【業界】{対象業界}\n【期間】{直近○ヶ月}\n【含めるべき項目】\n1. 市場規模と成長率\n2. 主要プレイヤーの動向\n3. 技術トレンド\n4. 規制・法改正\n5. 今後の展望"
+      },
+      "premium": {
+        "primary": "perplexity",
+        "secondary": "claude",
+        "reason": "同じ組み合わせだが、Pro版で回数無制限＋より深い分析が可能。Claude Maxで長文レポートの一括生成",
+        "prompt": "添付した{資料数}件の資料と最新のWeb情報を統合し、{テーマ}に関する包括的なレポートを作成してください：\n\n【構成】\n1. エグゼクティブサマリー\n2. 現状分析（データ付き）\n3. 競合比較\n4. SWOT分析\n5. 推奨アクション（優先順位付き）\n\n※ 資料の情報とWeb情報で矛盾がある場合は両方記載してください"
+      }
+    },
+    "analysis": {
+      "free": {
+        "primary": "claude",
+        "secondary": "chatgpt",
+        "reason": "データ分析はClaude（Python分析96点）が最強。ChatGPTもCode Interpreterで可視化が得意",
+        "prompt": "添付のCSVデータを分析してください：\n\n【分析目的】{何を明らかにしたいか}\n【注目指標】{KPIや見たい数値}\n【出力形式】\n1. サマリー（3行以内）\n2. 主要な発見（5つ以内）\n3. グラフ（適切なものを選択）\n4. 次のアクション提案"
+      },
+      "standard": {
+        "primary": "claude",
+        "secondary": "chatgpt",
+        "reason": "Claude Pro + Code実行で本格的なデータ分析。ChatGPT Plusは異なる視点からのクロスチェックに",
+        "prompt": "以下のデータセットで{分析手法}を実行してください：\n\n【データ】添付ファイル参照\n【仮説】{検証したい仮説}\n【手法】{回帰分析/クラスタリング/時系列分析}\n【出力】\n1. 統計的有意性の検定結果\n2. 可視化（matplotlib）\n3. ビジネスインサイト\n4. データ品質の問題点"
+      },
+      "premium": {
+        "primary": "claude",
+        "secondary": "chatgpt",
+        "reason": "Claude Maxは大規模データセットの投入が可能。ChatGPT ProのAdvanced Data Analysisと併用で多角的分析",
+        "prompt": "添付の複数データソースを統合し、{ビジネス課題}を解決するための分析を実施してください：\n\n【データソース】{一覧}\n【ビジネス課題】{詳細}\n【分析フレームワーク】{使いたい手法}\n【ステークホルダー】{報告先}\n【納品形式】Pythonノートブック＋エグゼクティブサマリー"
+      }
+    },
+    "customer": {
+      "free": {
+        "primary": "claude",
+        "secondary": "grok",
+        "reason": "クレーム対応はClaude 98点で圧倒的1位（共感力最高）。Grokも92点で2位。ChatGPTは76点と差がつく",
+        "prompt": "以下のクレームに対する返信を作成してください：\n\n【クレーム内容】{お客様の声}\n【製品/サービス】{対象}\n【状況】{事実関係}\n【対応方針】{返金/交換/説明}\n\n※ 共感→事実確認→解決策→再発防止の流れで\n※ 怒りを受け止めつつ、誠意が伝わるトーンで"
+      },
+      "standard": {
+        "primary": "claude",
+        "secondary": "chatgpt",
+        "reason": "Claude Proは複雑なクレーム案件の対応テンプレート生成に最適。文脈理解力が高く、適切な共感表現を選択",
+        "prompt": "カスタマーサポート用のテンプレートセットを作成してください：\n\n【シーン】{よくある問い合わせ5パターン}\n【トーン】{企業のブランドボイス}\n【構成】\n各テンプレート：\n1. 件名\n2. 冒頭（共感表現）\n3. 本文（{カスタマイズ箇所}を明示）\n4. 締め（次のステップ）"
+      },
+      "premium": {
+        "primary": "claude",
+        "secondary": "chatgpt",
+        "reason": "Claude Maxで過去の対応履歴を大量に投入し、パーソナライズされた対応を生成。品質の一貫性が保てる",
+        "prompt": "過去の対応履歴（添付）を分析し、以下を作成してください：\n\n1. クレームパターン分類（上位10カテゴリ）\n2. 各カテゴリのベスト対応テンプレート\n3. NGワード・NG表現リスト\n4. エスカレーション判定基準\n5. CS品質スコアリング基準"
+      }
+    },
+    "translation": {
+      "free": {
+        "primary": "chatgpt",
+        "secondary": "gemini",
+        "reason": "翻訳はChatGPT 98点で圧倒的1位。自然な日本語表現に強い。Geminiも92点で補完",
+        "prompt": "以下の文章を{言語}に翻訳してください：\n\n{原文}\n\n【注意点】\n・直訳ではなく自然な{言語}で\n・専門用語は{業界}の慣例に従う\n・固有名詞は{カタカナ表記/原語のまま}"
+      },
+      "standard": {
+        "primary": "chatgpt",
+        "secondary": "claude",
+        "reason": "ChatGPT Plusは翻訳精度が最高。Claude Proはニュアンスの微調整や文化的背景の解説で補完",
+        "prompt": "以下のビジネス文書を{言語}に翻訳してください：\n\n{原文}\n\n【要件】\n・ビジネスレベルの丁寧さ\n・{業界}の専門用語対応表付き\n・文化的に不適切な表現があれば代替案を提示\n・原文の意図が伝わらない箇所にはメモを添付"
+      },
+      "premium": {
+        "primary": "chatgpt",
+        "secondary": "claude",
+        "reason": "ChatGPT Proで大量翻訳、Claude Maxでクオリティチェック。二重体制が最高品質",
+        "prompt": "添付の{文書タイプ}（{ページ数}ページ）を{言語}に翻訳してください：\n\n【品質基準】出版レベル\n【用語集】添付のグロッサリーに準拠\n【スタイルガイド】{指定があれば}\n【納品形式】原文と対訳の並列表示＋用語集の更新提案"
+      }
+    },
+    "planning": {
+      "free": {
+        "primary": "gemini",
+        "secondary": "claude",
+        "reason": "企画書はGemini 96点で1位。構造化された提案書が得意。Claudeは94点でディテール補強に",
+        "prompt": "以下の企画書を作成してください：\n\n【プロジェクト名】{名称}\n【背景・課題】{現状の問題}\n【提案内容】{解決策の概要}\n【ターゲット】{対象}\n【期待効果】{KPI目標}\n\n※ A4で2枚以内、図表の説明も含む"
+      },
+      "standard": {
+        "primary": "claude",
+        "secondary": "gemini",
+        "reason": "Claude Proは複雑な提案書の論理構成に最強。Gemini AI Proはデータ裏付け（Google統合）で補完",
+        "prompt": "経営会議向けの提案書を作成してください：\n\n【提案テーマ】{テーマ}\n【現状分析】{データ・課題}\n【解決策】{3案比較形式で}\n【投資対効果】{ROI試算}\n【スケジュール】{マイルストーン}\n【リスクと対策】{想定リスク3つ}\n\n※ 意思決定者が15分で判断できる構成で"
+      },
+      "premium": {
+        "primary": "claude",
+        "secondary": "chatgpt",
+        "reason": "Claude Maxで大量の参考資料を投入した本格的な戦略提案書。ChatGPT Proで図表・ビジュアル生成",
+        "prompt": "添付資料（{件数}件）を基に、{テーマ}の中期戦略提案書を作成してください：\n\n【構成】\n1. エグゼクティブサマリー（1ページ）\n2. 外部環境分析（PEST）\n3. 内部環境分析（VRIO）\n4. 戦略オプション（3案）\n5. 推奨案の詳細（実行計画、予算、KPI）\n6. リスクシナリオ分析\n\n※ 各セクションの根拠データを明示"
+      }
+    }
+  }
+}

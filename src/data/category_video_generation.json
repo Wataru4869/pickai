@@ -1,0 +1,227 @@
+{
+  "categoryLabel": "動画生成AI",
+  "categoryIcon": "🎬",
+  "description": "Sora、Runway、Kling AIなど主要動画生成AIを映像品質・長さ制御・編集機能・日本語対応・コスパの5軸で比較。",
+  "evaluationAxes": [
+    { "key": "videoQuality", "label": "映像品質", "maxScore": 20 },
+    { "key": "lengthControl", "label": "長さ制御", "maxScore": 20 },
+    { "key": "editing", "label": "編集機能", "maxScore": 20 },
+    { "key": "japanese", "label": "日本語対応", "maxScore": 20 },
+    { "key": "costPerformance", "label": "コスパ", "maxScore": 20 }
+  ],
+  "tools": [
+    {
+      "id": "sora",
+      "name": "Sora",
+      "provider": "OpenAI",
+      "descriptionJapanese": "OpenAIが開発した動画生成AI。テキストから最大1分の高品質動画を生成でき、物理シミュレーションの精度が極めて高い。",
+      "url": "https://openai.com/sora",
+      "scores": {
+        "videoQuality": 20,
+        "lengthControl": 19,
+        "editing": 18,
+        "japanese": 15,
+        "costPerformance": 18
+      },
+      "strengths": [
+        "業界最高水準の映像品質と物理シミュレーション精度",
+        "最大1分の長尺動画をテキストから一括生成",
+        "カメラワークや構図の指定が非常に正確"
+      ],
+      "weaknesses": [
+        "生成に時間がかかることがある",
+        "日本語プロンプトの精度が英語より低い"
+      ],
+      "japaneseSupport": false,
+      "bestFor": "高品質なプロモーション動画・コンセプト映像",
+      "pricing": {
+        "freeTier": { "available": false },
+        "standardPlan": { "priceUSD": 20 }
+      }
+    },
+    {
+      "id": "runway-gen3",
+      "name": "Runway Gen-3",
+      "provider": "Runway",
+      "descriptionJapanese": "映像クリエイター向けの動画生成AI。テキスト・画像からの動画生成に加え、高度な映像編集機能を搭載。",
+      "url": "https://runway.ml",
+      "scores": {
+        "videoQuality": 18,
+        "lengthControl": 17,
+        "editing": 20,
+        "japanese": 13,
+        "costPerformance": 16
+      },
+      "strengths": [
+        "映像編集機能が充実しプロのワークフローに対応",
+        "モーションブラシなど独自の制御ツールを搭載",
+        "画像から動画への変換精度が高い"
+      ],
+      "weaknesses": [
+        "クレジット制で長時間利用するとコストがかさむ",
+        "日本語プロンプトのサポートが限定的"
+      ],
+      "japaneseSupport": false,
+      "bestFor": "映像クリエイター・プロフェッショナル編集",
+      "pricing": {
+        "freeTier": { "available": false },
+        "standardPlan": { "priceUSD": 15 }
+      }
+    },
+    {
+      "id": "kling-ai",
+      "name": "Kling AI",
+      "provider": "Kuaishou",
+      "descriptionJapanese": "中国Kuaishou発の動画生成AI。高品質な動画を低コストで生成でき、日本語インターフェースにも対応。",
+      "url": "https://klingai.com",
+      "scores": {
+        "videoQuality": 17,
+        "lengthControl": 18,
+        "editing": 15,
+        "japanese": 17,
+        "costPerformance": 15
+      },
+      "strengths": [
+        "無料枠が充実しており気軽に試せる",
+        "人物の動きや表情の再現精度が高い",
+        "日本語を含むアジア言語のサポートが充実"
+      ],
+      "weaknesses": [
+        "中国発のため一部地域でアクセス制限がある",
+        "商用利用時のライセンス条件が不明瞭"
+      ],
+      "japaneseSupport": true,
+      "bestFor": "コストを抑えた動画プロトタイピング",
+      "pricing": {
+        "freeTier": { "available": true },
+        "standardPlan": { "priceUSD": 8 }
+      }
+    },
+    {
+      "id": "pika",
+      "name": "Pika",
+      "provider": "Pika",
+      "descriptionJapanese": "手軽に動画生成・編集が可能なAIツール。直感的なインターフェースで短尺動画の作成に特化。",
+      "url": "https://pika.art",
+      "scores": {
+        "videoQuality": 15,
+        "lengthControl": 15,
+        "editing": 17,
+        "japanese": 12,
+        "costPerformance": 16
+      },
+      "strengths": [
+        "シンプルで直感的なUIで初心者でも使いやすい",
+        "動画のスタイル変換・エフェクト追加が容易",
+        "SNS向けの短尺動画作成に最適化"
+      ],
+      "weaknesses": [
+        "長尺動画の生成には対応していない",
+        "日本語プロンプトの認識精度が低い"
+      ],
+      "japaneseSupport": false,
+      "bestFor": "SNS向け短尺動画・エフェクト追加",
+      "pricing": {
+        "freeTier": { "available": true },
+        "standardPlan": { "priceUSD": 10 }
+      }
+    },
+    {
+      "id": "veo-3",
+      "name": "Veo 3",
+      "provider": "Google",
+      "descriptionJapanese": "Google DeepMindが開発した動画生成AI。Geminiエコシステムと連携し、高品質な映像生成が可能。",
+      "url": "https://deepmind.google/veo",
+      "scores": {
+        "videoQuality": 19,
+        "lengthControl": 18,
+        "editing": 17,
+        "japanese": 15,
+        "costPerformance": 18
+      },
+      "strengths": [
+        "Googleの大規模インフラによる高速な動画生成",
+        "映像のリアリティと一貫性が非常に高い",
+        "Geminiとの統合で自然言語による細かい指示が可能"
+      ],
+      "weaknesses": [
+        "Geminiプラン契約が必要でやや敷居が高い",
+        "独立したエディタ機能が不足している"
+      ],
+      "japaneseSupport": false,
+      "bestFor": "Googleエコシステムでの高品質動画生成",
+      "pricing": {
+        "freeTier": { "available": false },
+        "standardPlan": { "priceUSD": 20 }
+      }
+    },
+    {
+      "id": "heygen",
+      "name": "HeyGen",
+      "provider": "HeyGen",
+      "descriptionJapanese": "AIアバター動画の生成に特化したプラットフォーム。多言語対応のプレゼン動画や研修動画を簡単に作成可能。",
+      "url": "https://heygen.com",
+      "scores": {
+        "videoQuality": 16,
+        "lengthControl": 16,
+        "editing": 16,
+        "japanese": 18,
+        "costPerformance": 12
+      },
+      "strengths": [
+        "リアルなAIアバターで多言語プレゼン動画を生成",
+        "日本語の音声合成・リップシンク精度が高い",
+        "テンプレートが豊富でビジネス用途に最適"
+      ],
+      "weaknesses": [
+        "アバター動画以外の生成には不向き",
+        "有料プランの価格がやや高い"
+      ],
+      "japaneseSupport": true,
+      "bestFor": "AIアバターによるプレゼン・研修動画",
+      "pricing": {
+        "freeTier": { "available": true },
+        "standardPlan": { "priceUSD": 29 }
+      }
+    },
+    {
+      "id": "synthesia",
+      "name": "Synthesia",
+      "provider": "Synthesia",
+      "descriptionJapanese": "企業向けAIアバター動画生成プラットフォーム。社内研修やeラーニング動画の大量生成に強みを持つ。",
+      "url": "https://synthesia.io",
+      "scores": {
+        "videoQuality": 15,
+        "lengthControl": 16,
+        "editing": 15,
+        "japanese": 16,
+        "costPerformance": 11
+      },
+      "strengths": [
+        "120以上の言語に対応した多言語動画生成",
+        "企業向けセキュリティ・コンプライアンス対応",
+        "カスタムアバター作成で独自の動画が制作可能"
+      ],
+      "weaknesses": [
+        "月額料金が高く個人利用には不向き",
+        "クリエイティブ動画よりもビジネス用途に限定される"
+      ],
+      "japaneseSupport": true,
+      "bestFor": "企業の研修・eラーニング動画制作",
+      "pricing": {
+        "freeTier": { "available": false },
+        "standardPlan": { "priceUSD": 29 }
+      }
+    }
+  ],
+  "ranking": [
+    { "rank": 1, "toolId": "sora", "score": 90 },
+    { "rank": 2, "toolId": "veo-3", "score": 87 },
+    { "rank": 3, "toolId": "runway-gen3", "score": 84 },
+    { "rank": 4, "toolId": "kling-ai", "score": 82 },
+    { "rank": 5, "toolId": "heygen", "score": 78 },
+    { "rank": 6, "toolId": "pika", "score": 75 },
+    { "rank": 7, "toolId": "synthesia", "score": 73 }
+  ],
+  "lastUpdated": "2026.03"
+}
