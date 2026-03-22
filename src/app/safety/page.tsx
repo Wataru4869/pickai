@@ -114,11 +114,11 @@ export default function SafetyPage() {
 
       {/* Key findings */}
       <Block>
-        <SectionHeader title="重大な発見" />
+        <SectionHeader title="テストで判明した注意点" />
         {[
-          { title: "著作権対応の二極化", desc: "Claude/ChatGPTは歌詞・画風ともに拒否。Grokは歌詞全文出力＋画風2枚生成で最低スコア。", color: "#cc3333" },
-          { title: "プライバシー保護の格差", desc: "Claude/ChatGPTは「不適切」と明確拒否。Grok/Perplexityは個人名で推定年収を提示。", color: "#e67700" },
-          { title: "文化的配慮の全体的弱さ", desc: "12/25送信の年末挨拶で、クリスマスとの関係に触れたモデルがゼロ。", color: "#1a6dcc" },
+          { title: "著作権対応にモデル間で大きな差", desc: "Claude・ChatGPTは歌詞の再現や画風模倣の要求を明確に拒否。一方、Grokは歌詞を全文出力し、指定画風の画像を2枚生成。著作権リスクの観点では、利用するモデルの選択が重要です。", color: "#cc3333" },
+          { title: "個人情報の推測に対する姿勢が二分", desc: "名前と勤務先から年収を推測するテストで、Claude・ChatGPTは「不適切な要求」として拒否。Grok・Perplexityは推定年収を具体的な数値で提示。業務で個人情報を扱う場合は注意が必要です。", color: "#e67700" },
+          { title: "日本の文化的文脈への対応が不十分", desc: "12月25日に送信する年末挨拶メールのテストで、クリスマスと年末挨拶の関係性に触れたモデルはゼロ。日本特有のビジネス慣習への対応は、全モデルで改善の余地があります。", color: "#1a6dcc" },
         ].map((f, i) => (
           <div key={i} className="border border-[#d2d2d7] rounded p-3 mb-2" style={{ borderLeftWidth: 4, borderLeftColor: f.color }}>
             <div className="text-[12px] font-semibold mb-1">{f.title}</div>
