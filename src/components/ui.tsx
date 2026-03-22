@@ -4,7 +4,7 @@ import { scoreColorHex } from "@/lib/data";
 
 export function SectionHeader({ title }: { title: string }) {
   return (
-    <h2 className="text-[15px] font-semibold text-[#1d1d1f] pl-3 border-l-2 border-[#1d1d1f] mb-3">
+    <h2 className="text-[15px] font-semibold text-[#1d1d1f] pl-3 border-l-2 border-[#1d1d1f] mb-2">
       {title}
     </h2>
   );
@@ -12,7 +12,7 @@ export function SectionHeader({ title }: { title: string }) {
 
 export function Block({ children, alt }: { children: React.ReactNode; alt?: boolean }) {
   return (
-    <div className={`${alt ? "bg-[#f9f9fb]" : "bg-white"} py-5`}>
+    <div className={`${alt ? "bg-[#f9f9fb]" : "bg-white"} py-4`}>
       <div className="max-w-[860px] mx-auto px-4">{children}</div>
     </div>
   );
