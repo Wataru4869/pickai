@@ -70,26 +70,50 @@ export default function HomePage() {
             用途別のおすすめを提案します。
           </p>
           <TrustBadges />
-          <div className="mt-4 flex items-center gap-4 p-4 bg-[#f5f5f7] rounded-lg">
-            <div>
-              <div className="text-[11px] text-[#86868b]">総合1位</div>
-              <div className="text-[18px] font-bold text-[#1d1d1f]">{rankedModels[0]?.name}</div>
-              <div className="text-[12px] text-[#6e6e73]">{rankedModels[0]?.score}点 / 100</div>
-            </div>
-            <div className="ml-auto">
-              <a href={`/model/${rankedModels[0]?.id}`} className="text-[11px] no-underline text-[#0066cc] hover:underline">
-                詳細を見る →
-              </a>
-            </div>
-          </div>
         </div>
       </div>
 
       {/* Overall Ranking */}
       <Block>
         <SectionHeader title="総合ランキング（全16テスト）" />
+
+        {/* 1st Place Card */}
+        {rankedModels[0] && (
+          <a href={`/model/${rankedModels[0].id}`} className="block bg-[#f5f5f7] rounded-lg p-5 mb-4 no-underline text-inherit hover:bg-[#efefef] transition-colors">
+            <div className="text-[11px] font-semibold text-[#a0820a] mb-1">総合1位</div>
+            <div className="flex items-center justify-between">
+              <div>
+                <span className="text-[20px] font-bold text-[#1d1d1f]">{rankedModels[0].name}</span>
+                <span className="text-[13px] font-normal text-[#86868b] ml-2">{rankedModels[0].provider}</span>
+              </div>
+              <div className="text-[36px] font-bold" style={{ color: scoreColorHex(rankedModels[0].score) }}>
+                {rankedModels[0].score}
+              </div>
+            </div>
+            <div className="mt-3 grid grid-cols-4 gap-3">
+              {[
+                { label: "文章生成", score: rankedModels[0].scores?.writing },
+                { label: "コーディング", score: rankedModels[0].scores?.coding },
+                { label: "画像生成", score: rankedModels[0].scores?.image },
+                { label: "安全性", score: rankedModels[0].scores?.safety },
+              ].map((cat) => (
+                <div key={cat.label}>
+                  <div className="text-[10px] text-[#86868b]">{cat.label}</div>
+                  <div className="text-[14px] font-semibold" style={{ color: scoreColorHex(cat.score || 0) }}>
+                    {cat.score}
+                  </div>
+                  <div className="w-full h-1.5 bg-[#e8e8ed] rounded-full mt-1">
+                    <div className="h-full rounded-full" style={{ width: `${cat.score}%`, backgroundColor: scoreColorHex(cat.score || 0) }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </a>
+        )}
+
+        {/* 2nd-5th Place */}
         <div className="space-y-0">
-          {rankedModels.map((m: any, i: number) => (
+          {rankedModels.slice(1).map((m: any, i: number) => (
             <a
               key={m.id}
               href={`/model/${m.id}`}
@@ -98,11 +122,10 @@ export default function HomePage() {
               <div
                 className="w-7 h-7 rounded-full flex items-center justify-center text-[12px] font-semibold text-white shrink-0"
                 style={{
-                  backgroundColor:
-                    i === 0 ? "#a0820a" : i === 1 ? "#888" : i === 2 ? "#b87333" : "#DDD",
+                  backgroundColor: i === 0 ? "#888" : i === 1 ? "#b87333" : "#DDD",
                 }}
               >
-                {i + 1}
+                {i + 2}
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-baseline gap-2">
@@ -124,16 +147,18 @@ export default function HomePage() {
                         </strong>
                       </span>
                       <span className="w-10 h-0.5 bg-[#e8e8ed] rounded-full mt-0.5 inline-block">
-                        <span
-                          className="block h-full rounded-full"
-                          style={{ width: `${cat.score}%`, backgroundColor: scoreColorHex(cat.score || 0) }}
-                        />
+                        <span className="block h-full rounded-full" style={{ width: `${cat.score}%`, backgroundColor: scoreColorHex(cat.score || 0) }} />
                       </span>
                     </span>
                   ))}
                 </div>
               </div>
-              <ScoreDisplay score={m.score} size="lg" />
+              <div className="text-right shrink-0">
+                <ScoreDisplay score={m.score} size="lg" />
+                <div className="w-20 h-1 bg-[#e8e8ed] rounded-full mt-1">
+                  <div className="h-full rounded-full" style={{ width: `${m.score}%`, backgroundColor: scoreColorHex(m.score) }} />
+                </div>
+              </div>
               <span className="text-[11px] text-gray-300 ml-1">＞</span>
             </a>
           ))}
@@ -144,7 +169,7 @@ export default function HomePage() {
       </Block>
 
       {/* Category Tabs */}
-      <Block>
+      <Block alt>
         <SectionHeader title="カテゴリ別ランキング" />
         <CategoryTabs />
       </Block>
@@ -156,27 +181,28 @@ export default function HomePage() {
       </Block>
 
       {/* Category Links */}
-      <Block>
+      <Block alt>
         <SectionHeader title="カテゴリ別AI比較" />
         <p className="text-[11px] text-[#86868b] mb-3">
           汎用AI以外の専門ツールも網羅。外部レビュー・ベンチマーク基準。
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
           {[
-            { href: "/categories/image-generation", label: "画像生成", count: 7 },
-            { href: "/categories/video-generation", label: "動画生成", count: 7 },
-            { href: "/categories/coding-tools", label: "コーディング", count: 7 },
-            { href: "/categories/ai-agents", label: "AIエージェント", count: 5 },
-            { href: "/categories/ai-search", label: "AI検索", count: 5 },
+            { href: "/categories/image-generation", label: "画像生成", count: 7, color: "#6B46C1" },
+            { href: "/categories/video-generation", label: "動画生成", count: 7, color: "#D85A30" },
+            { href: "/categories/coding-tools", label: "コーディング", count: 7, color: "#0066cc" },
+            { href: "/categories/ai-agents", label: "AIエージェント", count: 5, color: "#D4537E" },
+            { href: "/categories/ai-search", label: "AI検索", count: 5, color: "#a0820a" },
           ].map((cat) => (
             <a
               key={cat.href}
               href={cat.href}
-              className="flex items-center gap-2 p-3 border border-[#e8e8ed] rounded-lg hover:border-[#86868b] hover:bg-[#f5f5f7] hover:-translate-y-0.5 transition-all duration-200 no-underline text-inherit"
+              className="flex items-center gap-2 p-3 border border-[#e8e8ed] rounded-lg hover:border-[#86868b] hover:-translate-y-0.5 transition-all duration-200 no-underline text-inherit bg-white"
+              style={{ borderLeft: `3px solid ${cat.color}` }}
             >
               <div>
                 <div className="text-[12px] font-semibold text-[#1d1d1f]">{cat.label}</div>
-                <div className="text-[10px] text-[#86868b]">{cat.count}ツール</div>
+                <div className="text-[13px] font-semibold text-[#86868b]">{cat.count}ツール</div>
               </div>
             </a>
           ))}
@@ -220,7 +246,7 @@ export default function HomePage() {
       </Block>
 
       {/* Quick Price Comparison */}
-      <Block>
+      <Block alt>
         <SectionHeader title="料金比較" />
         <div className="overflow-x-auto">
           <table className="w-full text-[11px] border-collapse">
@@ -301,7 +327,7 @@ export default function HomePage() {
       </Block>
 
       {/* Share */}
-      <Block>
+      <Block alt>
         <div className="flex items-center justify-between border border-[#d2d2d7] rounded p-3">
           <div>
             <div className="text-[12px] font-bold">この比較結果をシェア</div>

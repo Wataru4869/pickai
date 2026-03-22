@@ -10,9 +10,9 @@ export function SectionHeader({ title }: { title: string }) {
   );
 }
 
-export function Block({ children }: { children: React.ReactNode }) {
+export function Block({ children, alt }: { children: React.ReactNode; alt?: boolean }) {
   return (
-    <div className="bg-white py-5">
+    <div className={`${alt ? "bg-[#f9f9fb]" : "bg-white"} py-5`}>
       <div className="max-w-[860px] mx-auto px-4">{children}</div>
     </div>
   );
