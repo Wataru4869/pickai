@@ -90,17 +90,14 @@ export default function MethodologyPage() {
       <Block>
         <SectionHeader title="4. 公平性の担保" />
         {[
-          { icon: "🎯", title: "同一プロンプト", desc: "全モデルに完全に同じプロンプトを投入。モデルごとの調整は一切行っていません。" },
-          { icon: "📅", title: "同日テスト", desc: "2026年3月21-22日に全テストを集中実施。モデルのバージョン差による不公平を最小化。" },
-          { icon: "⚖️", title: "クロス採点", desc: "Claude採点とChatGPT採点の平均を統合スコアとし、単一採点者のバイアスを軽減。" },
-          { icon: "🔓", title: "全データ公開", desc: "プロンプト・回答・採点詳細の全てを公開。第三者による追検証が可能です。" },
+          { title: "同一プロンプト", desc: "全モデルに完全に同じプロンプトを投入。モデルごとの調整は一切行っていません。" },
+          { title: "同日テスト", desc: "2026年3月21-22日に全テストを集中実施。モデルのバージョン差による不公平を最小化。" },
+          { title: "クロス採点", desc: "Claude採点とChatGPT採点の平均を統合スコアとし、単一採点者のバイアスを軽減。" },
+          { title: "全データ公開", desc: "プロンプト・回答・採点詳細の全てを公開。第三者による追検証が可能です。" },
         ].map((f, i) => (
-          <div key={i} className="flex gap-2.5 py-2.5 border-t border-[#e8e8ed] first:border-t-0">
-            <span className="text-[20px] shrink-0">{f.icon}</span>
-            <div>
-              <div className="text-[12px] font-bold mb-0.5">{f.title}</div>
-              <div className="text-[11px] text-[#6e6e73] leading-relaxed">{f.desc}</div>
-            </div>
+          <div key={i} className="py-2.5 border-t border-[#e8e8ed] first:border-t-0">
+            <div className="text-[12px] font-bold mb-0.5">{f.title}</div>
+            <div className="text-[11px] text-[#6e6e73] leading-relaxed">{f.desc}</div>
           </div>
         ))}
       </Block>
@@ -141,7 +138,7 @@ export default function MethodologyPage() {
           "生成型テストの採点には必然的に主観が介入します。クロス採点で軽減していますが、完全な客観性は保証できません。",
         ].map((t, i) => (
           <div key={i} className="flex gap-1.5 py-1.5 border-t border-[#e8e8ed] first:border-t-0">
-            <span className="text-[11px] text-orange-500 shrink-0 mt-0.5">⚠</span>
+            <span className="text-[11px] text-orange-500 font-bold shrink-0 mt-0.5">*</span>
             <span className="text-[11px] text-[#6e6e73] leading-relaxed">{t}</span>
           </div>
         ))}

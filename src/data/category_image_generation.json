@@ -1,13 +1,33 @@
 {
   "categoryLabel": "画像生成AI",
-  "categoryIcon": "🖼️",
+  "categoryIcon": "",
   "description": "Midjourney、DALL-E 3、Stable Diffusionなど主要画像生成AIを品質・操作性・商用利用・日本語対応・コスパの5軸で比較。",
   "evaluationAxes": [
-    { "key": "quality", "label": "画像品質", "maxScore": 20 },
-    { "key": "usability", "label": "操作性", "maxScore": 20 },
-    { "key": "commercial", "label": "商用利用", "maxScore": 20 },
-    { "key": "japanese", "label": "日本語対応", "maxScore": 20 },
-    { "key": "costPerformance", "label": "コスパ", "maxScore": 20 }
+    {
+      "key": "quality",
+      "label": "画像品質",
+      "maxScore": 20
+    },
+    {
+      "key": "usability",
+      "label": "操作性",
+      "maxScore": 20
+    },
+    {
+      "key": "commercial",
+      "label": "商用利用",
+      "maxScore": 20
+    },
+    {
+      "key": "japanese",
+      "label": "日本語対応",
+      "maxScore": 20
+    },
+    {
+      "key": "costPerformance",
+      "label": "コスパ",
+      "maxScore": 20
+    }
   ],
   "tools": [
     {
@@ -35,8 +55,12 @@
       "japaneseSupport": false,
       "bestFor": "アート・クリエイティブ制作",
       "pricing": {
-        "freeTier": { "available": false },
-        "standardPlan": { "priceUSD": 10 }
+        "freeTier": {
+          "available": false
+        },
+        "standardPlan": {
+          "priceUSD": 10
+        }
       }
     },
     {
@@ -64,8 +88,12 @@
       "japaneseSupport": true,
       "bestFor": "ChatGPTとの統合利用",
       "pricing": {
-        "freeTier": { "available": true },
-        "standardPlan": { "priceUSD": 20 }
+        "freeTier": {
+          "available": true
+        },
+        "standardPlan": {
+          "priceUSD": 20
+        }
       }
     },
     {
@@ -93,8 +121,12 @@
       "japaneseSupport": false,
       "bestFor": "カスタマイズ重視の開発者・研究者",
       "pricing": {
-        "freeTier": { "available": true },
-        "standardPlan": { "priceUSD": 0 }
+        "freeTier": {
+          "available": true
+        },
+        "standardPlan": {
+          "priceUSD": 0
+        }
       }
     },
     {
@@ -122,8 +154,12 @@
       "japaneseSupport": true,
       "bestFor": "商用デザイン・ブランド素材",
       "pricing": {
-        "freeTier": { "available": true },
-        "standardPlan": { "priceUSD": 680 }
+        "freeTier": {
+          "available": true
+        },
+        "standardPlan": {
+          "priceUSD": 680
+        }
       }
     },
     {
@@ -151,8 +187,12 @@
       "japaneseSupport": true,
       "bestFor": "SNS・マーケティング素材の作成",
       "pricing": {
-        "freeTier": { "available": true },
-        "standardPlan": { "priceJPY": 1500 }
+        "freeTier": {
+          "available": true
+        },
+        "standardPlan": {
+          "priceJPY": 1500
+        }
       }
     },
     {
@@ -180,8 +220,12 @@
       "japaneseSupport": true,
       "bestFor": "ロゴ・テキスト入り画像の生成",
       "pricing": {
-        "freeTier": { "available": true },
-        "standardPlan": { "priceUSD": 8 }
+        "freeTier": {
+          "available": true
+        },
+        "standardPlan": {
+          "priceUSD": 8
+        }
       }
     },
     {
@@ -209,19 +253,51 @@
       "japaneseSupport": false,
       "bestFor": "ゲーム・エンタメ向けアセット制作",
       "pricing": {
-        "freeTier": { "available": true },
-        "standardPlan": { "priceUSD": 12 }
+        "freeTier": {
+          "available": true
+        },
+        "standardPlan": {
+          "priceUSD": 12
+        }
       }
     }
   ],
   "ranking": [
-    { "rank": 1, "toolId": "midjourney", "score": 88 },
-    { "rank": 2, "toolId": "dall-e-3", "score": 85 },
-    { "rank": 3, "toolId": "adobe-firefly", "score": 82 },
-    { "rank": 4, "toolId": "ideogram", "score": 80 },
-    { "rank": 5, "toolId": "stable-diffusion", "score": 78 },
-    { "rank": 6, "toolId": "leonardo-ai", "score": 75 },
-    { "rank": 7, "toolId": "canva-ai", "score": 72 }
+    {
+      "rank": 1,
+      "toolId": "midjourney",
+      "score": 88
+    },
+    {
+      "rank": 2,
+      "toolId": "dall-e-3",
+      "score": 85
+    },
+    {
+      "rank": 3,
+      "toolId": "adobe-firefly",
+      "score": 82
+    },
+    {
+      "rank": 4,
+      "toolId": "ideogram",
+      "score": 80
+    },
+    {
+      "rank": 5,
+      "toolId": "stable-diffusion",
+      "score": 78
+    },
+    {
+      "rank": 6,
+      "toolId": "leonardo-ai",
+      "score": 75
+    },
+    {
+      "rank": 7,
+      "toolId": "canva-ai",
+      "score": 72
+    }
   ],
   "lastUpdated": "2026.03"
 }

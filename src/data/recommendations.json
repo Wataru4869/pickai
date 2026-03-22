@@ -1,28 +1,154 @@
 {
   "roles": [
-    { "id": "marketer", "label": "マーケター・広報", "icon": "📢" },
-    { "id": "engineer", "label": "エンジニア・開発者", "icon": "💻" },
-    { "id": "designer", "label": "デザイナー・クリエイター", "icon": "🎨" },
-    { "id": "sales", "label": "営業・カスタマーサポート", "icon": "🤝" },
-    { "id": "manager", "label": "マネージャー・経営者", "icon": "📊" },
-    { "id": "writer", "label": "ライター・編集者", "icon": "✍️" },
-    { "id": "student", "label": "学生・研究者", "icon": "📚" },
-    { "id": "general", "label": "その他・個人利用", "icon": "👤" }
+    {
+      "id": "marketer",
+      "label": "マーケター・広報",
+      "icon": ""
+    },
+    {
+      "id": "engineer",
+      "label": "エンジニア・開発者",
+      "icon": ""
+    },
+    {
+      "id": "designer",
+      "label": "デザイナー・クリエイター",
+      "icon": ""
+    },
+    {
+      "id": "sales",
+      "label": "営業・カスタマーサポート",
+      "icon": ""
+    },
+    {
+      "id": "manager",
+      "label": "マネージャー・経営者",
+      "icon": ""
+    },
+    {
+      "id": "writer",
+      "label": "ライター・編集者",
+      "icon": ""
+    },
+    {
+      "id": "student",
+      "label": "学生・研究者",
+      "icon": ""
+    },
+    {
+      "id": "general",
+      "label": "その他・個人利用",
+      "icon": ""
+    }
   ],
   "useCases": [
-    { "id": "writing", "label": "文章作成・メール", "icon": "📝", "roles": ["marketer", "sales", "manager", "writer", "student", "general"] },
-    { "id": "coding", "label": "コーディング・自動化", "icon": "⚙️", "roles": ["engineer", "marketer", "manager"] },
-    { "id": "image", "label": "画像生成・デザイン", "icon": "🖼️", "roles": ["designer", "marketer", "writer", "general"] },
-    { "id": "research", "label": "リサーチ・情報収集", "icon": "🔍", "roles": ["marketer", "engineer", "manager", "writer", "student", "general"] },
-    { "id": "analysis", "label": "データ分析・レポート", "icon": "📈", "roles": ["engineer", "marketer", "manager", "student"] },
-    { "id": "customer", "label": "顧客対応・クレーム処理", "icon": "💬", "roles": ["sales", "manager"] },
-    { "id": "translation", "label": "翻訳・多言語対応", "icon": "🌐", "roles": ["marketer", "sales", "writer", "student", "general"] },
-    { "id": "planning", "label": "企画書・提案書作成", "icon": "📋", "roles": ["marketer", "sales", "manager", "writer"] }
+    {
+      "id": "writing",
+      "label": "文章作成・メール",
+      "icon": "",
+      "roles": [
+        "marketer",
+        "sales",
+        "manager",
+        "writer",
+        "student",
+        "general"
+      ]
+    },
+    {
+      "id": "coding",
+      "label": "コーディング・自動化",
+      "icon": "",
+      "roles": [
+        "engineer",
+        "marketer",
+        "manager"
+      ]
+    },
+    {
+      "id": "image",
+      "label": "画像生成・デザイン",
+      "icon": "",
+      "roles": [
+        "designer",
+        "marketer",
+        "writer",
+        "general"
+      ]
+    },
+    {
+      "id": "research",
+      "label": "リサーチ・情報収集",
+      "icon": "",
+      "roles": [
+        "marketer",
+        "engineer",
+        "manager",
+        "writer",
+        "student",
+        "general"
+      ]
+    },
+    {
+      "id": "analysis",
+      "label": "データ分析・レポート",
+      "icon": "",
+      "roles": [
+        "engineer",
+        "marketer",
+        "manager",
+        "student"
+      ]
+    },
+    {
+      "id": "customer",
+      "label": "顧客対応・クレーム処理",
+      "icon": "",
+      "roles": [
+        "sales",
+        "manager"
+      ]
+    },
+    {
+      "id": "translation",
+      "label": "翻訳・多言語対応",
+      "icon": "",
+      "roles": [
+        "marketer",
+        "sales",
+        "writer",
+        "student",
+        "general"
+      ]
+    },
+    {
+      "id": "planning",
+      "label": "企画書・提案書作成",
+      "icon": "",
+      "roles": [
+        "marketer",
+        "sales",
+        "manager",
+        "writer"
+      ]
+    }
   ],
   "budgets": [
-    { "id": "free", "label": "無料で使いたい", "priceMax": 0 },
-    { "id": "standard", "label": "月3,000円まで", "priceMax": 3000 },
-    { "id": "premium", "label": "月5,000円以上OK", "priceMax": 999999 }
+    {
+      "id": "free",
+      "label": "無料で使いたい",
+      "priceMax": 0
+    },
+    {
+      "id": "standard",
+      "label": "月3,000円まで",
+      "priceMax": 3000
+    },
+    {
+      "id": "premium",
+      "label": "月5,000円以上OK",
+      "priceMax": 999999
+    }
   ],
   "recommendations": {
     "writing": {

@@ -1,13 +1,33 @@
 {
   "categoryLabel": "AIエージェント",
-  "categoryIcon": "🤖",
+  "categoryIcon": "",
   "description": "Manus、Devin、Claude Computer Useなど主要AIエージェントをタスク遂行力・自律性・ツール連携・信頼性・コスパの5軸で比較。",
   "evaluationAxes": [
-    { "key": "taskExecution", "label": "タスク遂行力", "maxScore": 20 },
-    { "key": "autonomy", "label": "自律性", "maxScore": 20 },
-    { "key": "toolIntegration", "label": "ツール連携", "maxScore": 20 },
-    { "key": "reliability", "label": "信頼性", "maxScore": 20 },
-    { "key": "costPerformance", "label": "コスパ", "maxScore": 20 }
+    {
+      "key": "taskExecution",
+      "label": "タスク遂行力",
+      "maxScore": 20
+    },
+    {
+      "key": "autonomy",
+      "label": "自律性",
+      "maxScore": 20
+    },
+    {
+      "key": "toolIntegration",
+      "label": "ツール連携",
+      "maxScore": 20
+    },
+    {
+      "key": "reliability",
+      "label": "信頼性",
+      "maxScore": 20
+    },
+    {
+      "key": "costPerformance",
+      "label": "コスパ",
+      "maxScore": 20
+    }
   ],
   "tools": [
     {
@@ -35,8 +55,12 @@
       "japaneseSupport": true,
       "bestFor": "複雑なリサーチ・情報収集タスクの自動化",
       "pricing": {
-        "freeTier": { "available": true },
-        "standardPlan": { "priceUSD": 39 }
+        "freeTier": {
+          "available": true
+        },
+        "standardPlan": {
+          "priceUSD": 39
+        }
       }
     },
     {
@@ -64,8 +88,12 @@
       "japaneseSupport": false,
       "bestFor": "ソフトウェア開発タスクの完全自動化",
       "pricing": {
-        "freeTier": { "available": false },
-        "standardPlan": { "priceUSD": 500 }
+        "freeTier": {
+          "available": false
+        },
+        "standardPlan": {
+          "priceUSD": 500
+        }
       }
     },
     {
@@ -93,8 +121,12 @@
       "japaneseSupport": true,
       "bestFor": "デスクトップアプリの操作自動化・RPA代替",
       "pricing": {
-        "freeTier": { "available": false },
-        "standardPlan": { "priceUSD": 20 }
+        "freeTier": {
+          "available": false
+        },
+        "standardPlan": {
+          "priceUSD": 20
+        }
       }
     },
     {
@@ -122,8 +154,12 @@
       "japaneseSupport": false,
       "bestFor": "Webベースの定型業務自動化",
       "pricing": {
-        "freeTier": { "available": false },
-        "standardPlan": { "priceUSD": 200 }
+        "freeTier": {
+          "available": false
+        },
+        "standardPlan": {
+          "priceUSD": 200
+        }
       }
     },
     {
@@ -151,17 +187,41 @@
       "japaneseSupport": false,
       "bestFor": "リサーチ・情報収集の効率化",
       "pricing": {
-        "freeTier": { "available": true },
-        "standardPlan": { "priceUSD": 19 }
+        "freeTier": {
+          "available": true
+        },
+        "standardPlan": {
+          "priceUSD": 19
+        }
       }
     }
   ],
   "ranking": [
-    { "rank": 1, "toolId": "claude-computer-use", "score": 86 },
-    { "rank": 2, "toolId": "devin", "score": 84 },
-    { "rank": 3, "toolId": "manus", "score": 82 },
-    { "rank": 4, "toolId": "openai-operator", "score": 78 },
-    { "rank": 5, "toolId": "genspark-claw", "score": 74 }
+    {
+      "rank": 1,
+      "toolId": "claude-computer-use",
+      "score": 86
+    },
+    {
+      "rank": 2,
+      "toolId": "devin",
+      "score": 84
+    },
+    {
+      "rank": 3,
+      "toolId": "manus",
+      "score": 82
+    },
+    {
+      "rank": 4,
+      "toolId": "openai-operator",
+      "score": 78
+    },
+    {
+      "rank": 5,
+      "toolId": "genspark-claw",
+      "score": 74
+    }
   ],
   "lastUpdated": "2026.03"
 }

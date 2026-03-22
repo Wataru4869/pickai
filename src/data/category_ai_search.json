@@ -1,13 +1,33 @@
 {
   "categoryLabel": "AI検索",
-  "categoryIcon": "🔍",
+  "categoryIcon": "",
   "description": "Perplexity、Felo、Gensparkなど主要AI検索エンジンを回答精度・出典品質・リアルタイム性・日本語対応・コスパの5軸で比較。",
   "evaluationAxes": [
-    { "key": "accuracy", "label": "回答精度", "maxScore": 20 },
-    { "key": "citations", "label": "出典品質", "maxScore": 20 },
-    { "key": "realtime", "label": "リアルタイム性", "maxScore": 20 },
-    { "key": "japanese", "label": "日本語対応", "maxScore": 20 },
-    { "key": "costPerformance", "label": "コスパ", "maxScore": 20 }
+    {
+      "key": "accuracy",
+      "label": "回答精度",
+      "maxScore": 20
+    },
+    {
+      "key": "citations",
+      "label": "出典品質",
+      "maxScore": 20
+    },
+    {
+      "key": "realtime",
+      "label": "リアルタイム性",
+      "maxScore": 20
+    },
+    {
+      "key": "japanese",
+      "label": "日本語対応",
+      "maxScore": 20
+    },
+    {
+      "key": "costPerformance",
+      "label": "コスパ",
+      "maxScore": 20
+    }
   ],
   "tools": [
     {
@@ -35,8 +55,12 @@
       "japaneseSupport": true,
       "bestFor": "出典重視のリサーチ・情報検証",
       "pricing": {
-        "freeTier": { "available": true },
-        "standardPlan": { "priceUSD": 20 }
+        "freeTier": {
+          "available": true
+        },
+        "standardPlan": {
+          "priceUSD": 20
+        }
       }
     },
     {
@@ -64,8 +88,12 @@
       "japaneseSupport": false,
       "bestFor": "包括的な情報収集・比較リサーチ",
       "pricing": {
-        "freeTier": { "available": true },
-        "standardPlan": { "priceUSD": 19 }
+        "freeTier": {
+          "available": true
+        },
+        "standardPlan": {
+          "priceUSD": 19
+        }
       }
     },
     {
@@ -93,8 +121,12 @@
       "japaneseSupport": true,
       "bestFor": "日本語での海外情報リサーチ",
       "pricing": {
-        "freeTier": { "available": true },
-        "standardPlan": { "priceUSD": 15 }
+        "freeTier": {
+          "available": true
+        },
+        "standardPlan": {
+          "priceUSD": 15
+        }
       }
     },
     {
@@ -122,8 +154,12 @@
       "japaneseSupport": true,
       "bestFor": "日常的な情報検索の効率化",
       "pricing": {
-        "freeTier": { "available": true },
-        "standardPlan": { "priceUSD": 20 }
+        "freeTier": {
+          "available": true
+        },
+        "standardPlan": {
+          "priceUSD": 20
+        }
       }
     },
     {
@@ -151,16 +187,38 @@
       "japaneseSupport": false,
       "bestFor": "ブラウザ一体型の手軽なAI検索",
       "pricing": {
-        "freeTier": { "available": true }
+        "freeTier": {
+          "available": true
+        }
       }
     }
   ],
   "ranking": [
-    { "rank": 1, "toolId": "perplexity", "score": 88 },
-    { "rank": 2, "toolId": "genspark", "score": 82 },
-    { "rank": 3, "toolId": "google-ai-overview", "score": 80 },
-    { "rank": 4, "toolId": "felo", "score": 78 },
-    { "rank": 5, "toolId": "arc-search", "score": 72 }
+    {
+      "rank": 1,
+      "toolId": "perplexity",
+      "score": 88
+    },
+    {
+      "rank": 2,
+      "toolId": "genspark",
+      "score": 82
+    },
+    {
+      "rank": 3,
+      "toolId": "google-ai-overview",
+      "score": 80
+    },
+    {
+      "rank": 4,
+      "toolId": "felo",
+      "score": 78
+    },
+    {
+      "rank": 5,
+      "toolId": "arc-search",
+      "score": 72
+    }
   ],
   "lastUpdated": "2026.03"
 }

@@ -48,7 +48,7 @@ export function CategoryToolPage({ data }: { data: CategoryData }) {
             <span>{data.categoryLabel}</span>
           </div>
           <h1 className="text-[20px] font-bold text-[#1d1d1f] mb-1">
-            {data.categoryIcon} {data.categoryLabel}
+            {data.categoryLabel}
           </h1>
           <p className="text-[13px] text-[#6e6e73] leading-relaxed">
             {data.description}

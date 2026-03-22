@@ -32,7 +32,6 @@ export default function CategoryListPage() {
               href={`/category/${cat.id}`}
               className="border border-[#d2d2d7] rounded p-3 hover:bg-[#f5f5f7] hover:border-[#1d1d1f] transition-colors no-underline text-inherit cursor-pointer"
             >
-              <div className="text-[24px] mb-1">{cat.icon}</div>
               <div className="text-[14px] font-semibold mb-0.5">{cat.nameJapanese}</div>
               <div className="text-[11px] text-[#6e6e73] leading-relaxed line-clamp-2">
                 {cat.description}

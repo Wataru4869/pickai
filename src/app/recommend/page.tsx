@@ -117,7 +117,6 @@ export default function RecommendPage() {
                 }}
                 className="flex items-center gap-2 p-3 border border-[#d2d2d7] rounded hover:border-[#1d1d1f] hover:bg-[#f5f5f7] transition-colors text-left cursor-pointer bg-white"
               >
-                <span className="text-[18px]">{role.icon}</span>
                 <span className="text-[12px] font-bold">{role.label}</span>
               </button>
             ))}
@@ -147,7 +146,6 @@ export default function RecommendPage() {
                 }}
                 className="flex items-center gap-2 p-3 border border-[#d2d2d7] rounded hover:border-[#1d1d1f] hover:bg-[#f5f5f7] transition-colors text-left cursor-pointer bg-white"
               >
-                <span className="text-[18px]">{uc.icon}</span>
                 <span className="text-[12px] font-bold">{uc.label}</span>
               </button>
             ))}

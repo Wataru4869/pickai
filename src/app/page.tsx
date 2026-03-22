@@ -151,18 +151,17 @@ export default function HomePage() {
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
           {[
-            { href: "/categories/image-generation", icon: "🖼️", label: "画像生成", count: 7 },
-            { href: "/categories/video-generation", icon: "🎬", label: "動画生成", count: 7 },
-            { href: "/categories/coding-tools", icon: "💻", label: "コーディング", count: 7 },
-            { href: "/categories/ai-agents", icon: "🤖", label: "AIエージェント", count: 5 },
-            { href: "/categories/ai-search", icon: "🔍", label: "AI検索", count: 5 },
+            { href: "/categories/image-generation", label: "画像生成", count: 7 },
+            { href: "/categories/video-generation", label: "動画生成", count: 7 },
+            { href: "/categories/coding-tools", label: "コーディング", count: 7 },
+            { href: "/categories/ai-agents", label: "AIエージェント", count: 5 },
+            { href: "/categories/ai-search", label: "AI検索", count: 5 },
           ].map((cat) => (
             <a
               key={cat.href}
               href={cat.href}
               className="flex items-center gap-2 p-3 border border-[#e8e8ed] rounded-lg hover:bg-[#f5f5f7] transition-colors no-underline text-inherit"
             >
-              <span className="text-[18px]">{cat.icon}</span>
               <div>
                 <div className="text-[12px] font-semibold text-[#1d1d1f]">{cat.label}</div>
                 <div className="text-[10px] text-[#86868b]">{cat.count}ツール</div>

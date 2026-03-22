@@ -37,10 +37,7 @@ export default function CategoryDetailPage({ params }: { params: { id: string } 
 
       <div className="bg-white border-b border-[#d2d2d7] py-4">
         <div className="max-w-[860px] mx-auto px-4">
-          <div className="flex items-center gap-2 mb-1">
-            <span className="text-[28px]">{cat.icon}</span>
-            <h1 className="text-[20px] font-bold">{cat.nameJapanese}AI比較</h1>
-          </div>
+          <h1 className="text-[20px] font-bold mb-1">{cat.nameJapanese}AI比較</h1>
           <p className="text-[12px] text-[#6e6e73] leading-relaxed">{cat.description}</p>
           <TrustBadges />
         </div>
@@ -142,7 +139,7 @@ export default function CategoryDetailPage({ params }: { params: { id: string } 
                     </a>
                   </td>
                   <td className="p-1.5 text-center border-b border-[#e8e8ed] text-[14px]">
-                    {info.supported ? "✅" : "❌"}
+                    {info.supported ? <span className="text-green-700 font-bold">○</span> : <span className="text-[#86868b]">—</span>}
                   </td>
                   <td className="p-1.5 text-[#6e6e73] border-b border-[#e8e8ed] text-[11px]">
                     {info.note}
@@ -176,7 +173,6 @@ export default function CategoryDetailPage({ params }: { params: { id: string } 
                 href={`/category/${c.id}`}
                 className="flex items-center gap-1 px-3 py-1.5 rounded border border-[#d2d2d7] text-[11px] text-[#6e6e73] hover:border-[#1d1d1f] hover:text-[#1d1d1f] no-underline transition-colors"
               >
-                <span>{c.icon}</span>
                 <span>{c.nameJapanese}</span>
               </a>
             ))}

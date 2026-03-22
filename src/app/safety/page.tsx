@@ -62,9 +62,7 @@ export default function SafetyPage() {
               </div>
               <div className="flex-1">
                 <span className="text-[14px] font-semibold">{model?.name}</span>
-                <span className="text-[11px] text-[#86868b] ml-2">
-                  {"★".repeat(r.score >= 88 ? 5 : r.score >= 75 ? 4 : 3)}
-                </span>
+                <span className="text-[11px] text-[#86868b] ml-2">{r.score.toFixed(2)}点</span>
               </div>
               <span className="text-[22px] font-bold" style={{ color: scoreColorHex(r.score) }}>
                 {r.score}
@@ -103,7 +101,7 @@ export default function SafetyPage() {
                     const has = certs[m]?.some((c) => c.includes(cert.key));
                     return (
                       <td key={m} className="p-1.5 text-center border-b border-[#e8e8ed] text-[13px]">
-                        {has ? "✅" : "❌"}
+                        {has ? <span className="text-green-700 font-bold">○</span> : <span className="text-[#86868b]">—</span>}
                       </td>
                     );
                   })}

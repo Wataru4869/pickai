@@ -5,31 +5,30 @@ import { usePathname } from "next/navigation";
 
 const MENU_ITEMS = [
   // ランキング系
-  { href: "/", icon: "🏠", label: "総合ランキング" },
-  { href: "/categories", icon: "📊", label: "カテゴリ別", children: [
-    { href: "/categories/image-generation", icon: "🖼️", label: "画像生成" },
-    { href: "/categories/video-generation", icon: "🎬", label: "動画生成" },
-    { href: "/categories/coding-tools", icon: "💻", label: "コーディング" },
-    { href: "/categories/ai-agents", icon: "🤖", label: "AIエージェント" },
-    { href: "/categories/ai-search", icon: "🔍", label: "AI検索" },
+  { href: "/", label: "総合ランキング" },
+  { href: "/categories", label: "カテゴリ別", children: [
+    { href: "/categories/image-generation", label: "画像生成" },
+    { href: "/categories/video-generation", label: "動画生成" },
+    { href: "/categories/coding-tools", label: "コーディング" },
+    { href: "/categories/ai-agents", label: "AIエージェント" },
+    { href: "/categories/ai-search", label: "AI検索" },
   ]},
   { type: "separator" as const },
   // ツール系
-  { href: "/recommend", icon: "💡", label: "おすすめ診断" },
-  { href: "/switch", icon: "🔄", label: "乗り換えガイド" },
+  { href: "/recommend", label: "おすすめ診断" },
+  { href: "/switch", label: "乗り換えガイド" },
   { type: "separator" as const },
   // データ系
-  { href: "/safety", icon: "🛡️", label: "安全性比較" },
-  { href: "/cost", icon: "💰", label: "コスト計算" },
-  { href: "/methodology", icon: "📐", label: "評価方法論" },
+  { href: "/safety", label: "安全性比較" },
+  { href: "/cost", label: "コスト計算" },
+  { href: "/methodology", label: "評価方法論" },
 ] as const;
 
 type MenuItem = {
   href?: string;
-  icon?: string;
   label?: string;
   type?: "separator";
-  children?: readonly { href: string; icon: string; label: string }[];
+  children?: readonly { href: string; label: string }[];
 };
 
 function SidebarContent({ pathname, onNavigate }: { pathname: string; onNavigate?: () => void }) {
@@ -60,14 +59,13 @@ function SidebarContent({ pathname, onNavigate }: { pathname: string; onNavigate
               <a
                 href={item.href}
                 onClick={onNavigate}
-                className={`flex items-center gap-2.5 px-4 py-2 text-[12px] no-underline transition-colors ${
+                className={`block px-4 py-2 text-[12px] no-underline transition-colors ${
                   isActive
                     ? "bg-[#f5f5f7] text-[#1d1d1f] font-medium"
                     : "text-[#6e6e73] hover:bg-[#f5f5f7] hover:text-[#1d1d1f]"
                 }`}
               >
-                <span className="text-[14px] w-5 text-center shrink-0">{item.icon}</span>
-                <span>{item.label}</span>
+                {item.label}
               </a>
               {item.children && isActive && (
                 <div className="ml-4">
@@ -78,14 +76,13 @@ function SidebarContent({ pathname, onNavigate }: { pathname: string; onNavigate
                         key={child.href}
                         href={child.href}
                         onClick={onNavigate}
-                        className={`flex items-center gap-2 px-4 py-1.5 text-[11px] no-underline transition-colors ${
+                        className={`block pl-8 pr-4 py-1.5 text-[11px] no-underline transition-colors ${
                           childActive
                             ? "bg-[#f5f5f7] text-[#1d1d1f] font-medium"
                             : "text-[#86868b] hover:bg-[#f5f5f7] hover:text-[#1d1d1f]"
                         }`}
                       >
-                        <span className="text-[12px] w-4 text-center shrink-0">{child.icon}</span>
-                        <span>{child.label}</span>
+                        {child.label}
                       </a>
                     );
                   })}

@@ -1,13 +1,33 @@
 {
   "categoryLabel": "動画生成AI",
-  "categoryIcon": "🎬",
+  "categoryIcon": "",
   "description": "Sora、Runway、Kling AIなど主要動画生成AIを映像品質・長さ制御・編集機能・日本語対応・コスパの5軸で比較。",
   "evaluationAxes": [
-    { "key": "videoQuality", "label": "映像品質", "maxScore": 20 },
-    { "key": "lengthControl", "label": "長さ制御", "maxScore": 20 },
-    { "key": "editing", "label": "編集機能", "maxScore": 20 },
-    { "key": "japanese", "label": "日本語対応", "maxScore": 20 },
-    { "key": "costPerformance", "label": "コスパ", "maxScore": 20 }
+    {
+      "key": "videoQuality",
+      "label": "映像品質",
+      "maxScore": 20
+    },
+    {
+      "key": "lengthControl",
+      "label": "長さ制御",
+      "maxScore": 20
+    },
+    {
+      "key": "editing",
+      "label": "編集機能",
+      "maxScore": 20
+    },
+    {
+      "key": "japanese",
+      "label": "日本語対応",
+      "maxScore": 20
+    },
+    {
+      "key": "costPerformance",
+      "label": "コスパ",
+      "maxScore": 20
+    }
   ],
   "tools": [
     {
@@ -35,8 +55,12 @@
       "japaneseSupport": false,
       "bestFor": "高品質なプロモーション動画・コンセプト映像",
       "pricing": {
-        "freeTier": { "available": false },
-        "standardPlan": { "priceUSD": 20 }
+        "freeTier": {
+          "available": false
+        },
+        "standardPlan": {
+          "priceUSD": 20
+        }
       }
     },
     {
@@ -64,8 +88,12 @@
       "japaneseSupport": false,
       "bestFor": "映像クリエイター・プロフェッショナル編集",
       "pricing": {
-        "freeTier": { "available": false },
-        "standardPlan": { "priceUSD": 15 }
+        "freeTier": {
+          "available": false
+        },
+        "standardPlan": {
+          "priceUSD": 15
+        }
       }
     },
     {
@@ -93,8 +121,12 @@
       "japaneseSupport": true,
       "bestFor": "コストを抑えた動画プロトタイピング",
       "pricing": {
-        "freeTier": { "available": true },
-        "standardPlan": { "priceUSD": 8 }
+        "freeTier": {
+          "available": true
+        },
+        "standardPlan": {
+          "priceUSD": 8
+        }
       }
     },
     {
@@ -122,8 +154,12 @@
       "japaneseSupport": false,
       "bestFor": "SNS向け短尺動画・エフェクト追加",
       "pricing": {
-        "freeTier": { "available": true },
-        "standardPlan": { "priceUSD": 10 }
+        "freeTier": {
+          "available": true
+        },
+        "standardPlan": {
+          "priceUSD": 10
+        }
       }
     },
     {
@@ -151,8 +187,12 @@
       "japaneseSupport": false,
       "bestFor": "Googleエコシステムでの高品質動画生成",
       "pricing": {
-        "freeTier": { "available": false },
-        "standardPlan": { "priceUSD": 20 }
+        "freeTier": {
+          "available": false
+        },
+        "standardPlan": {
+          "priceUSD": 20
+        }
       }
     },
     {
@@ -180,8 +220,12 @@
       "japaneseSupport": true,
       "bestFor": "AIアバターによるプレゼン・研修動画",
       "pricing": {
-        "freeTier": { "available": true },
-        "standardPlan": { "priceUSD": 29 }
+        "freeTier": {
+          "available": true
+        },
+        "standardPlan": {
+          "priceUSD": 29
+        }
       }
     },
     {
@@ -209,19 +253,51 @@
       "japaneseSupport": true,
       "bestFor": "企業の研修・eラーニング動画制作",
       "pricing": {
-        "freeTier": { "available": false },
-        "standardPlan": { "priceUSD": 29 }
+        "freeTier": {
+          "available": false
+        },
+        "standardPlan": {
+          "priceUSD": 29
+        }
       }
     }
   ],
   "ranking": [
-    { "rank": 1, "toolId": "sora", "score": 90 },
-    { "rank": 2, "toolId": "veo-3", "score": 87 },
-    { "rank": 3, "toolId": "runway-gen3", "score": 84 },
-    { "rank": 4, "toolId": "kling-ai", "score": 82 },
-    { "rank": 5, "toolId": "heygen", "score": 78 },
-    { "rank": 6, "toolId": "pika", "score": 75 },
-    { "rank": 7, "toolId": "synthesia", "score": 73 }
+    {
+      "rank": 1,
+      "toolId": "sora",
+      "score": 90
+    },
+    {
+      "rank": 2,
+      "toolId": "veo-3",
+      "score": 87
+    },
+    {
+      "rank": 3,
+      "toolId": "runway-gen3",
+      "score": 84
+    },
+    {
+      "rank": 4,
+      "toolId": "kling-ai",
+      "score": 82
+    },
+    {
+      "rank": 5,
+      "toolId": "heygen",
+      "score": 78
+    },
+    {
+      "rank": 6,
+      "toolId": "pika",
+      "score": 75
+    },
+    {
+      "rank": 7,
+      "toolId": "synthesia",
+      "score": 73
+    }
   ],
   "lastUpdated": "2026.03"
 }

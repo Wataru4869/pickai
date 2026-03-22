@@ -1,13 +1,33 @@
 {
   "categoryLabel": "コーディングツール",
-  "categoryIcon": "💻",
+  "categoryIcon": "",
   "description": "Claude Code、Cursor、Windsurfなど主要AIコーディングツールをコード品質・マルチ言語・IDE統合・エージェント機能・コスパの5軸で比較。",
   "evaluationAxes": [
-    { "key": "codeQuality", "label": "コード品質", "maxScore": 20 },
-    { "key": "multiLanguage", "label": "マルチ言語", "maxScore": 20 },
-    { "key": "ideIntegration", "label": "IDE統合", "maxScore": 20 },
-    { "key": "agentCapability", "label": "エージェント機能", "maxScore": 20 },
-    { "key": "costPerformance", "label": "コスパ", "maxScore": 20 }
+    {
+      "key": "codeQuality",
+      "label": "コード品質",
+      "maxScore": 20
+    },
+    {
+      "key": "multiLanguage",
+      "label": "マルチ言語",
+      "maxScore": 20
+    },
+    {
+      "key": "ideIntegration",
+      "label": "IDE統合",
+      "maxScore": 20
+    },
+    {
+      "key": "agentCapability",
+      "label": "エージェント機能",
+      "maxScore": 20
+    },
+    {
+      "key": "costPerformance",
+      "label": "コスパ",
+      "maxScore": 20
+    }
   ],
   "tools": [
     {
@@ -35,8 +55,12 @@
       "japaneseSupport": true,
       "bestFor": "大規模プロジェクトの自律的開発・リファクタリング",
       "pricing": {
-        "freeTier": { "available": false },
-        "standardPlan": { "priceUSD": 20 }
+        "freeTier": {
+          "available": false
+        },
+        "standardPlan": {
+          "priceUSD": 20
+        }
       }
     },
     {
@@ -64,8 +88,12 @@
       "japaneseSupport": true,
       "bestFor": "日常的なコーディングの生産性向上",
       "pricing": {
-        "freeTier": { "available": true },
-        "standardPlan": { "priceUSD": 20 }
+        "freeTier": {
+          "available": true
+        },
+        "standardPlan": {
+          "priceUSD": 20
+        }
       }
     },
     {
@@ -93,8 +121,12 @@
       "japaneseSupport": false,
       "bestFor": "フロー重視の効率的なコーディング",
       "pricing": {
-        "freeTier": { "available": true },
-        "standardPlan": { "priceUSD": 15 }
+        "freeTier": {
+          "available": true
+        },
+        "standardPlan": {
+          "priceUSD": 15
+        }
       }
     },
     {
@@ -122,8 +154,12 @@
       "japaneseSupport": true,
       "bestFor": "GitHub中心の開発ワークフロー",
       "pricing": {
-        "freeTier": { "available": false },
-        "standardPlan": { "priceUSD": 10 }
+        "freeTier": {
+          "available": false
+        },
+        "standardPlan": {
+          "priceUSD": 10
+        }
       }
     },
     {
@@ -151,8 +187,12 @@
       "japaneseSupport": false,
       "bestFor": "クラウドベースの並列コーディングタスク",
       "pricing": {
-        "freeTier": { "available": false },
-        "standardPlan": { "priceUSD": 20 }
+        "freeTier": {
+          "available": false
+        },
+        "standardPlan": {
+          "priceUSD": 20
+        }
       }
     },
     {
@@ -180,8 +220,12 @@
       "japaneseSupport": false,
       "bestFor": "高速プロトタイピング・アプリ自動生成",
       "pricing": {
-        "freeTier": { "available": true },
-        "standardPlan": { "priceUSD": 0 }
+        "freeTier": {
+          "available": true
+        },
+        "standardPlan": {
+          "priceUSD": 0
+        }
       }
     },
     {
@@ -209,19 +253,51 @@
       "japaneseSupport": false,
       "bestFor": "仕様駆動のAWS開発プロジェクト",
       "pricing": {
-        "freeTier": { "available": true },
-        "standardPlan": { "priceUSD": 0 }
+        "freeTier": {
+          "available": true
+        },
+        "standardPlan": {
+          "priceUSD": 0
+        }
       }
     }
   ],
   "ranking": [
-    { "rank": 1, "toolId": "claude-code", "score": 92 },
-    { "rank": 2, "toolId": "cursor", "score": 88 },
-    { "rank": 3, "toolId": "windsurf", "score": 84 },
-    { "rank": 4, "toolId": "github-copilot", "score": 82 },
-    { "rank": 5, "toolId": "codex", "score": 80 },
-    { "rank": 6, "toolId": "kiro", "score": 76 },
-    { "rank": 7, "toolId": "antigravity", "score": 74 }
+    {
+      "rank": 1,
+      "toolId": "claude-code",
+      "score": 92
+    },
+    {
+      "rank": 2,
+      "toolId": "cursor",
+      "score": 88
+    },
+    {
+      "rank": 3,
+      "toolId": "windsurf",
+      "score": 84
+    },
+    {
+      "rank": 4,
+      "toolId": "github-copilot",
+      "score": 82
+    },
+    {
+      "rank": 5,
+      "toolId": "codex",
+      "score": 80
+    },
+    {
+      "rank": 6,
+      "toolId": "kiro",
+      "score": 76
+    },
+    {
+      "rank": 7,
+      "toolId": "antigravity",
+      "score": 74
+    }
   ],
   "lastUpdated": "2026.03"
 }

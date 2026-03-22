@@ -3,11 +3,11 @@ import { Header, Footer, Block, SectionHeader } from "@/components/ui";
 export const metadata = { title: "AIツールカテゴリ別比較【画像・動画・コーディング・エージェント・検索】| Pick AI" };
 
 const categories = [
-  { id: "image-generation", label: "画像生成AI", icon: "🖼️", tools: 7, description: "Midjourney、DALL-E 3、Stable Diffusionなど" },
-  { id: "video-generation", label: "動画生成AI", icon: "🎬", tools: 7, description: "Sora、Runway、Kling AIなど" },
-  { id: "coding-tools", label: "コーディングツール", icon: "💻", tools: 7, description: "Claude Code、Cursor、Windsurfなど" },
-  { id: "ai-agents", label: "AIエージェント", icon: "🤖", tools: 5, description: "Manus、Devin、Claude Computer Useなど" },
-  { id: "ai-search", label: "AI検索", icon: "🔍", tools: 5, description: "Perplexity、Felo、Gensparkなど" },
+  { id: "image-generation", label: "画像生成AI", tools: 7, description: "Midjourney、DALL-E 3、Stable Diffusionなど" },
+  { id: "video-generation", label: "動画生成AI", tools: 7, description: "Sora、Runway、Kling AIなど" },
+  { id: "coding-tools", label: "コーディングツール", tools: 7, description: "Claude Code、Cursor、Windsurfなど" },
+  { id: "ai-agents", label: "AIエージェント", tools: 5, description: "Manus、Devin、Claude Computer Useなど" },
+  { id: "ai-search", label: "AI検索", tools: 5, description: "Perplexity、Felo、Gensparkなど" },
 ];
 
 export default function CategoriesPage() {
@@ -31,7 +31,6 @@ export default function CategoriesPage() {
               href={`/categories/${cat.id}`}
               className="flex items-center gap-4 p-4 border border-[#e8e8ed] rounded-lg hover:bg-[#f5f5f7] transition-colors no-underline text-inherit"
             >
-              <span className="text-[28px]">{cat.icon}</span>
               <div className="flex-1">
                 <div className="text-[14px] font-semibold text-[#1d1d1f]">{cat.label}</div>
                 <div className="text-[11px] text-[#86868b] mt-0.5">{cat.description}</div>

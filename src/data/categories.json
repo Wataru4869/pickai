@@ -4,7 +4,7 @@
       "id": "video",
       "name": "動画生成",
       "nameJapanese": "動画生成",
-      "icon": "🎬",
+      "icon": "",
       "description": "AIによる動画生成の比較。Sora、Runway、Pika等の専用ツールと、チャットAIの動画対応状況。",
       "externalBenchmarks": [
         {
@@ -39,11 +39,26 @@
         }
       ],
       "chatAISupport": {
-        "claude": { "supported": false, "note": "動画生成非対応。テキスト分析・脚本作成は可能。" },
-        "chatgpt": { "supported": true, "note": "Sora統合で動画生成対応。ChatGPT Plus以上。" },
-        "grok": { "supported": false, "note": "動画生成非対応。" },
-        "perplexity": { "supported": false, "note": "動画生成非対応。" },
-        "gemini": { "supported": true, "note": "Veo 2統合で動画生成対応。Gemini Advanced以上。" }
+        "claude": {
+          "supported": false,
+          "note": "動画生成非対応。テキスト分析・脚本作成は可能。"
+        },
+        "chatgpt": {
+          "supported": true,
+          "note": "Sora統合で動画生成対応。ChatGPT Plus以上。"
+        },
+        "grok": {
+          "supported": false,
+          "note": "動画生成非対応。"
+        },
+        "perplexity": {
+          "supported": false,
+          "note": "動画生成非対応。"
+        },
+        "gemini": {
+          "supported": true,
+          "note": "Veo 2統合で動画生成対応。Gemini Advanced以上。"
+        }
       },
       "recommendation": "動画生成はSora（ChatGPT経由）またはVeo 2（Gemini経由）がおすすめ。品質重視ならSora、Google連携重視ならVeo 2。"
     },
@@ -51,7 +66,7 @@
       "id": "translation",
       "name": "翻訳",
       "nameJapanese": "翻訳",
-      "icon": "🌐",
+      "icon": "",
       "description": "AI翻訳の精度比較。DeepL、Google翻訳等の専門ツールとチャットAIの翻訳能力を比較。",
       "externalBenchmarks": [
         {
@@ -86,11 +101,26 @@
         }
       ],
       "chatAISupport": {
-        "claude": { "supported": true, "note": "高品質な翻訳。文脈理解が深い。86点。" },
-        "chatgpt": { "supported": true, "note": "翻訳テスト98点（1位）。自然な日本語。" },
-        "grok": { "supported": true, "note": "翻訳86点。実用レベル。" },
-        "perplexity": { "supported": true, "note": "翻訳84点。出典付き翻訳が特徴。" },
-        "gemini": { "supported": true, "note": "翻訳92点。Google翻訳統合も利用可。" }
+        "claude": {
+          "supported": true,
+          "note": "高品質な翻訳。文脈理解が深い。86点。"
+        },
+        "chatgpt": {
+          "supported": true,
+          "note": "翻訳テスト98点（1位）。自然な日本語。"
+        },
+        "grok": {
+          "supported": true,
+          "note": "翻訳86点。実用レベル。"
+        },
+        "perplexity": {
+          "supported": true,
+          "note": "翻訳84点。出典付き翻訳が特徴。"
+        },
+        "gemini": {
+          "supported": true,
+          "note": "翻訳92点。Google翻訳統合も利用可。"
+        }
       },
       "recommendation": "翻訳はChatGPT（98点）が最強。DeepL Proも専門分野で強い。ビジネス文書ならChatGPT、技術文書ならDeepLとの併用がおすすめ。"
     },
@@ -98,7 +128,7 @@
       "id": "design",
       "name": "デザイン",
       "nameJapanese": "デザイン",
-      "icon": "🎨",
+      "icon": "",
       "description": "AIデザインツールの比較。画像生成AI（DALL-E、Midjourney等）とチャットAIのデザイン能力。",
       "externalBenchmarks": [
         {
@@ -148,11 +178,26 @@
         }
       ],
       "chatAISupport": {
-        "claude": { "supported": false, "note": "画像生成44.5点。テキストベースのデザイン指示は得意。" },
-        "chatgpt": { "supported": true, "note": "DALL-E 3統合。画像98.0点（1位）。" },
-        "grok": { "supported": true, "note": "画像生成46.5点。基本的な生成のみ。" },
-        "perplexity": { "supported": true, "note": "画像71.0点。商品写真が得意。" },
-        "gemini": { "supported": true, "note": "Imagen 3統合。画像66.5点。" }
+        "claude": {
+          "supported": false,
+          "note": "画像生成44.5点。テキストベースのデザイン指示は得意。"
+        },
+        "chatgpt": {
+          "supported": true,
+          "note": "DALL-E 3統合。画像98.0点（1位）。"
+        },
+        "grok": {
+          "supported": true,
+          "note": "画像生成46.5点。基本的な生成のみ。"
+        },
+        "perplexity": {
+          "supported": true,
+          "note": "画像71.0点。商品写真が得意。"
+        },
+        "gemini": {
+          "supported": true,
+          "note": "Imagen 3統合。画像66.5点。"
+        }
       },
       "recommendation": "デザイン用途ではChatGPT（DALL-E 3）が圧倒的。プロ品質を求めるならMidjourney v7との併用がベスト。"
     },
@@ -160,7 +205,7 @@
       "id": "coding",
       "name": "コーディング",
       "nameJapanese": "コーディング",
-      "icon": "💻",
+      "icon": "",
       "description": "AIコーディング能力の比較。SWE-bench等の外部ベンチマークと独自テストの結果。",
       "externalBenchmarks": [
         {
@@ -210,11 +255,26 @@
         }
       ],
       "chatAISupport": {
-        "claude": { "supported": true, "note": "コーディング99.0点（1位）。3テスト満点。" },
-        "chatgpt": { "supported": true, "note": "コーディング85.5点。Code Interpreterが便利。" },
-        "grok": { "supported": true, "note": "コーディング91.0点（2位）。" },
-        "perplexity": { "supported": true, "note": "コーディング57.5点。入力制限がネック。" },
-        "gemini": { "supported": true, "note": "コーディング46.0点。Python文字化け問題。" }
+        "claude": {
+          "supported": true,
+          "note": "コーディング99.0点（1位）。3テスト満点。"
+        },
+        "chatgpt": {
+          "supported": true,
+          "note": "コーディング85.5点。Code Interpreterが便利。"
+        },
+        "grok": {
+          "supported": true,
+          "note": "コーディング91.0点（2位）。"
+        },
+        "perplexity": {
+          "supported": true,
+          "note": "コーディング57.5点。入力制限がネック。"
+        },
+        "gemini": {
+          "supported": true,
+          "note": "コーディング46.0点。Python文字化け問題。"
+        }
       },
       "recommendation": "コーディングはClaude一択。独自テスト99.0点、SWE-bench 72.5%でいずれも1位。GitHub Copilotとの併用もおすすめ。"
     },
@@ -222,7 +282,7 @@
       "id": "research",
       "name": "リサーチ",
       "nameJapanese": "リサーチ",
-      "icon": "🔍",
+      "icon": "",
       "description": "AI検索・リサーチ能力の比較。リアルタイム情報検索、ファクトチェック、出典提示能力を評価。",
       "externalBenchmarks": [
         {
@@ -257,11 +317,26 @@
         }
       ],
       "chatAISupport": {
-        "claude": { "supported": true, "note": "深い分析は得意だが、リアルタイム検索は非対応。" },
-        "chatgpt": { "supported": true, "note": "Bing検索統合。Browse機能で最新情報取得。" },
-        "grok": { "supported": true, "note": "X（旧Twitter）連携でリアルタイム情報。" },
-        "perplexity": { "supported": true, "note": "リサーチ特化。出典付き回答が最大の強み。" },
-        "gemini": { "supported": true, "note": "Google検索統合。ファクトチェック機能。" }
+        "claude": {
+          "supported": true,
+          "note": "深い分析は得意だが、リアルタイム検索は非対応。"
+        },
+        "chatgpt": {
+          "supported": true,
+          "note": "Bing検索統合。Browse機能で最新情報取得。"
+        },
+        "grok": {
+          "supported": true,
+          "note": "X（旧Twitter）連携でリアルタイム情報。"
+        },
+        "perplexity": {
+          "supported": true,
+          "note": "リサーチ特化。出典付き回答が最大の強み。"
+        },
+        "gemini": {
+          "supported": true,
+          "note": "Google検索統合。ファクトチェック機能。"
+        }
       },
       "recommendation": "リサーチ用途ではPerplexityが最強。出典付き回答が必要ならPerplexity、Google連携重視ならGemini、深い分析ならClaude。"
     },
@@ -269,7 +344,7 @@
       "id": "writing",
       "name": "文章生成",
       "nameJapanese": "文章生成",
-      "icon": "✍️",
+      "icon": "",
       "description": "ビジネス文書・クリエイティブ文章の生成能力比較。日本語品質に特化した評価。",
       "externalBenchmarks": [
         {
@@ -304,11 +379,26 @@
         }
       ],
       "chatAISupport": {
-        "claude": { "supported": true, "note": "文章90.5点。クレーム対応98点が突出。" },
-        "chatgpt": { "supported": true, "note": "文章90.25点。翻訳98点・ブログ98点。" },
-        "grok": { "supported": true, "note": "文章91.25点（1位）。議事録100点。" },
-        "perplexity": { "supported": true, "note": "文章84.75点。企画書90点。" },
-        "gemini": { "supported": true, "note": "文章78.75点。企画書96点が強み。" }
+        "claude": {
+          "supported": true,
+          "note": "文章90.5点。クレーム対応98点が突出。"
+        },
+        "chatgpt": {
+          "supported": true,
+          "note": "文章90.25点。翻訳98点・ブログ98点。"
+        },
+        "grok": {
+          "supported": true,
+          "note": "文章91.25点（1位）。議事録100点。"
+        },
+        "perplexity": {
+          "supported": true,
+          "note": "文章84.75点。企画書90点。"
+        },
+        "gemini": {
+          "supported": true,
+          "note": "文章78.75点。企画書96点が強み。"
+        }
       },
       "recommendation": "文章生成はGrok（91.25点）が僅差で1位。ビジネスメールならClaude、SNS投稿ならGrok、翻訳ならChatGPTと使い分けが最適。"
     }
