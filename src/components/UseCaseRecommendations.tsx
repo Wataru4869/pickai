@@ -3,19 +3,19 @@
 import { scoreColorHex } from "@/lib/data";
 
 const RECOMMENDATIONS = [
-  { use: "ビジネスメール", model: "Claude", score: 92, reason: "クレーム対応98点、営業メール92点" },
-  { use: "企画書・長文", model: "Gemini", score: 96, reason: "企画書テストで全モデル中1位" },
-  { use: "議事録要約", model: "Grok", score: 100, reason: "唯一の満点。圧縮力が最高" },
-  { use: "英→日翻訳", model: "ChatGPT", score: 98, reason: "ビジネス文化に合った自然な翻訳" },
-  { use: "SNS投稿文", model: "Grok", score: 96, reason: "カジュアルな日本語表現が得意" },
-  { use: "GAS自動化", model: "Claude", score: 100, reason: "満点。そのまま動くコード" },
-  { use: "Python分析", model: "Claude", score: 96, reason: "日本語フォント対応まで完璧" },
-  { use: "HTML/CSS", model: "Claude", score: 100, reason: "アクセシビリティまで対応" },
-  { use: "デバッグ", model: "Claude", score: 100, reason: "5つのバグを全て正確に修正" },
-  { use: "商品写真", model: "Perplexity", score: 96, reason: "大理石背景の再現が最も正確" },
-  { use: "アニメキャラ", model: "ChatGPT", score: 100, reason: "満点。プロ級の品質" },
-  { use: "日本語バナー", model: "ChatGPT", score: 100, reason: "テキスト描画が最も正確" },
-  { use: "ロゴデザイン", model: "ChatGPT", score: 100, reason: "和モダンのコンセプトを完璧に表現" },
+  { use: "ビジネスメール", model: "Claude", score: 92, reason: "クレーム対応94点、営業メール89点" },
+  { use: "企画書・長文", model: "Gemini", score: 92, reason: "企画書テストで全モデル中1位" },
+  { use: "議事録要約", model: "Grok", score: 95, reason: "全テスト最高。圧縮力が最高" },
+  { use: "英→日翻訳", model: "ChatGPT", score: 93, reason: "ビジネス文化に合った自然な翻訳" },
+  { use: "SNS投稿文", model: "Grok", score: 91, reason: "カジュアルな日本語表現が得意" },
+  { use: "GAS自動化", model: "Claude", score: 95, reason: "全テスト最高水準。そのまま動くコード" },
+  { use: "Python分析", model: "Claude", score: 92, reason: "日本語フォント対応まで完璧" },
+  { use: "HTML/CSS", model: "Claude", score: 95, reason: "アクセシビリティまで対応" },
+  { use: "デバッグ", model: "Claude", score: 95, reason: "5つのバグを全て正確に修正" },
+  { use: "商品写真", model: "Perplexity", score: 91, reason: "大理石背景の再現が最も正確" },
+  { use: "アニメキャラ", model: "ChatGPT", score: 94, reason: "満点。プロ級の品質" },
+  { use: "日本語バナー", model: "ChatGPT", score: 93, reason: "テキスト描画が最も正確" },
+  { use: "ロゴデザイン", model: "ChatGPT", score: 93, reason: "和モダンのコンセプトを完璧に表現" },
 ];
 
 export function UseCaseRecommendations() {

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: "独自30テストで5大AIを徹底比較",
   },
   alternates: {
-    canonical: "https://ai-imanani.vercel.app",
+    canonical: "https://pickai.vercel.app",
   },
 };
 

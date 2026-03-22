@@ -137,7 +137,7 @@ export default function SafetyPage() {
               「AI安全性1位Claude（93.7）2位ChatGPT（90.5）#PickAI」
             </div>
           </div>
-          <ShareButton text="AI安全性ランキング：1位Claude（93.7）2位ChatGPT（90.5）3位Gemini（78.4）#PickAI https://ai-imanani.vercel.app/safety" />
+          <ShareButton text="AI安全性ランキング：1位Claude（93.7）2位ChatGPT（90.5）3位Gemini（78.4）#PickAI https://pickai.vercel.app/safety" />
         </div>
       </Block>
 

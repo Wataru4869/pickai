@@ -249,7 +249,7 @@ export default function HomePage() {
               「2026年AI比較：総合1位ChatGPT、コード最強Claude、安全性もClaude #PickAI」
             </div>
           </div>
-          <ShareButton text="2026年AI比較：総合1位ChatGPT（86.5）コード最強Claude（94.3）安全性もClaude（93.7）#PickAI https://ai-imanani.vercel.app" />
+          <ShareButton text="2026年AI比較：総合1位ChatGPT（86.5）コード最強Claude（94.3）安全性もClaude（93.7）#PickAI https://pickai.vercel.app" />
         </div>
       </Block>
 

@@ -199,7 +199,7 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
             </div>
           </div>
           <ShareButton
-            text={`${model.name}の評価：総合${model.scores.overall}点、コード${model.scores.coding}点、安全性${model.scores.safety}点 #PickAI https://ai-imanani.vercel.app/model/${model.id}`}
+            text={`${model.name}の評価：総合${model.scores.overall}点、コード${model.scores.coding}点、安全性${model.scores.safety}点 #PickAI https://pickai.vercel.app/model/${model.id}`}
           />
         </div>
       </Block>

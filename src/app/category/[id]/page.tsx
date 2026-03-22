@@ -193,7 +193,7 @@ export default function CategoryDetailPage({ params }: { params: { id: string } 
             </div>
           </div>
           <ShareButton
-            text={`${cat.nameJapanese}AI比較 - 外部ベンチマーク＋独自テストで徹底比較 #PickAI https://ai-imanani.vercel.app/category/${cat.id}`}
+            text={`${cat.nameJapanese}AI比較 - 外部ベンチマーク＋独自テストで徹底比較 #PickAI https://pickai.vercel.app/category/${cat.id}`}
           />
         </div>
       </Block>
