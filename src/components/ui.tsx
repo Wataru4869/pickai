@@ -121,25 +121,7 @@ export function Footer() {
 }
 
 export function Header() {
-  return (
-    <header className="sticky top-0 z-50 backdrop-blur-xl bg-white/80 border-b border-[#e8e8ed]">
-      <Container>
-        <div className="flex items-center justify-between h-11">
-          <a href="/" className="flex items-baseline gap-0.5 no-underline">
-            <span className="text-[18px] font-medium tracking-tight text-[#1d1d1f]">Pick</span>
-            <span className="text-[18px] font-light text-[#d2d2d7]">|</span>
-            <span className="text-[18px] font-medium tracking-tight text-[#1d1d1f]">AI</span>
-          </a>
-          <nav className="flex items-center gap-5 text-[12px]">
-            <a href="/categories" className="text-[#6e6e73] hover:text-[#1d1d1f] transition-colors no-underline">カテゴリ</a>
-            <a href="/recommend" className="text-[#6e6e73] hover:text-[#1d1d1f] transition-colors no-underline">おすすめ</a>
-            <a href="/switch" className="text-[#6e6e73] hover:text-[#1d1d1f] transition-colors no-underline">乗り換え</a>
-            <a href="/safety" className="hidden sm:inline text-[#6e6e73] hover:text-[#1d1d1f] transition-colors no-underline">安全性</a>
-            <a href="/cost" className="hidden sm:inline text-[#6e6e73] hover:text-[#1d1d1f] transition-colors no-underline">コスト</a>
-            <a href="/methodology" className="hidden sm:inline text-[#6e6e73] hover:text-[#1d1d1f] transition-colors no-underline">方法論</a>
-          </nav>
-        </div>
-      </Container>
-    </header>
-  );
+  // Header is now handled by Sidebar component.
+  // This is kept as a no-op for backward compatibility with pages that import it.
+  return null;
 }
