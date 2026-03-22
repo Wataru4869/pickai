@@ -1,0 +1,44 @@
+{
+  "slug": "ai-data-policy-comparison-2026",
+  "title": "主要AI 5社のデータ利用ポリシー完全比較【2026年3月最新】",
+  "description": "OpenAI、Anthropic、Google、xAI、Perplexityのデータ利用ポリシーを徹底比較。学習利用、オプトアウト、認証、データ保持を一覧で解説。",
+  "publishedAt": "2026-03-23",
+  "updatedAt": "2026-03-23",
+  "category": "analysis",
+  "tags": ["データポリシー", "ChatGPTデータ利用", "Claudeプライバシー", "AI学習データ", "比較"],
+  "readingTime": "10分",
+  "sections": [
+    {
+      "heading": "なぜデータポリシーの理解が重要か",
+      "content": "AIチャットに入力したテキストが、そのAIの学習データとして使われるかどうかは、ビジネス利用における最重要事項の一つだ。顧客情報、社内戦略、ソースコードをAIに入力した場合、それがモデル学習に使われれば、他のユーザーの回答に影響を与える可能性がある。5社のポリシーを正確に理解し、自社の要件に合ったモデルを選ぶことが必要だ。"
+    },
+    {
+      "heading": "OpenAI（ChatGPT）のデータポリシー",
+      "content": "OpenAIの公式ドキュメント（openai.com/policies）によると、プランごとにデータの扱いが明確に分かれている。\n\n無料版: デフォルトで会話データがモデル改善に使用される。オプトアウトは設定画面から可能。\n\nPlus/Pro: デフォルトで学習に使用される。設定→データコントロール→「モデルの改善のためにデータを使用する」をオフにすることでオプトアウト可能。\n\nTeam/Enterprise: デフォルトでモデル学習に不使用。管理者がポリシーを一括設定できる。\n\nAPI: デフォルトでモデル学習に不使用。OpenAIの公式ポリシーに明記されている。\n\nデータ保持期間は、API経由では不正利用監視のため最大30日間保持された後に削除される。Enterprise向けにはゼロデータリテンション（ZDR）オプションが提供されている。2025年9月以降、法的命令によるデータ保持義務が終了し、通常の保持ポリシーに戻っている。\n\nセキュリティ認証: SOC 2 Type II（2025年1月-6月期の監査報告書が公開済み）、ISO 27001:2022、ISO 27701:2019、ISO 42001:2023を取得。Enterprise、Team、Edu、APIが認証対象。"
+    },
+    {
+      "heading": "Anthropic（Claude）のデータポリシー",
+      "content": "Anthropicの公式プライバシーセンター（privacy.claude.com）によると、データポリシーは以下の通り。\n\n全商用プラン（Team/Enterprise/API）: ユーザー入力をモデル学習に使用しないことがデフォルト。無料のコンシューマーアカウントでは、学習改善への利用について同意設定がある点に注意が必要だ。\n\nAPI: ゼロデータリテンション（ZDR）アドンが利用可能。ZDR契約下では、プロンプト、出力、メタデータのいずれもAnthropicのサーバーに保持されない。ただし利用ポリシー違反検出のための安全分類器の結果のみ保持される。\n\nZDRの適用範囲は、対象となるAnthropicのAPIおよび商用組織APIキーを使用するAnthropic製品（Claude Codeを含む）に限定される。\n\nデータ処理地域: 米国。2026年3月時点で日本リージョンは未提供だが、OpenAIが2025年にデータレジデンシーオプションを拡大したのに続き、今後の展開が期待される。\n\nセキュリティ認証: SOC 2 Type I/Type II、ISO 27001:2022、ISO 42001:2023（2025年1月取得、AI管理システムの国際標準）。HIPAA対応として、ZDR契約を結んだ顧客にBAA（業務提携契約）を提供。\n\nAnthropicはAI安全性に特化した企業であり、ISO 42001の早期取得は同社の姿勢を示している。"
+    },
+    {
+      "heading": "Google（Gemini）のデータポリシー",
+      "content": "Googleの公式ドキュメント（support.google.com、cloud.google.com）によると、コンシューマー向けとビジネス向けで大きく異なる。\n\nGemini Apps（無料/有料の個人向け）: 18歳以上のアカウントではデフォルトで会話がモデル改善に使用される。人間レビュアーが品質向上のためにアクセスする場合がある。オプトアウトはmyactivity.google.comから設定可能。\n\nGemini for Workspace: Business Standard、Business Plus、Enterprise Standard、Enterprise Plus各エディションでは、プロンプト、ファイル、チャット、応答がGoogleのベースモデルの学習に使用されない。ただしEnterprise Starterエディションではプロダクト改善に使用される可能性があり、管理者設定でオプトアウトが必要。\n\nGoogle AI Studio / Vertex AI API: 無料版のAI Studioでは入力がモデル改善に使用される可能性がある。有料のVertex AI APIでは使用されない。\n\n2025年1月以降、Gemini AI機能がGoogle Workspace Business Standard以上のプランに追加費用なしで含まれるようになった。企業はWorkspace契約の範囲内で安全にGeminiを利用できるが、プランのエディションによる差異に注意が必要だ。\n\nセキュリティ認証: Google CloudのSOC 2、ISO 27001等の既存認証の枠内で運用。Google Workspaceの法人プランに適用。"
+    },
+    {
+      "heading": "xAI（Grok）のデータポリシー",
+      "content": "xAIの公式プライバシーポリシー（x.ai/legal/privacy-policy）によると、データの扱いは以下の通り。\n\nX（旧Twitter）の投稿データ: ユーザーのX上の公開投稿がデフォルトでGrokのモデル学習に使用される。オプトアウト手順は、Xにログイン→設定とプライバシー→プライバシーと安全→データ共有とカスタマイズ→「Grokのトレーニングに使用」をオフにする。ただしオプトアウト前に既に学習済みのデータには遡及的に適用されない。\n\nGrokチャットの入力データ: チャットでの会話もサービス改善に使用される可能性がある。xAIは個人の機密情報や特別カテゴリのデータを意図的に収集しないとしているが、詳細なデータ保持期間は明示されていない。\n\nDM等の非公開データ: 非公開のダイレクトメッセージの扱いについて不明確な点がある。2025年にはXの新利用規約に関して、非公開チャットデータの第三者共有への懸念が報道された。\n\n規制面では、2024年9月にアイルランドの裁判所命令により、EU域内の公開投稿データのGrok学習への使用が停止された。2025年4月にはアイルランドデータ保護委員会が正式な法定調査を開始している。\n\nセキュリティ認証: SOC 2は間接的（X/Twitter経由）。xAI独自の第三者認証は限定的。日本法人なし。\n\nPick AIの安全性テストでGrokが69.3点（4位）となった背景には、このポリシーの不透明さも影響している。"
+    },
+    {
+      "heading": "Perplexity AIのデータポリシー",
+      "content": "Perplexityの公式ドキュメント（docs.perplexity.ai、perplexity.ai/hub）によると、データポリシーは以下の通り。\n\nSonar API: ゼロデータリテンション（ZDR）ポリシーを適用。API経由で送信されたデータは保持されず、モデル学習にも使用されない。\n\nEnterprise Pro: 顧客データをシステム改善や学習に使用しない。監査ログ（ログイン試行、データ変更、設定変更の追跡）を提供。データ保持ポリシーは組織ごとにカスタマイズ可能。サードパーティのモデルプロバイダーとの間で、顧客データへのアクセスや学習利用を禁止する正式な契約を締結している。\n\n個人版: アカウント情報はアカウントが有効な限り保持される。アカウント削除後30日以内にデータ削除。ただし個人版における検索クエリやチャットデータの学習利用に関する詳細は不透明な部分が残る。\n\nセキュリティ認証: SOC 2 Type II取得（セキュリティ、可用性、処理完全性、機密性、プライバシーの全5基準をカバー）。Enterprise ProではGDPR、HIPAA準拠を表明。\n\nPick AIの安全性テストで69.1点（5位）となったPerplexityだが、Enterprise Pro向けのセキュリティは着実に強化されている。個人版の透明性向上が今後の課題だ。"
+    },
+    {
+      "heading": "5社比較表: 一目でわかるデータポリシーの違い",
+      "content": "5社のデータポリシーを主要7項目で比較する。\n\nデフォルトの学習利用（個人版）: OpenAI はい（オプトアウト可）、Anthropic コンシューマーは条件付き利用あり、Google はい（オプトアウト可）、xAI はい（オプトアウト可）、Perplexity 不透明。\n\nデフォルトの学習利用（法人版）: OpenAI いいえ、Anthropic いいえ、Google いいえ（Starter除く）、xAI 法人プランなし、Perplexity いいえ。\n\nオプトアウト可否: OpenAI 可、Anthropic 商用はデフォルト不使用、Google 可、xAI 可（遡及なし）、Perplexity 不明確。\n\nAPI時のデータ保持: OpenAI 30日（ZDR可）、Anthropic ZDR対応可、Google Vertex AIは不使用、xAI 明示なし、Perplexity ZDR（Sonar API）。\n\nセキュリティ認証: OpenAI SOC 2 Type II/ISO 27001/ISO 42001、Anthropic SOC 2 Type II/ISO 27001/ISO 42001/HIPAA BAA、Google Google Cloud認証群、xAI 限定的、Perplexity SOC 2 Type II。\n\nデータ処理地域: OpenAI 米国（レジデンシー拡大中）、Anthropic 米国、Google グローバル（リージョン選択可）、xAI 米国、Perplexity 米国。\n\n日本法人: OpenAI あり（OpenAI Japan）、Anthropic なし、Google あり、xAI なし、Perplexity なし。"
+    },
+    {
+      "heading": "Pick AIの安全性テストとの相関",
+      "content": "Pick AIの独自テストによる安全性スコアは、Claude 93.7点（1位）、ChatGPT 90.5点（2位）、Gemini 78.4点（3位）、Grok 69.3点（4位）、Perplexity 69.1点（5位）だ。\n\nこの順位はデータポリシーの透明性・充実度とほぼ一致する。ClaudeとChatGPTは認証の取得数、ZDR対応、法人向けのデフォルト不使用など、ポリシーが最も整備されている。Grokの69.3点は著作権対応の緩さに加え、データポリシーの不透明さも影響していると考えられる。\n\nモデルの安全性はAI側の設計だけでなく、データポリシーの整備度にも左右される。Pick AIでは安全性テストの全結果とモデル別の詳細分析を公開しているので、モデル選択の参考にしていただきたい。"
+    }
+  ]
+}

@@ -1,36 +1,36 @@
 {
   "slug": "claude-vs-gemini-2026",
   "title": "Claude vs Gemini 比較【2026年版】コード力 vs Google統合",
-  "description": "ClaudeとGeminiを独自テストで比較。コーディング51点差の理由とGeminiが勝てる分野を解説。",
-  "publishedAt": "2026-03-22",
-  "updatedAt": "2026-03-22",
+  "description": "ClaudeとGeminiを独自テストで徹底比較。コーディング94.3 vs 43.3の圧倒的差から企画書90 vs 92のGemini勝利まで、データで解説。",
+  "publishedAt": "2026-03-23",
+  "updatedAt": "2026-03-23",
   "category": "comparison",
-  "tags": ["Claude", "Gemini", "比較", "2026年"],
+  "tags": ["Claude", "Gemini", "比較", "コーディング", "Google統合"],
   "readingTime": "7分",
   "sections": [
     {
-      "heading": "結論: コードならClaude、Google連携ならGemini",
-      "content": "ClaudeとGeminiは、AIアシスタントとして全く異なる設計思想を持っている。Anthropicが安全性とコード生成を重視するのに対し、GoogleはGeminiを自社サービスとの統合に最適化している。\n\nPick AIの独自テスト（30項目、100点満点）では、総合スコアはClaude 73.9点、Gemini 60.3点。13.6点差でClaudeが優勢だが、この差の大部分はコーディングカテゴリによるものだ。コーディングを除外すると、差は約5点まで縮まる。\n\nClaude 73.9 vs Gemini 60.3\n\nさらに注目すべきは、Geminiが画像生成と企画書作成でClaudeを上回っている点だ。用途によってはGeminiの方が適切な選択になる。両者の強みと弱みを、カテゴリごとに詳しく見ていこう。"
+      "heading": "結論: 用途が全く違う2モデル",
+      "content": "先に結論を述べる。ClaudeとGeminiは同じ「AIチャット」でも、得意領域がほぼ重ならない。Pick AIの独自テストによると、Claudeの総合スコアは73.9点（5モデル中2位）、Geminiは60.3点（5位）。数字だけ見ればClaude優勢だが、話はそう単純ではない。\n\nClaudeはコーディング94.3点と安全性93.7点で圧倒的な強さを持つ。一方Geminiは企画書92点でClaude（90点）を上回り、Google Workspaceとのネイティブ統合という唯一無二の強みがある。\n\n結局のところ、コードを書くならClaude、Google環境で業務効率化するならGeminiという棲み分けになる。両方を併用するのが最も合理的な選択だ。"
     },
     {
       "heading": "カテゴリ別スコア比較",
-      "content": "Pick AIでは文章生成、コーディング、画像生成、安全性の4カテゴリで採点を行っている。各カテゴリのスコアを比較すると、両者の特性が明確に浮かび上がる。\n\n文章生成: Claude 86.4 / Gemini 75.1\nコーディング: Claude 94.3 / Gemini 43.3\n画像生成: Claude 41.0 / Gemini 62.5\n安全性: Claude 93.7 / Gemini 78.4\n\n最も差が大きいのはコーディングだ。51点の差は全比較組み合わせの中でも最大級の開きである。Claudeが4テスト中3テストで95点前後を記録する一方、Geminiはデバッグテストで15点を記録するなど、安定感に欠ける結果となった。\n\n一方で画像生成ではGeminiが21.5点リードしている。Geminiは Google の画像技術を活用し、特に商品写真風の生成で高いスコアを獲得した。Claudeは画像生成を主力機能としていないため、この差は設計方針の違いとも言える。"
+      "content": "Pick AIの独自テストで5カテゴリを比較した結果を見ていく。\n\n文章生成ではClaude 86.4点に対しGemini 75.1点。11.3点の差がある。特にクレーム対応テストでClaude 94点、Gemini 68点と大差がついた。Claudeは状況の機微を読み取る能力が高く、繊細な文章で差が出る。\n\nコーディングはClaude 94.3点 vs Gemini 43.3点。51点の差は全カテゴリで最大だ。Geminiのデバッグテスト16点は実務で使えるレベルにない。\n\n画像生成ではGemini 62.5点がClaude 41.0点を上回る。Claude（Anthropic）は画像生成を非搭載としているため、この差は当然の結果だ。\n\n安全性はClaude 93.7点 vs Gemini 78.4点。Claudeが全モデル1位、Geminiは3位。企業利用でのリスク管理を重視するならClaude優位だ。"
     },
     {
-      "heading": "Claudeが圧勝する分野: コーディングと安全性",
-      "content": "Claudeの最大の武器はコーディング能力だ。テスト別のスコアを見ると、その実力が明らかになる。\n\n- GAS自動化: Claude 95点、Gemini 55点。Claudeはスプレッドシートの自動集計スクリプトを一発で生成し、エラーハンドリングまで含めた実用的なコードを出力した。Geminiは基本構造は正しいものの、API呼び出し部分に修正が必要だった。\n- Python分析: Claude 92点、Gemini 48点。データ分析のテストでは、Claudeがpandasとmatplotlibを適切に組み合わせた完成度の高いスクリプトを生成。Geminiは動作するが、可視化部分が不十分だった。\n- HTML/CSS: Claude 95点、Gemini 55点。レスポンシブデザインのテストで、Claudeはアクセシビリティ対応まで含めたモダンなコードを出力した。\n- デバッグ: Claude 95点、Gemini 15点。最大の差が出たテストだ。複数のバグが埋め込まれたコードの修正で、Claudeは全バグを特定・修正したが、Geminiは一部のバグしか検出できなかった。\n\n安全性でもClaude 93.7点に対しGemini 78.4点と、15.3点の差がある。特にハルシネーション耐性と著作権対応でClaudeが優れており、企業での利用時にリスクを抑えられる。"
+      "heading": "Claude圧勝: コーディングと安全性",
+      "content": "Claudeが圧倒的に強い分野はコーディングだ。4つのテスト全てでGeminiを大幅に上回っている。\n\nGAS自動化テスト（TEST-CODE-01）はClaude 95点 vs Gemini 72点。Python分析（TEST-CODE-02）はClaude 92点 vs Gemini 6点。HTML/CSS（TEST-CODE-03）はClaude 95点 vs Gemini 79点。デバッグ（TEST-CODE-04）はClaude 95点 vs Gemini 16点。\n\nPython分析でGeminiが6点という壊滅的なスコアを出している点は注目に値する。Geminiにコード生成を任せるのは現時点ではリスクが高い。\n\nClaude Codeというターミナル型のコーディングエージェントも提供されており、開発者にとってClaude一択という状況が続いている。安全性でもClaude 93.7点はハルシネーション抑制、著作権配慮の両面で高い評価を得た。"
     },
     {
-      "heading": "Geminiが勝てる分野: 画像生成とGoogle連携",
-      "content": "Geminiが明確にClaudeを上回る分野がある。まず画像生成だ。\n\n画像生成: Gemini 62.5 vs Claude 41.0\n\nGeminiはGoogleの画像生成技術Imagenを統合しており、特に写実的な画像の品質が高い。商品写真風の画像生成テストでは、Geminiが75点を記録し、Claudeの45点を大きく上回った。\n\nもう一つの強みは企画書作成だ。\n\n企画書: Gemini 92 vs Claude 90\n\n僅差ではあるが、GeminiはGoogle検索の最新データを参照しながら企画書を作成できるため、市場データや競合情報を含む文書で精度が高い。Claudeが内部知識に基づいて作成するのに対し、Geminiはリアルタイムの情報を織り込める点が強みとなっている。\n\nさらに、GeminiはGmailやGoogle ドキュメントなどのワークスペースとの連携が進んでおり、Google中心の業務フローを持つ企業にとっては、この統合性が大きな価値になる。"
+      "heading": "Gemini勝利: 企画書と画像生成",
+      "content": "Geminiが勝つ分野は限定的だが確実に存在する。\n\n企画書テスト（TEST-04）ではGemini 92点、Claude 90点。わずか2点差だが、構造化された提案書の作成ではGeminiが上回った。Google Docsとの連携で企画書をそのまま共有・編集できる点も実務上の強みだ。\n\n画像生成はGemini 62.5点 vs Claude 41.0点。Geminiはロゴデザイン77点で全モデル1位を獲得している。Claudeが画像生成に非対応である以上、ビジュアル制作が必要な場面ではGeminiに軍配が上がる。\n\nまた、Google Workspace統合はGemini固有の価値だ。Gmail、Googleドキュメント、スプレッドシート、カレンダーとシームレスに連携し、日常業務の中でAIを活用できる。この統合体験は他のどのAIにもない。"
     },
     {
-      "heading": "料金比較: コスパならGemini",
-      "content": "Claude Pro: 月額20ドル（約3,000円）\nGemini Advanced: 月額19.99ドル（約3,000円）、Google One 2TBストレージ付き\n\n月額はほぼ同じだが、GeminiはGoogle One 2TBのクラウドストレージが付属する。既にGoogle Oneを契約している人にとっては、実質的にAI機能が無料で追加される計算になる。\n\nAPI料金ではGeminiの方が安価だ。Gemini 2.5 Proの入力トークン単価はClaude 3.5 Sonnetの約半額で、大量のAPI呼び出しが必要な開発者にはコストメリットがある。ただし、コーディング品質の差を考慮すると、修正工数も含めたトータルコストではClaudeが有利になる場合も多い。\n\n無料枠はどちらも用意されており、機能制限はあるが基本的な文章生成は試せる。まずは無料で両方を試し、自分の用途との相性を確認するのが賢明だ。"
+      "heading": "料金比較",
+      "content": "両モデルの料金体系を比較する。\n\nClaude: 無料プラン（Sonnet、日次上限あり）とPro（月額20ドル / 約3,000円）。ProではClaude Opus 4が利用可能になり、コンテキストウィンドウも拡張される。Claude Codeは別途API従量課金。\n\nGemini: 無料プラン（Gemini 2.5 Pro、回数制限あり）とGemini Advanced（月額2,900円、Google One AI Premium）。AdvancedにはGoogle One 2TBストレージが含まれるため、Google環境をフル活用する人にはコストパフォーマンスが高い。\n\n価格帯はほぼ同じだが、Geminiは Google Oneストレージ込みという点で実質的な割安感がある。ただしAI性能だけで比較すればClaude Proの方が総合力は上だ。"
     },
     {
-      "heading": "どっちを選ぶべきか",
-      "content": "Claudeを選ぶべき人:\n- プログラミングやコードレビューが主な用途\n- データの安全性やプライバシーを重視する\n- 長文の分析や要約を頻繁に行う\n- ビジネス文書の品質にこだわる\n\nGeminiを選ぶべき人:\n- Google Workspaceを日常的に使っている\n- 画像生成機能が必要\n- API利用でコストを抑えたい\n- リアルタイム情報を活用した文書作成が多い\n\n迷ったら、まずPick AIの比較ページで各テストの実際の回答を確認してほしい。スコアだけでなく、出力の質を自分の目で見ることで、どちらが自分の用途に合うかが判断できる。Pick AIでは全モデルの回答を並べて比較できるため、抽象的なレビューに頼らず具体的な出力品質で選べる。"
+      "heading": "選び方: あなたに合うのはどちらか",
+      "content": "Claudeを選ぶべき人は明確だ。コーディングが業務に含まれる人、安全性・コンプライアンスを最優先にする企業ユーザー、長文の文書作成や繊細なトーン調整が必要な人。これらに当てはまるならClaude一択と言っていい。\n\nGeminiを選ぶべき人も明確だ。Google Workspaceをフル活用している人、企画書やプレゼン資料の作成が多い人、画像生成もAIチャット内で完結させたい人。Google環境との統合はGeminiだけの武器だ。\n\nただし、最も合理的なのは併用だ。メインをClaudeにしてコーディングと文書作成を任せ、Google Workspace連携や画像生成が必要な場面でGeminiを使う。Pick AIのテストデータが示す通り、2つのモデルは弱点を互いに補完する関係にある。各モデルの全テスト結果と回答全文は、Pick AIの詳細ページで確認できる。"
     }
   ]
 }

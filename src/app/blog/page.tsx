@@ -20,8 +20,11 @@ import a13 from "@/data/blog/claude-review-2026.json";
 import a14 from "@/data/blog/gemini-review-2026.json";
 import a15 from "@/data/blog/grok-review-2026.json";
 import a16 from "@/data/blog/perplexity-review-2026.json";
+import a17 from "@/data/blog/ai-privacy-by-usecase-2026.json";
+import a18 from "@/data/blog/ai-company-guidelines-template-2026.json";
+import a19 from "@/data/blog/ai-data-policy-comparison-2026.json";
 
-const articles = [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16].sort(
+const articles = [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19].sort(
   (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
 );
 
