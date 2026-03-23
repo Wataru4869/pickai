@@ -4,24 +4,24 @@ import { Sidebar } from "@/components/Sidebar";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "【2026年最新】AIツール比較おすすめランキング | Pick AI",
+  title: "【2026年最新】AIツール比較おすすめランキング | AI選び",
   description:
     "ChatGPT・Claude・Gemini・Grok・Perplexityを独自30テストで徹底比較。文章生成・コーディング・画像生成・安全性を5軸で採点。用途別おすすめAIが見つかります。",
   openGraph: {
-    title: "【2026年最新】AIツール比較おすすめランキング | Pick AI",
+    title: "【2026年最新】AIツール比較おすすめランキング | AI選び",
     description: "6カテゴリ38ツールを網羅。独自30テストで徹底比較。",
-    url: "https://pickai.jp",
-    siteName: "Pick AI",
+    url: "https://aierabi.jp",
+    siteName: "AI選び",
     locale: "ja_JP",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "【2026年最新】AIツール比較おすすめランキング | Pick AI",
+    title: "【2026年最新】AIツール比較おすすめランキング | AI選び",
     description: "6カテゴリ38ツールを網羅。独自30テストで徹底比較。",
   },
   alternates: {
-    canonical: "https://pickai.jp",
+    canonical: "https://aierabi.jp",
   },
 };
 

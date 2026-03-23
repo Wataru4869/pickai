@@ -10,7 +10,7 @@
   "sections": [
     {
       "heading": "結論: 総合力のChatGPT、文章特化のGrok",
-      "content": "Pick AIの独自テストによると、ChatGPTの総合スコアは86.5点（1位）、Grokは72.1点（3位）。14.4点の差があるが、内訳を見ると意外な構図が浮かぶ。\n\n文章生成ではGrok 86.8点がChatGPT 86.3点をわずかに上回り、全モデル1位だ。コーディングもGrok 86.3点 vs ChatGPT 81.3点でGrokが5点リードしている。この2カテゴリだけ見ればGrok優勢だ。\n\nしかし画像生成でChatGPT 92.0点 vs Grok 43.3点、安全性でChatGPT 90.5点 vs Grok 69.3点と大差がつく。この2カテゴリの差が総合スコアの差を決定している。\n\nつまり、文章とコードだけならGrokの方が上。画像生成と安全性を加えた総合力ではChatGPTが圧倒。用途が明確なら選択は簡単だ。"
+      "content": "AI選びの独自テストによると、ChatGPTの総合スコアは86.5点（1位）、Grokは72.1点（3位）。14.4点の差があるが、内訳を見ると意外な構図が浮かぶ。\n\n文章生成ではGrok 86.8点がChatGPT 86.3点をわずかに上回り、全モデル1位だ。コーディングもGrok 86.3点 vs ChatGPT 81.3点でGrokが5点リードしている。この2カテゴリだけ見ればGrok優勢だ。\n\nしかし画像生成でChatGPT 92.0点 vs Grok 43.3点、安全性でChatGPT 90.5点 vs Grok 69.3点と大差がつく。この2カテゴリの差が総合スコアの差を決定している。\n\nつまり、文章とコードだけならGrokの方が上。画像生成と安全性を加えた総合力ではChatGPTが圧倒。用途が明確なら選択は簡単だ。"
     },
     {
       "heading": "Grok勝利: 文章生成とコーディング",
@@ -26,7 +26,7 @@
     },
     {
       "heading": "料金比較と選び方",
-      "content": "ChatGPT Plus: 月額20ドル（約3,000円）。GPT-4o、DALL-E 3、ウェブ検索、Advanced Data Analysisが利用可能。\n\nGrok: X Premium+（月額16ドル / 約2,400円）でフル機能利用可能。SuperGrok（月額30ドル）で上限拡張。\n\nX Premium+は ChatGPT Plusより4ドル安いが、Xの各種機能も含まれるため単純比較はしにくい。AIツール単体としてのコスパならChatGPTが優位だ。\n\n選び方の指針は明確だ。画像生成が必要ならChatGPT。安全性を重視するならChatGPT。議事録やSNS投稿が中心ならGrok。コーディングが多いならGrok（ただしClaudeの方がさらに上）。\n\n最も合理的な選択は併用だ。メインをChatGPTにして画像生成と安全性をカバーし、議事録やSNS投稿の作成にGrokを使う。文章力ではGrokが僅差で上回るため、テキスト特化タスクではGrokの方が高品質な出力が得られる。詳細なテスト結果と回答全文はPick AIで確認できる。"
+      "content": "ChatGPT Plus: 月額20ドル（約3,000円）。GPT-4o、DALL-E 3、ウェブ検索、Advanced Data Analysisが利用可能。\n\nGrok: X Premium+（月額16ドル / 約2,400円）でフル機能利用可能。SuperGrok（月額30ドル）で上限拡張。\n\nX Premium+は ChatGPT Plusより4ドル安いが、Xの各種機能も含まれるため単純比較はしにくい。AIツール単体としてのコスパならChatGPTが優位だ。\n\n選び方の指針は明確だ。画像生成が必要ならChatGPT。安全性を重視するならChatGPT。議事録やSNS投稿が中心ならGrok。コーディングが多いならGrok（ただしClaudeの方がさらに上）。\n\n最も合理的な選択は併用だ。メインをChatGPTにして画像生成と安全性をカバーし、議事録やSNS投稿の作成にGrokを使う。文章力ではGrokが僅差で上回るため、テキスト特化タスクではGrokの方が高品質な出力が得られる。詳細なテスト結果と回答全文はAI選びで確認できる。"
     }
   ]
 }

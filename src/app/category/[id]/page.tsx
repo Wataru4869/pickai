@@ -16,7 +16,7 @@ export function generateMetadata({ params }: { params: { id: string } }) {
   const cat = getCategoryById(params.id);
   if (!cat) return {};
   return {
-    title: `${cat.nameJapanese}AI比較｜外部ベンチマーク＋独自テスト｜Pick AI`,
+    title: `${cat.nameJapanese}AI比較｜外部ベンチマーク＋独自テスト｜AI選び`,
     description: cat.description,
   };
 }
@@ -53,11 +53,11 @@ export default function CategoryDetailPage({ params }: { params: { id: string } 
             <SectionHeader title={bench.name} />
             <div className="flex items-center gap-2 mb-2">
               <span className={`text-[10px] px-1.5 py-0.5 rounded font-bold ${
-                bench.source.includes("独自") || bench.source.includes("Pick AI")
+                bench.source.includes("独自") || bench.source.includes("AI選び")
                   ? "bg-green-50 text-green-700"
                   : "bg-blue-50 text-blue-600"
               }`}>
-                {bench.source.includes("独自") || bench.source.includes("Pick AI")
+                {bench.source.includes("独自") || bench.source.includes("AI選び")
                   ? "独自テスト"
                   : "外部ベンチマーク"}
               </span>
@@ -185,11 +185,11 @@ export default function CategoryDetailPage({ params }: { params: { id: string } 
           <div>
             <div className="text-[12px] font-bold">シェア</div>
             <div className="text-[11px] text-[#6e6e73] mt-0.5">
-              「{cat.nameJapanese}AI比較 #PickAI」
+              「{cat.nameJapanese}AI比較 #AI選び」
             </div>
           </div>
           <ShareButton
-            text={`${cat.nameJapanese}AI比較 - 外部ベンチマーク＋独自テストで徹底比較 #PickAI https://pickai.jp/category/${cat.id}`}
+            text={`${cat.nameJapanese}AI比較 - 外部ベンチマーク＋独自テストで徹底比較 #AI選び https://aierabi.jp/category/${cat.id}`}
           />
         </div>
       </Block>

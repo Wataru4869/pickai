@@ -1,6 +1,6 @@
 import { Header, Footer, Block, SectionHeader } from "@/components/ui";
 
-export const metadata = { title: "AIツールカテゴリ別比較【画像・動画・コーディング・エージェント・検索】| Pick AI" };
+export const metadata = { title: "AIツールカテゴリ別比較【画像・動画・コーディング・エージェント・検索】| AI選び" };
 
 const categories = [
   { id: "image-generation", label: "画像生成AI", tools: 7, description: "Midjourney、DALL-E 3、Stable Diffusionなど" },

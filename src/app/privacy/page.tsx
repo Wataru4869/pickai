@@ -1,7 +1,7 @@
 import { Header, Footer, Block, SectionHeader } from "@/components/ui";
 
 export const metadata = {
-  title: "プライバシーポリシー | Pick AI",
+  title: "プライバシーポリシー | AI選び",
 };
 
 export default function PrivacyPage() {
@@ -21,7 +21,7 @@ export default function PrivacyPage() {
 
           <div>
             <h2 className="text-[14px] font-semibold mb-1.5">運営者</h2>
-            <p className="text-[#6e6e73]">Pick AI編集部</p>
+            <p className="text-[#6e6e73]">AI選び編集部</p>
           </div>
 
           <div>

@@ -20,7 +20,7 @@ export function generateMetadata({ params }: { params: { id: string } }) {
   const model = models.find((m) => m.id === params.id);
   if (!model) return {};
   return {
-    title: `${model.name}の評価・料金【2026年最新】| Pick AI`,
+    title: `${model.name}の評価・料金【2026年最新】| AI選び`,
     description: `${model.name}（${model.provider}）を独自テストで評価。文章${model.scores.writing}点・コード${model.scores.coding}点・画像${model.scores.image}点・安全性${model.scores.safety}点。`,
   };
 }
@@ -269,7 +269,7 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
       {/* Verdict */}
       {details?.verdict && (
         <Block>
-          <SectionHeader title="Pick AIの総評" />
+          <SectionHeader title="AI選びの総評" />
           <div className="bg-gradient-to-br from-[#f8f6f0] to-[#f5f5f7] border border-[#e8e8ed] rounded-lg p-4">
             <p className="text-[13px] text-[#1d1d1f] leading-relaxed font-medium">{details.verdict}</p>
           </div>
@@ -320,11 +320,11 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
           <div>
             <div className="text-[12px] font-bold">シェア</div>
             <div className="text-[11px] text-[#6e6e73] mt-0.5">
-              「{model.name}の評価：総合{model.scores.overall}点 #PickAI」
+              「{model.name}の評価：総合{model.scores.overall}点 #AI選び」
             </div>
           </div>
           <ShareButton
-            text={`${model.name}の評価：総合${model.scores.overall}点、コード${model.scores.coding}点、安全性${model.scores.safety}点 #PickAI https://pickai.jp/model/${model.id}`}
+            text={`${model.name}の評価：総合${model.scores.overall}点、コード${model.scores.coding}点、安全性${model.scores.safety}点 #AI選び https://aierabi.jp/model/${model.id}`}
           />
         </div>
       </Block>

@@ -38,9 +38,9 @@ function SidebarContent({ pathname, onNavigate }: { pathname: string; onNavigate
       {/* Logo */}
       <div className="px-4 py-4 border-b border-[#e8e8ed]">
         <a href="/" className="flex items-baseline gap-0.5 no-underline" onClick={onNavigate}>
-          <span className="text-[18px] font-medium tracking-tight text-[#1d1d1f]">Pick</span>
-          <span className="text-[18px] font-light text-[#d2d2d7]">|</span>
           <span className="text-[18px] font-medium tracking-tight text-[#1d1d1f]">AI</span>
+          <span className="text-[18px] font-light text-[#d2d2d7]">|</span>
+          <span className="text-[18px] font-medium tracking-tight text-[#1d1d1f]">選び</span>
         </a>
       </div>
 
@@ -96,7 +96,7 @@ function SidebarContent({ pathname, onNavigate }: { pathname: string; onNavigate
 
       {/* Footer */}
       <div className="px-4 py-3 border-t border-[#e8e8ed] text-[10px] text-[#86868b]">
-        © 2026 Pick AI
+        © 2026 AI選び
       </div>
     </div>
   );
@@ -143,9 +143,9 @@ export function Sidebar({ children }: { children: React.ReactNode }) {
             </svg>
           </button>
           <a href="/" className="flex items-baseline gap-0.5 no-underline">
-            <span className="text-[18px] font-medium tracking-tight text-[#1d1d1f]">Pick</span>
-            <span className="text-[18px] font-light text-[#d2d2d7]">|</span>
             <span className="text-[18px] font-medium tracking-tight text-[#1d1d1f]">AI</span>
+            <span className="text-[18px] font-light text-[#d2d2d7]">|</span>
+            <span className="text-[18px] font-medium tracking-tight text-[#1d1d1f]">選び</span>
           </a>
           <div className="w-8" /> {/* spacer for centering */}
         </div>
@@ -163,9 +163,9 @@ export function Sidebar({ children }: { children: React.ReactNode }) {
           >
             <div className="flex items-center justify-between px-4 py-3 border-b border-[#e8e8ed]">
               <a href="/" className="flex items-baseline gap-0.5 no-underline">
-                <span className="text-[18px] font-medium tracking-tight text-[#1d1d1f]">Pick</span>
-                <span className="text-[18px] font-light text-[#d2d2d7]">|</span>
                 <span className="text-[18px] font-medium tracking-tight text-[#1d1d1f]">AI</span>
+                <span className="text-[18px] font-light text-[#d2d2d7]">|</span>
+                <span className="text-[18px] font-medium tracking-tight text-[#1d1d1f]">選び</span>
               </a>
               <button
                 onClick={() => setOpen(false)}

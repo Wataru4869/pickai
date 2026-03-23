@@ -1,7 +1,7 @@
 import { Header, Footer, Block, SectionHeader } from "@/components/ui";
 
 export const metadata = {
-  title: "運営者情報 | Pick AI",
+  title: "運営者情報 | AI選び",
 };
 
 export default function AboutPage() {
@@ -11,7 +11,7 @@ export default function AboutPage() {
 
       <div className="bg-white py-6">
         <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
-          <h1 className="text-[20px] font-bold text-[#1d1d1f] mb-1">Pick AI について</h1>
+          <h1 className="text-[20px] font-bold text-[#1d1d1f] mb-1">AI選び について</h1>
         </div>
       </div>
 
@@ -20,13 +20,13 @@ export default function AboutPage() {
 
           <div>
             <h2 className="text-[14px] font-semibold mb-1.5">運営</h2>
-            <p className="text-[#6e6e73]">Pick AI編集部</p>
+            <p className="text-[#6e6e73]">AI選び編集部</p>
           </div>
 
           <div>
             <h2 className="text-[14px] font-semibold mb-1.5">サイト概要</h2>
             <p className="text-[#6e6e73]">
-              Pick AIは、主要AIツールを独自テストで評価・比較する情報サイトです。ChatGPT、Claude、Gemini、Grok、Perplexityを含む6カテゴリ38ツールを、独自の30テスト＋安全性14テストで検証しています。
+              AI選びは、主要AIツールを独自テストで評価・比較する情報サイトです。ChatGPT、Claude、Gemini、Grok、Perplexityを含む6カテゴリ38ツールを、独自の30テスト＋安全性14テストで検証しています。
             </p>
           </div>
 

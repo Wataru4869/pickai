@@ -38,7 +38,7 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   const b = models.find((m) => m.id === parsed[1]);
   if (!a || !b) return {};
   return {
-    title: `${a.name} vs ${b.name} 比較【2026年版】| Pick AI`,
+    title: `${a.name} vs ${b.name} 比較【2026年版】| AI選び`,
     description: `${a.name}と${b.name}を全16テスト＋安全性14項目で直接比較。文章・コード・画像・安全性・料金のどこで差がつくか一目でわかります。`,
   };
 }

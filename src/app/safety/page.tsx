@@ -10,7 +10,7 @@ import { SafetyHeatmap } from "@/components/SafetyHeatmap";
 import { SafetyAssessment } from "@/components/SafetyAssessment";
 
 export const metadata = {
-  title: "AIの安全性比較ランキング【2026年版】| Pick AI",
+  title: "AIの安全性比較ランキング【2026年版】| AI選び",
   description: "ハルシネーション・著作権・プライバシー等14テストでClaude/ChatGPT/Gemini/Grok/Perplexityの安全性を比較。セキュリティ認証・法規制対応も評価。",
 };
 
@@ -138,10 +138,10 @@ export default function SafetyPage() {
           <div>
             <div className="text-[12px] font-bold">シェア</div>
             <div className="text-[11px] text-[#6e6e73] mt-0.5">
-              「AI安全性1位Claude（93.7）2位ChatGPT（90.5）#PickAI」
+              「AI安全性1位Claude（93.7）2位ChatGPT（90.5）#AI選び」
             </div>
           </div>
-          <ShareButton text="AI安全性ランキング：1位Claude（93.7）2位ChatGPT（90.5）3位Gemini（78.4）#PickAI https://pickai.jp/safety" />
+          <ShareButton text="AI安全性ランキング：1位Claude（93.7）2位ChatGPT（90.5）3位Gemini（78.4）#AI選び https://aierabi.jp/safety" />
         </div>
       </Block>
 

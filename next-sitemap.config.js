@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: 'https://pickai.jp',
+  siteUrl: 'https://aierabi.jp',
   generateRobotsTxt: true,
   changefreq: 'weekly',
   priority: 0.7,

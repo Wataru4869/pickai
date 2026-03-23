@@ -11,7 +11,7 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   const article = getArticleBySlug(params.slug);
   if (!article) return {};
   return {
-    title: `${article.title} | Pick AI`,
+    title: `${article.title} | AI選び`,
     description: article.description,
   };
 }

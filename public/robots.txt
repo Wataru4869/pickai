@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://pickai.jp
+Host: https://aierabi.jp
 
 # Sitemaps
-Sitemap: https://pickai.jp/sitemap.xml
+Sitemap: https://aierabi.jp/sitemap.xml

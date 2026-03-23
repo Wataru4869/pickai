@@ -44,8 +44,8 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "Pick AI",
-        "url": "https://pickai.jp",
+        "name": "AI選び",
+        "url": "https://aierabi.jp",
         "description": "AIツール比較ガイド。6カテゴリ38ツールを独自テストで徹底比較。"
       }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
@@ -55,7 +55,7 @@ export default function HomePage() {
         "itemListOrder": "https://schema.org/ItemListOrderDescending",
         "numberOfItems": 5,
         "itemListElement": rankedModels.map((m: any) => ({
-          "@type": "ListItem", "position": m.rank, "name": m.name, "url": `https://pickai.jp/model/${m.id}`
+          "@type": "ListItem", "position": m.rank, "name": m.name, "url": `https://aierabi.jp/model/${m.id}`
         }))
       }) }} />
 
@@ -302,10 +302,10 @@ export default function HomePage() {
           <div>
             <div className="text-[12px] font-bold">この比較結果をシェア</div>
             <div className="text-[10px] text-[#6e6e73] mt-0.5">
-              「2026年AI比較：総合1位ChatGPT、コード最強Claude #PickAI」
+              「2026年AI比較：総合1位ChatGPT、コード最強Claude #AI選び」
             </div>
           </div>
-          <ShareButton text="2026年AI比較：総合1位ChatGPT（86.5）コード最強Claude（94.3）安全性もClaude（93.7）#PickAI https://pickai.jp" />
+          <ShareButton text="2026年AI比較：総合1位ChatGPT（86.5）コード最強Claude（94.3）安全性もClaude（93.7）#AI選び https://aierabi.jp" />
         </div>
         <div className="mt-3">
           <TrustBadges />
