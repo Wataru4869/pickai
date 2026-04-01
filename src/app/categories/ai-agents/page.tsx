@@ -4,6 +4,12 @@ import data from "@/data/category_ai_agents.json";
 export const metadata = {
   title: "AIエージェント おすすめ5選比較【2026年最新】| AI選び",
   description: "Manus・Genspark Claw・Devin・Claude Computer Use・OpenAI Operatorを5軸で比較。",
+  alternates: { canonical: "/categories/ai-agents" },
+  openGraph: {
+    title: "AIエージェント おすすめ5選比較【2026年最新】| AI選び",
+    description: "Manus・Genspark Claw・Devin・Claude Computer Use・OpenAI Operatorを5軸で比較。",
+    url: "/categories/ai-agents",
+  },
 };
 
 export default function AIAgentsPage() {

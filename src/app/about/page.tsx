@@ -2,6 +2,8 @@ import { Header, Footer, Block, SectionHeader } from "@/components/ui";
 
 export const metadata = {
   title: "運営者情報 | AI選び",
+  alternates: { canonical: "/about" },
+  openGraph: { title: "運営者情報 | AI選び", url: "/about" },
 };
 
 export default function AboutPage() {

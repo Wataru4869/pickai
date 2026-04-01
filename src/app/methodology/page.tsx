@@ -4,6 +4,12 @@ import { PromptAccordion } from "@/components/PromptAccordion";
 export const metadata = {
   title: "評価方法論・採点基準 | AI選び",
   description: "30テストのプロンプト全文、3層スコアリング方式、公平性担保の仕組みを完全公開。第三者による追検証が可能です。",
+  alternates: { canonical: "/methodology" },
+  openGraph: {
+    title: "評価方法論・採点基準 | AI選び",
+    description: "30テストのプロンプト全文、3層スコアリング方式、公平性担保の仕組みを完全公開。第三者による追検証が可能です。",
+    url: "/methodology",
+  },
 };
 
 export default function MethodologyPage() {

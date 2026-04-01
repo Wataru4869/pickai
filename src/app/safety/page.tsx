@@ -12,6 +12,12 @@ import { SafetyAssessment } from "@/components/SafetyAssessment";
 export const metadata = {
   title: "AIの安全性比較ランキング【2026年版】| AI選び",
   description: "ハルシネーション・著作権・プライバシー等14テストでClaude/ChatGPT/Gemini/Grok/Perplexityの安全性を比較。セキュリティ認証・法規制対応も評価。",
+  alternates: { canonical: "/safety" },
+  openGraph: {
+    title: "AIの安全性比較ランキング【2026年版】| AI選び",
+    description: "ハルシネーション・著作権・プライバシー等14テストでClaude/ChatGPT/Gemini/Grok/Perplexityの安全性を比較。セキュリティ認証・法規制対応も評価。",
+    url: "/safety",
+  },
 };
 
 export default function SafetyPage() {

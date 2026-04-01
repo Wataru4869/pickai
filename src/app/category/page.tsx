@@ -4,6 +4,12 @@ import { Header, Footer, Block, SectionHeader, TrustBadges } from "@/components/
 export const metadata = {
   title: "カテゴリ別AI比較｜動画・翻訳・デザイン・コーディング｜AI選び",
   description: "動画生成・翻訳・デザイン・コーディング・リサーチ・文章生成の各カテゴリで、AIモデルと専門ツールを外部ベンチマークデータで比較。",
+  alternates: { canonical: "/category" },
+  openGraph: {
+    title: "カテゴリ別AI比較｜動画・翻訳・デザイン・コーディング｜AI選び",
+    description: "動画生成・翻訳・デザイン・コーディング・リサーチ・文章生成の各カテゴリで、AIモデルと専門ツールを外部ベンチマークデータで比較。",
+    url: "/category",
+  },
 };
 
 export default function CategoryListPage() {

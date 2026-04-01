@@ -15,9 +15,12 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { id: string } }) {
   const cat = getCategoryById(params.id);
   if (!cat) return {};
+  const title = `${cat.nameJapanese}AI比較｜外部ベンチマーク＋独自テスト｜AI選び`;
   return {
-    title: `${cat.nameJapanese}AI比較｜外部ベンチマーク＋独自テスト｜AI選び`,
+    title,
     description: cat.description,
+    alternates: { canonical: `/category/${params.id}` },
+    openGraph: { title, description: cat.description, url: `/category/${params.id}` },
   };
 }
 

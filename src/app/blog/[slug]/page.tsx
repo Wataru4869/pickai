@@ -10,9 +10,17 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }) {
   const article = getArticleBySlug(params.slug);
   if (!article) return {};
+  const title = `${article.title} | AI選び`;
   return {
-    title: `${article.title} | AI選び`,
+    title,
     description: article.description,
+    alternates: { canonical: `/blog/${params.slug}` },
+    openGraph: {
+      title,
+      description: article.description,
+      url: `/blog/${params.slug}`,
+      type: "article",
+    },
   };
 }
 

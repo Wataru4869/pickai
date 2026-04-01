@@ -2,6 +2,8 @@ import { Header, Footer, Block, SectionHeader } from "@/components/ui";
 
 export const metadata = {
   title: "プライバシーポリシー | AI選び",
+  alternates: { canonical: "/privacy" },
+  openGraph: { title: "プライバシーポリシー | AI選び", url: "/privacy" },
 };
 
 export default function PrivacyPage() {

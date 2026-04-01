@@ -37,9 +37,13 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   const a = models.find((m) => m.id === parsed[0]);
   const b = models.find((m) => m.id === parsed[1]);
   if (!a || !b) return {};
+  const title = `${a.name} vs ${b.name} 比較【2026年版】| AI選び`;
+  const description = `${a.name}と${b.name}を全16テスト＋安全性14項目で直接比較。文章・コード・画像・安全性・料金のどこで差がつくか一目でわかります。`;
   return {
-    title: `${a.name} vs ${b.name} 比較【2026年版】| AI選び`,
-    description: `${a.name}と${b.name}を全16テスト＋安全性14項目で直接比較。文章・コード・画像・安全性・料金のどこで差がつくか一目でわかります。`,
+    title,
+    description,
+    alternates: { canonical: `/compare/${params.slug}` },
+    openGraph: { title, description, url: `/compare/${params.slug}` },
   };
 }
 

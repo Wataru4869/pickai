@@ -4,6 +4,12 @@ import data from "@/data/category_image_generation.json";
 export const metadata = {
   title: "画像生成AI おすすめ7選比較【2026年最新】| AI選び",
   description: "Midjourney・DALL-E 3・Stable Diffusion・Adobe Firefly・Canva AI・Ideogram・Leonardo AIを5軸で比較。",
+  alternates: { canonical: "/categories/image-generation" },
+  openGraph: {
+    title: "画像生成AI おすすめ7選比較【2026年最新】| AI選び",
+    description: "Midjourney・DALL-E 3・Stable Diffusion・Adobe Firefly・Canva AI・Ideogram・Leonardo AIを5軸で比較。",
+    url: "/categories/image-generation",
+  },
 };
 
 export default function ImageGenerationPage() {

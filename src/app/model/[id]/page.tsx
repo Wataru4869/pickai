@@ -19,9 +19,13 @@ export function generateMetadata({ params }: { params: { id: string } }) {
   const models = getAllModels();
   const model = models.find((m) => m.id === params.id);
   if (!model) return {};
+  const title = `${model.name}の評価・料金【2026年最新】| AI選び`;
+  const description = `${model.name}（${model.provider}）を独自テストで評価。文章${model.scores.writing}点・コード${model.scores.coding}点・画像${model.scores.image}点・安全性${model.scores.safety}点。`;
   return {
-    title: `${model.name}の評価・料金【2026年最新】| AI選び`,
-    description: `${model.name}（${model.provider}）を独自テストで評価。文章${model.scores.writing}点・コード${model.scores.coding}点・画像${model.scores.image}点・安全性${model.scores.safety}点。`,
+    title,
+    description,
+    alternates: { canonical: `/model/${params.id}` },
+    openGraph: { title, description, url: `/model/${params.id}` },
   };
 }
 
