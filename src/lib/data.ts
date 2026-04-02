@@ -49,24 +49,24 @@ export function getSafetyCertifications() {
 }
 
 export function scoreColor(score: number): string {
-  if (score >= 90) return "text-green-700";
-  if (score >= 70) return "text-blue-600";
-  if (score >= 50) return "text-orange-500";
-  return "text-red-600";
+  if (score >= 85) return "text-[#3d7a5f]";
+  if (score >= 70) return "text-[#4a6a8a]";
+  if (score >= 50) return "text-[#b08d57]";
+  return "text-[#a05454]";
 }
 
 export function scoreColorHex(score: number): string {
-  if (score >= 90) return "#1d7d3f";
-  if (score >= 70) return "#0066cc";
-  if (score >= 50) return "#a0820a";
-  return "#c4314b";
+  if (score >= 85) return "#3d7a5f";
+  if (score >= 70) return "#4a6a8a";
+  if (score >= 50) return "#b08d57";
+  return "#a05454";
 }
 
 export function scoreBg(score: number): string {
-  if (score >= 90) return "bg-[#ecf7ef]";
-  if (score >= 70) return "bg-[#eef4fc]";
-  if (score >= 50) return "bg-[#fdf6e3]";
-  return "bg-[#fef1f2]";
+  if (score >= 85) return "bg-[#f0f5f0]";
+  if (score >= 70) return "bg-[#f0f3f7]";
+  if (score >= 50) return "bg-[#f7f4ef]";
+  return "bg-[#f7f0f0]";
 }
 
 export function rankBadgeColor(rank: number): string {

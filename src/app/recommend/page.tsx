@@ -77,11 +77,11 @@ export default function RecommendPage() {
               return (
                 <div key={s.key} className="flex items-center gap-1 flex-1">
                   <div
-                    className={`w-5 h-5 rounded-full flex items-center justify-center text-[11px] font-bold ${
+                    className={`w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold ${
                       isActive
                         ? "bg-[#1d1d1f] text-white"
                         : isPast
-                          ? "bg-green-600 text-white"
+                          ? "bg-[#3d7a5f] text-white"
                           : "bg-[#e8e8ed] text-[#86868b]"
                     }`}
                   >
@@ -89,7 +89,7 @@ export default function RecommendPage() {
                   </div>
                   <span
                     className={`text-[11px] ${
-                      isActive ? "font-bold text-[#0066cc]" : "text-[#86868b]"
+                      isActive ? "font-bold text-[#4a7ab5]" : "text-[#86868b]"
                     }`}
                   >
                     {s.label}
@@ -131,7 +131,7 @@ export default function RecommendPage() {
             職種：{recommendData.roles.find((r) => r.id === selectedRole)?.label}
             <button
               onClick={() => setStep("role")}
-              className="text-[#0066cc] ml-2 hover:underline cursor-pointer bg-transparent border-none"
+              className="text-[#4a7ab5] ml-2 hover:underline cursor-pointer bg-transparent border-none"
             >
               変更
             </button>
@@ -160,7 +160,7 @@ export default function RecommendPage() {
             用途：{recommendData.useCases.find((u) => u.id === selectedUseCase)?.label}
             <button
               onClick={() => setStep("useCase")}
-              className="text-[#0066cc] ml-2 hover:underline cursor-pointer bg-transparent border-none"
+              className="text-[#4a7ab5] ml-2 hover:underline cursor-pointer bg-transparent border-none"
             >
               変更
             </button>
@@ -228,7 +228,7 @@ export default function RecommendPage() {
               </div>
               <a
                 href={`/model/${primaryModel.id}`}
-                className="block text-center text-[11px] text-[#0066cc] mt-2 hover:underline"
+                className="block text-center text-[11px] text-[#4a7ab5] mt-2 hover:underline"
               >
                 {primaryModel.name}の詳細を見る →
               </a>
@@ -246,7 +246,7 @@ export default function RecommendPage() {
                 </div>
                 <a
                   href={`/compare/${primaryModel.id}-vs-${secondaryModel.id}`}
-                  className="block text-[11px] text-[#0066cc] mt-1.5 hover:underline"
+                  className="block text-[11px] text-[#4a7ab5] mt-1.5 hover:underline"
                 >
                   {primaryModel.name} vs {secondaryModel.name}の比較を見る →
                 </a>
@@ -278,7 +278,7 @@ export default function RecommendPage() {
             <div className="flex gap-2">
               <div className="flex-1 border border-[#d2d2d7] rounded p-3 text-center">
                 <div className="text-[11px] font-bold mb-1">{primaryModel.name}</div>
-                <div className="text-[18px] font-bold text-[#0066cc]">
+                <div className="text-[18px] font-bold text-[#4a7ab5]">
                   {selectedBudget === "free"
                     ? "¥0"
                     : `¥${(primaryModel.pricing as any)[selectedBudget === "standard" ? "standard" : "premium"]?.priceJPY?.toLocaleString() || "—"}`}
@@ -288,7 +288,7 @@ export default function RecommendPage() {
               {secondaryModel && (
                 <div className="flex-1 border border-[#d2d2d7] rounded p-3 text-center">
                   <div className="text-[11px] font-bold mb-1">{secondaryModel.name}</div>
-                  <div className="text-[18px] font-bold text-[#0066cc]">
+                  <div className="text-[18px] font-bold text-[#4a7ab5]">
                     {selectedBudget === "free"
                       ? "¥0"
                       : `¥${(secondaryModel.pricing as any)[selectedBudget === "standard" ? "standard" : "premium"]?.priceJPY?.toLocaleString() || "—"}`}
@@ -299,7 +299,7 @@ export default function RecommendPage() {
             </div>
             <a
               href="/cost"
-              className="block text-center text-[11px] text-[#0066cc] mt-2 hover:underline"
+              className="block text-center text-[11px] text-[#4a7ab5] mt-2 hover:underline"
             >
               コスト計算機で年間費用を比較する →
             </a>

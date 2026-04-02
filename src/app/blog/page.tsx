@@ -46,7 +46,7 @@ export default function BlogIndexPage() {
       : articles.filter((a) => a.category === filter);
 
   return (
-    <div className="min-h-screen bg-[#fbfbfd]">
+    <div className="min-h-screen bg-white">
       <Header />
 
       <div className="bg-white py-6">
@@ -86,17 +86,12 @@ export default function BlogIndexPage() {
             <a
               key={article.slug}
               href={`/blog/${article.slug}`}
-              className="block p-4 border border-[#e8e8ed] rounded-lg hover:bg-[#f5f5f7] hover:shadow-md transition-colors no-underline text-inherit"
+              className="block p-4 border border-[#e5e5e5] rounded hover:border-[#4a7ab5] transition-colors no-underline text-inherit"
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className={`text-[10px] px-1.5 py-0.5 rounded font-medium ${
-                      article.category === 'comparison' ? 'bg-[#eef4fc] text-[#0066cc]' :
-                      article.category === 'guide' ? 'bg-[#ecf7ef] text-[#1d7d3f]' :
-                      article.category === 'analysis' ? 'bg-[#f3f0ff] text-[#6B46C1]' :
-                      'bg-[#f5f5f7] text-[#6e6e73]'
-                    } border-none`}>
+                    <span className="text-[10px] px-1.5 py-0.5 rounded font-medium bg-[#fafafa] text-[#666666] border border-[#e5e5e5]">
                       {CATEGORY_LABELS[article.category] || article.category}
                     </span>
                     <span className="text-[10px] text-[#86868b]">{article.readingTime}</span>

@@ -189,11 +189,11 @@ function RichContent({ content }: { content: string }) {
             const keyA = resolveModelKey(node.modelA);
             const keyB = resolveModelKey(node.modelB);
             return (
-              <div key={i} className="flex items-center gap-2 py-1.5 border-b border-[#e8e8ed] last:border-b-0">
+              <div key={i} className="flex items-center gap-2 py-1.5 border-b border-[#f0f0f0] last:border-b-0">
                 <span className="text-[13px] text-[#6e6e73] w-24 shrink-0 text-right">{node.modelA}</span>
-                <div className="flex-1 h-2 bg-[#f5f5f7] rounded-full overflow-hidden">
+                <div className="flex-1 h-2 bg-[#fafafa] rounded-sm overflow-hidden">
                   <div
-                    className="h-full rounded-full"
+                    className="h-full rounded-sm"
                     style={{
                       width: `${node.scoreA}%`,
                       backgroundColor: keyA ? MODEL_COLORS[keyA] : "#86868b",
@@ -213,9 +213,9 @@ function RichContent({ content }: { content: string }) {
                 >
                   {node.scoreB}
                 </span>
-                <div className="flex-1 h-2 bg-[#f5f5f7] rounded-full overflow-hidden">
+                <div className="flex-1 h-2 bg-[#fafafa] rounded-sm overflow-hidden">
                   <div
-                    className="h-full rounded-full"
+                    className="h-full rounded-sm"
                     style={{
                       width: `${node.scoreB}%`,
                       backgroundColor: keyB ? MODEL_COLORS[keyB] : "#86868b",
@@ -231,14 +231,14 @@ function RichContent({ content }: { content: string }) {
             const keyA = resolveModelKey(node.modelA);
             const keyB = resolveModelKey(node.modelB);
             return (
-              <div key={i} className="py-2 border-b border-[#e8e8ed] last:border-b-0">
+              <div key={i} className="py-2 border-b border-[#f0f0f0] last:border-b-0">
                 <div className="text-[12px] font-semibold text-[#1d1d1f] mb-1.5">{node.label}</div>
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
                     <span className="text-[11px] text-[#6e6e73] w-20 shrink-0">{node.modelA}</span>
-                    <div className="flex-1 h-2.5 bg-[#f5f5f7] rounded-full overflow-hidden">
+                    <div className="flex-1 h-2.5 bg-[#fafafa] rounded-sm overflow-hidden">
                       <div
-                        className="h-full rounded-full"
+                        className="h-full rounded-sm"
                         style={{
                           width: `${node.scoreA}%`,
                           backgroundColor: keyA ? MODEL_COLORS[keyA] : "#86868b",
@@ -254,9 +254,9 @@ function RichContent({ content }: { content: string }) {
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-[11px] text-[#6e6e73] w-20 shrink-0">{node.modelB}</span>
-                    <div className="flex-1 h-2.5 bg-[#f5f5f7] rounded-full overflow-hidden">
+                    <div className="flex-1 h-2.5 bg-[#fafafa] rounded-sm overflow-hidden">
                       <div
-                        className="h-full rounded-full"
+                        className="h-full rounded-sm"
                         style={{
                           width: `${node.scoreB}%`,
                           backgroundColor: keyB ? MODEL_COLORS[keyB] : "#86868b",
@@ -350,7 +350,7 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
       <div className="bg-white py-8">
         <div className="max-w-full sm:max-w-[680px] mx-auto px-3 sm:px-4">
           <div className="text-[12px] text-[#86868b] mb-3">
-            <a href="/blog" className="text-[#0066cc] hover:underline no-underline">コラム</a>
+            <a href="/blog" className="text-[#4a7ab5] hover:underline no-underline">コラム</a>
             {" > "}
             <span>{CATEGORY_LABELS[article.category] || article.category}</span>
           </div>
@@ -363,7 +363,7 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
               <span>{article.updatedAt} 更新</span>
             )}
             <span>{article.readingTime}</span>
-            <span className="px-2 py-0.5 rounded bg-[#f5f5f7] text-[#6e6e73] border border-[#e8e8ed] font-medium text-[11px]">
+            <span className="px-2 py-0.5 rounded bg-[#fafafa] text-[#6e6e73] border border-[#f0f0f0] font-medium text-[11px]">
               {CATEGORY_LABELS[article.category] || article.category}
             </span>
           </div>
@@ -375,12 +375,12 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
         <div key={i} className="bg-white">
           <div className="max-w-full sm:max-w-[680px] mx-auto px-3 sm:px-4">
             {i > 0 && (
-              <h2 className="text-[17px] font-semibold text-[#1d1d1f] mt-10 mb-4 pb-2 border-b border-[#e8e8ed]">
+              <h2 className="text-[17px] font-semibold text-[#1d1d1f] mt-10 mb-4 pb-2 border-b border-[#f0f0f0]">
                 {section.heading}
               </h2>
             )}
             {i === 0 && (
-              <h2 className="text-[17px] font-semibold text-[#1d1d1f] mb-4 pb-2 border-b border-[#e8e8ed]">
+              <h2 className="text-[17px] font-semibold text-[#1d1d1f] mb-4 pb-2 border-b border-[#f0f0f0]">
                 {section.heading}
               </h2>
             )}
@@ -394,11 +394,11 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
         <div className="max-w-full sm:max-w-[680px] mx-auto px-3 sm:px-4">
           {/* Tags */}
           {article.tags.length > 0 && (
-            <div className="flex items-center gap-2 flex-wrap mb-6 pt-6 border-t border-[#e8e8ed]">
+            <div className="flex items-center gap-2 flex-wrap mb-6 pt-6 border-t border-[#f0f0f0]">
               {article.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-[11px] px-3 py-1 rounded bg-[#f5f5f7] text-[#6e6e73]"
+                  className="text-[11px] px-3 py-1 rounded bg-[#fafafa] text-[#6e6e73]"
                 >
                   {tag}
                 </span>
@@ -410,13 +410,13 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
           {compareLink && (
             <a
               href={compareLink}
-              className="block p-4 border border-[#e8e8ed] rounded-lg hover:bg-[#f5f5f7] transition-colors no-underline text-inherit mb-4"
+              className="block p-4 border border-[#e5e5e5] rounded hover:border-[#4a7ab5] transition-colors no-underline text-inherit mb-4"
             >
               <div className="text-[12px] text-[#86868b] mb-0.5">関連する比較ページ</div>
               <div className="text-[14px] font-semibold text-[#1d1d1f]">
                 テストごとの詳細スコアを見る
               </div>
-              <div className="text-[11px] text-[#0066cc] mt-1">比較ページを開く →</div>
+              <div className="text-[11px] text-[#4a7ab5] mt-1">比較ページを開く →</div>
             </a>
           )}
 
@@ -429,13 +429,13 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
                   <a
                     key={r.slug}
                     href={`/blog/${r.slug}`}
-                    className="flex items-center justify-between p-3 border border-[#e8e8ed] rounded hover:bg-[#f5f5f7] transition-colors no-underline text-inherit"
+                    className="flex items-center justify-between p-3 border border-[#e5e5e5] rounded hover:border-[#4a7ab5] transition-colors no-underline text-inherit"
                   >
                     <div className="flex-1">
                       <div className="text-[13px] font-semibold text-[#1d1d1f]">{r.title}</div>
                       <div className="text-[11px] text-[#86868b] mt-0.5">{r.readingTime}</div>
                     </div>
-                    <span className="text-[11px] text-[#0066cc] shrink-0 ml-3">読む</span>
+                    <span className="text-[11px] text-[#4a7ab5] shrink-0 ml-3">読む</span>
                   </a>
                 ))}
               </div>
@@ -443,10 +443,10 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
           )}
 
           {/* Back to blog */}
-          <div className="mt-6 pt-4 border-t border-[#e8e8ed]">
+          <div className="mt-6 pt-4 border-t border-[#f0f0f0]">
             <a
               href="/blog"
-              className="text-[13px] text-[#0066cc] hover:underline no-underline"
+              className="text-[13px] text-[#4a7ab5] hover:underline no-underline"
             >
               コラム一覧に戻る →
             </a>

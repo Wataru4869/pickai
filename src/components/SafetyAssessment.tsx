@@ -268,10 +268,10 @@ function getResult(env: string, dataTypes: string[], priority: string): Result {
 }
 
 const RISK_COLORS: Record<string, { bg: string; text: string }> = {
-  "低": { bg: "#ecf7ef", text: "#1d7d3f" },
-  "中": { bg: "#fef9ec", text: "#a0820a" },
-  "中〜高": { bg: "#fef3e0", text: "#c67b00" },
-  "高": { bg: "#fdf0f0", text: "#c4314b" },
+  "低": { bg: "#f0f5f0", text: "#3d7a5f" },
+  "中": { bg: "#f7f4ef", text: "#b08d57" },
+  "中〜高": { bg: "#f7f4ef", text: "#b08d57" },
+  "高": { bg: "#f7f0f0", text: "#a05454" },
 };
 
 export function SafetyAssessment() {
@@ -318,8 +318,8 @@ export function SafetyAssessment() {
           return (
             <div key={s.key} className="flex items-center gap-1 flex-1">
               <div
-                className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold ${
-                  isActive ? "bg-[#1d1d1f] text-white" : isPast ? "bg-green-600 text-white" : "bg-[#e8e8ed] text-[#86868b]"
+                className={`w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold ${
+                  isActive ? "bg-[#1d1d1f] text-white" : isPast ? "bg-[#3d7a5f] text-white" : "bg-[#e8e8ed] text-[#86868b]"
                 }`}
               >
                 {isPast ? "✓" : s.num}
@@ -340,7 +340,7 @@ export function SafetyAssessment() {
             <button
               key={e.id}
               onClick={() => { setEnv(e.id); setStep("data"); }}
-              className="p-3 border border-[#e8e8ed] rounded-lg hover:border-[#86868b] hover:bg-[#f5f5f7] transition-all duration-200 text-left cursor-pointer bg-white text-[12px] font-medium text-[#1d1d1f]"
+              className="p-3 border border-[#e5e5e5] rounded hover:border-[#999999] hover:bg-[#fafafa] transition-colors text-left cursor-pointer bg-white text-[12px] font-medium text-[#333333]"
             >
               {e.label}
             </button>
@@ -353,7 +353,7 @@ export function SafetyAssessment() {
         <div>
           <div className="text-[10px] text-[#86868b] mb-2">
             利用環境: {ENVIRONMENTS.find((e) => e.id === env)?.label}
-            <button onClick={() => setStep("env")} className="text-[#0066cc] ml-2 hover:underline cursor-pointer bg-transparent border-none text-[10px]">変更</button>
+            <button onClick={() => setStep("env")} className="text-[#4a7ab5] ml-2 hover:underline cursor-pointer bg-transparent border-none text-[10px]">変更</button>
           </div>
           <p className="text-[11px] text-[#86868b] mb-2">複数選択可</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -361,10 +361,10 @@ export function SafetyAssessment() {
               <button
                 key={d.id}
                 onClick={() => toggleData(d.id)}
-                className={`p-3 border rounded-lg transition-all duration-200 text-left cursor-pointer text-[12px] font-medium ${
+                className={`p-3 border rounded transition-all duration-200 text-left cursor-pointer text-[12px] font-medium ${
                   dataTypes.includes(d.id)
-                    ? "border-[#0066cc] bg-[#eef4fc] text-[#0066cc]"
-                    : "border-[#e8e8ed] bg-white text-[#1d1d1f] hover:border-[#86868b] hover:bg-[#f5f5f7]"
+                    ? "border-[#4a7ab5] bg-[#f0f3f7] text-[#4a7ab5]"
+                    : "border-[#e5e5e5] bg-white text-[#333333] hover:border-[#999999] hover:bg-[#fafafa]"
                 }`}
               >
                 {d.label}
@@ -373,7 +373,7 @@ export function SafetyAssessment() {
           </div>
           <button
             onClick={() => { if (dataTypes.length === 0) setDataTypes(["general"]); setStep("priority"); }}
-            className="mt-3 px-4 py-2 bg-[#1d1d1f] text-white rounded-lg text-[12px] font-semibold cursor-pointer border-none hover:opacity-90 transition-opacity"
+            className="mt-3 px-4 py-2 bg-[#1d1d1f] text-white rounded text-[12px] font-semibold cursor-pointer border-none hover:opacity-90 transition-opacity"
           >
             次へ
           </button>
@@ -385,14 +385,14 @@ export function SafetyAssessment() {
         <div>
           <div className="text-[10px] text-[#86868b] mb-2">
             データ: {dataTypes.map((d) => DATA_TYPES.find((dt) => dt.id === d)?.label?.split("（")[0]).join("、")}
-            <button onClick={() => setStep("data")} className="text-[#0066cc] ml-2 hover:underline cursor-pointer bg-transparent border-none text-[10px]">変更</button>
+            <button onClick={() => setStep("data")} className="text-[#4a7ab5] ml-2 hover:underline cursor-pointer bg-transparent border-none text-[10px]">変更</button>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {PRIORITIES.map((p) => (
               <button
                 key={p.id}
                 onClick={() => { setPriority(p.id); setStep("result"); }}
-                className="p-3 border border-[#e8e8ed] rounded-lg hover:border-[#86868b] hover:bg-[#f5f5f7] transition-all duration-200 text-left cursor-pointer bg-white text-[12px] font-medium text-[#1d1d1f]"
+                className="p-3 border border-[#e5e5e5] rounded hover:border-[#999999] hover:bg-[#fafafa] transition-colors text-left cursor-pointer bg-white text-[12px] font-medium text-[#333333]"
               >
                 {p.label}
               </button>
@@ -403,7 +403,7 @@ export function SafetyAssessment() {
 
       {/* Result */}
       {step === "result" && result && riskStyle && (
-        <div className="border border-[#e8e8ed] rounded-lg p-5 mt-2">
+        <div className="border border-[#e8e8ed] rounded p-5 mt-2">
           <div className="flex items-center gap-2 mb-3">
             <span
               className="text-[11px] font-semibold px-2 py-1 rounded"
@@ -424,7 +424,7 @@ export function SafetyAssessment() {
           <div className="text-[12px] font-semibold text-[#1d1d1f] mb-2">必須対策</div>
           <ul className="space-y-1.5 mb-4">
             {result.measures.map((m, i) => (
-              <li key={i} className="text-[13px] text-[#1d1d1f] pl-3 border-l-2 border-[#0066cc]">
+              <li key={i} className="text-[13px] text-[#1d1d1f] pl-3 border-l-2 border-[#4a7ab5]">
                 {m}
               </li>
             ))}
@@ -432,7 +432,7 @@ export function SafetyAssessment() {
 
           {result.articleLink && (
             <div className="pt-3 border-t border-[#e8e8ed]">
-              <a href={result.articleLink} className="text-[12px] text-[#0066cc] no-underline hover:underline">
+              <a href={result.articleLink} className="text-[12px] text-[#4a7ab5] no-underline hover:underline">
                 {result.articleLabel}
               </a>
             </div>
@@ -440,7 +440,7 @@ export function SafetyAssessment() {
 
           <button
             onClick={reset}
-            className="mt-4 w-full py-2.5 border-2 border-[#1d1d1f] text-[#1d1d1f] bg-white rounded-lg text-[12px] font-semibold cursor-pointer hover:bg-[#f5f5f7] transition-colors"
+            className="mt-4 w-full py-2.5 border-2 border-[#1d1d1f] text-[#1d1d1f] bg-white rounded text-[12px] font-semibold cursor-pointer hover:bg-[#f5f5f7] transition-colors"
           >
             もう一度診断する
           </button>

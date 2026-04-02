@@ -38,7 +38,7 @@ export default function HomePage() {
   const safetyBestModel = models.find((m) => m.id === safetyBest?.model);
 
   return (
-    <div className="min-h-screen bg-[#fbfbfd]">
+    <div className="min-h-screen bg-white">
       <Header />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
@@ -60,25 +60,25 @@ export default function HomePage() {
       }) }} />
 
       {/* Hero Dashboard */}
-      <div className="bg-white py-5">
+      <div className="bg-white py-5 border-b border-[#f0f0f0]">
         <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
-          <h1 className="text-[20px] font-bold text-[#1d1d1f] mb-1">あなたに最適なAIが、すぐ見つかる。</h1>
-          <p className="text-[13px] text-[#6e6e73] mb-4">独自30テスト × 6カテゴリ × 38ツール</p>
+          <h1 className="text-[20px] font-bold text-[#333333] mb-1">あなたに最適なAIが、すぐ見つかる。</h1>
+          <p className="text-[13px] text-[#666666] mb-4">独自30テスト × 6カテゴリ × 38ツール</p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <a href={`/model/${top?.id}`} className="bg-gradient-to-br from-[#f0f7ff] to-[#e8f0fa] border border-[#c5d9f0] rounded-lg p-3 no-underline text-inherit hover:shadow-sm transition-all duration-200">
-              <span className="inline-block bg-[#0066cc] text-white px-2 py-0.5 rounded text-[10px] font-semibold mb-1">総合1位</span>
-              <div className="text-[16px] font-bold text-[#1d1d1f]">{top?.name}</div>
+            <a href={`/model/${top?.id}`} className="bg-[#fafafa] border-2 border-[#3d7a5f] rounded p-3 no-underline text-inherit transition-colors">
+              <span className="inline-block bg-[#f5f5f0] text-[#333333] border border-[#e5e5e5] px-2 py-0.5 rounded text-[10px] font-semibold mb-1">総合1位</span>
+              <div className="text-[16px] font-bold text-[#333333]">{top?.name}</div>
               <div className="text-[22px] font-bold" style={{ color: scoreColorHex(top?.score || 0) }}>{top?.score}</div>
             </a>
-            <a href={`/model/${codeBest?.id}`} className="bg-gradient-to-br from-[#f3f0ff] to-[#ede8fa] border border-[#c5c0e8] rounded-lg p-3 no-underline text-inherit hover:shadow-sm transition-all duration-200">
-              <span className="inline-block text-[10px] font-semibold text-[#6B46C1] mb-1">コード最強</span>
-              <div className="text-[16px] font-bold text-[#1d1d1f]">{codeBest?.name}</div>
+            <a href={`/model/${codeBest?.id}`} className="bg-[#fafafa] border border-[#e5e5e5] rounded p-3 no-underline text-inherit hover:border-[#4a7ab5] transition-colors">
+              <span className="inline-block text-[10px] font-semibold text-[#666666] mb-1">コード最強</span>
+              <div className="text-[16px] font-bold text-[#333333]">{codeBest?.name}</div>
               <div className="text-[22px] font-bold" style={{ color: scoreColorHex(codeBest?.scores?.coding || 0) }}>{codeBest?.scores?.coding}</div>
             </a>
-            <a href={`/model/${safetyBestModel?.id}`} className="bg-gradient-to-br from-[#ecf7ef] to-[#e0f0e5] border border-[#b5d8c0] rounded-lg p-3 no-underline text-inherit hover:shadow-sm transition-all duration-200">
-              <span className="inline-block text-[10px] font-semibold text-[#1d7d3f] mb-1">安全性1位</span>
-              <div className="text-[16px] font-bold text-[#1d1d1f]">{safetyBestModel?.name}</div>
+            <a href={`/model/${safetyBestModel?.id}`} className="bg-[#fafafa] border border-[#e5e5e5] rounded p-3 no-underline text-inherit hover:border-[#4a7ab5] transition-colors">
+              <span className="inline-block text-[10px] font-semibold text-[#666666] mb-1">安全性1位</span>
+              <div className="text-[16px] font-bold text-[#333333]">{safetyBestModel?.name}</div>
               <div className="text-[22px] font-bold" style={{ color: scoreColorHex(safetyBest?.score || 0) }}>{safetyBest?.score}</div>
             </a>
           </div>
@@ -93,13 +93,13 @@ export default function HomePage() {
         {top && (
           <a
             href={`/model/${top.id}`}
-            className="block bg-gradient-to-br from-[#f8f6f0] to-[#f5f5f7] border-2 border-[#c8a94e] rounded-lg p-5 mb-4 no-underline text-inherit hover:shadow-md transition-all duration-200"
+            className="block bg-[#fafafa] border-2 border-[#3d7a5f] rounded p-5 mb-4 no-underline text-inherit transition-colors"
           >
-            <span className="inline-block bg-[#a0820a] text-white px-3 py-1 rounded-full text-[11px] font-semibold mb-2">総合1位</span>
+            <span className="inline-block bg-[#f5f5f0] text-[#333333] border border-[#e5e5e5] px-3 py-1 rounded text-[11px] font-semibold mb-2">総合1位</span>
             <div className="flex items-center justify-between">
               <div>
-                <span className="text-[22px] sm:text-[24px] font-bold text-[#1d1d1f]">{top.name}</span>
-                <span className="text-[13px] font-normal text-[#86868b] ml-2">{top.provider}</span>
+                <span className="text-[22px] sm:text-[24px] font-bold text-[#333333]">{top.name}</span>
+                <span className="text-[13px] font-normal text-[#999999] ml-2">{top.provider}</span>
               </div>
               <div className="text-[32px] sm:text-[40px] font-bold" style={{ color: scoreColorHex(top.score) }}>
                 {top.score}
@@ -113,17 +113,17 @@ export default function HomePage() {
                 { label: "安全性", score: top.scores?.safety },
               ].map((cat) => (
                 <div key={cat.label}>
-                  <div className="text-[10px] text-[#86868b]">{cat.label}</div>
+                  <div className="text-[10px] text-[#999999]">{cat.label}</div>
                   <div className="text-[14px] font-semibold" style={{ color: scoreColorHex(cat.score || 0) }}>
                     {cat.score}
                   </div>
-                  <div className="w-full h-2 bg-[#e8e8ed] rounded-full mt-1">
-                    <div className="h-full rounded-full" style={{ width: `${cat.score}%`, backgroundColor: scoreColorHex(cat.score || 0) }} />
+                  <div className="w-full h-1 bg-[#f0f0f0] rounded-sm mt-1">
+                    <div className="h-full rounded-sm" style={{ width: `${cat.score}%`, backgroundColor: scoreColorHex(cat.score || 0) }} />
                   </div>
                 </div>
               ))}
             </div>
-            <div className="text-[12px] text-[#0066cc] mt-3">詳細を見る →</div>
+            <div className="text-[12px] text-[#4a7ab5] mt-3">詳細を見る →</div>
           </a>
         )}
 
@@ -133,13 +133,13 @@ export default function HomePage() {
             <a
               key={m.id}
               href={`/model/${m.id}`}
-              className="border border-[#e8e8ed] rounded-lg p-4 hover:border-[#d2d2d7] hover:shadow-sm transition-all duration-200 cursor-pointer no-underline text-inherit bg-white"
+              className="border border-[#e5e5e5] rounded p-4 hover:border-[#4a7ab5] transition-colors cursor-pointer no-underline text-inherit bg-white"
             >
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
-                  <span className="text-[18px] font-bold text-[#86868b]">{i + 2}</span>
+                  <span className="text-[18px] font-bold text-[#999999]">{i + 2}</span>
                   <span className="text-[14px] font-semibold">{m.name}</span>
-                  <span className="text-[10px] text-[#86868b]">{m.provider}</span>
+                  <span className="text-[10px] text-[#999999]">{m.provider}</span>
                 </div>
                 <span className="text-[22px] font-bold" style={{ color: scoreColorHex(m.score) }}>
                   {m.score}
@@ -153,9 +153,9 @@ export default function HomePage() {
                   { label: "安全性", score: m.scores?.safety },
                 ].map((cat) => (
                   <div key={cat.label} className="flex items-center gap-2 text-[10px]">
-                    <span className="w-8 text-[#86868b] shrink-0">{cat.label}</span>
-                    <div className="flex-1 h-1.5 bg-[#e8e8ed] rounded-full">
-                      <div className="h-full rounded-full" style={{ width: `${cat.score}%`, backgroundColor: scoreColorHex(cat.score || 0) }} />
+                    <span className="w-8 text-[#999999] shrink-0">{cat.label}</span>
+                    <div className="flex-1 h-1 bg-[#f0f0f0] rounded-sm">
+                      <div className="h-full rounded-sm" style={{ width: `${cat.score}%`, backgroundColor: scoreColorHex(cat.score || 0) }} />
                     </div>
                     <span className="w-8 text-right font-semibold" style={{ color: scoreColorHex(cat.score || 0) }}>
                       {cat.score}
@@ -166,7 +166,7 @@ export default function HomePage() {
             </a>
           ))}
         </div>
-        <p className="text-[10px] text-[#86868b] mt-3">
+        <p className="text-[10px] text-[#999999] mt-3">
           ※ 総合スコア = 全16テスト（文章8＋コード4＋画像4）の平均点。安全性は別軸で評価。
         </p>
       </Block>
@@ -186,24 +186,23 @@ export default function HomePage() {
       {/* Category Links */}
       <Block alt>
         <SectionHeader title="カテゴリ別AI比較" />
-        <p className="text-[10px] text-[#86868b] mb-3">汎用AI以外の専門ツールも網羅。外部レビュー・ベンチマーク基準。</p>
+        <p className="text-[10px] text-[#999999] mb-3">汎用AI以外の専門ツールも網羅。外部レビュー・ベンチマーク基準。</p>
         <div className="flex gap-3 overflow-x-auto pb-2">
           {[
-            { href: "/categories/image-generation", label: "画像生成", count: 7, color: "#6B46C1" },
-            { href: "/categories/video-generation", label: "動画生成", count: 7, color: "#D85A30" },
-            { href: "/categories/coding-tools", label: "コーディング", count: 7, color: "#0066cc" },
-            { href: "/categories/ai-agents", label: "AIエージェント", count: 5, color: "#D4537E" },
-            { href: "/categories/ai-search", label: "AI検索", count: 5, color: "#a0820a" },
+            { href: "/categories/image-generation", label: "画像生成", count: 7 },
+            { href: "/categories/video-generation", label: "動画生成", count: 7 },
+            { href: "/categories/coding-tools", label: "コーディング", count: 7 },
+            { href: "/categories/ai-agents", label: "AIエージェント", count: 5 },
+            { href: "/categories/ai-search", label: "AI検索", count: 5 },
           ].map((cat) => (
             <a
               key={cat.href}
               href={cat.href}
-              className="min-w-[150px] flex-shrink-0 p-3 border border-[#e8e8ed] rounded-lg hover:border-[#86868b] hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 no-underline text-inherit bg-white"
-              style={{ borderLeft: `4px solid ${cat.color}` }}
+              className="min-w-[150px] flex-shrink-0 p-3 border border-[#e5e5e5] rounded hover:border-[#4a7ab5] transition-colors no-underline text-inherit bg-white"
             >
-              <div className="text-[15px] font-semibold text-[#1d1d1f]">{cat.label}</div>
-              <div className="text-[12px] font-bold text-[#0066cc] mt-0.5">{cat.count}ツール</div>
-              <div className="text-[10px] text-[#86868b] mt-1">比較する →</div>
+              <div className="text-[15px] font-semibold text-[#333333]">{cat.label}</div>
+              <div className="text-[12px] text-[#666666] mt-0.5">{cat.count}ツール</div>
+              <div className="text-[10px] text-[#999999] mt-1">比較する →</div>
             </a>
           ))}
         </div>
@@ -212,18 +211,18 @@ export default function HomePage() {
       {/* Safety Summary */}
       <Block>
         <SectionHeader title="安全性ランキング" />
-        <p className="text-[10px] text-[#6e6e73] mb-3">14テスト＋セキュリティ認証の加重スコア</p>
+        <p className="text-[10px] text-[#666666] mb-3">14テスト＋セキュリティ認証の加重スコア</p>
         {safetyRanking.map((r: any, i: number) => {
           const model = models.find((m) => m.id === r.model);
           return (
             <div
               key={r.model}
-              className="flex items-center gap-2 py-2 border-t border-[#e8e8ed] first:border-t-0"
+              className="flex items-center gap-2 py-2 border-t border-[#f0f0f0] first:border-t-0"
             >
-              <span className="text-[11px] font-bold text-[#86868b] w-4">{i + 1}</span>
+              <span className="text-[11px] font-bold text-[#999999] w-4">{i + 1}</span>
               <span className="text-[13px] font-semibold w-24">{model?.name}</span>
-              <div className="flex-1 h-1.5 bg-[#e8e8ed] rounded-full">
-                <div className="h-full rounded-full" style={{ width: `${r.score}%`, backgroundColor: scoreColorHex(r.score) }} />
+              <div className="flex-1 h-1 bg-[#f0f0f0] rounded-sm">
+                <div className="h-full rounded-sm" style={{ width: `${r.score}%`, backgroundColor: scoreColorHex(r.score) }} />
               </div>
               <span className="text-[14px] font-bold w-12 text-right" style={{ color: scoreColorHex(r.score) }}>
                 {r.score}
@@ -231,7 +230,7 @@ export default function HomePage() {
             </div>
           );
         })}
-        <a href="/safety" className="block text-center text-[10px] text-[#0066cc] mt-3 hover:underline no-underline">
+        <a href="/safety" className="block text-center text-[10px] text-[#4a7ab5] mt-3 hover:underline no-underline">
           安全性の詳細比較を見る →
         </a>
       </Block>
@@ -242,24 +241,24 @@ export default function HomePage() {
         <div className="overflow-x-auto">
           <table className="w-full text-[11px] border-collapse">
             <thead>
-              <tr className="bg-[#f5f5f7]">
-                <th className="p-1.5 text-left font-bold border-b-2 border-[#d2d2d7]">モデル</th>
-                <th className="p-1.5 text-center font-bold border-b-2 border-[#d2d2d7]">無料</th>
-                <th className="p-1.5 text-center font-bold border-b-2 border-[#d2d2d7]">スタンダード</th>
-                <th className="p-1.5 text-center font-bold border-b-2 border-[#d2d2d7]">総合点</th>
+              <tr className="bg-[#fafafa]">
+                <th className="p-1.5 text-left font-semibold border-b-2 border-[#e5e5e5] text-[#333333]">モデル</th>
+                <th className="p-1.5 text-center font-semibold border-b-2 border-[#e5e5e5] text-[#333333]">無料</th>
+                <th className="p-1.5 text-center font-semibold border-b-2 border-[#e5e5e5] text-[#333333]">スタンダード</th>
+                <th className="p-1.5 text-center font-semibold border-b-2 border-[#e5e5e5] text-[#333333]">総合点</th>
               </tr>
             </thead>
             <tbody>
               {rankedModels.map((m: any, i: number) => (
-                <tr key={m.id} className={i % 2 === 1 ? "bg-[#f9f9fb]" : ""}>
-                  <td className="p-1.5 font-semibold border-b border-[#e8e8ed]">{m.name}</td>
-                  <td className="p-1.5 text-center border-b border-[#e8e8ed] text-green-700 font-semibold">
+                <tr key={m.id} className={i % 2 === 1 ? "bg-[#fafafa]" : ""}>
+                  <td className="p-1.5 font-semibold border-b border-[#f0f0f0]">{m.name}</td>
+                  <td className="p-1.5 text-center border-b border-[#f0f0f0] text-[#3d7a5f] font-semibold">
                     {m.pricing?.free?.available ? "✓" : "—"}
                   </td>
-                  <td className="p-1.5 text-center border-b border-[#e8e8ed]">
+                  <td className="p-1.5 text-center border-b border-[#f0f0f0]">
                     {m.pricing?.standard?.priceJPY ? `¥${m.pricing.standard.priceJPY.toLocaleString()}/月` : "—"}
                   </td>
-                  <td className="p-1.5 text-center border-b border-[#e8e8ed] font-semibold" style={{ color: scoreColorHex(m.score) }}>
+                  <td className="p-1.5 text-center border-b border-[#f0f0f0] font-semibold" style={{ color: scoreColorHex(m.score) }}>
                     {m.score}
                   </td>
                 </tr>
@@ -267,7 +266,7 @@ export default function HomePage() {
             </tbody>
           </table>
         </div>
-        <a href="/cost" className="block text-center text-[10px] text-[#0066cc] mt-3 hover:underline no-underline">
+        <a href="/cost" className="block text-center text-[10px] text-[#4a7ab5] mt-3 hover:underline no-underline">
           コスト計算機で最適プランを見つける →
         </a>
       </Block>
@@ -284,24 +283,24 @@ export default function HomePage() {
             <a
               key={a.slug}
               href={`/blog/${a.slug}`}
-              className="flex items-center justify-between p-3 border border-[#e8e8ed] rounded-lg hover:border-[#d2d2d7] hover:shadow-sm transition-all duration-200 no-underline text-inherit"
+              className="flex items-center justify-between p-3 border border-[#e5e5e5] rounded hover:border-[#4a7ab5] transition-colors no-underline text-inherit"
             >
-              <span className="text-[13px] font-medium text-[#1d1d1f]">{a.title}</span>
-              <span className="text-[10px] text-[#86868b] shrink-0 ml-3">{a.date}</span>
+              <span className="text-[13px] font-medium text-[#333333]">{a.title}</span>
+              <span className="text-[10px] text-[#999999] shrink-0 ml-3">{a.date}</span>
             </a>
           ))}
         </div>
-        <a href="/blog" className="block text-center text-[10px] text-[#0066cc] mt-3 hover:underline no-underline">
+        <a href="/blog" className="block text-center text-[10px] text-[#4a7ab5] mt-3 hover:underline no-underline">
           全てのコラムを見る →
         </a>
       </Block>
 
       {/* Share + Badges */}
       <Block alt>
-        <div className="flex items-center justify-between border border-[#d2d2d7] rounded-lg p-3 bg-white">
+        <div className="flex items-center justify-between border border-[#e5e5e5] rounded p-3 bg-white">
           <div>
             <div className="text-[12px] font-bold">この比較結果をシェア</div>
-            <div className="text-[10px] text-[#6e6e73] mt-0.5">
+            <div className="text-[10px] text-[#666666] mt-0.5">
               「2026年AI比較：総合1位ChatGPT、コード最強Claude #AI選び」
             </div>
           </div>

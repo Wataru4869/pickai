@@ -38,7 +38,7 @@ export default function CategoryDetailPage({ params }: { params: { id: string } 
     <div className="min-h-screen bg-[#fbfbfd]">
       <Header />
 
-      <div className="bg-white border-b border-[#d2d2d7] py-4">
+      <div className="bg-white border-b border-[#e5e5e5] py-4">
         <div className="max-w-[860px] mx-auto px-4">
           <h1 className="text-[20px] font-bold mb-1">{cat.nameJapanese}AI比較</h1>
           <p className="text-[12px] text-[#6e6e73] leading-relaxed">{cat.description}</p>
@@ -55,11 +55,7 @@ export default function CategoryDetailPage({ params }: { params: { id: string } 
           <Block key={bi}>
             <SectionHeader title={bench.name} />
             <div className="flex items-center gap-2 mb-2">
-              <span className={`text-[10px] px-1.5 py-0.5 rounded font-bold ${
-                bench.source.includes("独自") || bench.source.includes("AI選び")
-                  ? "bg-green-50 text-green-700"
-                  : "bg-blue-50 text-blue-600"
-              }`}>
+              <span className="text-[10px] px-1.5 py-0.5 rounded font-medium bg-[#fafafa] text-[#666666] border border-[#e5e5e5]">
                 {bench.source.includes("独自") || bench.source.includes("AI選び")
                   ? "独自テスト"
                   : "外部ベンチマーク"}
@@ -72,7 +68,7 @@ export default function CategoryDetailPage({ params }: { params: { id: string } 
                   href={bench.sourceUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[10px] text-[#0066cc] hover:underline"
+                  className="text-[10px] text-[#4a7ab5] hover:underline"
                 >
                   出典 →
                 </a>
@@ -90,7 +86,7 @@ export default function CategoryDetailPage({ params }: { params: { id: string } 
                     <div className="w-[100px] text-[11px] text-[#6e6e73] text-right shrink-0 truncate font-medium">
                       {name}
                     </div>
-                    <div className="flex-1 h-6 bg-[#f5f5f7] rounded-sm relative overflow-hidden">
+                    <div className="flex-1 h-6 bg-[#fafafa] rounded-sm relative overflow-hidden">
                       <div
                         className="h-full rounded-sm transition-all duration-300"
                         style={{
@@ -123,10 +119,10 @@ export default function CategoryDetailPage({ params }: { params: { id: string } 
         <div className="overflow-x-auto">
           <table className="w-full text-[11px] border-collapse">
             <thead>
-              <tr className="bg-[#f5f5f7]">
-                <th className="p-1.5 text-left font-bold border-b-2 border-[#d2d2d7]">モデル</th>
-                <th className="p-1.5 text-center font-bold border-b-2 border-[#d2d2d7]">対応</th>
-                <th className="p-1.5 text-left font-bold border-b-2 border-[#d2d2d7]">備考</th>
+              <tr className="bg-[#fafafa]">
+                <th className="p-1.5 text-left font-bold border-b-2 border-[#e5e5e5]">モデル</th>
+                <th className="p-1.5 text-center font-bold border-b-2 border-[#e5e5e5]">対応</th>
+                <th className="p-1.5 text-left font-bold border-b-2 border-[#e5e5e5]">備考</th>
               </tr>
             </thead>
             <tbody>
@@ -142,7 +138,7 @@ export default function CategoryDetailPage({ params }: { params: { id: string } 
                     </a>
                   </td>
                   <td className="p-1.5 text-center border-b border-[#e8e8ed] text-[14px]">
-                    {info.supported ? <span className="text-green-700 font-bold">○</span> : <span className="text-[#86868b]">—</span>}
+                    {info.supported ? <span className="text-[#3d7a5f] font-bold">○</span> : <span className="text-[#86868b]">—</span>}
                   </td>
                   <td className="p-1.5 text-[#6e6e73] border-b border-[#e8e8ed] text-[11px]">
                     {info.note}
@@ -157,7 +153,7 @@ export default function CategoryDetailPage({ params }: { params: { id: string } 
       {/* Recommendation */}
       <Block>
         <SectionHeader title="おすすめ" />
-        <div className="border-2 border-[#1d1d1f] rounded p-3 bg-[#f5f5f7]">
+        <div className="border-2 border-[#1d1d1f] rounded p-3 bg-[#fafafa]">
           <div className="text-[12px] text-gray-700 leading-relaxed">
             {cat.recommendation}
           </div>
@@ -174,7 +170,7 @@ export default function CategoryDetailPage({ params }: { params: { id: string } 
               <a
                 key={c.id}
                 href={`/category/${c.id}`}
-                className="flex items-center gap-1 px-3 py-1.5 rounded border border-[#d2d2d7] text-[11px] text-[#6e6e73] hover:border-[#1d1d1f] hover:text-[#1d1d1f] no-underline transition-colors"
+                className="flex items-center gap-1 px-3 py-1.5 rounded border border-[#e5e5e5] text-[11px] text-[#6e6e73] hover:border-[#1d1d1f] hover:text-[#1d1d1f] no-underline transition-colors"
               >
                 <span>{c.nameJapanese}</span>
               </a>
@@ -184,7 +180,7 @@ export default function CategoryDetailPage({ params }: { params: { id: string } 
 
       {/* Share */}
       <Block>
-        <div className="flex items-center justify-between border border-[#d2d2d7] rounded p-3">
+        <div className="flex items-center justify-between border border-[#e5e5e5] rounded p-3">
           <div>
             <div className="text-[12px] font-bold">シェア</div>
             <div className="text-[11px] text-[#6e6e73] mt-0.5">

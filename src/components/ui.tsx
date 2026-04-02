@@ -12,7 +12,7 @@ export function SectionHeader({ title }: { title: string }) {
 
 export function Block({ children, alt }: { children: React.ReactNode; alt?: boolean }) {
   return (
-    <div className={`${alt ? "bg-[#f9f9fb]" : "bg-white"} py-4`}>
+    <div className={`${alt ? "bg-[#fafafa]" : "bg-white"} py-4`}>
       <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">{children}</div>
     </div>
   );
@@ -95,7 +95,7 @@ export function Breadcrumb({ items }: { items: { label: string; href?: string }[
         <span key={i}>
           {i > 0 && " ＞ "}
           {item.href ? (
-            <a href={item.href} className="text-[#0066cc] hover:underline no-underline">{item.label}</a>
+            <a href={item.href} className="text-[#4a7ab5] hover:underline no-underline">{item.label}</a>
           ) : (
             <span>{item.label}</span>
           )}
@@ -121,21 +121,21 @@ export function ShareButton({ text }: { text: string }) {
 
 export function Footer() {
   return (
-    <footer className="border-t border-[#e8e8ed] bg-[#f5f5f7] py-8 text-[11px] text-[#86868b]">
+    <footer className="border-t border-[#f0f0f0] bg-[#fafafa] py-8 text-[11px] text-[#999999]">
       <Container>
         <div className="flex items-center gap-6 flex-wrap">
-          <a href="/" className="text-[#6e6e73] hover:text-[#1d1d1f] no-underline">トップ</a>
-          <a href="/categories" className="text-[#6e6e73] hover:text-[#1d1d1f] no-underline">カテゴリ</a>
-          <a href="/recommend" className="text-[#6e6e73] hover:text-[#1d1d1f] no-underline">おすすめ</a>
-          <a href="/switch" className="text-[#6e6e73] hover:text-[#1d1d1f] no-underline">乗り換え</a>
-          <a href="/safety" className="text-[#6e6e73] hover:text-[#1d1d1f] no-underline">安全性</a>
-          <a href="/methodology" className="text-[#6e6e73] hover:text-[#1d1d1f] no-underline">方法論</a>
-          <span className="ml-auto font-medium text-[13px] text-[#6e6e73]">AI選び</span>
+          <a href="/" className="text-[#999999] hover:text-[#333333] no-underline">トップ</a>
+          <a href="/categories" className="text-[#999999] hover:text-[#333333] no-underline">カテゴリ</a>
+          <a href="/recommend" className="text-[#999999] hover:text-[#333333] no-underline">おすすめ</a>
+          <a href="/switch" className="text-[#999999] hover:text-[#333333] no-underline">乗り換え</a>
+          <a href="/safety" className="text-[#999999] hover:text-[#333333] no-underline">安全性</a>
+          <a href="/methodology" className="text-[#999999] hover:text-[#333333] no-underline">方法論</a>
+          <span className="ml-auto font-medium text-[13px] text-[#999999]">AI選び</span>
         </div>
         <div className="mt-2 flex items-center gap-4 text-[10px]">
           <span>© 2026 AI選び</span>
-          <a href="/privacy" className="text-[#86868b] hover:text-[#6e6e73] no-underline">プライバシーポリシー</a>
-          <a href="/about" className="text-[#86868b] hover:text-[#6e6e73] no-underline">運営者情報</a>
+          <a href="/privacy" className="text-[#999999] hover:text-[#666666] no-underline">プライバシーポリシー</a>
+          <a href="/about" className="text-[#999999] hover:text-[#666666] no-underline">運営者情報</a>
         </div>
       </Container>
     </footer>

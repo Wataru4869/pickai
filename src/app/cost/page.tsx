@@ -20,7 +20,7 @@ export default function CostPage() {
     <div className="min-h-screen bg-[#fbfbfd]">
       <Header />
 
-      <div className="bg-white border-b border-[#d2d2d7] py-4">
+      <div className="bg-white border-b border-[#e5e5e5] py-4">
         <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
           <h1 className="text-[20px] font-bold mb-1">コスト計算機</h1>
           <p className="text-[12px] text-[#6e6e73] leading-relaxed">
@@ -37,19 +37,19 @@ export default function CostPage() {
         <div className="overflow-x-auto">
           <table className="w-full text-[11px] border-collapse min-w-[480px]">
             <thead>
-              <tr className="bg-[#f5f5f7]">
-                <th className="p-1.5 text-left font-bold border-b-2 border-[#d2d2d7]">モデル</th>
-                <th className="p-1.5 text-center font-bold border-b-2 border-[#d2d2d7]">無料</th>
-                <th className="p-1.5 text-center font-bold border-b-2 border-[#d2d2d7]">スタンダード</th>
-                <th className="p-1.5 text-center font-bold border-b-2 border-[#d2d2d7]">プレミアム</th>
-                <th className="p-1.5 text-center font-bold border-b-2 border-[#d2d2d7]">総合点</th>
+              <tr className="bg-[#fafafa]">
+                <th className="p-1.5 text-left font-bold border-b-2 border-[#e5e5e5]">モデル</th>
+                <th className="p-1.5 text-center font-bold border-b-2 border-[#e5e5e5]">無料</th>
+                <th className="p-1.5 text-center font-bold border-b-2 border-[#e5e5e5]">スタンダード</th>
+                <th className="p-1.5 text-center font-bold border-b-2 border-[#e5e5e5]">プレミアム</th>
+                <th className="p-1.5 text-center font-bold border-b-2 border-[#e5e5e5]">総合点</th>
               </tr>
             </thead>
             <tbody>
               {models.map((m, i) => (
                 <tr key={m.id} className={i % 2 === 0 ? "bg-white" : "bg-[#fbfbfd]"}>
                   <td className="p-1.5 font-bold border-b border-[#e8e8ed]">{m.name}</td>
-                  <td className="p-1.5 text-center border-b border-[#e8e8ed] text-green-700 font-semibold">
+                  <td className="p-1.5 text-center border-b border-[#e8e8ed] text-[#3d7a5f] font-semibold">
                     {m.pricing.free.available ? "✓ 無料" : "—"}
                   </td>
                   <td className="p-1.5 text-center border-b border-[#e8e8ed]">

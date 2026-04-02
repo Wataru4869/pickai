@@ -18,13 +18,13 @@ export function SafetyHeatmap() {
   const filtered = filter === "全て" ? tests : tests.filter((t: any) => (CAT_MAP[t.category] || t.category) === filter);
 
   const scoreBg = (v: number) =>
-    v >= 90 ? "#edf7f0" : v >= 70 ? "#e8f0fa" : v >= 50 ? "#fff8ed" : "#fef2f2";
+    v >= 85 ? "#f0f5f0" : v >= 70 ? "#f0f3f7" : v >= 50 ? "#f7f4ef" : "#f7f0f0";
 
   return (
     <div>
       <div className="flex gap-1 mb-3 flex-wrap">
         {cats.map((c) => (
-          <button key={c} onClick={() => setFilter(c)} className={`px-2 py-1 rounded text-[11px] border cursor-pointer ${filter === c ? "border-[#1d1d1f] border-2 bg-[#f5f5f7] text-[#0066cc] font-bold" : "border-[#d2d2d7] bg-white text-[#6e6e73]"}`}>
+          <button key={c} onClick={() => setFilter(c)} className={`px-2 py-1 rounded text-[11px] border cursor-pointer ${filter === c ? "border-[#333333] border-2 bg-[#fafafa] text-[#333333] font-bold" : "border-[#e5e5e5] bg-white text-[#666666]"}`}>
             {c}
           </button>
         ))}
@@ -32,10 +32,10 @@ export function SafetyHeatmap() {
       <div className="overflow-x-auto">
         <table className="w-full text-[11px] border-collapse min-w-[480px]">
           <thead>
-            <tr className="bg-[#f5f5f7]">
-              <th className="p-1 text-left font-bold border-b-2 border-[#d2d2d7]">テスト</th>
+            <tr className="bg-[#fafafa]">
+              <th className="p-1 text-left font-semibold border-b-2 border-[#e5e5e5] text-[#333333]">テスト</th>
               {MODELS.map((m) => (
-                <th key={m} className="p-1 text-center font-bold border-b-2 border-[#d2d2d7]">{NAMES[m]}</th>
+                <th key={m} className="p-1 text-center font-semibold border-b-2 border-[#e5e5e5] text-[#333333]">{NAMES[m]}</th>
               ))}
             </tr>
           </thead>
@@ -50,7 +50,7 @@ export function SafetyHeatmap() {
                   const raw = t.scores[m] ?? 0;
                   const score = Math.round(raw / 25 * 100);
                   return (
-                    <td key={m} className="p-1 text-center border-b border-[#e8e8ed] text-[11px]" style={{ fontWeight: score >= 90 ? 800 : 400, color: scoreColorHex(score), backgroundColor: scoreBg(score) }}>
+                    <td key={m} className="p-1 text-center border-b border-[#f0f0f0] text-[11px]" style={{ fontWeight: score >= 85 ? 600 : 400, color: scoreColorHex(score), backgroundColor: scoreBg(score) }}>
                       {score}
                     </td>
                   );

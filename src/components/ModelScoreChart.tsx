@@ -14,10 +14,10 @@ const CATEGORY_LABELS: Record<string, string> = {
 };
 
 function scoreColor(score: number): string {
-  if (score >= 90) return "#1d7d3f";
-  if (score >= 70) return "#0066cc";
-  if (score >= 50) return "#a0820a";
-  return "#c4314b";
+  if (score >= 85) return "#3d7a5f";
+  if (score >= 70) return "#4a6a8a";
+  if (score >= 50) return "#b08d57";
+  return "#a05454";
 }
 
 export function ModelScoreChart({ tests }: { tests: TestScore[] }) {
@@ -41,9 +41,9 @@ export function ModelScoreChart({ tests }: { tests: TestScore[] }) {
             return (
               <div key={t.testId} className="flex items-center gap-3 py-1.5">
                 <span className="w-20 text-[12px] text-[#1d1d1f] shrink-0 leading-tight">{t.nameJapanese}</span>
-                <div className="flex-1 h-1.5 bg-[#e8e8ed] rounded-full">
+                <div className="flex-1 h-1 bg-[#f0f0f0] rounded-sm">
                   <div
-                    className="h-full rounded-full transition-all duration-300"
+                    className="h-full rounded-sm transition-all duration-300"
                     style={{ width: `${Math.max(score, 2)}%`, backgroundColor: color }}
                   />
                 </div>

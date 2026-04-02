@@ -56,14 +56,7 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
       <Header />
 
       {/* Model Header */}
-      <div className={`border-b border-[#d2d2d7] py-6 ${
-        model.id === 'claude' ? 'bg-gradient-to-b from-[#f3f0ff] to-white' :
-        model.id === 'chatgpt' ? 'bg-gradient-to-b from-[#ecf9f4] to-white' :
-        model.id === 'gemini' ? 'bg-gradient-to-b from-[#eef4fc] to-white' :
-        model.id === 'grok' ? 'bg-gradient-to-b from-[#eef8fc] to-white' :
-        model.id === 'perplexity' ? 'bg-gradient-to-b from-[#ecfaf8] to-white' :
-        'bg-white'
-      }`}>
+      <div className="border-b border-[#f0f0f0] py-6 bg-white">
         <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
           <div className="flex items-center gap-2 mb-2">
             {overallRank > 0 && <RankBadge rank={overallRank} />}
@@ -86,7 +79,7 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
               { label: "画像", score: model.scores.image },
               { label: "安全性", score: model.scores.safety },
             ].map((c) => (
-              <div key={c.label} className="flex-1 text-center border border-[#e8e8ed] rounded p-1.5">
+              <div key={c.label} className="flex-1 text-center border border-[#f0f0f0] rounded p-1.5">
                 <div className="text-[10px] text-[#86868b]">{c.label}</div>
                 <div className="text-[16px] font-bold" style={{ color: c.score ? scoreColorHex(c.score) : "#999" }}>
                   {c.score ?? "—"}
@@ -115,10 +108,10 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
           <div className="overflow-x-auto">
             <table className="w-full text-[12px] border-collapse min-w-[400px]">
               <thead>
-                <tr className="bg-[#f5f5f7]">
-                  <th className="p-2 text-left font-semibold border-b-2 border-[#d2d2d7]">モデル名</th>
-                  <th className="p-2 text-left font-semibold border-b-2 border-[#d2d2d7]">利用可能プラン</th>
-                  <th className="p-2 text-left font-semibold border-b-2 border-[#d2d2d7]">特徴</th>
+                <tr className="bg-[#fafafa]">
+                  <th className="p-2 text-left font-semibold border-b-2 border-[#e5e5e5]">モデル名</th>
+                  <th className="p-2 text-left font-semibold border-b-2 border-[#e5e5e5]">利用可能プラン</th>
+                  <th className="p-2 text-left font-semibold border-b-2 border-[#e5e5e5]">特徴</th>
                 </tr>
               </thead>
               <tbody>
@@ -126,12 +119,12 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
                   const isDeprecated = cm.description?.includes("廃止") || cm.description?.includes("前世代");
                   return (
                     <tr key={i} className={`${isDeprecated ? "text-[#86868b]" : ""} ${i % 2 === 1 ? "bg-[#f9f9fb]" : ""}`}>
-                      <td className="p-2 border-b border-[#e8e8ed] font-semibold">
+                      <td className="p-2 border-b border-[#f0f0f0] font-semibold">
                         {cm.name}
                         {cm.releaseDate && <span className="text-[10px] text-[#86868b] ml-1">({cm.releaseDate})</span>}
                       </td>
-                      <td className="p-2 border-b border-[#e8e8ed] text-[11px]">{cm.availability}</td>
-                      <td className="p-2 border-b border-[#e8e8ed] text-[11px] text-[#6e6e73]">{cm.description}</td>
+                      <td className="p-2 border-b border-[#f0f0f0] text-[11px]">{cm.availability}</td>
+                      <td className="p-2 border-b border-[#f0f0f0] text-[11px] text-[#6e6e73]">{cm.description}</td>
                     </tr>
                   );
                 })}
@@ -147,18 +140,18 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
           <SectionHeader title="強み・弱み" />
           <div className="flex flex-col sm:flex-row gap-3">
             <div className="flex-1">
-              <div className="text-[12px] font-semibold text-[#1d7d3f] mb-2">強み</div>
+              <div className="text-[12px] font-semibold text-[#3d7a5f] mb-2">強み</div>
               <div className="space-y-1.5">
                 {details.strengths.map((s: string, i: number) => (
-                  <div key={i} className="text-[12px] text-[#1d1d1f] pl-3 border-l-2 border-[#1d7d3f] leading-relaxed">{s}</div>
+                  <div key={i} className="text-[12px] text-[#333333] pl-3 border-l-2 border-[#3d7a5f] leading-relaxed">{s}</div>
                 ))}
               </div>
             </div>
             <div className="flex-1">
-              <div className="text-[12px] font-semibold text-[#c4314b] mb-2">弱み</div>
+              <div className="text-[12px] font-semibold text-[#b08d57] mb-2">弱み</div>
               <div className="space-y-1.5">
                 {details.weaknesses.map((w: string, i: number) => (
-                  <div key={i} className="text-[12px] text-[#1d1d1f] pl-3 border-l-2 border-[#c4314b] leading-relaxed">{w}</div>
+                  <div key={i} className="text-[12px] text-[#333333] pl-3 border-l-2 border-[#b08d57] leading-relaxed">{w}</div>
                 ))}
               </div>
             </div>
@@ -172,7 +165,7 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
           <SectionHeader title="おすすめ用途" />
           <div className="space-y-1.5 mb-4">
             {details.bestFor.map((b: string, i: number) => (
-              <div key={i} className="text-[12px] text-[#1d1d1f] pl-3 border-l-2 border-[#0066cc]">{b}</div>
+              <div key={i} className="text-[12px] text-[#333333] pl-3 border-l-2 border-[#4a7ab5]">{b}</div>
             ))}
           </div>
           {details.notRecommendedFor && (
@@ -180,7 +173,7 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
               <div className="text-[12px] font-semibold text-[#86868b] mb-2">不向きな用途</div>
               <div className="space-y-1.5">
                 {details.notRecommendedFor.map((n: string, i: number) => (
-                  <div key={i} className="text-[12px] text-[#6e6e73] pl-3 border-l-2 border-[#d2d2d7]">{n}</div>
+                  <div key={i} className="text-[12px] text-[#6e6e73] pl-3 border-l-2 border-[#e5e5e5]">{n}</div>
                 ))}
               </div>
             </>
@@ -194,7 +187,7 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
           <SectionHeader title="独自機能" />
           <div className="space-y-1.5">
             {details.uniqueFeatures.map((f: string, i: number) => (
-              <div key={i} className="text-[12px] text-[#1d1d1f] py-1.5 border-t border-[#e8e8ed] first:border-t-0">{f}</div>
+              <div key={i} className="text-[12px] text-[#1d1d1f] py-1.5 border-t border-[#f0f0f0] first:border-t-0">{f}</div>
             ))}
           </div>
         </Block>
@@ -210,14 +203,14 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
       {details?.pricing ? (
         <Block>
           <SectionHeader title="料金プラン" />
-          <div className="text-[12px] text-[#6e6e73] mb-3 p-2.5 bg-[#f5f5f7] rounded-lg">
+          <div className="text-[12px] text-[#6e6e73] mb-3 p-2.5 bg-[#fafafa] rounded">
             <span className="font-semibold text-[#1d1d1f]">無料枠: </span>{details.pricing.free}
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {details.pricing.plans.map((p: any, i: number) => (
-              <div key={i} className="border border-[#e8e8ed] rounded-lg p-3">
+              <div key={i} className="border border-[#f0f0f0] rounded p-3">
                 <div className="text-[13px] font-semibold text-[#1d1d1f] mb-1">{p.name}</div>
-                <div className="text-[18px] font-bold text-[#0066cc]">{p.priceJPY || p.priceUSD}</div>
+                <div className="text-[18px] font-bold text-[#4a7ab5]">{p.priceJPY || p.priceUSD}</div>
                 {p.priceJPY && p.priceUSD && (
                   <div className="text-[10px] text-[#86868b]">{p.priceUSD}</div>
                 )}
@@ -234,9 +227,9 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
               const p = (model.pricing as any)[tier];
               if (!p?.available) return null;
               return (
-                <div key={tier} className="flex-1 border border-[#d2d2d7] rounded p-3">
+                <div key={tier} className="flex-1 border border-[#e5e5e5] rounded p-3">
                   <div className="text-[11px] font-bold text-[#86868b] mb-1">{p.name || (tier === "free" ? "無料" : tier)}</div>
-                  <div className="text-[18px] font-bold text-[#0066cc]">{p.priceJPY ? `¥${p.priceJPY.toLocaleString()}` : "¥0"}</div>
+                  <div className="text-[18px] font-bold text-[#4a7ab5]">{p.priceJPY ? `¥${p.priceJPY.toLocaleString()}` : "¥0"}</div>
                   <div className="text-[10px] text-[#86868b]">/月</div>
                 </div>
               );
@@ -254,7 +247,7 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
               <div className="text-[12px] font-semibold text-[#1d1d1f] mb-1.5">セキュリティ認証</div>
               <div className="flex flex-wrap gap-1.5">
                 {details.securityCertifications.map((c: string, i: number) => (
-                  <span key={i} className="inline-flex items-center px-2 py-0.5 rounded bg-[#f5f5f7] text-[#6e6e73] border border-[#e8e8ed] text-[10px] font-medium">
+                  <span key={i} className="inline-flex items-center px-2 py-0.5 rounded bg-[#fafafa] text-[#6e6e73] border border-[#f0f0f0] text-[10px] font-medium">
                     {c}
                   </span>
                 ))}
@@ -274,8 +267,8 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
       {details?.verdict && (
         <Block>
           <SectionHeader title="AI選びの総評" />
-          <div className="bg-gradient-to-br from-[#f8f6f0] to-[#f5f5f7] border border-[#e8e8ed] rounded-lg p-4">
-            <p className="text-[13px] text-[#1d1d1f] leading-relaxed font-medium">{details.verdict}</p>
+          <div className="bg-[#fafafa] border border-[#e5e5e5] rounded p-4">
+            <p className="text-[13px] text-[#333333] leading-relaxed font-medium">{details.verdict}</p>
           </div>
         </Block>
       )}
@@ -290,14 +283,14 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
             <a
               key={other.id}
               href={`/compare/${model.id}-vs-${other.id}`}
-              className="flex items-center justify-between py-2.5 border-t border-[#e8e8ed] first:border-t-0 hover:bg-[#f5f5f7] no-underline text-inherit cursor-pointer transition-colors"
+              className="flex items-center justify-between py-2.5 border-t border-[#f0f0f0] first:border-t-0 hover:bg-[#fafafa] no-underline text-inherit cursor-pointer transition-colors"
             >
               <span className="text-[13px] font-semibold">{model.name} vs {other.name}</span>
               <div className="flex items-center gap-2">
-                <span className="text-[12px] font-bold" style={{ color: diffNum > 0 ? "#1d7d3f" : diffNum < 0 ? "#c4314b" : "#999" }}>
+                <span className="text-[12px] font-bold" style={{ color: diffNum > 0 ? "#3d7a5f" : diffNum < 0 ? "#a05454" : "#999" }}>
                   {diffNum > 0 ? "+" : ""}{diff}
                 </span>
-                <span className="text-[11px] text-[#0066cc]">比較 ＞</span>
+                <span className="text-[11px] text-[#4a7ab5]">比較 ＞</span>
               </div>
             </a>
           );
@@ -310,7 +303,7 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
           <SectionHeader title="出典" />
           <div className="space-y-1">
             {details.sources.map((s: string, i: number) => (
-              <a key={i} href={s} target="_blank" rel="noopener noreferrer" className="block text-[11px] text-[#0066cc] hover:underline no-underline truncate">
+              <a key={i} href={s} target="_blank" rel="noopener noreferrer" className="block text-[11px] text-[#4a7ab5] hover:underline no-underline truncate">
                 {s}
               </a>
             ))}
@@ -320,7 +313,7 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
 
       {/* Share */}
       <Block alt>
-        <div className="flex items-center justify-between border border-[#d2d2d7] rounded-lg p-3 bg-white">
+        <div className="flex items-center justify-between border border-[#e5e5e5] rounded p-3 bg-white">
           <div>
             <div className="text-[12px] font-bold">シェア</div>
             <div className="text-[11px] text-[#6e6e73] mt-0.5">

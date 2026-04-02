@@ -140,16 +140,16 @@ export default function SwitchGuidePage() {
               })}
             </div>
             <div className="flex gap-2">
-              <div className="flex-1 bg-green-50 rounded p-2">
-                <div className="text-[11px] font-bold text-green-700 mb-1">✓ 強い分野</div>
+              <div className="flex-1 bg-[#f0f5f0] rounded p-2">
+                <div className="text-[11px] font-bold text-[#3d7a5f] mb-1">✓ 強い分野</div>
                 <div className="text-[11px] text-[#6e6e73]">
                   {currentModel.strengths.slice(0, 2).map((s: string, i: number) => (
                     <div key={i} className="py-0.5">・{s}</div>
                   ))}
                 </div>
               </div>
-              <div className="flex-1 bg-red-50 rounded p-2">
-                <div className="text-[11px] font-bold text-red-600 mb-1">✗ 弱い分野</div>
+              <div className="flex-1 bg-[#f7f0f0] rounded p-2">
+                <div className="text-[11px] font-bold text-[#a05454] mb-1">✗ 弱い分野</div>
                 <div className="text-[11px] text-[#6e6e73]">
                   {currentModel.weaknesses.slice(0, 2).map((w: string, i: number) => (
                     <div key={i} className="py-0.5">・{w}</div>
@@ -169,16 +169,16 @@ export default function SwitchGuidePage() {
             let verdictColor: string;
             if (advantages.length >= 2 && disadvantages.length === 0) {
               verdict = "乗り換え推奨";
-              verdictColor = "#1a854a";
+              verdictColor = "#3d7a5f";
             } else if (advantages.length > 0 && disadvantages.length > 0) {
               verdict = "併用がベスト";
-              verdictColor = "#1a6dcc";
+              verdictColor = "#4a7ab5";
             } else if (advantages.length === 0) {
               verdict = "乗り換え不要";
               verdictColor = "#999";
             } else {
               verdict = "用途次第";
-              verdictColor = "#e67700";
+              verdictColor = "#b08d57";
             }
 
             return (
@@ -193,13 +193,13 @@ export default function SwitchGuidePage() {
                     style={{
                       color: verdictColor,
                       backgroundColor:
-                        verdictColor === "#1a854a"
-                          ? "#edf7f0"
-                          : verdictColor === "#1a6dcc"
-                            ? "#e8f0fa"
-                            : verdictColor === "#e67700"
-                              ? "#fef3cd"
-                              : "#f5f5f5",
+                        verdictColor === "#3d7a5f"
+                          ? "#f0f5f0"
+                          : verdictColor === "#4a7ab5"
+                            ? "#f0f3f7"
+                            : verdictColor === "#b08d57"
+                              ? "#f7f4ef"
+                              : "#fafafa",
                     }}
                   >
                     {verdict}
@@ -227,16 +227,16 @@ export default function SwitchGuidePage() {
                               ? currentScore.toFixed(1)
                               : currentScore}
                           </span>
-                          <div className="flex-1 h-1.5 bg-[#f5f5f7] rounded-full relative overflow-hidden">
+                          <div className="flex-1 h-1 bg-[#f0f0f0] rounded-sm relative overflow-hidden">
                             <div
-                              className="absolute top-0 left-0 h-full rounded-full opacity-40"
+                              className="absolute top-0 left-0 h-full rounded opacity-40"
                               style={{
                                 width: `${currentScore}%`,
                                 backgroundColor: MODEL_COLORS[currentModel.id] || "#999",
                               }}
                             />
                             <div
-                              className="absolute top-0 left-0 h-full rounded-full"
+                              className="absolute top-0 left-0 h-full rounded"
                               style={{
                                 width: `${otherScore}%`,
                                 backgroundColor: MODEL_COLORS[other.id] || "#333",
@@ -256,7 +256,7 @@ export default function SwitchGuidePage() {
                         <span
                           className="w-10 text-right font-bold"
                           style={{
-                            color: diff > 0 ? "#1a854a" : diff < 0 ? "#cc3333" : "#999",
+                            color: diff > 0 ? "#3d7a5f" : diff < 0 ? "#a05454" : "#999",
                           }}
                         >
                           {diff > 0 ? "+" : ""}
@@ -270,8 +270,8 @@ export default function SwitchGuidePage() {
                 {(advantages.length > 0 || disadvantages.length > 0) && (
                   <div className="flex gap-2 text-[11px]">
                     {advantages.length > 0 && (
-                      <div className="flex-1 bg-green-50 rounded p-2">
-                        <div className="font-bold text-green-700 mb-0.5">
+                      <div className="flex-1 bg-[#f0f5f0] rounded p-2">
+                        <div className="font-bold text-[#3d7a5f] mb-0.5">
                           {other.name}が勝る点
                         </div>
                         {advantages.map((a) => (
@@ -282,8 +282,8 @@ export default function SwitchGuidePage() {
                       </div>
                     )}
                     {disadvantages.length > 0 && (
-                      <div className="flex-1 bg-red-50 rounded p-2">
-                        <div className="font-bold text-red-600 mb-0.5">
+                      <div className="flex-1 bg-[#f7f0f0] rounded p-2">
+                        <div className="font-bold text-[#a05454] mb-0.5">
                           {currentModel.name}が勝る点
                         </div>
                         {disadvantages.map((d) => (
@@ -298,7 +298,7 @@ export default function SwitchGuidePage() {
 
                 <a
                   href={`/compare/${currentModel.id}-vs-${other.id}`}
-                  className="block text-[11px] text-[#0066cc] mt-2 hover:underline"
+                  className="block text-[11px] text-[#4a7ab5] mt-2 hover:underline"
                 >
                   {currentModel.name} vs {other.name}の詳細比較を見る →
                 </a>
@@ -308,7 +308,7 @@ export default function SwitchGuidePage() {
 
           <Block>
             <SectionHeader title="総合判断" />
-            <div className="bg-[#fdf6e3] rounded p-3 text-[11px] text-[#6e6e73] leading-relaxed">
+            <div className="bg-[#fafafa] border border-[#e5e5e5] rounded p-3 text-[11px] text-[#666666] leading-relaxed">
               <div className="font-bold text-[12px] mb-1">
                 {currentModel.name}ユーザーへのアドバイス
               </div>

@@ -27,10 +27,10 @@ export function CategoryTabs() {
           <button
             key={cat}
             onClick={() => setActive(cat)}
-            className={`px-4 py-1.5 rounded-full text-[11px] font-semibold border transition-all duration-200 cursor-pointer ${
+            className={`px-4 py-1.5 rounded text-[11px] font-semibold border transition-colors cursor-pointer ${
               active === cat
-                ? "bg-[#1d1d1f] text-white border-[#1d1d1f]"
-                : "bg-white border-[#e8e8ed] text-[#6e6e73] hover:bg-[#f5f5f7]"
+                ? "bg-[#333333] text-white border-[#333333]"
+                : "bg-white border-[#e5e5e5] text-[#666666] hover:bg-[#fafafa]"
             }`}
           >
             {CATEGORY_LABELS[cat]}
@@ -43,13 +43,13 @@ export function CategoryTabs() {
         {modelScores.map((m, i) => (
           <div
             key={m.id}
-            className="flex items-center justify-between py-2.5 border-t border-[#e8e8ed] first:border-t-0"
+            className="flex items-center justify-between py-2.5 border-t border-[#f0f0f0] first:border-t-0"
           >
             <div className="flex items-center gap-2">
               <span
-                className="w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-semibold text-white"
+                className="w-6 h-6 rounded flex items-center justify-center text-[11px] font-semibold text-white"
                 style={{
-                  backgroundColor: i === 0 ? "#c8860a" : i === 1 ? "#888" : i === 2 ? "#b87333" : "#DDD",
+                  backgroundColor: i === 0 ? "#b08d57" : i === 1 ? "#888" : i === 2 ? "#999" : "#ccc",
                 }}
               >
                 {i + 1}
@@ -70,14 +70,14 @@ export function CategoryTabs() {
       <div className="mt-3 overflow-x-auto">
         <table className="w-full text-[11px] border-collapse min-w-[400px]">
           <thead>
-            <tr className="bg-[#f5f5f7]">
-              <th className="p-1 text-left font-bold border-b-2 border-[#d2d2d7]">
+            <tr className="bg-[#fafafa]">
+              <th className="p-1 text-left font-semibold border-b-2 border-[#e5e5e5] text-[#333333]">
                 テスト
               </th>
               {modelScores.map((m) => (
                 <th
                   key={m.id}
-                  className="p-1 text-center font-bold border-b-2 border-[#d2d2d7]"
+                  className="p-1 text-center font-semibold border-b-2 border-[#e5e5e5] text-[#333333]"
                 >
                   {m.name}
                 </th>
@@ -88,9 +88,9 @@ export function CategoryTabs() {
             {tests.map((t: any, ti: number) => (
               <tr
                 key={t.testId}
-                className={ti % 2 === 0 ? "bg-white" : "bg-[#fbfbfd]"}
+                className={ti % 2 === 0 ? "bg-white" : "bg-[#fafafa]"}
               >
-                <td className="p-1 border-b border-[#e8e8ed] font-medium">
+                <td className="p-1 border-b border-[#f0f0f0] font-medium">
                   {t.nameJapanese}
                 </td>
                 {modelScores.map((m) => {
@@ -99,11 +99,11 @@ export function CategoryTabs() {
                   return (
                     <td
                       key={m.id}
-                      className="p-1 text-center border-b border-[#e8e8ed]"
+                      className="p-1 text-center border-b border-[#f0f0f0]"
                       style={{
-                        fontWeight: isBest ? 800 : 400,
+                        fontWeight: isBest ? 600 : 400,
                         color: scoreColorHex(score),
-                        backgroundColor: isBest ? "#edf7f0" : "transparent",
+                        backgroundColor: isBest ? "#f0f5f0" : "transparent",
                       }}
                     >
                       {score}

@@ -93,7 +93,7 @@ export function CategoryToolPage({ data }: { data: CategoryData }) {
                     <span className="text-[14px] font-semibold text-[#1d1d1f]">{t.name}</span>
                     <span className="text-[11px] text-[#86868b]">{t.provider}</span>
                     {t.japaneseSupport && (
-                      <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#ecf7ef] text-[#1d7d3f]">日本語対応</span>
+                      <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#fafafa] text-[#666666] border border-[#e5e5e5]">日本語対応</span>
                     )}
                   </div>
                   <div className="text-[11px] text-[#6e6e73] mt-0.5">
@@ -121,14 +121,14 @@ export function CategoryToolPage({ data }: { data: CategoryData }) {
         <div className="overflow-x-auto">
           <table className="w-full text-[11px] border-collapse">
             <thead>
-              <tr className="bg-[#f5f5f7]">
-                <th className="p-2 text-left font-semibold border-b border-[#d2d2d7] text-[#6e6e73]">ツール</th>
+              <tr className="bg-[#fafafa]">
+                <th className="p-2 text-left font-semibold border-b border-[#e5e5e5] text-[#333333]">ツール</th>
                 {data.evaluationAxes.map((axis) => (
-                  <th key={axis.key} className="p-2 text-center font-semibold border-b border-[#d2d2d7] text-[#6e6e73]">
+                  <th key={axis.key} className="p-2 text-center font-semibold border-b border-[#e5e5e5] text-[#333333]">
                     {axis.label}
                   </th>
                 ))}
-                <th className="p-2 text-center font-semibold border-b border-[#d2d2d7] text-[#6e6e73]">総合</th>
+                <th className="p-2 text-center font-semibold border-b border-[#e5e5e5] text-[#333333]">総合</th>
               </tr>
             </thead>
             <tbody>
@@ -136,8 +136,8 @@ export function CategoryToolPage({ data }: { data: CategoryData }) {
                 if (!r.tool) return null;
                 const t = r.tool;
                 return (
-                  <tr key={r.toolId} className={i % 2 === 0 ? "bg-white" : "bg-[#fbfbfd]"}>
-                    <td className="p-2 border-b border-[#e8e8ed] font-medium text-[#1d1d1f]">{t.name}</td>
+                  <tr key={r.toolId} className={i % 2 === 0 ? "bg-white" : "bg-[#fafafa]"}>
+                    <td className="p-2 border-b border-[#f0f0f0] font-medium text-[#333333]">{t.name}</td>
                     {data.evaluationAxes.map((axis) => {
                       const score = t.scores[axis.key] ?? 0;
                       const maxInAxis = Math.max(...data.tools.map((tool) => tool.scores[axis.key] ?? 0));
@@ -145,11 +145,11 @@ export function CategoryToolPage({ data }: { data: CategoryData }) {
                       return (
                         <td
                           key={axis.key}
-                          className="p-2 text-center border-b border-[#e8e8ed]"
+                          className="p-2 text-center border-b border-[#f0f0f0]"
                           style={{
                             fontWeight: isBest ? 600 : 400,
                             color: scoreColorHex(score * 5),
-                            backgroundColor: isBest ? "#ecf7ef" : "transparent",
+                            backgroundColor: isBest ? "#f0f5f0" : "transparent",
                           }}
                         >
                           {score}/{axis.maxScore}
@@ -203,17 +203,17 @@ export function CategoryToolPage({ data }: { data: CategoryData }) {
             </p>
 
             <div className="flex gap-3 mb-3">
-              <div className="flex-1 bg-[#ecf7ef] rounded p-2.5">
-                <div className="text-[11px] font-semibold text-[#1d7d3f] mb-1">強み</div>
-                <div className="text-[11px] text-[#1d1d1f] leading-relaxed">
+              <div className="flex-1 border-l-2 border-[#3d7a5f] pl-2.5 py-1">
+                <div className="text-[11px] font-semibold text-[#3d7a5f] mb-1">強み</div>
+                <div className="text-[11px] text-[#333333] leading-relaxed">
                   {t.strengths.map((s: string, i: number) => (
                     <div key={i} className="py-0.5">・{s}</div>
                   ))}
                 </div>
               </div>
-              <div className="flex-1 bg-[#fef1f2] rounded p-2.5">
-                <div className="text-[11px] font-semibold text-[#c4314b] mb-1">弱み</div>
-                <div className="text-[11px] text-[#1d1d1f] leading-relaxed">
+              <div className="flex-1 border-l-2 border-[#b08d57] pl-2.5 py-1">
+                <div className="text-[11px] font-semibold text-[#b08d57] mb-1">弱み</div>
+                <div className="text-[11px] text-[#333333] leading-relaxed">
                   {t.weaknesses.map((w: string, i: number) => (
                     <div key={i} className="py-0.5">・{w}</div>
                   ))}
@@ -237,7 +237,7 @@ export function CategoryToolPage({ data }: { data: CategoryData }) {
               href={t.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block mt-2 text-[11px] text-[#0066cc] hover:underline no-underline"
+              className="inline-block mt-2 text-[11px] text-[#4a7ab5] hover:underline no-underline"
             >
               公式サイトを見る →
             </a>
