@@ -130,6 +130,7 @@ export function Footer() {
           <a href="/switch" className="text-[#999999] hover:text-[#333333] no-underline">乗り換え</a>
           <a href="/safety" className="text-[#999999] hover:text-[#333333] no-underline">安全性</a>
           <a href="/methodology" className="text-[#999999] hover:text-[#333333] no-underline">方法論</a>
+          <a href="/faq" className="text-[#999999] hover:text-[#333333] no-underline">FAQ</a>
           <span className="ml-auto font-medium text-[13px] text-[#999999]">AI選び</span>
         </div>
         <div className="mt-2 flex items-center gap-4 text-[10px]">

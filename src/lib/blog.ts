@@ -43,5 +43,6 @@ export function getArticleSlugs(): string[] {
 export const CATEGORY_LABELS: Record<string, string> = {
   comparison: "比較",
   guide: "選び方",
+  analysis: "分析",
   news: "ニュース",
 };

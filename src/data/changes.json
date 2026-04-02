@@ -1,0 +1,15 @@
+{
+  "lastUpdated": "2026-03-31",
+  "period": "2026年3月4週",
+  "changes": [
+    { "model": "chatgpt", "modelName": "ChatGPT", "type": "score", "category": "overall", "oldScore": 86.5, "newScore": 86.5, "change": 0, "note": "変動なし" },
+    { "model": "claude", "modelName": "Claude", "type": "score", "category": "overall", "oldScore": 73.9, "newScore": 73.9, "change": 0, "note": "変動なし" },
+    { "model": "grok", "modelName": "Grok", "type": "score", "category": "overall", "oldScore": 72.1, "newScore": 72.1, "change": 0, "note": "変動なし" },
+    { "model": "perplexity", "modelName": "Perplexity", "type": "score", "category": "overall", "oldScore": 66.8, "newScore": 66.8, "change": 0, "note": "変動なし" },
+    { "model": "gemini", "modelName": "Gemini", "type": "score", "category": "overall", "oldScore": 60.3, "newScore": 60.3, "change": 0, "note": "変動なし" }
+  ],
+  "news": [
+    { "date": "2026-03-28", "text": "初回テスト結果を公開しました。5モデル × 30テスト + 安全性14テストの結果を掲載中。" },
+    { "date": "2026-03-22", "text": "AI選びを公開しました。" }
+  ]
+}

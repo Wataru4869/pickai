@@ -3,6 +3,7 @@ import testsData from "@/data/tests.json";
 import safetyData from "@/data/safety.json";
 import categoriesData from "@/data/categories.json";
 import modelDetailsData from "@/data/model-details.json";
+import changesData from "@/data/changes.json";
 
 export type Model = (typeof modelsData.models)[number];
 export type Test = (typeof testsData.tests)[number];
@@ -103,3 +104,7 @@ export const CATEGORY_LABELS: Record<string, string> = {
   image: "画像生成",
   safety: "安全性",
 };
+
+export function getChanges() {
+  return changesData;
+}

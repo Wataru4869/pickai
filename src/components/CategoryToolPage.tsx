@@ -27,7 +27,11 @@ type CategoryData = {
   lastUpdated: string;
 };
 
-export function CategoryToolPage({ data }: { data: CategoryData }) {
+export function CategoryToolPage({ data, relatedArticles, relatedNote }: {
+  data: CategoryData;
+  relatedArticles?: { href: string; title: string }[];
+  relatedNote?: string;
+}) {
   const rankedTools = data.ranking.map((r) => {
     const tool = data.tools.find((t) => t.id === r.toolId);
     return { ...r, tool };
@@ -254,6 +258,27 @@ export function CategoryToolPage({ data }: { data: CategoryData }) {
           最終更新: {data.lastUpdated}
         </div>
       </Block>
+
+      {/* Related Articles */}
+      {relatedArticles && relatedArticles.length > 0 && (
+        <Block alt>
+          <SectionHeader title="関連コラム" />
+          <div className="space-y-2">
+            {relatedArticles.map((article) => (
+              <a
+                key={article.href}
+                href={article.href}
+                className="block p-3 border border-[#e8e8ed] rounded hover:border-[#0066cc] transition-colors no-underline text-inherit"
+              >
+                <div className="text-[13px] font-semibold text-[#1d1d1f]">{article.title}</div>
+              </a>
+            ))}
+          </div>
+          {relatedNote && (
+            <p className="text-[11px] text-[#86868b] mt-2">{relatedNote}</p>
+          )}
+        </Block>
+      )}
 
       <Footer />
     </div>

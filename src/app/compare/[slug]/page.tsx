@@ -37,8 +37,35 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   const a = models.find((m) => m.id === parsed[0]);
   const b = models.find((m) => m.id === parsed[1]);
   if (!a || !b) return {};
-  const title = `${a.name} vs ${b.name} 比較【2026年版】| AI選び`;
-  const description = `${a.name}と${b.name}を全16テスト＋安全性14項目で直接比較。文章・コード・画像・安全性・料金のどこで差がつくか一目でわかります。`;
+
+  const scoreA = a.scores.overall;
+  const scoreB = b.scores.overall;
+  let scoreSummary = "";
+  if (scoreA !== null && scoreB !== null) {
+    const diff = Math.abs(scoreA - scoreB).toFixed(1);
+    const winner = scoreA > scoreB ? a.name : scoreB > scoreA ? b.name : null;
+    scoreSummary = winner
+      ? `総合スコアは${winner}が${diff}点差でリード。`
+      : "総合スコアは同点。";
+  }
+
+  const strengths: string[] = [];
+  if (a.scores.writing !== null && b.scores.writing !== null) {
+    const w = a.scores.writing > b.scores.writing ? a.name : b.name;
+    strengths.push(`文章は${w}`);
+  }
+  if (a.scores.coding !== null && b.scores.coding !== null) {
+    const w = a.scores.coding > b.scores.coding ? a.name : b.name;
+    strengths.push(`コードは${w}`);
+  }
+  if (a.scores.image !== null && b.scores.image !== null) {
+    const w = a.scores.image > b.scores.image ? a.name : b.name;
+    strengths.push(`画像は${w}`);
+  }
+  const strengthStr = strengths.length > 0 ? strengths.join("、") + "が優勢。" : "";
+
+  const title = `${a.name} vs ${b.name} 徹底比較【2026年最新】| AI選び`;
+  const description = `${a.name}（${scoreA ?? "—"}点）と${b.name}（${scoreB ?? "—"}点）を30テスト＋安全性14項目で直接比較。${scoreSummary}${strengthStr}料金・安全性・用途別の違いを一覧で解説。`;
   return {
     title,
     description,

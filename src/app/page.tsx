@@ -4,8 +4,10 @@ import {
   getOverallRanking,
   getCategorySummary,
   getSafetyRanking,
+  getChanges,
   CATEGORY_LABELS,
   scoreColorHex,
+  MODEL_COLORS,
 } from "@/lib/data";
 import {
   Header,
@@ -26,6 +28,7 @@ export default function HomePage() {
   const ranking = getOverallRanking();
   const catSummary = getCategorySummary() as Record<string, any>;
   const safetyRanking = getSafetyRanking();
+  const changes = getChanges();
 
   const rankedModels = ranking.map((r: any, i: number) => {
     const model = models.find((m) => m.id === r.model);
@@ -84,6 +87,42 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+
+      {/* Weekly Changes */}
+      <Block alt>
+        <SectionHeader title={`スコア変動（${changes.period}）`} />
+        <div className="space-y-0">
+          {changes.changes.map((c: any) => {
+            const color = MODEL_COLORS[c.model] || "#333333";
+            return (
+              <div key={c.model} className="flex items-center gap-3 py-2 border-b border-[#f0f0f0] last:border-b-0">
+                <span className="text-[13px] font-semibold w-24" style={{ color }}>{c.modelName}</span>
+                <span className="text-[14px] font-bold w-12 text-right" style={{ color: scoreColorHex(c.newScore) }}>
+                  {c.newScore}
+                </span>
+                <span className={`text-[12px] font-semibold w-12 text-right ${
+                  c.change > 0 ? "text-[#3d7a5f]" : c.change < 0 ? "text-[#a05454]" : "text-[#999999]"
+                }`}>
+                  {c.change > 0 ? `+${c.change}` : c.change < 0 ? `${c.change}` : "±0"}
+                </span>
+                <span className="text-[11px] text-[#999999] flex-1">{c.note}</span>
+              </div>
+            );
+          })}
+        </div>
+        {changes.news.length > 0 && (
+          <div className="mt-3 pt-3 border-t border-[#f0f0f0]">
+            <div className="text-[11px] font-semibold text-[#666666] mb-1.5">更新情報</div>
+            {changes.news.slice(0, 3).map((n: any, i: number) => (
+              <div key={i} className="flex gap-2 text-[11px] text-[#666666] py-1">
+                <span className="text-[#999999] shrink-0">{n.date}</span>
+                <span>{n.text}</span>
+              </div>
+            ))}
+          </div>
+        )}
+        <p className="text-[10px] text-[#999999] mt-2">最終更新: {changes.lastUpdated}</p>
+      </Block>
 
       {/* Overall Ranking */}
       <Block>
