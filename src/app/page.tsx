@@ -6,8 +6,9 @@ import {
   getSafetyRanking,
   getChanges,
   CATEGORY_LABELS,
-  scoreColorHex,
   MODEL_COLORS,
+  scoreColorHex,
+  scoreLabel,
 } from "@/lib/data";
 import {
   Header,
@@ -63,27 +64,83 @@ export default function HomePage() {
       }) }} />
 
       {/* Hero Dashboard */}
-      <div className="bg-white py-5 border-b border-[#f0f0f0]">
+      <div className="bg-white py-6 border-b border-[#e8e8ed]">
         <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
-          <h1 className="text-[20px] font-bold text-[#333333] mb-1">あなたに最適なAIが、すぐ見つかる。</h1>
-          <p className="text-[13px] text-[#666666] mb-4">独自30テスト × 6カテゴリ × 38ツール</p>
+          <div className="flex items-center gap-1.5 flex-wrap mb-5">
+            {["独自30テスト", "安全性14項目", "5モデル比較", "2026.03更新"].map((b) => (
+              <span key={b} className="text-[11px] font-medium text-[#6e6e73] px-2 py-0.5 border border-[#d2d2d7] rounded">
+                {b}
+              </span>
+            ))}
+          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <a href={`/model/${top?.id}`} className="bg-[#fafafa] border-2 border-[#3d7a5f] rounded p-3 no-underline text-inherit transition-colors">
-              <span className="inline-block bg-[#f5f5f0] text-[#333333] border border-[#e5e5e5] px-2 py-0.5 rounded text-[10px] font-semibold mb-1">総合1位</span>
-              <div className="text-[16px] font-bold text-[#333333]">{top?.name}</div>
-              <div className="text-[22px] font-bold" style={{ color: scoreColorHex(top?.score || 0) }}>{top?.score}</div>
-            </a>
-            <a href={`/model/${codeBest?.id}`} className="bg-[#fafafa] border border-[#e5e5e5] rounded p-3 no-underline text-inherit hover:border-[#4a7ab5] transition-colors">
-              <span className="inline-block text-[10px] font-semibold text-[#666666] mb-1">コード最強</span>
-              <div className="text-[16px] font-bold text-[#333333]">{codeBest?.name}</div>
-              <div className="text-[22px] font-bold" style={{ color: scoreColorHex(codeBest?.scores?.coding || 0) }}>{codeBest?.scores?.coding}</div>
-            </a>
-            <a href={`/model/${safetyBestModel?.id}`} className="bg-[#fafafa] border border-[#e5e5e5] rounded p-3 no-underline text-inherit hover:border-[#4a7ab5] transition-colors">
-              <span className="inline-block text-[10px] font-semibold text-[#666666] mb-1">安全性1位</span>
-              <div className="text-[16px] font-bold text-[#333333]">{safetyBestModel?.name}</div>
-              <div className="text-[22px] font-bold" style={{ color: scoreColorHex(safetyBest?.score || 0) }}>{safetyBest?.score}</div>
-            </a>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            {[
+              {
+                label: "総合1位",
+                sub: "全16テスト平均",
+                name: top?.name,
+                score: top?.score,
+                diff: rankedModels[1] ? `2位に +${(top.score - rankedModels[1].score).toFixed(1)}点差` : "",
+                href: `/model/${top?.id}`,
+              },
+              {
+                label: "コーディング1位",
+                sub: "4テスト平均",
+                name: codeBest?.name,
+                score: codeBest?.scores?.coding,
+                diff: (() => {
+                  const sorted = [...rankedModels].sort((a, b) => (b.scores?.coding || 0) - (a.scores?.coding || 0));
+                  return sorted[1] ? `2位に +${((sorted[0].scores?.coding || 0) - (sorted[1].scores?.coding || 0)).toFixed(1)}点差` : "";
+                })(),
+                href: `/model/${codeBest?.id}`,
+              },
+              {
+                label: "安全性1位",
+                sub: "14テスト評価",
+                name: safetyBestModel?.name,
+                score: safetyBest?.score,
+                diff: safetyRanking[1] ? `2位に +${(safetyBest.score - (safetyRanking[1] as any).score).toFixed(1)}点差` : "",
+                href: `/model/${safetyBestModel?.id}`,
+              },
+            ].map((card) => (
+              <a
+                key={card.label}
+                href={card.href}
+                className="border border-[#d2d2d7] rounded-md overflow-hidden no-underline text-inherit hover:border-[#86868b] transition-colors"
+              >
+                <div className="bg-[#f5f5f7] px-3 py-2 border-b border-[#e8e8ed]">
+                  <div className="text-[12px] font-semibold text-[#1d1d1f]">{card.label}</div>
+                  <div className="text-[10px] text-[#86868b]">{card.sub}</div>
+                </div>
+                <div className="px-3 py-3">
+                  <div className="text-[13px] text-[#6e6e73] mb-0.5">{card.name}</div>
+                  <div className="text-[30px] font-bold text-[#1d1d1f] leading-none">{card.score}</div>
+                  <div className="text-[10px] text-[#86868b] mt-1">{card.diff}</div>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <div className="mt-4">
+            <div className="text-[11px] text-[#86868b] mb-1.5">用途から探す</div>
+            <div className="flex gap-1.5 flex-wrap">
+              {[
+                { label: "文章作成", href: "/recommend?use=writing" },
+                { label: "プログラミング", href: "/recommend?use=coding" },
+                { label: "画像生成", href: "/recommend?use=image" },
+                { label: "調べもの", href: "/recommend?use=search" },
+                { label: "おすすめ診断 →", href: "/recommend" },
+              ].map((u) => (
+                <a
+                  key={u.label}
+                  href={u.href}
+                  className="px-3 py-1.5 border border-[#d2d2d7] rounded text-[12px] font-medium text-[#1d1d1f] no-underline hover:border-[#0066cc] hover:text-[#0066cc] transition-colors"
+                >
+                  {u.label}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -126,88 +183,93 @@ export default function HomePage() {
 
       {/* Overall Ranking */}
       <Block>
-        <SectionHeader title="総合ランキング（全16テスト）" />
+        <SectionHeader title="総合ランキング" />
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse text-[12px]">
+            <thead>
+              <tr>
+                <th className="text-left p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] w-6 uppercase tracking-wider"></th>
+                <th className="text-left p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">モデル</th>
+                <th className="text-center p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">総合</th>
+                <th className="text-center p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">文章</th>
+                <th className="text-center p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">コード</th>
+                <th className="text-center p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">画像</th>
+                <th className="text-center p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">安全性</th>
+              </tr>
+            </thead>
+            <tbody>
+              {(() => {
+                const writingBest = [...rankedModels].sort((a, b) => (b.scores?.writing || 0) - (a.scores?.writing || 0))[0];
+                const codingBest2 = [...rankedModels].sort((a, b) => (b.scores?.coding || 0) - (a.scores?.coding || 0))[0];
+                const imageBest = [...rankedModels].sort((a, b) => (b.scores?.image || 0) - (a.scores?.image || 0))[0];
+                const safetyBestId = (safetyRanking[0] as any)?.model;
 
-        {/* 1st Place Card */}
-        {top && (
-          <a
-            href={`/model/${top.id}`}
-            className="block bg-[#fafafa] border-2 border-[#3d7a5f] rounded p-5 mb-4 no-underline text-inherit transition-colors"
-          >
-            <span className="inline-block bg-[#f5f5f0] text-[#333333] border border-[#e5e5e5] px-3 py-1 rounded text-[11px] font-semibold mb-2">総合1位</span>
-            <div className="flex items-center justify-between">
-              <div>
-                <span className="text-[22px] sm:text-[24px] font-bold text-[#333333]">{top.name}</span>
-                <span className="text-[13px] font-normal text-[#999999] ml-2">{top.provider}</span>
-              </div>
-              <div className="text-[32px] sm:text-[40px] font-bold" style={{ color: scoreColorHex(top.score) }}>
-                {top.score}
-              </div>
-            </div>
-            <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {[
-                { label: "文章生成", score: top.scores?.writing },
-                { label: "コーディング", score: top.scores?.coding },
-                { label: "画像生成", score: top.scores?.image },
-                { label: "安全性", score: top.scores?.safety },
-              ].map((cat) => (
-                <div key={cat.label}>
-                  <div className="text-[10px] text-[#999999]">{cat.label}</div>
-                  <div className="text-[14px] font-semibold" style={{ color: scoreColorHex(cat.score || 0) }}>
-                    {cat.score}
-                  </div>
-                  <div className="w-full h-1 bg-[#f0f0f0] rounded-sm mt-1">
-                    <div className="h-full rounded-sm" style={{ width: `${cat.score}%`, backgroundColor: scoreColorHex(cat.score || 0) }} />
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="text-[12px] text-[#4a7ab5] mt-3">詳細を見る →</div>
-          </a>
-        )}
+                return rankedModels.map((m: any) => {
+                  const cats = [
+                    { key: "writing", score: m.scores?.writing, isBest: m.id === writingBest.id },
+                    { key: "coding", score: m.scores?.coding, isBest: m.id === codingBest2.id },
+                    { key: "image", score: m.scores?.image, isBest: m.id === imageBest.id },
+                    { key: "safety", score: m.scores?.safety, isBest: m.id === safetyBestId },
+                  ];
 
-        {/* 2nd-5th Place */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {rankedModels.slice(1).map((m: any, i: number) => (
-            <a
-              key={m.id}
-              href={`/model/${m.id}`}
-              className="border border-[#e5e5e5] rounded p-4 hover:border-[#4a7ab5] transition-colors cursor-pointer no-underline text-inherit bg-white"
-            >
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-[18px] font-bold text-[#999999]">{i + 2}</span>
-                  <span className="text-[14px] font-semibold">{m.name}</span>
-                  <span className="text-[10px] text-[#999999]">{m.provider}</span>
-                </div>
-                <span className="text-[22px] font-bold" style={{ color: scoreColorHex(m.score) }}>
-                  {m.score}
-                </span>
-              </div>
-              <div className="space-y-1.5">
-                {[
-                  { label: "文章", score: m.scores?.writing },
-                  { label: "コード", score: m.scores?.coding },
-                  { label: "画像", score: m.scores?.image },
-                  { label: "安全性", score: m.scores?.safety },
-                ].map((cat) => (
-                  <div key={cat.label} className="flex items-center gap-2 text-[10px]">
-                    <span className="w-8 text-[#999999] shrink-0">{cat.label}</span>
-                    <div className="flex-1 h-1 bg-[#f0f0f0] rounded-sm">
-                      <div className="h-full rounded-sm" style={{ width: `${cat.score}%`, backgroundColor: scoreColorHex(cat.score || 0) }} />
-                    </div>
-                    <span className="w-8 text-right font-semibold" style={{ color: scoreColorHex(cat.score || 0) }}>
-                      {cat.score}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </a>
+                  return (
+                    <tr key={m.id} className="hover:bg-[#f9f9fb]">
+                      <td className="p-2 border-b border-[#f0f0f0]">
+                        <span className={`text-[14px] font-bold ${
+                          m.rank === 1 ? "text-[#a0820a]" : m.rank === 2 ? "text-[#86868b]" : m.rank === 3 ? "text-[#8b6c4f]" : "text-[#d2d2d7]"
+                        }`}>
+                          {m.rank}
+                        </span>
+                      </td>
+                      <td className="p-2 border-b border-[#f0f0f0]">
+                        <a href={`/model/${m.id}`} className="no-underline text-inherit">
+                          <span className="text-[14px] font-semibold text-[#1d1d1f]">{m.name}</span>
+                          <span className="text-[11px] text-[#86868b] ml-1.5">{m.provider}</span>
+                        </a>
+                      </td>
+                      <td className="p-2 border-b border-[#f0f0f0] text-center">
+                        <span className="text-[17px] font-bold text-[#1d1d1f]">{m.score}</span>
+                        <span className="block text-[9px] font-medium mt-0.5" style={{ color: scoreColorHex(m.score) }}>
+                          {scoreLabel(m.score)}
+                        </span>
+                      </td>
+                      {cats.map((cat) => (
+                        <td key={cat.key} className="p-2 border-b border-[#f0f0f0] text-center">
+                          <span className="text-[13px] font-semibold text-[#1d1d1f]">{cat.score}</span>
+                          {cat.isBest && <span className="block text-[9px] font-medium text-[#86868b]">1位</span>}
+                          <div className="w-full h-[3px] bg-[#f0f0f0] rounded-sm mt-1">
+                            <div
+                              className="h-full rounded-sm"
+                              style={{
+                                width: `${cat.score}%`,
+                                backgroundColor: scoreColorHex(cat.score || 0),
+                              }}
+                            />
+                          </div>
+                        </td>
+                      ))}
+                    </tr>
+                  );
+                });
+              })()}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Score Legend */}
+        <div className="flex gap-3 mt-3 pt-3 border-t border-[#f0f0f0] flex-wrap">
+          {[
+            { color: "#3d7a5f", label: "85+ トップクラス" },
+            { color: "#4a6a8a", label: "70-84 実用十分" },
+            { color: "#b08d57", label: "50-69 制約あり" },
+            { color: "#a05454", label: "50未満 非推奨" },
+          ].map((l) => (
+            <div key={l.label} className="flex items-center gap-1 text-[10px] text-[#86868b]">
+              <div className="w-2 h-[3px] rounded-sm" style={{ backgroundColor: l.color }} />
+              {l.label}
+            </div>
           ))}
         </div>
-        <p className="text-[10px] text-[#999999] mt-3">
-          ※ 総合スコア = 全16テスト（文章8＋コード4＋画像4）の平均点。安全性は別軸で評価。
-        </p>
       </Block>
 
       {/* Category Tabs */}

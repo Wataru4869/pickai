@@ -105,6 +105,13 @@ export const CATEGORY_LABELS: Record<string, string> = {
   safety: "安全性",
 };
 
+export function scoreLabel(score: number): string {
+  if (score >= 85) return "トップ";
+  if (score >= 70) return "実用十分";
+  if (score >= 50) return "制約あり";
+  return "非推奨";
+}
+
 export function getChanges() {
   return changesData;
 }
