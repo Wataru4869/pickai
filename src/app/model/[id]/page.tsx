@@ -56,36 +56,54 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
       <Header />
 
       {/* Model Header */}
-      <div className="border-b border-[#f0f0f0] py-6 bg-white">
+      <div className="border-b border-[#e8e8ed] py-6 bg-white">
         <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
+          <div className="text-[11px] text-[#86868b] mb-2">
+            <a href="/" className="text-[#0066cc] hover:underline no-underline">トップ</a>
+            {" ＞ "}
+            <span>モデル</span>
+          </div>
           <div className="flex items-center gap-2 mb-2">
-            {overallRank > 0 && <RankBadge rank={overallRank} />}
+            <span className={`inline-flex items-center justify-center w-6 h-6 rounded text-[12px] font-bold text-white ${
+              overallRank === 1 ? "bg-[#a0820a]" : overallRank === 2 ? "bg-[#86868b]" : overallRank === 3 ? "bg-[#8b6c4f]" : "bg-[#d2d2d7]"
+            }`}>
+              {overallRank}
+            </span>
             <span className="text-[11px] text-[#86868b]">総合（全16テスト）</span>
           </div>
-          <div className="flex items-baseline gap-3 mb-1.5">
-            <h1 className="text-[24px] font-bold">{model.name}</h1>
-            <span className="text-[28px] font-bold" style={{ color: scoreColorHex(model.scores.overall || 0) }}>
+          <div className="flex items-baseline gap-2.5 mb-1.5">
+            <h1 className="text-[26px] font-bold text-[#1d1d1f]">{model.name}</h1>
+            <span className="text-[32px] font-bold text-[#1d1d1f]">
               {model.scores.overall ?? "—"}
             </span>
             <span className="text-[12px] text-[#86868b]">/ 100</span>
           </div>
           <p className="text-[12px] text-[#6e6e73]">{model.descriptionJapanese}</p>
-          <p className="text-[11px] text-[#86868b] mt-1.5">提供: {model.provider}</p>
+          <p className="text-[11px] text-[#86868b] mt-1 mb-3.5">提供: {model.provider}</p>
 
-          <div className="flex gap-2 mt-3">
-            {[
-              { label: "文章", score: model.scores.writing },
-              { label: "コード", score: model.scores.coding },
-              { label: "画像", score: model.scores.image },
-              { label: "安全性", score: model.scores.safety },
-            ].map((c) => (
-              <div key={c.label} className="flex-1 text-center border border-[#f0f0f0] rounded p-1.5">
-                <div className="text-[10px] text-[#86868b]">{c.label}</div>
-                <div className="text-[16px] font-bold" style={{ color: c.score ? scoreColorHex(c.score) : "#999" }}>
-                  {c.score ?? "—"}
+          <div className="grid grid-cols-4 gap-1.5">
+            {(() => {
+              const modelsAll = models.filter((mm) => mm.scores.overall !== null);
+              const wBest = [...modelsAll].sort((a, b) => (b.scores.writing || 0) - (a.scores.writing || 0))[0];
+              const cBest = [...modelsAll].sort((a, b) => (b.scores.coding || 0) - (a.scores.coding || 0))[0];
+              const iBest = [...modelsAll].sort((a, b) => (b.scores.image || 0) - (a.scores.image || 0))[0];
+              const sBest = [...modelsAll].sort((a, b) => (b.scores.safety || 0) - (a.scores.safety || 0))[0];
+              const cats = [
+                { label: "文章", score: model.scores.writing, isBest: model.id === wBest.id },
+                { label: "コード", score: model.scores.coding, isBest: model.id === cBest.id },
+                { label: "画像", score: model.scores.image, isBest: model.id === iBest.id },
+                { label: "安全性", score: model.scores.safety, isBest: model.id === sBest.id },
+              ];
+              return cats.map((c) => (
+                <div key={c.label} className="border border-[#e8e8ed] rounded p-2 text-center">
+                  <div className="text-[10px] text-[#86868b] mb-0.5">{c.label}</div>
+                  <div className="text-[18px] font-bold text-[#1d1d1f] leading-tight">
+                    {c.score ?? "—"}
+                  </div>
+                  {c.isBest && <div className="text-[9px] text-[#86868b] mt-0.5">1位</div>}
                 </div>
-              </div>
-            ))}
+              ));
+            })()}
           </div>
         </div>
       </div>
@@ -138,20 +156,20 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
       {details && (
         <Block>
           <SectionHeader title="強み・弱み" />
-          <div className="flex flex-col sm:flex-row gap-3">
-            <div className="flex-1">
-              <div className="text-[12px] font-semibold text-[#3d7a5f] mb-2">強み</div>
-              <div className="space-y-1.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <div className="text-[11px] font-bold text-[#1d1d1f] mb-2 pl-2 border-l-2 border-[#3d7a5f] uppercase tracking-wider">強み</div>
+              <div>
                 {details.strengths.map((s: string, i: number) => (
-                  <div key={i} className="text-[12px] text-[#333333] pl-3 border-l-2 border-[#3d7a5f] leading-relaxed">{s}</div>
+                  <div key={i} className="text-[12px] text-[#1d1d1f] py-1.5 border-b border-[#f0f0f0] last:border-b-0 leading-relaxed">{s}</div>
                 ))}
               </div>
             </div>
-            <div className="flex-1">
-              <div className="text-[12px] font-semibold text-[#b08d57] mb-2">弱み</div>
-              <div className="space-y-1.5">
+            <div>
+              <div className="text-[11px] font-bold text-[#1d1d1f] mb-2 pl-2 border-l-2 border-[#a05454] uppercase tracking-wider">弱み</div>
+              <div>
                 {details.weaknesses.map((w: string, i: number) => (
-                  <div key={i} className="text-[12px] text-[#333333] pl-3 border-l-2 border-[#b08d57] leading-relaxed">{w}</div>
+                  <div key={i} className="text-[12px] text-[#1d1d1f] py-1.5 border-b border-[#f0f0f0] last:border-b-0 leading-relaxed">{w}</div>
                 ))}
               </div>
             </div>
@@ -163,17 +181,17 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
       {details && (
         <Block alt>
           <SectionHeader title="おすすめ用途" />
-          <div className="space-y-1.5 mb-4">
+          <div className="mb-4">
             {details.bestFor.map((b: string, i: number) => (
-              <div key={i} className="text-[12px] text-[#333333] pl-3 border-l-2 border-[#4a7ab5]">{b}</div>
+              <div key={i} className="text-[12px] text-[#1d1d1f] py-1.5 border-b border-[#f0f0f0] last:border-b-0 leading-relaxed pl-2 border-l-2 border-[#0066cc]">{b}</div>
             ))}
           </div>
           {details.notRecommendedFor && (
             <>
-              <div className="text-[12px] font-semibold text-[#86868b] mb-2">不向きな用途</div>
-              <div className="space-y-1.5">
+              <div className="text-[11px] font-bold text-[#86868b] mb-2 uppercase tracking-wider">不向きな用途</div>
+              <div>
                 {details.notRecommendedFor.map((n: string, i: number) => (
-                  <div key={i} className="text-[12px] text-[#6e6e73] pl-3 border-l-2 border-[#e5e5e5]">{n}</div>
+                  <div key={i} className="text-[12px] text-[#6e6e73] py-1.5 border-b border-[#f0f0f0] last:border-b-0 leading-relaxed pl-2 border-l-2 border-[#d2d2d7]">{n}</div>
                 ))}
               </div>
             </>

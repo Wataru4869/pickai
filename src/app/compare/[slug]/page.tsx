@@ -123,62 +123,54 @@ export default function ComparePage({ params }: { params: { slug: string } }) {
     <div className="min-h-screen bg-[#fbfbfd]">
       <Header />
 
-      <div className="bg-white border-b border-[#e5e5e5] py-4">
+      <div className="bg-white border-b border-[#e8e8ed] py-6">
         <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
-          <div className="text-[11px] text-[#86868b] mb-1">
-            <a href="/" className="text-[#4a7ab5] hover:underline">トップ</a>
+          <div className="text-[11px] text-[#86868b] mb-2">
+            <a href="/" className="text-[#0066cc] hover:underline no-underline">トップ</a>
             {" ＞ "}
             <span>比較</span>
           </div>
-          <h1 className="text-[20px] font-bold mb-2">
+          <h1 className="text-[22px] font-bold text-[#1d1d1f] mb-1.5">
             {modelA.name} vs {modelB.name}
           </h1>
-          <p className="text-[12px] text-[#6e6e73]">
-            全16テスト＋安全性14項目で直接比較
+          <p className="text-[12px] text-[#6e6e73] mb-2.5">
+            全16テスト ＋ 安全性14項目で直接比較
           </p>
-          <TrustBadges />
+          <div className="flex items-center gap-1.5 flex-wrap">
+            {["独自30テスト", "採点基準公開", "2026.03更新"].map((b) => (
+              <span key={b} className="text-[11px] font-medium text-[#6e6e73] px-2 py-0.5 border border-[#d2d2d7] rounded">
+                {b}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 
       <Block>
         <SectionHeader title="スコア概要" />
-        <div className="flex gap-2">
-          <div className="flex-1 border border-[#e5e5e5] rounded p-3 text-center">
-            <div className="text-[13px] font-semibold mb-1">{modelA.name}</div>
-            <div
-              className="text-[32px] font-bold leading-none"
-              style={{ color: scoreColorHex(modelA.scores.overall || 0) }}
-            >
+        <div className="grid grid-cols-[1fr_auto_1fr] gap-3 items-center">
+          <div className="border border-[#d2d2d7] rounded-md p-4 text-center">
+            <div className="text-[14px] font-semibold text-[#1d1d1f] mb-1">{modelA.name}</div>
+            <div className="text-[40px] font-bold text-[#1d1d1f] leading-none mb-1">
               {modelA.scores.overall ?? "—"}
             </div>
-            <div className="text-[11px] text-[#86868b] mt-0.5">総合</div>
+            <div className="text-[10px] font-medium text-[#86868b]">総合スコア</div>
           </div>
-          <div className="flex items-center justify-center">
-            <div className="w-10 h-10 rounded bg-[#333333] text-white flex items-center justify-center text-[11px] font-bold">
-              VS
-            </div>
-          </div>
-          <div className="flex-1 border border-[#e5e5e5] rounded p-3 text-center">
-            <div className="text-[13px] font-semibold mb-1">{modelB.name}</div>
-            <div
-              className="text-[32px] font-bold leading-none"
-              style={{ color: scoreColorHex(modelB.scores.overall || 0) }}
-            >
+          <div className="text-[14px] font-bold text-[#d2d2d7] text-center">vs</div>
+          <div className="border border-[#d2d2d7] rounded-md p-4 text-center">
+            <div className="text-[14px] font-semibold text-[#1d1d1f] mb-1">{modelB.name}</div>
+            <div className="text-[40px] font-bold text-[#1d1d1f] leading-none mb-1">
               {modelB.scores.overall ?? "—"}
             </div>
-            <div className="text-[11px] text-[#86868b] mt-0.5">総合</div>
+            <div className="text-[10px] font-medium text-[#86868b]">総合スコア</div>
           </div>
         </div>
-        <div className="flex items-center justify-center gap-3 mt-3 text-[11px]">
-          <span className="font-bold" style={{ color: MODEL_COLORS[modelA.id] || "#333" }}>
-            {winsA}勝
-          </span>
+        <div className="flex items-center justify-center gap-4 mt-3 text-[12px]">
+          <span className="font-bold text-[#1d1d1f]">{modelA.name} {winsA}勝</span>
           <span className="text-[#86868b]">{draws}引分</span>
-          <span className="font-bold" style={{ color: MODEL_COLORS[modelB.id] || "#333" }}>
-            {winsB}勝
-          </span>
+          <span className="font-bold text-[#1d1d1f]">{modelB.name} {winsB}勝</span>
         </div>
-        <div className="text-center mt-2 text-[12px] font-bold text-[#6e6e73] bg-[#fafafa] rounded p-2">
+        <div className="text-center mt-3 px-4 py-2.5 bg-[#f5f5f7] rounded text-[12px] font-semibold text-[#1d1d1f]">
           {verdict}
         </div>
       </Block>
@@ -194,64 +186,54 @@ export default function ComparePage({ params }: { params: { slug: string } }) {
               ? (safetyB as any)?.score || 0
               : (modelB.scores as any)[cat] || 0;
             const diff = scoreA - scoreB;
-            const winner = diff > 0 ? modelA.id : diff < 0 ? modelB.id : null;
+            const absDiff = Math.abs(diff);
+            let verdictText = "拮抗";
+            if (absDiff >= 30) verdictText = diff > 0 ? `${modelA.name}圧勝` : `${modelB.name}圧勝`;
+            else if (absDiff >= 10) verdictText = diff > 0 ? `${modelA.name}優勢` : `${modelB.name}優勢`;
+            else if (absDiff >= 3) verdictText = diff > 0 ? `${modelA.name}やや有利` : `${modelB.name}やや有利`;
 
             return (
-              <div key={cat} className="border border-[#f0f0f0] rounded p-2.5">
-                <div className="text-[11px] font-bold text-[#86868b] mb-1.5">
+              <div key={cat} className="border border-[#e8e8ed] rounded-md p-3">
+                <div className="text-[11px] font-bold text-[#6e6e73] mb-2 uppercase tracking-wider">
                   {CATEGORY_LABELS[cat] || cat}
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between mb-1">
+                <div className="grid grid-cols-[1fr_auto_1fr] gap-2 sm:gap-3 items-center">
+                  <div>
+                    <div className="flex items-baseline justify-between mb-1">
                       <span className="text-[11px] text-[#86868b]">{modelA.name}</span>
-                      <span
-                        className="text-[15px] font-bold"
-                        style={{ color: scoreColorHex(scoreA) }}
-                      >
-                        {scoreA.toFixed ? scoreA.toFixed(1) : scoreA}
+                      <span className="text-[15px] font-bold text-[#1d1d1f]">
+                        {typeof scoreA === "number" && scoreA.toFixed ? scoreA.toFixed(1) : scoreA}
                       </span>
                     </div>
-                    <div className="h-1.5 bg-[#fafafa] rounded-full overflow-hidden">
+                    <div className="h-1.5 bg-[#f0f0f0] rounded-sm overflow-hidden">
                       <div
-                        className="h-full rounded-full transition-all"
+                        className="h-full rounded-sm"
                         style={{
                           width: `${scoreA}%`,
-                          backgroundColor: MODEL_COLORS[modelA.id] || "#333",
+                          backgroundColor: scoreColorHex(scoreA),
                         }}
                       />
                     </div>
                   </div>
-                  <div className="text-center w-16 shrink-0">
-                    <div
-                      className="text-[12px] font-bold"
-                      style={{
-                        color: winner === modelA.id
-                          ? MODEL_COLORS[modelA.id]
-                          : winner === modelB.id
-                            ? MODEL_COLORS[modelB.id]
-                            : "#999",
-                      }}
-                    >
+                  <div className="text-center w-[70px] shrink-0">
+                    <div className="text-[13px] font-bold text-[#1d1d1f]">
                       {diff > 0 ? "+" : ""}{diff.toFixed(1)}
                     </div>
+                    <div className="text-[9px] text-[#86868b] mt-0.5">{verdictText}</div>
                   </div>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between mb-1">
+                  <div>
+                    <div className="flex items-baseline justify-between mb-1">
                       <span className="text-[11px] text-[#86868b]">{modelB.name}</span>
-                      <span
-                        className="text-[15px] font-bold"
-                        style={{ color: scoreColorHex(scoreB) }}
-                      >
-                        {scoreB.toFixed ? scoreB.toFixed(1) : scoreB}
+                      <span className="text-[15px] font-bold text-[#1d1d1f]">
+                        {typeof scoreB === "number" && scoreB.toFixed ? scoreB.toFixed(1) : scoreB}
                       </span>
                     </div>
-                    <div className="h-1.5 bg-[#fafafa] rounded-full overflow-hidden">
+                    <div className="h-1.5 bg-[#f0f0f0] rounded-sm overflow-hidden">
                       <div
-                        className="h-full rounded-full transition-all"
+                        className="h-full rounded-sm"
                         style={{
                           width: `${scoreB}%`,
-                          backgroundColor: MODEL_COLORS[modelB.id] || "#333",
+                          backgroundColor: scoreColorHex(scoreB),
                         }}
                       />
                     </div>
@@ -467,23 +449,23 @@ export default function ComparePage({ params }: { params: { slug: string } }) {
       <Block>
         <SectionHeader title="結論：どっちを選ぶべき？" />
         <div className="space-y-2">
-          <div className="border-l-4 rounded p-3 bg-[#fafafa]" style={{ borderColor: MODEL_COLORS[modelA.id] || "#333" }}>
-            <div className="text-[12px] font-semibold mb-0.5">{modelA.name}が向いている人</div>
-            <div className="text-[11px] text-[#6e6e73] leading-relaxed">
+          <div className="border border-[#e8e8ed] rounded-md p-3 bg-white">
+            <div className="text-[12px] font-semibold text-[#1d1d1f] mb-1.5 pl-2 border-l-2 border-[#3d7a5f]">{modelA.name}が向いている人</div>
+            <div className="text-[11px] text-[#6e6e73] leading-relaxed space-y-0.5">
               {modelA.strengths.slice(0, 3).map((s: string, i: number) => (
                 <div key={i}>・{s}</div>
               ))}
             </div>
           </div>
-          <div className="border-l-4 rounded p-3 bg-[#fafafa]" style={{ borderColor: MODEL_COLORS[modelB.id] || "#333" }}>
-            <div className="text-[12px] font-semibold mb-0.5">{modelB.name}が向いている人</div>
-            <div className="text-[11px] text-[#6e6e73] leading-relaxed">
+          <div className="border border-[#e8e8ed] rounded-md p-3 bg-white">
+            <div className="text-[12px] font-semibold text-[#1d1d1f] mb-1.5 pl-2 border-l-2 border-[#3d7a5f]">{modelB.name}が向いている人</div>
+            <div className="text-[11px] text-[#6e6e73] leading-relaxed space-y-0.5">
               {modelB.strengths.slice(0, 3).map((s: string, i: number) => (
                 <div key={i}>・{s}</div>
               ))}
             </div>
           </div>
-          <div className="text-center text-[11px] text-[#666666] bg-[#fafafa] rounded p-2 mt-2">
+          <div className="text-center text-[11px] text-[#6e6e73] bg-[#f5f5f7] rounded p-2.5 mt-2">
             迷ったら両方の無料枠を試すのがベスト。併用が最も賢い選択です。
           </div>
         </div>
@@ -498,7 +480,7 @@ export default function ComparePage({ params }: { params: { slug: string } }) {
               <a
                 key={m.id}
                 href={`/compare/${modelA.id}-vs-${m.id}`}
-                className="text-[11px] text-[#4a7ab5] border border-[#e5e5e5] rounded px-2.5 py-1 hover:bg-[#fafafa] transition-colors no-underline"
+                className="text-[11px] text-[#1d1d1f] border border-[#d2d2d7] rounded px-2.5 py-1 hover:border-[#0066cc] hover:text-[#0066cc] transition-colors no-underline"
               >
                 {modelA.name} vs {m.name}
               </a>
@@ -509,7 +491,7 @@ export default function ComparePage({ params }: { params: { slug: string } }) {
               <a
                 key={`b-${m.id}`}
                 href={`/compare/${modelB.id}-vs-${m.id}`}
-                className="text-[11px] text-[#4a7ab5] border border-[#e5e5e5] rounded px-2.5 py-1 hover:bg-[#fafafa] transition-colors no-underline"
+                className="text-[11px] text-[#1d1d1f] border border-[#d2d2d7] rounded px-2.5 py-1 hover:border-[#0066cc] hover:text-[#0066cc] transition-colors no-underline"
               >
                 {modelB.name} vs {m.name}
               </a>
