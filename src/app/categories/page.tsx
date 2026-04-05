@@ -31,20 +31,20 @@ export default function CategoriesPage() {
       </div>
 
       <Block>
-        <div className="space-y-3">
+        <div className="space-y-2">
           {categories.map((cat) => (
             <a
               key={cat.id}
               href={`/categories/${cat.id}`}
-              className="flex items-center gap-4 p-4 border border-[#e8e8ed] rounded-lg hover:bg-[#f5f5f7] transition-colors no-underline text-inherit"
+              className="flex items-center gap-4 p-4 border border-[#e8e8ed] rounded-md hover:border-[#86868b] transition-colors no-underline text-inherit bg-white"
             >
               <div className="flex-1">
                 <div className="text-[14px] font-semibold text-[#1d1d1f]">{cat.label}</div>
                 <div className="text-[11px] text-[#86868b] mt-0.5">{cat.description}</div>
               </div>
               <div className="text-right shrink-0">
-                <div className="text-[12px] font-semibold text-[#6e6e73]">{cat.tools}ツール</div>
-                <div className="text-[11px] text-[#0066cc]">比較する →</div>
+                <div className="text-[20px] font-bold text-[#1d1d1f] leading-none">{cat.tools}</div>
+                <div className="text-[10px] text-[#86868b] mt-0.5">ツール比較</div>
               </div>
             </a>
           ))}

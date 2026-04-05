@@ -81,23 +81,23 @@ export function CategoryToolPage({ data, relatedArticles, relatedNote }: {
             return (
               <div
                 key={r.toolId}
-                className="flex items-center gap-3 py-4 border-t border-[#e8e8ed] first:border-t-0"
+                className="flex items-center gap-3 py-3.5 border-t border-[#f0f0f0] first:border-t-0"
               >
                 <div
-                  className="w-6 h-6 rounded flex items-center justify-center text-[10px] font-semibold text-white shrink-0"
+                  className="w-6 h-6 rounded flex items-center justify-center text-[11px] font-bold text-white shrink-0"
                   style={{
                     backgroundColor:
-                      r.rank === 1 ? "#a0820a" : r.rank === 2 ? "#6e6e73" : r.rank === 3 ? "#8b6c4f" : "#d2d2d7",
+                      r.rank === 1 ? "#a0820a" : r.rank === 2 ? "#86868b" : r.rank === 3 ? "#8b6c4f" : "#d2d2d7",
                   }}
                 >
                   {r.rank}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-baseline gap-2">
+                  <div className="flex items-baseline gap-2 flex-wrap">
                     <span className="text-[14px] font-semibold text-[#1d1d1f]">{t.name}</span>
                     <span className="text-[11px] text-[#86868b]">{t.provider}</span>
                     {t.japaneseSupport && (
-                      <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#fafafa] text-[#666666] border border-[#e5e5e5]">日本語対応</span>
+                      <span className="text-[9px] font-medium px-1.5 py-0.5 rounded text-[#6e6e73] border border-[#d2d2d7]">日本語対応</span>
                     )}
                   </div>
                   <div className="text-[11px] text-[#6e6e73] mt-0.5">
@@ -105,13 +105,10 @@ export function CategoryToolPage({ data, relatedArticles, relatedNote }: {
                   </div>
                 </div>
                 <div className="text-right shrink-0">
-                  <div
-                    className="text-[24px] font-bold"
-                    style={{ color: scoreColorHex(r.score) }}
-                  >
+                  <div className="text-[22px] font-bold text-[#1d1d1f] leading-none">
                     {r.score}
                   </div>
-                  <div className="text-[10px] text-[#86868b]">/ 100</div>
+                  <div className="text-[10px] text-[#86868b] mt-0.5">/ 100</div>
                 </div>
               </div>
             );
@@ -120,28 +117,30 @@ export function CategoryToolPage({ data, relatedArticles, relatedNote }: {
       </Block>
 
       {/* Evaluation Axes */}
-      <Block>
+      <Block alt>
         <SectionHeader title="評価軸別スコア" />
         <div className="overflow-x-auto">
-          <table className="w-full text-[11px] border-collapse">
+          <table className="w-full border-collapse text-[12px]">
             <thead>
-              <tr className="bg-[#fafafa]">
-                <th className="p-2 text-left font-semibold border-b border-[#e5e5e5] text-[#333333]">ツール</th>
+              <tr>
+                <th className="text-left p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">ツール</th>
                 {data.evaluationAxes.map((axis) => (
-                  <th key={axis.key} className="p-2 text-center font-semibold border-b border-[#e5e5e5] text-[#333333]">
+                  <th key={axis.key} className="text-center p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">
                     {axis.label}
                   </th>
                 ))}
-                <th className="p-2 text-center font-semibold border-b border-[#e5e5e5] text-[#333333]">総合</th>
+                <th className="text-center p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">総合</th>
               </tr>
             </thead>
             <tbody>
-              {rankedTools.map((r, i) => {
+              {rankedTools.map((r) => {
                 if (!r.tool) return null;
                 const t = r.tool;
                 return (
-                  <tr key={r.toolId} className={i % 2 === 0 ? "bg-white" : "bg-[#fafafa]"}>
-                    <td className="p-2 border-b border-[#f0f0f0] font-medium text-[#333333]">{t.name}</td>
+                  <tr key={r.toolId}>
+                    <td className="p-2 border-b border-[#f0f0f0]">
+                      <span className="text-[13px] font-semibold text-[#1d1d1f]">{t.name}</span>
+                    </td>
                     {data.evaluationAxes.map((axis) => {
                       const score = t.scores[axis.key] ?? 0;
                       const maxInAxis = Math.max(...data.tools.map((tool) => tool.scores[axis.key] ?? 0));
@@ -149,21 +148,14 @@ export function CategoryToolPage({ data, relatedArticles, relatedNote }: {
                       return (
                         <td
                           key={axis.key}
-                          className="p-2 text-center border-b border-[#f0f0f0]"
-                          style={{
-                            fontWeight: isBest ? 600 : 400,
-                            color: scoreColorHex(score * 5),
-                            backgroundColor: isBest ? "#f0f5f0" : "transparent",
-                          }}
+                          className="p-2 text-center border-b border-[#f0f0f0] text-[13px] text-[#1d1d1f]"
                         >
-                          {score}/{axis.maxScore}
+                          <span className={isBest ? "font-bold" : ""}>{score}/{axis.maxScore}</span>
+                          {isBest && <span className="block text-[9px] font-medium text-[#86868b] mt-0.5">1位</span>}
                         </td>
                       );
                     })}
-                    <td
-                      className="p-2 text-center border-b border-[#e8e8ed] font-bold"
-                      style={{ color: scoreColorHex(r.score) }}
-                    >
+                    <td className="p-2 text-center border-b border-[#f0f0f0] text-[14px] font-bold text-[#1d1d1f]">
                       {r.score}
                     </td>
                   </tr>
@@ -180,13 +172,13 @@ export function CategoryToolPage({ data, relatedArticles, relatedNote }: {
         const t = r.tool;
         return (
           <Block key={r.toolId}>
-            <div className="flex items-center justify-between mb-2">
-              <div className="flex items-center gap-2">
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-2 flex-wrap">
                 <span
-                  className="w-5 h-5 rounded flex items-center justify-center text-[9px] font-semibold text-white"
+                  className="w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold text-white"
                   style={{
                     backgroundColor:
-                      r.rank === 1 ? "#a0820a" : r.rank === 2 ? "#6e6e73" : r.rank === 3 ? "#8b6c4f" : "#d2d2d7",
+                      r.rank === 1 ? "#a0820a" : r.rank === 2 ? "#86868b" : r.rank === 3 ? "#8b6c4f" : "#d2d2d7",
                   }}
                 >
                   {r.rank}
@@ -194,38 +186,34 @@ export function CategoryToolPage({ data, relatedArticles, relatedNote }: {
                 <span className="text-[15px] font-semibold text-[#1d1d1f]">{t.name}</span>
                 <span className="text-[11px] text-[#86868b]">{t.provider}</span>
               </div>
-              <span
-                className="text-[20px] font-bold"
-                style={{ color: scoreColorHex(r.score) }}
-              >
+              <span className="text-[20px] font-bold text-[#1d1d1f]">
                 {r.score}
               </span>
             </div>
 
-            <p className="text-[12px] text-[#6e6e73] mb-3">
+            <p className="text-[12px] text-[#6e6e73] mb-3 leading-relaxed">
               {t.descriptionJapanese || t.bestFor}
             </p>
 
-            <div className="flex gap-3 mb-3">
-              <div className="flex-1 border-l-2 border-[#3d7a5f] pl-2.5 py-1">
-                <div className="text-[11px] font-semibold text-[#3d7a5f] mb-1">強み</div>
-                <div className="text-[11px] text-[#333333] leading-relaxed">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+              <div>
+                <div className="text-[11px] font-bold text-[#1d1d1f] mb-1.5 pl-2 border-l-2 border-[#3d7a5f] uppercase tracking-wider">強み</div>
+                <div className="text-[11px] text-[#1d1d1f] leading-relaxed">
                   {t.strengths.map((s: string, i: number) => (
-                    <div key={i} className="py-0.5">・{s}</div>
+                    <div key={i} className="py-1 border-b border-[#f0f0f0] last:border-b-0">・{s}</div>
                   ))}
                 </div>
               </div>
-              <div className="flex-1 border-l-2 border-[#b08d57] pl-2.5 py-1">
-                <div className="text-[11px] font-semibold text-[#b08d57] mb-1">弱み</div>
-                <div className="text-[11px] text-[#333333] leading-relaxed">
+              <div>
+                <div className="text-[11px] font-bold text-[#1d1d1f] mb-1.5 pl-2 border-l-2 border-[#a05454] uppercase tracking-wider">弱み</div>
+                <div className="text-[11px] text-[#1d1d1f] leading-relaxed">
                   {t.weaknesses.map((w: string, i: number) => (
-                    <div key={i} className="py-0.5">・{w}</div>
+                    <div key={i} className="py-1 border-b border-[#f0f0f0] last:border-b-0">・{w}</div>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Pricing summary */}
             <div className="text-[11px] text-[#6e6e73]">
               <span className="font-semibold text-[#1d1d1f]">料金: </span>
               {t.pricing?.freeTier?.available !== false && t.pricing?.freeTier ? "無料枠あり" : "有料のみ"}
@@ -241,7 +229,7 @@ export function CategoryToolPage({ data, relatedArticles, relatedNote }: {
               href={t.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block mt-2 text-[11px] text-[#4a7ab5] hover:underline no-underline"
+              className="inline-block mt-3 text-[11px] text-[#6e6e73] hover:text-[#0066cc] no-underline border border-[#d2d2d7] rounded px-3 py-1.5 hover:border-[#0066cc] transition-colors"
             >
               公式サイトを見る →
             </a>
