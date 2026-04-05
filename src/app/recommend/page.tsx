@@ -51,10 +51,10 @@ export default function RecommendPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fbfbfd]">
+    <div className="min-h-screen bg-white">
       <Header />
 
-      <div className="bg-white border-b border-[#d2d2d7] py-4">
+      <div className="bg-white border-b border-[#e8e8ed] py-6">
         <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
           <h1 className="text-[20px] font-bold mb-1">
             あなたに最適なAIを見つける

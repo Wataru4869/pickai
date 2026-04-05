@@ -14,10 +14,10 @@ export const metadata = {
 
 export default function MethodologyPage() {
   return (
-    <div className="min-h-screen bg-[#fbfbfd]">
+    <div className="min-h-screen bg-white">
       <Header />
 
-      <div className="bg-white border-b border-[#d2d2d7] py-4">
+      <div className="bg-white border-b border-[#e8e8ed] py-6">
         <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
           <h1 className="text-[20px] font-bold mb-1">評価方法論</h1>
           <p className="text-[12px] text-[#6e6e73] leading-relaxed">
@@ -34,29 +34,29 @@ export default function MethodologyPage() {
           5つの主要AIモデル（Claude / ChatGPT / Gemini / Grok / Perplexity）に対し、合計30テストを実施。全モデルに同一プロンプトを投入し、統一基準で採点しました。
         </p>
         <div className="overflow-x-auto">
-        <table className="w-full text-[11px] border-collapse min-w-[400px]">
-          <thead>
-            <tr className="bg-[#f5f5f7]">
-              <th className="p-1.5 text-left font-bold border-b-2 border-[#d2d2d7]">カテゴリ</th>
-              <th className="p-1.5 text-center font-bold border-b-2 border-[#d2d2d7]">テスト数</th>
-              <th className="p-1.5 text-left font-bold border-b-2 border-[#d2d2d7]">主な項目</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[
-              { cat: "文章生成", count: 8, items: "営業メール、クレーム対応、企画書、議事録要約、SNS投稿、翻訳、ブログ" },
-              { cat: "コーディング", count: 4, items: "GAS自動化、Python分析、HTML/CSS/JS、デバッグ" },
-              { cat: "画像生成", count: 4, items: "商品写真、アニメキャラ、日本語バナー、ロゴデザイン" },
-              { cat: "安全性", count: 14, items: "ハルシネーション、著作権、プライバシー、フィッシング、政治中立性" },
-            ].map((r, i) => (
-              <tr key={r.cat} className={i % 2 === 0 ? "bg-white" : "bg-[#fbfbfd]"}>
-                <td className="p-1.5 font-semibold border-b border-[#e8e8ed]">{r.cat}</td>
-                <td className="p-1.5 text-center font-semibold text-[#0066cc] border-b border-[#e8e8ed]">{r.count}</td>
-                <td className="p-1.5 text-[11px] text-[#6e6e73] border-b border-[#e8e8ed]">{r.items}</td>
+          <table className="w-full border-collapse text-[12px] min-w-[400px]">
+            <thead>
+              <tr>
+                <th className="text-left p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">カテゴリ</th>
+                <th className="text-center p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">テスト数</th>
+                <th className="text-left p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">主な項目</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {[
+                { cat: "文章生成", count: 8, items: "営業メール、クレーム対応、企画書、議事録要約、SNS投稿、翻訳、ブログ" },
+                { cat: "コーディング", count: 4, items: "GAS自動化、Python分析、HTML/CSS/JS、デバッグ" },
+                { cat: "画像生成", count: 4, items: "商品写真、アニメキャラ、日本語バナー、ロゴデザイン" },
+                { cat: "安全性", count: 14, items: "ハルシネーション、著作権、プライバシー、フィッシング、政治中立性" },
+              ].map((r) => (
+                <tr key={r.cat}>
+                  <td className="p-2 border-b border-[#f0f0f0] text-[13px] font-semibold text-[#1d1d1f]">{r.cat}</td>
+                  <td className="p-2 text-center border-b border-[#f0f0f0] text-[14px] font-bold text-[#1d1d1f]">{r.count}</td>
+                  <td className="p-2 border-b border-[#f0f0f0] text-[11px] text-[#6e6e73]">{r.items}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
         <p className="text-[11px] text-[#86868b] mt-2">テスト実施: 2026年3月21-22日</p>
       </Block>
@@ -64,15 +64,15 @@ export default function MethodologyPage() {
       {/* Scoring */}
       <Block>
         <SectionHeader title="2. 採点方式" />
-        <div className="border-2 border-[#1d1d1f] rounded p-3 bg-[#f5f5f7] mb-3">
-          <div className="text-[13px] font-semibold text-[#0066cc] mb-2">3層スコアリングシステム</div>
+        <div className="border border-[#d2d2d7] rounded-md p-4 bg-[#f5f5f7] mb-3">
+          <div className="text-[13px] font-semibold text-[#1d1d1f] mb-2">3層スコアリングシステム</div>
           <div className="text-[12px] text-[#6e6e73] leading-relaxed">
-            <strong>文章・コード・画像（16テスト）：</strong><br />
+            <strong className="text-[#1d1d1f]">文章・コード・画像（16テスト）：</strong><br />
             ① Claude採点（25点満点）＋ ② ChatGPT採点（25点満点）→ 平均 → 100点換算<br />
             2つのAIによるクロス採点で、採点者バイアスを軽減。
           </div>
           <div className="text-[12px] text-[#6e6e73] leading-relaxed mt-2">
-            <strong>安全性（14テスト）：</strong><br />
+            <strong className="text-[#1d1d1f]">安全性（14テスト）：</strong><br />
             Claude採点のみ（25点満点×14テスト＝350点満点）<br />
             カテゴリ別加重：ハルシネーション×1.5 / プライバシー×1.5 / 著作権×1.2 / その他×1.0
           </div>
@@ -113,13 +113,13 @@ export default function MethodologyPage() {
       {/* External data */}
       <Block>
         <SectionHeader title="5. 外部データの取り扱い" />
-        <div className="flex gap-2">
-          <div className="flex-1 border-2 border-green-600 rounded p-2.5">
-            <div className="text-[11px] font-semibold text-green-700 mb-1">独自テスト済み ✓</div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <div className="border border-[#e8e8ed] rounded-md p-3">
+            <div className="text-[11px] font-bold text-[#1d1d1f] mb-1.5 pl-2 border-l-2 border-[#3d7a5f] uppercase tracking-wider">独自テスト済み</div>
             <div className="text-[11px] text-[#6e6e73] leading-relaxed">当サイトが実施した30テスト。全プロンプト・採点を公開。バッジ表示あり。</div>
           </div>
-          <div className="flex-1 border border-[#d2d2d7] rounded p-2.5">
-            <div className="text-[11px] font-semibold text-[#6e6e73] mb-1">外部データ引用</div>
+          <div className="border border-[#e8e8ed] rounded-md p-3">
+            <div className="text-[11px] font-bold text-[#1d1d1f] mb-1.5 pl-2 border-l-2 border-[#d2d2d7] uppercase tracking-wider">外部データ引用</div>
             <div className="text-[11px] text-[#6e6e73] leading-relaxed">SWE-bench、MMLU等の外部ベンチマーク。出典URL・取得日を必ず明記。</div>
           </div>
         </div>
@@ -146,7 +146,7 @@ export default function MethodologyPage() {
           "生成型テストの採点には必然的に主観が介入します。クロス採点で軽減していますが、完全な客観性は保証できません。",
         ].map((t, i) => (
           <div key={i} className="flex gap-1.5 py-1.5 border-t border-[#e8e8ed] first:border-t-0">
-            <span className="text-[11px] text-orange-500 font-bold shrink-0 mt-0.5">*</span>
+            <span className="text-[11px] text-[#a05454] font-bold shrink-0 mt-0.5">*</span>
             <span className="text-[11px] text-[#6e6e73] leading-relaxed">{t}</span>
           </div>
         ))}

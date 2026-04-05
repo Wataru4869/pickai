@@ -191,7 +191,7 @@ function RichContent({ content }: { content: string }) {
             return (
               <div key={i} className="flex items-center gap-2 py-1.5 border-b border-[#f0f0f0] last:border-b-0">
                 <span className="text-[13px] text-[#6e6e73] w-24 shrink-0 text-right">{node.modelA}</span>
-                <div className="flex-1 h-2 bg-[#fafafa] rounded-sm overflow-hidden">
+                <div className="flex-1 h-2 bg-[#f5f5f7] rounded-sm overflow-hidden">
                   <div
                     className="h-full rounded-sm"
                     style={{
@@ -213,7 +213,7 @@ function RichContent({ content }: { content: string }) {
                 >
                   {node.scoreB}
                 </span>
-                <div className="flex-1 h-2 bg-[#fafafa] rounded-sm overflow-hidden">
+                <div className="flex-1 h-2 bg-[#f5f5f7] rounded-sm overflow-hidden">
                   <div
                     className="h-full rounded-sm"
                     style={{
@@ -236,7 +236,7 @@ function RichContent({ content }: { content: string }) {
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
                     <span className="text-[11px] text-[#6e6e73] w-20 shrink-0">{node.modelA}</span>
-                    <div className="flex-1 h-2.5 bg-[#fafafa] rounded-sm overflow-hidden">
+                    <div className="flex-1 h-2.5 bg-[#f5f5f7] rounded-sm overflow-hidden">
                       <div
                         className="h-full rounded-sm"
                         style={{
@@ -254,7 +254,7 @@ function RichContent({ content }: { content: string }) {
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-[11px] text-[#6e6e73] w-20 shrink-0">{node.modelB}</span>
-                    <div className="flex-1 h-2.5 bg-[#fafafa] rounded-sm overflow-hidden">
+                    <div className="flex-1 h-2.5 bg-[#f5f5f7] rounded-sm overflow-hidden">
                       <div
                         className="h-full rounded-sm"
                         style={{
@@ -363,7 +363,7 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
               <span>{article.updatedAt} 更新</span>
             )}
             <span>{article.readingTime}</span>
-            <span className="px-2 py-0.5 rounded bg-[#fafafa] text-[#6e6e73] border border-[#f0f0f0] font-medium text-[11px]">
+            <span className="px-2 py-0.5 rounded bg-[#f5f5f7] text-[#6e6e73] border border-[#f0f0f0] font-medium text-[11px]">
               {CATEGORY_LABELS[article.category] || article.category}
             </span>
           </div>
@@ -398,7 +398,7 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
               {article.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-[11px] px-3 py-1 rounded bg-[#fafafa] text-[#6e6e73]"
+                  className="text-[11px] px-3 py-1 rounded bg-[#f5f5f7] text-[#6e6e73]"
                 >
                   {tag}
                 </span>

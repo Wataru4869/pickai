@@ -62,7 +62,7 @@ export default function SwitchGuidePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fbfbfd]">
+    <div className="min-h-screen bg-white">
       <Header />
 
       <div className="bg-white border-b border-[#d2d2d7] py-4">

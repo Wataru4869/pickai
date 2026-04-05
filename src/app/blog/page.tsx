@@ -86,12 +86,12 @@ export default function BlogIndexPage() {
             <a
               key={article.slug}
               href={`/blog/${article.slug}`}
-              className="block p-4 border border-[#e5e5e5] rounded hover:border-[#4a7ab5] transition-colors no-underline text-inherit"
+              className="block p-4 border border-[#e8e8ed] rounded-md hover:border-[#86868b] transition-colors no-underline text-inherit bg-white"
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] px-1.5 py-0.5 rounded font-medium bg-[#fafafa] text-[#666666] border border-[#e5e5e5]">
+                    <span className="text-[10px] px-1.5 py-0.5 rounded font-medium text-[#6e6e73] border border-[#d2d2d7]">
                       {CATEGORY_LABELS[article.category] || article.category}
                     </span>
                     <span className="text-[10px] text-[#86868b]">{article.readingTime}</span>
