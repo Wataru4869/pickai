@@ -11,6 +11,18 @@ export const metadata: Metadata = {
   },
   description:
     "ChatGPT・Claude・Gemini・Grok・Perplexityを独自30テストで徹底比較。文章生成・コーディング・画像生成・安全性を5軸で採点。用途別おすすめAIが見つかります。",
+  icons: {
+    icon: [
+      { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-96.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon-48.png",
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     siteName: "AI選び",
     locale: "ja_JP",
@@ -33,7 +45,6 @@ export default function RootLayout({
     <html lang="ja">
       <head>
         <meta name="google-site-verification" content="58h4q6izcFdGa4utc7jGfjUHUxLAD_Yt5tJ7Z2G2_ls" />
-        <link rel="icon" href="/favicon.ico" />
         <link
           href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
           rel="stylesheet"

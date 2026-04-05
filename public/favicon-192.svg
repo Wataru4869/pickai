@@ -1,0 +1,8 @@
+<svg width="192" height="192" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
+  <rect width="192" height="192" rx="32" fill="#1d1d1f"/>
+  <g transform="translate(52, 126)">
+    <rect x="0" y="-72" width="18" height="72" rx="9" fill="#0066ff"/>
+    <rect x="26" y="-58" width="18" height="58" rx="9" fill="#66a3ff"/>
+    <rect x="52" y="-42" width="18" height="42" rx="9" fill="#cce0ff"/>
+  </g>
+</svg>
