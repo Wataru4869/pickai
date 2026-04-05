@@ -24,12 +24,28 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
+    title: "AI選び｜主要5モデルを30テストで徹底比較",
+    description:
+      "ChatGPT・Claude・Gemini・Grok・Perplexityを30テストで徹底比較。あなたに最適なAIが3分でわかる。",
+    url: "https://aierabi.jp",
     siteName: "AI選び",
+    images: [
+      {
+        url: "/ogp.png",
+        width: 1200,
+        height: 630,
+        alt: "AI選び｜あなたに最適なAIが3分でわかる",
+      },
+    ],
     locale: "ja_JP",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
+    title: "AI選び｜主要5モデルを30テストで徹底比較",
+    description:
+      "ChatGPT・Claude・Gemini・Grok・Perplexityを30テストで徹底比較。あなたに最適なAIが3分でわかる。",
+    images: ["/ogp.png"],
   },
   alternates: {
     canonical: "/",
