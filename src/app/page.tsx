@@ -149,36 +149,31 @@ export default function HomePage() {
       <Block alt>
         <SectionHeader title={`スコア変動（${changes.period}）`} />
         <div className="space-y-0">
-          {changes.changes.map((c: any) => {
-            const color = MODEL_COLORS[c.model] || "#333333";
-            return (
-              <div key={c.model} className="flex items-center gap-3 py-2 border-b border-[#f0f0f0] last:border-b-0">
-                <span className="text-[13px] font-semibold w-24" style={{ color }}>{c.modelName}</span>
-                <span className="text-[14px] font-bold w-12 text-right" style={{ color: scoreColorHex(c.newScore) }}>
-                  {c.newScore}
-                </span>
-                <span className={`text-[12px] font-semibold w-12 text-right ${
-                  c.change > 0 ? "text-[#3d7a5f]" : c.change < 0 ? "text-[#a05454]" : "text-[#999999]"
-                }`}>
-                  {c.change > 0 ? `+${c.change}` : c.change < 0 ? `${c.change}` : "±0"}
-                </span>
-                <span className="text-[11px] text-[#999999] flex-1">{c.note}</span>
-              </div>
-            );
-          })}
+          {changes.changes.map((c: any) => (
+            <div key={c.model} className="flex items-center gap-2 sm:gap-3 py-2.5 border-b border-[#f0f0f0] last:border-b-0">
+              <span className="text-[13px] font-semibold text-[#1d1d1f] w-[80px] sm:w-[90px]">{c.modelName}</span>
+              <span className="text-[15px] font-bold text-[#1d1d1f] w-[44px] text-right">{c.newScore}</span>
+              <span className={`text-[11px] font-semibold w-10 text-right ${
+                c.change > 0 ? "text-[#3d7a5f]" : c.change < 0 ? "text-[#a05454]" : "text-[#86868b]"
+              }`}>
+                {c.change > 0 ? `+${c.change}` : c.change < 0 ? `${c.change}` : "±0"}
+              </span>
+              <span className="text-[11px] text-[#86868b] flex-1">{c.note}</span>
+            </div>
+          ))}
         </div>
         {changes.news.length > 0 && (
           <div className="mt-3 pt-3 border-t border-[#f0f0f0]">
-            <div className="text-[11px] font-semibold text-[#666666] mb-1.5">更新情報</div>
+            <div className="text-[11px] font-semibold text-[#6e6e73] mb-1">更新情報</div>
             {changes.news.slice(0, 3).map((n: any, i: number) => (
-              <div key={i} className="flex gap-2 text-[11px] text-[#666666] py-1">
-                <span className="text-[#999999] shrink-0">{n.date}</span>
+              <div key={i} className="flex gap-2 text-[11px] text-[#6e6e73] py-0.5">
+                <span className="text-[#86868b] shrink-0">{n.date}</span>
                 <span>{n.text}</span>
               </div>
             ))}
           </div>
         )}
-        <p className="text-[10px] text-[#999999] mt-2">最終更新: {changes.lastUpdated}</p>
+        <p className="text-[10px] text-[#86868b] mt-2">最終更新: {changes.lastUpdated}</p>
       </Block>
 
       {/* Overall Ranking */}
@@ -287,8 +282,8 @@ export default function HomePage() {
       {/* Category Links */}
       <Block alt>
         <SectionHeader title="カテゴリ別AI比較" />
-        <p className="text-[10px] text-[#999999] mb-3">汎用AI以外の専門ツールも網羅。外部レビュー・ベンチマーク基準。</p>
-        <div className="flex gap-3 overflow-x-auto pb-2">
+        <p className="text-[10px] text-[#86868b] mb-3">汎用AI以外の専門ツールも網羅。外部レビュー・ベンチマーク基準。</p>
+        <div className="flex gap-2 overflow-x-auto pb-2">
           {[
             { href: "/categories/image-generation", label: "画像生成", count: 7 },
             { href: "/categories/video-generation", label: "動画生成", count: 7 },
@@ -299,11 +294,15 @@ export default function HomePage() {
             <a
               key={cat.href}
               href={cat.href}
-              className="min-w-[150px] flex-shrink-0 p-3 border border-[#e5e5e5] rounded hover:border-[#4a7ab5] transition-colors no-underline text-inherit bg-white"
+              className="min-w-[140px] flex-shrink-0 border border-[#d2d2d7] rounded-md overflow-hidden no-underline text-inherit bg-white hover:border-[#86868b] transition-colors"
             >
-              <div className="text-[15px] font-semibold text-[#333333]">{cat.label}</div>
-              <div className="text-[12px] text-[#666666] mt-0.5">{cat.count}ツール</div>
-              <div className="text-[10px] text-[#999999] mt-1">比較する →</div>
+              <div className="bg-[#f5f5f7] px-3 py-2 border-b border-[#e8e8ed]">
+                <div className="text-[13px] font-semibold text-[#1d1d1f]">{cat.label}</div>
+              </div>
+              <div className="px-3 py-2">
+                <div className="text-[20px] font-bold text-[#1d1d1f] leading-none">{cat.count}</div>
+                <div className="text-[10px] text-[#86868b] mt-1">ツール比較</div>
+              </div>
             </a>
           ))}
         </div>
@@ -312,26 +311,25 @@ export default function HomePage() {
       {/* Safety Summary */}
       <Block>
         <SectionHeader title="安全性ランキング" />
-        <p className="text-[10px] text-[#666666] mb-3">14テスト＋セキュリティ認証の加重スコア</p>
+        <p className="text-[10px] text-[#86868b] mb-3">14テスト＋セキュリティ認証の加重スコア</p>
         {safetyRanking.map((r: any, i: number) => {
           const model = models.find((m) => m.id === r.model);
+          const rankColor = i === 0 ? "text-[#a0820a]" : i === 1 ? "text-[#86868b]" : i === 2 ? "text-[#8b6c4f]" : "text-[#d2d2d7]";
           return (
             <div
               key={r.model}
-              className="flex items-center gap-2 py-2 border-t border-[#f0f0f0] first:border-t-0"
+              className="flex items-center gap-2 sm:gap-3 py-2.5 border-b border-[#f0f0f0] last:border-b-0"
             >
-              <span className="text-[11px] font-bold text-[#999999] w-4">{i + 1}</span>
-              <span className="text-[13px] font-semibold w-24">{model?.name}</span>
+              <span className={`text-[13px] font-bold w-5 text-center ${rankColor}`}>{i + 1}</span>
+              <span className="text-[13px] font-semibold text-[#1d1d1f] w-[80px] sm:w-[90px]">{model?.name}</span>
               <div className="flex-1 h-1 bg-[#f0f0f0] rounded-sm">
                 <div className="h-full rounded-sm" style={{ width: `${r.score}%`, backgroundColor: scoreColorHex(r.score) }} />
               </div>
-              <span className="text-[14px] font-bold w-12 text-right" style={{ color: scoreColorHex(r.score) }}>
-                {r.score}
-              </span>
+              <span className="text-[14px] font-bold text-[#1d1d1f] w-[44px] text-right">{r.score}</span>
             </div>
           );
         })}
-        <a href="/safety" className="block text-center text-[10px] text-[#4a7ab5] mt-3 hover:underline no-underline">
+        <a href="/safety" className="block text-center text-[11px] text-[#6e6e73] mt-3 hover:text-[#0066cc] no-underline py-1">
           安全性の詳細比較を見る →
         </a>
       </Block>
@@ -340,26 +338,30 @@ export default function HomePage() {
       <Block alt>
         <SectionHeader title="料金比較" />
         <div className="overflow-x-auto">
-          <table className="w-full text-[11px] border-collapse">
+          <table className="w-full border-collapse text-[12px]">
             <thead>
-              <tr className="bg-[#fafafa]">
-                <th className="p-1.5 text-left font-semibold border-b-2 border-[#e5e5e5] text-[#333333]">モデル</th>
-                <th className="p-1.5 text-center font-semibold border-b-2 border-[#e5e5e5] text-[#333333]">無料</th>
-                <th className="p-1.5 text-center font-semibold border-b-2 border-[#e5e5e5] text-[#333333]">スタンダード</th>
-                <th className="p-1.5 text-center font-semibold border-b-2 border-[#e5e5e5] text-[#333333]">総合点</th>
+              <tr>
+                <th className="text-left p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">モデル</th>
+                <th className="text-center p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">無料</th>
+                <th className="text-center p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">月額</th>
+                <th className="text-center p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">総合</th>
               </tr>
             </thead>
             <tbody>
-              {rankedModels.map((m: any, i: number) => (
-                <tr key={m.id} className={i % 2 === 1 ? "bg-[#fafafa]" : ""}>
-                  <td className="p-1.5 font-semibold border-b border-[#f0f0f0]">{m.name}</td>
-                  <td className="p-1.5 text-center border-b border-[#f0f0f0] text-[#3d7a5f] font-semibold">
-                    {m.pricing?.free?.available ? "✓" : "—"}
+              {rankedModels.map((m: any) => (
+                <tr key={m.id}>
+                  <td className="p-2 border-b border-[#f0f0f0]">
+                    <span className="text-[13px] font-semibold text-[#1d1d1f]">{m.name}</span>
                   </td>
-                  <td className="p-1.5 text-center border-b border-[#f0f0f0]">
-                    {m.pricing?.standard?.priceJPY ? `¥${m.pricing.standard.priceJPY.toLocaleString()}/月` : "—"}
+                  <td className="p-2 border-b border-[#f0f0f0] text-center">
+                    {m.pricing?.free?.available
+                      ? <span className="text-[13px] font-semibold text-[#3d7a5f]">◯</span>
+                      : <span className="text-[13px] text-[#86868b]">—</span>}
                   </td>
-                  <td className="p-1.5 text-center border-b border-[#f0f0f0] font-semibold" style={{ color: scoreColorHex(m.score) }}>
+                  <td className="p-2 border-b border-[#f0f0f0] text-center text-[13px] text-[#1d1d1f]">
+                    {m.pricing?.standard?.priceJPY ? `¥${m.pricing.standard.priceJPY.toLocaleString()}` : "—"}
+                  </td>
+                  <td className="p-2 border-b border-[#f0f0f0] text-center text-[13px] font-bold text-[#1d1d1f]">
                     {m.score}
                   </td>
                 </tr>
@@ -367,7 +369,7 @@ export default function HomePage() {
             </tbody>
           </table>
         </div>
-        <a href="/cost" className="block text-center text-[10px] text-[#4a7ab5] mt-3 hover:underline no-underline">
+        <a href="/cost" className="block text-center text-[11px] text-[#6e6e73] mt-3 hover:text-[#0066cc] no-underline py-1">
           コスト計算機で最適プランを見つける →
         </a>
       </Block>
@@ -375,7 +377,7 @@ export default function HomePage() {
       {/* Latest Articles */}
       <Block>
         <SectionHeader title="最新コラム" />
-        <div className="space-y-2">
+        <div className="space-y-1.5">
           {[
             { slug: "chatgpt-vs-claude-2026", title: "ChatGPT vs Claude 徹底比較【2026年最新】", date: "2026-03-22" },
             { slug: "ai-tools-how-to-choose-2026", title: "【2026年版】AIツールの選び方完全ガイド", date: "2026-03-22" },
@@ -384,25 +386,25 @@ export default function HomePage() {
             <a
               key={a.slug}
               href={`/blog/${a.slug}`}
-              className="flex items-center justify-between p-3 border border-[#e5e5e5] rounded hover:border-[#4a7ab5] transition-colors no-underline text-inherit"
+              className="flex items-center justify-between p-3 border border-[#e8e8ed] rounded hover:border-[#86868b] transition-colors no-underline text-inherit bg-white"
             >
-              <span className="text-[13px] font-medium text-[#333333]">{a.title}</span>
-              <span className="text-[10px] text-[#999999] shrink-0 ml-3">{a.date}</span>
+              <span className="text-[13px] font-medium text-[#1d1d1f]">{a.title}</span>
+              <span className="text-[10px] text-[#86868b] shrink-0 ml-3">{a.date}</span>
             </a>
           ))}
         </div>
-        <a href="/blog" className="block text-center text-[10px] text-[#4a7ab5] mt-3 hover:underline no-underline">
+        <a href="/blog" className="block text-center text-[11px] text-[#6e6e73] mt-3 hover:text-[#0066cc] no-underline py-1">
           全てのコラムを見る →
         </a>
       </Block>
 
       {/* Share + Badges */}
       <Block alt>
-        <div className="flex items-center justify-between border border-[#e5e5e5] rounded p-3 bg-white">
-          <div>
-            <div className="text-[12px] font-bold">この比較結果をシェア</div>
-            <div className="text-[10px] text-[#666666] mt-0.5">
-              「2026年AI比較：総合1位ChatGPT、コード最強Claude #AI選び」
+        <div className="flex items-center justify-between border border-[#d2d2d7] rounded-md p-3 bg-white">
+          <div className="min-w-0 flex-1">
+            <div className="text-[12px] font-semibold text-[#1d1d1f]">この比較結果をシェア</div>
+            <div className="text-[11px] text-[#6e6e73] mt-0.5 truncate">
+              2026年AI比較：総合1位ChatGPT、コード最強Claude
             </div>
           </div>
           <ShareButton text="2026年AI比較：総合1位ChatGPT（86.5）コード最強Claude（94.3）安全性もClaude（93.7）#AI選び https://aierabi.jp" />
