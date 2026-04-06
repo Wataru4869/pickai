@@ -220,5 +220,27 @@
       "score": 72
     }
   ],
-  "lastUpdated": "2026.03"
+  "lastUpdated": "2026.03",
+  "faq": [
+    {
+      "question": "AI検索エンジンで最もおすすめはどれですか？",
+      "answer": "Perplexityが最もおすすめです。AI選びの5軸評価（回答精度・出典品質・リアルタイム性・日本語対応・コスパ）でPerplexityは総合88点を獲得し、5ツール中1位でした。特に出典品質20/20点は満点で、回答に必ずソースリンクが付くためファクトチェックが容易です。リサーチや情報検証を重視する方に最適です。"
+    },
+    {
+      "question": "PerplexityとGensparkはどちらが優れていますか？",
+      "answer": "総合スコアではPerplexityが88点、Gensparkが82点でPerplexityが上回ります。Perplexityは回答精度19点・出典品質20点と正確性に強く、Gensparkはコスパ17点でPerplexityの15点を上回り、Sparkpageによる構造化された詳細回答が特徴です。正確なリサーチにはPerplexity、包括的な情報収集にはGensparkが向いています。"
+    },
+    {
+      "question": "FeloとGensparkの違いは何ですか？",
+      "answer": "Feloは日本語対応18/20点でAI検索エンジン中最高スコアを持ち、海外ソースを自然な日本語で要約する多言語特化型です。Gensparkは総合82点でFeloの78点を上回り、無料で高機能な検索と複数ソース統合が強みです。日本語での海外情報収集にはFelo、英語圏を含む幅広いリサーチにはGensparkが適しています。"
+    },
+    {
+      "question": "無料で使えるAI検索エンジンはどれがおすすめですか？",
+      "answer": "Perplexity・Genspark・Felo・Google AI Overview・Arc Searchの5ツールすべてに無料プランがあります。無料で最も高性能なのはPerplexity（総合88点）ですが、Pro Search回数に制限があります。完全無料で使い続けるならGenspark（総合82点・コスパ17/20点）が最もバランスが良く、有料プランも月額$19と手頃です。"
+    },
+    {
+      "question": "日本語で使いやすいAI検索エンジンはどれですか？",
+      "answer": "日本語対応スコアが高い順にFelo（18/20点）、Perplexity（16点）、Google AI Overview（16点）です。Feloは海外情報のリアルタイム翻訳検索に強く、日本語での使いやすさはトップです。Perplexityも日本語クエリに対応しますが、英語ソース中心になることがあります。日本語ネイティブ体験を重視するならFeloが最適です。"
+    }
+  ]
 }

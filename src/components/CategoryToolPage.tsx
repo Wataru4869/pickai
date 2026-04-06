@@ -17,6 +17,11 @@ type Tool = {
   pricing: any;
 };
 
+type FaqItem = {
+  question: string;
+  answer: string;
+};
+
 type CategoryData = {
   categoryLabel: string;
   categoryIcon: string;
@@ -25,6 +30,7 @@ type CategoryData = {
   tools: Tool[];
   ranking: { rank: number; toolId: string; score: number }[];
   lastUpdated: string;
+  faq?: FaqItem[];
 };
 
 export function CategoryToolPage({ data, relatedArticles, relatedNote }: {
@@ -246,6 +252,44 @@ export function CategoryToolPage({ data, relatedArticles, relatedNote }: {
           最終更新: {data.lastUpdated}
         </div>
       </Block>
+
+      {/* FAQ */}
+      {data.faq && data.faq.length > 0 && (
+        <>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                mainEntity: data.faq.map((item) => ({
+                  "@type": "Question",
+                  name: item.question,
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: item.answer,
+                  },
+                })),
+              }),
+            }}
+          />
+          <Block>
+            <SectionHeader title="よくある質問" />
+            <div className="space-y-4">
+              {data.faq.map((item, i) => (
+                <div key={i}>
+                  <h3 className="text-[13px] font-bold text-[#1d1d1f] mb-1.5">
+                    {item.question}
+                  </h3>
+                  <p className="text-[12px] text-[#6e6e73] leading-relaxed">
+                    {item.answer}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Block>
+        </>
+      )}
 
       {/* Related Articles */}
       {relatedArticles && relatedArticles.length > 0 && (
