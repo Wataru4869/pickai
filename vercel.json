@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "aierabi.jp"
+        }
+      ],
+      "destination": "https://www.aierabi.jp/$1",
+      "permanent": true
+    }
+  ]
+}

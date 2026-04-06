@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://aierabi.jp
+Host: https://www.aierabi.jp
 
 # Sitemaps
-Sitemap: https://aierabi.jp/sitemap.xml
+Sitemap: https://www.aierabi.jp/sitemap.xml
