@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getAllArticles, getArticleBySlug, getArticleSlugs, CATEGORY_LABELS } from "@/lib/blog";
 import { Header, Footer } from "@/components/ui";
 import { scoreColorHex, MODEL_COLORS } from "@/lib/data";
+import ArticleCTA from "@/components/ArticleCTA";
 
 export function generateStaticParams() {
   return getArticleSlugs().map((slug) => ({ slug }));
@@ -418,6 +419,39 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
               </div>
               <div className="text-[11px] text-[#4a7ab5] mt-1">比較ページを開く →</div>
             </a>
+          )}
+
+          {/* Article CTA (internal or affiliate) */}
+          {article.cta && <ArticleCTA cta={article.cta} />}
+
+          {/* Affiliate Links list */}
+          {article.affiliateLinks && article.affiliateLinks.length > 0 && (
+            <div className="mt-6 p-4 border border-[#e5e5e5] rounded">
+              <div className="text-[14px] font-semibold text-[#333333] mb-3">
+                関連商品・サービス
+              </div>
+              <div className="flex flex-col gap-2">
+                {article.affiliateLinks.map((link, i) => (
+                  <a
+                    key={i}
+                    href={link.url}
+                    rel="sponsored nofollow noopener"
+                    target="_blank"
+                    className="block px-3 py-2 border border-[#e5e5e5] rounded text-[13px] text-[#4a7ab5] hover:border-[#4a7ab5] transition-colors no-underline"
+                  >
+                    {link.label}
+                    {link.context && (
+                      <span className="block text-[11px] text-[#86868b] mt-0.5">
+                        {link.context}
+                      </span>
+                    )}
+                  </a>
+                ))}
+              </div>
+              <div className="mt-3 pt-3 border-t border-[#f0f0f0] text-[11px] text-[#86868b] leading-relaxed">
+                本ページにはアフィリエイトリンクが含まれます。リンク経由で商品が購入された場合、サイト運営者に紹介料が発生する場合があります。商品レビューの内容に金銭的影響はありません。
+              </div>
+            </div>
           )}
 
           {/* Related articles */}
