@@ -135,7 +135,7 @@ export default function HomePage() {
                 <a
                   key={u.label}
                   href={u.href}
-                  className="px-3 py-1.5 border border-[#d2d2d7] rounded text-[12px] font-medium text-[#1d1d1f] no-underline hover:border-[#0066cc] hover:text-[#0066cc] transition-colors"
+                  className="px-3 py-2 sm:py-1.5 border border-[#d2d2d7] rounded text-[12px] font-medium text-[#1d1d1f] no-underline hover:border-[#0066cc] hover:text-[#0066cc] transition-colors"
                 >
                   {u.label}
                 </a>
@@ -190,6 +190,7 @@ export default function HomePage() {
       {/* Overall Ranking */}
       <Block>
         <SectionHeader title="総合ランキング" />
+        <p className="scroll-hint">→ 横スクロールできます</p>
         <div className="overflow-x-auto">
           <table className="w-full border-collapse text-[12px]">
             <thead>
@@ -358,6 +359,7 @@ export default function HomePage() {
       {/* Quick Price Comparison */}
       <Block alt>
         <SectionHeader title="料金比較" />
+        <p className="scroll-hint">→ 横スクロールできます</p>
         <div className="overflow-x-auto">
           <table className="w-full border-collapse text-[12px]">
             <thead>
