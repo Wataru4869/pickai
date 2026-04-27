@@ -119,6 +119,37 @@ export default function ComparePage({ params }: { params: { slug: string } }) {
         ? `総合では${modelA.name}が優勢`
         : `総合では${modelB.name}が優勢`;
 
+  // Auto-generated overall summary based on category-best scores
+  const catLabelMap: Record<string, string> = {
+    writing: "文章生成",
+    coding: "コーディング",
+    image: "画像生成",
+    safety: "安全性",
+  };
+  function bestCategoryFor(model: NonNullable<typeof modelA>): string {
+    const entries: { key: string; score: number }[] = [];
+    (["writing", "coding", "image"] as const).forEach((k) => {
+      const s = (model.scores as any)[k];
+      if (typeof s === "number") entries.push({ key: k, score: s });
+    });
+    const safetyEntry = safetyRanking.find((r: any) => r.model === model.id) as any;
+    if (safetyEntry?.score) entries.push({ key: "safety", score: safetyEntry.score });
+    if (entries.length === 0) return "汎用利用";
+    entries.sort((x, y) => y.score - x.score);
+    return catLabelMap[entries[0].key] || entries[0].key;
+  }
+  const bestA = bestCategoryFor(modelA);
+  const bestB = bestCategoryFor(modelB);
+  const recommended =
+    Math.abs(diffOverall) < 3
+      ? `用途次第。${bestA}重視なら${modelA.name}、${bestB}重視なら${modelB.name}`
+      : diffOverall > 0
+        ? modelA.name
+        : modelB.name;
+  const overallSummary = `${modelA.name}は${bestA}で強く、${modelB.name}は${bestB}で優れる。総合では${
+    Math.abs(diffOverall) < 3 ? "両者ほぼ互角" : `${diffOverall > 0 ? modelA.name : modelB.name}が${Math.abs(diffOverall).toFixed(1)}点リード`
+  }。用途を絞って選ぶなら${recommended}を選ぶと満足度が高いだろう。`;
+
   return (
     <div className="min-h-screen bg-[#fbfbfd]">
       <Header />
@@ -192,6 +223,8 @@ export default function ComparePage({ params }: { params: { slug: string } }) {
             else if (absDiff >= 10) verdictText = diff > 0 ? `${modelA.name}優勢` : `${modelB.name}優勢`;
             else if (absDiff >= 3) verdictText = diff > 0 ? `${modelA.name}やや有利` : `${modelB.name}やや有利`;
 
+            const showAdvantage = absDiff >= 10;
+            const advantageWinner = diff > 0 ? "A" : "B";
             return (
               <div key={cat} className="border border-[#e8e8ed] rounded-md p-3">
                 <div className="text-[11px] font-bold text-[#6e6e73] mb-2 uppercase tracking-wider">
@@ -199,13 +232,20 @@ export default function ComparePage({ params }: { params: { slug: string } }) {
                 </div>
                 <div className="grid grid-cols-[1fr_auto_1fr] gap-2 sm:gap-3 items-center">
                   <div>
-                    <div className="flex items-baseline justify-between mb-1">
-                      <span className="text-[11px] text-[#86868b]">{modelA.name}</span>
+                    <div className="flex items-baseline justify-between mb-1 gap-1">
+                      <span className="text-[11px] text-[#86868b] flex items-center gap-1">
+                        {modelA.name}
+                        {showAdvantage && advantageWinner === "A" && (
+                          <span className="text-[9px] font-semibold text-[#4a7ab5] border border-[#4a7ab5] rounded px-1 leading-tight">
+                            優位
+                          </span>
+                        )}
+                      </span>
                       <span className="text-[15px] font-bold text-[#1d1d1f]">
                         {typeof scoreA === "number" && scoreA.toFixed ? scoreA.toFixed(1) : scoreA}
                       </span>
                     </div>
-                    <div className="h-1.5 bg-[#f0f0f0] rounded-sm overflow-hidden">
+                    <div className="h-2.5 bg-[#f0f0f0] rounded-sm overflow-hidden">
                       <div
                         className="h-full rounded-sm"
                         style={{
@@ -222,13 +262,20 @@ export default function ComparePage({ params }: { params: { slug: string } }) {
                     <div className="text-[9px] text-[#86868b] mt-0.5">{verdictText}</div>
                   </div>
                   <div>
-                    <div className="flex items-baseline justify-between mb-1">
-                      <span className="text-[11px] text-[#86868b]">{modelB.name}</span>
+                    <div className="flex items-baseline justify-between mb-1 gap-1">
+                      <span className="text-[11px] text-[#86868b] flex items-center gap-1">
+                        {modelB.name}
+                        {showAdvantage && advantageWinner === "B" && (
+                          <span className="text-[9px] font-semibold text-[#4a7ab5] border border-[#4a7ab5] rounded px-1 leading-tight">
+                            優位
+                          </span>
+                        )}
+                      </span>
                       <span className="text-[15px] font-bold text-[#1d1d1f]">
                         {typeof scoreB === "number" && scoreB.toFixed ? scoreB.toFixed(1) : scoreB}
                       </span>
                     </div>
-                    <div className="h-1.5 bg-[#f0f0f0] rounded-sm overflow-hidden">
+                    <div className="h-2.5 bg-[#f0f0f0] rounded-sm overflow-hidden">
                       <div
                         className="h-full rounded-sm"
                         style={{
@@ -255,14 +302,15 @@ export default function ComparePage({ params }: { params: { slug: string } }) {
         return (
           <Block key={key}>
             <SectionHeader title={label} />
-            <div className="overflow-x-auto">
+            <p className="scroll-hint">→ 横スクロールできます</p>
+            <div className="overflow-x-auto max-h-[420px] overflow-y-auto border border-[#f0f0f0] rounded-sm">
               <table className="w-full text-[11px] border-collapse">
-                <thead>
+                <thead className="sticky top-0 z-10">
                   <tr className="bg-[#fafafa]">
-                    <th className="p-1.5 text-left font-bold border-b-2 border-[#e5e5e5]">テスト</th>
-                    <th className="p-1.5 text-center font-bold border-b-2 border-[#e5e5e5]">{modelA.name}</th>
-                    <th className="p-1.5 text-center font-bold border-b-2 border-[#e5e5e5]">{modelB.name}</th>
-                    <th className="p-1.5 text-center font-bold border-b-2 border-[#e5e5e5]">差</th>
+                    <th className="p-1.5 text-left font-bold border-b-2 border-[#e5e5e5] bg-[#fafafa]">テスト</th>
+                    <th className="p-1.5 text-center font-bold border-b-2 border-[#e5e5e5] bg-[#fafafa]">{modelA.name}</th>
+                    <th className="p-1.5 text-center font-bold border-b-2 border-[#e5e5e5] bg-[#fafafa]">{modelB.name}</th>
+                    <th className="p-1.5 text-center font-bold border-b-2 border-[#e5e5e5] bg-[#fafafa]">差</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -464,6 +512,12 @@ export default function ComparePage({ params }: { params: { slug: string } }) {
                 <div key={i}>・{s}</div>
               ))}
             </div>
+          </div>
+          <div className="border border-[#e8e8ed] rounded-md p-3 bg-[#fafafa]">
+            <div className="text-[12px] font-semibold text-[#1d1d1f] mb-1.5 pl-2 border-l-2 border-[#4a7ab5]">
+              総合所見
+            </div>
+            <p className="text-[12px] leading-[1.7] text-[#333333] m-0">{overallSummary}</p>
           </div>
           <div className="text-center text-[11px] text-[#6e6e73] bg-[#f5f5f7] rounded p-2.5 mt-2">
             迷ったら両方の無料枠を試すのがベスト。併用が最も賢い選択です。
