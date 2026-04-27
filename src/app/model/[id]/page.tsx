@@ -81,7 +81,7 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
           <p className="text-[12px] text-[#6e6e73]">{model.descriptionJapanese}</p>
           <p className="text-[11px] text-[#86868b] mt-1 mb-3.5">提供: {model.provider}</p>
 
-          <div className="grid grid-cols-4 gap-1.5">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
             {(() => {
               const modelsAll = models.filter((mm) => mm.scores.overall !== null);
               const wBest = [...modelsAll].sort((a, b) => (b.scores.writing || 0) - (a.scores.writing || 0))[0];

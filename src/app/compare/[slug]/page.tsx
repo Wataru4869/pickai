@@ -255,6 +255,7 @@ export default function ComparePage({ params }: { params: { slug: string } }) {
         return (
           <Block key={key}>
             <SectionHeader title={label} />
+            <p className="scroll-hint">→ 横スクロールできます</p>
             <div className="overflow-x-auto">
               <table className="w-full text-[11px] border-collapse">
                 <thead>
