@@ -120,23 +120,60 @@ export function ShareButton({ text }: { text: string }) {
 }
 
 export function Footer() {
+  const groups: { heading: string; links: { href: string; label: string }[] }[] = [
+    {
+      heading: "比較・診断",
+      links: [
+        { href: "/", label: "総合ランキング" },
+        { href: "/recommend", label: "おすすめ診断" },
+        { href: "/switch", label: "乗り換えガイド" },
+        { href: "/cost", label: "コスト計算" },
+      ],
+    },
+    {
+      heading: "カテゴリ",
+      links: [
+        { href: "/categories", label: "全カテゴリ" },
+        { href: "/categories/coding-tools", label: "コーディング" },
+        { href: "/categories/ai-search", label: "AI検索" },
+        { href: "/categories/image-generation", label: "画像生成" },
+      ],
+    },
+    {
+      heading: "サイト情報",
+      links: [
+        { href: "/methodology", label: "評価方法論" },
+        { href: "/safety", label: "安全性比較" },
+        { href: "/faq", label: "FAQ" },
+        { href: "/blog", label: "コラム" },
+      ],
+    },
+  ];
   return (
     <footer className="border-t border-[#f0f0f0] bg-[#fafafa] py-8 text-[11px] text-[#999999]">
       <Container>
-        <div className="flex items-center gap-6 flex-wrap">
-          <a href="/" className="text-[#999999] hover:text-[#333333] no-underline">トップ</a>
-          <a href="/categories" className="text-[#999999] hover:text-[#333333] no-underline">カテゴリ</a>
-          <a href="/recommend" className="text-[#999999] hover:text-[#333333] no-underline">おすすめ</a>
-          <a href="/switch" className="text-[#999999] hover:text-[#333333] no-underline">乗り換え</a>
-          <a href="/safety" className="text-[#999999] hover:text-[#333333] no-underline">安全性</a>
-          <a href="/methodology" className="text-[#999999] hover:text-[#333333] no-underline">方法論</a>
-          <a href="/faq" className="text-[#999999] hover:text-[#333333] no-underline">FAQ</a>
-          <span className="ml-auto font-medium text-[13px] text-[#999999]">AI選び</span>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+          {groups.map((g) => (
+            <div key={g.heading}>
+              <div className="text-[11px] font-semibold text-[#666666] mb-2">{g.heading}</div>
+              <ul className="space-y-1.5 list-none p-0 m-0">
+                {g.links.map((l) => (
+                  <li key={l.href}>
+                    <a href={l.href} className="text-[#999999] hover:text-[#333333] no-underline">
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-        <div className="mt-2 flex items-center gap-4 text-[10px]">
+        <div className="mt-6 pt-4 border-t border-[#e8e8ed] flex items-center gap-4 flex-wrap text-[10px]">
+          <span className="font-medium text-[12px] text-[#666666]">AI選び</span>
           <span>© 2026 AI選び</span>
           <a href="/privacy" className="text-[#999999] hover:text-[#666666] no-underline">プライバシーポリシー</a>
           <a href="/about" className="text-[#999999] hover:text-[#666666] no-underline">運営者情報</a>
+          <span className="ml-auto text-[#999999]">2026.04 更新</span>
         </div>
       </Container>
     </footer>

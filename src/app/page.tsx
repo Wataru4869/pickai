@@ -110,13 +110,13 @@ export default function HomePage() {
                 className="border border-[#d2d2d7] rounded-md overflow-hidden no-underline text-inherit hover:border-[#86868b] transition-colors"
               >
                 <div className="bg-[#f5f5f7] px-3 py-2 border-b border-[#e8e8ed]">
-                  <div className="text-[12px] font-semibold text-[#1d1d1f]">{card.label}</div>
-                  <div className="text-[10px] text-[#86868b]">{card.sub}</div>
+                  <div className="text-[13px] font-semibold text-[#1d1d1f]">{card.label}</div>
+                  <div className="text-[10px] font-medium text-[#86868b]">{card.sub}</div>
                 </div>
                 <div className="px-3 py-3">
-                  <div className="text-[13px] text-[#6e6e73] mb-0.5">{card.name}</div>
-                  <div className="text-[30px] font-bold text-[#1d1d1f] leading-none">{card.score}</div>
-                  <div className="text-[10px] text-[#86868b] mt-1">{card.diff}</div>
+                  <div className="text-[13px] font-medium text-[#6e6e73] mb-0.5">{card.name}</div>
+                  <div className="text-[34px] sm:text-[36px] font-bold text-[#1d1d1f] leading-none tracking-tight">{card.score}</div>
+                  <div className="text-[10px] text-[#86868b] mt-1.5">{card.diff}</div>
                 </div>
               </a>
             ))}
@@ -147,16 +147,28 @@ export default function HomePage() {
 
       {/* Weekly Changes */}
       <Block alt>
-        <SectionHeader title={`スコア変動（${changes.period}）`} />
+        <div className="flex items-baseline justify-between gap-3 mb-4">
+          <h2 className="text-[17px] font-bold text-[#1d1d1f] pl-3 border-l-[3px] border-[#1d1d1f]">
+            {`スコア変動（${changes.period}）`}
+          </h2>
+          <span className="text-[10px] font-medium text-[#6e6e73] shrink-0">
+            最終更新: {changes.lastUpdated}
+          </span>
+        </div>
         <div className="space-y-0">
           {changes.changes.map((c: any) => (
             <div key={c.model} className="flex items-center gap-2 sm:gap-3 py-2.5 border-b border-[#f0f0f0] last:border-b-0">
               <span className="text-[13px] font-semibold text-[#1d1d1f] w-[80px] sm:w-[90px]">{c.modelName}</span>
               <span className="text-[15px] font-bold text-[#1d1d1f] w-[44px] text-right">{c.newScore}</span>
-              <span className={`text-[11px] font-semibold w-10 text-right ${
+              <span className={`inline-flex items-center justify-end gap-0.5 text-[12px] font-semibold w-14 text-right ${
                 c.change > 0 ? "text-[#3d7a5f]" : c.change < 0 ? "text-[#a05454]" : "text-[#86868b]"
               }`}>
-                {c.change > 0 ? `+${c.change}` : c.change < 0 ? `${c.change}` : "±0"}
+                <span className="text-[11px] leading-none">
+                  {c.change > 0 ? "↑" : c.change < 0 ? "↓" : "—"}
+                </span>
+                <span>
+                  {c.change > 0 ? `+${c.change}` : c.change < 0 ? `${c.change}` : "±0"}
+                </span>
               </span>
               <span className="text-[11px] text-[#86868b] flex-1">{c.note}</span>
             </div>
@@ -173,7 +185,6 @@ export default function HomePage() {
             ))}
           </div>
         )}
-        <p className="text-[10px] text-[#86868b] mt-2">最終更新: {changes.lastUpdated}</p>
       </Block>
 
       {/* Overall Ranking */}
@@ -229,9 +240,15 @@ export default function HomePage() {
                         </span>
                       </td>
                       {cats.map((cat) => (
-                        <td key={cat.key} className="p-2 border-b border-[#f0f0f0] text-center">
+                        <td
+                          key={cat.key}
+                          className="p-2 border-b border-[#f0f0f0] text-center"
+                          style={cat.isBest ? { backgroundColor: "#f5f8fc" } : undefined}
+                        >
                           <span className="text-[13px] font-semibold text-[#1d1d1f]">{cat.score}</span>
-                          {cat.isBest && <span className="block text-[9px] font-medium text-[#86868b]">1位</span>}
+                          {cat.isBest && (
+                            <span className="block text-[9px] font-semibold text-[#4a7ab5]">1位</span>
+                          )}
                           <div className="w-full h-[3px] bg-[#f0f0f0] rounded-sm mt-1">
                             <div
                               className="h-full rounded-sm"
@@ -252,7 +269,7 @@ export default function HomePage() {
         </div>
 
         {/* Score Legend */}
-        <div className="flex gap-3 mt-3 pt-3 border-t border-[#f0f0f0] flex-wrap">
+        <div className="flex gap-3 mt-3 pt-3 border-t border-[#f0f0f0] flex-wrap items-center">
           {[
             { color: "#3d7a5f", label: "85+ トップクラス" },
             { color: "#4a6a8a", label: "70-84 実用十分" },
@@ -264,6 +281,10 @@ export default function HomePage() {
               {l.label}
             </div>
           ))}
+          <div className="flex items-center gap-1 text-[10px] text-[#86868b]">
+            <span className="inline-block w-3 h-3 rounded-sm" style={{ backgroundColor: "#f5f8fc" }} />
+            <span>各カテゴリの最高得点項目</span>
+          </div>
         </div>
       </Block>
 
