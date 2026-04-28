@@ -1,0 +1,53 @@
+{
+  "slug": "microsoft-copilot-guide-2026",
+  "title": "Microsoft Copilot 完全ガイド 2026｜4プラン徹底比較と業務活用シナリオ",
+  "description": "Microsoft Copilotの4プラン（無料/Pro/Microsoft 365 Copilot/Copilot Chat）を価格・機能・対象ユーザーで完全比較。GitHub Copilot CLI、Office Agentic機能GAなど2026年最新動向も解説。",
+  "publishedAt": "2026-04-28",
+  "updatedAt": "2026-04-28",
+  "category": "review",
+  "tags": ["Microsoft Copilot", "Microsoft 365 Copilot", "GitHub Copilot CLI", "Office", "2026年ガイド"],
+  "readingTime": "12分",
+  "sections": [
+    {
+      "heading": "Microsoft Copilot とは: 1つのブランド、4つの実体",
+      "content": "Microsoft Copilot は単一のプロダクト名ではなく、Microsoft 全体の AI 戦略を束ねる総称ブランドである。ChatGPT や Claude のように「ひとつのアプリ」を指す名称ではないため、初めて触れるユーザーは混乱しやすい。\n\n2026年4月時点で、Copilot ブランドのもとに展開されている主要な実体は4つある。第一に、Web/モバイルから誰でも無料で使える「Microsoft Copilot」。第二に、個人向けの有料プラン「Copilot Pro」。第三に、法人向けの本命「Microsoft 365 Copilot」。第四に、Microsoft 365 ライセンス保有者に追加コストなしで提供される「Microsoft 365 Copilot Chat」だ。\n\nさらに、開発者向けの GitHub Copilot やセキュリティ運用向けの Security Copilot など、垂直領域に特化した派生プロダクトもこのブランドに属する。本ガイドでは、まず一般ユーザーと法人が判断に迷いやすい4プランを軸に、2026年に確認できる範囲の最新動向を整理する。"
+    },
+    {
+      "heading": "4プランの完全比較表",
+      "content": "Microsoft Copilot の中核となる4プランの違いを表で整理する。価格は2026年4月時点で公開されている公式情報をもとに記載しているが、為替や地域差、組織規模により実際の見積もりは変動する。最新条件は必ず Microsoft 公式ページで確認してほしい。\n\n| プラン | 対象 | 月額 (税抜・参考) | 主な機能 |\n|---|---|---|---|\n| Microsoft Copilot (無料) | 個人 | 0円 | Web/モバイルでのチャット、画像生成 (Image Creator)、混雑時はモデル制限あり |\n| Copilot Pro | 個人 (パワーユーザー) | 約3,200円 | 優先アクセス、Word/Excel/PowerPoint の Copilot 機能 (個人版 Microsoft 365 必要)、画像生成の優先処理 |\n| Microsoft 365 Copilot | 法人 | 約3,750円 (年契約・1ユーザー) | Microsoft 365 アプリ全体への統合、テナント内データを根拠にした応答、Copilot Studio 連携、企業向けデータガバナンス |\n| Microsoft 365 Copilot Chat | 法人 (M365 既導入) | M365 ライセンスに含まれる | Web ベースのチャット、企業データガバナンス、Microsoft 365 Copilot より機能は限定 |\n\n価格について補足する。Microsoft 365 Copilot は2025年7月と12月に2回の価格改定を経て、2026年4月時点では年契約で1ユーザーあたり月額3,750円前後となっている (編集部調査による参考値)。月契約や Enterprise 契約では別途条件があるため、自社の購買部門経由での確認を推奨する。"
+    },
+    {
+      "heading": "2026年4月の大型アップデート: Office Agentic 機能 GA",
+      "content": "2026年4月、Microsoft 365 Copilot に大きな転換点が訪れた。Word、Excel、PowerPoint で動く「Agentic 機能」が一般提供 (GA) となり、従来の単発の生成や要約から、複数ステップにまたがるアプリネイティブな自動化が可能になった。\n\n具体的には、Word では「下書きから完成版まで」を一気通貫で進められるようになった。アウトライン生成、本文執筆、参考資料の挿入、最後のスタイル調整までを連続したエージェント動作として依頼できる。Excel では、データの取り込み、ピボットの作成、簡易レポートの自動生成までを一連の操作として指示できる。PowerPoint でも、構成案の作成からスライド生成、レイアウト調整までが multi-step で進む。\n\nこのアップデートを支えているのが「Work IQ」と呼ばれるコンテキスト理解の強化だ。テナント内のドキュメント、メール、会議内容などを横断して参照することで、依頼の文脈をより正確に汲めるようになっている。なお、2026年4月時点での詳細仕様や対象 SKU は地域・契約により段階的に拡大されているため、自社環境での提供状況は管理者ポータルで確認すべきだ。"
+    },
+    {
+      "heading": "GitHub Copilot CLI (2026年2月GA): ターミナルAIの新スタンダード",
+      "content": "Microsoft Copilot ブランドのうち、開発者向けで2026年に大きく動いたのが GitHub Copilot CLI である。2026年2月に GA となり、ターミナル単体で AI エージェントを操作できる正式な手段が整った。\n\nインストール手順は2系統用意されている。Windows ユーザーは WinGet 経由、その他のプラットフォームは npm 経由でインストールするのが標準的だ (具体的なコマンドは GitHub 公式ドキュメントを参照)。認証は GitHub CLI (gh) を経由する形が一般的で、既存の GitHub 認証情報をそのまま再利用できる。Copilot サブスクリプションがあれば追加課金なしで利用できる点も実務的に大きい。\n\nClaude Code (Anthropic) との位置づけは、シンプルに整理できる。GitHub Copilot CLI は GitHub エコシステム全体との統合 (リポジトリ操作、Issue、PR、Actions) を強みとする。Claude Code は Anthropic 独自モデルの強さと、コーディング以外も含む汎用エージェント性を強みとする。「GitHub 中心の開発フローを自動化したい」なら GitHub Copilot CLI、「コード以外の業務も含めて任せたい」なら Claude Code、というのが2026年4月時点での実用的な使い分けだ。"
+    },
+    {
+      "heading": "Microsoft 365 アプリ → Microsoft 365 Copilot アプリへのリブランド",
+      "content": "2026年に入って、Microsoft は従来の「Microsoft 365 (Office) アプリ」を「Microsoft 365 Copilot アプリ」へとリブランドした。Web、モバイル、Windows いずれの環境でも、アプリ名と起点画面に Copilot ブランドが統一的に冠されるようになった。\n\nこの変更は単なる名称変更ではなく、「Microsoft 365 を開いた瞬間から AI が前提の体験に入る」というメッセージを強く打ち出している。実際、リブランド後のアプリでは Copilot Chat がより目立つ位置に配置され、Teams のチャットや会議とも統合された形で利用できるようになっている。\n\nユーザー側に直接の操作変更は少ないが、社内マニュアルや教育コンテンツでアプリ名を表記している場合は更新が必要になる。法人 IT 担当者にとっては、エンドユーザーへの周知ポイントの一つとして押さえておきたい変更点だ。"
+    },
+    {
+      "heading": "業務シナリオ別おすすめ",
+      "content": "ここからは、立場別に Microsoft Copilot のどのプランを起点にすべきかを整理する。価格・機能の絶対値ではなく、「現在の環境に対して追加で投資する価値があるか」という観点で考えるとよい。\n\n個人ユーザー (一般): まずは無料の Microsoft Copilot で十分。日常的なチャット、簡単な要約、画像生成 (Image Creator) までは無料枠で大半をまかなえる。混雑時のモデル制限が気になる、または Word/Excel/PowerPoint の Copilot 機能を個人で使いたい場合に Copilot Pro へ進む。\n\n個人ユーザー (副業・クリエイター): Copilot Pro が現実的な候補。Office アプリでの執筆や資料作成の効率化と、画像生成の優先処理が同価格帯で揃う。ただし汎用的な対話品質や API 経由の柔軟性を重視するなら、ChatGPT Plus や Claude Pro との比較も避けて通れない。\n\n法人 (Microsoft 365 既導入): まずは Microsoft 365 Copilot Chat (追加コストなし) からの試用が最もリスクが低い。利用率と効果が見えた段階で、対象部署のみ Microsoft 365 Copilot を有償でロールアウトするのが堅い。\n\n法人 (Microsoft 365 未導入): Microsoft 365 Copilot 単体だけ導入しても真価は発揮しにくい。先に Microsoft 365 そのものの導入計画を整理し、その上で Copilot 投資を検討する順序を推奨する。\n\n開発者: GitHub Copilot 単体で十分なケースが多い。チームで Microsoft 365 を使っているなら、文書・資料側の自動化に Microsoft 365 Copilot を別途検討する形になる。"
+    },
+    {
+      "heading": "ChatGPT/Claude との根本的な違い",
+      "content": "Microsoft Copilot を ChatGPT や Claude と単純に同じ土俵で比較するのは、実はあまり意味がない。設計思想が異なるからだ。\n\nChatGPT、Claude、Gemini、Grok、Perplexity といった主要5社の AI は、基本的に「スタンドアローンの汎用 AI」として設計されている。ユーザーがチャット画面に向かい、自分のニーズを言語化して入力する前提だ。一方、Microsoft Copilot (とくに Microsoft 365 Copilot) は「業務アプリに統合された AI」として設計されている。Word を開けば文書作成の文脈が、Excel を開けばデータ分析の文脈が、すでに AI 側の入力として与えられている。\n\nこの違いは、データガバナンスにも直結する。Microsoft 365 Copilot は、テナント内のドキュメント・メール・会議内容を Microsoft が学習データとして使用しないと公式に明示しており (詳細は公式契約書類を参照)、社内データの活用とプライバシーを両立させようとしている。ChatGPT Enterprise や Claude for Work も同様のガバナンス設計を持っているが、「Office を業務基盤にしている組織」にとっては、Copilot の統合度が運用面での優位性となる。\n\n主要5社との比較記事だけを読んでいると、Microsoft Copilot の評価軸が見落とされがちだ。「単独モデルの賢さ」ではなく「業務アプリ越しの体験」で評価する必要がある。"
+    },
+    {
+      "heading": "AI選びの編集部見解",
+      "content": "2026年4月時点で、Microsoft Copilot は「Office を業務の中心にしている組織」にとって最も合理的な AI の入口になりつつある。とくに Microsoft 365 Copilot Chat が追加コストなしで提供されている事実は大きく、まず無料枠で社内利用率と効果を測ってから有償展開へ進む、という段階的アプローチが取りやすい。\n\n個人ユーザーに対しては、ChatGPT Plus や Claude Pro と単純比較すると見劣りする場面もある。汎用的な対話品質や創造的なタスクでは、依然として ChatGPT や Claude のほうが快適という声も多い。「ChatGPT Plus + Microsoft 365 個人」の組み合わせのほうが結果的に柔軟、というのが編集部としての率直な見方だ。\n\n開発者にとっては、GitHub Copilot CLI の GA が2026年の大きなトピックである。ターミナルでの AI エージェント操作は、Claude Code や Cursor と並ぶ新しい選択肢として、まず一度は試しておく価値がある。"
+    }
+  ],
+  "cta": {
+    "type": "internal",
+    "title": "Microsoft Copilotと他AIの比較を詳しく",
+    "description": "用途別のおすすめAIを診断できます。",
+    "links": [
+      { "label": "おすすめAI診断を試す", "url": "/recommend" },
+      { "label": "AIモデル一覧を見る", "url": "/models" }
+    ]
+  }
+}
