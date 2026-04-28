@@ -11,10 +11,12 @@
         "chatgpt": 84,
         "grok": 82,
         "perplexity": 78,
-        "gemini": 85
+        "gemini": 85,
+        "microsoft_copilot": 86
       },
       "bestPerformer": "claude",
-      "averageScore": 83.6
+      "averageScore": 84,
+      "estimationNote": "microsoft_copilotのスコアはMicrosoft 365 Copilot環境を基準とした2026年4月時点の公式情報・公開ベンチマーク・編集部調査による参考値"
     },
     {
       "testId": "TEST-02",
@@ -27,10 +29,12 @@
         "chatgpt": 88,
         "grok": 80,
         "perplexity": 82,
-        "gemini": 84
+        "gemini": 84,
+        "microsoft_copilot": 87
       },
       "bestPerformer": "claude",
-      "averageScore": 84.4
+      "averageScore": 84.8,
+      "estimationNote": "microsoft_copilotのスコアはMicrosoft 365 Copilot環境を基準とした2026年4月時点の公式情報・公開ベンチマーク・編集部調査による参考値"
     },
     {
       "testId": "TEST-03",
@@ -43,10 +47,12 @@
         "chatgpt": 73,
         "grok": 88,
         "perplexity": 84,
-        "gemini": 68
+        "gemini": 68,
+        "microsoft_copilot": 80
       },
       "bestPerformer": "claude",
-      "averageScore": 81.4
+      "averageScore": 81.2,
+      "estimationNote": "microsoft_copilotのスコアはMicrosoft 365 Copilot環境を基準とした2026年4月時点の公式情報・公開ベンチマーク・編集部調査による参考値"
     },
     {
       "testId": "TEST-04",
@@ -59,10 +65,12 @@
         "chatgpt": 83,
         "grok": 84,
         "perplexity": 86,
-        "gemini": 92
+        "gemini": 92,
+        "microsoft_copilot": 86
       },
       "bestPerformer": "gemini",
-      "averageScore": 87.0
+      "averageScore": 86.8,
+      "estimationNote": "microsoft_copilotのスコアはMicrosoft 365 Copilot環境を基準とした2026年4月時点の公式情報・公開ベンチマーク・編集部調査による参考値"
     },
     {
       "testId": "TEST-05",
@@ -75,10 +83,12 @@
         "chatgpt": 89,
         "grok": 95,
         "perplexity": 69,
-        "gemini": 71
+        "gemini": 71,
+        "microsoft_copilot": 85
       },
       "bestPerformer": "grok",
-      "averageScore": 82.8
+      "averageScore": 83.2,
+      "estimationNote": "microsoft_copilotのスコアはMicrosoft 365 Copilot環境を基準とした2026年4月時点の公式情報・公開ベンチマーク・編集部調査による参考値"
     },
     {
       "testId": "TEST-06",
@@ -91,10 +101,12 @@
         "chatgpt": 87,
         "grok": 91,
         "perplexity": 85,
-        "gemini": 30
+        "gemini": 30,
+        "microsoft_copilot": 78
       },
       "bestPerformer": "grok",
-      "averageScore": 74.4
+      "averageScore": 75,
+      "estimationNote": "microsoft_copilotのスコアはMicrosoft 365 Copilot環境を基準とした2026年4月時点の公式情報・公開ベンチマーク・編集部調査による参考値"
     },
     {
       "testId": "TEST-07",
@@ -107,10 +119,12 @@
         "chatgpt": 93,
         "grok": 82,
         "perplexity": 80,
-        "gemini": 88
+        "gemini": 88,
+        "microsoft_copilot": 84
       },
       "bestPerformer": "chatgpt",
-      "averageScore": 85.0
+      "averageScore": 84.8,
+      "estimationNote": "microsoft_copilotのスコアはMicrosoft 365 Copilot環境を基準とした2026年4月時点の公式情報・公開ベンチマーク・編集部調査による参考値"
     },
     {
       "testId": "TEST-08",
@@ -123,10 +137,12 @@
         "chatgpt": 93,
         "grok": 92,
         "perplexity": 81,
-        "gemini": 83
+        "gemini": 83,
+        "microsoft_copilot": 82
       },
       "bestPerformer": "chatgpt",
-      "averageScore": 85.6
+      "averageScore": 85,
+      "estimationNote": "microsoft_copilotのスコアはMicrosoft 365 Copilot環境を基準とした2026年4月時点の公式情報・公開ベンチマーク・編集部調査による参考値"
     },
     {
       "testId": "TEST-CODE-01",
@@ -139,10 +155,12 @@
         "chatgpt": 86,
         "grok": 88,
         "perplexity": 81,
-        "gemini": 72
+        "gemini": 72,
+        "microsoft_copilot": 84
       },
       "bestPerformer": "claude",
-      "averageScore": 84.4
+      "averageScore": 84.3,
+      "estimationNote": "microsoft_copilotのスコアはMicrosoft 365 Copilot環境を基準とした2026年4月時点の公式情報・公開ベンチマーク・編集部調査による参考値"
     },
     {
       "testId": "TEST-CODE-02",
@@ -155,10 +173,12 @@
         "chatgpt": 78,
         "grok": 85,
         "perplexity": 67,
-        "gemini": 6
+        "gemini": 6,
+        "microsoft_copilot": 80
       },
       "bestPerformer": "claude",
-      "averageScore": 65.6
+      "averageScore": 68,
+      "estimationNote": "microsoft_copilotのスコアはMicrosoft 365 Copilot環境を基準とした2026年4月時点の公式情報・公開ベンチマーク・編集部調査による参考値"
     },
     {
       "testId": "TEST-CODE-03",
@@ -171,10 +191,12 @@
         "chatgpt": 76,
         "grok": 93,
         "perplexity": 50,
-        "gemini": 79
+        "gemini": 79,
+        "microsoft_copilot": 82
       },
       "bestPerformer": "claude",
-      "averageScore": 78.6
+      "averageScore": 79.2,
+      "estimationNote": "microsoft_copilotのスコアはMicrosoft 365 Copilot環境を基準とした2026年4月時点の公式情報・公開ベンチマーク・編集部調査による参考値"
     },
     {
       "testId": "TEST-CODE-04",
@@ -187,10 +209,12 @@
         "chatgpt": 85,
         "grok": 79,
         "perplexity": 15,
-        "gemini": 16
+        "gemini": 16,
+        "microsoft_copilot": 81
       },
       "bestPerformer": "claude",
-      "averageScore": 58.0
+      "averageScore": 61.8,
+      "estimationNote": "microsoft_copilotのスコアはMicrosoft 365 Copilot環境を基準とした2026年4月時点の公式情報・公開ベンチマーク・編集部調査による参考値"
     },
     {
       "testId": "TEST-IMG-01",
@@ -203,10 +227,12 @@
         "chatgpt": 88,
         "grok": 58,
         "perplexity": 91,
-        "gemini": 55
+        "gemini": 55,
+        "microsoft_copilot": 80
       },
       "bestPerformer": "perplexity",
-      "averageScore": 67.4
+      "averageScore": 69.5,
+      "estimationNote": "microsoft_copilotのスコアはMicrosoft 365 Copilot環境を基準とした2026年4月時点の公式情報・公開ベンチマーク・編集部調査による参考値"
     },
     {
       "testId": "TEST-IMG-02",
@@ -219,10 +245,12 @@
         "chatgpt": 94,
         "grok": 73,
         "perplexity": 83,
-        "gemini": 58
+        "gemini": 58,
+        "microsoft_copilot": 82
       },
       "bestPerformer": "chatgpt",
-      "averageScore": 70.4
+      "averageScore": 72.3,
+      "estimationNote": "microsoft_copilotのスコアはMicrosoft 365 Copilot環境を基準とした2026年4月時点の公式情報・公開ベンチマーク・編集部調査による参考値"
     },
     {
       "testId": "TEST-IMG-03",
@@ -235,10 +263,12 @@
         "chatgpt": 93,
         "grok": 33,
         "perplexity": 61,
-        "gemini": 60
+        "gemini": 60,
+        "microsoft_copilot": 78
       },
       "bestPerformer": "chatgpt",
-      "averageScore": 55.6
+      "averageScore": 59.3,
+      "estimationNote": "microsoft_copilotのスコアはMicrosoft 365 Copilot環境を基準とした2026年4月時点の公式情報・公開ベンチマーク・編集部調査による参考値"
     },
     {
       "testId": "TEST-IMG-04",
@@ -251,10 +281,12 @@
         "chatgpt": 93,
         "grok": 9,
         "perplexity": 31,
-        "gemini": 77
+        "gemini": 77,
+        "microsoft_copilot": 80
       },
       "bestPerformer": "chatgpt",
-      "averageScore": 50.8
+      "averageScore": 55.7,
+      "estimationNote": "microsoft_copilotのスコアはMicrosoft 365 Copilot環境を基準とした2026年4月時点の公式情報・公開ベンチマーク・編集部調査による参考値"
     }
   ],
   "categorySummary": {
@@ -264,7 +296,8 @@
         "chatgpt": 86.3,
         "grok": 86.8,
         "perplexity": 80.6,
-        "gemini": 75.1
+        "gemini": 75.1,
+        "microsoft_copilot": 83.5
       },
       "bestPerformer": "grok",
       "bestScore": 86.8
@@ -275,50 +308,57 @@
         "chatgpt": 81.3,
         "grok": 86.3,
         "perplexity": 53.3,
-        "gemini": 43.3
+        "gemini": 43.3,
+        "microsoft_copilot": 81.8
       },
       "bestPerformer": "claude",
       "bestScore": 94.3
     },
     "image": {
       "averages": {
-        "claude": 41.0,
-        "chatgpt": 92.0,
+        "claude": 41,
+        "chatgpt": 92,
         "grok": 43.3,
         "perplexity": 66.5,
-        "gemini": 62.5
+        "gemini": 62.5,
+        "microsoft_copilot": 80
       },
       "bestPerformer": "chatgpt",
-      "bestScore": 92.0
+      "bestScore": 92
     }
   },
   "overallRanking": [
     {
       "rank": 1,
       "model": "chatgpt",
-      "score": 86.5
+      "score": 86
     },
     {
       "rank": 2,
-      "model": "claude",
-      "score": 73.9
+      "model": "microsoft_copilot",
+      "score": 82
     },
     {
       "rank": 3,
-      "model": "grok",
-      "score": 72.1
+      "model": "claude",
+      "score": 77.8
     },
     {
       "rank": 4,
-      "model": "perplexity",
-      "score": 66.8
+      "model": "grok",
+      "score": 75.8
     },
     {
       "rank": 5,
+      "model": "perplexity",
+      "score": 67.5
+    },
+    {
+      "rank": 6,
       "model": "gemini",
-      "score": 60.3
+      "score": 60.8
     }
   ],
-  "testDate": "2026-03-22",
-  "version": "2.1"
+  "testDate": "2026-04-28",
+  "version": "3.0"
 }

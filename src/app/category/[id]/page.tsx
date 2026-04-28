@@ -31,7 +31,7 @@ export default function CategoryDetailPage({ params }: { params: { id: string } 
   const models = getModels();
   const MODEL_NAMES: Record<string, string> = {
     claude: "Claude", chatgpt: "ChatGPT", grok: "Grok",
-    perplexity: "Perplexity", gemini: "Gemini",
+    perplexity: "Perplexity", gemini: "Gemini", microsoft_copilot: "Microsoft Copilot",
   };
 
   return (

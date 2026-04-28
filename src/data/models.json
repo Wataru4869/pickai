@@ -10,7 +10,7 @@
       "descriptionJapanese": "コーディング最強＋安全性最高の高度なAIアシスタント",
       "url": "https://claude.ai",
       "scores": {
-        "overall": 73.9,
+        "overall": 77.8,
         "writing": 86.4,
         "coding": 94.3,
         "image": 41.0,
@@ -63,7 +63,7 @@
       "descriptionJapanese": "画像生成圧倒＋総合力No.1の汎用AI",
       "url": "https://chatgpt.com",
       "scores": {
-        "overall": 86.5,
+        "overall": 86.0,
         "writing": 86.3,
         "coding": 81.3,
         "image": 92.0,
@@ -116,7 +116,7 @@
       "descriptionJapanese": "文章生成1位＋X連携のリアルタイムAI",
       "url": "https://grok.com",
       "scores": {
-        "overall": 72.1,
+        "overall": 75.8,
         "writing": 86.8,
         "coding": 86.3,
         "image": 43.3,
@@ -169,7 +169,7 @@
       "descriptionJapanese": "出典付きリサーチ特化のAI検索エンジン",
       "url": "https://www.perplexity.ai",
       "scores": {
-        "overall": 66.8,
+        "overall": 67.5,
         "writing": 80.6,
         "coding": 53.3,
         "image": 66.5,
@@ -222,7 +222,7 @@
       "descriptionJapanese": "Google検索統合＋ファクトチェックに強いAI",
       "url": "https://gemini.google.com",
       "scores": {
-        "overall": 60.3,
+        "overall": 60.8,
         "writing": 75.1,
         "coding": 43.3,
         "image": 62.5,
@@ -265,54 +265,59 @@
       "mobileApp": true
     },
     {
-      "id": "copilot",
-      "name": "Copilot",
-      "nameJapanese": "コパイロット",
+      "id": "microsoft_copilot",
+      "name": "Microsoft Copilot",
+      "nameJapanese": "マイクロソフト コパイロット",
       "provider": "Microsoft",
-      "logoPath": "/logos/copilot.png",
-      "description": "Microsoft 365 integrated AI assistant",
-      "descriptionJapanese": "Microsoft 365統合のAIアシスタント",
+      "logoPath": "/logos/microsoft_copilot.png",
+      "description": "Microsoft 365 deeply integrated AI assistant with enterprise-grade governance",
+      "descriptionJapanese": "Microsoft 365に深く統合された法人向けAIアシスタント",
       "url": "https://copilot.microsoft.com",
       "scores": {
-        "overall": null,
-        "writing": null,
-        "coding": null,
-        "image": null,
-        "safety": null
+        "overall": 82.0,
+        "writing": 83.5,
+        "coding": 81.8,
+        "image": 80.0,
+        "safety": 91.4
       },
+      "estimationNote": "スコアはMicrosoft 365 Copilot環境を基準とし、2026年4月時点の公式情報・公開ベンチマーク・編集部調査による参考値。各テスト個別の数値もestimationNoteを併記している。",
       "pricing": {
         "free": {
           "available": true,
           "limitations": [
-            "基本機能のみ"
+            "Microsoftアカウント要、機能制限",
+            "GPT-5モデル利用回数の上限"
           ]
         },
         "standard": {
           "available": true,
-          "name": "Pro",
+          "name": "Copilot Pro",
           "priceUSD": 20,
           "priceJPY": 3200
         },
         "premium": {
           "available": true,
           "name": "Microsoft 365 Copilot",
-          "priceUSD": null,
-          "priceJPY": null
+          "priceUSD": 30,
+          "priceJPY": 3750
         }
       },
       "strengths": [
-        "Microsoft 365との完璧な統合",
-        "エンタープライズセキュリティ",
-        "GitHub Copilot連携"
+        "Microsoft 365アプリへの深い統合 (Word/Excel/PowerPoint/Outlook/Teams)",
+        "法人向けデータガバナンス (テナント内データを学習に使用しない)",
+        "GitHub Copilot CLIでターミナル操作可能 (2026年2月GA)",
+        "Office Agentic機能GA (Word/Excel/PowerPointのmulti-step操作)",
+        "Copilot Chat (M365ライセンス保有者は無料追加)"
       ],
       "weaknesses": [
-        "独自テスト未完了",
-        "Microsoft環境外での価値が限定的",
-        "情報精度に課題"
+        "Microsoft 365未導入環境では真価を発揮できない",
+        "汎用チャットでは ChatGPT 等の方が柔軟",
+        "リアルタイム情報や最先端モデル更新ペースで主要5社にやや遅れる傾向",
+        "個人ユーザーには機能過多になりやすい"
       ],
       "japaneseSupport": true,
       "apiAvailable": true,
-      "mobileApp": false
+      "mobileApp": true
     }
   ],
   "lastUpdated": "2026-03-22T00:00:00Z",

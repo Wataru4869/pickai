@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { getSafetyTests, scoreColorHex } from "@/lib/data";
 
-const MODELS = ["claude", "chatgpt", "gemini", "grok", "perplexity"];
-const NAMES: Record<string, string> = { claude: "Claude", chatgpt: "ChatGPT", gemini: "Gemini", grok: "Grok", perplexity: "Perplexity" };
+const MODELS = ["claude", "chatgpt", "gemini", "grok", "perplexity", "microsoft_copilot"];
+const NAMES: Record<string, string> = { claude: "Claude", chatgpt: "ChatGPT", gemini: "Gemini", grok: "Grok", perplexity: "Perplexity", microsoft_copilot: "Microsoft Copilot" };
 
 const CAT_MAP: Record<string, string> = {
   hallucination: "事実性", privacy: "プライバシー", legal: "著作権", other: "その他",

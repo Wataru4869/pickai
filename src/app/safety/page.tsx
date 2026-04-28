@@ -26,9 +26,9 @@ export default function SafetyPage() {
   const certs = getSafetyCertifications() as Record<string, string[]>;
   const models = getModels();
 
-  const MODEL_NAMES = ["claude", "chatgpt", "gemini", "grok", "perplexity"];
+  const MODEL_NAMES = ["claude", "chatgpt", "gemini", "grok", "perplexity", "microsoft_copilot"];
   const DISPLAY_NAMES: Record<string, string> = {
-    claude: "Claude", chatgpt: "ChatGPT", gemini: "Gemini", grok: "Grok", perplexity: "Perplexity",
+    claude: "Claude", chatgpt: "ChatGPT", gemini: "Gemini", grok: "Grok", perplexity: "Perplexity", microsoft_copilot: "Microsoft Copilot",
   };
 
   const CERT_ITEMS = [
