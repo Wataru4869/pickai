@@ -47,6 +47,7 @@ const MODEL_NAME_MAP: Record<string, string> = {
   gemini: "gemini",
   grok: "grok",
   perplexity: "perplexity",
+  microsoft_copilot: "microsoft_copilot",
 };
 
 function resolveModelKey(name: string): string | null {

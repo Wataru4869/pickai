@@ -58,6 +58,10 @@
         "gemini": {
           "supported": true,
           "note": "Veo 2統合で動画生成対応。Gemini Advanced以上。"
+        },
+        "microsoft_copilot": {
+          "supported": false,
+          "note": "動画生成は非対応。GitHub Copilot CLIや業務向けM365統合が中心。"
         }
       },
       "recommendation": "動画生成はSora（ChatGPT経由）またはVeo 2（Gemini経由）がおすすめ。品質重視ならSora、Google連携重視ならVeo 2。"
@@ -79,7 +83,7 @@
             "Claude Opus 4": 90.8,
             "Gemini 2.0": 88.2,
             "DeepL Pro": 91.5,
-            "Google Translate": 86.0
+            "Google Translate": 86
           },
           "metric": "BLEU + 人間評価の統合スコア",
           "note": "WMT公式タスクの英→日翻訳。専門翻訳ツール（DeepL）とAIモデルを同条件で比較。"
@@ -120,6 +124,10 @@
         "gemini": {
           "supported": true,
           "note": "翻訳92点。Google翻訳統合も利用可。"
+        },
+        "microsoft_copilot": {
+          "supported": true,
+          "note": "Word・Outlook内で翻訳機能を提供。M365統合で業務文書翻訳に向く。"
         }
       },
       "recommendation": "翻訳はChatGPT（98点）が最強。DeepL Proも専門分野で強い。ビジネス文書ならChatGPT、技術文書ならDeepLとの併用がおすすめ。"
@@ -137,11 +145,11 @@
           "sourceUrl": "https://huggingface.co/spaces/GenAI-Bench",
           "date": "2026-02",
           "scores": {
-            "DALL-E 3 (ChatGPT)": 94.0,
+            "DALL-E 3 (ChatGPT)": 94,
             "Midjourney v7": 96.5,
-            "Stable Diffusion 3": 82.0,
+            "Stable Diffusion 3": 82,
             "Imagen 3 (Gemini)": 88.5,
-            "Flux Pro": 90.0
+            "Flux Pro": 90
           },
           "metric": "画像品質スコア（100点満点）",
           "note": "テキスト→画像生成の品質を人間評価。プロンプト忠実度・美的品質・一貫性を評価。"
@@ -197,6 +205,10 @@
         "gemini": {
           "supported": true,
           "note": "Imagen 3統合。画像66.5点。"
+        },
+        "microsoft_copilot": {
+          "supported": true,
+          "note": "Image Creator (DALL-E 3ベース) でロゴ・バナー生成可能。Designerと連携。"
         }
       },
       "recommendation": "デザイン用途ではChatGPT（DALL-E 3）が圧倒的。プロ品質を求めるならMidjourney v7との併用がベスト。"
@@ -217,7 +229,7 @@
             "Claude Opus 4": 72.5,
             "Claude Sonnet 4": 65.3,
             "GPT-5.2": 58.2,
-            "Gemini 2.5 Pro": 55.0,
+            "Gemini 2.5 Pro": 55,
             "Grok 3": 48.7
           },
           "metric": "解決率（%）",
@@ -244,11 +256,11 @@
           "sourceUrl": null,
           "date": "2026-03",
           "scores": {
-            "Claude": 99.0,
-            "Grok": 91.0,
+            "Claude": 99,
+            "Grok": 91,
             "ChatGPT": 85.5,
             "Perplexity": 57.5,
-            "Gemini": 46.0
+            "Gemini": 46
           },
           "metric": "独自テスト平均（100点満点）",
           "note": "GAS自動化・Python分析・HTML/CSS・デバッグの4テスト平均。日本語環境でのコーディング実力。"
@@ -274,6 +286,10 @@
         "gemini": {
           "supported": true,
           "note": "コーディング46.0点。Python文字化け問題。"
+        },
+        "microsoft_copilot": {
+          "supported": true,
+          "note": "GitHub Copilot CLI (2026年2月GA) でターミナル操作可能。VS Code/IDE統合も。"
         }
       },
       "recommendation": "コーディングはClaude一択。独自テスト99.0点、SWE-bench 72.5%でいずれも1位。GitHub Copilotとの併用もおすすめ。"
@@ -295,7 +311,7 @@
             "Claude Opus 4": 28.4,
             "Gemini 2.0": 51.2,
             "Grok 3": 38.5,
-            "Perplexity Online": 55.0
+            "Perplexity Online": 55
           },
           "metric": "正答率（%）",
           "note": "事実に関する短い質問への正確さ。ハルシネーション率の逆指標として活用。"
@@ -336,6 +352,10 @@
         "gemini": {
           "supported": true,
           "note": "Google検索統合。ファクトチェック機能。"
+        },
+        "microsoft_copilot": {
+          "supported": true,
+          "note": "Bing検索ベースのWebリサーチ機能。M365テナント内データの横断検索も。"
         }
       },
       "recommendation": "リサーチ用途ではPerplexityが最強。出典付き回答が必要ならPerplexity、Google連携重視ならGemini、深い分析ならClaude。"
@@ -398,6 +418,10 @@
         "gemini": {
           "supported": true,
           "note": "文章78.75点。企画書96点が強み。"
+        },
+        "microsoft_copilot": {
+          "supported": true,
+          "note": "Word Agentic機能 (2026年4月GA) でmulti-step執筆を自動化。Outlookメール作成も得意。"
         }
       },
       "recommendation": "文章生成はGrok（91.25点）が僅差で1位。ビジネスメールならClaude、SNS投稿ならGrok、翻訳ならChatGPTと使い分けが最適。"

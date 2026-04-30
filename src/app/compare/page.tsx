@@ -43,6 +43,9 @@ export default function CompareIndexPage() {
             { a: "grok", b: "chatgpt" },
             { a: "perplexity", b: "chatgpt" },
             { a: "claude", b: "grok" },
+            { a: "microsoft_copilot", b: "chatgpt" },
+            { a: "microsoft_copilot", b: "claude" },
+            { a: "microsoft_copilot", b: "gemini" },
           ].map((pair) => {
             const a = models.find((m) => m.id === pair.a);
             const b = models.find((m) => m.id === pair.b);

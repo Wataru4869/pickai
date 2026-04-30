@@ -83,7 +83,7 @@ export const MODEL_COLORS: Record<string, string> = {
   gemini: "#4285F4",
   grok: "#1DA1F2",
   perplexity: "#20B2AA",
-  copilot: "#0078D4",
+  microsoft_copilot: "#0078D4",
 };
 
 export function getCategories() {
