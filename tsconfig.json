@@ -35,6 +35,9 @@
     ".next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "ai-imanani",
+    "ai-imanani 2",
+    "ai-imanani 3"
   ]
 }

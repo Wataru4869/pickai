@@ -168,7 +168,7 @@ export default function ComparePage({ params }: { params: { slug: string } }) {
             全16テスト ＋ 安全性14項目で直接比較
           </p>
           <div className="flex items-center gap-1.5 flex-wrap">
-            {["独自30テスト", "採点基準公開", "2026.03更新"].map((b) => (
+            {["独自30テスト", "採点基準公開", "2026.04更新"].map((b) => (
               <span key={b} className="text-[11px] font-medium text-[#6e6e73] px-2 py-0.5 border border-[#d2d2d7] rounded">
                 {b}
               </span>

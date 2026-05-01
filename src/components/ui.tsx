@@ -83,7 +83,7 @@ export function TrustBadges() {
     <div className="flex items-center gap-2 mt-3 text-[10px]">
       <span className="inline-flex items-center px-2 py-0.5 rounded bg-[#f5f5f7] text-[#6e6e73] border border-[#e8e8ed] font-medium">独自30テスト</span>
       <span className="inline-flex items-center px-2 py-0.5 rounded bg-[#f5f5f7] text-[#6e6e73] border border-[#e8e8ed] font-medium">採点基準公開</span>
-      <span className="inline-flex items-center px-2 py-0.5 rounded bg-[#f5f5f7] text-[#6e6e73] border border-[#e8e8ed] font-medium">2026.03更新</span>
+      <span className="inline-flex items-center px-2 py-0.5 rounded bg-[#f5f5f7] text-[#6e6e73] border border-[#e8e8ed] font-medium">2026.04更新</span>
     </div>
   );
 }

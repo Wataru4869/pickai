@@ -67,7 +67,7 @@ export default function HomePage() {
       <div className="bg-white py-6 border-b border-[#e8e8ed]">
         <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
           <div className="flex items-center gap-1.5 flex-wrap mb-5">
-            {["独自30テスト", "安全性14項目", "5モデル比較", "2026.03更新"].map((b) => (
+            {["独自30テスト", "安全性14項目", "6モデル比較", "2026.04更新"].map((b) => (
               <span key={b} className="text-[11px] font-medium text-[#6e6e73] px-2 py-0.5 border border-[#d2d2d7] rounded">
                 {b}
               </span>
