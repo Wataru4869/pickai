@@ -1,6 +1,20 @@
 import fs from "fs";
 import path from "path";
 
+export type AffiliateLink = {
+  label: string;
+  url: string;
+  provider: "amazon" | "rakuten" | "moshimo_direct";
+  context?: string;
+};
+
+export type ArticleCTA = {
+  type: "internal" | "affiliate";
+  title: string;
+  description?: string;
+  links: { label: string; url: string; isAffiliate?: boolean }[];
+};
+
 export type BlogArticle = {
   slug: string;
   title: string;
@@ -11,6 +25,8 @@ export type BlogArticle = {
   tags: string[];
   readingTime: string;
   sections: { heading: string; content: string; dataRef?: string }[];
+  affiliateLinks?: AffiliateLink[];
+  cta?: ArticleCTA;
 };
 
 const BLOG_DIR = path.join(process.cwd(), "src/data/blog");

@@ -63,3 +63,31 @@ body {
 .badge-test { background-color: var(--accent-pale); color: var(--text-sub); border: 1px solid var(--border); }
 .badge-scoring { background-color: var(--accent-pale); color: var(--text-sub); border: 1px solid var(--border); }
 .badge-update { background-color: var(--accent-pale); color: var(--text-sub); border: 1px solid var(--border); }
+
+/* Mobile-only horizontal scroll hint above wide tables */
+.scroll-hint {
+  display: none;
+  font-size: 10px;
+  color: var(--text-light);
+  margin-bottom: 4px;
+}
+@media (max-width: 640px) {
+  .scroll-hint {
+    display: block;
+  }
+}
+
+/* Mobile minimum tap target enforcement (Apple HIG / WCAG: 44x44 recommended).
+ * Applied only on touch-screen widths so desktop density is preserved.
+ * Targets common nav-style anchors that may otherwise be too small.
+ */
+@media (max-width: 640px) {
+  a.tap-target,
+  button.tap-target {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
