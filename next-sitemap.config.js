@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+
 // モデルの順序（generateStaticParams と同じ順番）
 const MODEL_ORDER = ['claude', 'chatgpt', 'grok', 'perplexity', 'gemini'];
 
@@ -19,6 +22,18 @@ module.exports = {
   priority: 0.7,
   robotsTxtOptions: {
     policies: [{ userAgent: '*', allow: '/' }],
+  },
+  // Edge runtimeのOG画像ルートがあるとnext-sitemapがApp Routerの
+  // 静的ブログURLを検出できないため、一次データのslugから補完する。
+  additionalPaths: async (config) => {
+    const blogDir = path.join(process.cwd(), 'src/data/blog');
+    const slugs = fs
+      .readdirSync(blogDir)
+      .filter((file) => file.endsWith('.json'))
+      .map((file) => file.replace(/\.json$/, ''));
+    return Promise.all(
+      slugs.map((slug) => config.transform(config, `/blog/${slug}`))
+    );
   },
   transform: async (config, path) => {
     // /category（単数形）はsitemapから除外（/categories/ 複数形のみ残す）
