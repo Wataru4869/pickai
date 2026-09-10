@@ -1,0 +1,38 @@
+{
+  "status": "draft",
+  "created_at": "2026-09-10",
+  "source": "editorial-template",
+  "items": [
+    {
+      "type": "x_post",
+      "pillar": "Authority",
+      "draft": "AIを選ぶときは、総合点だけで決めないのがコツです。文章・コード・画像・安全性を用途に合わせて見比べると、選択理由を説明しやすくなります。比較の見方: https://www.aierabi.jp/compare",
+      "requires_fact_check": false
+    },
+    {
+      "type": "threads_post",
+      "pillar": "Retention",
+      "draft": "AIツール比較で最初に決めるべきなのは『何を任せないか』。正確性や機密性が必要な仕事は、人の確認工程まで含めて設計するのがおすすめです。",
+      "requires_fact_check": false
+    },
+    {
+      "type": "instagram_carousel_outline",
+      "pillar": "Conversion",
+      "slides": ["表紙: AI選びで迷ったら", "用途を1つに絞る", "比較する指標を選ぶ", "安全性・料金も確認", "診断ページへの導線"],
+      "requires_fact_check": false
+    },
+    {
+      "type": "tiktok_script_outline",
+      "pillar": "Reach",
+      "draft": "冒頭: AI選び、総合ランキングだけで決めていませんか？ / 本編: 使う仕事を決め、比較指標を2つに絞り、最後に料金と安全性を確認 / CTA: 比較表で自分の用途に合う候補を確認",
+      "requires_fact_check": false
+    },
+    {
+      "type": "article_idea",
+      "pillar": "Authority",
+      "title": "AIツール比較を更新する際の確認項目: 料金・提供状況・評価を混同しない方法",
+      "requires_fact_check": true,
+      "source_requirements": ["各社公式の料金ページ", "各社公式の提供状況ページ", "AI選びの再テスト記録"]
+    }
+  ]
+}

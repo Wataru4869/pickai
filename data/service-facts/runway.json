@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "service_id": "runway",
+  "last_verified_at": "2026-09-10",
+  "source_url": "https://help.runwayml.com/hc/en-us/articles/50404627334547-Free-plan-details",
+  "facts": {
+    "service_name": { "value": "Runway", "source_id": "runway-free-plan", "verified_at": "2026-09-10" },
+    "provider": { "value": "Runway", "source_id": "runway-free-plan", "verified_at": "2026-09-10" },
+    "official_url": { "value": "https://runwayml.com/", "source_id": "runway-free-plan", "verified_at": "2026-09-10" },
+    "current_plan": { "value": ["Free", "Standard or above"], "source_id": "runway-free-plan", "verified_at": "2026-09-10" },
+    "current_price": { "value": null, "source_id": null, "verified_at": null },
+    "free_plan": { "value": true, "source_id": "runway-free-plan", "verified_at": "2026-09-10" },
+    "free_trial": { "value": null, "source_id": null, "verified_at": null },
+    "major_features": { "value": ["AI image and video models", "asset storage"], "source_id": "runway-free-plan", "verified_at": "2026-09-10" },
+    "availability": { "value": "available", "source_id": "runway-free-plan", "verified_at": "2026-09-10" }
+  }
+}

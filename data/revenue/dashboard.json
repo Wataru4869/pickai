@@ -1,0 +1,16 @@
+{
+  "schema_version": 2,
+  "status": "no_data",
+  "generated_at": "2026-09-10T13:12:34.576Z",
+  "totals": null,
+  "by_page": [],
+  "by_post": [],
+  "by_service": [],
+  "by_campaign": [],
+  "notes": [
+    "Missing observations remain null and are never converted to zero.",
+    "Page/post EPC is null unless the affiliate export contains that exact attribution dimension.",
+    "EPC uses confirmed commission divided by network-reported clicks in the same attribution group and currency.",
+    "Mixed currencies are never summed; combined EPC stays null and revenue_by_currency remains available."
+  ]
+}

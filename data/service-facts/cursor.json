@@ -1,0 +1,14 @@
+{
+  "schema_version": 1, "service_id": "cursor", "last_verified_at": "2026-09-10", "source_url": "https://cursor.com/pricing",
+  "facts": {
+    "service_name": { "value": "Cursor", "source_id": "cursor-pricing", "verified_at": "2026-09-10" },
+    "provider": { "value": "Anysphere", "source_id": "cursor-pricing", "verified_at": "2026-09-10" },
+    "official_url": { "value": "https://cursor.com/", "source_id": "cursor-pricing", "verified_at": "2026-09-10" },
+    "current_plan": { "value": ["Hobby", "Pro", "Pro+", "Ultra", "Teams"], "source_id": "cursor-pricing", "verified_at": "2026-09-10" },
+    "current_price": { "value": { "Hobby": "free", "Pro": "US$20/month", "Pro+": "US$60/month", "Ultra": "US$200/month", "Teams": "US$40/user/month" }, "source_id": "cursor-pricing", "verified_at": "2026-09-10" },
+    "free_plan": { "value": true, "source_id": "cursor-pricing", "verified_at": "2026-09-10" },
+    "free_trial": { "value": null, "source_id": null, "verified_at": null },
+    "major_features": { "value": ["Agent", "Composer", "frontier models", "cloud agents", "MCPs"], "source_id": "cursor-pricing", "verified_at": "2026-09-10" },
+    "availability": { "value": "available", "source_id": "cursor-pricing", "verified_at": "2026-09-10" }
+  }
+}

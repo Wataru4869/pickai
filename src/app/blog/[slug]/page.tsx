@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import { getAllArticles, getArticleBySlug, getArticleSlugs, CATEGORY_LABELS } from "@/lib/blog";
 import { Header, Footer } from "@/components/ui";
 import { scoreColorHex, MODEL_COLORS } from "@/lib/data";
+import ArticleCTA, { hasActiveAffiliateLink } from "@/components/ArticleCTA";
+import affiliateConfig from "@/data/affiliate-config.json";
 
 export function generateStaticParams() {
   return getArticleSlugs().map((slug) => ({ slug }));
@@ -327,7 +329,20 @@ function RichContent({ content }: { content: string }) {
 
 /* ── page component ── */
 
-export default function BlogArticlePage({ params }: { params: { slug: string } }) {
+type SearchParams = Record<string, string | string[] | undefined>;
+
+function safeAttribution(value: string | string[] | undefined) {
+  const candidate = Array.isArray(value) ? value[0] : value;
+  return candidate && /^[a-z0-9][a-z0-9_-]{0,63}$/.test(candidate) ? candidate : undefined;
+}
+
+export default function BlogArticlePage({
+  params,
+  searchParams,
+}: {
+  params: { slug: string };
+  searchParams?: SearchParams;
+}) {
   const article = getArticleBySlug(params.slug);
   if (!article) notFound();
 
@@ -341,6 +356,8 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
   const compareLink = compareSlug
     ? `/compare/${compareSlug[1]}-vs-${compareSlug[2]}`
     : null;
+  const contentId = `/blog/${article.slug}`;
+  const showAffiliateDisclosure = hasActiveAffiliateLink(article.cta, contentId);
 
   return (
     <div className="min-h-screen bg-[#fbfbfd]">
@@ -369,6 +386,17 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
           </div>
         </div>
       </div>
+
+      {showAffiliateDisclosure && (
+        <div className="bg-white">
+          <div className="max-w-full sm:max-w-[680px] mx-auto px-3 sm:px-4">
+            <div className="mb-6 rounded border border-[#e5e5e5] bg-[#fafafa] p-3 text-[12px] leading-relaxed text-[#555]">
+              <span className="font-semibold">PR：</span>
+              {affiliateConfig.default_disclosure}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Article Sections */}
       {article.sections.map((section, i) => (
@@ -419,6 +447,15 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
               <div className="text-[11px] text-[#4a7ab5] mt-1">比較ページを開く →</div>
             </a>
           )}
+
+          <ArticleCTA
+            cta={article.cta}
+            contentId={contentId}
+            attribution={{
+              postId: safeAttribution(searchParams?.utm_content),
+              campaignId: safeAttribution(searchParams?.utm_campaign),
+            }}
+          />
 
           {/* Related articles */}
           {related.length > 0 && (

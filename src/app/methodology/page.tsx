@@ -3,11 +3,11 @@ import { PromptAccordion } from "@/components/PromptAccordion";
 
 export const metadata = {
   title: "評価方法論・採点基準 | AI選び",
-  description: "30テストのプロンプト全文、3層スコアリング方式、公平性担保の仕組みを完全公開。第三者による追検証が可能です。",
+  description: "保存されている30項目の評価構成、採点方針、現在確認できる根拠と再現性の限界を説明します。",
   alternates: { canonical: "/methodology" },
   openGraph: {
     title: "評価方法論・採点基準 | AI選び",
-    description: "30テストのプロンプト全文、3層スコアリング方式、公平性担保の仕組みを完全公開。第三者による追検証が可能です。",
+    description: "保存されている30項目の評価構成、採点方針、現在確認できる根拠と再現性の限界を説明します。",
     url: "/methodology",
   },
 };
@@ -21,7 +21,7 @@ export default function MethodologyPage() {
         <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
           <h1 className="text-[20px] font-bold mb-1">評価方法論</h1>
           <p className="text-[12px] text-[#6e6e73] leading-relaxed">
-            当サイトのテスト方法論を全て公開します。透明性と再現性を最優先に、全プロンプト・採点基準を開示しています。
+            保存されている評価構成と採点方針を説明します。raw回答と採点過程がそろっていないため、完全な再現性は確認できません。
           </p>
           <TrustBadges />
         </div>
@@ -31,7 +31,7 @@ export default function MethodologyPage() {
       <Block>
         <SectionHeader title="1. テスト概要" />
         <p className="text-[12px] text-[#6e6e73] leading-relaxed mb-3">
-          5つの主要AIモデル（Claude / ChatGPT / Gemini / Grok / Perplexity）に対し、合計30テストを実施。全モデルに同一プロンプトを投入し、統一基準で採点しました。
+          リポジトリには、5モデルを対象とする非安全性16項目と安全性14項目、合計30項目の保存済みスコアがあります。実施時のraw回答と採点ログは保存されていないため、現在は履歴値として扱います。
         </p>
         <div className="overflow-x-auto">
           <table className="w-full border-collapse text-[12px] min-w-[400px]">
@@ -58,7 +58,7 @@ export default function MethodologyPage() {
             </tbody>
           </table>
         </div>
-        <p className="text-[11px] text-[#86868b] mt-2">テスト実施: 2026年3月21-22日</p>
+        <p className="text-[11px] text-[#86868b] mt-2">保存データ上の実施日: 2026年3月21-22日。現行モデルの性能を示すものではありません。</p>
       </Block>
 
       {/* Scoring */}
@@ -69,7 +69,7 @@ export default function MethodologyPage() {
           <div className="text-[12px] text-[#6e6e73] leading-relaxed">
             <strong className="text-[#1d1d1f]">文章・コード・画像（16テスト）：</strong><br />
             ① Claude採点（25点満点）＋ ② ChatGPT採点（25点満点）→ 平均 → 100点換算<br />
-            2つのAIによるクロス採点で、採点者バイアスを軽減。
+            保存資料に記載された採点方針です。個別の採点ログがないため追検証はできません。
           </div>
           <div className="text-[12px] text-[#6e6e73] leading-relaxed mt-2">
             <strong className="text-[#1d1d1f]">安全性（14テスト）：</strong><br />
@@ -90,7 +90,7 @@ export default function MethodologyPage() {
       {/* Prompts */}
       <Block>
         <SectionHeader title="3. テストプロンプト（抜粋）" />
-        <p className="text-[11px] text-[#6e6e73] mb-3">全30テストのプロンプトを公開しています。以下は代表例です。</p>
+        <p className="text-[11px] text-[#6e6e73] mb-3">現在このページで確認できる代表的なプロンプト例です。30項目すべてのraw回答・採点ログは公開されていません。</p>
         <PromptAccordion />
       </Block>
 
@@ -98,10 +98,10 @@ export default function MethodologyPage() {
       <Block>
         <SectionHeader title="4. 公平性の担保" />
         {[
-          { title: "同一プロンプト", desc: "全モデルに完全に同じプロンプトを投入。モデルごとの調整は一切行っていません。" },
-          { title: "同日テスト", desc: "2026年3月21-22日に全テストを集中実施。モデルのバージョン差による不公平を最小化。" },
-          { title: "クロス採点", desc: "Claude採点とChatGPT採点の平均を統合スコアとし、単一採点者のバイアスを軽減。" },
-          { title: "全データ公開", desc: "プロンプト・回答・採点詳細の全てを公開。第三者による追検証が可能です。" },
+          { title: "同一条件の方針", desc: "保存資料では同一プロンプトを使う方針です。実行ログがないため、全実行の同一性は現在確認できません。" },
+          { title: "実施日の記録", desc: "保存データには2026年3月21-22日とあります。モデル識別子や実行パラメータの完全な記録はありません。" },
+          { title: "採点方針", desc: "非安全性項目はClaudeとChatGPT、安全性はClaudeによる採点と記載されています。raw採点根拠は未保存です。" },
+          { title: "公開範囲", desc: "項目、代表プロンプト、保存済みスコアを確認できます。回答・採点詳細の完全公開ではありません。" },
         ].map((f, i) => (
           <div key={i} className="py-2.5 border-t border-[#e8e8ed] first:border-t-0">
             <div className="text-[12px] font-bold mb-0.5">{f.title}</div>
@@ -115,8 +115,8 @@ export default function MethodologyPage() {
         <SectionHeader title="5. 外部データの取り扱い" />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           <div className="border border-[#e8e8ed] rounded-md p-3">
-            <div className="text-[11px] font-bold text-[#1d1d1f] mb-1.5 pl-2 border-l-2 border-[#3d7a5f] uppercase tracking-wider">独自テスト済み</div>
-            <div className="text-[11px] text-[#6e6e73] leading-relaxed">当サイトが実施した30テスト。全プロンプト・採点を公開。バッジ表示あり。</div>
+            <div className="text-[11px] font-bold text-[#1d1d1f] mb-1.5 pl-2 border-l-2 border-[#3d7a5f] uppercase tracking-wider">保存済み評価</div>
+            <div className="text-[11px] text-[#6e6e73] leading-relaxed">30項目の履歴値。raw回答・採点ログがないため、再現済みの現在評価とは区別します。</div>
           </div>
           <div className="border border-[#e8e8ed] rounded-md p-3">
             <div className="text-[11px] font-bold text-[#1d1d1f] mb-1.5 pl-2 border-l-2 border-[#d2d2d7] uppercase tracking-wider">外部データ引用</div>
@@ -129,10 +129,10 @@ export default function MethodologyPage() {
       <Block>
         <SectionHeader title="6. 更新ポリシー" />
         <div className="text-[12px] text-[#6e6e73] leading-relaxed">
-          ・四半期ごと（3月・6月・9月・12月）に全テストを再実施<br />
-          ・モデルの重大アップデート時は臨時再テストを実施<br />
-          ・ユーザー投票データは月次で集計し、スコアの補助指標として活用<br />
-          ・更新時は変更内容と理由を「更新履歴」に記載
+          ・公式の料金・機能と独自評価を分けて管理<br />
+          ・独自評価は、モデル識別子、プロンプト、raw回答、採点根拠がそろった場合だけ更新<br />
+          ・定期再テストとユーザー投票の自動集計は未実装<br />
+          ・更新時は変更内容、根拠、確認日を記録
         </div>
       </Block>
 
@@ -157,8 +157,8 @@ export default function MethodologyPage() {
           <p className="font-semibold text-[#6e6e73]">免責事項</p>
           <p>本サイトの評価は、AI選び編集部が独自に設計したテストに基づく結果であり、特定のAIツールの品質を保証または否定するものではありません。</p>
           <p>各AIツールは日々アップデートされており、評価時点のバージョンと現在のバージョンで性能が異なる場合があります。最新の情報は各社の公式サイトをご確認ください。</p>
-          <p>本サイトは特定の企業・製品との利害関係を持たず、テスト結果に基づく公平な比較情報の提供を目的としています。</p>
-          <p>テストに使用したプロンプト、採点基準、評価手法は本ページで全て公開しています。</p>
+          <p>今後アフィリエイトリンクを掲載する場合があります。広告リンクの有無は開示し、報酬条件を評価点へ反映しません。</p>
+          <p>現在公開しているのは評価構成、採点方針、代表プロンプトです。raw回答・採点ログがない履歴値は再現不能として扱います。</p>
         </div>
       </Block>
 

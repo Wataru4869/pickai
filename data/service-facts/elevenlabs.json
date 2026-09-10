@@ -1,0 +1,14 @@
+{
+  "schema_version": 1, "service_id": "elevenlabs", "last_verified_at": "2026-09-10", "source_url": "https://elevenlabs.io/pricing",
+  "facts": {
+    "service_name": { "value": "ElevenLabs", "source_id": "elevenlabs-pricing", "verified_at": "2026-09-10" },
+    "provider": { "value": "ElevenLabs", "source_id": "elevenlabs-pricing", "verified_at": "2026-09-10" },
+    "official_url": { "value": "https://elevenlabs.io/", "source_id": "elevenlabs-pricing", "verified_at": "2026-09-10" },
+    "current_plan": { "value": ["Free", "Starter", "Creator", "Pro", "Scale", "Business", "Enterprise"], "source_id": "elevenlabs-pricing", "verified_at": "2026-09-10" },
+    "current_price": { "value": { "Free": "US$0/month", "Starter": "US$6/month", "Creator": "US$22/month", "Pro": "US$99/month", "Scale": "US$299/month", "Business": "US$990/month", "Enterprise": "custom" }, "source_id": "elevenlabs-pricing", "verified_at": "2026-09-10" },
+    "free_plan": { "value": true, "source_id": "elevenlabs-pricing", "verified_at": "2026-09-10" },
+    "free_trial": { "value": null, "source_id": null, "verified_at": null },
+    "major_features": { "value": ["text to speech", "speech to text", "sound effects", "voice design", "music", "dubbing"], "source_id": "elevenlabs-pricing", "verified_at": "2026-09-10" },
+    "availability": { "value": "available", "source_id": "elevenlabs-pricing", "verified_at": "2026-09-10" }
+  }
+}

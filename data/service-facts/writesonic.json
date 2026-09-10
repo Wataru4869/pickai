@@ -1,0 +1,14 @@
+{
+  "schema_version": 1, "service_id": "writesonic", "last_verified_at": "2026-09-10", "source_url": "https://writesonic.com/affiliate",
+  "facts": {
+    "service_name": { "value": "Writesonic", "source_id": "writesonic-affiliate", "verified_at": "2026-09-10" },
+    "provider": { "value": "Writesonic", "source_id": "writesonic-affiliate", "verified_at": "2026-09-10" },
+    "official_url": { "value": "https://writesonic.com/", "source_id": "writesonic-affiliate", "verified_at": "2026-09-10" },
+    "current_plan": { "value": ["Starter", "Basic", "Growth", "Enterprise"], "source_id": "writesonic-affiliate", "verified_at": "2026-09-10" },
+    "current_price": { "value": { "Starter": "US$99/month list or US$79/month annual equivalent", "Basic": "US$249/month list or US$199/month annual equivalent", "Growth": "US$499/month list or US$399/month annual equivalent", "Enterprise": "custom" }, "source_id": "writesonic-affiliate", "verified_at": "2026-09-10" },
+    "free_plan": { "value": null, "source_id": null, "verified_at": null },
+    "free_trial": { "value": true, "source_id": "writesonic-affiliate", "verified_at": "2026-09-10" },
+    "major_features": { "value": ["AI visibility tracking", "AI search visibility"], "source_id": "writesonic-affiliate", "verified_at": "2026-09-10" },
+    "availability": { "value": "available", "source_id": "writesonic-affiliate", "verified_at": "2026-09-10" }
+  }
+}

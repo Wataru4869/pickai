@@ -38,8 +38,8 @@ export function PromptAccordion() {
           )}
         </div>
       ))}
-      <p className="text-[11px] text-[#0066cc] mt-2 cursor-pointer hover:underline">
-        → 全30テストのプロンプト完全版をダウンロード
+      <p className="text-[11px] text-[#86868b] mt-2">
+        ここでは代表例のみ掲載しています。全項目のraw回答・採点ログは未公開です。
       </p>
     </div>
   );

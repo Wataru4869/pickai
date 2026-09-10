@@ -1,0 +1,14 @@
+{
+  "schema_version": 1, "service_id": "github-copilot", "last_verified_at": "2026-09-10", "source_url": "https://github.com/features/copilot",
+  "facts": {
+    "service_name": { "value": "GitHub Copilot", "source_id": "github-copilot-pricing", "verified_at": "2026-09-10" },
+    "provider": { "value": "GitHub", "source_id": "github-copilot-pricing", "verified_at": "2026-09-10" },
+    "official_url": { "value": "https://github.com/features/copilot", "source_id": "github-copilot-pricing", "verified_at": "2026-09-10" },
+    "current_plan": { "value": ["Free", "Pro", "Pro+", "Max", "Business", "Enterprise"], "source_id": "github-copilot-pricing", "verified_at": "2026-09-10" },
+    "current_price": { "value": { "Free": "US$0/user/month", "Pro": "US$10/user/month", "Pro+": "US$39/user/month", "Max": "US$100/user/month", "Business": "US$19/user/month", "Enterprise": "US$39/user/month" }, "source_id": "github-copilot-pricing", "verified_at": "2026-09-10" },
+    "free_plan": { "value": true, "source_id": "github-copilot-pricing", "verified_at": "2026-09-10" },
+    "free_trial": { "value": null, "source_id": null, "verified_at": null },
+    "major_features": { "value": ["code completion", "chat", "Copilot CLI", "cloud agent", "code review"], "source_id": "github-copilot-pricing", "verified_at": "2026-09-10" },
+    "availability": { "value": "available", "source_id": "github-copilot-pricing", "verified_at": "2026-09-10" }
+  }
+}

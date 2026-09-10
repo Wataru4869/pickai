@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "notice": "Copy to data/private/x-account.json. No password, cookie, token, email, user ID or credential fields are permitted.",
+  "profile": {
+    "handle": null,
+    "followers_approx": null,
+    "observed_at": null
+  },
+  "historical_metrics": [
+    {
+      "period_start": null,
+      "period_end": null,
+      "post_id": null,
+      "pillar": null,
+      "impressions": null,
+      "link_clicks": null,
+      "engagements": null,
+      "source": "human_export_or_manual_aggregate"
+    }
+  ]
+}

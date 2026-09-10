@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "service_id": "synthesia",
+  "last_verified_at": "2026-09-10",
+  "source_url": "https://www.synthesia.io/pricing",
+  "facts": {
+    "service_name": { "value": "Synthesia", "source_id": "synthesia-pricing", "verified_at": "2026-09-10" },
+    "provider": { "value": "Synthesia Ltd", "source_id": "synthesia-pricing", "verified_at": "2026-09-10" },
+    "official_url": { "value": "https://www.synthesia.io/", "source_id": "synthesia-pricing", "verified_at": "2026-09-10" },
+    "current_plan": { "value": ["Basic", "Starter", "Creator", "Enterprise"], "source_id": "synthesia-pricing", "verified_at": "2026-09-10" },
+    "current_price": { "value": { "Basic": "US$0/month", "Starter": "US$29/month", "Creator": "US$89/month", "Enterprise": "contact sales" }, "source_id": "synthesia-pricing", "verified_at": "2026-09-10" },
+    "free_plan": { "value": true, "source_id": "synthesia-pricing", "verified_at": "2026-09-10" },
+    "free_trial": { "value": true, "source_id": "synthesia-pricing", "verified_at": "2026-09-10" },
+    "major_features": { "value": ["AI avatar video", "AI dubbing", "video templates", "AI-generated video assets"], "source_id": "synthesia-pricing", "verified_at": "2026-09-10" },
+    "availability": { "value": "available", "source_id": "synthesia-pricing", "verified_at": "2026-09-10" }
+  }
+}

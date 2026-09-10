@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "sources": [
+    { "source_id": "adobe-firefly-plans", "provider": "Adobe", "title": "Adobe Firefly plans", "url": "https://www.adobe.com/products/firefly/plans.html", "source_type": "official", "verified_at": "2026-09-10" },
+    { "source_id": "canva-pricing", "provider": "Canva", "title": "Canva pricing", "url": "https://www.canva.com/pricing/", "source_type": "official", "verified_at": "2026-09-10" },
+    { "source_id": "heygen-pricing", "provider": "HeyGen", "title": "HeyGen pricing", "url": "https://www.heygen.com/ja-jp/pricing", "source_type": "official", "verified_at": "2026-09-10" },
+    { "source_id": "leonardo-pricing", "provider": "Leonardo.Ai", "title": "Leonardo.Ai pricing", "url": "https://leonardo.ai/pricing", "source_type": "official", "verified_at": "2026-09-10" },
+    { "source_id": "synthesia-pricing", "provider": "Synthesia", "title": "Synthesia pricing", "url": "https://www.synthesia.io/pricing", "source_type": "official", "verified_at": "2026-09-10" },
+    { "source_id": "pika-pricing", "provider": "Pika", "title": "Pika pricing", "url": "https://pika.art/pricing", "source_type": "official", "verified_at": "2026-09-10" },
+    { "source_id": "runway-free-plan", "provider": "Runway", "title": "Runway free plan details", "url": "https://help.runwayml.com/hc/en-us/articles/50404627334547-Free-plan-details", "source_type": "official", "verified_at": "2026-09-10" },
+    { "source_id": "cursor-pricing", "provider": "Anysphere", "title": "Cursor pricing", "url": "https://cursor.com/pricing", "source_type": "official", "verified_at": "2026-09-10" },
+    { "source_id": "windsurf-pricing", "provider": "Windsurf", "title": "Windsurf editor pricing overview", "url": "https://windsurf.com/editor", "source_type": "official", "verified_at": "2026-09-10" },
+    { "source_id": "github-copilot-pricing", "provider": "GitHub", "title": "GitHub Copilot plans", "url": "https://github.com/features/copilot", "source_type": "official", "verified_at": "2026-09-10" },
+    { "source_id": "openai-chatgpt-pricing", "provider": "OpenAI", "title": "ChatGPT pricing", "url": "https://openai.com/chatgpt/pricing", "source_type": "official", "verified_at": "2026-09-10" },
+    { "source_id": "anthropic-claude-pricing", "provider": "Anthropic", "title": "Choosing a Claude plan", "url": "https://support.anthropic.com/en/articles/11049762-choosing-a-claude-ai-plan", "source_type": "official", "verified_at": "2026-09-10" },
+    { "source_id": "perplexity-plans", "provider": "Perplexity AI", "title": "Perplexity subscription plans", "url": "https://www.perplexity.ai/help-center/en/articles/11187416-which-perplexity-subscription-plan-is-right-for-you", "source_type": "official", "verified_at": "2026-09-10" },
+    { "source_id": "google-ai-plans", "provider": "Google", "title": "Google AI plans", "url": "https://one.google.com/about/plans", "source_type": "official", "verified_at": "2026-09-10" },
+    { "source_id": "elevenlabs-pricing", "provider": "ElevenLabs", "title": "ElevenLabs pricing", "url": "https://elevenlabs.io/pricing", "source_type": "official", "verified_at": "2026-09-10" },
+    { "source_id": "writesonic-affiliate", "provider": "Writesonic", "title": "Writesonic affiliate program and plan pricing", "url": "https://writesonic.com/affiliate", "source_type": "official", "verified_at": "2026-09-10" },
+    { "source_id": "adobe-affiliate", "provider": "Adobe", "title": "Adobe Affiliate Program", "url": "https://www.adobe.com/affiliates.html", "source_type": "official", "verified_at": "2026-09-10" },
+    { "source_id": "canva-affiliate-guide", "provider": "Canva", "title": "Canva Pro affiliate guide", "url": "https://www.canva.com/pt_br/aprenda/pagamentos-afiliados/", "source_type": "official", "verified_at": "2026-09-10" },
+    { "source_id": "synthesia-affiliate", "provider": "Synthesia", "title": "Synthesia Affiliate Program", "url": "https://www.synthesia.io/partners/affiliates", "source_type": "official", "verified_at": "2026-09-10" },
+    { "source_id": "elevenlabs-affiliate", "provider": "ElevenLabs", "title": "ElevenLabs Creator Affiliate Program", "url": "https://elevenlabs.io/affiliates-terms", "source_type": "official", "verified_at": "2026-09-10" },
+    { "source_id": "leonardo-creator-program", "provider": "Leonardo.Ai", "title": "Leonardo Creator Program", "url": "https://leonardo.ai/leonardo-creator-program/", "source_type": "official", "verified_at": "2026-09-10" },
+    { "source_id": "heygen-affiliate-help", "provider": "HeyGen", "title": "HeyGen affiliate help collection", "url": "https://help.heygen.com/en/collections/9057651-about-heygen", "source_type": "official", "verified_at": "2026-09-10" },
+    { "source_id": "manus-partner", "provider": "Manus", "title": "Manus Business Partner Program", "url": "https://partner.manus.im/", "source_type": "official", "verified_at": "2026-09-10" }
+  ]
+}

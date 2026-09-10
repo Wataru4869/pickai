@@ -1,0 +1,14 @@
+{
+  "schema_version": 1, "service_id": "chatgpt", "last_verified_at": "2026-09-10", "source_url": "https://openai.com/chatgpt/pricing",
+  "facts": {
+    "service_name": { "value": "ChatGPT", "source_id": "openai-chatgpt-pricing", "verified_at": "2026-09-10" },
+    "provider": { "value": "OpenAI", "source_id": "openai-chatgpt-pricing", "verified_at": "2026-09-10" },
+    "official_url": { "value": "https://chatgpt.com/", "source_id": "openai-chatgpt-pricing", "verified_at": "2026-09-10" },
+    "current_plan": { "value": ["Free", "Plus", "Pro", "Business", "Enterprise"], "source_id": "openai-chatgpt-pricing", "verified_at": "2026-09-10" },
+    "current_price": { "value": { "Free": "US$0/month", "Plus": "US$20/month", "Pro": "US$200/month", "Business": "US$25/user/month billed annually or US$30 monthly", "Enterprise": "contact sales" }, "source_id": "openai-chatgpt-pricing", "verified_at": "2026-09-10" },
+    "free_plan": { "value": true, "source_id": "openai-chatgpt-pricing", "verified_at": "2026-09-10" },
+    "free_trial": { "value": null, "source_id": null, "verified_at": null },
+    "major_features": { "value": ["web search", "file uploads", "data analysis", "image generation", "voice", "deep research"], "source_id": "openai-chatgpt-pricing", "verified_at": "2026-09-10" },
+    "availability": { "value": "available", "source_id": "openai-chatgpt-pricing", "verified_at": "2026-09-10" }
+  }
+}

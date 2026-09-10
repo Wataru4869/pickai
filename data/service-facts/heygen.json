@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "service_id": "heygen",
+  "last_verified_at": "2026-09-10",
+  "source_url": "https://www.heygen.com/ja-jp/pricing",
+  "facts": {
+    "service_name": { "value": "HeyGen", "source_id": "heygen-pricing", "verified_at": "2026-09-10" },
+    "provider": { "value": "HeyGen", "source_id": "heygen-pricing", "verified_at": "2026-09-10" },
+    "official_url": { "value": "https://www.heygen.com/", "source_id": "heygen-pricing", "verified_at": "2026-09-10" },
+    "current_plan": { "value": ["Free", "Creator", "Pro", "Business", "Enterprise"], "source_id": "heygen-pricing", "verified_at": "2026-09-10" },
+    "current_price": { "value": { "Free": "US$0/month", "Creator": "US$29/month", "Pro": "US$49/month", "Business": "US$149/month plus US$20/additional seat", "Enterprise": "contact sales" }, "source_id": "heygen-pricing", "verified_at": "2026-09-10" },
+    "free_plan": { "value": true, "source_id": "heygen-pricing", "verified_at": "2026-09-10" },
+    "free_trial": { "value": true, "source_id": "heygen-pricing", "verified_at": "2026-09-10" },
+    "major_features": { "value": ["AI avatar video", "video translation", "voice cloning", "Video Agent"], "source_id": "heygen-pricing", "verified_at": "2026-09-10" },
+    "availability": { "value": "available", "source_id": "heygen-pricing", "verified_at": "2026-09-10" }
+  }
+}

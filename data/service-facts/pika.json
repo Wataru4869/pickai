@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "service_id": "pika",
+  "last_verified_at": "2026-09-10",
+  "source_url": "https://pika.art/pricing",
+  "facts": {
+    "service_name": { "value": "Pika", "source_id": "pika-pricing", "verified_at": "2026-09-10" },
+    "provider": { "value": "Pika", "source_id": "pika-pricing", "verified_at": "2026-09-10" },
+    "official_url": { "value": "https://pika.art/", "source_id": "pika-pricing", "verified_at": "2026-09-10" },
+    "current_plan": { "value": ["Basic", "Standard", "Pro", "Fancy"], "source_id": "pika-pricing", "verified_at": "2026-09-10" },
+    "current_price": { "value": { "Basic": "US$0", "Standard": "US$10/month", "Pro": "US$35/month", "Fancy": "US$95/month" }, "source_id": "pika-pricing", "verified_at": "2026-09-10" },
+    "free_plan": { "value": true, "source_id": "pika-pricing", "verified_at": "2026-09-10" },
+    "free_trial": { "value": null, "source_id": null, "verified_at": null },
+    "current_product": { "value": "Pika 2.5", "source_id": "pika-pricing", "verified_at": "2026-09-10" },
+    "major_features": { "value": ["text-to-video", "image-to-video", "Pikascenes", "Pikadditions", "Pikaswaps"], "source_id": "pika-pricing", "verified_at": "2026-09-10" },
+    "availability": { "value": "available", "source_id": "pika-pricing", "verified_at": "2026-09-10" }
+  }
+}

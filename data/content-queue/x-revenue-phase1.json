@@ -1,0 +1,422 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-10",
+  "publish_automatically": false,
+  "posts": [
+    {
+      "id": "x-r-01",
+      "channel": "x",
+      "status": "draft",
+      "created_at": "2026-09-10",
+      "pillar": "Reach",
+      "purpose": "新しい無料導線の認知",
+      "draft": "Adobe Fireflyは画像だけでなく、動画・音声・ベクターも扱う生成AIへ。2026年9月10日の公式プラン確認では無料枠あり。画像AIをまとめて比較したい人向けに整理しました。",
+      "target_page": "/categories/image-generation",
+      "audience": "画像AIを初めて試す人",
+      "cta": "画像生成AIの比較を見る",
+      "monetization_target": "adobe-firefly",
+      "source_refs": [
+        "adobe-firefly-plans"
+      ],
+      "needs_fact_check": true
+    },
+    {
+      "id": "x-r-02",
+      "channel": "x",
+      "status": "draft",
+      "created_at": "2026-09-10",
+      "pillar": "Reach",
+      "purpose": "無料動画AIへの関心獲得",
+      "draft": "AI動画を試すハードルが下がっています。HeyGenは公式料金ページで、カード不要・月3本までの無料プランを案内。ほかの動画AIと用途別に比べると選びやすいです。",
+      "target_page": "/categories/video-generation",
+      "audience": "動画制作を試したい個人・担当者",
+      "cta": "動画生成AIの比較を見る",
+      "monetization_target": "heygen",
+      "source_refs": [
+        "heygen-pricing"
+      ],
+      "needs_fact_check": true
+    },
+    {
+      "id": "x-r-03",
+      "channel": "x",
+      "status": "draft",
+      "created_at": "2026-09-10",
+      "pillar": "Reach",
+      "purpose": "無料画像AIへの関心獲得",
+      "draft": "Leonardo.Aiは公式料金ページで1日150 Fast Tokensの無料プランを案内。画像生成AIは『無料か』だけでなく、公開範囲や商用条件も一緒に確認したいところ。",
+      "target_page": "/categories/image-generation",
+      "audience": "画像生成を試したいクリエイター",
+      "cta": "画像生成AIの比較を見る",
+      "monetization_target": "leonardo-ai",
+      "source_refs": [
+        "leonardo-pricing"
+      ],
+      "needs_fact_check": true
+    },
+    {
+      "id": "x-r-04",
+      "channel": "x",
+      "status": "draft",
+      "created_at": "2026-09-10",
+      "pillar": "Reach",
+      "purpose": "動画AI比較への送客",
+      "draft": "Pikaの公式料金ページではBasicが無料、Pika 2.5へのアクセスを案内。短尺動画向けAIはモデル名だけでなく、解像度・credits・商用利用条件まで見るのがコツです。",
+      "target_page": "/categories/video-generation",
+      "audience": "短尺動画クリエイター",
+      "cta": "動画AIの違いを見る",
+      "monetization_target": "pika",
+      "source_refs": [
+        "pika-pricing"
+      ],
+      "needs_fact_check": true
+    },
+    {
+      "id": "x-r-05",
+      "channel": "x",
+      "status": "draft",
+      "created_at": "2026-09-10",
+      "pillar": "Reach",
+      "purpose": "codingカテゴリへの送客",
+      "draft": "Cursorは公式料金ページでカード不要のHobbyプラン、GitHub CopilotもFreeプランを提供。AIコーディングは無料枠で操作感を比較してから選ぶのが安全です。",
+      "target_page": "/categories/coding-tools",
+      "audience": "AIコーディング初心者",
+      "cta": "コーディングAIを比較する",
+      "monetization_target": "cursor",
+      "source_refs": [
+        "cursor-pricing",
+        "github-copilot-pricing"
+      ],
+      "needs_fact_check": true
+    },
+    {
+      "id": "x-r-06",
+      "channel": "x",
+      "status": "draft",
+      "created_at": "2026-09-10",
+      "pillar": "Reach",
+      "purpose": "AI検索カテゴリへの送客",
+      "draft": "Perplexityの公式ヘルプではStandard（Free）とPro・Maxなどを案内。AI検索は回答の派手さより、出典確認とファイル対応を比べると選びやすいです。",
+      "target_page": "/categories/ai-search",
+      "audience": "検索AIに関心がある人",
+      "cta": "AI検索を比較する",
+      "monetization_target": "perplexity",
+      "source_refs": [
+        "perplexity-plans"
+      ],
+      "needs_fact_check": true
+    },
+    {
+      "id": "x-a-01",
+      "channel": "x",
+      "status": "draft",
+      "created_at": "2026-09-10",
+      "pillar": "Authority",
+      "purpose": "独自比較の訴求",
+      "draft": "【2026年3月実施の独自テスト】文章生成ではClaude 86.4、ChatGPT 86.3でほぼ同点。総合点だけでは見えない差を、用途別に比較しています。※再テスト前の履歴値です。",
+      "target_page": "/compare/claude-vs-chatgpt",
+      "audience": "文章AIを比較中の人",
+      "cta": "比較の内訳を見る",
+      "monetization_target": "none",
+      "source_refs": [
+        "src/data/tests.json",
+        "src/data/models.json"
+      ],
+      "needs_fact_check": true
+    },
+    {
+      "id": "x-a-02",
+      "channel": "x",
+      "status": "draft",
+      "created_at": "2026-09-10",
+      "pillar": "Authority",
+      "purpose": "coding評価への送客",
+      "draft": "【2026年3月実施の独自テスト】コーディング平均はClaude 94.3、ChatGPT 81.3。4テストの内訳と採点方法を公開しています。※現在性能ではなく測定時点の結果です。",
+      "target_page": "/compare/claude-vs-chatgpt",
+      "audience": "開発用途でAIを選ぶ人",
+      "cta": "テスト別スコアを見る",
+      "monetization_target": "claude",
+      "source_refs": [
+        "src/data/tests.json",
+        "src/app/methodology/page.tsx"
+      ],
+      "needs_fact_check": true
+    },
+    {
+      "id": "x-a-03",
+      "channel": "x",
+      "status": "draft",
+      "created_at": "2026-09-10",
+      "pillar": "Authority",
+      "purpose": "安全性評価への送客",
+      "draft": "AIは『賢さ』だけでなく、ハルシネーション・著作権・個人情報への対応も比較したい。AI選びでは安全性14項目の評価結果と重みを公開しています。",
+      "target_page": "/safety",
+      "audience": "業務でAIを使う人",
+      "cta": "安全性14項目を見る",
+      "monetization_target": "none",
+      "source_refs": [
+        "src/data/safety.json",
+        "src/app/methodology/page.tsx"
+      ],
+      "needs_fact_check": false
+    },
+    {
+      "id": "x-a-04",
+      "channel": "x",
+      "status": "draft",
+      "created_at": "2026-09-10",
+      "pillar": "Authority",
+      "purpose": "方法論の信頼形成",
+      "draft": "ランキングを見る前に、採点方法を見てください。AI選びはテスト項目、採点軸、限界を公開しています。再現記録のない数字は今後の更新で勝手に変更しません。",
+      "target_page": "/methodology",
+      "audience": "比較サイトの根拠を重視する人",
+      "cta": "評価方法を確認する",
+      "monetization_target": "none",
+      "source_refs": [
+        "src/app/methodology/page.tsx"
+      ],
+      "needs_fact_check": false
+    },
+    {
+      "id": "x-a-05",
+      "channel": "x",
+      "status": "draft",
+      "created_at": "2026-09-10",
+      "pillar": "Authority",
+      "purpose": "画像比較への送客",
+      "draft": "画像AIは『きれい』だけでは比較できません。商品写真、日本語バナー、ロゴなど、用途ごとの結果を見ると選び方が変わります。AI選びの測定結果をカテゴリ別に公開中。",
+      "target_page": "/categories/image-generation",
+      "audience": "画像制作担当者",
+      "cta": "画像生成ランキングを見る",
+      "monetization_target": "adobe-firefly",
+      "source_refs": [
+        "src/data/tests.json"
+      ],
+      "needs_fact_check": false
+    },
+    {
+      "id": "x-a-06",
+      "channel": "x",
+      "status": "draft",
+      "created_at": "2026-09-10",
+      "pillar": "Authority",
+      "purpose": "診断利用の促進",
+      "draft": "AI選びで迷う原因は、用途が曖昧なまま総合順位を見ること。文章・コード・画像・安全性のどれを優先するか決めると候補は絞れます。",
+      "target_page": "/recommend",
+      "audience": "AI選びに迷う一般ユーザー",
+      "cta": "おすすめ診断を試す",
+      "monetization_target": "none",
+      "source_refs": [
+        "src/data/recommendations.json"
+      ],
+      "needs_fact_check": false
+    },
+    {
+      "id": "x-c-01",
+      "channel": "x",
+      "status": "draft",
+      "created_at": "2026-09-10",
+      "pillar": "Conversion",
+      "purpose": "Firefly候補への送客",
+      "draft": "画像・動画・音声を1つの制作環境で試したい人へ。Adobe Fireflyには無料プランと有料プランのfree trialがあります。契約前に他の画像AIとの違いを比較できます。",
+      "target_page": "/blog/ai-image-generation-2026",
+      "audience": "制作ツールの購入検討者",
+      "cta": "比較してから無料で試す",
+      "monetization_target": "adobe-firefly",
+      "source_refs": [
+        "adobe-firefly-plans"
+      ],
+      "needs_fact_check": true
+    },
+    {
+      "id": "x-c-02",
+      "channel": "x",
+      "status": "draft",
+      "created_at": "2026-09-10",
+      "pillar": "Conversion",
+      "purpose": "Canva候補への送客",
+      "draft": "非デザイナーが最初に試す画像AIなら、テンプレートと編集を一緒に使えるかが重要。CanvaはFreeとProのtrialを公式案内しています。まず用途との相性を比較。",
+      "target_page": "/categories/image-generation",
+      "audience": "SNS・資料を作る非デザイナー",
+      "cta": "比較結果を見る",
+      "monetization_target": "canva-ai",
+      "source_refs": [
+        "canva-pricing"
+      ],
+      "needs_fact_check": true
+    },
+    {
+      "id": "x-c-03",
+      "channel": "x",
+      "status": "draft",
+      "created_at": "2026-09-10",
+      "pillar": "Conversion",
+      "purpose": "Synthesia候補への送客",
+      "draft": "顔出し撮影なしで説明動画を作りたい場合、AIアバター型が候補。Synthesiaは無料Basic、HeyGenは無料3動画を公式案内。業務用途を基準に比較しました。",
+      "target_page": "/blog/ai-video-generation-2026",
+      "audience": "研修・営業動画の担当者",
+      "cta": "動画AIを比較する",
+      "monetization_target": "synthesia",
+      "source_refs": [
+        "synthesia-pricing",
+        "heygen-pricing"
+      ],
+      "needs_fact_check": true
+    },
+    {
+      "id": "x-c-04",
+      "channel": "x",
+      "status": "draft",
+      "created_at": "2026-09-10",
+      "pillar": "Conversion",
+      "purpose": "HeyGen候補への送客",
+      "draft": "AI動画をいきなり契約する必要はありません。HeyGenはカード不要の無料プランで月3動画まで。画質・言語・透かしなどを比較してから判断できます。",
+      "target_page": "/categories/video-generation",
+      "audience": "動画AIの購入検討者",
+      "cta": "無料候補を比較する",
+      "monetization_target": "heygen",
+      "source_refs": [
+        "heygen-pricing"
+      ],
+      "needs_fact_check": true
+    },
+    {
+      "id": "x-c-05",
+      "channel": "x",
+      "status": "draft",
+      "created_at": "2026-09-10",
+      "pillar": "Conversion",
+      "purpose": "Cursor候補への送客",
+      "draft": "Cursor、Windsurf、GitHub Copilot。料金だけで選ぶ前に、エディタ型か、エージェント中心かを確認。無料プランのある候補を比較記事にまとめています。",
+      "target_page": "/blog/ai-coding-tools-2026",
+      "audience": "個人開発者・エンジニア",
+      "cta": "coding AI比較を見る",
+      "monetization_target": "cursor",
+      "source_refs": [
+        "cursor-pricing",
+        "windsurf-pricing",
+        "github-copilot-pricing"
+      ],
+      "needs_fact_check": true
+    },
+    {
+      "id": "x-c-06",
+      "channel": "x",
+      "status": "draft",
+      "created_at": "2026-09-10",
+      "pillar": "Conversion",
+      "purpose": "診断から商用ページへ送客",
+      "draft": "『一番強いAI』より『自分の仕事に合うAI』を選ぶ方が失敗しにくい。3分診断で用途を整理して、無料プランのある候補まで確認できます。",
+      "target_page": "/recommend",
+      "audience": "初めて有料AIを検討する人",
+      "cta": "おすすめ診断を試す",
+      "monetization_target": "multi-service",
+      "source_refs": [
+        "src/data/recommendations.json"
+      ],
+      "needs_fact_check": false
+    },
+    {
+      "id": "x-t-01",
+      "channel": "x",
+      "status": "draft",
+      "created_at": "2026-09-10",
+      "pillar": "Retention",
+      "purpose": "比較の使い方教育",
+      "draft": "AI比較のコツ① 総合点ではなく、自分が週3回以上使う用途の点数を見る。文章中心なら文章、開発ならcoding、社内利用なら安全性も確認。",
+      "target_page": "/compare",
+      "audience": "AI比較を始めた人",
+      "cta": "用途別に比較する",
+      "monetization_target": "none",
+      "source_refs": [
+        "src/data/models.json"
+      ],
+      "needs_fact_check": false
+    },
+    {
+      "id": "x-t-02",
+      "channel": "x",
+      "status": "draft",
+      "created_at": "2026-09-10",
+      "pillar": "Retention",
+      "purpose": "無料枠からの利用促進",
+      "draft": "AI比較のコツ② 無料プランがあるなら、同じ作業を2サービスで試す。使いやすさ、修正回数、出力までの時間をメモすると自分向けの答えが見えます。",
+      "target_page": "/recommend",
+      "audience": "無料AI利用者",
+      "cta": "比較条件を診断する",
+      "monetization_target": "multi-service",
+      "source_refs": [
+        "data/service-facts"
+      ],
+      "needs_fact_check": false
+    },
+    {
+      "id": "x-t-03",
+      "channel": "x",
+      "status": "draft",
+      "created_at": "2026-09-10",
+      "pillar": "Retention",
+      "purpose": "料金ページへの送客",
+      "draft": "AI比較のコツ③ 月額だけでなく、利用上限・追加課金・解約後のcreditsを確認。『安いプラン』より『予算を超えないプラン』を選ぶのが大事です。",
+      "target_page": "/cost",
+      "audience": "有料AIを検討する人",
+      "cta": "コストを計算する",
+      "monetization_target": "multi-service",
+      "source_refs": [
+        "data/service-facts"
+      ],
+      "needs_fact_check": false
+    },
+    {
+      "id": "x-t-04",
+      "channel": "x",
+      "status": "draft",
+      "created_at": "2026-09-10",
+      "pillar": "Retention",
+      "purpose": "安全利用教育",
+      "draft": "業務AIの基本: 機密情報は入力前に削る。回答は一次情報で確認する。外部送信や購入を伴う操作は人が承認する。この3つだけでも事故を減らせます。",
+      "target_page": "/safety",
+      "audience": "業務利用者",
+      "cta": "安全性比較を見る",
+      "monetization_target": "none",
+      "source_refs": [
+        "src/data/safety.json"
+      ],
+      "needs_fact_check": false
+    },
+    {
+      "id": "x-t-05",
+      "channel": "x",
+      "status": "draft",
+      "created_at": "2026-09-10",
+      "pillar": "Retention",
+      "purpose": "動画AI選定教育",
+      "draft": "動画AIを比べるときのチェック項目: ①無料枠 ②透かし ③解像度 ④商用条件 ⑤日本語音声 ⑥月の生成量。デモ映像だけで決めないのがコツ。",
+      "target_page": "/categories/video-generation",
+      "audience": "動画制作初心者",
+      "cta": "動画AI比較を見る",
+      "monetization_target": "multi-service",
+      "source_refs": [
+        "data/service-facts"
+      ],
+      "needs_fact_check": false
+    },
+    {
+      "id": "x-t-06",
+      "channel": "x",
+      "status": "draft",
+      "created_at": "2026-09-10",
+      "pillar": "Retention",
+      "purpose": "画像AI選定教育",
+      "draft": "画像AIを比べるときは、同じプロンプトで①文字の正確さ ②人物の破綻 ③修正機能 ④商用条件を確認。用途別の比較結果も合わせて見ると選びやすいです。",
+      "target_page": "/categories/image-generation",
+      "audience": "画像生成初心者",
+      "cta": "画像AI比較を見る",
+      "monetization_target": "adobe-firefly",
+      "source_refs": [
+        "src/data/tests.json"
+      ],
+      "needs_fact_check": false
+    }
+  ]
+}

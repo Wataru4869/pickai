@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Header, Footer, Block, SectionHeader, TrustBadges } from "@/components/ui";
-import { getModels, scoreColorHex, MODEL_COLORS } from "@/lib/data";
+import { getModels, MODEL_COLORS } from "@/lib/data";
 import recommendData from "@/data/recommendations.json";
 
 type Step = "role" | "useCase" | "budget" | "result";
@@ -12,6 +12,19 @@ export default function RecommendPage() {
   const [selectedRole, setSelectedRole] = useState<string | null>(null);
   const [selectedUseCase, setSelectedUseCase] = useState<string | null>(null);
   const [selectedBudget, setSelectedBudget] = useState<string | null>(null);
+  const [attributionQuery, setAttributionQuery] = useState("");
+
+  useEffect(() => {
+    const incoming = new URLSearchParams(window.location.search);
+    const outgoing = new URLSearchParams();
+    for (const key of ["utm_source", "utm_medium", "utm_campaign", "utm_content"]) {
+      const value = incoming.get(key);
+      if (value && /^[a-z0-9][a-z0-9_-]{0,63}$/.test(value)) outgoing.set(key, value);
+    }
+    setAttributionQuery(outgoing.toString());
+  }, []);
+
+  const withAttribution = (path: string) => attributionQuery ? `${path}?${attributionQuery}` : path;
 
   const models = getModels();
 
@@ -57,10 +70,10 @@ export default function RecommendPage() {
       <div className="bg-white border-b border-[#e8e8ed] py-6">
         <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
           <h1 className="text-[20px] font-bold mb-1">
-            あなたに最適なAIを見つける
+            用途に合うAI候補を絞る
           </h1>
           <p className="text-[12px] text-[#6e6e73]">
-            3つの質問に答えるだけで、職種・用途・予算にぴったりのAIとプロンプトテンプレートを提案します。
+            3つの質問から、保存済みの選定ルールに沿って候補とプロンプト例を表示します。現在の性能や料金を保証する診断ではありません。
           </p>
           <TrustBadges />
         </div>
@@ -204,30 +217,15 @@ export default function RecommendPage() {
               style={{ borderColor: MODEL_COLORS[primaryModel.id] || "#333" }}
             >
               <div className="flex items-center gap-2 mb-2">
-                <span className="badge badge-test">最適</span>
+                <span className="badge badge-test">候補</span>
                 <span className="text-[18px] font-bold">{primaryModel.name}</span>
                 <span className="text-[11px] text-[#86868b]">{primaryModel.provider}</span>
               </div>
-              <div className="flex gap-2 mb-2">
-                {(["writing", "coding", "image", "safety"] as const).map((cat) => (
-                  <div key={cat} className="text-center">
-                    <div className="text-[10px] text-[#86868b]">
-                      {cat === "writing" ? "文" : cat === "coding" ? "コ" : cat === "image" ? "画" : "安"}
-                    </div>
-                    <div
-                      className="text-[13px] font-bold"
-                      style={{ color: scoreColorHex(primaryModel.scores[cat] || 0) }}
-                    >
-                      {primaryModel.scores[cat] ?? "—"}
-                    </div>
-                  </div>
-                ))}
-              </div>
               <div className="text-[11px] text-[#6e6e73] bg-[#f5f5f7] rounded p-2.5 leading-relaxed">
-                {recommendation.reason}
+                選択した職種・用途・予算に対応する候補です。保存済みルールは現行モデルの実測比較ではないため、契約前に公式の機能・料金・利用条件を確認してください。
               </div>
               <a
-                href={`/model/${primaryModel.id}`}
+                href={withAttribution(`/model/${primaryModel.id}`)}
                 className="block text-center text-[11px] text-[#4a7ab5] mt-2 hover:underline"
               >
                 {primaryModel.name}の詳細を見る →
@@ -237,15 +235,14 @@ export default function RecommendPage() {
             {secondaryModel && (
               <div className="border border-[#d2d2d7] rounded p-3">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="text-[11px] text-[#86868b] font-bold">併用推奨</span>
+                  <span className="text-[11px] text-[#86868b] font-bold">比較候補</span>
                   <span className="text-[14px] font-bold">{secondaryModel.name}</span>
                 </div>
                 <div className="text-[11px] text-[#6e6e73]">
-                  {primaryModel.name}と{secondaryModel.name}の併用が最も賢い選択。
-                  それぞれの強みを活かせます。
+                  {primaryModel.name}と{secondaryModel.name}の違いも確認できます。併用や契約を推奨する判定ではありません。
                 </div>
                 <a
-                  href={`/compare/${primaryModel.id}-vs-${secondaryModel.id}`}
+                  href={withAttribution(`/compare/${primaryModel.id}-vs-${secondaryModel.id}`)}
                   className="block text-[11px] text-[#4a7ab5] mt-1.5 hover:underline"
                 >
                   {primaryModel.name} vs {secondaryModel.name}の比較を見る →
@@ -257,7 +254,7 @@ export default function RecommendPage() {
           <Block>
             <SectionHeader title="プロンプトテンプレート" />
             <p className="text-[11px] text-[#86868b] mb-2">
-              {primaryModel.name}で使える、この用途に最適化されたプロンプトです。
+              {primaryModel.name}で試せるプロンプト例です。
               {"{ }"}内を自分の状況に置き換えてください。
             </p>
             <div className="bg-[#1e1e1e] text-[#d4d4d4] rounded p-3 text-[11px] leading-relaxed font-mono whitespace-pre-wrap overflow-x-auto">
@@ -274,31 +271,12 @@ export default function RecommendPage() {
           </Block>
 
           <Block>
-            <SectionHeader title="料金の目安" />
-            <div className="flex gap-2">
-              <div className="flex-1 border border-[#d2d2d7] rounded p-3 text-center">
-                <div className="text-[11px] font-bold mb-1">{primaryModel.name}</div>
-                <div className="text-[18px] font-bold text-[#4a7ab5]">
-                  {selectedBudget === "free"
-                    ? "¥0"
-                    : `¥${(primaryModel.pricing as any)[selectedBudget === "standard" ? "standard" : "premium"]?.priceJPY?.toLocaleString() || "—"}`}
-                </div>
-                <div className="text-[10px] text-[#86868b]">/月</div>
-              </div>
-              {secondaryModel && (
-                <div className="flex-1 border border-[#d2d2d7] rounded p-3 text-center">
-                  <div className="text-[11px] font-bold mb-1">{secondaryModel.name}</div>
-                  <div className="text-[18px] font-bold text-[#4a7ab5]">
-                    {selectedBudget === "free"
-                      ? "¥0"
-                      : `¥${(secondaryModel.pricing as any)[selectedBudget === "standard" ? "standard" : "premium"]?.priceJPY?.toLocaleString() || "—"}`}
-                  </div>
-                  <div className="text-[10px] text-[#86868b]">/月</div>
-                </div>
-              )}
-            </div>
+            <SectionHeader title="料金を確認する前に" />
+            <p className="text-[11px] text-[#6e6e73] leading-relaxed">
+              選択した予算は候補を絞るための入力です。表示モデルの現行価格、無料枠、対象地域、課金周期は契約直前に公式サイトで確認してください。
+            </p>
             <a
-              href="/cost"
+              href={withAttribution("/cost")}
               className="block text-center text-[11px] text-[#4a7ab5] mt-2 hover:underline"
             >
               コスト計算機で年間費用を比較する →

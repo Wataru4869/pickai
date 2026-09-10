@@ -12,7 +12,14 @@ export type ArticleCTA = {
   type: "internal" | "affiliate";
   title: string;
   description?: string;
-  links: { label: string; url: string; isAffiliate?: boolean }[];
+  links: {
+    label: string;
+    url?: string;
+    serviceId?: string;
+    isAffiliate?: boolean;
+    ctaType?: "official" | "free_plan" | "free_trial" | "compare" | "diagnosis";
+    ctaPosition?: string;
+  }[];
 };
 
 export type BlogArticle = {

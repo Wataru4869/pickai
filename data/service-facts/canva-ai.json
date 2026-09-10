@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "service_id": "canva-ai",
+  "last_verified_at": "2026-09-10",
+  "source_url": "https://www.canva.com/pricing/",
+  "facts": {
+    "service_name": { "value": "Canva", "source_id": "canva-pricing", "verified_at": "2026-09-10" },
+    "provider": { "value": "Canva", "source_id": "canva-pricing", "verified_at": "2026-09-10" },
+    "official_url": { "value": "https://www.canva.com/", "source_id": "canva-pricing", "verified_at": "2026-09-10" },
+    "current_plan": { "value": ["Free", "Pro", "Business", "Enterprise"], "source_id": "canva-pricing", "verified_at": "2026-09-10" },
+    "current_price": { "value": { "Free": "US$0/year", "Pro": "US$180/year for one person", "Business": "US$250/year per person", "Enterprise": "contact sales" }, "source_id": "canva-pricing", "verified_at": "2026-09-10" },
+    "free_plan": { "value": true, "source_id": "canva-pricing", "verified_at": "2026-09-10" },
+    "free_trial": { "value": true, "source_id": "canva-pricing", "verified_at": "2026-09-10" },
+    "current_product": { "value": "Canva AI 2.0", "source_id": "canva-pricing", "verified_at": "2026-09-10" },
+    "major_features": { "value": ["design editor", "templates", "stock media", "AI tools", "social content scheduling"], "source_id": "canva-pricing", "verified_at": "2026-09-10" },
+    "availability": { "value": "available", "source_id": "canva-pricing", "verified_at": "2026-09-10" }
+  }
+}

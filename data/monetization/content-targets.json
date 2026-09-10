@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "proposal",
+  "last_reviewed_at": "2026-09-10",
+  "rules": {
+    "max_cta_blocks_per_page": 1,
+    "requires_editorial_relevance": true,
+    "affiliate_activation_requires_human_approval": true
+  },
+  "mappings": [
+    { "source_page": "/categories/image-generation", "service_id": "adobe-firefly", "cta_type": "free_plan", "position": "after-ranking", "rationale": "画像生成ランキングの比較対象", "status": "proposed" },
+    { "source_page": "/blog/ai-image-generation-2026", "service_id": "adobe-firefly", "cta_type": "free_trial", "position": "article-end", "rationale": "画像生成の比較後に実製品を試す導線", "status": "proposed" },
+    { "source_page": "/categories/image-generation", "service_id": "canva-ai", "cta_type": "free_plan", "position": "tool-row", "rationale": "既存ランキング掲載サービス", "status": "proposed" },
+    { "source_page": "/blog/ai-image-generation-2026", "service_id": "canva-ai", "cta_type": "compare", "position": "article-end-secondary", "rationale": "非デザイナー向け画像制作の比較候補", "status": "proposed" },
+    { "source_page": "/categories/video-generation", "service_id": "synthesia", "cta_type": "free_plan", "position": "tool-row", "rationale": "既存動画生成ランキング掲載サービス", "status": "proposed" },
+    { "source_page": "/blog/ai-video-generation-2026", "service_id": "synthesia", "cta_type": "free_plan", "position": "article-end", "rationale": "業務用アバター動画の購入意図と一致", "status": "proposed" },
+    { "source_page": "/categories/video-generation", "service_id": "heygen", "cta_type": "free_plan", "position": "tool-row", "rationale": "既存動画生成ランキング掲載サービス", "status": "proposed" },
+    { "source_page": "/blog/ai-video-generation-2026", "service_id": "heygen", "cta_type": "free_plan", "position": "article-end-secondary", "rationale": "無料3動画・カード不要の試用導線", "status": "proposed" },
+    { "source_page": "/categories/image-generation", "service_id": "leonardo-ai", "cta_type": "free_plan", "position": "tool-row", "rationale": "既存ランキング掲載サービス", "status": "proposed" },
+    { "source_page": "/categories/video-generation", "service_id": "pika", "cta_type": "free_plan", "position": "tool-row", "rationale": "既存ランキング掲載サービス", "status": "proposed" },
+    { "source_page": "/blog/pikastream-guide-2026", "service_id": "pika", "cta_type": "official", "position": "article-end", "rationale": "Pikaに関心がある読者のみを対象", "status": "proposed" },
+    { "source_page": "/categories/video-generation", "service_id": "runway", "cta_type": "free_plan", "position": "tool-row", "rationale": "既存ランキングのRunway Gen-3に対応", "status": "proposed" },
+    { "source_page": "/blog/ai-coding-tools-2026", "service_id": "cursor", "cta_type": "free_plan", "position": "article-end", "rationale": "記事タイトル・本文の主要比較対象", "status": "proposed" },
+    { "source_page": "/blog/ai-coding-tools-2026", "service_id": "windsurf", "cta_type": "free_plan", "position": "article-end-secondary", "rationale": "記事本文の主要比較対象", "status": "proposed" },
+    { "source_page": "/categories/coding-tools", "service_id": "github-copilot", "cta_type": "free_plan", "position": "tool-row", "rationale": "既存ランキング掲載サービス", "status": "proposed" },
+    { "source_page": "/blog/perplexity-review-2026", "service_id": "perplexity", "cta_type": "free_plan", "position": "article-end", "rationale": "単独レビューから無料検索体験へ接続", "status": "proposed" },
+    { "source_page": "/blog/chatgpt-review-2026", "service_id": "chatgpt", "cta_type": "free_plan", "position": "article-end", "rationale": "単独レビューから無料プランへ接続", "status": "proposed" },
+    { "source_page": "/blog/claude-review-2026", "service_id": "claude", "cta_type": "free_plan", "position": "article-end", "rationale": "単独レビューから無料プランへ接続", "status": "proposed" },
+    { "source_page": "/blog/gemini-review-2026", "service_id": "gemini", "cta_type": "free_plan", "position": "article-end", "rationale": "単独レビューから無料利用へ接続", "status": "proposed" }
+  ]
+}

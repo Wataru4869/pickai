@@ -3,3 +3,6 @@ node_modules
 out
 .DS_Store
 *.tsbuildinfo
+
+# Local-only revenue inputs. May contain ASP member-only business data.
+data/private/

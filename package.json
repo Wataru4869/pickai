@@ -7,7 +7,12 @@
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "validate:data": "node scripts/validate-data.mjs",
+    "generate:x-queue": "node scripts/generate-x-queue.mjs",
+    "generate:revenue-dashboard": "node scripts/generate-revenue-dashboard.mjs",
+    "test:revenue": "node scripts/test-revenue-dashboard.mjs",
+    "check": "npm run validate:data && npm run test:revenue && npm run lint && npm run build"
   },
   "dependencies": {
     "next": "^14.2.0",

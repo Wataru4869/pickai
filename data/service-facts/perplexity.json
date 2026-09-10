@@ -1,0 +1,14 @@
+{
+  "schema_version": 1, "service_id": "perplexity", "last_verified_at": "2026-09-10", "source_url": "https://www.perplexity.ai/help-center/en/articles/11187416-which-perplexity-subscription-plan-is-right-for-you",
+  "facts": {
+    "service_name": { "value": "Perplexity", "source_id": "perplexity-plans", "verified_at": "2026-09-10" },
+    "provider": { "value": "Perplexity AI", "source_id": "perplexity-plans", "verified_at": "2026-09-10" },
+    "official_url": { "value": "https://www.perplexity.ai/", "source_id": "perplexity-plans", "verified_at": "2026-09-10" },
+    "current_plan": { "value": ["Standard", "Pro", "Max", "Education Pro", "Enterprise Pro", "Enterprise Max"], "source_id": "perplexity-plans", "verified_at": "2026-09-10" },
+    "current_price": { "value": { "Standard": "free", "Education Pro": "US$10/month with verification", "other plans": null }, "source_id": "perplexity-plans", "verified_at": "2026-09-10" },
+    "free_plan": { "value": true, "source_id": "perplexity-plans", "verified_at": "2026-09-10" },
+    "free_trial": { "value": null, "source_id": null, "verified_at": null },
+    "major_features": { "value": ["basic search", "Pro Search", "file uploads", "advanced AI models", "image and video generation"], "source_id": "perplexity-plans", "verified_at": "2026-09-10" },
+    "availability": { "value": "available", "source_id": "perplexity-plans", "verified_at": "2026-09-10" }
+  }
+}

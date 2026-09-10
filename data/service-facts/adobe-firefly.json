@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "service_id": "adobe-firefly",
+  "last_verified_at": "2026-09-10",
+  "source_url": "https://www.adobe.com/products/firefly/plans.html",
+  "facts": {
+    "service_name": { "value": "Adobe Firefly", "source_id": "adobe-firefly-plans", "verified_at": "2026-09-10" },
+    "provider": { "value": "Adobe", "source_id": "adobe-firefly-plans", "verified_at": "2026-09-10" },
+    "official_url": { "value": "https://www.adobe.com/products/firefly.html", "source_id": "adobe-firefly-plans", "verified_at": "2026-09-10" },
+    "current_plan": { "value": ["Free", "Standard", "Pro", "Pro Plus", "Premium"], "source_id": "adobe-firefly-plans", "verified_at": "2026-09-10" },
+    "current_price": { "value": { "Free": "US$0", "Standard": "US$9.99/month", "Pro": "US$19.99/month", "Pro Plus": "US$49.99/month", "Premium": "US$199.99/month" }, "source_id": "adobe-firefly-plans", "verified_at": "2026-09-10" },
+    "free_plan": { "value": true, "source_id": "adobe-firefly-plans", "verified_at": "2026-09-10" },
+    "free_trial": { "value": true, "source_id": "adobe-firefly-plans", "verified_at": "2026-09-10" },
+    "major_features": { "value": ["image generation", "video generation", "audio generation", "vector generation"], "source_id": "adobe-firefly-plans", "verified_at": "2026-09-10" },
+    "availability": { "value": "available", "source_id": "adobe-firefly-plans", "verified_at": "2026-09-10" }
+  }
+}

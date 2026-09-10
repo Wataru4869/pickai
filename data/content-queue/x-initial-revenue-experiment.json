@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "experiment_id": "x-demand-probe-01",
+  "account_ref": "primary_x",
+  "status": "draft",
+  "publish_automatically": false,
+  "generated_at": "2026-09-10",
+  "objective": "AI発信アカウントの既存読者が、画像AI・動画AI・用途診断のどこに反応するかを、affiliate有効化前に確認する",
+  "revenue_role": "最初のCV対象を選ぶための需要確認。売上・CVの発生を主張しない",
+  "landing_page_review": {
+    "reviewed_at": "2026-09-10",
+    "status": "ready_for_human_publish_approval",
+    "reviewed_pages": ["/recommend", "/methodology", "/blog/ai-image-generation-2026", "/blog/ai-video-generation-2026"],
+    "affiliate_links_active": false,
+    "pr_disclosure": "現在の6投稿はaffiliateリンクを含まず、誘導先CTAも内部リンクのみ。affiliate有効化時は投稿とページの両方を再審査する。"
+  },
+  "constraints": {
+    "affiliate_link_included": false,
+    "auto_publish": false,
+      "requires_human_fact_check": false,
+    "requires_human_publish_approval": true,
+    "recheck_pr_disclosure_if_destination_becomes_monetized": true,
+    "recommended_window_days": "7-14",
+    "change_only_one_variable_per_followup": true
+  },
+  "existing_queue_review": {
+    "adopt_without_change": [],
+    "rewrite_candidates": [
+      { "ids": ["x-r-05", "x-r-06"], "reason": "無料枠の列挙より、選定時の迷いを起点にすれば自然" },
+      { "ids": ["x-a-04", "x-a-06"], "reason": "スコアを断定せず、比較方法・用途整理の価値に寄せれば使える" },
+      { "ids": ["x-c-05", "x-c-06"], "reason": "購入訴求を弱め、読者が自分の用途を判断する導線へ変更が必要" },
+      { "ids": ["x-t-02", "x-t-03", "x-t-04", "x-t-05", "x-t-06"], "reason": "実用Tipsとして自然だが、末尾CTAの繰り返し感を減らす必要がある" }
+    ],
+    "hold": [
+      { "ids": ["x-r-01", "x-r-02", "x-r-03", "x-r-04"], "reason": "日付付き仕様・無料条件の再確認が必要で、公式情報の要約感が強い" },
+      { "ids": ["x-a-01", "x-a-02", "x-a-03", "x-a-05", "x-t-01"], "reason": "raw評価記録がない得点・測定・評価訴求を含み、Authority投稿として逆効果になり得る" },
+      { "ids": ["x-c-01", "x-c-02", "x-c-03", "x-c-04"], "reason": "無料体験条件の再確認、対象記事との整合、affiliate対象商品の確定が先" }
+    ],
+    "overall": "既存案は企業メディア調で『公式案内』『比較できます』が反復し、個人AI発信アカウントでは売り込み臭が出やすい。具体的な迷い・判断軸・問いを先に置く。"
+  },
+  "measurement_plan": {
+    "primary": ["link_clicks", "site_sessions_by_post"],
+    "secondary": ["impressions", "engagements", "cta_clicks_after_landing"],
+    "not_yet_available": ["affiliate_clicks", "confirmed_conversions", "confirmed_revenue", "epc"],
+    "decision": "画像/動画の投稿各2件と用途診断/比較方法各1件を比較し、同じ分母でリンク反応が高いテーマを最初の収益導線候補にする。小標本なら保留。"
+  },
+  "posts": [
+    {
+      "id": "x-exp-01",
+      "channel": "x",
+      "status": "draft",
+      "pillar": "Reach",
+      "purpose": "AIツール選びの悩みから用途診断へ送客",
+      "draft": "AIツール、増えすぎて『結局どれを使えばいい？』となりがち。\n\n最初に決めるのはツール名ではなく、\n・文章\n・画像\n・動画\n・調査\n・コード\nのどれを楽にしたいか。\n\n用途から候補を絞れるようにまとめました。",
+      "target_page": "/recommend",
+      "target_url": "/recommend?utm_source=x&utm_medium=social&utm_campaign=x-demand-probe-01&utm_content=x-exp-01",
+      "audience": "AIツールを選びきれない既存フォロワー",
+      "cta": "用途から候補を絞る",
+      "monetization_target": "pending-t1",
+      "source_refs": ["src/data/recommendations.json"],
+      "needs_fact_check": false,
+      "pre_publish_status": "ready_for_human_approval",
+      "publish_gate": "人間が最終文体・実URL・表示を確認。自動投稿不可"
+    },
+    {
+      "id": "x-exp-02",
+      "channel": "x",
+      "status": "draft",
+      "pillar": "Retention",
+      "purpose": "無料AI比較の実用Tipsから診断へ送客",
+      "draft": "無料で試せるAIを比べるとき、見るのは出力の派手さだけじゃないです。\n\n同じ作業を2つで試して、\n・完成までの修正回数\n・かかった時間\n・翌週も使いたいか\nをメモすると、自分に合う方がかなり見えやすくなります。",
+      "target_page": "/recommend",
+      "target_url": "/recommend?utm_source=x&utm_medium=social&utm_campaign=x-demand-probe-01&utm_content=x-exp-02",
+      "audience": "無料AIを複数試している既存フォロワー",
+      "cta": "比較する用途を整理する",
+      "monetization_target": "pending-t1",
+      "source_refs": [],
+      "needs_fact_check": false,
+      "pre_publish_status": "ready_for_human_approval",
+      "publish_gate": "人間が最終文体・実URL・表示を確認。自動投稿不可"
+    },
+    {
+      "id": "x-exp-03",
+      "channel": "x",
+      "status": "draft",
+      "pillar": "Authority",
+      "purpose": "ランキング依存を避ける比較方法の提示",
+      "draft": "AIランキングを見るときは、1位だけで決めない方がいいです。\n\n自分がよく使う用途、料金、無料枠、苦手なこと。\nこの4つを先に見ると、総合順位が低くても自分には合うツールが見つかります。\n\n比較するときの考え方を整理しました。",
+      "target_page": "/methodology",
+      "target_url": "/methodology?utm_source=x&utm_medium=social&utm_campaign=x-demand-probe-01&utm_content=x-exp-03",
+      "audience": "ランキングの根拠を重視する既存フォロワー",
+      "cta": "比較方法を見る",
+      "monetization_target": "none",
+      "source_refs": ["src/app/methodology/page.tsx"],
+      "needs_fact_check": false,
+      "pre_publish_status": "ready_for_human_approval",
+      "publish_gate": "人間が最終文体・実URL・表示を確認。自動投稿不可"
+    },
+    {
+      "id": "x-exp-04",
+      "channel": "x",
+      "status": "draft",
+      "pillar": "Reach",
+      "purpose": "画像AIへの需要確認",
+      "draft": "画像AIは『一番きれいなもの』より、何を作るかで選ぶ方が失敗しにくいです。\n\nSNS画像、商品イメージ、文字入りバナー、素材づくり。\n用途が違うと、必要な編集機能も変わります。\n\n画像AIの違いを用途別に見られるようにしました。",
+      "target_page": "/blog/ai-image-generation-2026",
+      "target_url": "/blog/ai-image-generation-2026?utm_source=x&utm_medium=social&utm_campaign=x-demand-probe-01&utm_content=x-exp-04",
+      "audience": "SNS画像や制作物にAIを使いたい既存フォロワー",
+      "cta": "画像AIの違いを見る",
+      "monetization_target": "adobe-firefly-or-canva-ai-pending-t1",
+      "source_refs": ["data/service-facts/adobe-firefly.json", "data/service-facts/canva-ai.json"],
+      "needs_fact_check": false,
+      "pre_publish_status": "ready_for_human_approval",
+      "publish_gate": "人間が最終文体・実URL・表示を確認。affiliate有効化時はPR再審査"
+    },
+    {
+      "id": "x-exp-05",
+      "channel": "x",
+      "status": "draft",
+      "pillar": "Conversion",
+      "purpose": "画像制作の具体的課題から購入意図を確認",
+      "draft": "SNS画像を作るなら、生成した瞬間の見栄えだけでなく、\n\n・文字を直せるか\n・サイズ違いを作りやすいか\n・普段の編集に戻せるか\n\nまで見ると選びやすいです。画像生成と編集を分けて考えると、ツール選びで迷いにくくなります。",
+      "target_page": "/blog/ai-image-generation-2026",
+      "target_url": "/blog/ai-image-generation-2026?utm_source=x&utm_medium=social&utm_campaign=x-demand-probe-01&utm_content=x-exp-05",
+      "audience": "SNS運用・資料・画像制作を効率化したい既存フォロワー",
+      "cta": "制作目的に合う画像AIを確認する",
+      "monetization_target": "adobe-firefly-or-canva-ai-pending-t1",
+      "source_refs": ["data/service-facts/adobe-firefly.json", "data/service-facts/canva-ai.json"],
+      "needs_fact_check": false,
+      "pre_publish_status": "ready_for_human_approval",
+      "publish_gate": "人間が最終文体・実URL・表示を確認。affiliate有効化時はPR再審査"
+    },
+    {
+      "id": "x-exp-06",
+      "channel": "x",
+      "status": "draft",
+      "pillar": "Conversion",
+      "purpose": "顔出し不要の説明動画需要を確認",
+      "draft": "『顔出しせずに説明動画を作りたい』なら、映像のきれいさだけで選ぶとズレることがあります。\n\n話者アバター、日本語音声、字幕、修正のしやすさ。\n説明・研修動画では、このあたりを先に確認したいです。",
+      "target_page": "/blog/ai-video-generation-2026",
+      "target_url": "/blog/ai-video-generation-2026?utm_source=x&utm_medium=social&utm_campaign=x-demand-probe-01&utm_content=x-exp-06",
+      "audience": "説明・研修・SNS動画を顔出しなしで作りたい既存フォロワー",
+      "cta": "動画AIの選び方を見る",
+      "monetization_target": "synthesia-or-heygen-pending-t1",
+      "source_refs": ["data/service-facts/synthesia.json", "data/service-facts/heygen.json"],
+      "needs_fact_check": false,
+      "pre_publish_status": "ready_for_human_approval",
+      "publish_gate": "人間が最終文体・実URL・表示を確認。affiliate有効化時はPR再審査"
+    }
+  ]
+}

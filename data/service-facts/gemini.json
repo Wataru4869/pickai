@@ -1,0 +1,14 @@
+{
+  "schema_version": 1, "service_id": "gemini", "last_verified_at": "2026-09-10", "source_url": "https://one.google.com/about/plans",
+  "facts": {
+    "service_name": { "value": "Gemini", "source_id": "google-ai-plans", "verified_at": "2026-09-10" },
+    "provider": { "value": "Google", "source_id": "google-ai-plans", "verified_at": "2026-09-10" },
+    "official_url": { "value": "https://gemini.google.com/", "source_id": "google-ai-plans", "verified_at": "2026-09-10" },
+    "current_plan": { "value": ["without a Google AI plan", "Google AI Plus", "Google AI Pro"], "source_id": "google-ai-plans", "verified_at": "2026-09-10" },
+    "current_price": { "value": { "Google AI Plus": "US$9.99/month", "Google AI Pro": "US$19.99/month" }, "source_id": "google-ai-plans", "verified_at": "2026-09-10" },
+    "free_plan": { "value": true, "source_id": "google-ai-plans", "verified_at": "2026-09-10" },
+    "free_trial": { "value": null, "source_id": null, "verified_at": null },
+    "major_features": { "value": ["Gemini app", "Deep Research", "Gemini in Google apps", "NotebookLM access", "Google Flow access"], "source_id": "google-ai-plans", "verified_at": "2026-09-10" },
+    "availability": { "value": "available with regional restrictions", "source_id": "google-ai-plans", "verified_at": "2026-09-10" }
+  }
+}

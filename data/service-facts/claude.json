@@ -1,0 +1,14 @@
+{
+  "schema_version": 1, "service_id": "claude", "last_verified_at": "2026-09-10", "source_url": "https://support.anthropic.com/en/articles/11049762-choosing-a-claude-ai-plan",
+  "facts": {
+    "service_name": { "value": "Claude", "source_id": "anthropic-claude-pricing", "verified_at": "2026-09-10" },
+    "provider": { "value": "Anthropic", "source_id": "anthropic-claude-pricing", "verified_at": "2026-09-10" },
+    "official_url": { "value": "https://claude.ai/", "source_id": "anthropic-claude-pricing", "verified_at": "2026-09-10" },
+    "current_plan": { "value": ["Free", "Pro", "Max 5x", "Max 20x"], "source_id": "anthropic-claude-pricing", "verified_at": "2026-09-10" },
+    "current_price": { "value": { "Free": "US$0/month", "Pro": "US$20/month", "Max 5x": "US$100/month", "Max 20x": "US$200/month" }, "source_id": "anthropic-claude-pricing", "verified_at": "2026-09-10" },
+    "free_plan": { "value": true, "source_id": "anthropic-claude-pricing", "verified_at": "2026-09-10" },
+    "free_trial": { "value": null, "source_id": null, "verified_at": null },
+    "major_features": { "value": null, "source_id": null, "verified_at": null },
+    "availability": { "value": "available", "source_id": "anthropic-claude-pricing", "verified_at": "2026-09-10" }
+  }
+}

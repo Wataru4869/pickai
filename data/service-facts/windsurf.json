@@ -1,0 +1,14 @@
+{
+  "schema_version": 1, "service_id": "windsurf", "last_verified_at": "2026-09-10", "source_url": "https://windsurf.com/editor",
+  "facts": {
+    "service_name": { "value": "Windsurf", "source_id": "windsurf-pricing", "verified_at": "2026-09-10" },
+    "provider": { "value": "Windsurf", "source_id": "windsurf-pricing", "verified_at": "2026-09-10" },
+    "official_url": { "value": "https://windsurf.com/", "source_id": "windsurf-pricing", "verified_at": "2026-09-10" },
+    "current_plan": { "value": ["Free", "Pro", "Max"], "source_id": "windsurf-pricing", "verified_at": "2026-09-10" },
+    "current_price": { "value": { "Free": "US$0", "Pro": "US$20/month", "Max": "US$200/month" }, "source_id": "windsurf-pricing", "verified_at": "2026-09-10" },
+    "free_plan": { "value": true, "source_id": "windsurf-pricing", "verified_at": "2026-09-10" },
+    "free_trial": { "value": null, "source_id": null, "verified_at": null },
+    "major_features": { "value": ["AI coding editor", "extensions", "MCP servers"], "source_id": "windsurf-pricing", "verified_at": "2026-09-10" },
+    "availability": { "value": "available", "source_id": "windsurf-pricing", "verified_at": "2026-09-10" }
+  }
+}

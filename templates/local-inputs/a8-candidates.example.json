@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "notice": "Copy to data/private/a8-candidates.json. Never commit member-only terms or account data.",
+  "candidates": [
+    {
+      "offer_alias": "replace-with-non-sensitive-alias",
+      "asp": "A8.net",
+      "checked_at": null,
+      "program_status": "unknown",
+      "eligible_product": null,
+      "eligible_region": null,
+      "conversion_point": null,
+      "conversion_kind": "unknown",
+      "reward": { "amount": null, "rate": null, "currency": null, "recurring": null },
+      "approval_rate": null,
+      "epc": null,
+      "cookie_days": null,
+      "confirmation_days": null,
+      "rejection_conditions_summary": null,
+      "placement": {
+        "site": "unknown",
+        "sns": "unknown",
+        "x_direct": "unknown",
+        "x_to_site": "unknown",
+        "intermediate_redirect": "unknown",
+        "attribution_parameter": "unknown",
+        "attribution_parameter_name": null
+      },
+      "target_page": null,
+      "audience_fit_evidence": null,
+      "landing_page_quality_notes": null,
+      "legal_or_expression_risk": null,
+      "selfback_only": null,
+      "decision": "unreviewed",
+      "unknowns": [],
+      "private_source_reference": "Keep the source reference in the approved local-only location; do not paste credentials or personal data."
+    }
+  ]
+}
