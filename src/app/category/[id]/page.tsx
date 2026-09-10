@@ -6,7 +6,7 @@ import {
   scoreColorHex,
   MODEL_COLORS,
 } from "@/lib/data";
-import { Header, Footer, Block, SectionHeader, TrustBadges, ShareButton } from "@/components/ui";
+import { Header, Footer, Block, SectionHeader, TrustBadges, ShareButton, HistoricalScoreNotice } from "@/components/ui";
 
 export function generateStaticParams() {
   return getCategories().map((c) => ({ id: c.id }));
@@ -43,6 +43,7 @@ export default function CategoryDetailPage({ params }: { params: { id: string } 
           <h1 className="text-[20px] font-bold mb-1">{cat.nameJapanese}AI比較</h1>
           <p className="text-[12px] text-[#6e6e73] leading-relaxed">{cat.description}</p>
           <TrustBadges />
+          <HistoricalScoreNotice />
         </div>
       </div>
 

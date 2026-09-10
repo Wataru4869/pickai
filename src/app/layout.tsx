@@ -6,11 +6,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://aierabi.jp"),
   title: {
-    default: "【2026年最新】AIツール比較おすすめランキング | AI選び",
+    default: "AIツール比較｜保存済み評価と公式情報 | AI選び",
     template: "%s",
   },
   description:
-    "ChatGPT・Claude・Gemini・Grok・Perplexityを独自30テストで徹底比較。文章生成・コーディング・画像生成・安全性を5軸で採点。用途別おすすめAIが見つかります。",
+    "AIツールの2026年3月時点の保存済み評価と、公式一次情報で確認した客観情報を分けて掲載する比較ガイド。",
   icons: {
     icon: [
       { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "AI選び｜主要5モデルを30テストで徹底比較",
+    title: "AI選び｜保存済み評価と公式情報でAIを比較",
     description:
-      "ChatGPT・Claude・Gemini・Grok・Perplexityを30テストで徹底比較。あなたに最適なAIが3分でわかる。",
+      "2026年3月時点の保存済み評価と公式情報を分けて確認できるAIツール比較ガイド。",
     url: "https://aierabi.jp",
     siteName: "AI選び",
     images: [
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI選び｜主要5モデルを30テストで徹底比較",
+    title: "AI選び｜保存済み評価と公式情報でAIを比較",
     description:
-      "ChatGPT・Claude・Gemini・Grok・Perplexityを30テストで徹底比較。あなたに最適なAIが3分でわかる。",
+      "2026年3月時点の保存済み評価と公式情報を分けて確認できるAIツール比較ガイド。",
     images: ["/ogp.png"],
   },
   alternates: {

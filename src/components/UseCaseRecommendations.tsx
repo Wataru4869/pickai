@@ -22,15 +22,15 @@ export function UseCaseRecommendations() {
   return (
     <div>
       <p className="text-[11px] text-[#6e6e73] mb-3">
-        全16テストの結果に基づく、用途別のベストモデル
+        2026年3月時点の保存済みテスト結果に基づく用途別候補（現在性能の保証ではありません）
       </p>
       <div className="overflow-x-auto">
         <table className="w-full text-[11px] border-collapse min-w-[400px]">
           <thead>
             <tr className="bg-[#f5f5f7]">
               <th className="p-1.5 text-left font-bold border-b-2 border-[#d2d2d7]">用途</th>
-              <th className="p-1.5 text-center font-bold border-b-2 border-[#d2d2d7]">おすすめ</th>
-              <th className="p-1.5 text-center font-bold border-b-2 border-[#d2d2d7]">スコア</th>
+              <th className="p-1.5 text-center font-bold border-b-2 border-[#d2d2d7]">当時の候補</th>
+              <th className="p-1.5 text-center font-bold border-b-2 border-[#d2d2d7]">保存スコア</th>
               <th className="p-1.5 text-left font-bold border-b-2 border-[#d2d2d7]">理由</th>
             </tr>
           </thead>

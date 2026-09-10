@@ -1,19 +1,32 @@
 # PROJECT STATE
 
-更新: 2026-09-11 / DMM案件の提携審査待ち・inactive導線準備完了。現在地の正本。作業順は [NEXT_TASKS](NEXT_TASKS.md)、判断方法は [REVENUE_DECISION_FRAMEWORK](REVENUE_DECISION_FRAMEWORK.md)。
+更新: 2026-09-11 / 全体鮮度監査と履歴評価の表示是正を完了。DMM・Winスクール・デジタルハリウッドSTUDIO by LIGの提携審査待ち。現在地の正本。作業順は [NEXT_TASKS](NEXT_TASKS.md)、判断方法は [REVENUE_DECISION_FRAMEWORK](REVENUE_DECISION_FRAMEWORK.md)。
 
 ## 現在地
 
 収益化フェーズ1・継続更新基盤フェーズ1のローカル実装は存在する。収益運用・計測の端から端までの検証は未完了。「公開可能」「収益化済み」を意味しない。
-収益実験前の技術BLOCKERを局所修正済み。既存のコード・データ・未コミット変更を保持。DMM 生成AI CAMP 学び放題へ人間の明示承認に基づき2026-09-11に提携申請し、A8結果画面は「審査中」。提携有効化、実URL投入、投稿、本番変更は行っていない。
+収益実験前の技術BLOCKERを局所修正済み。既存のコード・データ・未コミット変更を保持。人間の明示承認に基づき2026-09-11にDMM 生成AI CAMP 学び放題、Winスクール、デジタルハリウッドSTUDIO by LIGへ提携申請し、A8結果画面はいずれも「審査中」。提携有効化、実URL投入、投稿、本番変更は行っていない。
+
+全主要ページを鮮度監査し、再現用raw dataがない2026年3月の独自スコア・順位を削除せず「保存済み履歴値」として明示した。トップ、カテゴリ、モデル、比較、安全性、ブログに共通注意を追加し、metadata/schema/共有文面の「最新」表現も是正。高変動な保存済み料金はカテゴリ・モデル・比較・料金・FAQの現在価格表示から外し、公式確認へ誘導した。本番公開・SNS投稿・affiliate有効化は行っていない。
+
+## 今回のサイト鮮度・UX対応
+
+- `data/official-sources.json` は24件、`data/service-facts/` は16サービス。前日（2026-09-10）に記録された一次情報は推測で更新せず、validatorで参照整合性を確認した。
+- ChatGPT、Claude、Gemini、Perplexity、Cursor、GitHub Copilot、Windsurf、Runway、Pika、HeyGen、Synthesia、Adobe Firefly、Canva、Leonardo.Aiほか、登録済み客観情報と画面上の保存評価を分離した。
+- Grok、Kling、Manus、Genspark、Midjourney、Ideogramは、現行プラン・価格・モデル等の完全なservice-factsが未登録または不足。推測で補わずunknown/残課題とした。
+- 優先5カテゴリは共通UIで測定時点を明示し、古い料金・無料条件を非表示化。AIコーディング記事は現在順位・旧価格の断定を履歴説明と公式確認手順へ修正した。
+- 全ブログ記事に最終更新日時点の記録である注意を追加。残る34記事本文の個別事実確認は未完了で、タイトルや本文に古いモデル名・価格・断定が残る可能性がある。
+- `/cost` の未検証円換算と断定的な自動推奨は表示から外し、契約前の確認項目と各公式サイトへの導線に変更。未使用の旧 `CostCalculatorFlow` 実装は削除せず残っている。
+- スマホ向けに既存の1列化・横スクロールを維持し、注意表示をファーストビュー内へ追加。実機/本番URLでの表示・クリック計測は未実施。
 
 ## 完成済みと実データ
 
 | 項目 | 確認した実装/件数 | 意味・限界 |
 | --- | --- | --- |
-| 公式ソース | `data/official-sources.json`: 23件 | URL台帳。全文・地域・現行性を全件再検証した状態ではない |
+| 公式ソース | `data/official-sources.json`: 24件 | URL台帳。全文・地域・現行性を全件再検証した状態ではない |
 | 客観情報 | `data/service-facts/`: 16サービス | 公開表示データとは別。料金の課金周期/地域、free_trialの根拠を選定案件から再確認 |
-| 提携台帳 | 6件、active 0、URL全件null | DMMは審査中。activeには明示承認日・許可ホスト・対象ページが必須。実URL/参加承認は未入力 |
+| 提携台帳 | 6件、active 0、URL全件null | DMM・Winスクール・デジタルハリウッドSTUDIO by LIGはA8審査中。activeには明示承認日・許可ホスト・対象ページが必須。実URL/参加承認は未入力 |
+| DMM記事 | 非公開queue draft 1件、CTA/広告URL/PR表示なし | 公開一次情報だけを記載。提携承認・公式再確認・人間承認までページ化/公開しない |
 | CTA案 | `data/monetization/content-targets.json`: 19件、全件proposed | rendererはこのマッピングを参照しない。上限・承認は宣言であり汎用強制ではない |
 | 記事CTA | ArticleCTAを記事ページへ接続済み | 現存は内部リンク。内部CTAクリック/表示回数イベントなし |
 | `/go/[service]` | active＋承認＋HTTPS＋host/source allowlist | 投稿/campaign固定IDをイベントへ渡す。ASPが許可したquery parameter設定時のみ成果URLへ匿名aliasを付与。実送信未検証 |
@@ -30,19 +43,20 @@ primary Xはユーザー入力で約6,400フォロワーのAI発信アカウン�
 ## 設計レビュー・公開前に残る問題
 
 1. **収益判断の不足**: Synthesiaの制度の明確さと、日本の既存読者が買う確率を混同していた。Synthesia/Adobe/Canvaは短い並行適格性調査、実CV検証は選んだ1案件に絞る。Canvaの日本向け現行受付はunknown。現行の勝者は未決定。
-2. **コンテンツの不整合**: 初回6投稿が直接誘導する用途診断、評価方法、画像記事、動画記事は局所修正済み。古い料金・無料条件、raw根拠なしスコア、最上級断定を表示から外し、用途別候補と確認事項へ変更した。6投稿に関係しないCategoryToolPageや旧キューの根拠不足は残り、初回実験の対象外として後回しにする。
+2. **コンテンツの不整合**: 初回6投稿の直接誘導先に加え、主要ページと優先5カテゴリの表示を是正。古い料金・無料条件、raw根拠なしスコア、最上級断定を現在情報として表示しない。全ブログへ日付注意を加えたが、34記事本文の個別一次情報監査は未完了。
 3. **計測の残課題**: post/campaign IDの伝播は実装。ASP側帰属は案件が許可するparameterとexportに依存し、非対応ならページ/投稿CVはunknown。gtagブロック、再訪重複、リダイレクトイベントとnetwork clickの差は残る。
 4. **集計**: 欠損0化と固定空配列を修正し、片側入力/帰属あり/なし/異通貨をテスト。日次行で通貨を明示し、異通貨は合算しない。実ASP export形式との変換・成熟期間の運用検証は未実施。
 5. **有効化ゲート**: active時の承認日、URL、host、対象ページをvalidator/renderer/goで確認。serviceId経由の広告開示も修正。契約上の媒体/subID許可自体はコードで判断できず人間確認が必要。
 6. **プライバシーの説明不足**: 自前イベントにIP/emailを追加していないが、root layoutは既存GAをロードする。GA標準のURL/referrer/識別子等まで「個人情報を一切取得しない」と保証できない。計測同意・送信項目の監査をT3の前提にする。localhostから本番GAへテストを送らない。
 7. **過剰設計の兆候**: 現在のJSON中心構成は小さいが、収集基盤・評価再現基盤・パッチCLI・CI・大量記事の先行開発は初収益を遅らせる。対象1案件の検証を妨げる欠陥だけを先に直す。文書数/機能数を完了指標にしない。
 8. **運用上の注意**: X generatorは既存草案を上書きする。buildは全sitemap lastmodを変更するが事実確認日ではない。過去npm ciで脆弱性14件（critical 1）報告あり、今回最新audit/修正確認は未実施。本番承認前に該当依存・到達可能性を確認する。
-9. **DMM審査待ち導線**: DMMはA8発行URLの改変禁止を前提に `link_mode: direct`、URL null、draft、承認falseで追加。候補対象は専用レビュー記事1ページだけで、当該記事は未作成。承認・発行URL/host・記事内容・PR表示・掲載URL提出を人間が再確認するまで表示も遷移も発生しない。direct案件は `/go` と追加query parameterを使用しない。
+9. **DMM審査待ち導線**: DMMはA8発行URLの改変禁止を前提に `link_mode: direct`、URL null、draft、承認falseで追加。専用レビュー記事は非公開queue draftとして最小作成済みで、CTA/広告URL/PR表示はない。承認・発行URL/host・記事内容・PR表示・掲載URL提出を人間が再確認するまでページ化・表示・遷移は発生しない。direct案件は `/go` と追加query parameterを使用しない。
 
 ## 初回X実験の準備状況
 
 - `x-initial-revenue-experiment.json` に初回6案を分離。旧24案は無変更で履歴として保持し、無加工採用0件、書き直し候補11件、保留13件と評価した。
 - 6案は用途診断2、比較方法1、画像2、動画1。個別価格・無料回数・未再現スコア・利用体験を断定しない。全リンクは固定campaign/post UTMを持つ。
+- 最初の3件は `x-exp-01`（Reach）、`x-exp-03`（Authority）、`x-exp-06`（Demand Test）に固定。affiliate未承認のため外部広告リンクなし、PR表記なしの情報導線として最終文面・絶対URL・KPIをqueueへ記録した。投稿別click/sessionは観測候補だが、診断完了・記事内CTAクリックは未計測のためunknown。
 - 現段階はaffiliateなしの需要確認案。直接誘導先4ページの公開前修正は完了し、6件とも `ready_for_human_approval`。実投稿、絶対URLの疎通、本番表示、最終文体は人間承認待ち。
 - 画像/動画のどちらを収益対象にするかは未決定。過去指標がないため、初回反応またはASP条件を見ずにSynthesia/Adobe/Canvaを勝者にしない。
 
@@ -65,7 +79,7 @@ primary Xはユーザー入力で約6,400フォロワーのAI発信アカウン�
 | 実験の開始 | 計測/コンテンツ/安全性レビュー、本番公開と投稿の個別承認・人間操作 | ローカル差分・モック検証・草案 |
 | 実CV/EPC評価 | 人間が許可して共有する匿名集計、ASPの帰属対応可否 | v2集計へ変換するローカル手順の確認 |
 | 既存得点の実測訴求 | raw出力・採点根拠、変更時は人間判断 | 対象記事の根拠不足を明示する編集案 |
-| DMM実験の有効化 | A8審査承認、発行広告URL、許可host、専用記事、PR/掲載URLの人間確認 | inactive設定・directリンク/PRゲートのローカル検証 |
+| 最初の承認案件の有効化 | 3案件のA8審査承認、発行広告URL、許可host、対象記事、PR/掲載URLの人間確認 | 初回X需要テスト、inactive設定・directリンク/PRゲートのローカル検証 |
 
 ASPの認証情報をエージェントへ渡す必要はない。会員限定の原本はリポジトリ外で人間が保持する。
 
@@ -73,4 +87,4 @@ ASPの認証情報をエージェントへ渡す必要はない。会員限定�
 
 - ブランチ: `work/aierabi-revenue-engine`。既存の変更8 trackedファイルと未追跡data/docs/scripts/goを保持して開始。今回の追加はAGENTSと管理文書、既存文書の訂正。
 - コミット/push/mergeなし。過去レポートにauthor未設定でcommit不可の記録あり。今回は設定変更・再試行していない。
-- `npm run check`: 成功（23 source validation、収益集計テスト、lint、87ページbuild）。既存のfont配置、Google Fonts取得、edge runtime警告あり。`git diff --check`も成功。buildによる今回分のsitemap日時変更は戻し、以前からの差分を保持。check成功と収益運用の完成は別。
+- `npm run check`: 成功（24 source validation、収益集計テスト、lint、87ページbuild）。既存のfont配置、Google Fonts取得、edge runtime警告、caniuse-lite更新警告あり。`git diff --check`も成功。buildによるsitemapの機械的差分は戻した。check成功と収益運用の完成は別。

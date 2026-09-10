@@ -1,0 +1,59 @@
+{
+  "status": "draft_not_for_publication",
+  "created_at": "2026-09-11",
+  "proposed_target_path": "/blog/dmm-generative-ai-camp-review",
+  "title": "DMM 生成AI CAMP 学び放題とは？生成AIの学び方を検討する前の確認ポイント",
+  "source_requirements": [
+    {
+      "source_id": "dmm-generative-ai-camp-official",
+      "url": "https://genai.dmm.com/",
+      "verified_at": "2026-09-11"
+    }
+  ],
+  "publication_gate": {
+    "affiliate_partnership_approved": false,
+    "affiliate_url_present": false,
+    "human_content_approval_required": true,
+    "human_activation_approval_required": true,
+    "pr_disclosure_required_if_affiliate_link_added": true,
+    "deployment_authorization_required": true,
+    "x_post_authorization_required": true
+  },
+  "prohibited_until_rechecked": [
+    "A8.netの会員限定情報、報酬額、成果条件、否認条件、EPC、確定率",
+    "広告URLまたは広告コード",
+    "無料セミナー予約だけを目的とする訴求",
+    "補助金の対象であるという記載",
+    "収入、転職、学習効果を保証する表現",
+    "緊急性、最上級、未確認の比較・統計表現"
+  ],
+  "outline": [
+    {
+      "heading": "DMM 生成AI CAMP 学び放題の概要",
+      "draft": "DMM.comが提供する生成AI学習サービスです。公式サイトでは、職種別・ツール別のコースを案内しています。この記事では、利用を検討する前に確認したいポイントを整理します。"
+    },
+    {
+      "heading": "公式サイトで案内されている学習テーマ",
+      "draft": "公式サイトには、基礎、マーケティング、営業、人事、生成AIエンジニア、生成AIデザイン、生成AI動画クリエイターなどの職種別コースと、ChatGPT、Copilot、Gemini、NotebookLM、Dify、Claudeなどのツール別コースが掲載されています。受講前には、自分の業務で使いたいテーマが現在のカリキュラムに含まれるか公式サイトで確認してください。"
+    },
+    {
+      "heading": "料金・契約条件で確認すること",
+      "draft": "公式サイトでは月額、6か月、12か月の料金プランが案内されています。料金、税額、支払方法、契約期間、解約条件、ゼミ参加条件は変更される可能性があるため、申込み前に公式サイトの最新表示を確認してください。"
+    },
+    {
+      "heading": "検討時のチェックリスト",
+      "draft": "業務上の利用目的を一つ決めること、必要なコースがあること、費用と契約条件を確認すること、勤務先の情報管理ルールに沿ってAIを利用できることを確認します。AIの出力はそのまま利用せず、事実確認と人の最終確認を行う前提で使います。"
+    }
+  ],
+  "cta": null,
+  "affiliate_link": null,
+  "pr_disclosure": null,
+  "review_before_publication": [
+    "A8提携承認の結果",
+    "広告主の掲載レギュレーションと正式名称",
+    "公式サイトの料金・コース・契約条件の再確認",
+    "PR表示のファーストビュー配置",
+    "A8発行広告コードの改変なしでの掲載可否",
+    "公開後に必要な広告掲載URL提出"
+  ]
+}

@@ -86,7 +86,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
           })}
         </div>
         <div style={{ fontSize: "13px", color: "#86868b", textAlign: "center", marginTop: "16px" }}>
-          独自30テスト + 安全性14項目で徹底比較 | 2026年最新版
+          独自30テスト + 安全性14項目の保存済み評価 | 2026年3月時点
         </div>
       </div>
     ),

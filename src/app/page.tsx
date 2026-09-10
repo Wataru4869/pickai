@@ -20,6 +20,7 @@ import {
   CategoryScoreBar,
   TrustBadges,
   ShareButton,
+  HistoricalScoreNotice,
 } from "@/components/ui";
 import { CategoryTabs } from "@/components/CategoryTabs";
 import { UseCaseRecommendations } from "@/components/UseCaseRecommendations";
@@ -50,12 +51,12 @@ export default function HomePage() {
         "@type": "WebSite",
         "name": "AI選び",
         "url": "https://aierabi.jp",
-        "description": "AIツール比較ガイド。6カテゴリ38ツールを独自テストで徹底比較。"
+        "description": "AIツールの保存済み独自評価と、公式一次情報で確認した客観情報を分けて掲載する比較ガイド。"
       }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "ItemList",
-        "name": "AIツール総合ランキング 2026",
+        "name": "AIツール総合の保存済み評価（2026年3月時点）",
         "itemListOrder": "https://schema.org/ItemListOrderDescending",
         "numberOfItems": 5,
         "itemListElement": rankedModels.map((m: any) => ({
@@ -67,12 +68,13 @@ export default function HomePage() {
       <div className="bg-white py-6 border-b border-[#e8e8ed]">
         <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
           <div className="flex items-center gap-1.5 flex-wrap mb-5">
-            {["独自30テスト", "安全性14項目", "5モデル比較", "2026.03更新"].map((b) => (
+            {["独自30テスト", "安全性14項目", "5モデル比較", "2026.03測定"].map((b) => (
               <span key={b} className="text-[11px] font-medium text-[#6e6e73] px-2 py-0.5 border border-[#d2d2d7] rounded">
                 {b}
               </span>
             ))}
           </div>
+          <HistoricalScoreNotice />
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
             {[
@@ -149,7 +151,7 @@ export default function HomePage() {
       <Block alt>
         <div className="flex items-baseline justify-between gap-3 mb-4">
           <h2 className="text-[17px] font-bold text-[#1d1d1f] pl-3 border-l-[3px] border-[#1d1d1f]">
-            {`スコア変動（${changes.period}）`}
+            {`保存済みスコアの履歴（${changes.period}）`}
           </h2>
           <span className="text-[10px] font-medium text-[#6e6e73] shrink-0">
             最終更新: {changes.lastUpdated}
@@ -189,7 +191,7 @@ export default function HomePage() {
 
       {/* Overall Ranking */}
       <Block>
-        <SectionHeader title="総合ランキング" />
+        <SectionHeader title="総合の保存済み評価" />
         <p className="scroll-hint">→ 横スクロールできます</p>
         <div className="overflow-x-auto">
           <table className="w-full border-collapse text-[12px]">
@@ -291,7 +293,7 @@ export default function HomePage() {
 
       {/* Category Tabs */}
       <Block alt>
-        <SectionHeader title="カテゴリ別ランキング" />
+        <SectionHeader title="カテゴリ別の保存済み評価" />
         <CategoryTabs />
       </Block>
 
@@ -332,7 +334,7 @@ export default function HomePage() {
 
       {/* Safety Summary */}
       <Block>
-        <SectionHeader title="安全性ランキング" />
+        <SectionHeader title="安全性の保存済み評価" />
         <p className="text-[10px] text-[#86868b] mb-3">14テスト＋セキュリティ認証の加重スコア</p>
         {safetyRanking.map((r: any, i: number) => {
           const model = models.find((m) => m.id === r.model);
@@ -393,7 +395,7 @@ export default function HomePage() {
           </table>
         </div>
         <a href="/cost" className="block text-center text-[11px] text-[#6e6e73] mt-3 hover:text-[#0066cc] no-underline py-1">
-          コスト計算機で最適プランを見つける →
+          料金・無料条件の確認ポイントを見る →
         </a>
       </Block>
 
@@ -402,7 +404,7 @@ export default function HomePage() {
         <SectionHeader title="最新コラム" />
         <div className="space-y-1.5">
           {[
-            { slug: "chatgpt-vs-claude-2026", title: "ChatGPT vs Claude 徹底比較【2026年最新】", date: "2026-03-22" },
+            { slug: "chatgpt-vs-claude-2026", title: "ChatGPT vs Claude｜2026年3月時点の保存済み比較", date: "2026-03-22" },
             { slug: "ai-tools-how-to-choose-2026", title: "【2026年版】AIツールの選び方完全ガイド", date: "2026-03-22" },
             { slug: "gemini-vs-chatgpt-2026", title: "Gemini vs ChatGPT 比較【2026年版】", date: "2026-03-22" },
           ].map((a) => (
@@ -427,10 +429,10 @@ export default function HomePage() {
           <div className="min-w-0 flex-1">
             <div className="text-[12px] font-semibold text-[#1d1d1f]">この比較結果をシェア</div>
             <div className="text-[11px] text-[#6e6e73] mt-0.5 truncate">
-              2026年AI比較：総合1位ChatGPT、コード最強Claude
+              2026年3月時点の保存済み評価：総合1位ChatGPT、コード1位Claude
             </div>
           </div>
-          <ShareButton text="2026年AI比較：総合1位ChatGPT（86.5）コード最強Claude（94.3）安全性もClaude（93.7）#AI選び https://aierabi.jp" />
+          <ShareButton text="2026年3月時点の保存済みAI評価：総合1位ChatGPT（86.5）、コード1位Claude（94.3）、安全性1位Claude（93.7）#AI選び https://aierabi.jp" />
         </div>
         <div className="mt-3">
           <TrustBadges />

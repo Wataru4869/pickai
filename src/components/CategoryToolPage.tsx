@@ -1,6 +1,6 @@
 "use client";
 
-import { Header, Footer, Block, SectionHeader, TrustBadges } from "@/components/ui";
+import { Header, Footer, Block, SectionHeader, HistoricalScoreNotice } from "@/components/ui";
 import { scoreColorHex } from "@/lib/data";
 
 type Tool = {
@@ -68,18 +68,19 @@ export function CategoryToolPage({ data, relatedArticles, relatedNote }: {
               {data.tools.length}ツール比較
             </span>
             <span className="inline-flex items-center px-2 py-0.5 rounded bg-[#f5f5f7] text-[#6e6e73] border border-[#e8e8ed]">
-              外部レビュー・ベンチマーク基準
+              保存済み参考スコア
             </span>
             <span className="inline-flex items-center px-2 py-0.5 rounded bg-[#f5f5f7] text-[#6e6e73] border border-[#e8e8ed]">
-              {data.lastUpdated}更新
+              {data.lastUpdated}時点
             </span>
           </div>
+          <HistoricalScoreNotice />
         </div>
       </div>
 
       {/* Ranking */}
       <Block>
-        <SectionHeader title="ランキング" />
+        <SectionHeader title="保存済み評価（順位）" />
         <div className="space-y-0">
           {rankedTools.map((r) => {
             if (!r.tool) return null;
@@ -220,15 +221,8 @@ export function CategoryToolPage({ data, relatedArticles, relatedNote }: {
               </div>
             </div>
 
-            <div className="text-[11px] text-[#6e6e73]">
-              <span className="font-semibold text-[#1d1d1f]">料金: </span>
-              {t.pricing?.freeTier?.available !== false && t.pricing?.freeTier ? "無料枠あり" : "有料のみ"}
-              {t.pricing?.standardPlan && t.pricing.standardPlan.priceJPY > 0 &&
-                ` ｜ 有料: ¥${t.pricing.standardPlan.priceJPY?.toLocaleString()}/月〜`
-              }
-              {t.pricing?.standardPlan && t.pricing.standardPlan.priceUSD > 0 && !t.pricing.standardPlan.priceJPY &&
-                ` ｜ 有料: $${t.pricing.standardPlan.priceUSD}/月〜`
-              }
+            <div className="text-[11px] text-[#6e6e73] leading-relaxed">
+              保存済みの比較対象です。現在の料金・無料条件・提供状況は公式サイトで確認してください。
             </div>
 
             <a
@@ -246,8 +240,8 @@ export function CategoryToolPage({ data, relatedArticles, relatedNote }: {
       {/* Disclaimer */}
       <Block>
         <div className="bg-[#f5f5f7] rounded p-3 text-[11px] text-[#86868b] leading-relaxed">
-          ※ スコアは外部レビュー・ベンチマーク・公式情報を基にした参考値です。
-          独自テストによるスコアではありません。最新の料金・機能は各公式サイトでご確認ください。
+          ※ スコアは外部レビュー・ベンチマーク等を基に保存した参考値です。
+          独自テストによる現在評価ではありません。最新の料金・機能・提供状況は各公式サイトでご確認ください。
           <br />
           最終更新: {data.lastUpdated}
         </div>

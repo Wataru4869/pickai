@@ -1,37 +1,38 @@
 # NEXT TASKS
 
-更新: 2026-09-11（DMM提携申請・inactive導線準備後）。優先順位の正本。最大5件、実装の同時着手1件。時間枠は作業見積りであり、審査/観測待ちを含まない。詳細な7軸は [判断OS](REVENUE_DECISION_FRAMEWORK.md) に従う。
+更新: 2026-09-11（全体鮮度監査後）。優先順位の正本。最大5件、同時着手は1件。判断は [REVENUE_DECISION_FRAMEWORK](REVENUE_DECISION_FRAMEWORK.md) に従う。
 
-## 1. T1 — DMM審査結果を確認し、承認時だけ実験導線を完成する
+## 1. T1 — 初回X需要テスト3投稿を手動実施
 
-- 状態: 2026-09-11に人間承認のうえ申請し、A8結果画面は「審査中」。DMM設定はdraft・URL null・direct限定。広告表示なし。担当: Terra、条件矛盾/重大変更はAstraレビュー。
-- 作業: 審査待ち中は、公開一次情報だけを根拠にCTAなし・非公開の専用レビュー記事草案を1本作る（会員限定の報酬/条件は入れない）。承認時のみA8発行コード/URLの仕様、host、掲載条件を再確認し、草案を事実レビューしてURLとCTAを候補差分へ入れる。否認時は理由を記録して草案の広告部分を公開せず、次点案件へ移る。
-- 完了条件: 承認証跡、改変していない発行URL、allowlist host、専用記事1ページ、ファーストビューPR、掲載URL提出手順、別のhuman activation approvalがすべて確認済み。`active`化・公開・投稿はそれぞれ人間承認。
-- 寄与: 最初のCV経路を1案件へ絞る。Impact 2、需要E0、案件条件E1、学習3。審査待ちを架空の承認で埋めない。
+- 状態: `x-exp-01`、`x-exp-03`、`x-exp-06` の文面・固定UTM・誘導先レビュー済み。affiliateリンクなし、自動投稿false。
+- 作業: 人間が本番表示と絶対URLを最終確認し、48〜72時間間隔で手動投稿する。投稿別impressions、link clicks、UTM別site sessionsだけを匿名集計する。
+- 完了条件: 3投稿すべてで同じ定義の分母・クリック・計測期間を記録。欠損はunknown、小標本は保留。実投稿とアカウント操作は人間承認。
+- 収益寄与: 約6,400フォロワーが反応する用途を実測し、承認後の最初の案件訴求を絞る。Revenue Impact 2 / Time to Revenue 3 / Learning 3。
 
-## 2. T2 — 初回6投稿の直接誘導先レビュー（完了）
+## 2. T2 — 最初に承認された1案件だけ収益導線を完成
 
-- 状態: `/recommend`、`/methodology`、画像記事、動画記事を対象に、古い料金/無料条件、未再現スコア、根拠のない断定、CTA関連性、UTM伝播、PR要否をレビューし局所修正済み。
-- 完了条件: 6件すべて `ready_for_human_approval`、誘導先修正待ち0件。affiliateはactive 0のため内部CTAのみ。`npm run check` 成功をもって完了。
-- 寄与: 誤認と計測欠損を避けた状態で需要probeを開始できる。6投稿に無関係なページの改修は行わない。
+- 状態: DMM生成AI CAMP、Winスクール、デジタルハリウッドSTUDIO by LIGは審査中。DMMはdraft、URL null、direct限定。広告表示なし。
+- 作業: 最初に承認された1案件についてのみ、A8発行URL、許可host、媒体・SNS・PR条件、対象ページ、掲載URL提出方法を人間が確認。その後、専用記事とCTAの最小差分をレビューする。
+- 完了条件: 承認証跡、改変していないURL、対象ページ、ファーストビューPR、human activation approvalが揃う。active化・公開・投稿は別々に人間承認。
+- 収益寄与: 審査待ちを分散しつつ、最初の実CV経路を1案件へ集中。Revenue Impact 3 / Time to Revenue 3 / Learning 3。
 
-## 3. T3 — 最小計測と有効化ゲート（技術実装完了、実データ検証待ち）
+## 3. T3 — Xまたはaffiliate対象記事だけ個別一次情報監査
 
-- 状態: schema v2集計、欠損null、page/post/service/campaign集計、固定ID伝播、active承認/host/sourceゲート、広告開示を実装。空/片側/帰属あり/なしの集計テスト済み。実ASP/GAとの接続は人間操作待ち。
-- 残作業: 選定案件について `attribution_query_parameter` が契約上許可されexportへ戻るかを人間確認。許可されない場合はnullのままサービス別EPCのみ使う。実URL投入後に本番送信を伴わないURL/開示レビューを行う。
-- 完了条件: 人間がURL・承認日・許可host・対象ページ・subID可否を確認し台帳差分をレビュー。実験公開後はnetwork clickとgoイベント差、GA欠損、実export変換を少量で確認。ページ/投稿別帰属不能ならunknownを維持。
-- 寄与: 誤ったEPC判断/広告開示漏れを防ぎ、少量流入から学べる。Impact 2/学習3、実データE0。汎用BI/新DB/有料Analyticsなし。
-- 非対象: 実affiliate activation、本番GA設定、ASPへのテストCV送信。導線公開前には既存脆弱性指摘の最新確認・影響レビューも人間承認ゲートに含める。
+- 状態: 全ブログへ履歴注意を追加。AI画像・動画・コーディングの優先記事は断定と古い料金を是正したが、残る本文の個別監査は未完了。
+- 作業: 次に送客または広告掲載する記事だけ、公式価格・製品・helpを同日に確認し、`official-sources` / `service-facts` と本文を更新する。全記事一括更新はしない。
+- 完了条件: 対象記事のモデル名、料金、無料条件、提供状況、公式URL、確認日が一次情報と一致。確認不能はunknown。独自スコアは変更しない。
+- 収益寄与: 送客後の信頼毀損と離脱を減らし、CTAクリック・CVの改善につなげる。Revenue Impact 2 / Time to Revenue 2 / Risk reduction 3。
 
-## 4. T4 — X初回6投稿の手動実験パック（公開前レビュー完了）
+## 4. T4 — 公式情報が不足する優先サービスを必要時だけ補完
 
-- 状態: 旧24案を再評価し、新規6案を `x-initial-revenue-experiment.json` に分離。全件draft、自動投稿false、固定UTM付き。直接誘導先4ページの局所修正まで完了し、6件とも人間承認可能。過去実績がないため最初は需要probe。
-- 残作業/完了条件: 人間が文体・絶対URL・本番表示・投稿順を最終確認して手動投稿。実投稿後、同じ分母でpost別imp/link click/site sessionを入力。affiliate有効化後のconversion投稿はT1の1案件だけでPR/CTAを再レビューする。
-- 寄与: 6,000フォロワーを仮定の売上でなく需要検証に使う。Impact 2/学習3/需要E0、0円/2h目安。投稿・予約・アカウント操作は行わない。
+- 状態: official sources 24件、service facts 16サービス。Grok、Kling、Manus、Genspark、Midjourney、Ideogram等は完全な現行factsが不足。
+- 作業: T1の需要またはT2の承認案件に関係するサービスから、公式料金・製品・docsだけでfactsを追加する。調査対象外を推測で埋めない。
+- 完了条件: service_name、provider、official_url、plan/price/free条件、current product、features、availability、verified_at、source URLが根拠付き。unknown許容。
+- 収益寄与: 使われない台帳整備を避け、反応があるテーマの信頼性だけを短時間で上げる。Revenue Impact 1 / Time to Revenue 1 / Evidence 3。
 
-## 5. T5 — 成熟した実績から継続/修正/停止を1つ決める
+## 5. T5 — 成熟した実績から継続・修正・停止を1つ決定
 
-- 状態: 実験/匿名集計待ち。担当: Terra、戦略転換はAstra。
-- 作業: 実績と欠損を分け、売上→CV→EPC→affiliate click→CTA CTR→流入の順に評価。7〜14日の流入レビューと、案件の確定期間経過後のCVレビューを分離する。
-- 完了条件: 同期間/通貨/帰属群の分母・件数・確定率・未帰属を明記。小標本なら判定保留。1つの改善仮説または停止理由、次の測定期限をDECISIONSへ。日次5,000/10,000円の必要流量を実単価/確定率で更新し、未取得値は仮定のまま明示。
-- 寄与: 収益の出る用途へ集中し、流入だけの拡大を防ぐ。Impactは実績次第/E2〜E3/学習3、0円/1〜2h目安。実績がない間は架空集計や新機能で穴埋めしない。
+- 状態: 収益入力は空。実CV、売上、EPCはunknown。
+- 作業: 売上→CV→EPC→affiliate click→CTA CTR→流入の順で評価。流入は7〜14日、CVは案件の確定期間後に分けて判定する。
+- 完了条件: 同期間・通貨・帰属群の実数、欠損、件数、確定率を記録し、1つの次行動と撤回条件をDECISIONSへ追記。架空の按分や0補完なし。
+- 収益寄与: 実績のある導線へ集中し、見た目や流入だけの改善を止める。Revenue Impactは実績次第 / Learning 3。

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 const MENU_ITEMS = [
   // ランキング系
-  { href: "/", label: "総合ランキング" },
+  { href: "/", label: "総合の保存評価" },
   { href: "/categories", label: "カテゴリ別", children: [
     { href: "/categories/image-generation", label: "画像生成" },
     { href: "/categories/video-generation", label: "動画生成" },
@@ -20,7 +20,7 @@ const MENU_ITEMS = [
   { type: "separator" as const },
   // データ系
   { href: "/safety", label: "安全性比較" },
-  { href: "/cost", label: "コスト計算" },
+  { href: "/cost", label: "料金確認ガイド" },
   { href: "/methodology", label: "評価方法論" },
   { href: "/faq", label: "よくある質問" },
   { href: "/blog", label: "コラム" },

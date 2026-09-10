@@ -9,7 +9,7 @@ import {
   CATEGORY_LABELS,
   MODEL_COLORS,
 } from "@/lib/data";
-import { Header, Footer, Block, SectionHeader, TrustBadges } from "@/components/ui";
+import { Header, Footer, Block, SectionHeader, HistoricalScoreNotice } from "@/components/ui";
 import { CompareRadarChart } from "@/components/CompareRadarChart";
 
 function parseSlug(slug: string): [string, string] | null {
@@ -38,34 +38,8 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   const b = models.find((m) => m.id === parsed[1]);
   if (!a || !b) return {};
 
-  const scoreA = a.scores.overall;
-  const scoreB = b.scores.overall;
-  let scoreSummary = "";
-  if (scoreA !== null && scoreB !== null) {
-    const diff = Math.abs(scoreA - scoreB).toFixed(1);
-    const winner = scoreA > scoreB ? a.name : scoreB > scoreA ? b.name : null;
-    scoreSummary = winner
-      ? `総合スコアは${winner}が${diff}点差でリード。`
-      : "総合スコアは同点。";
-  }
-
-  const strengths: string[] = [];
-  if (a.scores.writing !== null && b.scores.writing !== null) {
-    const w = a.scores.writing > b.scores.writing ? a.name : b.name;
-    strengths.push(`文章は${w}`);
-  }
-  if (a.scores.coding !== null && b.scores.coding !== null) {
-    const w = a.scores.coding > b.scores.coding ? a.name : b.name;
-    strengths.push(`コードは${w}`);
-  }
-  if (a.scores.image !== null && b.scores.image !== null) {
-    const w = a.scores.image > b.scores.image ? a.name : b.name;
-    strengths.push(`画像は${w}`);
-  }
-  const strengthStr = strengths.length > 0 ? strengths.join("、") + "が優勢。" : "";
-
-  const title = `${a.name} vs ${b.name} 徹底比較【2026年最新】| AI選び`;
-  const description = `${a.name}（${scoreA ?? "—"}点）と${b.name}（${scoreB ?? "—"}点）を30テスト＋安全性14項目で直接比較。${scoreSummary}${strengthStr}料金・安全性・用途別の違いを一覧で解説。`;
+  const title = `${a.name} vs ${b.name} 保存済み評価比較（2026年3月時点）| AI選び`;
+  const description = `${a.name}と${b.name}の2026年3月時点の独自テスト履歴を比較。現在のモデル、料金、提供条件は各社公式サイトで確認してください。`;
   return {
     title,
     description,
@@ -137,17 +111,18 @@ export default function ComparePage({ params }: { params: { slug: string } }) {
             全16テスト ＋ 安全性14項目で直接比較
           </p>
           <div className="flex items-center gap-1.5 flex-wrap">
-            {["独自30テスト", "採点基準公開", "2026.03更新"].map((b) => (
+            {["独自30テスト", "採点基準公開", "2026.03測定"].map((b) => (
               <span key={b} className="text-[11px] font-medium text-[#6e6e73] px-2 py-0.5 border border-[#d2d2d7] rounded">
                 {b}
               </span>
             ))}
           </div>
+          <HistoricalScoreNotice />
         </div>
       </div>
 
       <Block>
-        <SectionHeader title="スコア概要" />
+        <SectionHeader title="保存済みスコア概要" />
         <div className="grid grid-cols-[1fr_auto_1fr] gap-3 items-center">
           <div className="border border-[#d2d2d7] rounded-md p-4 text-center">
             <div className="text-[14px] font-semibold text-[#1d1d1f] mb-1">{modelA.name}</div>
@@ -171,7 +146,7 @@ export default function ComparePage({ params }: { params: { slug: string } }) {
           <span className="font-bold text-[#1d1d1f]">{modelB.name} {winsB}勝</span>
         </div>
         <div className="text-center mt-3 px-4 py-2.5 bg-[#f5f5f7] rounded text-[12px] font-semibold text-[#1d1d1f]">
-          {verdict}
+          保存済み評価では、{verdict}
         </div>
       </Block>
 
@@ -395,54 +370,16 @@ export default function ComparePage({ params }: { params: { slug: string } }) {
       </Block>
 
       <Block>
-        <SectionHeader title="料金比較" />
-        <div className="overflow-x-auto">
-          <table className="w-full text-[11px] border-collapse">
-            <thead>
-              <tr className="bg-[#fafafa]">
-                <th className="p-1.5 text-left font-bold border-b-2 border-[#e5e5e5]">プラン</th>
-                <th className="p-1.5 text-center font-bold border-b-2 border-[#e5e5e5]">{modelA.name}</th>
-                <th className="p-1.5 text-center font-bold border-b-2 border-[#e5e5e5]">{modelB.name}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {(["free", "standard", "premium"] as const).map((tier, i) => {
-                const pA = (modelA.pricing as any)[tier];
-                const pB = (modelB.pricing as any)[tier];
-                return (
-                  <tr key={tier} className={i % 2 === 0 ? "bg-white" : "bg-[#fbfbfd]"}>
-                    <td className="p-1.5 border-b border-[#f0f0f0] font-medium">
-                      {tier === "free" ? "無料" : tier === "standard" ? "スタンダード" : "プレミアム"}
-                    </td>
-                    <td className="p-1.5 text-center border-b border-[#f0f0f0]">
-                      {pA?.available ? (
-                        <span>
-                          <span className="font-bold">{pA.name || "無料"}</span>
-                          {pA.priceJPY ? (
-                            <span className="text-[#6e6e73] ml-1">¥{pA.priceJPY.toLocaleString()}/月</span>
-                          ) : (
-                            <span className="text-green-700 font-bold ml-1">¥0</span>
-                          )}
-                        </span>
-                      ) : "—"}
-                    </td>
-                    <td className="p-1.5 text-center border-b border-[#f0f0f0]">
-                      {pB?.available ? (
-                        <span>
-                          <span className="font-bold">{pB.name || "無料"}</span>
-                          {pB.priceJPY ? (
-                            <span className="text-[#6e6e73] ml-1">¥{pB.priceJPY.toLocaleString()}/月</span>
-                          ) : (
-                            <span className="text-green-700 font-bold ml-1">¥0</span>
-                          )}
-                        </span>
-                      ) : "—"}
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+        <SectionHeader title="現在の料金・無料条件" />
+        <p className="rounded border border-[#e5e5e5] bg-[#fafafa] p-3 text-[12px] leading-relaxed text-[#6e6e73]">
+          料金・無料枠は変更頻度が高いため、この保存済み評価ページでは金額を比較しません。契約前に両社の公式サイトで確認してください。
+        </p>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {[modelA, modelB].map((model) => (
+            <a key={model.id} href={model.url} target="_blank" rel="noopener noreferrer" className="rounded border border-[#d2d2d7] px-3 py-1.5 text-[11px] text-[#1d1d1f] no-underline hover:border-[#0066cc] hover:text-[#0066cc]">
+              {model.name}公式サイト →
+            </a>
+          ))}
         </div>
       </Block>
 
@@ -466,7 +403,7 @@ export default function ComparePage({ params }: { params: { slug: string } }) {
             </div>
           </div>
           <div className="text-center text-[11px] text-[#6e6e73] bg-[#f5f5f7] rounded p-2.5 mt-2">
-            迷ったら両方の無料枠を試すのがベスト。併用が最も賢い選択です。
+            無料枠の有無と条件を各社公式サイトで確認し、対象なら同じ用途で試して比較してください。
           </div>
         </div>
       </Block>

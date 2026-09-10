@@ -1,9 +1,9 @@
 import { getCategories } from "@/lib/data";
-import { Header, Footer, Block, SectionHeader, TrustBadges } from "@/components/ui";
+import { Header, Footer, Block, SectionHeader, TrustBadges, HistoricalScoreNotice } from "@/components/ui";
 
 export const metadata = {
   title: "カテゴリ別AI比較｜動画・翻訳・デザイン・コーディング｜AI選び",
-  description: "動画生成・翻訳・デザイン・コーディング・リサーチ・文章生成の各カテゴリで、AIモデルと専門ツールを外部ベンチマークデータで比較。",
+  description: "動画生成・翻訳・デザイン・コーディング等の保存済み参考評価をカテゴリ別に比較。現在の条件は公式サイトで確認してください。",
   alternates: { canonical: "/category" },
   openGraph: {
     title: "カテゴリ別AI比較｜動画・翻訳・デザイン・コーディング｜AI選び",
@@ -23,9 +23,10 @@ export default function CategoryListPage() {
         <div className="max-w-[860px] mx-auto px-4">
           <h1 className="text-[20px] font-bold mb-1">カテゴリ別AI比較</h1>
           <p className="text-[12px] text-[#6e6e73] leading-relaxed">
-            用途別に最適なAIツールを見つけよう。外部ベンチマークデータと独自テスト結果を掲載。
+            用途別の候補を、保存済みの参考評価と独自テスト履歴から比較できます。
           </p>
           <TrustBadges />
+          <HistoricalScoreNotice />
         </div>
       </div>
 

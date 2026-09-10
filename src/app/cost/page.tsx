@@ -1,14 +1,13 @@
 import { Header, Footer, Block, SectionHeader } from "@/components/ui";
-import { CostCalculatorFlow } from "@/components/CostCalculatorFlow";
-import { getModels, scoreColorHex } from "@/lib/data";
+import { getModels } from "@/lib/data";
 
 export const metadata = {
-  title: "AI料金比較・コスト計算機【2026年最新】| AI選び",
-  description: "3つの質問に答えるだけで最適なAIプランを提案。ChatGPT/Claude/Gemini/Grok/Perplexityの料金を円建てで比較。",
+  title: "AI料金・無料条件の確認ガイド | AI選び",
+  description: "ChatGPT・Claude・Gemini・Grok・Perplexityの料金確認時に見るべき項目と、各公式サイトへのリンクを掲載。",
   alternates: { canonical: "/cost" },
   openGraph: {
-    title: "AI料金比較・コスト計算機【2026年最新】| AI選び",
-    description: "3つの質問に答えるだけで最適なAIプランを提案。ChatGPT/Claude/Gemini/Grok/Perplexityの料金を円建てで比較。",
+    title: "AI料金・無料条件の確認ガイド | AI選び",
+    description: "ChatGPT・Claude・Gemini・Grok・Perplexityの料金確認時に見るべき項目と、各公式サイトへのリンクを掲載。",
     url: "/cost",
   },
 };
@@ -22,65 +21,32 @@ export default function CostPage() {
 
       <div className="bg-white border-b border-[#e8e8ed] py-6">
         <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
-          <h1 className="text-[20px] font-bold mb-1">コスト計算機</h1>
+          <h1 className="text-[20px] font-bold mb-1">料金・無料条件の確認ガイド</h1>
           <p className="text-[12px] text-[#6e6e73] leading-relaxed">
-            3つの質問に答えるだけで最適プランを提案。テスト結果（30テスト）に基づくおすすめ付き。
+            料金は変更頻度が高いため、保存済みの円換算額ではなく公式サイトの現在条件を確認してください。
           </p>
         </div>
       </div>
 
-      <CostCalculatorFlow />
-
-      {/* Full price table */}
       <Block alt>
-        <SectionHeader title="全プラン比較" />
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse text-[12px] min-w-[480px]">
-            <thead>
-              <tr>
-                <th className="text-left p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">モデル</th>
-                <th className="text-center p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">無料</th>
-                <th className="text-center p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">スタンダード</th>
-                <th className="text-center p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">プレミアム</th>
-                <th className="text-center p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">総合</th>
-              </tr>
-            </thead>
-            <tbody>
-              {models.map((m) => (
-                <tr key={m.id}>
-                  <td className="p-2 border-b border-[#f0f0f0]">
-                    <span className="text-[13px] font-semibold text-[#1d1d1f]">{m.name}</span>
-                  </td>
-                  <td className="p-2 border-b border-[#f0f0f0] text-center">
-                    {m.pricing.free.available
-                      ? <span className="text-[13px] font-semibold text-[#3d7a5f]">◯ 無料</span>
-                      : <span className="text-[13px] text-[#86868b]">—</span>}
-                  </td>
-                  <td className="p-2 border-b border-[#f0f0f0] text-center text-[12px] text-[#1d1d1f]">
-                    {m.pricing.standard.priceJPY ? (
-                      <div>
-                        <div className="font-semibold">{m.pricing.standard.name}</div>
-                        <div className="text-[11px] text-[#6e6e73]">¥{m.pricing.standard.priceJPY.toLocaleString()}/月</div>
-                      </div>
-                    ) : <span className="text-[#86868b]">—</span>}
-                  </td>
-                  <td className="p-2 border-b border-[#f0f0f0] text-center text-[12px] text-[#1d1d1f]">
-                    {m.pricing.premium.priceJPY ? (
-                      <div>
-                        <div className="font-semibold">{m.pricing.premium.name}</div>
-                        <div className="text-[11px] text-[#6e6e73]">¥{m.pricing.premium.priceJPY.toLocaleString()}/月</div>
-                      </div>
-                    ) : m.pricing.premium.name ? <span className="text-[12px]">{m.pricing.premium.name}</span> : <span className="text-[#86868b]">—</span>}
-                  </td>
-                  <td className="p-2 border-b border-[#f0f0f0] text-center text-[14px] font-bold text-[#1d1d1f]">
-                    {m.scores.overall ?? "—"}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <SectionHeader title="契約前に確認する5項目" />
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+          {["請求通貨・税・為替", "無料枠の回数・機能制限", "月額・年額と解約条件", "上限超過時の従量課金", "個人用・チーム用のデータ条件"].map((item) => (
+            <div key={item} className="rounded border border-[#e8e8ed] bg-white p-3 text-[12px] text-[#1d1d1f]">{item}</div>
+          ))}
         </div>
-        <p className="text-[11px] text-[#86868b] mt-2">※ 2026年3月時点。最新価格は各公式サイトをご確認ください。</p>
+      </Block>
+
+      <Block>
+        <SectionHeader title="公式サイトで現在条件を確認" />
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+          {models.map((model) => (
+            <a key={model.id} href={model.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between rounded border border-[#d2d2d7] p-3 text-[12px] font-semibold text-[#1d1d1f] no-underline hover:border-[#0066cc] hover:text-[#0066cc]">
+              <span>{model.name}</span><span>公式サイト →</span>
+            </a>
+          ))}
+        </div>
+        <p className="mt-3 text-[11px] leading-relaxed text-[#86868b]">リンク先の地域・契約画面によって表示条件が異なる場合があります。保存済み評価スコアは料金判断とは分離しています。</p>
       </Block>
 
       <Footer />

@@ -1,10 +1,10 @@
 import { getAllModels, scoreColorHex, MODEL_COLORS } from "@/lib/data";
-import { Header, Footer, Block, SectionHeader, TrustBadges } from "@/components/ui";
+import { Header, Footer, Block, SectionHeader, TrustBadges, HistoricalScoreNotice } from "@/components/ui";
 
 export const metadata = {
   title: "AI比較一覧｜ChatGPT・Claude・Gemini・Grok・Perplexity｜AI選び",
   description:
-    "ChatGPT・Claude・Gemini・Grok・Perplexityの全組み合わせを直接比較。文章・コード・画像・安全性・料金の5軸で差がつくポイントが一目でわかります。",
+    "ChatGPT・Claude・Gemini・Grok・Perplexityの2026年3月時点の保存済み評価を直接比較。現在の料金・機能は公式サイトで確認してください。",
   alternates: { canonical: "/compare" },
   openGraph: {
     title: "AI比較一覧｜ChatGPT・Claude・Gemini・Grok・Perplexity｜AI選び",
@@ -25,9 +25,10 @@ export default function CompareIndexPage() {
         <div className="max-w-[860px] mx-auto px-4">
           <h1 className="text-[20px] font-bold mb-1">AI比較一覧</h1>
           <p className="text-[12px] text-[#6e6e73] leading-relaxed">
-            比較したい2つのAIを選んでください。全16テスト＋安全性14項目で直接比較できます。
+            比較したい2つのAIを選び、2026年3月時点の保存済みテスト結果を確認できます。
           </p>
           <TrustBadges />
+          <HistoricalScoreNotice />
         </div>
       </div>
 

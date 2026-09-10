@@ -387,6 +387,14 @@ export default function BlogArticlePage({
         </div>
       </div>
 
+      <div className="bg-white">
+        <div className="max-w-full sm:max-w-[680px] mx-auto px-3 sm:px-4">
+          <div className="mb-6 rounded border border-[#d2d2d7] bg-[#fafafa] p-3 text-[11px] leading-relaxed text-[#6e6e73]">
+            記事中のモデル名・料金・無料条件・評価は、明記がない限り最終更新日（{article.updatedAt}）時点の記録です。現在の契約条件は各社公式サイトで確認してください。独自スコアは現在性能を保証しません。
+          </div>
+        </div>
+      </div>
+
       {showAffiliateDisclosure && (
         <div className="bg-white">
           <div className="max-w-full sm:max-w-[680px] mx-auto px-3 sm:px-4">

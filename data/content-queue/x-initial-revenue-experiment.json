@@ -44,6 +44,57 @@
     "not_yet_available": ["affiliate_clicks", "confirmed_conversions", "confirmed_revenue", "epc"],
     "decision": "画像/動画の投稿各2件と用途診断/比較方法各1件を比較し、同じ分母でリンク反応が高いテーマを最初の収益導線候補にする。小標本なら保留。"
   },
+  "first_three_release_plan": {
+    "status": "draft_for_human_manual_posting",
+    "selection_reason": "Reach、Authority、具体的な用途のDemand Testを1件ずつに絞る。affiliate承認前のため、外部広告リンク・商品訴求・PR表記は使わない。",
+    "posting_cadence": "48〜72時間間隔。同じ90分程度の時間帯で投稿し、時間帯差をできるだけ小さくする。実投稿の日時は人間が決める。",
+    "pr_disclosure": {
+      "required_now": false,
+      "reason": "3投稿・誘導先ともactive affiliate URLを含まず、現在の導線はaierabi内の情報ページだけを指す。提携承認後に投稿または誘導先が広告対象を紹介する場合は、投稿とページを再審査してPR表記を追加する。"
+    },
+    "measurement_limit": "投稿別link clicks、投稿リンクCTR、UTM別site sessionsは観測候補。診断の設問完了、記事内の内部CTAクリック、スクロール等は現在イベント化されていないためunknownのまま扱う。",
+    "posts": [
+      {
+        "release_order": 1,
+        "post_id": "x-exp-01",
+        "role": "Reach",
+        "final_draft": "AIツール、候補が増えすぎて『結局どれから触ればいい？』となりがちです。\n\n最初に決めるのはツール名より、\n・文章\n・画像\n・動画\n・調査\n・コード\nのどれをラクにしたいか。\n\n用途から候補を整理したページを置いておきます。",
+        "absolute_url": "https://www.aierabi.jp/recommend?utm_source=x&utm_medium=social&utm_campaign=x-demand-probe-01&utm_content=x-exp-01",
+        "objective": "一般的なAIツール選びの悩みが、aierabiへのクリックに転換するかを確認する。",
+        "hypothesis": "固有サービス名ではなく用途から入る導線は、選択疲れを感じるAI発信読者に自然に受け止められる。",
+        "kpis": ["impressions", "link_clicks", "post_link_ctr", "site_sessions_by_post"],
+        "continue_if": "3件の中で相対的に最も高い投稿リンクCTRを示し、対応するUTM別site sessionが1件以上確認できる。",
+        "revise_if": "表示は得られたのにリンククリックが得られない。次回は用途の列挙を減らし、読者の具体的な作業場面を1つに絞る。",
+        "hold_if": "impressions、link_clicks、site sessionのいずれかが欠損し、比較可能な分母が作れない。"
+      },
+      {
+        "release_order": 2,
+        "post_id": "x-exp-03",
+        "role": "Authority",
+        "final_draft": "AIのランキングを見るとき、1位だけでは決めにくいです。\n\nよく使う用途、料金、無料で確認できる範囲、苦手なこと。\nこの4つを先に見ると、自分に合う候補を絞りやすくなります。\n\n比較するときの見方を整理しました。",
+        "absolute_url": "https://www.aierabi.jp/methodology?utm_source=x&utm_medium=social&utm_campaign=x-demand-probe-01&utm_content=x-exp-03",
+        "objective": "ランキングより選定基準を重視する読者が、比較方針の説明ページへ進むかを確認する。",
+        "hypothesis": "断定的な評価ではなく、比較の見方を示す投稿は売り込み感を抑えつつ信頼形成に寄与する。",
+        "kpis": ["impressions", "link_clicks", "post_link_ctr", "site_sessions_by_post"],
+        "continue_if": "UTM別site sessionを伴い、Reach投稿と比べて投稿リンクCTRが大きく劣後しない。",
+        "revise_if": "表示に対しクリックが弱い。次回は比較基準を4つ列挙せず、読者が直面する比較場面を1つに限定する。",
+        "hold_if": "分母となるimpressionsまたはUTM別site sessionが欠損し、信頼投稿としての寄与を判断できない。"
+      },
+      {
+        "release_order": 3,
+        "post_id": "x-exp-06",
+        "role": "Demand Test",
+        "final_draft": "顔出しせずに説明動画を作りたいとき、映像のきれいさだけだと選びにくいです。\n\n話者アバター、日本語音声、字幕、修正のしやすさ。\n研修や解説なら、どこまで自分の作業に合わせられるかを先に確認したいです。\n\n動画AIを比べるときの見方をまとめました。",
+        "absolute_url": "https://www.aierabi.jp/blog/ai-video-generation-2026?utm_source=x&utm_medium=social&utm_campaign=x-demand-probe-01&utm_content=x-exp-06",
+        "objective": "顔出しなしの説明・研修動画という具体的課題への需要を確認する。",
+        "hypothesis": "動画AIの一般論ではなく、説明動画の制作課題を先に置くと、実用目的の読者がクリックしやすい。",
+        "kpis": ["impressions", "link_clicks", "post_link_ctr", "site_sessions_by_post"],
+        "continue_if": "Reach・Authority投稿より高い投稿リンクCTRを示し、UTM別site sessionが確認できる。",
+        "revise_if": "表示はあるがクリックが弱い。次回は『研修』または『解説』のどちらか1用途に絞る。",
+        "hold_if": "分母が不足する、またはクリックはあってもUTM別site sessionが確認できず、リンク計測の確認が先になる。"
+      }
+    ]
+  },
   "posts": [
     {
       "id": "x-exp-01",

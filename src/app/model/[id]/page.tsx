@@ -7,7 +7,7 @@ import {
   scoreColorHex,
   CATEGORY_LABELS,
 } from "@/lib/data";
-import { Header, Footer, Block, SectionHeader, RankBadge, ShareButton } from "@/components/ui";
+import { Header, Footer, Block, SectionHeader, RankBadge, ShareButton, HistoricalScoreNotice } from "@/components/ui";
 import { ModelScoreChart } from "@/components/ModelScoreChart";
 
 export function generateStaticParams() {
@@ -19,8 +19,8 @@ export function generateMetadata({ params }: { params: { id: string } }) {
   const models = getAllModels();
   const model = models.find((m) => m.id === params.id);
   if (!model) return {};
-  const title = `${model.name}の評価・料金【2026年最新】| AI選び`;
-  const description = `${model.name}（${model.provider}）を独自テストで評価。文章${model.scores.writing}点・コード${model.scores.coding}点・画像${model.scores.image}点・安全性${model.scores.safety}点。`;
+  const title = `${model.name}の保存済み評価（2026年3月時点）| AI選び`;
+  const description = `${model.name}（${model.provider}）の2026年3月時点の独自テスト履歴。現在のモデル、料金、提供条件は公式サイトで確認してください。`;
   return {
     title,
     description,
@@ -79,6 +79,7 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
             <span className="text-[12px] text-[#86868b]">/ 100</span>
           </div>
           <p className="text-[12px] text-[#6e6e73]">{model.descriptionJapanese}</p>
+          <HistoricalScoreNotice />
           <p className="text-[11px] text-[#86868b] mt-1 mb-3.5">提供: {model.provider}</p>
 
           <div className="grid grid-cols-4 gap-1.5">
@@ -122,7 +123,7 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
       {/* Current Models */}
       {details?.currentModels && (
         <Block alt>
-          <SectionHeader title="利用可能なモデル" />
+          <SectionHeader title="保存済みのモデル情報" />
           <div className="overflow-x-auto">
             <table className="w-full text-[12px] border-collapse min-w-[400px]">
               <thead>
@@ -217,44 +218,16 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
         <ModelScoreChart tests={modelTests} />
       </Block>
 
-      {/* Pricing (from details) */}
-      {details?.pricing ? (
-        <Block>
-          <SectionHeader title="料金プラン" />
-          <div className="text-[12px] text-[#6e6e73] mb-3 p-2.5 bg-[#fafafa] rounded">
-            <span className="font-semibold text-[#1d1d1f]">無料枠: </span>{details.pricing.free}
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {details.pricing.plans.map((p: any, i: number) => (
-              <div key={i} className="border border-[#f0f0f0] rounded p-3">
-                <div className="text-[13px] font-semibold text-[#1d1d1f] mb-1">{p.name}</div>
-                <div className="text-[18px] font-bold text-[#4a7ab5]">{p.priceJPY || p.priceUSD}</div>
-                {p.priceJPY && p.priceUSD && (
-                  <div className="text-[10px] text-[#86868b]">{p.priceUSD}</div>
-                )}
-                <div className="text-[11px] text-[#6e6e73] mt-2 leading-relaxed">{p.features}</div>
-              </div>
-            ))}
-          </div>
-        </Block>
-      ) : (
-        <Block>
-          <SectionHeader title="料金プラン" />
-          <div className="flex gap-2">
-            {["free", "standard", "premium"].map((tier) => {
-              const p = (model.pricing as any)[tier];
-              if (!p?.available) return null;
-              return (
-                <div key={tier} className="flex-1 border border-[#e5e5e5] rounded p-3">
-                  <div className="text-[11px] font-bold text-[#86868b] mb-1">{p.name || (tier === "free" ? "無料" : tier)}</div>
-                  <div className="text-[18px] font-bold text-[#4a7ab5]">{p.priceJPY ? `¥${p.priceJPY.toLocaleString()}` : "¥0"}</div>
-                  <div className="text-[10px] text-[#86868b]">/月</div>
-                </div>
-              );
-            })}
-          </div>
-        </Block>
-      )}
+      {/* Pricing changes frequently; do not present the saved snapshot as current. */}
+      <Block>
+        <SectionHeader title="現在の料金・無料条件" />
+        <div className="rounded border border-[#e5e5e5] bg-[#fafafa] p-3 text-[12px] leading-relaxed text-[#6e6e73]">
+          保存済みデータの料金は更新頻度が高いため表示していません。契約前に公式サイトで、利用地域・税・無料枠・プラン条件を確認してください。
+        </div>
+        <a href={model.url} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block rounded border border-[#d2d2d7] px-3 py-1.5 text-[11px] text-[#1d1d1f] no-underline hover:border-[#0066cc] hover:text-[#0066cc]">
+          {model.name}公式サイトで確認 →
+        </a>
+      </Block>
 
       {/* Security & Data Policy */}
       {details && (
@@ -284,7 +257,7 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
       {/* Verdict */}
       {details?.verdict && (
         <Block>
-          <SectionHeader title="AI選びの総評" />
+          <SectionHeader title="AI選びの総評（2026年3月時点）" />
           <div className="bg-[#fafafa] border border-[#e5e5e5] rounded p-4">
             <p className="text-[13px] text-[#333333] leading-relaxed font-medium">{details.verdict}</p>
           </div>
@@ -335,11 +308,11 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
           <div>
             <div className="text-[12px] font-bold">シェア</div>
             <div className="text-[11px] text-[#6e6e73] mt-0.5">
-              「{model.name}の評価：総合{model.scores.overall}点 #AI選び」
+              「{model.name}の2026年3月時点の保存済み評価：総合{model.scores.overall}点 #AI選び」
             </div>
           </div>
           <ShareButton
-            text={`${model.name}の評価：総合${model.scores.overall}点、コード${model.scores.coding}点、安全性${model.scores.safety}点 #AI選び https://aierabi.jp/model/${model.id}`}
+            text={`${model.name}の2026年3月時点の保存済み評価：総合${model.scores.overall}点、コード${model.scores.coding}点、安全性${model.scores.safety}点 #AI選び https://aierabi.jp/model/${model.id}`}
           />
         </div>
       </Block>

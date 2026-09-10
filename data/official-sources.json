@@ -1,6 +1,7 @@
 {
   "schema_version": 1,
   "sources": [
+    { "source_id": "dmm-generative-ai-camp-official", "provider": "DMM.com", "title": "DMM 生成AI CAMP 学び放題", "url": "https://genai.dmm.com/", "source_type": "official", "verified_at": "2026-09-11" },
     { "source_id": "adobe-firefly-plans", "provider": "Adobe", "title": "Adobe Firefly plans", "url": "https://www.adobe.com/products/firefly/plans.html", "source_type": "official", "verified_at": "2026-09-10" },
     { "source_id": "canva-pricing", "provider": "Canva", "title": "Canva pricing", "url": "https://www.canva.com/pricing/", "source_type": "official", "verified_at": "2026-09-10" },
     { "source_id": "heygen-pricing", "provider": "HeyGen", "title": "HeyGen pricing", "url": "https://www.heygen.com/ja-jp/pricing", "source_type": "official", "verified_at": "2026-09-10" },

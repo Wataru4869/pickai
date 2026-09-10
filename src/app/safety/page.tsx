@@ -5,17 +5,17 @@ import {
   getModels,
   scoreColorHex,
 } from "@/lib/data";
-import { Header, Footer, Block, SectionHeader, TrustBadges, ShareButton } from "@/components/ui";
+import { Header, Footer, Block, SectionHeader, TrustBadges, ShareButton, HistoricalScoreNotice } from "@/components/ui";
 import { SafetyHeatmap } from "@/components/SafetyHeatmap";
 import { SafetyAssessment } from "@/components/SafetyAssessment";
 
 export const metadata = {
-  title: "AIの安全性比較ランキング【2026年版】| AI選び",
-  description: "ハルシネーション・著作権・プライバシー等14テストでClaude/ChatGPT/Gemini/Grok/Perplexityの安全性を比較。セキュリティ認証・法規制対応も評価。",
+  title: "AI安全性の保存済み評価（2026年3月時点）| AI選び",
+  description: "2026年3月に実施した14テストの保存済み履歴。現在の安全性、認証、法規制対応を示すものではありません。",
   alternates: { canonical: "/safety" },
   openGraph: {
-    title: "AIの安全性比較ランキング【2026年版】| AI選び",
-    description: "ハルシネーション・著作権・プライバシー等14テストでClaude/ChatGPT/Gemini/Grok/Perplexityの安全性を比較。セキュリティ認証・法規制対応も評価。",
+    title: "AI安全性の保存済み評価（2026年3月時点）| AI選び",
+    description: "2026年3月に実施した14テストの保存済み履歴。現在の安全性、認証、法規制対応を示すものではありません。",
     url: "/safety",
   },
 };
@@ -49,12 +49,13 @@ export default function SafetyPage() {
             14テスト（事実性・著作権・プライバシー・セキュリティ等）＋セキュリティ認証・法規制対応の2軸で評価。
           </p>
           <TrustBadges />
+          <HistoricalScoreNotice />
         </div>
       </div>
 
       {/* Ranking */}
       <Block>
-        <SectionHeader title="安全性ランキング" />
+        <SectionHeader title="安全性の保存済み順位" />
         {ranking.map((r: any, i: number) => {
           const model = models.find((m) => m.id === r.model);
           const bg = i === 0 ? "#a0820a" : i === 1 ? "#86868b" : i === 2 ? "#8b6c4f" : "#d2d2d7";
@@ -147,10 +148,10 @@ export default function SafetyPage() {
           <div className="min-w-0 flex-1">
             <div className="text-[12px] font-semibold text-[#1d1d1f]">シェア</div>
             <div className="text-[11px] text-[#6e6e73] mt-0.5 truncate">
-              AI安全性1位Claude（93.7）2位ChatGPT（90.5）
+              2026年3月時点の保存済み評価：安全性1位Claude（93.7）2位ChatGPT（90.5）
             </div>
           </div>
-          <ShareButton text="AI安全性ランキング：1位Claude（93.7）2位ChatGPT（90.5）3位Gemini（78.4）#AI選び https://aierabi.jp/safety" />
+          <ShareButton text="2026年3月時点の保存済みAI安全性評価：1位Claude（93.7）2位ChatGPT（90.5）3位Gemini（78.4）#AI選び https://aierabi.jp/safety" />
         </div>
       </Block>
 

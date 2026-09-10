@@ -83,7 +83,16 @@ export function TrustBadges() {
     <div className="flex items-center gap-2 mt-3 text-[10px]">
       <span className="inline-flex items-center px-2 py-0.5 rounded bg-[#f5f5f7] text-[#6e6e73] border border-[#e8e8ed] font-medium">独自30テスト</span>
       <span className="inline-flex items-center px-2 py-0.5 rounded bg-[#f5f5f7] text-[#6e6e73] border border-[#e8e8ed] font-medium">採点基準公開</span>
-      <span className="inline-flex items-center px-2 py-0.5 rounded bg-[#f5f5f7] text-[#6e6e73] border border-[#e8e8ed] font-medium">2026.03更新</span>
+      <span className="inline-flex items-center px-2 py-0.5 rounded bg-[#f5f5f7] text-[#6e6e73] border border-[#e8e8ed] font-medium">2026.03測定</span>
+    </div>
+  );
+}
+
+export function HistoricalScoreNotice() {
+  return (
+    <div className="my-3 rounded border border-[#d2d2d7] bg-[#fafafa] px-3 py-2 text-[11px] leading-relaxed text-[#6e6e73]">
+      <span className="font-semibold text-[#1d1d1f]">評価・順位は2026年3月時点の保存済み履歴値です。 </span>
+      現在のモデル性能、提供状況、料金、無料条件を示すものではありません。最新の契約・機能は各社公式サイトで確認してください。
     </div>
   );
 }
@@ -124,10 +133,10 @@ export function Footer() {
     {
       heading: "比較・診断",
       links: [
-        { href: "/", label: "総合ランキング" },
+        { href: "/", label: "総合の保存評価" },
         { href: "/recommend", label: "おすすめ診断" },
         { href: "/switch", label: "乗り換えガイド" },
-        { href: "/cost", label: "コスト計算" },
+        { href: "/cost", label: "料金確認ガイド" },
       ],
     },
     {
@@ -173,7 +182,7 @@ export function Footer() {
           <span>© 2026 AI選び</span>
           <a href="/privacy" className="text-[#999999] hover:text-[#666666] no-underline">プライバシーポリシー</a>
           <a href="/about" className="text-[#999999] hover:text-[#666666] no-underline">運営者情報</a>
-          <span className="ml-auto text-[#999999]">2026.04 更新</span>
+          <span className="ml-auto text-[#999999]">評価履歴: 2026.03</span>
         </div>
       </Container>
     </footer>
