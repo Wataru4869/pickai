@@ -4,7 +4,7 @@ import { Sidebar } from "@/components/Sidebar";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://aierabi.jp"),
+  metadataBase: new URL("https://www.aierabi.jp"),
   title: {
     default: "AIツール比較｜保存済み評価と公式情報 | AI選び",
     template: "%s",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
       { url: "/favicon-48.png", sizes: "48x48", type: "image/png" },
       { url: "/favicon-96.png", sizes: "96x96", type: "image/png" },
       { url: "/favicon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-192.svg", type: "image/svg+xml" },
     ],
     shortcut: "/favicon-48.png",
     apple: "/apple-touch-icon.png",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: "AI選び｜保存済み評価と公式情報でAIを比較",
     description:
       "2026年3月時点の保存済み評価と公式情報を分けて確認できるAIツール比較ガイド。",
-    url: "https://aierabi.jp",
+    url: "https://www.aierabi.jp",
     siteName: "AI選び",
     images: [
       {

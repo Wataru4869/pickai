@@ -279,7 +279,7 @@ export default function RecommendPage() {
               href={withAttribution("/cost")}
               className="block text-center text-[11px] text-[#4a7ab5] mt-2 hover:underline"
             >
-              コスト計算機で年間費用を比較する →
+              料金・無料条件の確認ポイントを見る →
             </a>
           </Block>
 

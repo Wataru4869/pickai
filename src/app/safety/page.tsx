@@ -151,7 +151,7 @@ export default function SafetyPage() {
               2026年3月時点の保存済み評価：安全性1位Claude（93.7）2位ChatGPT（90.5）
             </div>
           </div>
-          <ShareButton text="2026年3月時点の保存済みAI安全性評価：1位Claude（93.7）2位ChatGPT（90.5）3位Gemini（78.4）#AI選び https://aierabi.jp/safety" />
+          <ShareButton text="2026年3月時点の保存済みAI安全性評価：1位Claude（93.7）2位ChatGPT（90.5）3位Gemini（78.4）#AI選び https://www.aierabi.jp/safety" />
         </div>
       </Block>
 

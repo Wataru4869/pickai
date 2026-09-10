@@ -312,7 +312,7 @@ export default function ModelDetailPage({ params }: { params: { id: string } }) 
             </div>
           </div>
           <ShareButton
-            text={`${model.name}の2026年3月時点の保存済み評価：総合${model.scores.overall}点、コード${model.scores.coding}点、安全性${model.scores.safety}点 #AI選び https://aierabi.jp/model/${model.id}`}
+            text={`${model.name}の2026年3月時点の保存済み評価：総合${model.scores.overall}点、コード${model.scores.coding}点、安全性${model.scores.safety}点 #AI選び https://www.aierabi.jp/model/${model.id}`}
           />
         </div>
       </Block>

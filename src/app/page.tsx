@@ -50,7 +50,7 @@ export default function HomePage() {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "AI選び",
-        "url": "https://aierabi.jp",
+        "url": "https://www.aierabi.jp",
         "description": "AIツールの保存済み独自評価と、公式一次情報で確認した客観情報を分けて掲載する比較ガイド。"
       }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
@@ -60,7 +60,7 @@ export default function HomePage() {
         "itemListOrder": "https://schema.org/ItemListOrderDescending",
         "numberOfItems": 5,
         "itemListElement": rankedModels.map((m: any) => ({
-          "@type": "ListItem", "position": m.rank, "name": m.name, "url": `https://aierabi.jp/model/${m.id}`
+          "@type": "ListItem", "position": m.rank, "name": m.name, "url": `https://www.aierabi.jp/model/${m.id}`
         }))
       }) }} />
 
@@ -358,41 +358,11 @@ export default function HomePage() {
         </a>
       </Block>
 
-      {/* Quick Price Comparison */}
+      {/* Pricing changes frequently; do not present saved values as current. */}
       <Block alt>
-        <SectionHeader title="料金比較" />
-        <p className="scroll-hint">→ 横スクロールできます</p>
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse text-[12px]">
-            <thead>
-              <tr>
-                <th className="text-left p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">モデル</th>
-                <th className="text-center p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">無料</th>
-                <th className="text-center p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">月額</th>
-                <th className="text-center p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">総合</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rankedModels.map((m: any) => (
-                <tr key={m.id}>
-                  <td className="p-2 border-b border-[#f0f0f0]">
-                    <span className="text-[13px] font-semibold text-[#1d1d1f]">{m.name}</span>
-                  </td>
-                  <td className="p-2 border-b border-[#f0f0f0] text-center">
-                    {m.pricing?.free?.available
-                      ? <span className="text-[13px] font-semibold text-[#3d7a5f]">◯</span>
-                      : <span className="text-[13px] text-[#86868b]">—</span>}
-                  </td>
-                  <td className="p-2 border-b border-[#f0f0f0] text-center text-[13px] text-[#1d1d1f]">
-                    {m.pricing?.standard?.priceJPY ? `¥${m.pricing.standard.priceJPY.toLocaleString()}` : "—"}
-                  </td>
-                  <td className="p-2 border-b border-[#f0f0f0] text-center text-[13px] font-bold text-[#1d1d1f]">
-                    {m.score}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <SectionHeader title="現在の料金・無料条件" />
+        <div className="rounded border border-[#e5e5e5] bg-white p-3 text-[12px] leading-relaxed text-[#6e6e73]">
+          料金、無料枠、利用上限は変更されます。保存済みの円換算額は表示せず、契約前の確認項目と各社公式サイトへのリンクを案内しています。
         </div>
         <a href="/cost" className="block text-center text-[11px] text-[#6e6e73] mt-3 hover:text-[#0066cc] no-underline py-1">
           料金・無料条件の確認ポイントを見る →
@@ -401,7 +371,7 @@ export default function HomePage() {
 
       {/* Latest Articles */}
       <Block>
-        <SectionHeader title="最新コラム" />
+        <SectionHeader title="保存済みコラム" />
         <div className="space-y-1.5">
           {[
             { slug: "chatgpt-vs-claude-2026", title: "ChatGPT vs Claude｜2026年3月時点の保存済み比較", date: "2026-03-22" },
@@ -432,7 +402,7 @@ export default function HomePage() {
               2026年3月時点の保存済み評価：総合1位ChatGPT、コード1位Claude
             </div>
           </div>
-          <ShareButton text="2026年3月時点の保存済みAI評価：総合1位ChatGPT（86.5）、コード1位Claude（94.3）、安全性1位Claude（93.7）#AI選び https://aierabi.jp" />
+          <ShareButton text="2026年3月時点の保存済みAI評価：総合1位ChatGPT（86.5）、コード1位Claude（94.3）、安全性1位Claude（93.7）#AI選び https://www.aierabi.jp" />
         </div>
         <div className="mt-3">
           <TrustBadges />

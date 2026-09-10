@@ -35,7 +35,7 @@
     "description": "用途別の違いを確認して候補を絞れます。料金・無料条件は遷移先の公式情報を契約直前に確認してください。外部サービスへの申込みはこのCTAから行いません。",
     "links": [
       { "label": "画像生成AIの比較を見る", "url": "/categories/image-generation", "ctaType": "compare", "ctaPosition": "article-end-primary" },
-      { "label": "コスト計算機を使う", "url": "/cost", "ctaType": "compare", "ctaPosition": "article-end-secondary" }
+      { "label": "料金・無料条件の確認ポイントを見る", "url": "/cost", "ctaType": "compare", "ctaPosition": "article-end-secondary" }
     ]
   }
 }
