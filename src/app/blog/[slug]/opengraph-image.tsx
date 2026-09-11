@@ -6,8 +6,9 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 const ARTICLE_TITLES: Record<string, string> = {
-  "ai-agents-comparison-2026": "AIエージェント比較 2026年版",
-  "ai-coding-tools-2026": "AIコーディングツール比較 2026年版",
+  "ai-agents-comparison-2026": "AIエージェントの役割と選び方",
+  "ai-search-engines-comparison-2026": "AI検索の選び方｜出典から比較する",
+  "ai-coding-tools-2026": "AIコーディングツールの選び方",
   "ai-company-guidelines-template-2026": "企業向けAI利用ガイドライン テンプレート",
   "ai-cost-saving-guide-2026": "AIツールのコスト削減ガイド",
   "ai-data-policy-comparison-2026": "AIデータポリシー比較",
@@ -17,8 +18,8 @@ const ARTICLE_TITLES: Record<string, string> = {
   "ai-image-generation-2026": "AI画像生成ツール比較 2026年版",
   "ai-privacy-by-usecase-2026": "用途別AIプライバシー比較",
   "ai-prompt-templates-2026": "AIプロンプトテンプレート集",
-  "ai-safety-ranking-2026": "AI安全性ランキング 2026年版",
-  "ai-tools-2026-trends": "AIツール 2026年トレンド",
+  "ai-safety-ranking-2026": "AI安全性ランキングの読み方",
+  "ai-tools-2026-trends": "2026年9月｜DeepSeek・Qwen・Kimiの更新",
   "ai-tools-how-to-choose-2026": "AIツールの選び方 完全ガイド",
   "ai-video-generation-2026": "AI動画生成ツール比較 2026年版",
   "chatgpt-models-comparison-2026": "ChatGPTモデル比較 2026年版",
@@ -35,7 +36,8 @@ const ARTICLE_TITLES: Record<string, string> = {
   "perplexity-review-2026": "Perplexityレビュー 2026年版",
 };
 
-export default async function Image({ params }: { params: { slug: string } }) {
+export default async function Image({ params: pendingParams }: { params: Promise<{ slug: string }> }) {
+  const params = await pendingParams;
   const title = ARTICLE_TITLES[params.slug] || params.slug.replace(/-/g, " ");
   return new ImageResponse(
     (

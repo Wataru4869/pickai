@@ -36,6 +36,8 @@ module.exports = {
     );
   },
   transform: async (config, path) => {
+    // 保存スコア専用のnoindex履歴ページは検索用sitemapへ載せない。
+    if (path.startsWith('/evaluations/')) return null;
     // /category（単数形）はsitemapから除外（/categories/ 複数形のみ残す）
     if (path === '/category' || path.startsWith('/category/')) {
       return null;

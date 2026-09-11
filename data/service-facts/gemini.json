@@ -1,14 +1,68 @@
 {
-  "schema_version": 1, "service_id": "gemini", "last_verified_at": "2026-09-10", "source_url": "https://one.google.com/about/plans",
+  "schema_version": 1,
+  "service_id": "gemini",
+  "last_verified_at": "2026-09-11",
+  "source_url": "https://support.google.com/gemini/answer/16275805",
   "facts": {
-    "service_name": { "value": "Gemini", "source_id": "google-ai-plans", "verified_at": "2026-09-10" },
-    "provider": { "value": "Google", "source_id": "google-ai-plans", "verified_at": "2026-09-10" },
-    "official_url": { "value": "https://gemini.google.com/", "source_id": "google-ai-plans", "verified_at": "2026-09-10" },
-    "current_plan": { "value": ["without a Google AI plan", "Google AI Plus", "Google AI Pro"], "source_id": "google-ai-plans", "verified_at": "2026-09-10" },
-    "current_price": { "value": { "Google AI Plus": "US$9.99/month", "Google AI Pro": "US$19.99/month" }, "source_id": "google-ai-plans", "verified_at": "2026-09-10" },
-    "free_plan": { "value": true, "source_id": "google-ai-plans", "verified_at": "2026-09-10" },
-    "free_trial": { "value": null, "source_id": null, "verified_at": null },
-    "major_features": { "value": ["Gemini app", "Deep Research", "Gemini in Google apps", "NotebookLM access", "Google Flow access"], "source_id": "google-ai-plans", "verified_at": "2026-09-10" },
-    "availability": { "value": "available with regional restrictions", "source_id": "google-ai-plans", "verified_at": "2026-09-10" }
+    "service_name": {
+      "value": "Gemini",
+      "source_id": "google-ai-plans",
+      "verified_at": "2026-09-10"
+    },
+    "provider": {
+      "value": "Google",
+      "source_id": "google-ai-plans",
+      "verified_at": "2026-09-10"
+    },
+    "official_url": {
+      "value": "https://gemini.google.com/",
+      "source_id": "google-ai-plans",
+      "verified_at": "2026-09-10"
+    },
+    "current_plan": {
+      "value": [
+        "without a Google AI plan",
+        "Google AI Plus",
+        "Google AI Pro"
+      ],
+      "source_id": "google-ai-plans",
+      "verified_at": "2026-09-10"
+    },
+    "current_price": {
+      "value": {
+        "Google AI Plus": "US$9.99/month",
+        "Google AI Pro": "US$19.99/month"
+      },
+      "source_id": "google-ai-plans",
+      "verified_at": "2026-09-10"
+    },
+    "free_plan": {
+      "value": true,
+      "source_id": "google-ai-plans",
+      "verified_at": "2026-09-10"
+    },
+    "free_trial": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "major_features": {
+      "value": [
+        "テキスト・ファイル・画像・動画の理解（Pro）",
+        "Canvas / Gems（利用上限はプラン依存）"
+      ],
+      "source_id": "gemini-app-model-access",
+      "verified_at": "2026-09-11"
+    },
+    "availability": {
+      "value": "Google AI各プランで利用上限・機能が異なる。日本は公式の対象国一覧に掲載。",
+      "source_id": "gemini-app-model-access",
+      "verified_at": "2026-09-11"
+    },
+    "current_product": {
+      "value": "Gemini 3 Flash-Lite / Flash / Pro（Geminiアプリ）",
+      "source_id": "gemini-app-model-access",
+      "verified_at": "2026-09-11"
+    }
   }
 }

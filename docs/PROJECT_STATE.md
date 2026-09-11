@@ -4,12 +4,46 @@
 
 ## 現在地
 
+### 本番反映承認・実行中（2026-09-11）
+
+- ユーザーが現在の改善を本番へ反映することを明示承認。対象はD18/D19の既存差分。recommend・UTM・計測・affiliate無効状態は維持し、main mergeや設定変更は行わない。
+- 再実行した `npm run check` は成功（49ソース、回帰試験、88ページbuild）。対象外の計測/評価JSON/affiliate設定に差分なし。privateはGit対象外。
+- Macロックは人間が解除済み。既存VercelプロジェクトとGitHub接続を確認、作業ブランチはfetch後HEADとoriginが一致。現在のProductionは2a283ef。認証・設定は変更していない。
+- セキュリティ対応は人間承認後に解消。Next15.5.25、sharp0.35.4、PostCSS8.5.28。audit本番/全依存とも0件、check成功。18ページ×3幅・65内部URL・UTM伝播・比較操作を外部通信遮断で確認。詳細は `RELEASE_SECURITY_REVIEW.md`。
+- 次はcommit/push→Preview確認→本番昇格。認証・プロジェクト設定・計測条件は変更しない。
+
+### D19 — 現行9候補の選択比較（2026-09-11、未公開）
+
+- D18の入口改善を拡張。トップは9候補の検索・種類別フィルタ・同種2〜3件比較を主機能にした。中国系モデルも初期表示し、アプリとAPIを同一商品として扱わない。
+- 比較値はpublic service factsだけ。製品・機能・無料条件・価格・提供範囲を項目別source/確認日で表示。台帳49件、facts19件。9月11日に再確認していない旧項目の日付は維持。
+- 独自採点は全9候補で未評価。3月の総合保存表は `/evaluations/2026-03`（noindex/sitemap除外）へ移動し、数値は保持。従来model/compare等の履歴ページは既存URLのまま。
+- raw/manifest/採点ログがないため新得点は未算出。具体的な3問の再評価案と外部実行ゲートは `EVALUATION_RESTART.md`。未実行を明記。
+- 本番、recommend、UTM、CTA、GA、X queue、affiliate設定は変更なし。採点・公開・収益実績の完成ではない。D18以下は前段の記録。
+
+### 2026-09-11 入口・主要ガイド改善（D18、作業ブランチのみ）
+
+- 2記事で確認待ちにする制限はユーザーが解除。トップ/コラム一覧/カテゴリ入口を用途中心に整理し、保存スコアはトップ下段で開いて読める形へ変更。カテゴリ5ページは当時の説明・日本語対応・FAQも履歴と明示し、選び方記事へ接続。
+- 個別ガイドは計5本（検索・安全性・エージェント・トレンド・コーディング）で限定rendererを使用。エージェント/トレンド/コーディングを追加改稿し、未確認の価格・最上級・実測の断定を取り下げた。残りの画像/動画2記事は既存修正を維持。ほか27記事の詳細監査は未完了。
+- 公式台帳45件、service facts19件。DeepSeek/Qwen/KimiのAPI側の製品情報を追加。Windsurfの公式転送先/FAQからDevin Desktopへの名称変更を確認し、factsを訂正。未再確認の料金/無料条件はnull。既存の独自スコア・順位JSONは変更なし。
+- /blogのcanonicalを専用URLへ訂正。5記事にArticle schema、OG画像の見出し訂正。新規ページ0、実行時依存追加0。npm run checkへ公式リンク/HTML/履歴保持等のローカル回帰テストを追加。
+- 本番deploy、main merge、push、課金、SNS、affiliate有効化なし。x-exp-01対象ページ/UTM/CTA/計測仕様は無変更。最終検証と限界はSITE_REFRESH_REPORTのD18追記が正本。以下のD17節は前段の記録。
+
+### 2026-09-11 記事品質改善2本（未公開・確認待ち）
+
+- ユーザーの追加承認（D17）に基づき、AI検索比較と安全性記事の2本を内容・表示両面で改善。用途別カード、目次、意味的な比較表、公式出典、関連する内部CTA。6投稿の直接誘導先、recommend、計測、採点ロジック、affiliate設定は無変更。
+- 安全性記事はSearch Consoleの検索需要から選定。旧5スコアは値を維持し、再現未確認の2026年3月記事記録と明示。企業利用保証・危険度の断定を取り下げ、確認手順に変更。GSCの実表示期間は3か月、集計原本はGit対象外のdata/privateのみ。
+- 公式台帳は34件。DeepSeek公式ニュース/APIモデル指定の2件に加え、NIST・Claude一般消費者向けデータ説明・Gemini Privacy Hubの3件を追加。Geminiの現行ヘルプに記載のないダブルチェックの断定を除去。新モデルの公式発表を独自スコアと混同しない。
+- 1440/390/320pxローカルブラウザ検証で横あふれなし、比較表5行、目次リンク、canonical、CTAのpost/campaign維持、画像/動画記事の既存renderer維持を確認。外部通信（GA・Google Fonts）を遮断。実機・本番は未検証。
+- 過去節の「今回の未コミット差分」は当時の記録。現在のpilot差分・検証限界は `docs/SEARCH_ARTICLE_PILOT_REPORT.md` を参照。公開・pushはしていない。
+- x-exp-01は約8時間時点のスクリーンショット提供あり。24時間/48〜72時間評価とは分離し、次投稿は引き続き保留。詳細実績は公開コード/台帳へ入れない。
+- 2記事のローカル表示・内部リンク・URL/HTML境界・保存スコア保持・広告active 0/広告URL 0を確認。npm run check成功、最終記録はSEARCH_ARTICLE_PILOT_REPORT。未コミット・未push・未deploy。新ページ/依存パッケージ追加なし。全サイトや全service factsの更新完了ではない。
+
 収益化フェーズ1・継続更新基盤フェーズ1のローカル実装は存在する。収益運用・計測の端から端までの検証は未完了。「公開可能」「収益化済み」を意味しない。
 収益実験前の技術BLOCKERを局所修正済み。人間の明示承認に基づき2026-09-11にDMM 生成AI CAMP 学び放題、Winスクール、デジタルハリウッドSTUDIO by LIGへ提携申請し、3件とも人間確認で「申請中」。提携有効化、実URL投入は行っていない。RC `2a283ef` は人間承認後に本番へ反映され、対象URLの表示・canonical・favicon・sitemap・affiliate active 0を確認済み。続いて `x-exp-01` を人間が実投稿し、実績値待ち。
 
 全主要ページを鮮度監査し、再現用raw dataがない2026年3月の独自スコア・順位を削除せず「保存済み履歴値」として明示した。トップ、カテゴリ、モデル、比較、安全性、ブログに共通注意を追加し、metadata/schema/共有文面の「最新」表現も是正。高変動な保存済み料金はカテゴリ・モデル・比較・料金・FAQの現在価格表示から外し、公式確認へ誘導した。現在の作業ブランチでは、次回候補のAI検索記事から個別監査を継続。本番へは未反映。
 
-## 今回のサイト鮮度・UX対応
+## 前回までのサイト鮮度・UX対応（件数は当時。現数は上記）
 
 - `data/official-sources.json` は29件、`data/service-facts/` は16サービス。AI検索記事の個別監査でChatGPT、Claude、Perplexity、Gemini、Grokの公式ヘルプ5件を2026-09-11確認分として追加。既存factsは推測で更新せず、validatorで参照整合性を確認する。
 - ChatGPT、Claude、Gemini、Perplexity、Cursor、GitHub Copilot、Windsurf、Runway、Pika、HeyGen、Synthesia、Adobe Firefly、Canva、Leonardo.Aiほか、登録済み客観情報と画面上の保存評価を分離した。
@@ -23,8 +57,8 @@
 
 | 項目 | 確認した実装/件数 | 意味・限界 |
 | --- | --- | --- |
-| 公式ソース | `data/official-sources.json`: 29件 | URL台帳。うちAI検索機能5件を2026-09-11確認。全文・地域・現行性を全件再検証した状態ではない |
-| 客観情報 | `data/service-facts/`: 16サービス | 公開表示データとは別。料金の課金周期/地域、free_trialの根拠を選定案件から再確認 |
+| 公式ソース | `data/official-sources.json`: 49件 | URL台帳。現行性を全件再検証した状態ではない。各記録の確認日・対象範囲を参照 |
+| 客観情報 | `data/service-facts/`: 19サービス | 公開表示データとは別。新規3件はAPI製品情報中心。価格/地域/無料条件はunknownを保持 |
 | 提携台帳 | 6件、active 0、URL全件null | DMM・Winスクール・デジタルハリウッドSTUDIO by LIGはA8審査中。activeには明示承認日・許可ホスト・対象ページが必須。実URL/参加承認は未入力 |
 | DMM記事 | 非公開queue draft 1件、CTA/広告URL/PR表示なし | 公開一次情報だけを記載。提携承認・公式再確認・人間承認までページ化/公開しない |
 | CTA案 | `data/monetization/content-targets.json`: 19件、全件proposed | rendererはこのマッピングを参照しない。上限・承認は宣言であり汎用強制ではない |
@@ -87,5 +121,5 @@ ASPの認証情報をエージェントへ渡す必要はない。会員限定�
 ## Git・検証
 
 - ブランチ: `work/aierabi-revenue-engine`。RCは `c31783e` と `2a283ef` に整理・push済みで、後者を本番反映済み。main mergeは行っていない。
-- 今回の未コミット差分はAI検索記事、公式ソース台帳、管理文書だけ。`/recommend`、X queue、計測実装、affiliate設定は変更していない。本番deploy・SNS投稿・affiliate有効化なし。
-- `npm run check`: 成功（29 source validation、収益集計テスト、lint、87ページbuild）。既存のfont、Google Fonts取得、edge runtime、caniuse-lite警告のみ。`git diff --check`も成功。buildが生成したsitemap差分はHEADと同一へ戻した。check成功と収益運用の完成は別。
+- 現在の未コミット差分はD18の入口/5ガイド改善とD19の現行比較・履歴移設、公式facts/台帳、テスト、管理文書。`/recommend`、X queue、計測実装、affiliate設定は変更していない。本番deploy・SNS投稿・affiliate有効化なし。
+- `npm run check`: 成功（49 source validation、収益集計・ガイド/現行比較回帰テスト、lint、88ページbuild）。既存のfont、Google Fonts取得、edge runtime、caniuse-lite警告は残る。生成sitemapの無意味な差分は残さない。check成功と収益運用の完成は別。詳細は `SITE_REFRESH_REPORT.md` のD19記録を参照。

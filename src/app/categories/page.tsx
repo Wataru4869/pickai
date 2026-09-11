@@ -1,57 +1,25 @@
-import { Header, Footer, Block, SectionHeader } from "@/components/ui";
+import { Header, Footer } from "@/components/ui";
+import styles from "@/components/Discovery.module.css";
 
 export const metadata = {
-  title: "AIツールカテゴリ別比較【画像・動画・コーディング・エージェント・検索】| AI選び",
+  title: "用途から探すAI比較ガイド｜画像・動画・開発・検索 | AI選び",
+  description: "5カテゴリの選び方ガイドと、2026年3月の保存評価を分けて確認できます。",
   alternates: { canonical: "/categories" },
-  openGraph: {
-    title: "AIツールカテゴリ別比較【画像・動画・コーディング・エージェント・検索】| AI選び",
-    url: "/categories",
-  },
+  openGraph: { title: "用途から探すAI比較ガイド | AI選び", url: "/categories" },
 };
-
 const categories = [
-  { id: "image-generation", label: "画像生成AI", tools: 7, description: "Midjourney、DALL-E 3、Stable Diffusionなど" },
-  { id: "video-generation", label: "動画生成AI", tools: 7, description: "Sora、Runway、Kling AIなど" },
-  { id: "coding-tools", label: "コーディングツール", tools: 7, description: "Claude Code、Cursor、Windsurfなど" },
-  { id: "ai-agents", label: "AIエージェント", tools: 5, description: "Manus、Devin、Claude Computer Useなど" },
-  { id: "ai-search", label: "AI検索", tools: 5, description: "Perplexity、Felo、Gensparkなど" },
+  { id: "image-generation", name: "画像をつくる", description: "作風だけでなく、編集のしやすさと利用条件を見る。", slug: "ai-image-generation-2026" },
+  { id: "video-generation", name: "動画をつくる", description: "素材・尺・顔出しの有無から、制作の入口を選ぶ。", slug: "ai-video-generation-2026" },
+  { id: "coding-tools", name: "コードを書く・直す", description: "作業環境、レビュー、追加利用の条件を比べる。", slug: "ai-coding-tools-2026" },
+  { id: "ai-agents", name: "作業を任せる", description: "エージェントに任せる範囲と、人間の確認を決める。", slug: "ai-agents-comparison-2026" },
+  { id: "ai-search", name: "調べて、まとめる", description: "出典に戻れるか、調べた内容を活用しやすいか。", slug: "ai-search-engines-comparison-2026" },
 ];
-
 export default function CategoriesPage() {
-  return (
-    <div className="min-h-screen bg-[#fbfbfd]">
-      <Header />
-      <div className="bg-white py-6">
-        <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
-          <h1 className="text-[20px] font-bold text-[#1d1d1f] mb-1">カテゴリ別AI比較</h1>
-          <p className="text-[13px] text-[#6e6e73]">
-            汎用AIチャットに加え、画像生成・動画生成・コーディング・エージェント・検索の5カテゴリを網羅。
-          </p>
-        </div>
-      </div>
-
-      <Block>
-        <div className="space-y-2">
-          {categories.map((cat) => (
-            <a
-              key={cat.id}
-              href={`/categories/${cat.id}`}
-              className="flex items-center gap-4 p-4 border border-[#e8e8ed] rounded-md hover:border-[#86868b] transition-colors no-underline text-inherit bg-white"
-            >
-              <div className="flex-1">
-                <div className="text-[14px] font-semibold text-[#1d1d1f]">{cat.label}</div>
-                <div className="text-[11px] text-[#86868b] mt-0.5">{cat.description}</div>
-              </div>
-              <div className="text-right shrink-0">
-                <div className="text-[20px] font-bold text-[#1d1d1f] leading-none">{cat.tools}</div>
-                <div className="text-[10px] text-[#86868b] mt-0.5">ツール比較</div>
-              </div>
-            </a>
-          ))}
-        </div>
-      </Block>
-
-      <Footer />
-    </div>
-  );
+  return <div className={styles.page}><Header /><main>
+    <header className={styles.hero}><div className={styles.container}><p className={styles.eyebrow}>COMPARE BY PURPOSE</p><h1>やりたいことを、<br /><em>比較の出発点に。</em></h1><p className={styles.lead}>まずは用途のガイドへ。<br />過去の評価記録は、別の入口で確認できます。</p></div></header>
+    <div className={styles.container}><section className={styles.section} aria-label="5つの用途">
+      <div className={styles.articleGrid}>{categories.map(cat => <div className={styles.articleCard} key={cat.id}><h2>{cat.name}</h2><p>{cat.description}</p><a className={styles.primary} href={`/blog/${cat.slug}`}>選び方のガイドへ →</a><a className={styles.secondary} href={`/categories/${cat.id}`}>2026年3月の保存評価</a></div>)}</div>
+      <p className={styles.note}>保存評価は現行モデルの順位ではありません。購入・契約前は各社の提供条件を確認してください。</p>
+    </section></div>
+  </main><Footer /></div>;
 }

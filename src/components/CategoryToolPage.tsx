@@ -38,6 +38,10 @@ export function CategoryToolPage({ data, relatedArticles, relatedNote }: {
   relatedArticles?: { href: string; title: string }[];
   relatedNote?: string;
 }) {
+  const guideSlugs: Record<string, string> = {
+    "画像生成AI": "ai-image-generation-2026", "動画生成AI": "ai-video-generation-2026",
+    "コーディングツール": "ai-coding-tools-2026", "AIエージェント": "ai-agents-comparison-2026", "AI検索": "ai-search-engines-comparison-2026",
+  };
   const rankedTools = data.ranking.map((r) => {
     const tool = data.tools.find((t) => t.id === r.toolId);
     return { ...r, tool };
@@ -61,7 +65,7 @@ export function CategoryToolPage({ data, relatedArticles, relatedNote }: {
             {data.categoryLabel}
           </h1>
           <p className="text-[13px] text-[#6e6e73] leading-relaxed">
-            {data.description}
+            {data.lastUpdated}時点の比較記録です。下記の機能説明・対応状況・点数を現在情報とみなさないでください。
           </p>
           <div className="flex items-center gap-2 mt-3 text-[10px]">
             <span className="inline-flex items-center px-2 py-0.5 rounded bg-[#f5f5f7] text-[#6e6e73] border border-[#e8e8ed]">
@@ -75,6 +79,7 @@ export function CategoryToolPage({ data, relatedArticles, relatedNote }: {
             </span>
           </div>
           <HistoricalScoreNotice />
+          {guideSlugs[data.categoryLabel] && <a className="block mt-4 p-4 rounded-lg border border-[#b8cfc3] bg-[#eef5ef] text-[14px] font-semibold text-[#205e4d]" href={`/blog/${guideSlugs[data.categoryLabel]}`}>現在の選定に使う、{data.categoryLabel}の選び方ガイドへ →</a>}
         </div>
       </div>
 
@@ -104,7 +109,7 @@ export function CategoryToolPage({ data, relatedArticles, relatedNote }: {
                     <span className="text-[14px] font-semibold text-[#1d1d1f]">{t.name}</span>
                     <span className="text-[11px] text-[#86868b]">{t.provider}</span>
                     {t.japaneseSupport && (
-                      <span className="text-[9px] font-medium px-1.5 py-0.5 rounded text-[#6e6e73] border border-[#d2d2d7]">日本語対応</span>
+                      <span className="text-[9px] font-medium px-1.5 py-0.5 rounded text-[#6e6e73] border border-[#d2d2d7]">当時の記録：日本語対応</span>
                     )}
                   </div>
                   <div className="text-[11px] text-[#6e6e73] mt-0.5">
@@ -125,7 +130,7 @@ export function CategoryToolPage({ data, relatedArticles, relatedNote }: {
 
       {/* Evaluation Axes */}
       <Block alt>
-        <SectionHeader title="評価軸別スコア" />
+        <SectionHeader title={`評価軸別の保存スコア（${data.lastUpdated}）`} />
         <div className="overflow-x-auto">
           <table className="w-full border-collapse text-[12px]">
             <thead>
@@ -199,12 +204,13 @@ export function CategoryToolPage({ data, relatedArticles, relatedNote }: {
             </div>
 
             <p className="text-[12px] text-[#6e6e73] mb-3 leading-relaxed">
+              【{data.lastUpdated}時点の掲載説明・現在未検証】
               {t.descriptionJapanese || t.bestFor}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
               <div>
-                <div className="text-[11px] font-bold text-[#1d1d1f] mb-1.5 pl-2 border-l-2 border-[#3d7a5f] uppercase tracking-wider">強み</div>
+                <div className="text-[11px] font-bold text-[#1d1d1f] mb-1.5 pl-2 border-l-2 border-[#3d7a5f] uppercase tracking-wider">当時の掲載メモ：強み</div>
                 <div className="text-[11px] text-[#1d1d1f] leading-relaxed">
                   {t.strengths.map((s: string, i: number) => (
                     <div key={i} className="py-1 border-b border-[#f0f0f0] last:border-b-0">・{s}</div>
@@ -212,7 +218,7 @@ export function CategoryToolPage({ data, relatedArticles, relatedNote }: {
                 </div>
               </div>
               <div>
-                <div className="text-[11px] font-bold text-[#1d1d1f] mb-1.5 pl-2 border-l-2 border-[#a05454] uppercase tracking-wider">弱み</div>
+                <div className="text-[11px] font-bold text-[#1d1d1f] mb-1.5 pl-2 border-l-2 border-[#a05454] uppercase tracking-wider">当時の掲載メモ：弱み</div>
                 <div className="text-[11px] text-[#1d1d1f] leading-relaxed">
                   {t.weaknesses.map((w: string, i: number) => (
                     <div key={i} className="py-1 border-b border-[#f0f0f0] last:border-b-0">・{w}</div>
@@ -261,14 +267,15 @@ export function CategoryToolPage({ data, relatedArticles, relatedNote }: {
                   name: item.question,
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: item.answer,
+                    text: `${data.lastUpdated}時点の保存回答で、現在の条件は未検証です。${item.answer}`,
                   },
                 })),
               }),
             }}
           />
           <Block>
-            <SectionHeader title="よくある質問" />
+            <SectionHeader title={`当時のよくある質問（${data.lastUpdated}）`} />
+            <p className="text-[12px] text-[#6e6e73] mb-4">保存回答です。現在の料金・無料枠・性能・提供条件は未検証です。</p>
             <div className="space-y-4">
               {data.faq.map((item, i) => (
                 <div key={i}>

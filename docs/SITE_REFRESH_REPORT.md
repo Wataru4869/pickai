@@ -1,5 +1,84 @@
 # SITE REFRESH REPORT
 
+## D19追加 — 現行候補の選択比較（2026-09-11、未公開）
+
+### 今回の変更
+
+- トップを9候補の比較画面へ変更。大きな導入、確認した中国系モデルの更新欄、種類別フィルタ、モデル/旧名称検索、同種2〜3件の選択比較を実装。固定の選択バーから比較表へ移動・解除できる。画像素材・新依存・新計測基盤なし。
+- 文章/調査: ChatGPT、Claude、Gemini。API: DeepSeek、Qwen、Kimi。開発: Cursor、GitHub Copilot、Devin Desktop。API単体とアプリ契約を同一として選ばせない。用途の問いかけは編集上の分類で、性能推奨ではない。
+- public factsの製品名、機能、無料条件、価格、提供条件にsourceと項目別確認日を付けて表示。未確認はnullのまま「未確認」。価格の税・地域・追加課金を横並びで同一条件と扱わない。
+- ソース49件、facts19件。今回9候補の製品/機能を確認。価格等の再確認していない9月10日項目は日付を維持。Devin DesktopページのFree/Pro/Max等の価格欄は9月11日に確認して反映した。
+- 3月の総合表は `/evaluations/2026-03` へ移設。noindex/follow、sitemap除外。トップでは旧点数を一切表示しない。旧model/compare等は既存URLで履歴を保持。共有ナビは実験保護のため無変更で、左メニューの旧トップ名「総合の保存評価」は公開前に整合を取る残件。
+- 現行9候補すべて「独自スコア：未評価」。新順位・得点・ベンチマーク・安全性評価は作成していない。
+
+### 一次情報
+
+[ChatGPTモデル](https://learn.chatgpt.com/docs/models)、[ChatGPT機能](https://learn.chatgpt.com/docs/features)、[Claude製品](https://claude.com/product/overview)、[Gemini利用範囲](https://support.google.com/gemini/answer/16275805)、[DeepSeek発表](https://www.deepseek.com/en/news/deepseek-v4-1-flash/)、[Qwenモデル履歴](https://docs.qwencloud.com/changelog/models)、[Kimi API](https://platform.kimi.ai/docs/overview)、[Cursor](https://cursor.com/en-US)、[Copilot](https://github.com/features/copilot)、[Devin Desktop](https://devin.ai/desktop)。OpenAI Docsの手順で公式資料を確認し、API/アプリ/プランの対象範囲を分離した。
+
+### 採点調査の結果
+
+evaluation-runsはREADMEだけでraw/manifest/採点ログ0。保存点から現行点を再計算できない。APIや外部アプリの同条件実行は、許可された利用経路・費用/枠・設定の確認が必要。今回は実行なし。`EVALUATION_RESTART.md` に3問の具体案・事前正解・実行ゲートを記録。テスト案は実績でも新しいランキング規則でもない。
+
+### 検証と限界
+
+- `npm run check` 成功: 49ソース、収益集計、ガイドと現行比較の回帰試験、lint、88ページbuild。既存font/caniuse/edge警告は残る。
+- ローカル18ページ×1440/390/320px、内部リンク65種の200応答、横あふれ0、page error 0。検索/該当なし解除、同種選択と異種抑止、比較表、未知値、履歴値の一致、canonical、noindexを確認。5記事の既存CTA post/campaign継承も維持。
+- ブラウザの外部通信を全遮断。実GA送信や外部サービスへの操作はなし。実機Safariは未検証。比較選択イベントは追加しておらず、選択率はunknown。
+- sitemapは生成67 URL/ブログ34件のまま。新規の履歴URLは除外し、生成lastmod等の差分は残さない。新規の組合せSEOページなし。
+- 本番、recommend、UTM、共通CTA、GA、X queue、affiliate設定、採点JSONを変更していない。広告active 0、広告URL 0。commit/push/deployなし。
+
+### 収益への寄与と次の3タスク
+
+候補の絞り込みから関連ガイドへ進む理由を具体化した。SEO/CTR/CVの改善は仮説で、成果とは呼ばない。
+
+1. x-exp-01の成熟した匿名集計を評価し、次投稿を決める。凍結中は今回のトップも公開しない。
+2. 今回の比較画面を人間確認。凍結解除後に共有ナビの名称整合、公開承認・本番検証。既存の承認を自動流用しない。
+3. 採点再開はモデル/経路/無料枠/実行条件の確認とraw取得から。3案件の審査確認以外のASP探索・申請はしない。
+
+## D18追加 — 2026-09-11 主要入口・公式情報・ガイド改善
+
+本節が現在の作業ブランチの追加実装記録。下の旧レポートの件数・範囲は当時のもの。
+
+### 実装したもの
+
+- トップ `/`：スコア/1位/点差中心の導入を、用途別6入口・内容更新記事4件・契約/評価方法/カテゴリ導線へ置換。旧総合スコアは下段の開閉式履歴表で保持。保存評価の優劣を購入推奨に使わず、現在のニュース風の旧変化欄を撤去。WebSite schemaは維持し、順位のItemListは外した。
+- `/blog`：内容更新日順、2列カード/mobile1列、44px以上のフィルタ、選択状態と件数、更新日/公開記録の注意。トップを継承していたcanonicalを `/blog` へ訂正。
+- `/categories`：用途別ガイドと2026年3月の保存評価を別リンクにした。カテゴリ詳細5ページも、冒頭から対応ガイドへ接続。当時の製品説明・日本語対応・FAQ/FAQ schemaを明示し、履歴データ自体は変更しない。
+- 個別ガイド5本：検索・安全性（前段）に、エージェント・トレンド・コーディングを追加。用途の概要表、公式リンク、目次、Article schema、関連する内部CTA2件。OG画像の見出しも本文と整合。画像/動画の既存記事rendererと内容は無変更。
+- DeepSeek/Qwen/KimiのAPI情報をservice factsへ3件追加（計19）。公式ソースは計45。現在の利用プラン・日本向け条件・価格・無料体験等の未確認はnull。モデル公表の優劣を独自スコアに混ぜない。
+- Windsurfの公式ページがDevin Desktopへ転送され、公式FAQが名称変更を案内していることを確認。factsの現行名/URL/機能を訂正し、未再確認価格はnull。旧スコアのWindsurf表記は当時のまま保持。
+- 実行時依存追加0、新規ページ0。通常のローカル回帰試験 `npm run test:guides` をcheckへ追加した。新しい管理・集計・自動生成基盤なし。
+
+### 主な一次情報と範囲
+
+- [DeepSeek V4.1-Flash公式発表](https://www.deepseek.com/en/news/deepseek-v4-1-flash/)：9月10日発表とAPI指定/旧指定名。9月14日の変更は確認時点では予定と明示。
+- [QwenCloudモデル更新](https://docs.qwencloud.com/changelog/models)：9月2日のMax-0902/API側の記録。消費者向けアプリの全プラン保証ではない。
+- [Kimi API概要](https://platform.kimi.ai/docs/overview)：K3等の提供案内。発表日・日本向け契約条件は未確認。
+- [Devin Desktop](https://devin.ai/desktop)：旧Windsurfとの関係と製品機能。個別契約の変更有無を推測しない。
+- [Claude Code概要](https://code.claude.com/docs/en/overview)、[Devin概要](https://docs.devin.ai/get-started/devin-intro)、[Manus](https://manus.im/docs/introduction/welcome)、[CrewAI](https://docs.crewai.com/en/introduction)、[Cursor](https://cursor.com/en-US)、[Copilot](https://github.com/features/copilot)：入口・機能だけを対象とし、実績値・安全認定・導入効果は転載しない。
+
+### 信頼性・収益への寄与
+
+「過去の1位を買う」導線から、「用途の確認→選定ガイド→条件確認」へ整理。既存XとSEO流入から、関連する記事へ進みやすくする仮説。売上・CTR・順位の改善はまだ未実証。スコアJSON・採点ロジック・報酬による順位変更なし。
+
+### 検証・公開境界
+
+- `npm run check`：最終再実行成功。45ソース、収益テスト、新ガイド試験、lint/build（87ページ）を検証。既存font/Google Fonts取得/edge/caniuse警告は残る。新規依存インストールなし。
+- ローカルブラウザで17ページ×1440/390/320pxが成功。HTTP 200、h1/canonical正常、横あふれ0、page error 0、UTM付き内部リンク63種の200応答、履歴開閉・記事フィルタ・Article schemaを確認。5記事のCTA2件ずつにpost/campaign保持を確認。実機Safari・本番は未検証。
+- 自己レビューでトップ履歴表のカテゴリ値の参照漏れを発見・修正。元のmodelsデータとの値一致を永続ローカル回帰試験へ追加し、空表示の見逃しを防ぐ。
+- localhostからGAへ送信しないよう、使い捨てブラウザの全外部リクエストを遮断。UTM回帰試験も同条件。
+- x-exp-01の `/recommend`、UTM、CTA共通実装、計測、X queueは変更なし。affiliate active 0、設定広告URL 0。広告・SNS・deploy・main mergeなし。
+- sitemap生成結果67 URL/ブログ34件。今回新規URLはなく、自動生成による開始時ファイルとの差分を除去。Git上の既存64 URLとの差は前段レポート記載の既存状態であり、次回公開時は生成67件を確認。
+- 未コミット・未push。依存の包括的脆弱性監査や全記事の事実監査は完了と扱わない。privateデータはGit対象外、今回追加の調査は公開公式情報だけ。
+
+### 未完了と次の3件
+
+1. x-exp-01の24時間速報・48〜72時間の成熟した集計を受け取り、次投稿を判断。取得できないrecommend内行動はunknown。
+2. 本番反映前はトップ/コラム/トレンド/エージェント/コーディングの人間レビューと計測凍結解除、別途deploy承認。実績前にデザインを勝者扱いしない。
+3. 3案件の審査状態のみ確認。待機中に改修するなら残り27記事から検索需要のあるモデル解説等を1本ずつ。新モデルの独自評価は再現可能なraw/条件がないため未実施。
+
+以下、前回の鮮度監査レポートを履歴として保持。
+
 作成日: 2026-09-11  
 対象: `work/aierabi-revenue-engine`  
 目的: Xから安心して送客できる情報鮮度・信頼性・行動導線を整え、最初の実CVまでの不要な離脱と誤認を減らす。

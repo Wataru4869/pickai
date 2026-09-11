@@ -1,415 +1,85 @@
-import {
-  getModels,
-  getTests,
-  getOverallRanking,
-  getCategorySummary,
-  getSafetyRanking,
-  getChanges,
-  CATEGORY_LABELS,
-  MODEL_COLORS,
-  scoreColorHex,
-  scoreLabel,
-} from "@/lib/data";
-import {
-  Header,
-  Footer,
-  Block,
-  SectionHeader,
-  RankBadge,
-  ScoreDisplay,
-  CategoryScoreBar,
-  TrustBadges,
-  ShareButton,
-  HistoricalScoreNotice,
-} from "@/components/ui";
-import { CategoryTabs } from "@/components/CategoryTabs";
-import { UseCaseRecommendations } from "@/components/UseCaseRecommendations";
+import type { Metadata } from "next";
+import CurrentComparison from "@/components/CurrentComparison";
+import { currentProducts } from "@/lib/current-comparison";
+import { getAllArticles } from "@/lib/blog";
+import { Header, Footer } from "@/components/ui";
+import styles from "@/components/Discovery.module.css";
 
+export const metadata: Metadata = {
+  title: "AI選び｜AIツール・モデルを機能と公式情報で比較",
+  description: "ChatGPT・Claude・Gemini・DeepSeek・Qwen・Kimiなど9候補を、用途・機能・料金の公式情報で比較。出典と確認日を明示し、過去の独自スコアとは分けて掲載します。",
+  alternates: { canonical: "/" },
+  openGraph: { title: "AI選び｜いまのAIを、自分の選択肢に", description: "9候補を用途・機能・提供条件と公式根拠で比較。", url: "/" },
+  twitter: { title: "AI選び｜いまのAIを、自分の選択肢に", description: "9候補を用途・機能・提供条件と公式根拠で比較。" },
+};
+const purposes = [
+  { mark: "01", name: "画像をつくる", detail: "作風・編集・利用条件から", slug: "ai-image-generation-2026" },
+  { mark: "02", name: "動画をつくる", detail: "素材・尺・制作の目的から", slug: "ai-video-generation-2026" },
+  { mark: "03", name: "調べて、確かめる", detail: "出典・検索・文章化から", slug: "ai-search-engines-comparison-2026" },
+  { mark: "04", name: "開発を手伝ってもらう", detail: "作業環境・レビュー方法から", slug: "ai-coding-tools-2026" },
+  { mark: "05", name: "作業を任せる", detail: "エージェントの役割と権限から", slug: "ai-agents-comparison-2026" },
+  { mark: "06", name: "安全に使う", detail: "入力データ・根拠・公開条件から", slug: "ai-safety-ranking-2026" },
+];
 export default function HomePage() {
-  const models = getModels();
-  const ranking = getOverallRanking();
-  const catSummary = getCategorySummary() as Record<string, any>;
-  const safetyRanking = getSafetyRanking();
-  const changes = getChanges();
-
-  const rankedModels = ranking.map((r: any, i: number) => {
-    const model = models.find((m) => m.id === r.model);
-    return { ...r, ...model, rank: i + 1 };
-  });
-
-  const top = rankedModels[0];
-  const codeBest = [...rankedModels].sort((a, b) => (b.scores?.coding || 0) - (a.scores?.coding || 0))[0];
-  const safetyBest = safetyRanking[0] as any;
-  const safetyBestModel = models.find((m) => m.id === safetyBest?.model);
-
-  return (
-    <div className="min-h-screen bg-white">
-      <Header />
-
+  const articles = getAllArticles();
+  const featured = ["ai-tools-2026-trends", "ai-search-engines-comparison-2026", "ai-safety-ranking-2026", "ai-agents-comparison-2026"]
+    .flatMap(slug => articles.filter(article => article.slug === slug));
+  return <div className={styles.page}>
+    <Header />
+    <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "AI選び",
-        "url": "https://www.aierabi.jp",
-        "description": "AIツールの保存済み独自評価と、公式一次情報で確認した客観情報を分けて掲載する比較ガイド。"
+        "@context": "https://schema.org", "@type": "WebSite", name: "AI選び", url: "https://www.aierabi.jp",
+        description: "公式情報と過去の保存評価を分けて確認するAIツール比較ガイド。",
       }) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "name": "AIツール総合の保存済み評価（2026年3月時点）",
-        "itemListOrder": "https://schema.org/ItemListOrderDescending",
-        "numberOfItems": 5,
-        "itemListElement": rankedModels.map((m: any) => ({
-          "@type": "ListItem", "position": m.rank, "name": m.name, "url": `https://www.aierabi.jp/model/${m.id}`
-        }))
-      }) }} />
-
-      {/* Hero Dashboard */}
-      <div className="bg-white py-6 border-b border-[#e8e8ed]">
-        <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
-          <div className="flex items-center gap-1.5 flex-wrap mb-5">
-            {["独自30テスト", "安全性14項目", "5モデル比較", "2026.03測定"].map((b) => (
-              <span key={b} className="text-[11px] font-medium text-[#6e6e73] px-2 py-0.5 border border-[#d2d2d7] rounded">
-                {b}
-              </span>
-            ))}
-          </div>
-          <HistoricalScoreNotice />
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-            {[
-              {
-                label: "総合1位",
-                sub: "全16テスト平均",
-                name: top?.name,
-                score: top?.score,
-                diff: rankedModels[1] ? `2位に +${(top.score - rankedModels[1].score).toFixed(1)}点差` : "",
-                href: `/model/${top?.id}`,
-              },
-              {
-                label: "コーディング1位",
-                sub: "4テスト平均",
-                name: codeBest?.name,
-                score: codeBest?.scores?.coding,
-                diff: (() => {
-                  const sorted = [...rankedModels].sort((a, b) => (b.scores?.coding || 0) - (a.scores?.coding || 0));
-                  return sorted[1] ? `2位に +${((sorted[0].scores?.coding || 0) - (sorted[1].scores?.coding || 0)).toFixed(1)}点差` : "";
-                })(),
-                href: `/model/${codeBest?.id}`,
-              },
-              {
-                label: "安全性1位",
-                sub: "14テスト評価",
-                name: safetyBestModel?.name,
-                score: safetyBest?.score,
-                diff: safetyRanking[1] ? `2位に +${(safetyBest.score - (safetyRanking[1] as any).score).toFixed(1)}点差` : "",
-                href: `/model/${safetyBestModel?.id}`,
-              },
-            ].map((card) => (
-              <a
-                key={card.label}
-                href={card.href}
-                className="border border-[#d2d2d7] rounded-md overflow-hidden no-underline text-inherit hover:border-[#86868b] transition-colors"
-              >
-                <div className="bg-[#f5f5f7] px-3 py-2 border-b border-[#e8e8ed]">
-                  <div className="text-[13px] font-semibold text-[#1d1d1f]">{card.label}</div>
-                  <div className="text-[10px] font-medium text-[#86868b]">{card.sub}</div>
-                </div>
-                <div className="px-3 py-3">
-                  <div className="text-[13px] font-medium text-[#6e6e73] mb-0.5">{card.name}</div>
-                  <div className="text-[34px] sm:text-[36px] font-bold text-[#1d1d1f] leading-none tracking-tight">{card.score}</div>
-                  <div className="text-[10px] text-[#86868b] mt-1.5">{card.diff}</div>
-                </div>
-              </a>
-            ))}
-          </div>
-
-          <div className="mt-4">
-            <div className="text-[11px] text-[#86868b] mb-1.5">用途から探す</div>
-            <div className="flex gap-1.5 flex-wrap">
-              {[
-                { label: "文章作成", href: "/recommend?use=writing" },
-                { label: "プログラミング", href: "/recommend?use=coding" },
-                { label: "画像生成", href: "/recommend?use=image" },
-                { label: "調べもの", href: "/recommend?use=search" },
-                { label: "おすすめ診断 →", href: "/recommend" },
-              ].map((u) => (
-                <a
-                  key={u.label}
-                  href={u.href}
-                  className="px-3 py-2 sm:py-1.5 border border-[#d2d2d7] rounded text-[12px] font-medium text-[#1d1d1f] no-underline hover:border-[#0066cc] hover:text-[#0066cc] transition-colors"
-                >
-                  {u.label}
-                </a>
-              ))}
+      <header className={styles.explorerHero}>
+        <div className={styles.container}>
+          <div className={styles.heroGrid}>
+            <div>
+              <p className={styles.edition}>AI選び / TOOL & MODEL GUIDE</p>
+              <h1>いまのAIを、<br /><em>自分の選択肢に。</em></h1>
+              <p className={styles.explorerLead}>モデルの名前は変わる。選ぶ理由は、自分の仕事から。<br />9つの候補を、機能・利用条件・公式根拠で比較できます。</p>
+              <div className={styles.heroActions}><a href="#current-comparison">ツール・モデルを比較する ↓</a><a href="#purposes">用途から選び方を読む ↗</a></div>
+              <div className={styles.heroMeta}><span>公式情報を項目別に確認</span><span>独自採点と分離</span><span>最終確認 2026.09.11</span></div>
             </div>
+            <aside className={styles.modelBrief} aria-label="確認したモデル更新">
+              <p className={styles.briefLabel}>MODEL WATCH <span>2026 / 09</span></p>
+              <h2>比較候補は、<br />定番だけではありません。</h2>
+              <a href="#current-comparison"><span>DeepSeek</span><strong>V4.1-Flash</strong><small>9月10日 API提供の発表</small></a>
+              <a href="#current-comparison"><span>Qwen</span><strong>3.8-Max-0902</strong><small>9月2日 APIスナップショット</small></a>
+              <a href="#current-comparison"><span>Kimi</span><strong>K3</strong><small>公式APIの提供案内を確認</small></a>
+              <p>性能順位ではなく、公式発表の確認記録です。</p>
+              <a className={styles.briefRead} href="/blog/ai-tools-2026-trends">更新の意味と確認ポイントを読む →</a>
+            </aside>
           </div>
         </div>
+      </header>
+      <nav className={styles.localNav} aria-label="トップページ内の案内"><div className={styles.container}><a href="#current-comparison">ツール比較</a><a href="#purposes">用途別ガイド</a><a href="#guides-title">コラム</a><a href="/evaluations/2026-03">過去の評価</a></div></nav>
+      <div className={styles.container}>
+        <CurrentComparison products={currentProducts} />
+        <section id="purposes" className={styles.section} aria-labelledby="purpose-title">
+          <p className={styles.eyebrow}>START WITH YOUR TASK</p><h2 id="purpose-title">今日は、何を進めたい？</h2>
+          <div className={styles.purposeGrid}>{purposes.map(p => <a key={p.slug} href={`/blog/${p.slug}`} className={styles.purpose}>
+            <span className={styles.number}>{p.mark}</span><div><h3>{p.name}</h3><p>{p.detail}</p></div><span aria-hidden="true">↗</span>
+          </a>)}</div>
+        </section>
+        <section className={styles.section} aria-labelledby="guides-title">
+          <div className={styles.sectionHeading}><div><p className={styles.eyebrow}>READ & DECIDE</p><h2 id="guides-title">選ぶ前に、読んでおきたい</h2></div><a href="/blog">コラム一覧 →</a></div>
+          <div className={styles.articleGrid}>{featured.map(article => <a className={styles.articleCard} key={article.slug} href={`/blog/${article.slug}`}>
+            <div className={styles.cardMeta}><span>内容更新 <time dateTime={article.updatedAt}>{article.updatedAt}</time></span><span>{article.readingTime}</span></div>
+            <h3>{article.title}</h3><p>{article.description}</p><span className={styles.read}>ガイドを読む →</span>
+          </a>)}</div>
+        </section>
+        <section className={styles.section} aria-labelledby="before-title">
+          <div className={styles.helpPanel}><div><p className={styles.eyebrow}>BEFORE YOU CHOOSE</p><h2 id="before-title">「使えそう」を、<br />「自分に合う」に近づける。</h2></div>
+            <div className={styles.helpLinks}>
+              <a href="/cost"><h3>契約する前に</h3><p>料金・無料条件・追加課金の確認ポイント →</p></a>
+              <a href="/methodology"><h3>点数を見る前に</h3><p>保存評価の根拠と、未検証の範囲 →</p></a>
+              <a href="/categories"><h3>比較対象を広げたいときに</h3><p>5カテゴリのガイドと保存済み比較 →</p></a>
+            </div>
+          </div>
+        </section>
+
       </div>
-
-      {/* Weekly Changes */}
-      <Block alt>
-        <div className="flex items-baseline justify-between gap-3 mb-4">
-          <h2 className="text-[17px] font-bold text-[#1d1d1f] pl-3 border-l-[3px] border-[#1d1d1f]">
-            {`保存済みスコアの履歴（${changes.period}）`}
-          </h2>
-          <span className="text-[10px] font-medium text-[#6e6e73] shrink-0">
-            最終更新: {changes.lastUpdated}
-          </span>
-        </div>
-        <div className="space-y-0">
-          {changes.changes.map((c: any) => (
-            <div key={c.model} className="flex items-center gap-2 sm:gap-3 py-2.5 border-b border-[#f0f0f0] last:border-b-0">
-              <span className="text-[13px] font-semibold text-[#1d1d1f] w-[80px] sm:w-[90px]">{c.modelName}</span>
-              <span className="text-[15px] font-bold text-[#1d1d1f] w-[44px] text-right">{c.newScore}</span>
-              <span className={`inline-flex items-center justify-end gap-0.5 text-[12px] font-semibold w-14 text-right ${
-                c.change > 0 ? "text-[#3d7a5f]" : c.change < 0 ? "text-[#a05454]" : "text-[#86868b]"
-              }`}>
-                <span className="text-[11px] leading-none">
-                  {c.change > 0 ? "↑" : c.change < 0 ? "↓" : "—"}
-                </span>
-                <span>
-                  {c.change > 0 ? `+${c.change}` : c.change < 0 ? `${c.change}` : "±0"}
-                </span>
-              </span>
-              <span className="text-[11px] text-[#86868b] flex-1">{c.note}</span>
-            </div>
-          ))}
-        </div>
-        {changes.news.length > 0 && (
-          <div className="mt-3 pt-3 border-t border-[#f0f0f0]">
-            <div className="text-[11px] font-semibold text-[#6e6e73] mb-1">更新情報</div>
-            {changes.news.slice(0, 3).map((n: any, i: number) => (
-              <div key={i} className="flex gap-2 text-[11px] text-[#6e6e73] py-0.5">
-                <span className="text-[#86868b] shrink-0">{n.date}</span>
-                <span>{n.text}</span>
-              </div>
-            ))}
-          </div>
-        )}
-      </Block>
-
-      {/* Overall Ranking */}
-      <Block>
-        <SectionHeader title="総合の保存済み評価" />
-        <p className="scroll-hint">→ 横スクロールできます</p>
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse text-[12px]">
-            <thead>
-              <tr>
-                <th className="text-left p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] w-6 uppercase tracking-wider"></th>
-                <th className="text-left p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">モデル</th>
-                <th className="text-center p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">総合</th>
-                <th className="text-center p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">文章</th>
-                <th className="text-center p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">コード</th>
-                <th className="text-center p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">画像</th>
-                <th className="text-center p-2 text-[10px] font-medium text-[#86868b] border-b-2 border-[#d2d2d7] uppercase tracking-wider">安全性</th>
-              </tr>
-            </thead>
-            <tbody>
-              {(() => {
-                const writingBest = [...rankedModels].sort((a, b) => (b.scores?.writing || 0) - (a.scores?.writing || 0))[0];
-                const codingBest2 = [...rankedModels].sort((a, b) => (b.scores?.coding || 0) - (a.scores?.coding || 0))[0];
-                const imageBest = [...rankedModels].sort((a, b) => (b.scores?.image || 0) - (a.scores?.image || 0))[0];
-                const safetyBestId = (safetyRanking[0] as any)?.model;
-
-                return rankedModels.map((m: any) => {
-                  const cats = [
-                    { key: "writing", score: m.scores?.writing, isBest: m.id === writingBest.id },
-                    { key: "coding", score: m.scores?.coding, isBest: m.id === codingBest2.id },
-                    { key: "image", score: m.scores?.image, isBest: m.id === imageBest.id },
-                    { key: "safety", score: m.scores?.safety, isBest: m.id === safetyBestId },
-                  ];
-
-                  return (
-                    <tr key={m.id} className="hover:bg-[#f9f9fb]">
-                      <td className="p-2 border-b border-[#f0f0f0]">
-                        <span className={`text-[14px] font-bold ${
-                          m.rank === 1 ? "text-[#a0820a]" : m.rank === 2 ? "text-[#86868b]" : m.rank === 3 ? "text-[#8b6c4f]" : "text-[#d2d2d7]"
-                        }`}>
-                          {m.rank}
-                        </span>
-                      </td>
-                      <td className="p-2 border-b border-[#f0f0f0]">
-                        <a href={`/model/${m.id}`} className="no-underline text-inherit">
-                          <span className="text-[14px] font-semibold text-[#1d1d1f]">{m.name}</span>
-                          <span className="text-[11px] text-[#86868b] ml-1.5">{m.provider}</span>
-                        </a>
-                      </td>
-                      <td className="p-2 border-b border-[#f0f0f0] text-center">
-                        <span className="text-[17px] font-bold text-[#1d1d1f]">{m.score}</span>
-                        <span className="block text-[9px] font-medium mt-0.5" style={{ color: scoreColorHex(m.score) }}>
-                          {scoreLabel(m.score)}
-                        </span>
-                      </td>
-                      {cats.map((cat) => (
-                        <td
-                          key={cat.key}
-                          className="p-2 border-b border-[#f0f0f0] text-center"
-                          style={cat.isBest ? { backgroundColor: "#f5f8fc" } : undefined}
-                        >
-                          <span className="text-[13px] font-semibold text-[#1d1d1f]">{cat.score}</span>
-                          {cat.isBest && (
-                            <span className="block text-[9px] font-semibold text-[#4a7ab5]">1位</span>
-                          )}
-                          <div className="w-full h-[3px] bg-[#f0f0f0] rounded-sm mt-1">
-                            <div
-                              className="h-full rounded-sm"
-                              style={{
-                                width: `${cat.score}%`,
-                                backgroundColor: scoreColorHex(cat.score || 0),
-                              }}
-                            />
-                          </div>
-                        </td>
-                      ))}
-                    </tr>
-                  );
-                });
-              })()}
-            </tbody>
-          </table>
-        </div>
-
-        {/* Score Legend */}
-        <div className="flex gap-3 mt-3 pt-3 border-t border-[#f0f0f0] flex-wrap items-center">
-          {[
-            { color: "#3d7a5f", label: "85+ トップクラス" },
-            { color: "#4a6a8a", label: "70-84 実用十分" },
-            { color: "#b08d57", label: "50-69 制約あり" },
-            { color: "#a05454", label: "50未満 非推奨" },
-          ].map((l) => (
-            <div key={l.label} className="flex items-center gap-1 text-[10px] text-[#86868b]">
-              <div className="w-2 h-[3px] rounded-sm" style={{ backgroundColor: l.color }} />
-              {l.label}
-            </div>
-          ))}
-          <div className="flex items-center gap-1 text-[10px] text-[#86868b]">
-            <span className="inline-block w-3 h-3 rounded-sm" style={{ backgroundColor: "#f5f8fc" }} />
-            <span>各カテゴリの最高得点項目</span>
-          </div>
-        </div>
-      </Block>
-
-      {/* Category Tabs */}
-      <Block alt>
-        <SectionHeader title="カテゴリ別の保存済み評価" />
-        <CategoryTabs />
-      </Block>
-
-      {/* Use Case Recommendations */}
-      <Block>
-        <SectionHeader title="用途別おすすめ" />
-        <UseCaseRecommendations />
-      </Block>
-
-      {/* Category Links */}
-      <Block alt>
-        <SectionHeader title="カテゴリ別AI比較" />
-        <p className="text-[10px] text-[#86868b] mb-3">汎用AI以外の専門ツールも網羅。外部レビュー・ベンチマーク基準。</p>
-        <div className="flex gap-2 overflow-x-auto pb-2">
-          {[
-            { href: "/categories/image-generation", label: "画像生成", count: 7 },
-            { href: "/categories/video-generation", label: "動画生成", count: 7 },
-            { href: "/categories/coding-tools", label: "コーディング", count: 7 },
-            { href: "/categories/ai-agents", label: "AIエージェント", count: 5 },
-            { href: "/categories/ai-search", label: "AI検索", count: 5 },
-          ].map((cat) => (
-            <a
-              key={cat.href}
-              href={cat.href}
-              className="min-w-[140px] flex-shrink-0 border border-[#d2d2d7] rounded-md overflow-hidden no-underline text-inherit bg-white hover:border-[#86868b] transition-colors"
-            >
-              <div className="bg-[#f5f5f7] px-3 py-2 border-b border-[#e8e8ed]">
-                <div className="text-[13px] font-semibold text-[#1d1d1f]">{cat.label}</div>
-              </div>
-              <div className="px-3 py-2">
-                <div className="text-[20px] font-bold text-[#1d1d1f] leading-none">{cat.count}</div>
-                <div className="text-[10px] text-[#86868b] mt-1">ツール比較</div>
-              </div>
-            </a>
-          ))}
-        </div>
-      </Block>
-
-      {/* Safety Summary */}
-      <Block>
-        <SectionHeader title="安全性の保存済み評価" />
-        <p className="text-[10px] text-[#86868b] mb-3">14テスト＋セキュリティ認証の加重スコア</p>
-        {safetyRanking.map((r: any, i: number) => {
-          const model = models.find((m) => m.id === r.model);
-          const rankColor = i === 0 ? "text-[#a0820a]" : i === 1 ? "text-[#86868b]" : i === 2 ? "text-[#8b6c4f]" : "text-[#d2d2d7]";
-          return (
-            <div
-              key={r.model}
-              className="flex items-center gap-2 sm:gap-3 py-2.5 border-b border-[#f0f0f0] last:border-b-0"
-            >
-              <span className={`text-[13px] font-bold w-5 text-center ${rankColor}`}>{i + 1}</span>
-              <span className="text-[13px] font-semibold text-[#1d1d1f] w-[80px] sm:w-[90px]">{model?.name}</span>
-              <div className="flex-1 h-1 bg-[#f0f0f0] rounded-sm">
-                <div className="h-full rounded-sm" style={{ width: `${r.score}%`, backgroundColor: scoreColorHex(r.score) }} />
-              </div>
-              <span className="text-[14px] font-bold text-[#1d1d1f] w-[44px] text-right">{r.score}</span>
-            </div>
-          );
-        })}
-        <a href="/safety" className="block text-center text-[11px] text-[#6e6e73] mt-3 hover:text-[#0066cc] no-underline py-1">
-          安全性の詳細比較を見る →
-        </a>
-      </Block>
-
-      {/* Pricing changes frequently; do not present saved values as current. */}
-      <Block alt>
-        <SectionHeader title="現在の料金・無料条件" />
-        <div className="rounded border border-[#e5e5e5] bg-white p-3 text-[12px] leading-relaxed text-[#6e6e73]">
-          料金、無料枠、利用上限は変更されます。保存済みの円換算額は表示せず、契約前の確認項目と各社公式サイトへのリンクを案内しています。
-        </div>
-        <a href="/cost" className="block text-center text-[11px] text-[#6e6e73] mt-3 hover:text-[#0066cc] no-underline py-1">
-          料金・無料条件の確認ポイントを見る →
-        </a>
-      </Block>
-
-      {/* Latest Articles */}
-      <Block>
-        <SectionHeader title="保存済みコラム" />
-        <div className="space-y-1.5">
-          {[
-            { slug: "chatgpt-vs-claude-2026", title: "ChatGPT vs Claude｜2026年3月時点の保存済み比較", date: "2026-03-22" },
-            { slug: "ai-tools-how-to-choose-2026", title: "【2026年版】AIツールの選び方完全ガイド", date: "2026-03-22" },
-            { slug: "gemini-vs-chatgpt-2026", title: "Gemini vs ChatGPT 比較【2026年版】", date: "2026-03-22" },
-          ].map((a) => (
-            <a
-              key={a.slug}
-              href={`/blog/${a.slug}`}
-              className="flex items-center justify-between p-3 border border-[#e8e8ed] rounded hover:border-[#86868b] transition-colors no-underline text-inherit bg-white"
-            >
-              <span className="text-[13px] font-medium text-[#1d1d1f]">{a.title}</span>
-              <span className="text-[10px] text-[#86868b] shrink-0 ml-3">{a.date}</span>
-            </a>
-          ))}
-        </div>
-        <a href="/blog" className="block text-center text-[11px] text-[#6e6e73] mt-3 hover:text-[#0066cc] no-underline py-1">
-          全てのコラムを見る →
-        </a>
-      </Block>
-
-      {/* Share + Badges */}
-      <Block alt>
-        <div className="flex items-center justify-between border border-[#d2d2d7] rounded-md p-3 bg-white">
-          <div className="min-w-0 flex-1">
-            <div className="text-[12px] font-semibold text-[#1d1d1f]">この比較結果をシェア</div>
-            <div className="text-[11px] text-[#6e6e73] mt-0.5 truncate">
-              2026年3月時点の保存済み評価：総合1位ChatGPT、コード1位Claude
-            </div>
-          </div>
-          <ShareButton text="2026年3月時点の保存済みAI評価：総合1位ChatGPT（86.5）、コード1位Claude（94.3）、安全性1位Claude（93.7）#AI選び https://www.aierabi.jp" />
-        </div>
-        <div className="mt-3">
-          <TrustBadges />
-        </div>
-      </Block>
-
-      <Footer />
-    </div>
-  );
+    </main><Footer />
+  </div>;
 }

@@ -15,7 +15,8 @@ export function generateStaticParams() {
   return models.map((m) => ({ id: m.id }));
 }
 
-export function generateMetadata({ params }: { params: { id: string } }) {
+export async function generateMetadata({ params: pendingParams }: { params: Promise<{ id: string }> }) {
+  const params = await pendingParams;
   const models = getAllModels();
   const model = models.find((m) => m.id === params.id);
   if (!model) return {};
@@ -29,7 +30,8 @@ export function generateMetadata({ params }: { params: { id: string } }) {
   };
 }
 
-export default function ModelDetailPage({ params }: { params: { id: string } }) {
+export default async function ModelDetailPage({ params: pendingParams }: { params: Promise<{ id: string }> }) {
+  const params = await pendingParams;
   const models = getAllModels();
   const model = models.find((m) => m.id === params.id);
   if (!model) notFound();

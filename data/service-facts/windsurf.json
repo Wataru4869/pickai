@@ -1,14 +1,73 @@
 {
-  "schema_version": 1, "service_id": "windsurf", "last_verified_at": "2026-09-10", "source_url": "https://windsurf.com/editor",
+  "schema_version": 1,
+  "service_id": "windsurf",
+  "last_verified_at": "2026-09-11",
+  "source_url": "https://devin.ai/desktop",
   "facts": {
-    "service_name": { "value": "Windsurf", "source_id": "windsurf-pricing", "verified_at": "2026-09-10" },
-    "provider": { "value": "Windsurf", "source_id": "windsurf-pricing", "verified_at": "2026-09-10" },
-    "official_url": { "value": "https://windsurf.com/", "source_id": "windsurf-pricing", "verified_at": "2026-09-10" },
-    "current_plan": { "value": ["Free", "Pro", "Max"], "source_id": "windsurf-pricing", "verified_at": "2026-09-10" },
-    "current_price": { "value": { "Free": "US$0", "Pro": "US$20/month", "Max": "US$200/month" }, "source_id": "windsurf-pricing", "verified_at": "2026-09-10" },
-    "free_plan": { "value": true, "source_id": "windsurf-pricing", "verified_at": "2026-09-10" },
-    "free_trial": { "value": null, "source_id": null, "verified_at": null },
-    "major_features": { "value": ["AI coding editor", "extensions", "MCP servers"], "source_id": "windsurf-pricing", "verified_at": "2026-09-10" },
-    "availability": { "value": "available", "source_id": "windsurf-pricing", "verified_at": "2026-09-10" }
+    "service_name": {
+      "value": "Devin Desktop（旧Windsurf）",
+      "source_id": "devin-desktop-overview",
+      "verified_at": "2026-09-11"
+    },
+    "provider": {
+      "value": "Cognition",
+      "source_id": "devin-desktop-overview",
+      "verified_at": "2026-09-11"
+    },
+    "official_url": {
+      "value": "https://devin.ai/desktop",
+      "source_id": "devin-desktop-overview",
+      "verified_at": "2026-09-11"
+    },
+    "current_product": {
+      "value": "Devin Desktop",
+      "source_id": "devin-desktop-overview",
+      "verified_at": "2026-09-11"
+    },
+    "current_plan": {
+      "value": [
+        "Free",
+        "Pro",
+        "Max",
+        "Teams",
+        "Enterprise"
+      ],
+      "source_id": "devin-desktop-overview",
+      "verified_at": "2026-09-11"
+    },
+    "current_price": {
+      "value": {
+        "Free": "$0",
+        "Pro": "$20 / month",
+        "Max": "$200 / month",
+        "Teams": "$80 / month + $40 / month per full seat",
+        "Enterprise": "要問い合わせ"
+      },
+      "source_id": "devin-desktop-overview",
+      "verified_at": "2026-09-11"
+    },
+    "free_plan": {
+      "value": true,
+      "source_id": "devin-desktop-overview",
+      "verified_at": "2026-09-11"
+    },
+    "free_trial": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "major_features": {
+      "value": [
+        "IDE上での開発",
+        "Spaces・Kanbanによるエージェント管理"
+      ],
+      "source_id": "devin-desktop-overview",
+      "verified_at": "2026-09-11"
+    },
+    "availability": {
+      "value": "旧Windsurfの名称変更。既存プランの引継ぎは公式FAQを確認。",
+      "source_id": "devin-desktop-overview",
+      "verified_at": "2026-09-11"
+    }
   }
 }

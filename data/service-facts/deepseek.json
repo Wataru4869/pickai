@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "service_id": "deepseek",
+  "last_verified_at": "2026-09-11",
+  "source_url": "https://www.deepseek.com/en/news/deepseek-v4-1-flash/",
+  "facts": {
+    "service_name": {
+      "value": "DeepSeek",
+      "source_id": "deepseek-v41-flash-release",
+      "verified_at": "2026-09-11"
+    },
+    "provider": {
+      "value": "DeepSeek",
+      "source_id": "deepseek-v41-flash-release",
+      "verified_at": "2026-09-11"
+    },
+    "official_url": {
+      "value": "https://www.deepseek.com/",
+      "source_id": "deepseek-v41-flash-release",
+      "verified_at": "2026-09-11"
+    },
+    "current_plan": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "current_price": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "free_plan": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "free_trial": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "current_product": {
+      "value": "DeepSeek-V4.1-Flash (API: deepseek-flash)",
+      "source_id": "deepseek-v41-flash-release",
+      "verified_at": "2026-09-11"
+    },
+    "major_features": {
+      "value": [
+        "ネイティブ画像理解",
+        "deepseek-flashでAPI提供"
+      ],
+      "source_id": "deepseek-v41-flash-release",
+      "verified_at": "2026-09-11"
+    },
+    "availability": {
+      "value": "9月10日にAPI提供を発表。旧V4-Pro指定の転送変更は9月14日04:00 UTCからの予定。日本向け契約条件・アプリの対象プランは未確認。",
+      "source_id": "deepseek-v41-flash-release",
+      "verified_at": "2026-09-11"
+    }
+  }
+}

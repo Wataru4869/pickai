@@ -12,7 +12,8 @@ export function generateStaticParams() {
   return getCategories().map((c) => ({ id: c.id }));
 }
 
-export function generateMetadata({ params }: { params: { id: string } }) {
+export async function generateMetadata({ params: pendingParams }: { params: Promise<{ id: string }> }) {
+  const params = await pendingParams;
   const cat = getCategoryById(params.id);
   if (!cat) return {};
   const title = `${cat.nameJapanese}AI比較｜外部ベンチマーク＋独自テスト｜AI選び`;
@@ -24,7 +25,8 @@ export function generateMetadata({ params }: { params: { id: string } }) {
   };
 }
 
-export default function CategoryDetailPage({ params }: { params: { id: string } }) {
+export default async function CategoryDetailPage({ params: pendingParams }: { params: Promise<{ id: string }> }) {
+  const params = await pendingParams;
   const cat = getCategoryById(params.id);
   if (!cat) notFound();
 

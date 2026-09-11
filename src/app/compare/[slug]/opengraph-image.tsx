@@ -20,7 +20,8 @@ function scoreColor(score: number): string {
   return "#a05454";
 }
 
-export default async function Image({ params }: { params: { slug: string } }) {
+export default async function Image({ params: pendingParams }: { params: Promise<{ slug: string }> }) {
+  const params = await pendingParams;
   const match = params.slug.match(/^(.+)-vs-(.+)$/);
   if (!match) {
     return new ImageResponse(

@@ -30,7 +30,8 @@ export function generateStaticParams() {
   return params;
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params: pendingParams }: { params: Promise<{ slug: string }> }) {
+  const params = await pendingParams;
   const parsed = parseSlug(params.slug);
   if (!parsed) return {};
   const models = getAllModels();
@@ -48,7 +49,8 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   };
 }
 
-export default function ComparePage({ params }: { params: { slug: string } }) {
+export default async function ComparePage({ params: pendingParams }: { params: Promise<{ slug: string }> }) {
+  const params = await pendingParams;
   const parsed = parseSlug(params.slug);
   if (!parsed) notFound();
 

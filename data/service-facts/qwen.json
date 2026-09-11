@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "service_id": "qwen",
+  "last_verified_at": "2026-09-11",
+  "source_url": "https://docs.qwencloud.com/changelog/models",
+  "facts": {
+    "service_name": {
+      "value": "Qwen",
+      "source_id": "qwencloud-model-releases",
+      "verified_at": "2026-09-11"
+    },
+    "provider": {
+      "value": "Alibaba Cloud",
+      "source_id": "qwencloud-platform",
+      "verified_at": "2026-09-11"
+    },
+    "official_url": {
+      "value": "https://www.qwencloud.com/",
+      "source_id": "qwencloud-model-releases",
+      "verified_at": "2026-09-11"
+    },
+    "current_plan": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "current_price": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "free_plan": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "free_trial": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "current_product": {
+      "value": "Qwen3.8-Max-0902 / qwen3.8-max-2026-09-02 (API snapshot announced 2026-09-02)",
+      "source_id": "qwencloud-model-releases",
+      "verified_at": "2026-09-11"
+    },
+    "major_features": {
+      "value": [
+        "1Mコンテキスト・思考モード",
+        "画像理解・ツール利用"
+      ],
+      "source_id": "qwencloud-model-releases",
+      "verified_at": "2026-09-11"
+    },
+    "availability": {
+      "value": "9月2日付のAPIスナップショット。Qwenアプリの対象プラン・日本向け条件は未確認。",
+      "source_id": "qwencloud-model-releases",
+      "verified_at": "2026-09-11"
+    }
+  }
+}

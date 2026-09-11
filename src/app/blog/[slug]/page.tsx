@@ -4,12 +4,14 @@ import { Header, Footer } from "@/components/ui";
 import { scoreColorHex, MODEL_COLORS } from "@/lib/data";
 import ArticleCTA, { hasActiveAffiliateLink } from "@/components/ArticleCTA";
 import affiliateConfig from "@/data/affiliate-config.json";
+import ReviewedGuideArticle from "@/components/ReviewedGuideArticle";
 
 export function generateStaticParams() {
   return getArticleSlugs().map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params: pendingParams }: { params: Promise<{ slug: string }> }) {
+  const params = await pendingParams;
   const article = getArticleBySlug(params.slug);
   if (!article) return {};
   const title = `${article.title} | AI選び`;
@@ -336,13 +338,15 @@ function safeAttribution(value: string | string[] | undefined) {
   return candidate && /^[a-z0-9][a-z0-9_-]{0,63}$/.test(candidate) ? candidate : undefined;
 }
 
-export default function BlogArticlePage({
-  params,
-  searchParams,
+export default async function BlogArticlePage({
+  params: pendingParams,
+  searchParams: pendingSearchParams,
 }: {
-  params: { slug: string };
-  searchParams?: SearchParams;
+  params: Promise<{ slug: string }>;
+  searchParams?: Promise<SearchParams>;
 }) {
+  const params = await pendingParams;
+  const searchParams = await pendingSearchParams;
   const article = getArticleBySlug(params.slug);
   if (!article) notFound();
 
@@ -358,6 +362,14 @@ export default function BlogArticlePage({
     : null;
   const contentId = `/blog/${article.slug}`;
   const showAffiliateDisclosure = hasActiveAffiliateLink(article.cta, contentId);
+
+  // Explicitly reviewed guides only. Affiliate content retains the disclosure renderer.
+  if (["ai-search-engines-comparison-2026", "ai-safety-ranking-2026", "ai-agents-comparison-2026", "ai-tools-2026-trends", "ai-coding-tools-2026"].includes(article.slug) && !showAffiliateDisclosure && article.cta?.type === "internal") {
+    return <ReviewedGuideArticle article={article} attribution={{
+      postId: safeAttribution(searchParams?.utm_content),
+      campaignId: safeAttribution(searchParams?.utm_campaign),
+    }} />;
+  }
 
   return (
     <div className="min-h-screen bg-[#fbfbfd]">

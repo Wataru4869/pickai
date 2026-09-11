@@ -2,6 +2,7 @@
 
 import affiliateConfig from "@/data/affiliate-config.json";
 import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 
 declare global {
   interface Window {
@@ -49,7 +50,8 @@ function safeDimension(value: string | null, fallback: string, pattern: RegExp, 
   return value;
 }
 
-export default function AffiliateRedirectPage({ params }: { params: { service: string } }) {
+export default function AffiliateRedirectPage() {
+  const params = useParams<{ service: string }>();
   const [invalidSource, setInvalidSource] = useState(false);
   const service = (affiliateConfig.services as AffiliateService[]).find(
     (candidate) => candidate.service_id === params.service

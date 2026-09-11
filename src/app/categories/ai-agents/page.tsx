@@ -16,11 +16,11 @@ export const metadata = {
 const relatedArticles = [
   {
     href: "/blog/openclaw-guide-2026",
-    title: "OpenClawとは？2026年最注目の自律型AIエージェントを日本語で徹底解説",
+    title: "OpenClawの過去の記事記録（現在の条件は未確認）",
   },
   {
     href: "/blog/ai-agents-comparison-2026",
-    title: "2026年の自律型AIエージェント比較｜OpenClaw・Devin・Claude Code・Operator",
+    title: "AIエージェント比較｜Claude Code・Devin・Manus・CrewAIの役割と選び方",
   },
 ];
 

@@ -1,11 +1,18 @@
 {
   "slug": "ai-search-engines-comparison-2026",
   "title": "AI検索の選び方 2026｜Perplexity・ChatGPT・Gemini・Claude・Grok",
-  "description": "AI検索5サービスの公式情報で確認できる機能と、出典・鮮度・回答品質を自分で比較する手順を整理。再現できない順位や固定スコアではなく、用途に合う選び方を解説します。",
+  "description": "AI検索5サービスを出典・検索方法・利用条件で比較。Perplexity、ChatGPT、Gemini、Claude、Grokの用途別の選び方、DeepSeekなど新モデルと検索機能の違い、同条件で試す質問例を整理。",
   "publishedAt": "2026-04-26",
   "updatedAt": "2026-09-11",
   "category": "comparison",
-  "tags": ["AI検索", "Perplexity", "ChatGPT Search", "Gemini", "Claude", "Grok"],
+  "tags": [
+    "AI検索",
+    "Perplexity",
+    "ChatGPT Search",
+    "Gemini",
+    "Claude",
+    "Grok"
+  ],
   "readingTime": "8分",
   "sections": [
     {
@@ -14,15 +21,23 @@
     },
     {
       "heading": "公式情報で確認できた5サービスの違い",
-      "content": "| サービス | 公式情報で確認できた検索・確認機能 | 確認時の注意 |\n|---------|----------------------------------|--------------|\n| Perplexity | Web検索を行い、回答に出典を表示。追加質問で文脈を引き継げる | 出典を開き、要約と原文が一致するか確認する |\n| ChatGPT | 必要に応じた自動検索と手動のWeb検索。検索回答にインライン引用とSources欄を表示する場合がある | 引用が付かない回答もあるため、重要な事実は原典へ戻る |\n| Gemini | 回答内またはSources欄に関連ソースを表示する場合がある。Google検索を使うダブルチェック機能がある | すべての回答にソースが付くわけではなく、ダブルチェック結果も誤る場合がある |\n| Claude | Web検索でリアルタイム情報を取得し、直接引用とソースリンクを表示。指定URLの取得にも対応 | 利用可否や使用量はプラン・設定・地域などで変わり得る |\n| Grok | 必要に応じて公開X投稿やWebをリアルタイム検索できる | X公式も誤情報や文脈欠落の可能性を案内しており、独立した確認が必要 |\n\n確認に使った一次情報は、OpenAI HelpのChatGPT Search、Anthropic HelpのWeb search、Perplexity Help Centerの検索説明、Google Gemini Apps HelpのSources／ダブルチェック、X HelpのGrok説明です。確認URLは本記事末尾にまとめています。"
+      "content": "| サービス | 公式情報で確認できた検索・確認機能 | 確認時の注意 |\n|---------|----------------------------------|--------------|\n| Perplexity | Web検索を行い、回答に出典を表示。追加質問で文脈を引き継げる | 出典を開き、要約と原文が一致するか確認する |\n| ChatGPT | 必要に応じた自動検索と手動のWeb検索。検索回答にインライン引用とSources欄を表示する場合がある | 引用が付かない回答もあるため、重要な事実は原典へ戻る |\n| Gemini | 回答内またはSources欄に関連ソースを表示する場合がある。関連するWebページを確認できる | すべての回答にソースが付くわけではなく、表示された関連リンクが回答の生成に使われた出典とは限らない |\n| Claude | Web検索でリアルタイム情報を取得し、直接引用とソースリンクを表示。指定URLの取得にも対応 | 利用可否や使用量はプラン・設定・地域などで変わり得る |\n| Grok | 必要に応じて公開X投稿やWebをリアルタイム検索できる | X公式も誤情報や文脈欠落の可能性を案内しており、独立した確認が必要 |\n\n確認に使った一次情報は、OpenAI HelpのChatGPT Search、Anthropic HelpのWeb search、Perplexity Help Centerの検索説明、Google Gemini Apps Helpのソース表示、X HelpのGrok説明です。確認URLは本記事末尾にまとめています。"
     },
     {
       "heading": "順位ではなく、同じ条件で比較する",
       "content": "過去版に掲載していた1〜5の参考スコアは、質問セット、実行日時、回答ログ、採点手順が残っておらず再現できないため、現在の性能評価としては使用しません。比較する場合は、候補サービスへ同じ質問を同じ時間帯に入力し、次の項目を記録してください。\n\n1. 回答中の重要な主張に出典が付いているか\n2. 出典が公式情報や原典か\n3. 回答内容と出典本文が一致しているか\n4. 公開日・更新日が質問の期間に合っているか\n5. 存在しないURLや引用を作っていないか\n6. 回答完了までの時間と、原典確認にかかった時間\n\nニュース、料金、制度、製品仕様など更新頻度が高いテーマを混ぜると、鮮度と検証のしやすさを確認できます。1回の結果だけで断定せず、日時を変えて複数回試すのが安全です。"
     },
     {
+      "heading": "DeepSeekなどの新モデルは、検索の使いやすさと分けて見る",
+      "content": "DeepSeekの公式ニュースは2026年9月10日にDeepSeek-V4.1-Flashを発表しています。9月11日に確認したAPIドキュメントでは、deepseek-flashというモデル指定と、旧名からの移行について案内されています。[DeepSeek公式ニュース](https://deepseek.com/en/news/)・[APIのモデル指定](https://api-docs.deepseek.com/)。\n\nただし、基盤モデルの更新と、検索サービスがどの情報を取得し、どの出典を提示するかは別の比較軸です。APIのモデル名を確認しただけでは、消費者向けチャットの検索条件や日本語での回答品質までは判断できません。\n\nDeepSeek、Qwen、Kimiなども今後の比較対象から除外しません。一方、本記事ではこれらの検索機能・日本での利用条件・同条件の回答ログを揃えていないため、検索順位や点数を付けていません。未評価は低評価という意味ではありません。既存の2026年3月の保存スコアへ、新モデルのメーカー公表値を混ぜることもしません。"
+    },
+    {
       "heading": "用途から候補を絞る",
       "content": "調査の入口として使うなら、まず出典リンクの見つけやすさと原典へ戻る手間を確認します。普段の文章作成やファイル作業と同じ画面で検索したい場合は、現在使っている対話AIに検索機能が含まれるかを確認すると、ツールを増やさずに済みます。X上の話題を調べる場合でも、投稿は一次情報とは限らないため、公式発表や原資料との突合が必要です。\n\n業務利用では、検索性能だけでなく、入力データの取り扱い、管理機能、保存設定、利用規約も選定条件に含めてください。医療・法律・金融など正確性の影響が大きい用途では、AI回答だけで判断しないことが前提です。"
+    },
+    {
+      "heading": "同じ質問で試すなら、この3つから",
+      "content": "以下は比較用に作成した質問例です。実際に実行した結果ではありません。個人情報や社内資料を使わず、候補2サービスに同じ条件で入力してみてください。\n\n1. 「指定したAIサービスの個人向けプランを、公式料金ページだけで確認してください。月払いと年払い、税、通貨、確認日を分け、確認できない項目は不明としてください」\n2. 「指定した製品の直近の公式更新を3件まで整理してください。発表日と提供開始日を区別し、各項目に公式URLを付けてください」\n3. 「指定した公開記事の主張を3つ挙げ、根拠の原文と照合してください。リンク先を取得できない場合は、その旨を明記してください」\n\n記録するのは、回答の印象だけではありません。利用日、プラン、表示モデル、検索設定、質問全文、回答、出典URL、誤り、原典確認の所要時間を残します。取得できない情報を無理に埋めなかったかも確認します。1回の成功を総合的な優劣へ広げず、自分の用途に合うかで判断してください。"
     },
     {
       "heading": "料金は比較直前に公式ページで確認する",
@@ -30,7 +45,26 @@
     },
     {
       "heading": "比較前に確認する公式情報",
-      "content": "機能確認に使用した公式情報（2026年9月11日確認）:\n\n- [ChatGPT Search](https://help.openai.com/en/articles/9237897-chatgpt-search)\n- [ClaudeのWeb検索](https://support.anthropic.com/en/articles/10684626-enabling-and-using-web-search)\n- [Perplexityの仕組み](https://www.perplexity.ai/help-center/en/articles/10352895-how-does-perplexity-work)\n- [Geminiのソース表示とダブルチェック](https://support.google.com/gemini/answer/14143489)\n- [X上のGrokについて](https://help.x.com/en/using-x/about-grok)\n\nまず無料で利用できる範囲と最新の利用条件を確認し、実際に調べたい質問を同条件で試してください。出典まで確認した記録を残せば、モデル更新後も同じ方法で再評価できます。"
+      "content": "機能確認に使用した公式情報（2026年9月11日確認）:\n\n- [ChatGPT Search](https://help.openai.com/en/articles/9237897-chatgpt-search)\n- [ClaudeのWeb検索](https://support.anthropic.com/en/articles/10684626-enabling-and-using-web-search)\n- [Perplexityの仕組み](https://www.perplexity.ai/help-center/en/articles/10352895-how-does-perplexity-work)\n- [Geminiのソース表示](https://support.google.com/gemini/answer/14143489)\n- [X上のGrokについて](https://help.x.com/en/using-x/about-grok)\n\nまず無料で利用できる範囲と最新の利用条件を確認し、実際に調べたい質問を同条件で試してください。出典まで確認した記録を残せば、モデル更新後も同じ方法で再評価できます。"
     }
-  ]
+  ],
+  "cta": {
+    "type": "internal",
+    "title": "検索以外も含めて、用途を整理したい方へ",
+    "description": "用途診断で候補を整理するか、評価方法を確認して自分で比較するかを選べます。",
+    "links": [
+      {
+        "label": "用途からAIの候補を整理する",
+        "url": "/recommend",
+        "ctaType": "diagnosis",
+        "ctaPosition": "search-guide-end"
+      },
+      {
+        "label": "評価方法と限界を確認する",
+        "url": "/methodology",
+        "ctaType": "compare",
+        "ctaPosition": "search-guide-methodology"
+      }
+    ]
+  }
 }

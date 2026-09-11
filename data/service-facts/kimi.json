@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "service_id": "kimi",
+  "last_verified_at": "2026-09-11",
+  "source_url": "https://platform.kimi.ai/docs/overview",
+  "facts": {
+    "service_name": {
+      "value": "Kimi",
+      "source_id": "kimi-api-overview",
+      "verified_at": "2026-09-11"
+    },
+    "provider": {
+      "value": "Moonshot AI",
+      "source_id": "kimi-api-overview",
+      "verified_at": "2026-09-11"
+    },
+    "official_url": {
+      "value": "https://www.kimi.com/",
+      "source_id": "kimi-api-overview",
+      "verified_at": "2026-09-11"
+    },
+    "current_plan": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "current_price": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "free_plan": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "free_trial": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "current_product": {
+      "value": "Kimi K3 (API: kimi-k3)",
+      "source_id": "kimi-api-overview",
+      "verified_at": "2026-09-11"
+    },
+    "major_features": {
+      "value": [
+        "1Mコンテキスト・ネイティブ画像理解",
+        "APIを使う会話・エージェント向け"
+      ],
+      "source_id": "kimi-api-overview",
+      "verified_at": "2026-09-11"
+    },
+    "availability": {
+      "value": "公式APIでK3の提供を案内。消費者向けアプリの対象プラン・日本向け条件は未確認。",
+      "source_id": "kimi-api-overview",
+      "verified_at": "2026-09-11"
+    }
+  }
+}

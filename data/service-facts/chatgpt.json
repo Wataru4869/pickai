@@ -1,14 +1,73 @@
 {
-  "schema_version": 1, "service_id": "chatgpt", "last_verified_at": "2026-09-10", "source_url": "https://openai.com/chatgpt/pricing",
+  "schema_version": 1,
+  "service_id": "chatgpt",
+  "last_verified_at": "2026-09-11",
+  "source_url": "https://learn.chatgpt.com/docs/models",
   "facts": {
-    "service_name": { "value": "ChatGPT", "source_id": "openai-chatgpt-pricing", "verified_at": "2026-09-10" },
-    "provider": { "value": "OpenAI", "source_id": "openai-chatgpt-pricing", "verified_at": "2026-09-10" },
-    "official_url": { "value": "https://chatgpt.com/", "source_id": "openai-chatgpt-pricing", "verified_at": "2026-09-10" },
-    "current_plan": { "value": ["Free", "Plus", "Pro", "Business", "Enterprise"], "source_id": "openai-chatgpt-pricing", "verified_at": "2026-09-10" },
-    "current_price": { "value": { "Free": "US$0/month", "Plus": "US$20/month", "Pro": "US$200/month", "Business": "US$25/user/month billed annually or US$30 monthly", "Enterprise": "contact sales" }, "source_id": "openai-chatgpt-pricing", "verified_at": "2026-09-10" },
-    "free_plan": { "value": true, "source_id": "openai-chatgpt-pricing", "verified_at": "2026-09-10" },
-    "free_trial": { "value": null, "source_id": null, "verified_at": null },
-    "major_features": { "value": ["web search", "file uploads", "data analysis", "image generation", "voice", "deep research"], "source_id": "openai-chatgpt-pricing", "verified_at": "2026-09-10" },
-    "availability": { "value": "available", "source_id": "openai-chatgpt-pricing", "verified_at": "2026-09-10" }
+    "service_name": {
+      "value": "ChatGPT",
+      "source_id": "openai-chatgpt-pricing",
+      "verified_at": "2026-09-10"
+    },
+    "provider": {
+      "value": "OpenAI",
+      "source_id": "openai-chatgpt-pricing",
+      "verified_at": "2026-09-10"
+    },
+    "official_url": {
+      "value": "https://chatgpt.com/",
+      "source_id": "openai-chatgpt-pricing",
+      "verified_at": "2026-09-10"
+    },
+    "current_plan": {
+      "value": [
+        "Free",
+        "Plus",
+        "Pro",
+        "Business",
+        "Enterprise"
+      ],
+      "source_id": "openai-chatgpt-pricing",
+      "verified_at": "2026-09-10"
+    },
+    "current_price": {
+      "value": {
+        "Free": "US$0/month",
+        "Plus": "US$20/month",
+        "Pro": "US$200/month",
+        "Business": "US$25/user/month billed annually or US$30 monthly",
+        "Enterprise": "contact sales"
+      },
+      "source_id": "openai-chatgpt-pricing",
+      "verified_at": "2026-09-10"
+    },
+    "free_plan": {
+      "value": true,
+      "source_id": "openai-chatgpt-pricing",
+      "verified_at": "2026-09-10"
+    },
+    "free_trial": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "major_features": {
+      "value": [
+        "Web検索・画像入力",
+        "ファイル・プロジェクトを使う作業"
+      ],
+      "source_id": "chatgpt-feature-overview",
+      "verified_at": "2026-09-11"
+    },
+    "availability": {
+      "value": "公式一覧にWeb・デスクトップ等の対応を掲載。個別アカウントのモデル利用可否は未確認。",
+      "source_id": "chatgpt-current-models",
+      "verified_at": "2026-09-11"
+    },
+    "current_product": {
+      "value": "ChatGPT（公式モデル一覧：Astra / GPT-5.6系列など。利用可否は環境・契約に依存）",
+      "source_id": "chatgpt-current-models",
+      "verified_at": "2026-09-11"
+    }
   }
 }
