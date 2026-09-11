@@ -6,6 +6,8 @@
 
 ## 承認後の修正
 
+- 公開commit: `d812a09`（作業ブランチへpush済み）。昇格ゲートはコミット指定の再承認で解消し、既存PreviewからProductionへ昇格。`9bgWfTL3rWssnVNEmCuFMMMAL8FX` は2026-09-11 18:36:48 JST Ready。
+
 - Nextを15.5.25、eslint-config-nextを同版へ固定。React 18は維持。sharp 0.35.4へ更新し、Next配下PostCSSは同じ8系の修正版へoverride（解決版8.5.28）。その他は互換範囲のaudit fixのみ、forceなし。
 - 動的ページ/OGのparamsと記事searchParamsをPromiseとしてawait。/goはuseParamsで同じservice値を取得。イベントの項目・送信条件・遷移先ゲートは無変更。
 - Next 15で追加検出されたno-html-link-for-pagesのみ無効化。既存のフルページ遷移と計測条件を保ち、Link化によるprefetch/SPA遷移変更を避ける。他のlint/type検査は維持。

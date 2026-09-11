@@ -1,16 +1,19 @@
 # PROJECT STATE
 
-更新: 2026-09-11 / RC `2a283ef` を本番反映済み。初回X需要テスト `x-exp-01` は人間が投稿し評価待ち。計測期間中の本番導線を凍結する。DMM・Winスクール・デジタルハリウッドSTUDIO by LIGは提携審査待ち。現在地の正本。作業順は [NEXT_TASKS](NEXT_TASKS.md)、判断方法は [REVENUE_DECISION_FRAMEWORK](REVENUE_DECISION_FRAMEWORK.md)。
+更新: 2026-09-11 / `d812a09` を明示承認により本番反映済み（18:36:48 JST Ready）。初回X需要テスト `x-exp-01` は人間が投稿し評価待ち。recommend・UTM・CTA・計測コードは維持。DMM・Winスクール・デジタルハリウッドSTUDIO by LIGは提携審査待ち。現在地の正本。作業順は [NEXT_TASKS](NEXT_TASKS.md)、判断方法は [REVENUE_DECISION_FRAMEWORK](REVENUE_DECISION_FRAMEWORK.md)。
 
 ## 現在地
 
-### 本番反映承認・実行中（2026-09-11）
+### 本番反映完了（2026-09-11）
 
 - ユーザーが現在の改善を本番へ反映することを明示承認。対象はD18/D19の既存差分。recommend・UTM・計測・affiliate無効状態は維持し、main mergeや設定変更は行わない。
 - 再実行した `npm run check` は成功（49ソース、回帰試験、88ページbuild）。対象外の計測/評価JSON/affiliate設定に差分なし。privateはGit対象外。
-- Macロックは人間が解除済み。既存VercelプロジェクトとGitHub接続を確認、作業ブランチはfetch後HEADとoriginが一致。現在のProductionは2a283ef。認証・設定は変更していない。
+- Macロックは人間が解除済み。既存VercelプロジェクトとGitHub接続を利用。認証・設定は変更していない。
 - セキュリティ対応は人間承認後に解消。Next15.5.25、sharp0.35.4、PostCSS8.5.28。audit本番/全依存とも0件、check成功。18ページ×3幅・65内部URL・UTM伝播・比較操作を外部通信遮断で確認。詳細は `RELEASE_SECURITY_REVIEW.md`。
-- 次はcommit/push→Preview確認→本番昇格。認証・プロジェクト設定・計測条件は変更しない。
+- `d812a09` を作業ブランチへcommit/push済み。Vercel Preview `HCLDkQbPmPHkNmBZp7jpv7zmcpZW` はReady、Chromeで新トップの表示確認済み。
+- 昇格ゲートはd812a09を指定した人間の再承認で解消。PreviewのPromote to Productionから既存Production環境で再ビルドし、`9bgWfTL3rWssnVNEmCuFMMMAL8FX` がReady。本番 https://www.aierabi.jp/ は新しい比較トップへ切替済み。
+- 本番HTTP確認: 主要5ページ・履歴ページ・x-exp-01固定UTM URLは200。canonical整合、favicon200、非www→www308、sitemap67 URL/ブログ34件・履歴ページ除外、affiliate active0/URL0。新スコアは未評価のまま、旧数値は専用履歴へ保持。詳細はSITE_REFRESH_REPORT。
+- 以下のD19以前の「未公開」は実装当時の記録。本番反映の正本は本節。main merge・課金・SNS投稿・広告有効化・環境変数/DNS変更なし。
 
 ### D19 — 現行9候補の選択比較（2026-09-11、未公開）
 

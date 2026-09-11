@@ -1,5 +1,18 @@
 # SITE REFRESH REPORT
 
+## 本番反映完了 — 2026-09-11 18:36:48 JST
+
+- 公開commit: `d812a09`。作業ブランチ `work/aierabi-revenue-engine` へpushし、ユーザーのコミット指定承認後にVercel PreviewをPromote to Production。
+- Production: `9bgWfTL3rWssnVNEmCuFMMMAL8FX` / https://www.aierabi.jp/ 。既存Production環境で再ビルドしReady。main merge、環境変数・DNS・ドメイン・プラン変更なし。
+- 本番HTTP: `/`、`/recommend`、`/methodology`、画像AI記事、動画AI記事、履歴評価ページ、x-exp-01の既存UTM URLは200。canonical整合、favicon200、非www→www308、sitemap67 URL/ブログ34件。履歴評価はnoindex/follow・sitemap除外。
+- 本番Chromium: 18ページ×1440/390/320px、内部リンク65件、検索/選択比較/解除、記事CTAのpost/campaign伝播、保存点数一致、横あふれなし・pageerror0。GTMとGoogle Fontsへの通信を遮断し、QAのGA送信なし。実機・実GA受信やCV発生は検証していない。
+- affiliate設定active0・URL0、対象ページに外部広告リンク/不要なPR表示なし。recommend/共通CTA/GA/X queue/評価JSONに変更なし。
+- 安全更新: Next15.5.25、sharp0.35.4、PostCSS8.5.28。audit全依存/本番依存0件。公開後の再checkも成功（49ソース・88ページ）。font/edge runtime・next lint廃止予定の非致命的警告は継続。
+- 意味のない生成sitemap差分は復元。本番のsitemapはビルド時生成の67件を確認。次の管理文書commitは公開コードを変更しない。
+- 限界: 現行モデルの独自採点は未評価。保存スコアの日付だけを更新していない。未監査記事と共通ナビの旧「総合の保存評価」ラベルは残課題（実験対象の共通UIを変えず今回は維持）。収益・検索順位の改善は未実証。
+- 次の優先3件: x-exp-01の時点付き実数保存、48〜72時間データによる次投稿判断、既存3案件の審査結果確認。追加投稿/広告有効化は自動実行しない。
+- 判定: READY_FOR_X_TEST（次投稿の採用・実行を意味しない。x-exp-01は評価待ち）。以下の未公開表記は各実装時点の記録。
+
 ## D19追加 — 現行候補の選択比較（2026-09-11、未公開）
 
 ### 今回の変更
