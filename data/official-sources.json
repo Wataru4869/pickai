@@ -24,6 +24,11 @@
     { "source_id": "elevenlabs-affiliate", "provider": "ElevenLabs", "title": "ElevenLabs Creator Affiliate Program", "url": "https://elevenlabs.io/affiliates-terms", "source_type": "official", "verified_at": "2026-09-10" },
     { "source_id": "leonardo-creator-program", "provider": "Leonardo.Ai", "title": "Leonardo Creator Program", "url": "https://leonardo.ai/leonardo-creator-program/", "source_type": "official", "verified_at": "2026-09-10" },
     { "source_id": "heygen-affiliate-help", "provider": "HeyGen", "title": "HeyGen affiliate help collection", "url": "https://help.heygen.com/en/collections/9057651-about-heygen", "source_type": "official", "verified_at": "2026-09-10" },
-    { "source_id": "manus-partner", "provider": "Manus", "title": "Manus Business Partner Program", "url": "https://partner.manus.im/", "source_type": "official", "verified_at": "2026-09-10" }
+    { "source_id": "manus-partner", "provider": "Manus", "title": "Manus Business Partner Program", "url": "https://partner.manus.im/", "source_type": "official", "verified_at": "2026-09-10" },
+    { "source_id": "openai-chatgpt-search", "provider": "OpenAI", "title": "ChatGPT Search", "url": "https://help.openai.com/en/articles/9237897-chatgpt-search", "source_type": "official", "verified_at": "2026-09-11" },
+    { "source_id": "anthropic-claude-web-search", "provider": "Anthropic", "title": "Enabling and using web search", "url": "https://support.anthropic.com/en/articles/10684626-enabling-and-using-web-search", "source_type": "official", "verified_at": "2026-09-11" },
+    { "source_id": "perplexity-search-overview", "provider": "Perplexity AI", "title": "How does Perplexity work?", "url": "https://www.perplexity.ai/help-center/en/articles/10352895-how-does-perplexity-work", "source_type": "official", "verified_at": "2026-09-11" },
+    { "source_id": "google-gemini-sources", "provider": "Google", "title": "View related sources and double-check responses from Gemini Apps", "url": "https://support.google.com/gemini/answer/14143489", "source_type": "official", "verified_at": "2026-09-11" },
+    { "source_id": "x-grok-overview", "provider": "X", "title": "About Grok", "url": "https://help.x.com/en/using-x/about-grok", "source_type": "official", "verified_at": "2026-09-11" }
   ]
 }
