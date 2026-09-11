@@ -1,21 +1,21 @@
 # PROJECT STATE
 
-更新: 2026-09-11 / 全体鮮度監査と履歴評価の表示是正を完了。DMM・Winスクール・デジタルハリウッドSTUDIO by LIGの提携審査待ち。現在地の正本。作業順は [NEXT_TASKS](NEXT_TASKS.md)、判断方法は [REVENUE_DECISION_FRAMEWORK](REVENUE_DECISION_FRAMEWORK.md)。
+更新: 2026-09-11 / RC `2a283ef` を本番反映済み。初回X需要テスト `x-exp-01` は人間が投稿し評価待ち。計測期間中の本番導線を凍結する。DMM・Winスクール・デジタルハリウッドSTUDIO by LIGは提携審査待ち。現在地の正本。作業順は [NEXT_TASKS](NEXT_TASKS.md)、判断方法は [REVENUE_DECISION_FRAMEWORK](REVENUE_DECISION_FRAMEWORK.md)。
 
 ## 現在地
 
 収益化フェーズ1・継続更新基盤フェーズ1のローカル実装は存在する。収益運用・計測の端から端までの検証は未完了。「公開可能」「収益化済み」を意味しない。
-収益実験前の技術BLOCKERを局所修正済み。既存のコード・データ・未コミット変更を保持。人間の明示承認に基づき2026-09-11にDMM 生成AI CAMP 学び放題、Winスクール、デジタルハリウッドSTUDIO by LIGへ提携申請し、A8結果画面はいずれも「審査中」。提携有効化、実URL投入、投稿、本番変更は行っていない。
+収益実験前の技術BLOCKERを局所修正済み。人間の明示承認に基づき2026-09-11にDMM 生成AI CAMP 学び放題、Winスクール、デジタルハリウッドSTUDIO by LIGへ提携申請し、3件とも人間確認で「申請中」。提携有効化、実URL投入は行っていない。RC `2a283ef` は人間承認後に本番へ反映され、対象URLの表示・canonical・favicon・sitemap・affiliate active 0を確認済み。続いて `x-exp-01` を人間が実投稿し、実績値待ち。
 
-全主要ページを鮮度監査し、再現用raw dataがない2026年3月の独自スコア・順位を削除せず「保存済み履歴値」として明示した。トップ、カテゴリ、モデル、比較、安全性、ブログに共通注意を追加し、metadata/schema/共有文面の「最新」表現も是正。高変動な保存済み料金はカテゴリ・モデル・比較・料金・FAQの現在価格表示から外し、公式確認へ誘導した。本番公開・SNS投稿・affiliate有効化は行っていない。
+全主要ページを鮮度監査し、再現用raw dataがない2026年3月の独自スコア・順位を削除せず「保存済み履歴値」として明示した。トップ、カテゴリ、モデル、比較、安全性、ブログに共通注意を追加し、metadata/schema/共有文面の「最新」表現も是正。高変動な保存済み料金はカテゴリ・モデル・比較・料金・FAQの現在価格表示から外し、公式確認へ誘導した。現在の作業ブランチでは、次回候補のAI検索記事から個別監査を継続。本番へは未反映。
 
 ## 今回のサイト鮮度・UX対応
 
-- `data/official-sources.json` は24件、`data/service-facts/` は16サービス。前日（2026-09-10）に記録された一次情報は推測で更新せず、validatorで参照整合性を確認した。
+- `data/official-sources.json` は29件、`data/service-facts/` は16サービス。AI検索記事の個別監査でChatGPT、Claude、Perplexity、Gemini、Grokの公式ヘルプ5件を2026-09-11確認分として追加。既存factsは推測で更新せず、validatorで参照整合性を確認する。
 - ChatGPT、Claude、Gemini、Perplexity、Cursor、GitHub Copilot、Windsurf、Runway、Pika、HeyGen、Synthesia、Adobe Firefly、Canva、Leonardo.Aiほか、登録済み客観情報と画面上の保存評価を分離した。
 - Grok、Kling、Manus、Genspark、Midjourney、Ideogramは、現行プラン・価格・モデル等の完全なservice-factsが未登録または不足。推測で補わずunknown/残課題とした。
 - 優先5カテゴリは共通UIで測定時点を明示し、古い料金・無料条件を非表示化。AIコーディング記事は現在順位・旧価格の断定を履歴説明と公式確認手順へ修正した。
-- 全ブログ記事に最終更新日時点の記録である注意を追加。残る34記事本文の個別事実確認は未完了で、タイトルや本文に古いモデル名・価格・断定が残る可能性がある。
+- 全ブログ記事に最終更新日時点の記録である注意を追加。作業ブランチではAI検索比較記事から、再現不能な5段階評価、固定価格、優位性の断定を除去し、公式機能と同条件の比較手順へ変更。個別監査済みの画像・動画・コーディング・AI検索を除く30記事は未完了で、タイトルや本文に古いモデル名・価格・断定が残る可能性がある。
 - `/cost` の未検証円換算と断定的な自動推奨は表示から外し、契約前の確認項目と各公式サイトへの導線に変更。未使用の旧 `CostCalculatorFlow` 実装は削除せず残っている。
 - スマホ向けに既存の1列化・横スクロールを維持し、注意表示をファーストビュー内へ追加。実機/本番URLでの表示・クリック計測は未実施。
 
@@ -23,7 +23,7 @@
 
 | 項目 | 確認した実装/件数 | 意味・限界 |
 | --- | --- | --- |
-| 公式ソース | `data/official-sources.json`: 24件 | URL台帳。全文・地域・現行性を全件再検証した状態ではない |
+| 公式ソース | `data/official-sources.json`: 29件 | URL台帳。うちAI検索機能5件を2026-09-11確認。全文・地域・現行性を全件再検証した状態ではない |
 | 客観情報 | `data/service-facts/`: 16サービス | 公開表示データとは別。料金の課金周期/地域、free_trialの根拠を選定案件から再確認 |
 | 提携台帳 | 6件、active 0、URL全件null | DMM・Winスクール・デジタルハリウッドSTUDIO by LIGはA8審査中。activeには明示承認日・許可ホスト・対象ページが必須。実URL/参加承認は未入力 |
 | DMM記事 | 非公開queue draft 1件、CTA/広告URL/PR表示なし | 公開一次情報だけを記載。提携承認・公式再確認・人間承認までページ化/公開しない |
@@ -52,12 +52,13 @@ primary Xはユーザー入力で約6,400フォロワーのAI発信アカウン�
 8. **運用上の注意**: X generatorは既存草案を上書きする。buildは全sitemap lastmodを変更するが事実確認日ではない。過去npm ciで脆弱性14件（critical 1）報告あり、今回最新audit/修正確認は未実施。本番承認前に該当依存・到達可能性を確認する。
 9. **DMM審査待ち導線**: DMMはA8発行URLの改変禁止を前提に `link_mode: direct`、URL null、draft、承認falseで追加。専用レビュー記事は非公開queue draftとして最小作成済みで、CTA/広告URL/PR表示はない。承認・発行URL/host・記事内容・PR表示・掲載URL提出を人間が再確認するまでページ化・表示・遷移は発生しない。direct案件は `/go` と追加query parameterを使用しない。
 
-## 初回X実験の準備状況
+## 初回X実験の実施状況
 
 - `x-initial-revenue-experiment.json` に初回6案を分離。旧24案は無変更で履歴として保持し、無加工採用0件、書き直し候補11件、保留13件と評価した。
 - 6案は用途診断2、比較方法1、画像2、動画1。個別価格・無料回数・未再現スコア・利用体験を断定しない。全リンクは固定campaign/post UTMを持つ。
-- 最初の3件は `x-exp-01`（Reach）、`x-exp-03`（Authority）、`x-exp-06`（Demand Test）に固定。affiliate未承認のため外部広告リンクなし、PR表記なしの情報導線として最終文面・絶対URL・KPIをqueueへ記録した。投稿別click/sessionは観測候補だが、診断完了・記事内CTAクリックは未計測のためunknown。
-- 現段階はaffiliateなしの需要確認案。直接誘導先4ページの公開前修正は完了し、6件とも `ready_for_human_approval`。実投稿、絶対URLの疎通、本番表示、最終文体は人間承認待ち。
+- 最初の3件は `x-exp-01`（Reach）、`x-exp-03`（Authority）、`x-exp-06`（Demand Test）の順。affiliate未承認のため外部広告リンクなし、PR表記なしの情報導線として最終文面・絶対URL・KPIをqueueへ記録した。
+- `x-exp-01` は人間が実投稿済み。24時間時点は速報値の保存だけを行い、48〜72時間で impressions、link clicks、X上のlink CTR、UTM別site sessions、recommend内で取得可能な行動を評価する。欠損はunknownのまま扱う。
+- 評価完了まで本番の `/recommend` 主要構造、誘導導線、UTM/計測仕様、CTA位置・主要文言、投稿本文を凍結する。`x-exp-03` は自動的に進めず、実測後に維持・修正・延期を決める。作業ブランチの別記事変更も、この計測期間中はdeployしない。
 - 画像/動画のどちらを収益対象にするかは未決定。過去指標がないため、初回反応またはASP条件を見ずにSynthesia/Adobe/Canvaを勝者にしない。
 
 ### 初回6投稿の公開可否
@@ -76,7 +77,7 @@ primary Xはユーザー入力で約6,400フォロワーのAI発信アカウン�
 | BLOCKED | 必要な人間の入力/判断 | 待たずに可能な作業 |
 | --- | --- | --- |
 | 案件の採用・有効化 | 既存ASPの契約状況、対象地域/商品/媒体/確定条件、明示承認 | 公開情報の比較、A8探索票、unknown整理 |
-| 実験の開始 | 計測/コンテンツ/安全性レビュー、本番公開と投稿の個別承認・人間操作 | ローカル差分・モック検証・草案 |
+| `x-exp-01` の初回評価 | 投稿後48〜72時間のX実績値と許可された匿名サイト集計 | 24時間速報の保存、対象外記事の局所監査。計測導線は変更しない |
 | 実CV/EPC評価 | 人間が許可して共有する匿名集計、ASPの帰属対応可否 | v2集計へ変換するローカル手順の確認 |
 | 既存得点の実測訴求 | raw出力・採点根拠、変更時は人間判断 | 対象記事の根拠不足を明示する編集案 |
 | 最初の承認案件の有効化 | 3案件のA8審査承認、発行広告URL、許可host、対象記事、PR/掲載URLの人間確認 | 初回X需要テスト、inactive設定・directリンク/PRゲートのローカル検証 |
@@ -85,6 +86,6 @@ ASPの認証情報をエージェントへ渡す必要はない。会員限定�
 
 ## Git・検証
 
-- ブランチ: `work/aierabi-revenue-engine`。既存の変更8 trackedファイルと未追跡data/docs/scripts/goを保持して開始。今回の追加はAGENTSと管理文書、既存文書の訂正。
-- コミット/push/mergeなし。過去レポートにauthor未設定でcommit不可の記録あり。今回は設定変更・再試行していない。
-- `npm run check`: 成功（24 source validation、収益集計テスト、lint、87ページbuild）。既存のfont配置、Google Fonts取得、edge runtime警告、caniuse-lite更新警告あり。`git diff --check`も成功。buildによるsitemapの機械的差分は戻した。check成功と収益運用の完成は別。
+- ブランチ: `work/aierabi-revenue-engine`。RCは `c31783e` と `2a283ef` に整理・push済みで、後者を本番反映済み。main mergeは行っていない。
+- 今回の未コミット差分はAI検索記事、公式ソース台帳、管理文書だけ。`/recommend`、X queue、計測実装、affiliate設定は変更していない。本番deploy・SNS投稿・affiliate有効化なし。
+- `npm run check`: 成功（29 source validation、収益集計テスト、lint、87ページbuild）。既存のfont、Google Fonts取得、edge runtime、caniuse-lite警告のみ。`git diff --check`も成功。buildが生成したsitemap差分はHEADと同一へ戻した。check成功と収益運用の完成は別。
