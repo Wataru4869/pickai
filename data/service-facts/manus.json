@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "service_id": "manus",
+  "last_verified_at": "2026-09-13",
+  "facts": {
+    "service_name": {
+      "value": "Manus",
+      "source_id": "manus-overview-20260913",
+      "verified_at": "2026-09-13"
+    },
+    "provider": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "official_url": {
+      "value": "https://manus.im/",
+      "source_id": "manus-overview-20260913",
+      "verified_at": "2026-09-13"
+    },
+    "current_plan": {
+      "value": [
+        "Free",
+        "Pro",
+        "Team"
+      ],
+      "source_id": "manus-plans-20260913",
+      "verified_at": "2026-09-13"
+    },
+    "current_price": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "free_plan": {
+      "value": true,
+      "source_id": "manus-plans-20260913",
+      "verified_at": "2026-09-13"
+    },
+    "free_trial": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "current_product": {
+      "value": "Manus AI（モデル世代は未確認）",
+      "source_id": "manus-overview-20260913",
+      "verified_at": "2026-09-13"
+    },
+    "major_features": {
+      "value": [
+        "タスクの計画・実行・成果物作成",
+        "サンドボックス内のコンピューターを使う作業"
+      ],
+      "source_id": "manus-overview-20260913",
+      "verified_at": "2026-09-13"
+    },
+    "availability": {
+      "value": "クレジット消費はタスクの複雑さに依存。日本向け条件・正確な無料クレジット数は未確認。",
+      "source_id": "manus-plans-20260913",
+      "verified_at": "2026-09-13"
+    }
+  },
+  "source_url": "https://manus.im/docs/introduction/plans"
+}

@@ -364,7 +364,7 @@ export default async function BlogArticlePage({
   const showAffiliateDisclosure = hasActiveAffiliateLink(article.cta, contentId);
 
   // Explicitly reviewed guides only. Affiliate content retains the disclosure renderer.
-  if (["ai-search-engines-comparison-2026", "ai-safety-ranking-2026", "ai-agents-comparison-2026", "ai-tools-2026-trends", "ai-coding-tools-2026", "grok-review-2026"].includes(article.slug) && !showAffiliateDisclosure && article.cta?.type === "internal") {
+  if (["ai-search-engines-comparison-2026", "ai-safety-ranking-2026", "ai-agents-comparison-2026", "ai-tools-2026-trends", "ai-coding-tools-2026", "grok-review-2026", "cursor-projects-2026", "copilot-model-retirement-2026-09"].includes(article.slug) && !showAffiliateDisclosure && article.cta?.type === "internal") {
     return <ReviewedGuideArticle article={article} attribution={{
       postId: safeAttribution(searchParams?.utm_content),
       campaignId: safeAttribution(searchParams?.utm_campaign),
@@ -402,6 +402,7 @@ export default async function BlogArticlePage({
       <div className="bg-white">
         <div className="max-w-full sm:max-w-[680px] mx-auto px-3 sm:px-4">
           <div className="mb-6 rounded border border-[#d2d2d7] bg-[#fafafa] p-3 text-[11px] leading-relaxed text-[#6e6e73]">
+            {article.updatedAt < "2026-09-01" && <p className="mb-2 font-semibold">過去記事：本文の「最新」「おすすめ」や料金・順位は当時の記述であり、現在の購入判断には使わないでください。内容の現行性は未再確認です。</p>}
             記事中のモデル名・料金・無料条件・評価は、明記がない限り最終更新日（{article.updatedAt}）時点の記録です。現在の契約条件は各社公式サイトで確認してください。独自スコアは現在性能を保証しません。
           </div>
         </div>

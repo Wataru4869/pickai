@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "service_id": "claude",
-  "last_verified_at": "2026-09-11",
-  "source_url": "https://claude.com/product/overview",
+  "last_verified_at": "2026-09-13",
+  "source_url": "https://support.claude.com/en/articles/11049762-choose-a-claude-plan",
   "facts": {
     "service_name": {
       "value": "Claude",
@@ -31,13 +31,14 @@
     },
     "current_price": {
       "value": {
-        "Free": "US$0/month",
-        "Pro": "US$20/month",
+        "Free": "US$0",
+        "Pro": "US$20/month or US$200/year",
         "Max 5x": "US$100/month",
-        "Max 20x": "US$200/month"
+        "Max 20x": "US$200/month",
+        "region_note": "個人プラン公式文書（2026-05-19付）を再確認。日本の税込最終価格は未確認。"
       },
-      "source_id": "anthropic-claude-pricing",
-      "verified_at": "2026-09-10"
+      "source_id": "claude-plans-20260913",
+      "verified_at": "2026-09-13"
     },
     "free_plan": {
       "value": true,

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "service_id": "ideogram",
+  "last_verified_at": "2026-09-13",
+  "facts": {
+    "service_name": {
+      "value": "Ideogram",
+      "source_id": "ideogram-plans-20260913",
+      "verified_at": "2026-09-13"
+    },
+    "provider": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "official_url": {
+      "value": "https://ideogram.ai/",
+      "source_id": "ideogram-plans-20260913",
+      "verified_at": "2026-09-13"
+    },
+    "current_plan": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "current_price": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "free_plan": {
+      "value": true,
+      "source_id": "ideogram-plans-20260913",
+      "verified_at": "2026-09-13"
+    },
+    "free_trial": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "current_product": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "major_features": {
+      "value": [
+        "画像生成、Reference / Editツール",
+        "プランにより優先クレジット・Slow creditsを利用"
+      ],
+      "source_id": "ideogram-plans-20260913",
+      "verified_at": "2026-09-13"
+    },
+    "availability": {
+      "value": "公式文書の記載基準日は2026-08-21。価格・クレジット数はライブ料金ページ確認が必要。日本向け条件は未確認。",
+      "source_id": "ideogram-plans-20260913",
+      "verified_at": "2026-09-13"
+    }
+  },
+  "source_url": "https://docs.ideogram.ai/plans-and-pricing/available-plans"
+}

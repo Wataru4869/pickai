@@ -12,7 +12,7 @@ const sourceHosts = new Set([
   "api-docs.deepseek.com", "deepseek.com", "www.deepseek.com",
   "www.nist.gov",
   "docs.qwencloud.com", "platform.kimi.ai", "docs.devin.ai", "code.claude.com", "manus.im", "docs.crewai.com",
-  "devin.ai", "cursor.com", "github.com",
+  "devin.ai", "cursor.com", "github.com", "github.blog",
 ]);
 
 function inline(text: string): ReactNode[] {
@@ -55,6 +55,7 @@ export default function ReviewedGuideArticle({ article, attribution }: {
   const agents = article.slug === "ai-agents-comparison-2026";
   const coding = article.slug === "ai-coding-tools-2026";
   const grok = article.slug === "grok-review-2026";
+  const news = article.category === "news";
   const takeaway = grok ? "Grokは、X内と単体版で利用条件の確認先が異なります。使いたい作業を決め、プラン・出典・入力データの扱いを確認してください。旧スコアから現在の性能は判断できません。" : safety
     ? "AIの安全性は、回答の正確さ・入力データの扱い・成果物の権利を分けて確認します。保存スコアだけでは、現在の業務への適合は判断できません。"
     : search ? "AI検索は、答えだけでなく出典まで確認して選びます。同じ質問で、原文との一致・情報の日付・確認にかかる手間を比較してください。"
@@ -92,10 +93,10 @@ export default function ReviewedGuideArticle({ article, attribution }: {
           <div className={styles.scope}>{safety ? "掲載スコアは2026年3月の保存値で、再現未確認です。現在の安全性順位や企業利用の適合を保証するものではありません。" : "公式情報に基づく機能比較です。実測ランキングではありません。料金・利用上限は契約前に公式ページで確認してください。"}</div>
           <section className={styles.summary} aria-labelledby="article-summary">
             <h2 id="article-summary">この記事の要点</h2>
-            <p>{takeaway}</p>
+            <p>{news ? article.description : takeaway}</p>
             <div className={styles.summaryLinks}>
               <a href="#section-0">本文を読む ↓</a>
-              <a href="#section-1">比較表を見る ↓</a>
+              <a href="#section-1">{news ? "変更点と影響を見る ↓" : "比較表を見る ↓"}</a>
               {sourceIndex >= 0 && <a href={`#section-${sourceIndex}`}>公式情報を確認 ↓</a>}
             </div>
           </section>

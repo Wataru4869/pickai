@@ -1,18 +1,78 @@
 {
   "schema_version": 1,
   "service_id": "leonardo-ai",
-  "last_verified_at": "2026-09-10",
-  "source_url": "https://leonardo.ai/pricing",
+  "last_verified_at": "2026-09-13",
+  "source_url": "https://www.leonardo.ai/pricing",
   "facts": {
-    "service_name": { "value": "Leonardo.Ai", "source_id": "leonardo-pricing", "verified_at": "2026-09-10" },
-    "provider": { "value": "Leonardo.Ai", "source_id": "leonardo-pricing", "verified_at": "2026-09-10" },
-    "official_url": { "value": "https://leonardo.ai/", "source_id": "leonardo-pricing", "verified_at": "2026-09-10" },
-    "current_plan": { "value": ["Free", "Essential", "Premium", "Ultimate"], "source_id": "leonardo-pricing", "verified_at": "2026-09-10" },
-    "current_price": { "value": { "Free": "US$0/month excluding tax", "Essential": "US$12/month excluding tax", "Premium": "US$30/month excluding tax", "Ultimate": "US$60/month excluding tax" }, "source_id": "leonardo-pricing", "verified_at": "2026-09-10" },
-    "free_plan": { "value": true, "source_id": "leonardo-pricing", "verified_at": "2026-09-10" },
-    "free_trial": { "value": null, "source_id": null, "verified_at": null },
-    "current_product": { "value": ["Lucid Origin", "Lucid Realism", "Phoenix 1.0", "Motion 2.0"], "source_id": "leonardo-pricing", "verified_at": "2026-09-10" },
-    "major_features": { "value": ["image generation", "video generation", "Realtime Canvas", "personal AI model training"], "source_id": "leonardo-pricing", "verified_at": "2026-09-10" },
-    "availability": { "value": "available", "source_id": "leonardo-pricing", "verified_at": "2026-09-10" }
+    "service_name": {
+      "value": "Leonardo.Ai",
+      "source_id": "leonardo-pricing",
+      "verified_at": "2026-09-10"
+    },
+    "provider": {
+      "value": "Leonardo.Ai",
+      "source_id": "leonardo-pricing",
+      "verified_at": "2026-09-10"
+    },
+    "official_url": {
+      "value": "https://leonardo.ai/",
+      "source_id": "leonardo-pricing",
+      "verified_at": "2026-09-10"
+    },
+    "current_plan": {
+      "value": [
+        "Free",
+        "Essential",
+        "Premium",
+        "Ultimate"
+      ],
+      "source_id": "leonardo-pricing",
+      "verified_at": "2026-09-10"
+    },
+    "current_price": {
+      "value": {
+        "Free": "US$0/month excluding tax",
+        "Essential": "US$12/month excluding tax",
+        "Premium": "US$30/month excluding tax",
+        "Ultimate": "US$60/month excluding tax"
+      },
+      "source_id": "leonardo-pricing",
+      "verified_at": "2026-09-10"
+    },
+    "free_plan": {
+      "value": true,
+      "source_id": "leonardo-pricing",
+      "verified_at": "2026-09-10"
+    },
+    "free_trial": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "current_product": {
+      "value": [
+        "Lucid Origin",
+        "Lucid Realism",
+        "Phoenix 1.0",
+        "Motion 2.0"
+      ],
+      "source_id": "leonardo-pricing",
+      "verified_at": "2026-09-10"
+    },
+    "major_features": {
+      "value": [
+        "image generation",
+        "video generation",
+        "Realtime Canvas",
+        "personal AI model training"
+      ],
+      "source_id": "leonardo-pricing",
+      "verified_at": "2026-09-10"
+    },
+    "availability": {
+      "value": "Freeは日次150 Fast Tokens、生成物は公開。個人有料プランは非公開生成に対応。日本利用条件は未確認。",
+      "source_id": "leonardo-plans-20260913",
+      "verified_at": "2026-09-13"
+    }
   }
 }

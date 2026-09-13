@@ -1,7 +1,7 @@
 {
   "slug": "claude-models-comparison-2026",
-  "title": "Claude Opus 4.6 vs Sonnet 4.6 vs Haiku 4.5 完全比較【2026年最新】どのモデルを選ぶべき？",
-  "description": "Claude Opus 4.6・Sonnet 4.6・Haiku 4.5の性能・料金・用途を徹底比較。SWE-benchスコアやAPI単価、コーディング・文章作成での使い分けを2026年最新データで解説。",
+  "title": "Claude Opus 4.6・Sonnet 4.6・Haiku 4.5 比較記録【2026年3月】",
+  "description": "2026年3月に掲載したClaudeモデル比較。性能・API単価・利用条件は当時の記述で、現行性は未再確認です。",
   "publishedAt": "2026-03-26",
   "updatedAt": "2026-03-26",
   "category": "guide",

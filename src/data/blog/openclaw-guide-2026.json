@@ -1,7 +1,7 @@
 {
   "slug": "openclaw-guide-2026",
-  "title": "OpenClawとは？2026年最注目の自律型AIエージェントを日本語で徹底解説",
-  "description": "OpenClawの仕組み・使い方・セキュリティリスクを日本語で解説。CVE-2026-25253やNemoClawなど2026年3月最新情報を網羅。",
+  "title": "OpenClawの仕組みとリスク【2026年3月の解説記録】",
+  "description": "2026年3月掲載のOpenClaw解説。脆弱性・バージョン・対策の現行性は未再確認です。本文の旧バージョン指定を現在の安全保証として使わないでください。",
   "publishedAt": "2026-03-26",
   "updatedAt": "2026-03-26",
   "category": "guide",

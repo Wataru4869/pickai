@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "service_id": "gemini",
-  "last_verified_at": "2026-09-11",
-  "source_url": "https://support.google.com/gemini/answer/16275805",
+  "last_verified_at": "2026-09-13",
+  "source_url": "https://gemini.google/release-notes/",
   "facts": {
     "service_name": {
       "value": "Gemini",
@@ -48,11 +48,11 @@
     },
     "major_features": {
       "value": [
-        "テキスト・ファイル・画像・動画の理解（Pro）",
-        "Canvas / Gems（利用上限はプラン依存）"
+        "Windows 10以降のアプリを2026-09-10発表",
+        "メッセージ草案・画像生成・調査、Googleアプリ連携を案内"
       ],
-      "source_id": "gemini-app-model-access",
-      "verified_at": "2026-09-11"
+      "source_id": "gemini-windows-20260910",
+      "verified_at": "2026-09-13"
     },
     "availability": {
       "value": "Google AI各プランで利用上限・機能が異なる。日本は公式の対象国一覧に掲載。",

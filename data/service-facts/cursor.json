@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "service_id": "cursor",
-  "last_verified_at": "2026-09-11",
-  "source_url": "https://cursor.com/en-US",
+  "last_verified_at": "2026-09-13",
+  "source_url": "https://cursor.com/changelog",
   "facts": {
     "service_name": {
       "value": "Cursor",
@@ -33,13 +33,13 @@
     "current_price": {
       "value": {
         "Hobby": "free",
-        "Pro": "US$20/month",
-        "Pro+": "US$60/month",
-        "Ultra": "US$200/month",
-        "Teams": "US$40/user/month"
+        "Pro": "US$20/month excluding applicable taxes",
+        "Pro+": "US$60/month excluding applicable taxes",
+        "Ultra": "US$200/month excluding applicable taxes",
+        "Teams": null
       },
-      "source_id": "cursor-pricing",
-      "verified_at": "2026-09-10"
+      "source_id": "cursor-pricing-20260913",
+      "verified_at": "2026-09-13"
     },
     "free_plan": {
       "value": true,
@@ -53,11 +53,11 @@
     },
     "major_features": {
       "value": [
-        "エディタとCLIでの開発支援",
-        "クラウドエージェントによる作業"
+        "エディタ・CLI・クラウドエージェント",
+        "Projects：複数作業の計画・エージェントへの委任・継続作業"
       ],
-      "source_id": "cursor-product-overview",
-      "verified_at": "2026-09-11"
+      "source_id": "cursor-projects-20260910",
+      "verified_at": "2026-09-13"
     },
     "availability": {
       "value": "製品として複数のモデルを利用。搭載モデルと利用量はプランに依存。",

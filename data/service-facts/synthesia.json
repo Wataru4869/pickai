@@ -1,17 +1,69 @@
 {
   "schema_version": 1,
   "service_id": "synthesia",
-  "last_verified_at": "2026-09-10",
+  "last_verified_at": "2026-09-13",
   "source_url": "https://www.synthesia.io/pricing",
   "facts": {
-    "service_name": { "value": "Synthesia", "source_id": "synthesia-pricing", "verified_at": "2026-09-10" },
-    "provider": { "value": "Synthesia Ltd", "source_id": "synthesia-pricing", "verified_at": "2026-09-10" },
-    "official_url": { "value": "https://www.synthesia.io/", "source_id": "synthesia-pricing", "verified_at": "2026-09-10" },
-    "current_plan": { "value": ["Basic", "Starter", "Creator", "Enterprise"], "source_id": "synthesia-pricing", "verified_at": "2026-09-10" },
-    "current_price": { "value": { "Basic": "US$0/month", "Starter": "US$29/month", "Creator": "US$89/month", "Enterprise": "contact sales" }, "source_id": "synthesia-pricing", "verified_at": "2026-09-10" },
-    "free_plan": { "value": true, "source_id": "synthesia-pricing", "verified_at": "2026-09-10" },
-    "free_trial": { "value": true, "source_id": "synthesia-pricing", "verified_at": "2026-09-10" },
-    "major_features": { "value": ["AI avatar video", "AI dubbing", "video templates", "AI-generated video assets"], "source_id": "synthesia-pricing", "verified_at": "2026-09-10" },
-    "availability": { "value": "available", "source_id": "synthesia-pricing", "verified_at": "2026-09-10" }
+    "service_name": {
+      "value": "Synthesia",
+      "source_id": "synthesia-pricing",
+      "verified_at": "2026-09-10"
+    },
+    "provider": {
+      "value": "Synthesia Ltd",
+      "source_id": "synthesia-pricing",
+      "verified_at": "2026-09-10"
+    },
+    "official_url": {
+      "value": "https://www.synthesia.io/",
+      "source_id": "synthesia-pricing",
+      "verified_at": "2026-09-10"
+    },
+    "current_plan": {
+      "value": [
+        "Basic",
+        "Starter",
+        "Creator",
+        "Enterprise"
+      ],
+      "source_id": "synthesia-pricing",
+      "verified_at": "2026-09-10"
+    },
+    "current_price": {
+      "value": {
+        "Basic": "US$0/month",
+        "Starter": "US$29/month billed monthly",
+        "Creator": "US$89/month billed monthly",
+        "Enterprise": "contact sales",
+        "region_note": "年契約は同一ページ内の価格表とFAQに不一致があるため未確認。日本税込価格も未確認。"
+      },
+      "source_id": "synthesia-plans-20260913",
+      "verified_at": "2026-09-13"
+    },
+    "free_plan": {
+      "value": true,
+      "source_id": "synthesia-pricing",
+      "verified_at": "2026-09-10"
+    },
+    "free_trial": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "major_features": {
+      "value": [
+        "AI avatar video",
+        "AI dubbing",
+        "video templates",
+        "AI-generated video assets"
+      ],
+      "source_id": "synthesia-pricing",
+      "verified_at": "2026-09-10"
+    },
+    "availability": {
+      "value": "available",
+      "source_id": "synthesia-pricing",
+      "verified_at": "2026-09-10"
+    }
   }
 }

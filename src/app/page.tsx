@@ -39,7 +39,7 @@ export default function HomePage() {
               <h1>いまのAIを、<br /><em>自分の選択肢に。</em></h1>
               <p className={styles.explorerLead}>モデルの名前は変わる。選ぶ理由は、自分の仕事から。<br />9つの候補を、機能・利用条件・公式根拠で比較できます。</p>
               <div className={styles.heroActions}><a href="#current-comparison">ツール・モデルを比較する ↓</a><a href="#purposes">用途から選び方を読む ↗</a></div>
-              <div className={styles.heroMeta}><span>公式情報を項目別に確認</span><span>独自採点と分離</span><span>最終確認 2026.09.11</span></div>
+              <div className={styles.heroMeta}><span>公式情報を項目別に確認</span><span>独自採点と分離</span><span>確認日は項目ごとに表示</span></div>
             </div>
             <aside className={styles.modelBrief} aria-label="確認したモデル更新">
               <p className={styles.briefLabel}>MODEL WATCH <span>2026 / 09</span></p>

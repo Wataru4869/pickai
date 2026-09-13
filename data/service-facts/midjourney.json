@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "service_id": "midjourney",
+  "last_verified_at": "2026-09-13",
+  "facts": {
+    "service_name": {
+      "value": "Midjourney",
+      "source_id": "midjourney-plans-20260913",
+      "verified_at": "2026-09-13"
+    },
+    "provider": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "official_url": {
+      "value": "https://www.midjourney.com/",
+      "source_id": "midjourney-version-20260913",
+      "verified_at": "2026-09-13"
+    },
+    "current_plan": {
+      "value": [
+        "Basic",
+        "Standard",
+        "Pro",
+        "Mega"
+      ],
+      "source_id": "midjourney-plans-20260913",
+      "verified_at": "2026-09-13"
+    },
+    "current_price": {
+      "value": {
+        "Basic": "US$10/month or US$96/year prepaid",
+        "Standard": "US$30/month or US$288/year prepaid",
+        "Pro": "US$60/month or US$576/year prepaid",
+        "Mega": "US$120/month or US$1,152/year prepaid",
+        "region_note": "日本の税込最終価格は未確認"
+      },
+      "source_id": "midjourney-plans-20260913",
+      "verified_at": "2026-09-13"
+    },
+    "free_plan": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "free_trial": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "current_product": {
+      "value": "Midjourney V8.2（2026-07-24から既定モデル）",
+      "source_id": "midjourney-version-20260913",
+      "verified_at": "2026-09-13"
+    },
+    "major_features": {
+      "value": [
+        "画像生成・編集",
+        "Personalization、Web/Discordのモデル選択"
+      ],
+      "source_id": "midjourney-version-20260913",
+      "verified_at": "2026-09-13"
+    },
+    "availability": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    }
+  },
+  "source_url": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version"
+}

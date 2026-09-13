@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "service_id": "github-copilot",
-  "last_verified_at": "2026-09-11",
-  "source_url": "https://github.com/features/copilot",
+  "last_verified_at": "2026-09-13",
+  "source_url": "https://github.blog/changelog/2026-09-10-mai-code-1-flash-deprecated/",
   "facts": {
     "service_name": {
       "value": "GitHub Copilot",
@@ -62,9 +62,9 @@
       "verified_at": "2026-09-11"
     },
     "availability": {
-      "value": "Free等の個人プランを掲載。Business/Enterprise新規受付は段階的。",
-      "source_id": "github-copilot-product",
-      "verified_at": "2026-09-11"
+      "value": "MAI-Code-1-Flashは2026-09-10にCopilot全体で終了。公式推奨代替はMAI-Code-1.1-Flash。利用可能モデルは契約・管理設定を別確認。",
+      "source_id": "github-copilot-mai-retirement-20260910",
+      "verified_at": "2026-09-13"
     },
     "current_product": {
       "value": "GitHub Copilot（IDE / CLI / GitHub）",

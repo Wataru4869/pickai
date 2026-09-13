@@ -28,7 +28,7 @@ assert.equal(config.services.filter(s=>s.status==='active').length,0);
 assert.equal(config.services.filter(s=>s.affiliate_url).length,0);
 console.log('Passed: HTML escaping, official-host boundary, scheme/userinfo/port rejection, historical scores unchanged, affiliate active 0 / URLs 0.');
 
-for (const slug of ['ai-search-engines-comparison-2026','ai-safety-ranking-2026','ai-agents-comparison-2026','ai-tools-2026-trends','ai-coding-tools-2026','grok-review-2026']) {
+for (const slug of ['ai-search-engines-comparison-2026','ai-safety-ranking-2026','ai-agents-comparison-2026','ai-tools-2026-trends','ai-coding-tools-2026','grok-review-2026','cursor-projects-2026','copilot-model-retirement-2026-09']) {
   const guide=JSON.parse(fs.readFileSync(path+'src/data/blog/'+slug+'.json'));
   assert.equal(guide.cta.type,'internal');
   assert.equal(guide.cta.links.length,2);
@@ -50,7 +50,7 @@ const grok=JSON.parse(fs.readFileSync(path+'src/data/blog/grok-review-2026.json'
 assert.equal(grok.updatedAt,'2026-09-13');
 assert.equal(/1位|独自テストで検証/.test(grok.title+grok.description),false);
 for(const score of ['72.1','86.8','86.3','43.3','69.3','95 / 91 / 88','82 / 80 / 88','88 / 85 / 93 / 79','58 / 9 / 73'])assert.ok(grok.sections.find(s=>s.heading.includes('保存スコア')).content.includes(score));
-console.log('Passed: six reviewed guides, internal-only CTA pairs, official links render, Article schema present, Grok historical values preserved.');
+console.log('Passed: eight reviewed articles, internal-only CTA pairs, official links render, Article schema present, Grok historical values preserved.');
 
 // Rendering the archive must preserve the original model-category values.
 const models=JSON.parse(fs.readFileSync(path+'src/data/models.json')).models;
@@ -89,7 +89,9 @@ assert.deepEqual(current.displayFact({value:null,source_id:null,verified_at:null
 assert.equal(current.displayFact({value:'unverified',source_id:'missing-source',verified_at:'2026-09-11'}).text,'未確認');
 for(const p of current.currentProducts) {
   assert.ok(['chat','api','coding'].includes(p.group));
-  assert.ok(p.product.source && p.features.source);
+  for (const key of ['product','features']) {
+    if (!p[key].source) assert.deepEqual(p[key], {text:'未確認',date:null,source:null});
+  }
   assert.equal('score' in p,false);
   assert.ok(p.guide.startsWith('/blog/'));
   for(const key of ['product','features','free','price','availability']) if(p[key].source) {
