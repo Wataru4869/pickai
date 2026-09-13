@@ -70,6 +70,11 @@
 .filters button { min-height: 44px; padding: 8px 18px; border: 1px solid #bed0c4; border-radius: 24px; background: white; font-size: 13px; color: #355645; }
 .filters button[aria-pressed="true"] { background: #205e4d; color: white; border-color: #205e4d; }
 .count { margin-bottom: 20px; font-size: 13px; color: #55665e; }
+.articleSearch { display: grid; gap: 10px; font-size: 14px; font-weight: 650; margin-bottom: 22px; max-width: 600px; }
+.articleSearch input { width: 100%; min-width: 0; min-height: 48px; border: 1px solid #bed0c4; border-radius: 8px; background: white; padding: 12px; font: inherit; }
+.articleSearch input:focus-visible { outline: 3px solid #17685c; outline-offset: 3px; }
+.articleScope { align-self: flex-start; font-size: 11px; line-height: 1.7; padding: 5px 8px; margin-bottom: 12px; border: 1px solid #d8e2dc; border-radius: 4px; color: #466355; }
+.note button { display: inline-block; min-height: 44px; margin-left: 8px; text-decoration: underline; color: #205e4d; }
 @media(max-width:1000px) { .purposeGrid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
 @media(max-width:640px) {
   .container { padding: 0 18px; } .hero { padding: 32px 0; } .hero h1 { font-size: 30px; } .lead { font-size: 15px; }

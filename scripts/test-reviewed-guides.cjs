@@ -28,7 +28,7 @@ assert.equal(config.services.filter(s=>s.status==='active').length,0);
 assert.equal(config.services.filter(s=>s.affiliate_url).length,0);
 console.log('Passed: HTML escaping, official-host boundary, scheme/userinfo/port rejection, historical scores unchanged, affiliate active 0 / URLs 0.');
 
-for (const slug of ['ai-search-engines-comparison-2026','ai-safety-ranking-2026','ai-agents-comparison-2026','ai-tools-2026-trends','ai-coding-tools-2026','grok-review-2026','cursor-projects-2026','copilot-model-retirement-2026-09']) {
+for (const slug of ['ai-search-engines-comparison-2026','ai-safety-ranking-2026','ai-agents-comparison-2026','ai-tools-2026-trends','ai-coding-tools-2026','grok-review-2026','cursor-projects-2026','copilot-model-retirement-2026-09','chatgpt-models-comparison-2026','ai-free-tier-comparison-2026']) {
   const guide=JSON.parse(fs.readFileSync(path+'src/data/blog/'+slug+'.json'));
   assert.equal(guide.cta.type,'internal');
   assert.equal(guide.cta.links.length,2);
@@ -50,7 +50,17 @@ const grok=JSON.parse(fs.readFileSync(path+'src/data/blog/grok-review-2026.json'
 assert.equal(grok.updatedAt,'2026-09-13');
 assert.equal(/1位|独自テストで検証/.test(grok.title+grok.description),false);
 for(const score of ['72.1','86.8','86.3','43.3','69.3','95 / 91 / 88','82 / 80 / 88','88 / 85 / 93 / 79','58 / 9 / 73'])assert.ok(grok.sections.find(s=>s.heading.includes('保存スコア')).content.includes(score));
-console.log('Passed: eight reviewed articles, internal-only CTA pairs, official links render, Article schema present, Grok historical values preserved.');
+const chatgptGuide=JSON.parse(fs.readFileSync(path+'src/data/blog/chatgpt-models-comparison-2026.json'));
+assert.equal(chatgptGuide.publishedAt,'2026-03-26');
+assert.equal(chatgptGuide.updatedAt,'2026-09-13');
+const chatgptHistory=chatgptGuide.sections.find(s=>s.heading.includes('保存スコア'));
+for(const score of ['86.5','86.3','81.3','92.0','90.5']) assert.ok(chatgptHistory.content.includes(score));
+assert.ok(chatgptGuide.sections.some(s=>s.content.includes('通常チャットの全プラン共通カタログ')));
+const freeGuide=JSON.parse(fs.readFileSync(path+'src/data/blog/ai-free-tier-comparison-2026.json'));
+assert.equal(freeGuide.publishedAt,'2026-03-23');
+const freeHistory=freeGuide.sections.find(s=>s.heading.includes('過去の掲載値'));
+for(const score of ['86.5','92.0','86.3','81.3','90.5','94.3','93.7','86.4','86.8'])assert.ok(freeHistory.content.includes(score));
+console.log('Passed: ten reviewed articles, internal-only CTA pairs, official links render, Article schema present, historical values preserved.');
 
 // Rendering the archive must preserve the original model-category values.
 const models=JSON.parse(fs.readFileSync(path+'src/data/models.json')).models;

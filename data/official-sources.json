@@ -1,6 +1,12 @@
 {
   "schema_version": 1,
   "sources": [
+    {"source_id":"heygen-august-release-20260909","provider":"HeyGen","title":"August product roundup published September 9: Edit Look and Real Estate; not September launch dates","url":"https://www.heygen.com/blog/heygen-august-2026-release","source_type":"official","verified_at":"2026-09-13"},
+    {"source_id":"claude-free-limits-20260913","provider":"Anthropic","title":"Get started with Claude: Free session limits and model display","url":"https://support.claude.com/en/articles/8114491-get-started-with-claude","source_type":"official","verified_at":"2026-09-13"},
+    {"source_id":"gemini-usage-limits-20260913","provider":"Google","title":"Gemini personal-account standard limits; May change notice is historical","url":"https://support.google.com/gemini/answer/16275805?hl=ja","source_type":"official","verified_at":"2026-09-13"},
+    {"source_id":"perplexity-standard-20260913","provider":"Perplexity","title":"Standard and promotional trials (page modified September 5)","url":"https://www.perplexity.ai/help-center/en/articles/11187416-which-perplexity-subscription-plan-is-right-for-you","source_type":"official","verified_at":"2026-09-13"},
+    {"source_id":"chatgpt-work-models-20260913","provider":"OpenAI","title":"Models: environment-specific Work/Codex availability and retirement scope","url":"https://learn.chatgpt.com/docs/models","source_type":"official","verified_at":"2026-09-13"},
+    {"source_id":"chatgpt-changelog-20260913","provider":"OpenAI","title":"ChatGPT & Codex changelog: September 7–13 review, CLI September 9 entry","url":"https://learn.chatgpt.com/docs/changelog","source_type":"official","verified_at":"2026-09-13"},
     {"source_id":"heygen-plans-20260913","provider":"HeyGen","title":"HeyGen free plan and limited premium-feature trials","url":"https://www.heygen.com/pricing","source_type":"official","verified_at":"2026-09-13"},
     {"source_id":"claude-plans-20260913","provider":"Anthropic","title":"Choose a Claude plan (document dated May 19, 2026)","url":"https://support.claude.com/en/articles/11049762-choose-a-claude-plan","source_type":"official","verified_at":"2026-09-13"},
     {"source_id":"leonardo-plans-20260913","provider":"Leonardo.Ai","title":"Leonardo individual plans, tax exclusive","url":"https://www.leonardo.ai/pricing","source_type":"official","verified_at":"2026-09-13"},

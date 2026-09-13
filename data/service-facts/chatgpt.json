@@ -64,14 +64,14 @@
       "verified_at": "2026-09-11"
     },
     "availability": {
-      "value": "公式一覧にWeb・デスクトップ等の対応を掲載。個別アカウントのモデル利用可否は未確認。",
-      "source_id": "chatgpt-current-models",
-      "verified_at": "2026-09-11"
+      "value": "公式モデル案内はWork/Codex等の環境別説明。通常チャットの全プラン共通一覧ではない。個別アカウントの利用可否は未確認。",
+      "source_id": "chatgpt-work-models-20260913",
+      "verified_at": "2026-09-13"
     },
     "current_product": {
-      "value": "ChatGPT（公式モデル一覧：Astra / GPT-5.6系列など。利用可否は環境・契約に依存）",
-      "source_id": "chatgpt-current-models",
-      "verified_at": "2026-09-11"
+      "value": "ChatGPT（Work/Codex等の公式案内にAstra / GPT-5.6系列を掲載。通常チャット全プランへの提供は未確認）",
+      "source_id": "chatgpt-work-models-20260913",
+      "verified_at": "2026-09-13"
     }
   }
 }
