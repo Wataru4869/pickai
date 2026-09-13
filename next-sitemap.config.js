@@ -18,6 +18,8 @@ function isCanonicalCompare(slug) {
 module.exports = {
   siteUrl: 'https://www.aierabi.jp',
   generateRobotsTxt: true,
+  // Build時刻を内容更新日と偽らない。ページ本文の項目別確認日は別管理。
+  autoLastmod: false,
   changefreq: 'weekly',
   priority: 0.7,
   robotsTxtOptions: {
@@ -38,6 +40,8 @@ module.exports = {
   transform: async (config, path) => {
     // 保存スコア専用のnoindex履歴ページは検索用sitemapへ載せない。
     if (path.startsWith('/evaluations/')) return null;
+    // 旧Copilotは対象製品の根拠不足でnoindex。GitHub Copilotと混同しない。
+    if (path === '/model/copilot') return null;
     // /category（単数形）はsitemapから除外（/categories/ 複数形のみ残す）
     if (path === '/category' || path.startsWith('/category/')) {
       return null;
