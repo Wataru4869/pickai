@@ -3,7 +3,7 @@ import styles from "@/components/Discovery.module.css";
 
 export const metadata = {
   title: "用途から探すAI比較ガイド｜画像・動画・開発・検索 | AI選び",
-  description: "5カテゴリの選び方ガイドと、2026年3月の保存評価を分けて確認できます。",
+  description: "5カテゴリの選び方と、確認日・出典付きの機能・条件を確認できます。",
   alternates: { canonical: "/categories" },
   openGraph: { title: "用途から探すAI比較ガイド | AI選び", url: "/categories" },
 };
@@ -18,7 +18,7 @@ export default function CategoriesPage() {
   return <div className={styles.page}><Header /><main>
     <header className={styles.hero}><div className={styles.container}><p className={styles.eyebrow}>COMPARE BY PURPOSE</p><h1>やりたいことを、<br /><em>比較の出発点に。</em></h1><p className={styles.lead}>まずは用途のガイドへ。<br />過去の評価記録は、別の入口で確認できます。</p></div></header>
     <div className={styles.container}><section className={styles.section} aria-label="5つの用途">
-      <div className={styles.articleGrid}>{categories.map(cat => <div className={styles.articleCard} key={cat.id}><h2>{cat.name}</h2><p>{cat.description}</p><a className={styles.primary} href={`/blog/${cat.slug}`}>選び方のガイドへ →</a><a className={styles.secondary} href={`/categories/${cat.id}`}>2026年3月の保存評価</a></div>)}</div>
+      <div className={styles.articleGrid}>{categories.map(cat => <div className={styles.articleCard} key={cat.id}><h2>{cat.name}</h2><p>{cat.description}</p><a className={styles.primary} href={`/blog/${cat.slug}`}>選び方のガイドへ →</a><a className={styles.secondary} href={`/categories/${cat.id}`}>公式情報で比較</a></div>)}</div>
       <p className={styles.note}>保存評価は現行モデルの順位ではありません。購入・契約前は各社の提供条件を確認してください。</p>
     </section></div>
   </main><Footer /></div>;

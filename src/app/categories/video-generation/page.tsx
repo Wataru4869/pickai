@@ -1,17 +1,3 @@
-import { CategoryToolPage } from "@/components/CategoryToolPage";
-import data from "@/data/category_video_generation.json";
-
-export const metadata = {
-  title: "動画生成AI 7ツールの保存済み比較（2026年3月時点）| AI選び",
-  description: "動画生成AI 7ツールの2026年3月時点の保存済み参考評価。現在の料金・機能は公式サイトで確認してください。",
-  alternates: { canonical: "/categories/video-generation" },
-  openGraph: {
-    title: "動画生成AI 7ツールの保存済み比較（2026年3月時点）| AI選び",
-    description: "動画生成AI 7ツールの2026年3月時点の保存済み参考評価。現在の料金・機能は公式サイトで確認してください。",
-    url: "/categories/video-generation",
-  },
-};
-
-export default function VideoGenerationPage() {
-  return <CategoryToolPage data={data as any} />;
-}
+import { PurposePage } from "@/components/PublicFactsPage";
+export const metadata={title:"動画生成AIの選び方・公式情報比較 | AI選び",description:"用途と確認日付きの公式情報で比較。旧スコアの順位ではなく、機能・利用条件・未確認項目を分けて確認できます。",alternates:{canonical:"/categories/video-generation"}};
+export default function Page(){return <PurposePage purpose="video-generation"/>;}

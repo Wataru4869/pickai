@@ -28,16 +28,16 @@ export default function AboutPage() {
           <div>
             <h2 className="text-[14px] font-semibold mb-1.5">サイト概要</h2>
             <p className="text-[#6e6e73]">
-              AI選びは、主要AIツールを独自テストで評価・比較する情報サイトです。ChatGPT、Claude、Gemini、Grok、Perplexityを含む6カテゴリ38ツールを、独自の30テスト＋安全性14テストで検証しています。
+              AI選びは、AIツールの用途・機能・利用条件を公式情報から整理する比較サイトです。確認した項目には出典と確認日を付け、過去の独自評価とは分けて掲載します。
             </p>
           </div>
 
           <div>
             <h2 className="text-[14px] font-semibold mb-1.5">評価方針</h2>
             <ul className="space-y-1 text-[#6e6e73]">
-              <li className="pl-3 border-l-2 border-[#0066cc]">全テストの採点基準と方法論を公開しています</li>
-              <li className="pl-3 border-l-2 border-[#0066cc]">特定の企業・製品との利害関係はありません</li>
-              <li className="pl-3 border-l-2 border-[#0066cc]">テスト結果に基づく公平な比較情報の提供を目的としています</li>
+              <li className="pl-3 border-l-2 border-[#0066cc]">保存資料の評価構成と限界を公開しています。全回答・採点ログは揃っていません</li>
+              <li className="pl-3 border-l-2 border-[#0066cc]">広告リンクを掲載する場合は開示し、報酬条件を評価点や順位へ反映しません</li>
+              <li className="pl-3 border-l-2 border-[#0066cc]">未確認の性能・料金を推測で補わず、読者が根拠を確認できる情報を提供します</li>
             </ul>
           </div>
 

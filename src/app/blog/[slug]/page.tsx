@@ -364,7 +364,7 @@ export default async function BlogArticlePage({
   const showAffiliateDisclosure = hasActiveAffiliateLink(article.cta, contentId);
 
   // Explicitly reviewed guides only. Affiliate content retains the disclosure renderer.
-  if (["ai-search-engines-comparison-2026", "ai-safety-ranking-2026", "ai-agents-comparison-2026", "ai-tools-2026-trends", "ai-coding-tools-2026"].includes(article.slug) && !showAffiliateDisclosure && article.cta?.type === "internal") {
+  if (["ai-search-engines-comparison-2026", "ai-safety-ranking-2026", "ai-agents-comparison-2026", "ai-tools-2026-trends", "ai-coding-tools-2026", "grok-review-2026"].includes(article.slug) && !showAffiliateDisclosure && article.cta?.type === "internal") {
     return <ReviewedGuideArticle article={article} attribution={{
       postId: safeAttribution(searchParams?.utm_content),
       campaignId: safeAttribution(searchParams?.utm_campaign),

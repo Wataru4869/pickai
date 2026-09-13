@@ -28,17 +28,29 @@ assert.equal(config.services.filter(s=>s.status==='active').length,0);
 assert.equal(config.services.filter(s=>s.affiliate_url).length,0);
 console.log('Passed: HTML escaping, official-host boundary, scheme/userinfo/port rejection, historical scores unchanged, affiliate active 0 / URLs 0.');
 
-for (const slug of ['ai-search-engines-comparison-2026','ai-safety-ranking-2026','ai-agents-comparison-2026','ai-tools-2026-trends','ai-coding-tools-2026']) {
+for (const slug of ['ai-search-engines-comparison-2026','ai-safety-ranking-2026','ai-agents-comparison-2026','ai-tools-2026-trends','ai-coding-tools-2026','grok-review-2026']) {
   const guide=JSON.parse(fs.readFileSync(path+'src/data/blog/'+slug+'.json'));
   assert.equal(guide.cta.type,'internal');
   assert.equal(guide.cta.links.length,2);
   for (const link of guide.cta.links) assert.ok(/^\/[a-z0-9/-]+$/.test(link.url),slug);
   const rendered=renderToStaticMarkup(React.createElement(result.exports.default,{article:guide,attribution:{}}));
   assert.ok(rendered.includes('type="application/ld+json"'));
+  assert.ok(rendered.includes('id="article-summary"'));
+  assert.ok(rendered.includes('id="article"'));
+  assert.ok(rendered.includes('<details open=""'));
+  const schema=JSON.parse(rendered.match(/<script type="application\/ld\+json">(.*?)<\/script>/)[1]);
+  assert.equal(schema.inLanguage,'ja');
+  assert.equal(schema.dateModified,guide.updatedAt);
+  assert.equal(schema['@id'],`https://www.aierabi.jp/blog/${slug}#article`);
+  for(const match of rendered.matchAll(/href="#([^"]+)"/g)) assert.ok(rendered.includes(`id="${match[1]}"`),slug+' missing anchor');
   const external=guide.sections.flatMap(s=>[...s.content.matchAll(/\[[^\]]+\]\((https:\/\/[^\s)]+)\)/g)]).map(m=>m[1]);
   for(const url of external) assert.ok(rendered.includes('href="'+new URL(url).href+'"'),slug+' source not linked: '+url);
 }
-console.log('Passed: five reviewed guides, internal-only CTA pairs, official links render, Article schema present.');
+const grok=JSON.parse(fs.readFileSync(path+'src/data/blog/grok-review-2026.json'));
+assert.equal(grok.updatedAt,'2026-09-13');
+assert.equal(/1位|独自テストで検証/.test(grok.title+grok.description),false);
+for(const score of ['72.1','86.8','86.3','43.3','69.3','95 / 91 / 88','82 / 80 / 88','88 / 85 / 93 / 79','58 / 9 / 73'])assert.ok(grok.sections.find(s=>s.heading.includes('保存スコア')).content.includes(score));
+console.log('Passed: six reviewed guides, internal-only CTA pairs, official links render, Article schema present, Grok historical values preserved.');
 
 // Rendering the archive must preserve the original model-category values.
 const models=JSON.parse(fs.readFileSync(path+'src/data/models.json')).models;
@@ -101,3 +113,21 @@ assert.equal(currentHomeHtml.includes('<tbody>'),false);
 assert.ok(currentHomeHtml.includes('V4.1-Flash'));
 assert.ok(currentHomeHtml.includes('href="/evaluations/2026-03"'));
 console.log('Passed: nine public-fact candidates, unknown preserved, official source links, no score inheritance on home.');
+
+const catalog=loadTs('src/lib/public-catalog.ts',{'./current-comparison':current});
+assert.equal(catalog.catalogProduct('copilot').facts.provider.text,'未確認');
+assert.equal(catalog.catalogProduct('grok').facts.current_price.text,'未確認');
+assert.equal(catalog.catalogProduct('grok').facts.free_trial.text,'未確認');
+assert.ok(catalog.catalogProduct('perplexity').facts.current_price.text.includes('未確認'));
+assert.equal(catalog.catalogProduct('perplexity').facts.current_price.text.includes('null'),false);
+const factsUi=loadTs('src/components/PublicFactsPage.tsx',{'@/components/ui':{Header:()=>null,Footer:()=>null},'@/lib/public-catalog':catalog});
+for(const id of Object.keys(catalog.modelNames)) {
+  const html=renderToStaticMarkup(React.createElement(factsUi.FactCards,{ids:[id]}));
+  assert.equal(/総合スコア|[0-9]位|乗り換え推奨|\/ 100/.test(html),false);
+  for(const fact of Object.values(catalog.catalogProduct(id).facts))if(fact.source){assert.ok(fact.date>='2026-09-01');assert.ok(html.includes(fact.source.replace(/&/g,'&amp;')));}
+}
+for(const file of ['compare/page.tsx','compare/[slug]/page.tsx','model/[id]/page.tsx','category/[id]/page.tsx','safety/page.tsx','switch/page.tsx','cost/page.tsx','compare/[slug]/opengraph-image.tsx']) {
+  const code=fs.readFileSync(path+'src/app/'+file,'utf8');
+  assert.equal(/getTests|getSafetyRanking|scores\.|getOverallRanking/.test(code),false,file+' must not calculate from old scores');
+}
+console.log('Passed: current decision pages exclude historical score calculations, unknown stays unknown, facts carry September sources.');

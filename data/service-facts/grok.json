@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "service_id": "grok",
+  "last_verified_at": "2026-09-13",
+  "source_url": "https://x.ai/grok",
+  "facts": {
+    "service_name": {
+      "value": "Grok",
+      "source_id": "grok-product-20260913",
+      "verified_at": "2026-09-13"
+    },
+    "provider": {
+      "value": "SpaceXAI（確認した公式製品ページ表記）",
+      "source_id": "grok-product-20260913",
+      "verified_at": "2026-09-13"
+    },
+    "official_url": {
+      "value": "https://x.ai/grok",
+      "source_id": "grok-product-20260913",
+      "verified_at": "2026-09-13"
+    },
+    "current_product": {
+      "value": "Grok（個人向けサービス。モデル識別子は未確認）",
+      "source_id": "grok-product-20260913",
+      "verified_at": "2026-09-13"
+    },
+    "major_features": {
+      "value": [
+        "Web・公開X投稿の検索",
+        "文章・コード・画像・動画生成、音声機能を公式に案内"
+      ],
+      "source_id": "grok-product-20260913",
+      "verified_at": "2026-09-13"
+    },
+    "availability": {
+      "value": "Web・iOS・Android。地域・契約・機能別の利用条件は公式確認",
+      "source_id": "grok-product-20260913",
+      "verified_at": "2026-09-13"
+    },
+    "current_plan": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "current_price": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "free_plan": {
+      "value": true,
+      "source_id": "grok-product-20260913",
+      "verified_at": "2026-09-13"
+    },
+    "free_trial": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    }
+  }
+}

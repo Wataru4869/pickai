@@ -1,0 +1,17 @@
+.page{background:#f5f7fa;color:#203348;min-height:100vh}
+.main{max-width:1120px;margin:auto;padding:28px 32px 60px;overflow-wrap:anywhere}
+.main nav{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:13px}
+.main a{color:#175c83;text-decoration:underline;text-underline-offset:4px;display:inline-block;padding:12px 0;min-height:44px}
+.main a:focus-visible{outline:3px solid #175c83;outline-offset:3px}
+.main header{padding:32px 0}.label{font-size:12px;letter-spacing:.12em;color:#526e89;font-weight:700}
+.main h1{font-size:clamp(28px,4vw,44px);line-height:1.5;font-weight:750;margin:12px 0 20px}
+.main h2{font-size:22px;line-height:1.6;font-weight:700;margin-bottom:14px}
+.main p,.main li{font-size:15px;line-height:1.95}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.card{min-width:0;padding:26px;background:#fff;border:1px solid #d9e2ea;border-top:4px solid #537b98;border-radius:8px 8px 16px 16px}
+.card dl>div{padding:16px 0;border-top:1px solid #e2e8ed}.card dt{font-size:13px;font-weight:700;margin-bottom:6px;color:#456379}
+.card dd p{font-size:14px}.card dd a{font-size:12px}.card .note{font-size:12px;color:#596c7b;margin-bottom:16px}
+.checks,.history{background:#e8eff4;border:1px solid #d6e1ea;border-radius:14px;padding:26px;margin:0 0 24px}
+.checks ul{list-style:disc;padding-left:22px}.checks a,.history a{margin-right:24px}
+.history{margin:32px 0 0;background:#f0f2f4}.history h2{font-size:18px}.history p{font-size:13px}
+@media(max-width:640px){.main{padding:20px 18px 40px}.grid{grid-template-columns:1fr}.card,.checks,.history{padding:20px}.main header{padding:24px 0}.main h2{font-size:21px}}

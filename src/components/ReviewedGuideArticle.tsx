@@ -6,6 +6,7 @@ import styles from "./ReviewedGuideArticle.module.css";
 
 // Only explicitly reviewed guides use this renderer; it never executes raw HTML.
 const sourceHosts = new Set([
+  "x.ai",
   "help.openai.com", "openai.com", "support.anthropic.com", "support.claude.com",
   "www.perplexity.ai", "support.google.com", "one.google.com", "help.x.com",
   "api-docs.deepseek.com", "deepseek.com", "www.deepseek.com",
@@ -53,7 +54,15 @@ export default function ReviewedGuideArticle({ article, attribution }: {
   const search = article.slug === "ai-search-engines-comparison-2026";
   const agents = article.slug === "ai-agents-comparison-2026";
   const coding = article.slug === "ai-coding-tools-2026";
-  const label = safety ? "AI安全性の確認ガイド" : search ? "AI検索の比較ガイド" : agents ? "AIエージェントの選び方" : coding ? "開発支援の選び方" : "AIモデルの更新を読む";
+  const grok = article.slug === "grok-review-2026";
+  const takeaway = grok ? "Grokは、X内と単体版で利用条件の確認先が異なります。使いたい作業を決め、プラン・出典・入力データの扱いを確認してください。旧スコアから現在の性能は判断できません。" : safety
+    ? "AIの安全性は、回答の正確さ・入力データの扱い・成果物の権利を分けて確認します。保存スコアだけでは、現在の業務への適合は判断できません。"
+    : search ? "AI検索は、答えだけでなく出典まで確認して選びます。同じ質問で、原文との一致・情報の日付・確認にかかる手間を比較してください。"
+    : agents ? "AIエージェントは、任せる作業・操作の権限・成果物の確認方法で選びます。完成した製品を使う場合と、自分で仕組みを組む場合は分けて比較します。"
+    : coding ? "開発支援AIは、コード補完・修正・別環境での作業のどれが必要かを先に決めます。対応環境だけでなく、差分とテストを確認できるかも選定条件です。"
+    : "モデルの更新は、公式発表の内容と自分の作業への影響を分けて確認します。APIと個人向けアプリの提供条件、メーカーの説明と独自の実測評価を混同しないことが大切です。";
+  const sourceIndex = article.sections.findLastIndex(section => /公式情報|出典/.test(section.heading));
+  const label = grok ? "Grokの利用ガイド" : safety ? "AI安全性の確認ガイド" : search ? "AI検索の比較ガイド" : agents ? "AIエージェントの選び方" : coding ? "開発支援の選び方" : "AIモデルの更新を読む";
   const choices = safety ? [
     { label: "回答の誤りが心配", name: "原文で確かめる", text: "出典の有無だけでなく、主張と原文が一致しているか。同じ質問で比較する手順を整理します。" },
     { label: "社内資料を扱いたい", name: "入力先を確かめる", text: "モデル名ではなく、プラン・保存・学習利用・共有範囲を確認します。" },
@@ -70,6 +79,7 @@ export default function ReviewedGuideArticle({ article, attribution }: {
         "@context": "https://schema.org", "@type": "Article", headline: article.title,
         description: article.description, datePublished: article.publishedAt, dateModified: article.updatedAt,
         mainEntityOfPage: `https://www.aierabi.jp/blog/${article.slug}`,
+        "@id": `https://www.aierabi.jp/blog/${article.slug}#article`, inLanguage: "ja",
         author: { "@type": "Organization", name: "AI選び", url: "https://www.aierabi.jp/about" },
       }).replace(/</g, "\\u003c") }} />
       <header className={styles.hero}>
@@ -80,7 +90,15 @@ export default function ReviewedGuideArticle({ article, attribution }: {
           <p className={styles.lead}>{safety ? <>「何位か」の前に、<strong>何を守りたいか。</strong><br />回答の正確さ、入力データ、公開時の権利を分けて考えます。</> : search ? <>答えのうまさより、<strong>根拠まで戻れるか。</strong><br />調べる・確かめる・まとめる。あなたの作業に合う入口を選びます。</> : (agents || coding) ? <>どこまで任せて、どこで確かめるか。<br />作業環境と権限から、使うツールを選びます。</> : <>新しい名前を追うだけで終わらせない。<br />公式の更新内容と、自分の作業への影響を分けて読みます。</>}</p>
           <div className={styles.meta}><span>公開 <time dateTime={article.publishedAt}>{article.publishedAt}</time></span><span>内容確認 <time dateTime={article.updatedAt}>{article.updatedAt}</time></span><span>読了目安 {article.readingTime}</span></div>
           <div className={styles.scope}>{safety ? "掲載スコアは2026年3月の保存値で、再現未確認です。現在の安全性順位や企業利用の適合を保証するものではありません。" : "公式情報に基づく機能比較です。実測ランキングではありません。料金・利用上限は契約前に公式ページで確認してください。"}</div>
-          <a className={styles.jump} href="#section-1">{safety ? "3つの確認軸へ" : search ? "5サービスの比較表へ" : "概要の比較表へ"} <span aria-hidden="true">↓</span></a>
+          <section className={styles.summary} aria-labelledby="article-summary">
+            <h2 id="article-summary">この記事の要点</h2>
+            <p>{takeaway}</p>
+            <div className={styles.summaryLinks}>
+              <a href="#section-0">本文を読む ↓</a>
+              <a href="#section-1">比較表を見る ↓</a>
+              {sourceIndex >= 0 && <a href={`#section-${sourceIndex}`}>公式情報を確認 ↓</a>}
+            </div>
+          </section>
         </div>
       </header>
       <div className={styles.container}>
@@ -93,11 +111,12 @@ export default function ReviewedGuideArticle({ article, attribution }: {
           </div>)}</div>
         </section>}
         <div className={styles.layout}>
-          <aside className={styles.contents}><nav aria-label="この記事の目次"><p>この記事でわかること</p><ol>{article.sections.map((section, i) => <li key={section.heading}><a href={`#section-${i}`}>{section.heading}</a></li>)}</ol></nav></aside>
-          <article className={styles.article} aria-label={article.title}>
+          <aside className={styles.contents}><nav aria-label="この記事の目次"><details open><summary>この記事でわかること</summary><ol>{article.sections.map((section, i) => <li key={section.heading}><a href={`#section-${i}`}>{section.heading}</a></li>)}</ol></details></nav></aside>
+          <article id="article" className={styles.article} aria-label={article.title}>
+            <p className={styles.byline}>編集：<a href="/about">AI選び</a> · 事実の確認時点・対象範囲は本文の記載を参照してください。</p>
             {article.sections.map((section, i) => <section id={`section-${i}`} key={section.heading}>
               <span className={styles.number} aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
-              <h2>{section.heading}</h2><Content text={section.content} heading={section.heading} />
+              <h2>{section.heading}<a className={styles.sectionLink} href={`#section-${i}`} aria-label={`「${section.heading}」へのリンク`}>#</a></h2><Content text={section.content} heading={section.heading} />
             </section>)}
             <div className={styles.next}><p className={styles.eyebrow}>次は、選び方を整理する</p>
               <ArticleCTA cta={article.cta} contentId={`/blog/${article.slug}`} attribution={attribution} />

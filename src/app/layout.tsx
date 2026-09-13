@@ -34,7 +34,7 @@ export const metadata: Metadata = {
         url: "/ogp.png",
         width: 1200,
         height: 630,
-        alt: "AI選び｜あなたに最適なAIが3分でわかる",
+        alt: "AI選び｜AIツールを用途と公式情報で比較",
       },
     ],
     locale: "ja_JP",
