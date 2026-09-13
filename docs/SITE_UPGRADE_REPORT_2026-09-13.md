@@ -1,5 +1,24 @@
 # Site Upgrade — 2026-09-13
 
+## 朝用・継続作業サマリー（9月13日調査／14日検証）
+
+以下が現行サマリー。下段は前段の記録。今回の開始HEADは27d7a6d。本番はa363a09のまま。9月13日のsource確認日を14日に偽更新しない。
+
+1. **更新データ** — ChatGPTのWork/Codexモデル案内を通常チャット全プランへ適用しないようfacts訂正。HeyGenの9/9公開「8月更新まとめ」からEdit Look/Real Estateを登録し、White Glove米国限定・日本条件未確認を明示。公式ソース6追加、計77／facts24。Claude無料上限、Gemini個人上限、Perplexity Standard/体験条件も記事根拠として登録。その他主要サービスは同夜のFACTS_AUDITの範囲を継承し、今回全件再取得済みとはしない。
+2. **SEO改善** — 既存ChatGPTモデル比較と無料AI比較を本文まで改稿。title/description/h1/導入、公式出典、比較表、内部CTA2件。旧掲載スコアは履歴として保持。/safetyの検索意図を正確性・社内資料・公開条件に分解し、確認手順を追加。新順位・未測定の課金効果を作らない。
+3. **旬コンテンツ** — 新規記事0。前段のCursor Projects/Copilot終了2本を保持。9/9公式CLI更新はChatGPT記事で利用経路の区別に使用。HeyGen9/9記事は8月のまとめで、新発売日へ転用しない。需要未確認テーマの新記事は量産しない。
+4. **UI/UX** — /blogにローカル検索、種類＋確認状態の絞り込み、0件時リセット、カードの確認範囲表示。明示的な再確認対象12本と過去/未再確認24本を区別。日付だけで「最新」と認定しない。検索語はURL/GA/外部へ送らない。2改稿記事は既存の要点・目次・表・出典rendererで表示。
+5. **新規機能候補・更新運用** — `npm run audit:freshness -- 2026-09-13` を追加。公開JSONだけ読み、項目別日付/unknown/未来日/再確認候補をstdoutへ出す。ネットワーク・書込・公開操作なし。30日は編集上の目安で事実の正確性判定ではない。188項目が期間内、47項目unknown、24記事が再確認候補。暦日/nullと0/30日境界/決定性テスト追加。公式RSS差分や検索利用計測は候補に留め、現実験へ追加しない。
+6. **Search Console機会** — 前段で直接取得した8/14–9/10データを再利用。今回新たなGoogle操作なし。page単位で/safetyとChatGPTモデル記事はposition6〜20に入る。query/page対応は未検証、Grok query順位を/model/grokへ転用しない。無料比較は誤認是正が理由で、需要上位実証なし。数値はprivateのみ。CTR/売上改善は未測定。
+7. **残る古い情報** — Claude/Geminiレビュー、3月の費用節約/データポリシー等24記事は個別改稿未完了。Klingはrobots制限で現在情報取得不可、古いIRのモデルを現行としない。地域価格/Synthesia年額矛盾は未解消。歴史スコア/privacy改定日を保持。recommendは実験凍結。
+8. **Preview対象・検証** — /blog検索・絞り込み、ChatGPTモデル比較、無料比較、/safety、/compare、/cost、/model/chatgpt。npm run check（build含む）成功、既存font警告/edge runtime案内のみ。ローカル17ページ×1440/390/320の51画面、絞り込み12/24件・検索・リセット、内部64リンク、節リンク、未知route404、canonical/noindex、sitemap68/ブログ36、JS例外0。外部通信遮断。生成順だけのsitemap差分除去。実機/Vercel今回Preview未検証。
+9. **Revenue寄与・安全性** — 誤った課金推奨を減らし、検索入口→条件整理→比較/costへ接続。初CV/売上効果はunknown。affiliate active0/URL0は回帰成功。private追跡0、実験route/UTM/CTA実装/計測/X queue/得点JSONに今回差分なし。本番・投稿・課金・有効化なし。OpenAI Docsスキルに従い公式の利用環境別説明を優先し、通常チャットへの誤った一般化を訂正した。
+10. **次TOP5** — (1)今回Previewレビュー・人間公開判断、(2)既存実験と審査通知確認のみ、(3)旧Claudeモデル比較等1本を需要/誤認リスクで選び直す、(4)契約判断に必要な地域条件/矛盾だけ再確認、(5)次回公式7日確認＋鮮度監査の工数記録。新管理画面・自動公開は不採用。
+
+### この継続分の判断と境界
+
+Revenue Impact 1／Time to Revenue unknown／追加支出0・作業時間あり／公式E1・既存GSC E2・改善効果E0／Automation低／Risk中（未公開内容）／Learning2。公開後28日を仮の評価枠に同page/queryを比較する。ランキングやCVRの架空更新なし。既存未コミット管理文書と第2商品文書は保持し、今回のコードcommitへ一括同梱しない。
+
 作業ブランチのみ。production/main/SNS/affiliate/課金/credentialは変更していない。成果は信頼性と送客入口の改善であり、検索順位・売上の改善実績ではない。
 
 ## 1. 古い情報を直した箇所

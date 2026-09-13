@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import { classifyFact, dateValue, audit } from './audit-freshness.mjs';
+assert.equal(dateValue('2026-02-30'), null);
+assert.equal(classifyFact({value:null}, '2026-09-13'), 'unknown');
+assert.equal(classifyFact({value:0}, '2026-09-13'), 'missing_evidence');
+assert.equal(classifyFact({value:false,source_id:'test',verified_at:'2026-09-13'}, '2026-09-13'), 'within_review_window');
+assert.equal(classifyFact({value:'x',source_id:'test',verified_at:'2026-08-14'}, '2026-09-13'), 'within_review_window');
+assert.equal(classifyFact({value:'x',source_id:'test',verified_at:'2026-08-13'}, '2026-09-13'), 'review_due');
+assert.equal(classifyFact({value:'x',source_id:'test',verified_at:'2026-09-14'}, '2026-09-13'), 'future_date');
+assert.throws(()=>audit('2026-02-30'));
+assert.throws(()=>audit('2026-09-13',0));
+const result=audit('2026-09-13');
+assert.ok(result.facts.length>0 && result.articles.length>0);
+assert.deepEqual(result,audit('2026-09-13'));
+console.log('Freshness audit tests passed: calendar dates, unknown/zero distinction, boundary, determinism.');

@@ -13,7 +13,9 @@
     "generate:revenue-dashboard": "node scripts/generate-revenue-dashboard.mjs",
     "test:revenue": "node scripts/test-revenue-dashboard.mjs",
     "test:guides": "node scripts/test-reviewed-guides.cjs",
-    "check": "npm run validate:data && npm run test:revenue && npm run test:guides && npm run lint && npm run build"
+    "audit:freshness": "node scripts/audit-freshness.mjs",
+    "test:freshness": "node scripts/test-freshness.mjs",
+    "check": "npm run validate:data && npm run test:revenue && npm run test:guides && npm run test:freshness && npm run lint && npm run build"
   },
   "dependencies": {
     "next": "15.5.25",

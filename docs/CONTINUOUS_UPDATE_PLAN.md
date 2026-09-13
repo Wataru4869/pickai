@@ -64,11 +64,13 @@ JSON Schema または TypeScript validator を作り、最低限「日付」「H
 
 ## 現在の実装と延期するもの
 
-2026-09-13確認: 公式ソース71件、service-facts 24件、空のupdate-candidates、ローカルvalidatorが存在します。件数は網羅性・全項目の鮮度を保証しません。validatorは日付の書式、HTTPS、source参照、許可フィールド等の形式検査であり、実在日・情報の真偽・承認者・機密情報不存在の完全検査ではありません。
+2026-09-13確認: 公式ソース77件、service-facts 24件、空のupdate-candidates、ローカルvalidatorが存在します。件数は網羅性・全項目の鮮度を保証しません。validatorは日付の書式、HTTPS、source参照、許可フィールド等の形式検査であり、実在日・情報の真偽・承認者・機密情報不存在の完全検査ではありません。
 
 raw評価集計、承認パッチCLI、全サービス差分収集/CIはT1〜T5の検証を妨げないよう延期します。再現根拠のない既存得点を変更せず、対象記事の実測断定を避けることは先行できます。まず1案件の公式条件を手動確認し、更新頻度を測ってから自動化します。
 
-`npm run check` はvalidate:data → test:revenue → test:guides → lint → build。公開は別の人間承認です。
+`npm run check` はvalidate:data → test:revenue → test:guides → test:freshness → lint → build。公開は別の人間承認です。
+
+`npm run audit:freshness -- YYYY-MM-DD [days]` は指定日基準（既定30日）の再確認候補をstdoutへ出す。公開JSONのみ・ネットワーク/ファイル書込なし。記事の古さは改稿優先候補であり、履歴記事の一括刷新指示ではない。期間内でも情報の正確性は保証しない。実在暦日・unknown/0・未来日・境界をtest:freshnessで確認。定期実行と公式差分収集は未実装。
 
 ## 直近の手動運用（2026-09-13）
 
