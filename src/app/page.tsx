@@ -29,7 +29,7 @@ export default function HomePage() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "WebSite", name: "AI選び", url: "https://www.aierabi.jp",
-        description: "公式情報と過去の保存評価を分けて確認するAIツール比較ガイド。",
+        description: "AIツールを用途・機能・料金・提供条件から比較し、公式情報の出典と確認日を示す選び方ガイド。",
       }) }} />
       <header className={styles.explorerHero}>
         <div className={styles.container}>

@@ -14,14 +14,25 @@ export function FactsLayout({ title, intro, children }: { title: string; intro: 
 export function FactCards({ ids, compact = false }: { ids: string[]; compact?: boolean }) {
   return <div className={styles.grid}>{ids.map(id => {
     const product = catalogProduct(id);
-    return <section key={id} className={styles.card}><h2>{product.name}</h2><p className={styles.note}>出典の確認時点の情報。現在の契約条件はリンク先で再確認してください。</p>
-      <dl>{fields.filter(([key]) => !compact || ["major_features", "free_plan", "current_price"].includes(key)).map(([key, label]) => {
+    const visibleFields = fields.filter(([key]) => !compact || ["major_features", "free_plan", "current_price"].includes(key));
+    const verified = visibleFields.filter(([key]) => Boolean(product.facts[key].source));
+    const latestVerifiedAt = verified.map(([key]) => product.facts[key].date).filter(Boolean).sort().at(-1);
+    return <section key={id} className={styles.card}><h2>{product.name}</h2>
+      <p className={styles.verification}>公式根拠 {verified.length}/{visibleFields.length}{latestVerifiedAt && <> · 確認 <time dateTime={latestVerifiedAt}>{latestVerifiedAt}</time></>}</p>
+      <p className={styles.note}>出典の確認時点の情報。現在の契約条件はリンク先で再確認してください。</p>
+      <dl>{visibleFields.map(([key, label]) => {
         const fact = product.facts[key];
         return <div key={key}><dt>{label}</dt><dd><p>{fact.text}</p>{fact.source && <a href={fact.source} rel="noopener noreferrer">公式根拠 <time dateTime={fact.date!}>{fact.date}</time>確認 ↗</a>}</dd></div>;
       })}</dl>
       {id === "copilot" && <p className={styles.note}>旧掲載名の対象製品を確定できていません。GitHub Copilotの情報を自動で当てはめていません。</p>}
     </section>;
   })}</div>;
+}
+export function NextActions({ title, intro, links }: { title: string; intro: string; links: { href: string; label: string; detail: string }[] }) {
+  return <section className={styles.next} aria-labelledby="next-actions-title">
+    <div><p className={styles.label}>NEXT STEP</p><h2 id="next-actions-title">{title}</h2><p>{intro}</p></div>
+    <div className={styles.actionGrid}>{links.map(link => <a key={link.href} href={link.href}><strong>{link.label}</strong><span>{link.detail} →</span></a>)}</div>
+  </section>;
 }
 export function PurposePage({ purpose }: { purpose: Purpose }) {
   const p = purposes[purpose];

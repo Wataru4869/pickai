@@ -132,15 +132,28 @@ assert.equal(catalog.catalogProduct('grok').facts.current_price.text,'未確認'
 assert.equal(catalog.catalogProduct('grok').facts.free_trial.text,'未確認');
 assert.ok(catalog.catalogProduct('perplexity').facts.current_price.text.includes('未確認'));
 assert.equal(catalog.catalogProduct('perplexity').facts.current_price.text.includes('null'),false);
+assert.ok(catalog.catalogProduct('chatgpt').facts.current_price.text.includes('\nPlus: US$20/month'));
+assert.ok(catalog.catalogProduct('chatgpt').facts.current_price.text.includes('\n地域・税:'));
 const factsUi=loadTs('src/components/PublicFactsPage.tsx',{'@/components/ui':{Header:()=>null,Footer:()=>null},'@/lib/public-catalog':catalog});
 for(const id of Object.keys(catalog.modelNames)) {
   const html=renderToStaticMarkup(React.createElement(factsUi.FactCards,{ids:[id]}));
   assert.equal(/総合スコア|[0-9]位|乗り換え推奨|\/ 100/.test(html),false);
   for(const fact of Object.values(catalog.catalogProduct(id).facts))if(fact.source){assert.ok(fact.date>='2026-09-01');assert.ok(html.includes(fact.source.replace(/&/g,'&amp;')));}
 }
+const compactFactsHtml=renderToStaticMarkup(React.createElement(factsUi.FactCards,{ids:['chatgpt'],compact:true}));
+assert.ok(compactFactsHtml.includes('公式根拠 3/3'));
+assert.ok(compactFactsHtml.includes('確認 <time'));
+assert.ok(compactFactsHtml.includes('2026-09-13'));
+const nextActionsHtml=renderToStaticMarkup(React.createElement(factsUi.NextActions,{title:'次の確認',intro:'説明',links:[{href:'/cost',label:'料金',detail:'条件'}]}));
+assert.ok(nextActionsHtml.includes('href="/cost"'));
+assert.ok(nextActionsHtml.includes('料金'));
 for(const file of ['compare/page.tsx','compare/[slug]/page.tsx','model/[id]/page.tsx','category/[id]/page.tsx','safety/page.tsx','switch/page.tsx','cost/page.tsx','compare/[slug]/opengraph-image.tsx']) {
   const code=fs.readFileSync(path+'src/app/'+file,'utf8');
   assert.equal(/getTests|getSafetyRanking|scores\.|getOverallRanking/.test(code),false,file+' must not calculate from old scores');
+}
+for(const file of ['blog/[slug]/page.tsx','compare/[slug]/page.tsx','model/[id]/page.tsx']) {
+  const code=fs.readFileSync(path+'src/app/'+file,'utf8');
+  assert.ok(code.includes('twitter:'),file+' must override global social metadata');
 }
 console.log('Passed: current decision pages exclude historical score calculations, unknown stays unknown, facts carry September sources.');
 
@@ -153,4 +166,30 @@ assert.equal(sidebarSource.includes('label: "総合の保存評価"'),false);
 assert.equal(sharedUiSource.includes('label: "総合の保存評価"'),false);
 assert.ok(sidebarSource.includes('label: "ツール・モデル比較"'));
 assert.ok(sharedUiSource.includes('label: "ツール・モデル比較"'));
+assert.ok(layoutSource.includes('verification:'));
+assert.equal(layoutSource.includes('fonts.googleapis.com'),false);
 console.log('Passed: analytics is production-only and root navigation describes the current comparison page.');
+
+assert.equal(layoutSource.includes('AIツールの2026年3月時点'),false);
+assert.ok(layoutSource.includes('AIツール比較・選び方｜公式情報と用途で探す'));
+const blogLayoutSource=fs.readFileSync(path+'src/app/blog/layout.tsx','utf8');
+assert.equal(blogLayoutSource.includes('最新情報をお届けします'),false);
+assert.ok(blogLayoutSource.includes('公式情報の確認範囲と過去記録を分けて掲載'));
+assert.ok(fs.readFileSync(path+'src/app/page.tsx','utf8').includes('公式情報の出典と確認日を示す選び方ガイド'));
+console.log('Passed: global and blog metadata describe current facts without promoting the March archive as current.');
+
+const blogPageSource=fs.readFileSync(path+'src/app/blog/[slug]/page.tsx','utf8');
+assert.ok(blogPageSource.includes('【過去記事】'));
+assert.ok(blogPageSource.includes('現在の順位・購入判断には使用しません'));
+assert.equal(blogPageSource.includes('テストごとの詳細スコアを見る'),false);
+assert.ok(blogPageSource.includes('機能・料金・提供条件を比較する'));
+assert.ok(blogPageSource.includes('"@type": "Article"'));
+console.log('Passed: archive snippets are labeled historical and legacy article CTAs describe the current comparison destination.');
+
+const packageJson=JSON.parse(fs.readFileSync(path+'package.json','utf8'));
+assert.ok(packageJson.scripts.postbuild.includes('normalize-sitemap.mjs'));
+const sitemap=fs.readFileSync(path+'public/sitemap-0.xml','utf8');
+const sitemapUrls=[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match=>match[1]);
+assert.deepEqual(sitemapUrls,[...sitemapUrls].sort());
+assert.equal(new Set(sitemapUrls).size,sitemapUrls.length);
+console.log('Passed: generated sitemap URLs are deterministic and unique.');

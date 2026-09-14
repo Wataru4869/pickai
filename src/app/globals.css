@@ -25,7 +25,7 @@
 }
 
 body {
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", system-ui, sans-serif;
   color: var(--text);
   background-color: var(--bg);
   -webkit-font-smoothing: antialiased;

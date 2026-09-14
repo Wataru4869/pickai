@@ -14,17 +14,22 @@ export async function generateMetadata({ params: pendingParams }: { params: Prom
   const params = await pendingParams;
   const article = getArticleBySlug(params.slug);
   if (!article) return {};
-  const title = `${article.title} | AI選び`;
+  const isArchive = article.updatedAt < "2026-09-01";
+  const title = `${isArchive ? "【過去記事】" : ""}${article.title} | AI選び`;
+  const description = isArchive
+    ? `${article.updatedAt}最終更新の過去記事。保存スコア・当時の料金・モデル情報を履歴として掲載し、現在の順位・購入判断には使用しません。`
+    : article.description;
   return {
     title,
-    description: article.description,
+    description,
     alternates: { canonical: `/blog/${params.slug}` },
     openGraph: {
       title,
-      description: article.description,
+      description,
       url: `/blog/${params.slug}`,
       type: "article",
     },
+    twitter: { card: "summary_large_image", title, description },
   };
 }
 
@@ -357,8 +362,10 @@ export default async function BlogArticlePage({
 
   // Derive compare page link from slug if it's a comparison
   const compareSlug = article.slug.match(/^(\w+)-vs-(\w+)/);
-  const compareLink = compareSlug
-    ? `/compare/${compareSlug[1]}-vs-${compareSlug[2]}`
+  const compareOrder = ["claude", "chatgpt", "grok", "perplexity", "gemini"];
+  const compareIds = compareSlug?.slice(1, 3).filter(id => compareOrder.includes(id));
+  const compareLink = compareIds?.length === 2
+    ? `/compare/${compareIds.sort((a, b) => compareOrder.indexOf(a) - compareOrder.indexOf(b)).join("-vs-")}`
     : null;
   const contentId = `/blog/${article.slug}`;
   const showAffiliateDisclosure = hasActiveAffiliateLink(article.cta, contentId);
@@ -374,6 +381,13 @@ export default async function BlogArticlePage({
   return (
     <div className="min-h-screen bg-[#fbfbfd]">
       <Header />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org", "@type": "Article", headline: article.title,
+        description: article.description, datePublished: article.publishedAt, dateModified: article.updatedAt,
+        mainEntityOfPage: `https://www.aierabi.jp/blog/${article.slug}`,
+        "@id": `https://www.aierabi.jp/blog/${article.slug}#article`, inLanguage: "ja",
+        author: { "@type": "Organization", name: "AI選び", url: "https://www.aierabi.jp/about" },
+      }).replace(/</g, "\\u003c") }} />
 
       {/* Article Header */}
       <div className="bg-white py-8">
@@ -463,9 +477,9 @@ export default async function BlogArticlePage({
             >
               <div className="text-[12px] text-[#86868b] mb-0.5">関連する比較ページ</div>
               <div className="text-[14px] font-semibold text-[#1d1d1f]">
-                テストごとの詳細スコアを見る
+                機能・料金・提供条件を比較する
               </div>
-              <div className="text-[11px] text-[#4a7ab5] mt-1">比較ページを開く →</div>
+              <div className="text-[11px] text-[#4a7ab5] mt-1">確認日付きの公式情報を並べる →</div>
             </a>
           )}
 

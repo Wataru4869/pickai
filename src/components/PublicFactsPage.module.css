@@ -10,9 +10,12 @@
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 .card{min-width:0;padding:26px;background:#fff;border:1px solid #d9e2ea;border-top:4px solid #537b98;border-radius:8px 8px 16px 16px}
 .card dl>div{padding:16px 0;border-top:1px solid #e2e8ed}.card dt{font-size:13px;font-weight:700;margin-bottom:6px;color:#456379}
-.card dd p{font-size:14px}.card dd a{font-size:12px}.card .note{font-size:12px;color:#596c7b;margin-bottom:16px}
-.summary,.checks,.history{background:#e8eff4;border:1px solid #d6e1ea;border-radius:14px;padding:26px;margin:0 0 24px}
+.card dd p{font-size:14px;white-space:pre-line}.card dd a{font-size:12px}.card .note{font-size:12px;color:#596c7b;margin-bottom:16px}
+.verification{display:inline-flex;align-items:center;min-height:28px;padding:3px 10px;border-radius:999px;background:#e5f3ed;color:#205b48;font-size:12px!important;font-weight:700;margin:0 0 10px}
+.summary,.checks,.history,.next{background:#e8eff4;border:1px solid #d6e1ea;border-radius:14px;padding:26px;margin:0 0 24px}
 .summary{background:#fff;border-left:4px solid #537b98}.summary ul{display:grid;gap:10px;list-style:disc;padding-left:22px}.summary strong{color:#203348}.nextLinks{display:flex;flex-wrap:wrap;gap:0 24px;margin-top:8px}
 .checks ul{list-style:disc;padding-left:22px}.checks a,.history a{margin-right:24px}
 .history{margin:32px 0 0;background:#f0f2f4}.history h2{font-size:18px}.history p{font-size:13px}
-@media(max-width:640px){.main{padding:20px 18px 40px}.grid{grid-template-columns:1fr}.card,.summary,.checks,.history{padding:20px}.nextLinks{display:block}.main header{padding:24px 0}.main h2{font-size:21px}}
+.next{margin:24px 0 0;background:#203348;color:#fff;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:28px}.next .label{color:#b7cfdd}.next h2{margin-top:6px}.next p{color:#d8e2e9}.actionGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.actionGrid a{display:flex;flex-direction:column;justify-content:center;min-height:96px;padding:16px 18px!important;border-radius:10px;background:#fff;color:#174c69;text-decoration:none}.actionGrid a:hover{background:#edf5f8}.actionGrid strong{font-size:15px}.actionGrid span{font-size:12px;line-height:1.6;margin-top:4px;color:#456379}
+@media(max-width:760px){.next{grid-template-columns:1fr}.actionGrid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.main{padding:20px 18px 40px}.grid{grid-template-columns:1fr}.card,.summary,.checks,.history,.next{padding:20px}.nextLinks{display:block}.main header{padding:24px 0}.main h2{font-size:21px}.actionGrid{grid-template-columns:1fr}.actionGrid a{min-height:82px}}

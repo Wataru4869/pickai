@@ -13,7 +13,7 @@ export const fields = [["current_product", "製品・モデル"], ["provider", "
 function readable(value: unknown): string {
   if (value == null) return "未確認";
   if (Array.isArray(value)) return value.map(readable).join(" / ");
-  if (typeof value === "object") return Object.entries(value).map(([k,v]) => `${k}: ${readable(v)}`).join(" / ");
+  if (typeof value === "object") return Object.entries(value).map(([k,v]) => `${k === "region_note" ? "地域・税" : k}: ${readable(v)}`).join("\n");
   if (value === true) return "あり（対象範囲・上限は公式確認）";
   if (value === false) return "なし（確認時点）";
   return String(value);
