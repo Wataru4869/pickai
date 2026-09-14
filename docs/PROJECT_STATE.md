@@ -7,7 +7,7 @@
 - 主要9画面から抽出した内部リンク96件はローカルで全件400未満。未承認DMMの `/go/dmm-generative-ai-camp` は200の保留画面で、redirect/PR表示なし。affiliate active 0 / URL 0を既存テストで確認。
 - `npm run check` 成功: 78 sources、収益集計、ガイド/履歴/facts回帰、鮮度、lint、91 static pages build。既存のGoogle Fonts lint警告のみ。production-modeではGAあり、通常localではGAなしをHTMLで確認。`git diff --check` は終了時に再確認する。
 - 実画面証跡は `docs/qa/2026-09-15/`。desktopに加え390px・320pxでrecommendを完了し、トップでChatGPT/Claudeの比較を選択。両幅ともdocument/bodyのscrollWidthがclientWidthと一致し、ページ全体の横あふれなし。viewport設定は確認後に解除した。
-- 変更はbranch内のローカルRC。push、Preview/本番deploy、SNS投稿、affiliate有効化、提携申請、課金、credential操作は行っていない。x-exp-01の本番条件は不変。
+- 変更はローカルRC `6c18bb9` にcommit済み。push、Preview/本番deploy、SNS投稿、affiliate有効化、提携申請、課金、credential操作は行っていない。x-exp-01の本番条件は不変。
 
 ## 現行サマリー — 2026-09-14 AIエージェントCurrent Update RC
 
