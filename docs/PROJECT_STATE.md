@@ -7,6 +7,7 @@
 - 全体metadataをCurrent Facts中心へ訂正。未再確認の旧記事は検索結果用title/descriptionでも過去記事と明示し、記事CTAの誤った「詳細スコアを見る」を現行の機能・料金・提供条件比較へ訂正。一般記事にも可視本文と一致するArticle schemaを追加。
 - Google Fontsへの外部読込を削除し、OS標準日本語フォントを使用。Search Console確認metaはNext.js metadataへ移行。lint警告は0になった。
 - sitemap生成後のURL順を決定的に整列する処理を追加。現行期待値は69 URL／ブログ37件、重複0、lastmodなし。全69 URLと内部リンクを含む94 URLをクリーンなlocal serverで巡回し、400以上0件。
+- sitemap除外済みの旧 `/category/*` はnoindex/followへ統一し、比較ペアの逆順URLも正規順canonical＋noindex/followにした。正規カテゴリ・正規比較URLはindex対象のまま。
 - `npm run check` 成功（78 official sources、91 static pages）。`git diff --check` 成功。affiliate active 0 / URL 0。`/recommend`、UTM、CTA、計測、X queue、campaign/post IDは差分なし。x-exp-01本番条件は維持。
 - 本番deploy、main merge、push、SNS投稿、affiliate有効化、課金、credential操作なし。未追跡 `docs/REVENUE_ENGINE_2_OPPORTUNITY.md` は別作業として保持し、今回差分へ含めない。
 

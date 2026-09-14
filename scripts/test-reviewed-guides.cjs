@@ -155,6 +155,11 @@ for(const file of ['blog/[slug]/page.tsx','compare/[slug]/page.tsx','model/[id]/
   const code=fs.readFileSync(path+'src/app/'+file,'utf8');
   assert.ok(code.includes('twitter:'),file+' must override global social metadata');
 }
+const legacyCategorySource=fs.readFileSync(path+'src/app/category/[id]/page.tsx','utf8');
+assert.ok(legacyCategorySource.includes('robots:{index:false,follow:true}'));
+const pairPageSource=fs.readFileSync(path+'src/app/compare/[slug]/page.tsx','utf8');
+assert.ok(pairPageSource.includes('robots:slug===canonical?undefined:{index:false,follow:true}'));
+console.log('Passed: legacy category and reverse-order comparison duplicates are noindex/follow.');
 console.log('Passed: current decision pages exclude historical score calculations, unknown stays unknown, facts carry September sources.');
 
 const layoutSource=fs.readFileSync(path+'src/app/layout.tsx','utf8');

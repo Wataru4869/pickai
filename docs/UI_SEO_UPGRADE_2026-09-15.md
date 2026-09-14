@@ -12,6 +12,7 @@
 - 旧記事: 現行factsページへのリンクを「詳細スコア」と誤案内していたCTAを訂正し、Article schemaを追加。
 - performance: Google Fonts外部requestを削除。Search Console verification metaはNext.js metadataで維持。
 - sitemap: 生成後のURLをloc順へ正規化し、ビルドごとの順序差分を防止。
+- duplicate URL: 旧 `/category/*` と比較ペア逆順URLをnoindex/followに統一し、正規canonicalへ評価を集約。
 
 ## 検証
 
