@@ -57,6 +57,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const enableProductionAnalytics = process.env.VERCEL_ENV === "production";
+
   return (
     <html lang="ja">
       <head>
@@ -67,15 +69,19 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-R6WQKPGF2X" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-R6WQKPGF2X');
-          `}
-        </Script>
+        {enableProductionAnalytics && (
+          <>
+            <Script src="https://www.googletagmanager.com/gtag/js?id=G-R6WQKPGF2X" strategy="afterInteractive" />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-R6WQKPGF2X');
+              `}
+            </Script>
+          </>
+        )}
         <Sidebar>{children}</Sidebar>
       </body>
     </html>

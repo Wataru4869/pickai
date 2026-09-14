@@ -143,3 +143,14 @@ for(const file of ['compare/page.tsx','compare/[slug]/page.tsx','model/[id]/page
   assert.equal(/getTests|getSafetyRanking|scores\.|getOverallRanking/.test(code),false,file+' must not calculate from old scores');
 }
 console.log('Passed: current decision pages exclude historical score calculations, unknown stays unknown, facts carry September sources.');
+
+const layoutSource=fs.readFileSync(path+'src/app/layout.tsx','utf8');
+assert.ok(layoutSource.includes('process.env.VERCEL_ENV === "production"'));
+assert.ok(layoutSource.includes('{enableProductionAnalytics && ('));
+const sidebarSource=fs.readFileSync(path+'src/components/Sidebar.tsx','utf8');
+const sharedUiSource=fs.readFileSync(path+'src/components/ui.tsx','utf8');
+assert.equal(sidebarSource.includes('label: "総合の保存評価"'),false);
+assert.equal(sharedUiSource.includes('label: "総合の保存評価"'),false);
+assert.ok(sidebarSource.includes('label: "ツール・モデル比較"'));
+assert.ok(sharedUiSource.includes('label: "ツール・モデル比較"'));
+console.log('Passed: analytics is production-only and root navigation describes the current comparison page.');

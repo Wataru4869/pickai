@@ -241,3 +241,10 @@
 ## D29 — 9月13日調査・14日検証：新記事より既存入口の訂正
 
 GSCの/safetyとChatGPTモデル比較はpage単位でposition6〜20の範囲。まず既存記事の利用経路/料金/性能の誤認を是正し、無料比較の未実測な課金推奨も取り下げた。新規記事0、得点の新規算出0。検索語・ページ順位を混同せず、修正効果は未測定。/blogのローカル検索と確認状態分類で過去記事へ迷い込むリスクを減らす仮説。ローカル監査は読み取りのみ、期間内=真実という認定にしない。完了条件check/3幅/リンク/unknown/履歴/実験維持。公開後同期間page/queryで再判断、公開は人間承認。原状復帰でも根拠のない順位/課金効果は復活させない。
+
+## D30 — QAアクセスを本番GA実績から分離する（2026-09-15）
+
+- 実動確認でroot layoutがlocalhostとVercel Previewにも本番GA4を読み込むことを確認。QAアクセスを実流入へ混ぜないため、既存Measurement IDは変更せず `VERCEL_ENV=production` の場合だけタグを出す。
+- production-mode local HTMLでGAあり、通常local HTMLでGAなしを確認。Preview/Productionの実network確認はpush後の人間確認へ分離する。Consent・Google側設定・event名は変更しない。
+- `/` の実態は現行ツール比較であるため、sidebar/footerの旧名称「総合の保存評価」を「ツール・モデル比較」に訂正。3月値は `/evaluations/2026-03` に履歴として維持する。
+- x-exp-01の本番 `/recommend`、UTM、CTA、計測仕様、投稿は変更しない。Revenue Impactは実験データ汚染防止、Cost 0、Risk低。問題時はこの2箇所だけ撤回可能。

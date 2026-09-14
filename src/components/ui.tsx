@@ -133,7 +133,7 @@ export function Footer() {
     {
       heading: "比較・診断",
       links: [
-        { href: "/", label: "総合の保存評価" },
+        { href: "/", label: "ツール・モデル比較" },
         { href: "/recommend", label: "おすすめ診断" },
         { href: "/switch", label: "乗り換えガイド" },
         { href: "/cost", label: "料金確認ガイド" },

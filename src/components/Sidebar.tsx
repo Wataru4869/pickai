@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 const MENU_ITEMS = [
   // ランキング系
-  { href: "/", label: "総合の保存評価" },
+  { href: "/", label: "ツール・モデル比較" },
   { href: "/categories", label: "カテゴリ別", children: [
     { href: "/categories/image-generation", label: "画像生成" },
     { href: "/categories/video-generation", label: "動画生成" },
