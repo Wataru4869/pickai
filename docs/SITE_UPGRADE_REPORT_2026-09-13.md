@@ -1,5 +1,20 @@
 # Site Upgrade — 2026-09-13
 
+## 2026-09-14 Current Update RC 追記
+
+1. **更新したデータ** — 9/10公式発表を根拠にOpenAI Agents APIのfacts/sourceを追加。public beta、全開発者向け、harness・実行環境・長時間session・tool・subagent、API自体の追加料金なし／tokenとtool別課金を登録。無料枠、日本固有料金、GA時期、SLAはunknown。合計78公式sources／25facts。
+2. **SEO改善** — GSC 8/15〜9/11で23 impressions・平均8.7位の `/categories/ai-agents` を改善。完成製品、Agents API、モデルAPIを分け、解説・cost・safetyへの内部導線を追加。CTR・順位改善は未測定。
+3. **旬コンテンツ** — `/blog/openai-agents-api-guide-2026` 1本だけ追加。9/10公式更新から「何が変わった／誰に関係する／構成の選び分け／導入前検証」まで解説し、ニュース転載や性能順位にしない。
+4. **UI/UX** — AIエージェント入口に結論カードを追加。新記事は既存の要点、目次、比較表、公式情報rendererを再利用。全面リニューアルや新管理基盤なし。
+5. **Current / Historical** — 現行factsに新スコアを付けず、3月保存評価を変更しない。OpenAIの発表内顧客事例の数値を一般性能として転用しない。
+6. **検証** — `npm run check` 成功（78 sources、91 static pages、既存font warningのみ）、`git diff --check`成功。desktop/390/320で2ページの横あふれなし、表は局所横スクロール。sitemap69 URL／ブログ37／重複0／lastmod0、全69 URLと新規内部リンクはローカル200、canonical正常。生成順だけのsitemap差分は除去。
+7. **安全性** — affiliate active0／URL0、PR表示なし。x-exp-01のrecommend・UTM・CTA・計測・queueに差分なし。private data、課金、credential、外部投稿、本番操作なし。
+8. **Preview対象** — `/categories/ai-agents`、`/blog/openai-agents-api-guide-2026`、`/blog/ai-agents-comparison-2026`、`/blog`。情報の区別、公式根拠、unknown、表の横スクロール、内部CTAを確認。
+9. **Revenue寄与** — 既存検索露出がある入口の判断精度と内部回遊を改善。affiliate承認やCVには直接到達しておらず、売上効果はunknown。初CVの最大ボトルネックは引き続き提携承認。
+10. **次TOP5** — (1)Preview人間確認、(2)3案件の状態変化確認、(3)最初の承認案件だけ収益導線完成、(4)公開後28日GSC比較、(5)次のCurrent更新はGSC需要＋7日内公式更新が再び交差した1テーマだけ。
+
+実装commit: `7e76f68`。管理文書commitとPreview URLはpush後に追記する。
+
 ## 朝用・継続作業サマリー（9月13日調査／14日検証）
 
 以下が現行サマリー。下段は前段の記録。今回の開始HEADは27d7a6d。本番はa363a09のまま。9月13日のsource確認日を14日に偽更新しない。

@@ -1,5 +1,11 @@
 # Search Console: upgrade priorities
 
+## 2026-09-14再確認
+
+Search Consoleの直近28日（2026-08-15〜09-11、最終更新表示5.5時間前）は78 clicks、1,607 impressions、CTR 4.9%、平均掲載順位17.2。page上位では `/safety` が43 clicks / 711 impressions / 8.0位、`/blog/chatgpt-models-comparison-2026` が4 / 59 / 7.4位、`/categories/ai-agents` が1 / 23 / 8.7位。生の集計はGit対象外に保存する。
+
+前2ページは既にbranchで誤認訂正・検索意図の改善済み。今回はAI agentsページだけ、完成製品と開発用モデルAPIを先に区別し、料金・安全性・用途ガイドへの内部リンクを追加する。23 impressionsは小標本であり、CTR改善や商用需要を実証したとは扱わない。`/recommend` は4 impressions / 6.3位だがLive Experiment保護のため変更しない。
+
 確認日: 2026-09-13。Chromeでaierabi.jpドメインプロパティの検索パフォーマンスを読み取り。生の集計はGit対象外 `data/private/gsc-upgrade-2026-09-13.local.json` に保存。設定変更・エクスポート・認証操作なし。
 
 ## 今回の優先順位

@@ -1,5 +1,36 @@
 # DECISIONS
 
+## D31 — GSC実需要と7日内公式更新が交差するAIエージェントを1本だけ追加（2026-09-14）
+
+- ユーザーがCurrent Data / SEO / Content / UX Upgradeをbranch内で明示承認。D30の「新記事を止める」はこの承認範囲では解除し、量産せず1テーマだけ実装する。
+- GSC 8/15〜9/11で `/categories/ai-agents` は23 impressions・平均8.7位。OpenAIは9/10にAgents APIのpublic betaを公式発表。検索実需要E2と7日内一次情報E1が同じ領域で確認できたため、AIエージェントカテゴリと解説1本を更新する。
+- 完成した製品、Agents API、モデルAPIを分離する。Agents APIは全開発者向けpublic beta、API自体の追加料金なし、token/toolは別課金までを公式発表から反映。無料枠、日本固有料金、GA時期、SLAはunknown。
+- 性能順位、ベンチマーク、需要急増、収益効果は作らない。x-exp-01の `/recommend`、UTM、CTA、計測、queue、affiliate設定は無変更。本番deploy・SNS投稿・affiliate有効化は別の人間承認まで行わない。
+- Revenue Impact 1 / Time to Revenue unknown / Cost 0円・作業時間あり / Evidence GSC E2・公式E1・収益E0 / Automation低 / Risk低〜中 / Learning 2。公開後は同page/queryを28日単位で観測する。
+
+## D30 — 承認待ちを最大ボトルネックとし、需要未確認の記事追加を止める（2026-09-14）
+
+- 同日追加確認: A8再読込は再認証要求となりcurrent statusはunknown。07:38 JSTの申込中表示を最終確認値として保持し、承認を推測しない。GSC 8/15〜9/11のpage実測からAI agentsカテゴリ（23 impressions・8.7位）の製品/API混同だけを局所修正。新記事・順位・スコア・affiliate導線は追加しない。
+- A8の申込中一覧をChromeで読み取り、DMM生成AI CAMP、Winスクール、デジタルハリウッドSTUDIO by LIGの3件すべてが申込中であることを再確認。承認・否認・追加対応表示なし。新規申請、広告リンク発行、有効化は行わない。
+- 初CVの最大ボトルネックは提携承認であり、コード不足ではない。最初に承認された1案件だけ、案件固有条件→direct広告URL→PR→対象ページ→人間承認の順で最小実験へ進む。
+- GSC実測では `/categories/ai-agents` が平均11.1位だが24 impressionsの小標本。直近7日の公式発表候補があっても購入需要・CV接続は未実証なので、新記事や全面改善を先行しない。既存の `/safety` とChatGPT比較の改稿効果を観測する。
+- Revenue Impact 3 / Time to Revenueは審査次第でunknown / Cost 0円 / Evidence A8状態E2・GSC E2・収益E0 / Automation低 / Risk低 / Learning 2。状態変化時だけ再判断する。
+- x-exp-01の本番条件、recommend、UTM、CTA、計測、queueは変更しない。production deploy、SNS投稿、affiliate activationは人間承認まで停止。
+
+## D27 — 審査依存を分散する第2ルートは静的商品1つ（2026-09-13）
+
+- 明示指示: 媒体に固執せず9案を比較。ひとり広報/SNS担当向け業務棚卸し＋文章制作キットを1位、個別レポート2位、有料コラム3位とした。需要順位ではなく、初売上までの準備量・自動納品・低費用で選ぶ仮説。詳細はREVENUE_ENGINE_2_OPPORTUNITY。
+- 1商品2,980円案のみローカル準備。最新AIデータや再現不能スコアを商品価値とせず、業務入力・確認手順を提供。新規SaaS/API/個人情報処理なし。個別レポートの高単価だけで機密/納品負担を正当化しない。
+- Impact2 / 初売上目標3〜7日（販売準備後）・unknown / 追加支出0 / 制度E1・需要E0 / 配布自動化高 / Risk中 / Learning3。必要流入は未達の仮説。14日で評価、21日購入0で実験終了。数値は仮定で成果帳票に混ぜない。
+- #1の本番・recommend・CTA・UTM・計測・Xキューを維持。別商品/別記録でも同じX読者と時間を消費するので競合を認める。新商品公開/外部アカウント/決済/投稿は人間承認が必要。市場適合前の量産禁止。
+- 撤回は非公開原稿の不採用だけで可能。次は人間のsample試用→1商品の局所修正。先に追加機能を作らない。
+
+## D26 — a363a09の本番昇格とデータ取得境界（2026-09-13）
+
+- 人間によるPreview確認と本番deploy承認に基づき、既存PreviewをPromote to Production。対象a363a09、Production C1uSeLErMoQLH6MVDJpGx8MtBYKV、13:46:25 JST Ready。main mergeや環境/ドメイン設定変更なし。
+- 71公開URL、sitemap66/ブログ34、canonical、noindex除外、www308、favicon、固定UTM、広告無効を確認。READY_FOR_DATA_COLLECTION。実CVやGA受信成功の代替証拠とはしない。
+- x-exp-01本体/計測は保持。診断先のmodel/compare/costは公開で変更されたため、当該時刻前後の下流行動を同条件と扱わない。未取得データはunknown。SNS/広告有効化/追加申請の権限は拡張しない。
+
 ## D25 — 旧データ依存解消RCの品質を締め、改善を停止（2026-09-13）
 
 - ユーザーのRelease Reviewer / Maintainer指示により、新機能・追加デザイン・SEO拡張は停止。全差分と未追跡ファイルを監査し、既承認の旧データ訂正/記事可読性変更、sitemap、管理文書を論理単位でコミットする。
@@ -203,3 +234,10 @@
 - 完了条件: 3画面幅の検索/解除/同種選択/比較表/履歴、未知値保持、旧得点一致、source境界、check、diff-check。外部通信を遮断して計測に混入させない。
 - 次の採点: `EVALUATION_RESTART.md` に3問の具体案と実行ゲートを記載。未実行であり成績ではない。モデル/利用経路・条件を承認しrawがそろうまで点数を掲載しない。
 - 評価/撤回: 公開承認後の流入/次行動で判断。比較選択イベントは新設せず未取得。撤回時は現行比較コンポーネントを外せるが、旧スコアを現行推奨に戻さない。
+# D28 — 2026-09-13 Current Data Upgrade
+
+最新ユーザー指示でbranch内の鮮度/SEO/UX作業を再開。公式7日内の変更を入口に2記事だけ追加し、旧記事は日付を偽更新せず保存記録として明示。GSCは8/14–9/10の既存需要で、新規記事の急上昇証拠には使わない。unknown価格・地域条件を補完せず、ランキング/実験/本番を維持する。次はPreviewレビューと既存需要1記事。第2商品はRevenue OS側HOLDを継承。
+
+## D29 — 9月13日調査・14日検証：新記事より既存入口の訂正
+
+GSCの/safetyとChatGPTモデル比較はpage単位でposition6〜20の範囲。まず既存記事の利用経路/料金/性能の誤認を是正し、無料比較の未実測な課金推奨も取り下げた。新規記事0、得点の新規算出0。検索語・ページ順位を混同せず、修正効果は未測定。/blogのローカル検索と確認状態分類で過去記事へ迷い込むリスクを減らす仮説。ローカル監査は読み取りのみ、期間内=真実という認定にしない。完了条件check/3幅/リンク/unknown/履歴/実験維持。公開後同期間page/queryで再判断、公開は人間承認。原状復帰でも根拠のない順位/課金効果は復活させない。

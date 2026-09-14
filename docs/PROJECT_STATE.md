@@ -1,8 +1,54 @@
 # PROJECT STATE
 
+## 現行サマリー — 2026-09-14 AIエージェントCurrent Update RC
+
+- GSC実測（8/15〜9/11）の `/categories/ai-agents` 23 impressions・平均8.7位と、OpenAIの9/10公式Agents API発表が交差するため、需要未確認の記事量産ではなく1テーマだけbranchで更新。
+- `OpenAI Agents API` のpublic factsを新設。全開発者向けpublic beta、harness、実行環境、長時間session、tool、subagent、API自体の追加料金なし・token/tool別課金を9/14確認として登録。無料枠、日本固有料金、GA時期、SLAはunknown。
+- `/categories/ai-agents` にAgents APIを追加し、完成品／エージェント基盤／モデルAPIを分離。新記事 `/blog/openai-agents-api-guide-2026` は何が変わったか、対象者、構成の選び分け、権限・費用・復旧の検証手順を掲載。性能順位・トレンド・収益効果は断定しない。
+- `npm run check` 成功（78 sources、91 static pages）。69 sitemap URL／ブログ37件、重複・lastmod 0。全69 URLと新規内部リンクはローカル200。desktop・390px・320pxで横あふれなし、表は局所横スクロール。canonical正常、PR表示なし、affiliate active0/URL0。
+- x-exp-01の `/recommend`、UTM、CTA、計測、queueは無変更。本番a363a09を維持し、main merge、production deploy、SNS投稿、affiliate有効化、課金、credential操作なし。
+
+## 現行サマリー — 2026-09-14 収益優先確認
+
+- 追加確認: A8を再読み込みすると再認証画面へ遷移したため、この操作時点の審査状態はunknown。credentialは扱わず、同日07:38 JSTに直接確認した3件「申込中」を最終確認値として保持する。承認済みとは解釈しない。
+- Search Consoleの直近28日（8/15〜9/11）を再確認。78 clicks / 1,607 impressions / CTR 4.9% / 平均17.2位。`/safety` 43/711/8.0、ChatGPTモデル比較4/59/7.4、AI agentsカテゴリ1/23/8.7。前2件は既存branch改善を維持し、AI agentsカテゴリだけ製品/APIの区別と内部リンクを局所改善。小標本のためSEO効果・CV寄与は未実証。
+- ChromeのA8「申込中プログラム」で、DMM生成AI CAMP、Winスクール、デジタルハリウッドSTUDIO by LIGの3件がすべて申込中であることを再確認。承認・否認・追加対応の表示はなく、広告URL発行や掲載条件確認へは進んでいない。会員画面の観測原本はGit対象外 `data/private/a8-status-2026-09-14.local.json`。
+- 初CVの最大ボトルネックは提携承認済み案件が0件であること。DMMの非公開draft、directリンク、PR表示、対象ページ、人間有効化のゲートは既に準備済みで、追加実装は承認後の案件固有条件確認まで行わない。
+- GSCの前回実測は2026-08-14〜09-10。今回の8/15〜9/11再確認で `/categories/ai-agents` は23 impressions・平均8.7位。query/page対応は未確認で、affiliate承認待ちを上回る収益優先度とは判断しない。
+- 2026-09-14基準の30日鮮度監査ではpublic factsの確認済み日付は期間内。料金・提供範囲などの未確認項目はunknownのまま。旧記事にはreview_dueが残るが、検索需要・収益導線の根拠なしに一括改稿しない。
+- 直近7日の公式発表候補にはOpenAIのAgents API等があるが、aierabi上の検索需要・CVとの接続は未実証。今回は新記事化せず、既存流入と最初の承認案件へ集中する。
+- 本番、`/recommend`、x-exp-01のUTM/CTA/計測、X投稿キュー、affiliate active 0を変更していない。AI agentsカテゴリの局所差分はbranchのみ。本番deploy、SNS投稿、広告有効化、追加申請なし。
+
+## 現行サマリー — 2026-09-14検証（9月13日調査の継続）
+
+本番はa363a09、今回変更はbranchのみ。前段27d7a6dを維持し、ChatGPTモデル比較/無料AI比較を本文まで改稿、/safetyの検索意図を具体化、/blogの検索・確認状態フィルタを追加。公式77sources/24facts。ローカル鮮度監査コマンドを追加（ネットワーク/書込なし）。歴史スコアとrecommend/UTM/計測/queue/affiliate無効を維持。SITE_UPGRADE_REPORT_2026-09-13.md冒頭が今回の成果・検証・残課題の正本。
+
+他の「最新」「未公開」「第2商品試用優先」は各時点の履歴。第2商品はRevenue OSのHOLDを優先。今回公開/SNS/課金/認証操作なし。全24factsの完全な現行性や全記事の改稿完了を意味しない。
+
 更新: 2026-09-11 / `d812a09` を明示承認により本番反映済み（18:36:48 JST Ready）。初回X需要テスト `x-exp-01` は人間が投稿し評価待ち。recommend・UTM・CTA・計測コードは維持。DMM・Winスクール・デジタルハリウッドSTUDIO by LIGは提携審査待ち。現在地の正本。作業順は [NEXT_TASKS](NEXT_TASKS.md)、判断方法は [REVENUE_DECISION_FRAMEWORK](REVENUE_DECISION_FRAMEWORK.md)。
 
 ## 現在地
+
+### 第2収益ルートのローカル準備（2026-09-13）
+
+- ユーザーのOpportunity Scanner指示で9案を比較し、ひとり広報向け業務棚卸し＋文章テンプレートの買切り商品1つだけを選定。価格2,980円は仮説、需要/購入/CVRは未実証。比較・日次モデル・撤退条件はREVENUE_ENGINE_2_OPPORTUNITY.md。
+- 無料sample、有料キット3業務、販売文案/公開ゲートをGit対象外 `data/private/revenue-engine-2/` に準備。公開ルート・API・決済・新基盤は追加なし。人間の試用/販売手段/法定表示/公開承認が残る。
+- Revenue Engine #1の実験条件/キュー/本番は無変更。A8は前ターンの人間再認証後に3案件「申込中」を確認済み。以下の再認証待ちは以前の状態。今回、新規探索/申請/広告有効化/外部アカウント操作はなし。
+- 当面は第2ルートも1商品だけ。複数SKUや月10万円柱の量産は、実売上と反復性を確認するまで開始しない。
+
+### 本番反映後の実績再確認（2026-09-13）
+
+- ChromeでXの48時間超アクティビティとGA4の9月11〜13日（当日途中）のcampaign・参照元/メディア・入口を再確認。匿名集計と判断をGit対象外 `data/private/x-exp-01-review-2026-09-13-afternoon.local.json` へ追加保存し、前回値は維持。
+- GA4のmanual ad content別は未確認。campaign集計を投稿別実績に転用しない。recommend開始/完了/結果はunknown。D22のx-exp-03修正案を維持し、SNS投稿は人間確認待ち。
+- A8は再読み込み後も再認証画面。現在の審査結果はunknown、最後に確認した3案件「申請中」を維持。人間の再認証後、当該3件だけ確認する。新規探索・申請・広告発行/有効化・本番/計測変更なし。
+
+### a363a09本番反映完了（2026-09-13・正本）
+
+- 人間がPreviewを確認し本番deployを明示承認。a363a09のPreview `2xoyqZx2Y5wTeErvKjmSUp5VRxQw` を既存Production環境へ昇格。`C1uSeLErMoQLH6MVDJpGx8MtBYKV` が13:46:25 JST Ready。本番 https://www.aierabi.jp/ 。ドメイン/環境変数/設定/mainは変更なし。
+- 13:47:34 JSTに公開HTTP検証完了。sitemap66件＋例外/UTM5件の計71 URLが200、canonical整合。非www→www308、favicon/robots/sitemap200、旧Copilotと履歴noindex/sitemap除外、ブログ34、lastmodなし。未知モデル/同一ペア404。
+- 承認RCのaffiliate active0/URL0、確認した全71ページに外部affiliateリンク/sponsoredリンクなし。recommend・関連データ・UTM・CTA・計測・Xキューは旧本番d812a09と差分なし。固定UTM URL200。検証はJSを実行しないHTTP取得でGAイベント送信なし。
+- 判定READY_FOR_DATA_COLLECTION。GAの実データ受信/診断開始・完了の計測を新しく実証した意味ではない。未取得指標はunknown。model/compare/cost等の下流画面は13:46:25を境に区別して評価する。
+- npm run check / git diff --check成功（既存font警告あり）。生成sitemapの並び順だけのローカル差分は除去。deploy起因の修正なし、SNS投稿/広告有効化/追加申請/課金なし。以下の「未公開」「d812a09本番」は過去時点の記録。
 
 ### Release Candidate最終レビュー（2026-09-13）
 
@@ -164,3 +210,7 @@ ASPの認証情報をエージェントへ渡す必要はない。会員限定�
 - ブランチ: `work/aierabi-revenue-engine`。RCは `c31783e` と `2a283ef` に整理・push済みで、後者を本番反映済み。main mergeは行っていない。
 - 現在の未コミット差分はD18の入口/5ガイド改善とD19の現行比較・履歴移設、公式facts/台帳、テスト、管理文書。`/recommend`、X queue、計測実装、affiliate設定は変更していない。本番deploy・SNS投稿・affiliate有効化なし。
 - `npm run check`: 成功（49 source validation、収益集計・ガイド/現行比較回帰テスト、lint、88ページbuild）。既存のfont、Google Fonts取得、edge runtime、caniuse-lite警告は残る。生成sitemapの無意味な差分は残さない。check成功と収益運用の完成は別。詳細は `SITE_REFRESH_REPORT.md` のD19記録を参照。
+# 2026-09-13 Current Data Upgrade（作業ブランチのみ）
+
+公式facts既存12件更新・4件新設、台帳71sources/24facts。新記事2本、旧10記事のtitle/description訂正と過去記事注意書き。全項目最新・日本提供確認済みとはしない。詳細はSITE_UPGRADE_REPORT_2026-09-13.md。
+本番はa363a09のまま。今回deploy/main merge/投稿/affiliate有効化なし。recommend・計測・UTM・queueは差分なし。第2商品はRevenue OS側HOLDを優先し、以下の旧試用優先指示では再開しない。
