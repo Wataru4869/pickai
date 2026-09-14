@@ -1,3 +1,3 @@
 import { PurposePage } from "@/components/PublicFactsPage";
-export const metadata={title:"AIエージェントの選び方・公式情報比較 | AI選び",description:"用途と確認日付きの公式情報で比較。旧スコアの順位ではなく、機能・利用条件・未確認項目を分けて確認できます。",alternates:{canonical:"/categories/ai-agents"}};
+export const metadata={title:"AIエージェントとは？選び方・公式情報比較 | AI選び",description:"AIエージェント製品と開発用モデルAPIを分け、外部操作、費用、承認、実行記録の確認方法を公式情報とともに整理します。",alternates:{canonical:"/categories/ai-agents"}};
 export default function Page(){return <PurposePage purpose="ai-agents"/>;}

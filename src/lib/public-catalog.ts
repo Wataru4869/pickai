@@ -34,6 +34,6 @@ export const purposes = {
   "video-generation": { title: "動画生成AI", ids: ["runway", "pika", "heygen", "synthesia"], guide: "ai-video-generation-2026", checks: ["素材・人物の利用許諾", "必要な尺と編集方法", "クレジット消費と書き出し条件"] },
   "coding-tools": { title: "AI開発ツール", ids: ["cursor", "github-copilot", "windsurf"], guide: "ai-coding-tools-2026", checks: ["対応する開発環境", "編集・コマンド実行の許可", "差分レビューとテスト"] },
   "ai-search": { title: "AI検索", ids: ["chatgpt", "claude", "gemini", "grok", "perplexity"], guide: "ai-search-engines-comparison-2026", checks: ["出典と原文の一致", "質問の期間と情報の日付", "確認にかかる手間"] },
-  "ai-agents": { title: "AIエージェント", ids: ["deepseek", "qwen", "kimi"], guide: "ai-agents-comparison-2026", checks: ["完成した製品か開発用APIか", "外部操作と費用の承認境界", "実行記録と成果物の確認"] },
+  "ai-agents": { title: "AIエージェント", ids: ["openai-agents-api", "deepseek", "qwen", "kimi"], guide: "ai-agents-comparison-2026", checks: ["完成した製品か開発用APIか", "外部操作と費用の承認境界", "実行記録と成果物の確認"] },
 };
 export type Purpose = keyof typeof purposes;

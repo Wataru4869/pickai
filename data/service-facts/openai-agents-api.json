@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "service_id": "openai-agents-api",
+  "last_verified_at": "2026-09-14",
+  "source_url": "https://openai.com/index/introducing-the-agents-api/",
+  "facts": {
+    "service_name": {
+      "value": "OpenAI Agents API",
+      "source_id": "openai-agents-api-20260910",
+      "verified_at": "2026-09-14"
+    },
+    "provider": {
+      "value": "OpenAI",
+      "source_id": "openai-agents-api-20260910",
+      "verified_at": "2026-09-14"
+    },
+    "official_url": {
+      "value": "https://openai.com/index/introducing-the-agents-api/",
+      "source_id": "openai-agents-api-20260910",
+      "verified_at": "2026-09-14"
+    },
+    "current_plan": {
+      "value": "Public beta",
+      "source_id": "openai-agents-api-20260910",
+      "verified_at": "2026-09-14"
+    },
+    "current_price": {
+      "value": "Agents API自体の追加料金なし。使用したトークンとツールの料金は別途発生",
+      "source_id": "openai-agents-api-20260910",
+      "verified_at": "2026-09-14"
+    },
+    "free_plan": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "free_trial": {
+      "value": null,
+      "source_id": null,
+      "verified_at": null
+    },
+    "current_product": {
+      "value": "Agents API（public beta）",
+      "source_id": "openai-agents-api-20260910",
+      "verified_at": "2026-09-14"
+    },
+    "major_features": {
+      "value": [
+        "Codexと同系統のagent harnessをOpenAIが運用",
+        "OpenAI管理sandbox・自社基盤・提携sandboxから実行環境を選択",
+        "長時間session・tool search・subagentをサポート"
+      ],
+      "source_id": "openai-agents-api-20260910",
+      "verified_at": "2026-09-14"
+    },
+    "availability": {
+      "value": "全開発者向けpublic beta。一般提供（GA）時期と日本固有の契約条件は未確認",
+      "source_id": "openai-agents-api-20260910",
+      "verified_at": "2026-09-14"
+    }
+  }
+}

@@ -11,7 +11,8 @@
 .card{min-width:0;padding:26px;background:#fff;border:1px solid #d9e2ea;border-top:4px solid #537b98;border-radius:8px 8px 16px 16px}
 .card dl>div{padding:16px 0;border-top:1px solid #e2e8ed}.card dt{font-size:13px;font-weight:700;margin-bottom:6px;color:#456379}
 .card dd p{font-size:14px}.card dd a{font-size:12px}.card .note{font-size:12px;color:#596c7b;margin-bottom:16px}
-.checks,.history{background:#e8eff4;border:1px solid #d6e1ea;border-radius:14px;padding:26px;margin:0 0 24px}
+.summary,.checks,.history{background:#e8eff4;border:1px solid #d6e1ea;border-radius:14px;padding:26px;margin:0 0 24px}
+.summary{background:#fff;border-left:4px solid #537b98}.summary ul{display:grid;gap:10px;list-style:disc;padding-left:22px}.summary strong{color:#203348}.nextLinks{display:flex;flex-wrap:wrap;gap:0 24px;margin-top:8px}
 .checks ul{list-style:disc;padding-left:22px}.checks a,.history a{margin-right:24px}
 .history{margin:32px 0 0;background:#f0f2f4}.history h2{font-size:18px}.history p{font-size:13px}
-@media(max-width:640px){.main{padding:20px 18px 40px}.grid{grid-template-columns:1fr}.card,.checks,.history{padding:20px}.main header{padding:24px 0}.main h2{font-size:21px}}
+@media(max-width:640px){.main{padding:20px 18px 40px}.grid{grid-template-columns:1fr}.card,.summary,.checks,.history{padding:20px}.nextLinks{display:block}.main header{padding:24px 0}.main h2{font-size:21px}}

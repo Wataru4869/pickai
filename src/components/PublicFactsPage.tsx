@@ -26,8 +26,24 @@ export function FactCards({ ids, compact = false }: { ids: string[]; compact?: b
 export function PurposePage({ purpose }: { purpose: Purpose }) {
   const p = purposes[purpose];
   return <FactsLayout title={`${p.title}の選び方と公式情報`} intro="まず必要な作業と条件をそろえます。以下は確認済み項目がある候補で、網羅一覧や性能順位ではありません。">
+    {purpose === "ai-agents" && <section className={styles.summary} aria-labelledby="agent-summary-title">
+      <p className={styles.label}>先に分けること</p>
+      <h2 id="agent-summary-title">完成した製品と、開発用モデルAPIは別に選ぶ</h2>
+      <p>AIエージェントという名前だけでは、チャットで相談する製品、外部サービスを操作する製品、開発者が組み込むモデルAPIを区別できません。最初に「誰が設定するか」「どこまで操作を許可するか」「実行前に人が承認するか」を決めます。</p>
+      <ul>
+        <li><strong>完成した製品を使う：</strong>対応サービス、保存される情報、停止方法、月額と追加利用を確認する。</li>
+        <li><strong>APIで作る：</strong>モデル料金だけでなく、実行環境、外部ツール、監視と保守の費用を分ける。</li>
+        <li><strong>比較する：</strong>同じ小さな作業で、完了率だけでなく確認・手直し・失敗時の復旧を記録する。</li>
+      </ul>
+      <div className={styles.nextLinks} aria-label="AIエージェントの次の確認">
+        <a href="/blog/openai-agents-api-guide-2026">Agents APIの変更点を読む →</a>
+        <a href="/blog/ai-agents-comparison-2026">用途別の選び方を読む →</a>
+        <a href="/cost">料金と追加利用の見方 →</a>
+        <a href="/safety">外部操作とデータを確認 →</a>
+      </div>
+    </section>}
     <section className={styles.checks}><h2>比較前に決めること</h2><ul>{p.checks.map(c=><li key={c}>{c}</li>)}</ul>
-      {purpose === "ai-agents" && <p>下の3候補は開発向けモデルAPIです。完成したエージェント製品の代替とは限りません。製品側の選び方はガイドで分けて確認できます。</p>}
+      {purpose === "ai-agents" && <p>下の4候補は開発者が組み込むAPIです。OpenAI Agents APIはエージェント実行基盤、ほか3候補はモデルAPIとして確認しており、完成したエージェント製品の代替とは限りません。</p>}
       <a href={`/blog/${p.guide}`}>詳しい選び方を読む →</a>
     </section><FactCards ids={p.ids} compact />
   </FactsLayout>;
