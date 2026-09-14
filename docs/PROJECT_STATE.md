@@ -1,5 +1,15 @@
 # PROJECT STATE
 
+## 現行サマリー — 2026-09-15 UI / SEO Upgrade RC
+
+- 作業branchだけで、検索・SNSから入った利用者が現行factsを確認し、比較・診断・料金・安全性へ進める導線を改善。`/model/*` と `/compare/*` は、表示項目の公式根拠数・最新確認日と、判断を続ける4つの内部導線を表示する。順位・推奨・新スコアは追加していない。
+- 複数料金を1行へ詰めていた表示を改行し、390px/320pxでも横あふれなしを実画面確認。compare固有canonical・title・Twitter metadataも確認済み。
+- 全体metadataをCurrent Facts中心へ訂正。未再確認の旧記事は検索結果用title/descriptionでも過去記事と明示し、記事CTAの誤った「詳細スコアを見る」を現行の機能・料金・提供条件比較へ訂正。一般記事にも可視本文と一致するArticle schemaを追加。
+- Google Fontsへの外部読込を削除し、OS標準日本語フォントを使用。Search Console確認metaはNext.js metadataへ移行。lint警告は0になった。
+- sitemap生成後のURL順を決定的に整列する処理を追加。現行期待値は69 URL／ブログ37件、重複0、lastmodなし。全69 URLと内部リンクを含む94 URLをクリーンなlocal serverで巡回し、400以上0件。
+- `npm run check` 成功（78 official sources、91 static pages）。`git diff --check` 成功。affiliate active 0 / URL 0。`/recommend`、UTM、CTA、計測、X queue、campaign/post IDは差分なし。x-exp-01本番条件は維持。
+- 本番deploy、main merge、push、SNS投稿、affiliate有効化、課金、credential操作なし。未追跡 `docs/REVENUE_ENGINE_2_OPPORTUNITY.md` は別作業として保持し、今回差分へ含めない。
+
 ## 現行サマリー — 2026-09-15 ローカル実動QA
 
 - `work/aierabi-revenue-engine` の既存ローカル環境を起動し、過去のPreview記録ではなく実画面でトップの2候補比較と、UTM付き `/recommend` の職種→用途→予算→結果→model/compare/cost導線を確認した。実装されていないrecommend内イベントは引き続きunknown。

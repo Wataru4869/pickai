@@ -248,3 +248,12 @@ GSCの/safetyとChatGPTモデル比較はpage単位でposition6〜20の範囲。
 - production-mode local HTMLでGAあり、通常local HTMLでGAなしを確認。Preview/Productionの実network確認はpush後の人間確認へ分離する。Consent・Google側設定・event名は変更しない。
 - `/` の実態は現行ツール比較であるため、sidebar/footerの旧名称「総合の保存評価」を「ツール・モデル比較」に訂正。3月値は `/evaluations/2026-03` に履歴として維持する。
 - x-exp-01の本番 `/recommend`、UTM、CTA、計測仕様、投稿は変更しない。Revenue Impactは実験データ汚染防止、Cost 0、Risk低。問題時はこの2箇所だけ撤回可能。
+
+## D31 — Current Factsページの根拠到達と検索表示を先に改善（2026-09-15）
+
+- ユーザーのUI/SEO継続承認に基づき、記事量産や新採点ではなく、既存の高意図model/compareと全体metadataの誤認を優先した。公式根拠数と確認日は既存public factsから算出し、未確認を0へ変換しない。
+- 旧記事は削除・日付更新せず、本文に加えて検索用title/descriptionでも過去記事と明示する。現行比較ページを「詳細スコア」と案内していたCTAだけを訂正。affiliate都合の順位・評価変更なし。
+- 外部Google Fontsは既存のOS標準日本語font stackで代替し、Search Console確認値はmetadataへ移す。表示差を抑えながら外部requestとlint警告を除く。
+- next-sitemapの非決定的な順序だけの差分を止めるため、生成後にlocで整列する。URLの追加・削除やlastmod生成は行わない。期待値は69 URL／ブログ37件。
+- Revenue Impact 1 / Time to Revenue unknown / Cost 0円 / Evidence UI・回帰E2、SEO/CV効果E0 / Risk低〜中 / Learning 2。公開後は同期間のGSC page/queryと次行動で評価し、見た目やテスト成功を売上効果としない。
+- x-exp-01本番のrecommend、UTM、CTA、計測、queueは不変。push、Preview、本番、SNS、affiliate有効化は別判断。
