@@ -41,6 +41,13 @@ export default function Page() {
     <section className="mt-8"><h2>ハルシネーションが心配なら、同じ資料で確かめる</h2><p>以下は実測済みの順位ではなく、比較手順の提案です。公開資料を使い、正解を確認できる小さな質問から始めます。</p><ol className="list-decimal pl-6 space-y-3"><li>公開資料を1つ決め、答えが本文にある質問と、本文だけでは答えられない質問を用意する。</li><li>同じ資料・質問を各候補へ渡し、回答の根拠となる箇所を示してもらう。</li><li>原文との一致と、不明なことを不明と扱えるかを確認する。1回の結果を全用途の順位にしない。</li></ol><p>出典リンクがあるだけでは、主張が原文と一致しているとは限りません。重要な判断に使う箇所は原文まで戻って確認します。</p></section>
     <section className="mt-8"><h2>社内資料を使う前に確認すること</h2><p>モデル名だけでなく、契約プラン・保存・学習利用・共有範囲を確認してください。確認できない条件は「安全」とも「危険」とも断定せず、入力する範囲を保留します。まず機密情報を含まない検証用資料で作業を試します。</p></section>
     <section className="mt-8"><h2>確認の根拠</h2><p>以下は確認方法の参考資料です。特定製品の認証や安全性の優劣を示すものではありません。</p><a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence" rel="noopener noreferrer">NIST生成AIリスク管理資料（台帳確認 2026-09-11）↗</a></section>
+    <section className="mt-8">
+      <h2>よくある質問</h2>
+      <div className="space-y-5">
+        <div><h3>最も正確で安全なAIはどれですか？</h3><p>用途、モデル、プラン、入力資料によって結果が変わるため、一律の順位では決められません。同じ公開資料と質問を使い、根拠の一致、分からないことの扱い、入力データの条件を分けて確認します。</p></div>
+        <div><h3>AIのハルシネーションを減らすにはどうしますか？</h3><p>答えが確認できる公開資料を指定し、根拠箇所を示すよう求め、重要な主張を原文と照合します。出典リンクの有無だけで正確とは判断しません。</p></div>
+      </div>
+    </section>
     <NextActions sourcePage="/safety" title="守りたいものを決めたら、候補を比較" intro="安全性だけで契約を決めず、用途・料金・公式の利用条件を同じ順序で確認してください。" links={[
       { href: "/blog/ai-safety-ranking-2026", label: "詳しい確認手順", detail: "入力情報・出典・公開条件を整理" },
       { href: "/compare", label: "主要AIを比較", detail: "機能・料金・提供条件を見る" },
