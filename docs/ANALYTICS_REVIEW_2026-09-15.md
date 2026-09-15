@@ -21,7 +21,7 @@ aierabiには検索流入があるが、安全性テーマへの依存が大き�
 | AIエージェントカテゴリ | 1 | 23 | 8.7 | 少数だが1ページ目 |
 | `/cost` | 0 | 87 | 42.1 | 現状は検索成果に遠い |
 
-安全性関連2ページで61 clicks、全体76 clicksの約80%を占める。これは強みであると同時に、単一テーマ依存である。`ai 正確性 ランキング` は54 impressions・9.5位・0 clicks、`grok 評判` は13・13.3位・0、`grok 評価` は11・10.3位・0。queryとpageの対応は未確認のため、編集前にページfilterで帰属を確定する。
+安全性関連2ページで61 clicks、全体76 clicksの約80%を占める。これは強みであると同時に、単一テーマ依存である。`ai 正確性 ランキング` は54 impressions・9.5位・0 clicksで、GSCのquery filterから `/safety` が54 impressions・9.6位・0 clicksと確認できた。`grok 評判` は13 impressions・13.3位・0 clicksで、全13 impressionsが `/model/grok` に帰属した。`grok 評価` は11・10.3位・0 clicksだが、今回のquery→page確認対象外。
 
 ### GA4
 
@@ -38,13 +38,23 @@ Google organicは89 sessions、Bing organicは65、Yahoo organicは16。ChatGPT�
 
 上位landingは `/safety` 72 sessions、トップ45、無料AI比較42、安全性過去記事24。無料AI比較はGSC上位表には現れない一方でGA landing 42 sessionsがあり、Google以外の検索や直接流入を含む可能性がある。source別に分けて確認する価値が高い。
 
+## 今回branchで実装した改善
+
+- `/safety` は結論を先に示し、正確性・入力データ・公開条件を分ける構造へ整理した。FAQ本文と同内容のFAQ schema、比較・診断・評価方法への内部導線を追加した。現行性能順位や未測定スコアは追加していない。
+- `/model/grok` は検索意図に合わせてtitle・description・H1・導入を修正し、X版／単体版、用途、モデル・プラン時点を分けて評判を見る手順を追加した。評価値や料金は推測していない。
+- `internal_cta_click`、`recommend_start`、`recommend_complete`、`recommend_result_view` を固定event名で実装した。値は固定ID・pathの許可形式だけを送信し、氏名・メール・自由入力は送信しない。既存UTMを下流URLへ引き継ぐ仕様は維持した。
+- 404専用画面を追加し、比較・用途・診断へ復帰できるようにした。現行sitemap 76 URLのローカル巡回は400以上0件。過去7日の404の正確なpathは標準レポート上でtitleとpathを結び付けられずunknownのまま。
+- プライバシーポリシーへサイト内操作と固定campaign/post IDの計測を追記した。独自イベントに個人識別子を送らない境界を明記した。
+
+これらは未deployのbranch変更であり、GA4にイベントが届いた実績やCTR改善効果はまだ存在しない。
+
 ## 改善優先順位
 
 1. **収益行動を測れるようにする** — 次の `@AI_erabi` traffic/affiliate実験前に、内部CTA、診断開始・結果表示、affiliate clickを固定event名で計測する。現状はpage view後の行動を判別できず、key events 0をCVRとして評価できない。
 2. **安全性流入を判断導線へ接続する** — `/safety` とHistorical記事から、現行facts、比較、用途診断へ進む内部遷移を観測する。過去スコアを現行順位へ戻さず、検索意図へ直接答える。
-3. **既存1ページ目を優先してCTR改善する** — ChatGPTモデル比較、AIエージェント、安全性関連queryをquery→pageで確定後、title・description・冒頭回答を1ページずつ改善する。新記事量産より早く学べる。
-4. **Grokは新記事を増やす前に既存ページを統合改善する** — 238 impressions・21.4位の `/model/grok` と「評判」「評価」queryを、最新facts、料金確認範囲、注意点、関連比較へ接続する。query帰属未確認のため先にfilter確認する。
-5. **404と計測欠損を解消する** — 過去7日に404 titleが6 views。正確なpathを特定して、内部リンクなら修正、旧URLなら関連ページへ恒久redirectを検討する。landing `(not set)` 14 sessions、Unassigned 11 sessionsも原因を分ける。
+3. **既存1ページ目を優先してCTR改善する** — `/safety` はquery→pageを確認してbranchで改善済み。次はChatGPTモデル比較、AIエージェントから1件ずつquery帰属を確認して判断する。新記事量産より早く学べる。
+4. **Grokは新記事を増やす前に既存ページを統合改善する** — `grok 評判` の全13 impressionsが `/model/grok` に帰属することを確認し、同ページをbranchで改善済み。公開後は同query/pageを別期間で観測する。
+5. **404と計測欠損を解消する** — 404復帰画面と現行内部リンク巡回は完了。過去404の正確なpath、landing `(not set)` 14 sessions、Unassigned 11 sessionsは引き続き原因を分ける。
 6. **AI引用向け構造を横展開する** — 高意図ページに短い結論、比較条件、公式source、確認日、Current/Historical区分を置く。AI Assistant流入の高engagementは仮説支持だが、15 sessionsなので本数目標にはしない。
 7. **Directの低engagementを分解する** — Directは86 sessionsに対してengagement rate 15.12%。bot、旧QA、ブックマーク、実離脱のどれかは未確認。9月15日のproduction-only GA化後の期間を分離し、landing/device別に見てからUIを変える。
 

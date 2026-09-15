@@ -1,5 +1,13 @@
 # NEXT TASKS
 
+## 現行優先キュー — 2026-09-15 Analytics改善RC後
+
+1. **Analytics改善RCをPreview確認** — `/safety`、`/model/grok`、`/recommend`、404、privacyを確認。完了条件: desktop/mobile、UTM保持、Previewから本番GAへ送信されないことを確認し、人間がdeploy可否を判断。production deployは別承認。
+2. **公開後に新eventの受信だけ確認** — 実際のCVを作らず、内部CTAと診断の各固定eventがGA4で受信され、post/campaignが個別に識別できることを確認。未受信を0件と記録しない。
+3. **A8 3案件の状態変化待ち** — DMM、Win、デジLIGで承認が確認できた最初の1件だけ、`@AI_erabi`、掲載host、PR、改変しない広告URLの条件を再確認する。
+4. **最初の承認案件1件だけ最小収益テスト** — 対象ページ・CTA・広告有効化・本番・投稿を別々に人間承認。`/go`、UTM、subIDは案件の明示許可なしで使わない。
+5. **公開28日後に同page/queryで評価** — `/safety` と `/model/grok` のclicks、impressions、CTR、position、landing、内部遷移を旧期間と混ぜず比較し、Continue / Modify / Holdを判断。
+
 ## 現行優先キュー — 2026-09-15 Analytics Review後
 
 1. **A8 3案件の状態変化待ち** — 最初の承認案件だけ、`@AI_erabi`・掲載host・PR・URL条件を再確認して最小収益テストへ。完了条件: 人間activation approval直前の安全な構成。

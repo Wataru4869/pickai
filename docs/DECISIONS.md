@@ -296,3 +296,10 @@ GSCの/safetyとChatGPTモデル比較はpage単位でposition6〜20の範囲。
 - 公式情報で確認できた機能・料金・提供範囲だけを掲載し、性能順位・人気・報酬都合の推奨は追加しない。未確認の地域価格、税、上位プラン額、無料体験は補完しない。
 - 新記事は内部CTAのみ。affiliate active 0 / URL 0、recommend、UTM、計測、X queueを維持。通常AIの配信候補は `@AI_erabi` で別baselineを取るまで自動投稿しない。
 - 公開は別承認。公開した場合は28日を暫定観測枠にpage/queryと内部遷移を確認し、反応のないテーマを本数目的で追加しない。Revenue Impact 1 / Time to Revenue unknown / Cost 0円 / Evidence facts E1・需要仮説E0 / Risk 中 / Learning 2。
+
+## D35 — 実測queryに既存ページを合わせ、最小ファネルを先に測る（2026-09-15）
+
+- GSCでquery→pageを直接確認できた `/safety` と `/model/grok` だけを改善し、追加記事を作らない。順位・性能・料金は更新せず、検索意図へ答えるtitle・導入・判断手順・内部導線に限定する。
+- 次回traffic/収益実験前に、内部CTAとrecommend開始・完了・結果を固定eventで測る。既存UTMを維持し、許可形式の固定ID/pathだけを送信する。未取得値はunknownで、key eventやCVへ自動昇格しない。
+- 過去404は正確なpathが不明なため推測redirectを作らず、復帰画面と現行内部リンク巡回だけを実装する。正確なpathが取れた場合のみ原因別に修正する。
+- 実装はbranch/Previewまで。Google設定、本番deploy、SNS、affiliate有効化は別承認。Revenue Impact 2 / Time to Learning 公開後数日 / Cost 0円 / Evidence GSC・GA4 E2、改善効果E0 / Risk低〜中。

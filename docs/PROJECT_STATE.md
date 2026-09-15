@@ -1,5 +1,14 @@
 # PROJECT STATE
 
+## 現行サマリー — 2026-09-15 Analytics改善RC（branchのみ）
+
+- GSCで `ai 正確性 ランキング` → `/safety`（54 impressions / 0 clicks / 9.6位）、`grok 評判` → `/model/grok`（13 / 0 / 13.3位）を直接確認し、該当2ページのtitle・導入・判断導線だけを改善した。数値は8/16〜9/12の実測で、改善効果ではない。
+- 個人情報を扱わない固定eventとして `internal_cta_click`、`recommend_start`、`recommend_complete`、`recommend_result_view` を追加。既存UTM/post/campaign伝播、affiliate設定、ランキングは変更していない。未deployのためevent実績はunknown。
+- 404復帰画面を追加。現在のsitemap 76 URLはローカル巡回で400以上0件。GA4で観測された過去404の正確なpathはunknownで、推測redirectは追加していない。
+- プライバシーポリシーを計測内容と同期。独自イベントは固定ID/pathだけを許可し、氏名・メール・自由入力・個人識別子を送らない。
+- `npm run check` 成功（79 sources / 98 pages）、sitemap 76 URL／ブログ43件／lastmod 0、`git diff --check`成功。localではGA tag 0を実画面確認。affiliate active 0 / URL 0。
+- 本番、main、SNS、affiliate、Google設定は変更なし。最大ボトルネックは承認済みaffiliate案件0件。次はPreview確認と、本番反映を行う場合のGA受信確認を別承認で行う。
+
 ## 現行サマリー — 2026-09-15 Analytics Review
 
 - GSC実測（8/16〜9/12）: 76 clicks / 1,610 impressions / CTR 4.7% / 平均17.2位。`/safety` 42/702/8.0、安全性過去記事19/178/5.3で、両入口が全clickの約80%。
