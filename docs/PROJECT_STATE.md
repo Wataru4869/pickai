@@ -1,5 +1,13 @@
 # PROJECT STATE
 
+## 現行サマリー — 2026-09-16 Model Detail Content Upgrade RC
+
+- ChatGPT・Claude・Geminiを先行確認し、公開factsを持つ25サービスすべての `/model/[id]` に「できること」「利用例の図解」「比較4軸」「10〜15分の試し方」「FAQ」「料金・条件」を展開した。
+- 機能表示は9月確認済み `data/service-facts/` の公式根拠だけを使用。利用例は実測性能ではなく試用手順と明示し、3月の独自順位・スコア、推定価格、未確認の無料条件を流用していない。
+- 従来は詳細URLがなかった画像・動画・音声・開発・エージェント等20サービスを静的生成対象へ追加。カテゴリカードから詳細へ進め、各詳細から該当カテゴリまたは既存の直接比較記事へ戻れる。
+- ChatGPT・Claude・Gemini、Adobe Firefly、Runway、HeyGen、GitHub Copilotを実画面確認。狭幅で1列化・全体横あふれ0、console error/warning 0。全100 sitemap URLと内部リンク108件は400以上0、canonical欠損0。
+- `npm run check`成功（79 sources / 122 static pages）、`git diff --check`成功。sitemapは100 URL／model 25件／ブログ47件。affiliate active 0 / URL 0。branch RCのみで未push・未deploy。
+
 ## 現行サマリー — 2026-09-16 Logo / Card / Sidebar refinement Production
 
 - ユーザー提供の本番スクリーンショット3点を基に、brandを旧「AI｜選」アイコン＋「AI選び」からCSS製の `AI erabi` wordmarkへ変更した。画像・外部font・商標ロゴassetは追加していない。

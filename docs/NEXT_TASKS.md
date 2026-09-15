@@ -1,5 +1,13 @@
 # NEXT TASKS
 
+## 現行優先キュー — 2026-09-16 Model Detail Content Upgrade RC後
+
+1. **Model Detail RCをPreviewへ渡す** — 25詳細ページの共通構造と代表7ページをdesktop/390px/320pxで人間確認。完了条件: 読み順、横あふれ、ページ内ナビ、FAQ、該当カテゴリへの遷移にrelease blockerがない。Productionは別承認。
+2. **公開する場合は新20 URLのindex境界を記録** — sitemap 100 URL／model 25件を基準にcanonical・noindex・404を再確認。完了条件: 本番100 URL 200、canonical欠損0。順位・滞在時間改善は未実測のE0仮説。
+3. **詳細→比較の実測を観測** — `internal_cta_click` のsource pageとdestinationで、詳細からカテゴリ・直接比較・料金へ進む割合を確認。未取得はunknown。低反応だけを理由にfactsや順位を変えない。
+4. **A8 3案件の状態変化待ち** — 最初に承認された1件だけ条件確認へ進める。詳細ページへ無関係な広告CTAを接続しない。
+5. **最初の承認案件1件の最小収益テスト** — `@AI_erabi`、掲載host、PR、広告URL仕様を再確認し、対象ページ・有効化・本番・Distributionを別々に人間判断する。
+
 ## 現行優先キュー — 2026-09-16 Logo / Card / Sidebar refinement Production後
 
 1. **UI変更時点を計測境界にする** — 2026-09-16 02:34 JSTのProduction反映前後でlanding、engagement、internal CTAを混ぜない。クリック改善は未実測のE0仮説。完了条件: 同一定義・同程度の観測窓で前後値を記録。

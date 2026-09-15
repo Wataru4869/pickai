@@ -354,3 +354,10 @@ GSCの/safetyとChatGPTモデル比較はpage単位でposition6〜20の範囲。
 - 既存ドメイン・環境変数・DNSを変更せず、main merge、SNS投稿、affiliate申請・有効化、課金、credential操作を行わない。
 - 本番主要4ページ、favicon、canonical、www redirect、sitemapを確認。sitemapは80 URL／ブログ47件、affiliate active 0 / URL 0。
 - 視認性・クリック改善は未実測のE0仮説。2026-09-16 02:34 JSTを公開境界として前後データを混ぜずに評価する。
+
+## D43 — 詳細ページは古い採点ではなく、公式機能と試し方で厚くする（2026-09-16）
+
+- 認知度の高いChatGPT・Claude・Geminiを入口に、公開factsを持つ25サービスへ同じ判断構造を展開する。旧 `model-details.json` の3月順位・推定円換算・強い推奨は現在ページへ流用しない。
+- 「できること」は項目別source付きCurrent Facts、「利用例・比較軸」は実測結果ではない編集ガイドとして表示を分離する。未確認機能を一般的なカテゴリ説明から製品機能へ昇格させない。
+- 画像・動画・開発等も新しい薄い記事を量産せず、既存facts・カテゴリ・比較記事を詳細URLで接続する。URLはservice_idを使い、canonicalな静的ページだけをsitemapへ追加する。
+- Revenue Impactは間接2、Time to Learningは公開後数日〜28日、Cost 0円、Evidenceは公式facts E1・UI/リンクQA E2・SEO/滞在/CV効果E0、Risk中。公開と効果判定は別に扱う。
