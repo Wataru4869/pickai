@@ -1,11 +1,11 @@
 # PROJECT STATE
 
-## 現行サマリー — 2026-09-16 Model Detail Content Upgrade RC
+## 現行サマリー — 2026-09-16 Model Detail Use-case Table RC
 
-- ChatGPT・Claude・Geminiを先行確認し、公開factsを持つ25サービスすべての `/model/[id]` に「できること」「利用例の図解」「比較4軸」「10〜15分の試し方」「FAQ」「料金・条件」を展開した。
-- 機能表示は9月確認済み `data/service-facts/` の公式根拠だけを使用。利用例は実測性能ではなく試用手順と明示し、3月の独自順位・スコア、推定価格、未確認の無料条件を流用していない。
-- 従来は詳細URLがなかった画像・動画・音声・開発・エージェント等20サービスを静的生成対象へ追加。カテゴリカードから詳細へ進め、各詳細から該当カテゴリまたは既存の直接比較記事へ戻れる。
-- ChatGPT・Claude・Gemini、Adobe Firefly、Runway、HeyGen、GitHub Copilotを実画面確認。狭幅で1列化・全体横あふれ0、console error/warning 0。全100 sitemap URLと内部リンク108件は400以上0、canonical欠損0。
+- 25サービスすべての `/model/[id]` に、サービス固有の利用シーンを各3件、合計75件追加した。各例は「こんなとき／用意するもの／AIに任せる範囲／得られるもの／人が確認すること」の5列で、入力から確認までを同じ粒度で比較できる。
+- desktopは日本の比較サービスに近い高密度な早見表、760px以下は3枚の縦カードへ変換する。深緑を見出し、淡い緑を用途、淡い橙を人の確認に限定し、派手なAI風装飾や外部ロゴ素材は追加していない。
+- 利用シーンは性能実測・成果保証ではない編集例と明示。Current Facts、公式source、料金・無料条件、3月の独自スコアは変更せず、未確認機能や順位を追加していない。
+- ChatGPT詳細をクリーンなproduction buildで実画面確認。初回はdev/build同時実行で `.next` chunk競合を検出したため生成物を退避し、クリーンbuild後にsitemap全100 URLを再巡回して400以上0件を確認した。
 - `npm run check`成功（79 sources / 122 static pages）、`git diff --check`成功。sitemapは100 URL／model 25件／ブログ47件。affiliate active 0 / URL 0。branch RCのみで未push・未deploy。
 
 ## 現行サマリー — 2026-09-16 Logo / Card / Sidebar refinement Production
