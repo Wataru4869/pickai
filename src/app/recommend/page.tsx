@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { Header, Footer, Block, SectionHeader, TrustBadges } from "@/components/ui";
 import { getModels, MODEL_COLORS } from "@/lib/data";
 import recommendData from "@/data/recommendations.json";
+import { safeAnalyticsValue, sendAnalyticsEvent } from "@/lib/client-analytics";
 
 type Step = "role" | "useCase" | "budget" | "result";
 
@@ -13,6 +14,8 @@ export default function RecommendPage() {
   const [selectedUseCase, setSelectedUseCase] = useState<string | null>(null);
   const [selectedBudget, setSelectedBudget] = useState<string | null>(null);
   const [attributionQuery, setAttributionQuery] = useState("");
+  const [attribution, setAttribution] = useState<{ postId?: string; campaignId?: string }>({});
+  const resultViewed = useRef(false);
 
   useEffect(() => {
     const incoming = new URLSearchParams(window.location.search);
@@ -22,6 +25,10 @@ export default function RecommendPage() {
       if (value && /^[a-z0-9][a-z0-9_-]{0,63}$/.test(value)) outgoing.set(key, value);
     }
     setAttributionQuery(outgoing.toString());
+    setAttribution({
+      postId: safeAnalyticsValue(outgoing.get("utm_content")),
+      campaignId: safeAnalyticsValue(outgoing.get("utm_campaign")),
+    });
   }, []);
 
   const withAttribution = (path: string) => attributionQuery ? `${path}?${attributionQuery}` : path;
@@ -49,6 +56,20 @@ export default function RecommendPage() {
     ? models.find((m) => m.id === recommendation.secondary)
     : null;
 
+  useEffect(() => {
+    if (step !== "result" || !primaryModel || resultViewed.current) return;
+    resultViewed.current = true;
+    sendAnalyticsEvent("recommend_result_view", {
+      source_page: "/recommend",
+      result_id: primaryModel.id,
+      role_id: selectedRole ?? undefined,
+      use_case_id: selectedUseCase ?? undefined,
+      budget_id: selectedBudget ?? undefined,
+      post_id: attribution.postId,
+      campaign_id: attribution.campaignId,
+    });
+  }, [step, primaryModel, selectedRole, selectedUseCase, selectedBudget, attribution]);
+
   const steps = [
     { key: "role", label: "職種", num: 1 },
     { key: "useCase", label: "用途", num: 2 },
@@ -61,6 +82,7 @@ export default function RecommendPage() {
     setSelectedRole(null);
     setSelectedUseCase(null);
     setSelectedBudget(null);
+    resultViewed.current = false;
   };
 
   return (
@@ -126,6 +148,14 @@ export default function RecommendPage() {
               <button
                 key={role.id}
                 onClick={() => {
+                  if (!selectedRole) {
+                    sendAnalyticsEvent("recommend_start", {
+                      source_page: "/recommend",
+                      role_id: role.id,
+                      post_id: attribution.postId,
+                      campaign_id: attribution.campaignId,
+                    });
+                  }
                   setSelectedRole(role.id);
                   setStep("useCase");
                 }}
@@ -185,6 +215,14 @@ export default function RecommendPage() {
                 key={b.id}
                 onClick={() => {
                   setSelectedBudget(b.id);
+                  sendAnalyticsEvent("recommend_complete", {
+                    source_page: "/recommend",
+                    role_id: selectedRole ?? undefined,
+                    use_case_id: selectedUseCase ?? undefined,
+                    budget_id: b.id,
+                    post_id: attribution.postId,
+                    campaign_id: attribution.campaignId,
+                  });
                   setStep("result");
                 }}
                 className="w-full min-h-14 flex items-center justify-between p-4 border border-[var(--border)] rounded-lg hover:border-[var(--accent)] hover:bg-[var(--accent-pale)] transition-colors text-left cursor-pointer bg-white"
@@ -227,6 +265,13 @@ export default function RecommendPage() {
               </div>
               <a
                 href={withAttribution(`/model/${primaryModel.id}`)}
+                data-analytics-event="internal_cta_click"
+                data-source-page="/recommend"
+                data-cta-type="model_detail"
+                data-cta-position="recommend_primary_result"
+                data-destination-id={`/model/${primaryModel.id}`}
+                data-post-id={attribution.postId}
+                data-campaign-id={attribution.campaignId}
                 className="block text-center text-[11px] text-[#4a7ab5] mt-2 hover:underline"
               >
                 {primaryModel.name}の詳細を見る →
@@ -244,6 +289,13 @@ export default function RecommendPage() {
                 </div>
                 <a
                   href={withAttribution(`/compare/${primaryModel.id}-vs-${secondaryModel.id}`)}
+                  data-analytics-event="internal_cta_click"
+                  data-source-page="/recommend"
+                  data-cta-type="compare"
+                  data-cta-position="recommend_secondary_result"
+                  data-destination-id={`/compare/${primaryModel.id}-vs-${secondaryModel.id}`}
+                  data-post-id={attribution.postId}
+                  data-campaign-id={attribution.campaignId}
                   className="block text-[11px] text-[#4a7ab5] mt-1.5 hover:underline"
                 >
                   {primaryModel.name} vs {secondaryModel.name}の比較を見る →
@@ -278,6 +330,13 @@ export default function RecommendPage() {
             </p>
             <a
               href={withAttribution("/cost")}
+              data-analytics-event="internal_cta_click"
+              data-source-page="/recommend"
+              data-cta-type="cost"
+              data-cta-position="recommend_result_cost"
+              data-destination-id="/cost"
+              data-post-id={attribution.postId}
+              data-campaign-id={attribution.campaignId}
               className="block text-center text-[11px] text-[#4a7ab5] mt-2 hover:underline"
             >
               料金・無料条件の確認ポイントを見る →

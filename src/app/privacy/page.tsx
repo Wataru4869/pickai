@@ -14,7 +14,7 @@ export default function PrivacyPage() {
       <div className="bg-white py-6">
         <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
           <h1 className="text-[20px] font-bold text-[#1d1d1f] mb-1">プライバシーポリシー</h1>
-          <p className="text-[11px] text-[#86868b]">最終更新日: 2026年3月23日</p>
+          <p className="text-[11px] text-[#86868b]">最終更新日: 2026年9月15日</p>
         </div>
       </div>
 
@@ -29,7 +29,7 @@ export default function PrivacyPage() {
           <div>
             <h2 className="text-[14px] font-semibold mb-1.5">アクセス解析ツールの利用について</h2>
             <p className="text-[#6e6e73]">
-              本サイトでは、Googleが提供するアクセス解析ツール「Google Analytics 4」を利用しています。Google Analytics 4はCookieを使用してアクセス情報を収集しますが、個人を特定する情報は含まれません。収集されたデータはGoogle社のプライバシーポリシーに基づいて管理されます。詳細は
+              本サイトでは、Googleが提供するアクセス解析ツール「Google Analytics 4」を利用しています。Google Analytics 4はCookie等を使用して、ページ閲覧やサイト内操作に関する情報を収集します。本サイトからGoogle Analytics 4へ送る独自の計測項目には、氏名、メールアドレス、自由入力文、個人を識別するためのIDを含めません。収集されたデータはGoogle社のプライバシーポリシーに基づいて管理されます。詳細は
               <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-[#0066cc] hover:underline no-underline">Google社のプライバシーポリシー</a>
               をご確認ください。
             </p>
@@ -39,11 +39,13 @@ export default function PrivacyPage() {
             <h2 className="text-[14px] font-semibold mb-1.5">収集する情報</h2>
             <p className="text-[#6e6e73] mb-1.5">本サイトでは以下の情報を自動的に収集します。</p>
             <ul className="space-y-1 text-[#6e6e73]">
-              <li className="pl-3 border-l-2 border-[#e8e8ed]">アクセス元のIPアドレス（匿名化処理済み）</li>
+              <li className="pl-3 border-l-2 border-[#e8e8ed]">Google Analytics 4が処理するアクセス・端末情報</li>
               <li className="pl-3 border-l-2 border-[#e8e8ed]">ブラウザの種類、言語設定</li>
               <li className="pl-3 border-l-2 border-[#e8e8ed]">閲覧したページのURL、滞在時間</li>
               <li className="pl-3 border-l-2 border-[#e8e8ed]">アクセス日時</li>
               <li className="pl-3 border-l-2 border-[#e8e8ed]">リファラー情報</li>
+              <li className="pl-3 border-l-2 border-[#e8e8ed]">内部リンクのクリックや、おすすめ診断の進行・結果などのサイト内操作</li>
+              <li className="pl-3 border-l-2 border-[#e8e8ed]">流入施策を区別するためのキャンペーンID・投稿ID（個人を識別するIDではありません）</li>
             </ul>
           </div>
 
@@ -59,7 +61,7 @@ export default function PrivacyPage() {
 
           <div>
             <h2 className="text-[14px] font-semibold mb-1.5">第三者への提供</h2>
-            <p className="text-[#6e6e73]">収集した情報は、法令に基づく場合を除き、第三者に提供することはありません。</p>
+            <p className="text-[#6e6e73]">アクセス解析のためGoogle Analytics 4へ送信する情報を除き、収集した情報を法令に基づく場合以外に第三者へ提供しません。</p>
           </div>
 
           <div>

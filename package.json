@@ -12,10 +12,11 @@
     "generate:x-queue": "node scripts/generate-x-queue.mjs",
     "generate:revenue-dashboard": "node scripts/generate-revenue-dashboard.mjs",
     "test:revenue": "node scripts/test-revenue-dashboard.mjs",
+    "test:analytics": "node scripts/test-client-analytics.cjs",
     "test:guides": "node scripts/test-reviewed-guides.cjs",
     "audit:freshness": "node scripts/audit-freshness.mjs",
     "test:freshness": "node scripts/test-freshness.mjs",
-    "check": "npm run validate:data && npm run test:revenue && npm run test:guides && npm run test:freshness && npm run lint && npm run build"
+    "check": "npm run validate:data && npm run test:revenue && npm run test:analytics && npm run test:guides && npm run test:freshness && npm run lint && npm run build"
   },
   "dependencies": {
     "next": "15.5.25",

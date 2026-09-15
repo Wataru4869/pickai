@@ -124,6 +124,13 @@ export default function ArticleCTA({
             <a
               key={i}
               href={href}
+              data-analytics-event={!useSponsoredRel ? "internal_cta_click" : undefined}
+              data-source-page={!useSponsoredRel ? contentId : undefined}
+              data-cta-type={!useSponsoredRel ? (link.ctaType || cta.type) : undefined}
+              data-cta-position={!useSponsoredRel ? (link.ctaPosition || `article-end-${i + 1}`) : undefined}
+              data-destination-id={!useSponsoredRel ? link.url?.split("?")[0] : undefined}
+              data-post-id={!useSponsoredRel ? attribution?.postId : undefined}
+              data-campaign-id={!useSponsoredRel ? attribution?.campaignId : undefined}
               rel={useSponsoredRel ? "sponsored nofollow noopener" : undefined}
               target={useSponsoredRel ? "_blank" : undefined}
               className="block px-3 py-2 border border-[#e5e5e5] rounded text-[13px] text-[#4a7ab5] hover:border-[#4a7ab5] transition-colors no-underline"

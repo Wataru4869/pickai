@@ -23,7 +23,7 @@ export function ToolSummary({ id }: { id: string }) {
     <div className={styles.toolIdentity}><span className={styles.toolMark} aria-hidden="true">{product.name.slice(0, 2)}</span><div><p>{profile.type}</p><h2 id="tool-summary-title">{profile.summary}</h2></div></div>
     <div className={styles.badges}>{profile.uses.map(use => <span key={use}>{use}</span>)}<span>{confirmed}/4項目に公式根拠</span></div>
     <div className={styles.fitGrid}><div><h3>候補にしやすい人</h3><p>{profile.suited}</p></div><div><h3>先に確認すること</h3><p>{profile.check}</p></div></div>
-    <div className={styles.summaryActions}><a className={styles.primaryAction} href="#current-facts">料金・条件を見る</a><a href="/compare">ほかのAIと比較する</a></div>
+    <div className={styles.summaryActions}><a className={styles.primaryAction} href="#current-facts" data-analytics-event="internal_cta_click" data-source-page={`/model/${id}`} data-cta-type="facts" data-cta-position="tool_summary" data-destination-id="current_facts">料金・条件を見る</a><a href="/compare" data-analytics-event="internal_cta_click" data-source-page={`/model/${id}`} data-cta-type="compare" data-cta-position="tool_summary" data-destination-id="/compare">ほかのAIと比較する</a></div>
   </section>;
 }
 
@@ -59,8 +59,8 @@ export function FactCards({ ids, compact = false }: { ids: string[]; compact?: b
   </section>;
 }
 
-export function NextActions({ title, intro, links }: { title: string; intro: string; links: { href: string; label: string; detail: string }[] }) {
-  return <section className={styles.next} aria-labelledby="next-actions-title"><div><p className={styles.label}>次にすること</p><h2 id="next-actions-title">{title}</h2><p>{intro}</p></div><div className={styles.actionGrid}>{links.map(link => <a key={link.href} href={link.href}><strong>{link.label}</strong><span>{link.detail}<b aria-hidden="true"> →</b></span></a>)}</div></section>;
+export function NextActions({ title, intro, links, sourcePage }: { title: string; intro: string; links: { href: string; label: string; detail: string }[]; sourcePage?: string }) {
+  return <section className={styles.next} aria-labelledby="next-actions-title"><div><p className={styles.label}>次にすること</p><h2 id="next-actions-title">{title}</h2><p>{intro}</p></div><div className={styles.actionGrid}>{links.map((link, index) => <a key={link.href} href={link.href} data-analytics-event={sourcePage ? "internal_cta_click" : undefined} data-source-page={sourcePage} data-cta-type={sourcePage ? "next_action" : undefined} data-cta-position={sourcePage ? `next_action_${index + 1}` : undefined} data-destination-id={sourcePage ? link.href : undefined}><strong>{link.label}</strong><span>{link.detail}<b aria-hidden="true"> →</b></span></a>)}</div></section>;
 }
 
 export function PurposePage({ purpose }: { purpose: Purpose }) {
@@ -70,6 +70,6 @@ export function PurposePage({ purpose }: { purpose: Purpose }) {
     <section className={styles.checks}><h2>この用途で確認すること</h2><ul>{p.checks.map(c => <li key={c}>{c}</li>)}</ul>{purpose !== "writing" && <a href={`/blog/${p.guide}`}>詳しい選び方と注意点を読む</a>}</section>
     {purpose === "ai-agents" && <section className={styles.summary}><h2>完成した製品と開発用APIは分けて選ぶ</h2><p>AIエージェントという名前だけでは、相談する製品、外部サービスを操作する製品、開発者が組み込むAPIを区別できません。誰が設定し、どこまで操作を許可し、実行前に人が承認するかを先に決めてください。</p></section>}
     <FactCards ids={p.ids} compact />
-    <NextActions title="候補を絞ったら、次の確認へ" intro="料金、入力情報、ほかの候補を確認してから、小さな作業で試してください。" links={[{href:"/compare",label:"主要AIを比較",detail:"同じ項目で違いを見る"},{href:"/cost",label:"料金条件を確認",detail:"無料枠・税・契約周期を見る"},{href:"/safety",label:"安全に使う",detail:"入力と公開の条件を見る"},{href:"/recommend",label:"候補を確認",detail:"3つの質問から入口を絞る"}]} />
+    <NextActions sourcePage={`/categories/${purpose}`} title="候補を絞ったら、次の確認へ" intro="料金、入力情報、ほかの候補を確認してから、小さな作業で試してください。" links={[{href:"/compare",label:"主要AIを比較",detail:"同じ項目で違いを見る"},{href:"/cost",label:"料金条件を確認",detail:"無料枠・税・契約周期を見る"},{href:"/safety",label:"安全に使う",detail:"入力と公開の条件を見る"},{href:"/recommend",label:"候補を確認",detail:"3つの質問から入口を絞る"}]} />
   </FactsLayout>;
 }
