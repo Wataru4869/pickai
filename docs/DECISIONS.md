@@ -273,3 +273,18 @@ GSCの/safetyとChatGPTモデル比較はpage単位でposition6〜20の範囲。
 - next-sitemapの非決定的な順序だけの差分を止めるため、生成後にlocで整列する。URLの追加・削除やlastmod生成は行わない。期待値は69 URL／ブログ37件。
 - Revenue Impact 1 / Time to Revenue unknown / Cost 0円 / Evidence UI・回帰E2、SEO/CV効果E0 / Risk低〜中 / Learning 2。公開後は同期間のGSC page/queryと次行動で評価し、見た目やテスト成功を売上効果としない。
 - x-exp-01本番のrecommend、UTM、CTA、計測、queueは不変。push、Preview、本番、SNS、affiliate有効化は別判断。
+
+## D32 — 比較対象未定の利用者を先に案内し、鮮度状態を5分類する（2026-09-15）
+
+- `/compare` は全組み合わせを先頭に置かず、用途、代表3比較、2候補選択、詳細一覧の順にする。比較理由は編集上の確認テーマであり、人気・勝敗・現行性能の実測値とは表現しない。
+- Current Facts 245項目と記事37件を CURRENT / STALE / UNVERIFIED / HISTORICAL / CONFLICT に統一分類する。CURRENTはsourceと30日内確認日の存在を表し、真実の自動認定ではない。unknownを0・無料・非対応に変えない。
+- 直近公式ページで新たに確認できたGrokの個人プラン、掲載モデル、明示価格、無料枠だけを更新する。日本税込額、未掲載プラン額、無料体験は補完しない。
+- Historical 24記事はSEO資産を一括削除せず、過去記事表示を維持する。Current化はGSC需要と誤認リスクから1件ずつ選び、一次情報で再確認した場合だけ行う。
+- x-exp-01のrecommend、UTM、CTA、計測、投稿queueは変更しない。今回の比較・データ変更はbranchのみで、公開はPreview確認と別承認を必要とする。
+
+## D33 — Compare / Current Data RCをProductionへ昇格する（2026-09-15）
+
+- 人間の明示承認を受け、commit `de2e3fe` のReadyなPreview `DvVsAdYfojrcXus1ydFroNm4SWxh` を既存Vercel Productionへ昇格した。Production deploymentは `9uptEPBk8aUtdSgzzjQfM39fc1Lp`。
+- 既存ドメイン・環境変数・DNSを変更せず、main merge、SNS投稿、affiliate申請・有効化、課金、credential操作を行わない。
+- 公開後確認は主要ページ、canonical、www redirect、sitemap件数、Grok表示、affiliate無効状態に限定する。UI公開をCTR・CV・売上改善の証拠とは扱わない。
+- 通常AI Distributionは `@AI_erabi` を新母集団として扱う。旧 `@tetoteto_ai` の実験値・UTM・媒体承認を新実験へ流用しない。

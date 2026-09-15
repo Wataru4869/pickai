@@ -1,5 +1,26 @@
 # PROJECT STATE
 
+## 現行サマリー — 2026-09-15 Compare UX / Current Data 本番反映
+
+- 人間の明示承認により、Preview `DvVsAdYfojrcXus1ydFroNm4SWxh`（commit `de2e3fe`）をVercelのPromote to Productionで昇格。Production deploymentは `9uptEPBk8aUtdSgzzjQfM39fc1Lp`、2026-09-15 21:10:56 JST、Ready。
+- `/compare` は用途→代表3比較→2候補選択→全一覧の順で本番表示。Grokは9月15日確認の公式料金ページに基づくモデル・個人プラン・明示価格・無料枠へ更新し、未確認値は補完していない。
+- 本番の主要7ページは200、`aierabi.jp`→`www.aierabi.jp`は308。canonical正常。sitemapは70 URL／ブログ37件／重複0／lastmod 0。
+- affiliate active 0 / URL 0を維持。`/go/dmm-generative-ai-camp` は広告遷移を行わない保留状態。環境変数、DNS、main、SNS投稿、affiliate申請・有効化は変更していない。
+- 25サービス245 facts＋37記事＝282単位の監査値は CURRENT 211 / STALE 0 / UNVERIFIED 47 / HISTORICAL 24 / CONFLICT 0。CURRENTは確認記録であり、性能や将来の正確性の保証ではない。
+- 通常AIのDistributionは新方針により `@AI_erabi`。旧 `@tetoteto_ai` のx-exp-01はHistoricalとして保持し、新baseline・UTM・実績へ流用しない。今回のreleaseでrecommend、UTM、CTA、計測、X queueは変更していない。
+- 詳細: [DATA_FRESHNESS_AUDIT_2026-09-15.md](DATA_FRESHNESS_AUDIT_2026-09-15.md)。最大ボトルネックは承認済みaffiliate案件0件。
+
+## 現行サマリー — 2026-09-15 Compare UX / Current Data RC（branchのみ）
+
+- `/compare` を「用途から比較 → 代表3比較 → 2サービス選択 → 全組み合わせ」の判断順へ再設計。総合点・順位は使わず、クリック前に比較理由、各候補に向く使い方、確認する違いを表示する。
+- 公開Current Facts 25サービス245項目と記事37件を統一監査。合計282単位は CURRENT 211 / STALE 0 / UNVERIFIED 47 / HISTORICAL 24 / CONFLICT 0。CURRENTは30日内の公式source記録であり、内容の永続的正確性を保証しない。
+- 直近7日の公式情報を起点に主要サービスを再照合し、今回更新が必要だったGrokだけを公式料金ページのモデル・プラン・確認できた料金・無料枠へ更新。日本税込額、未掲載プラン額、無料体験はunknownを維持。
+- Current Factsの正本 `data/service-facts/*.json` → `src/lib/public-catalog.ts` → top/model/compare/category/cost の流れを維持。旧記事24件は日付を偽更新せず、検索metadataと本文冒頭でHistoricalと明示する。
+- 実ブラウザでdesktop/390px/320pxのcompare上部・カード・セレクタ・詳細遷移を確認。主要7画面は320pxで横あふれなし。sitemap 70 URLをlocal巡回し全件200。
+- `npm run check` 成功（79 official sources、92 static pages）、`git diff --check`成功。affiliate active 0 / URL 0。recommend、UTM、CTA、計測、X queue、campaign/post IDは差分なし。
+- 現在の変更は未commit・未push・未deploy。本番はcommit `399de3c`。未追跡 `docs/REVENUE_ENGINE_2_OPPORTUNITY.md` は別作業として保持し、今回差分へ含めない。
+- 詳細: [DATA_FRESHNESS_AUDIT_2026-09-15.md](DATA_FRESHNESS_AUDIT_2026-09-15.md)。最大ボトルネックは引き続き承認済みaffiliate案件0件。
+
 ## 現行サマリー — 2026-09-15 全面UX/UI RC本番反映
 
 - 人間の明示承認により、Preview `BBwNktAaXncBcCB1NkJdJtwcE9Hu`（commit `399de3c`）をVercelのPromote to Productionで昇格。Production deploymentは `FDMbSRzaPmG143qBHp3i93NrksXS`、2026-09-15 14:18:32 JST、Ready。
