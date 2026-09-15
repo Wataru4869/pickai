@@ -347,3 +347,10 @@ GSCの/safetyとChatGPTモデル比較はpage単位でposition6〜20の範囲。
 - カードは影だけでなく、色付き上辺、余白、主CTA、hover/focusを一体で強化する。カード全体をリンク化して既存2CTAを曖昧にせず、目的別の遷移先を維持する。
 - sidebarはグループ見出し部分だけを淡色背景にし、リンク項目全体への面塗りは避ける。情報、順位、料金、URL、event、affiliate設定は変更しない。
 - 効果はE0仮説。公開後のinternal CTA実測なしにクリック改善を成立扱いしない。Cost 0円、Risk低〜中、rollbackは4 UIファイルに限定可能。
+
+## D42 — Logo / Card / Sidebar refinementをProductionへ昇格する（2026-09-16）
+
+- 人間の明示承認を受け、source commit `5102a02` のReadyなPreview `DVaXvTiKmHV7P5kBeRmaXA9gxHeH` を既存Vercel Productionへ昇格した。Production deploymentは `DkEF86cYCg6P4hEA4EbHwY3udQSr`。
+- 既存ドメイン・環境変数・DNSを変更せず、main merge、SNS投稿、affiliate申請・有効化、課金、credential操作を行わない。
+- 本番主要4ページ、favicon、canonical、www redirect、sitemapを確認。sitemapは80 URL／ブログ47件、affiliate active 0 / URL 0。
+- 視認性・クリック改善は未実測のE0仮説。2026-09-16 02:34 JSTを公開境界として前後データを混ぜずに評価する。

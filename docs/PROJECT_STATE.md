@@ -1,12 +1,13 @@
 # PROJECT STATE
 
-## 現行サマリー — 2026-09-16 Logo / Card / Sidebar refinement RC
+## 現行サマリー — 2026-09-16 Logo / Card / Sidebar refinement Production
 
 - ユーザー提供の本番スクリーンショット3点を基に、brandを旧「AI｜選」アイコン＋「AI選び」からCSS製の `AI erabi` wordmarkへ変更した。画像・外部font・商標ロゴassetは追加していない。
 - トップの主要AIカードから2文字アイコンを廃止し、製品名を主役に変更。影、境界、hover/focus、主CTAを強めた。掲載順、Current Facts、料金、スコア、リンク先、analytics属性は変更していない。
 - sidebarの5グループ見出しだけに淡い背景と左アクセントを付け、項目全体を騒がしくせずブロック境界を明示した。mobile drawerにも同じ見出しを適用。
 - desktopの実画面でbrand、sidebar、hero比較例、主要AIカードを確認。`npm run check`成功（79 sources / 102 pages）、`git diff --check`成功。affiliate active 0 / URL 0。
-- 現在はlocal RC。未push・未deploy。Productionはcommit `75442d2` / deployment `7PmxQhXbNzKWasx6FVNZpGYeNC2N` のまま。
+- 実装commit `52af4e7` と管理文書commit `5102a02` を `work/aierabi-revenue-engine` へpushし、ReadyなPreviewから既存Vercel Productionへ昇格した。Production deploymentは `DkEF86cYCg6P4hEA4EbHwY3udQSr`、source commitは `5102a02`。
+- 本番の `/`、`/recommend`、`/compare`、`/methodology`、favicon、sitemapは200。裸ドメインはwwwへ308、canonical正常。sitemapは80 URL／ブログ47件。affiliate active 0 / URL 0を維持し、環境変数・DNS・main・SNSは変更していない。
 
 ## 現行サマリー — 2026-09-16 Visual Identity RC
 

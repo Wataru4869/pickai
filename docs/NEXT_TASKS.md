@@ -1,9 +1,9 @@
 # NEXT TASKS
 
-## 現行優先キュー — 2026-09-16 Logo / Card / Sidebar refinement RC後
+## 現行優先キュー — 2026-09-16 Logo / Card / Sidebar refinement Production後
 
-1. **今回の局所UI差分をPreview確認へ渡す** — `AI erabi` wordmark、主要AIカード、sidebar見出しをdesktop/390px/320pxで確認。完了条件: 文字切れ、drawer、カード高さ、CTA、focusにrelease blockerがない。Productionは別承認。
-2. **公開する場合はUI変更時点を計測境界にする** — 既存landing、engagement、internal CTAを公開前後で混ぜない。クリック改善は未実測のE0仮説。
+1. **UI変更時点を計測境界にする** — 2026-09-16 02:34 JSTのProduction反映前後でlanding、engagement、internal CTAを混ぜない。クリック改善は未実測のE0仮説。完了条件: 同一定義・同程度の観測窓で前後値を記録。
+2. **実機mobileを補足確認する** — `AI erabi` wordmark、drawer見出し、主要AIカードを390px/320px相当の実機で確認。完了条件: 文字切れ、横あふれ、CTAのタップ阻害が0件。release blocker発見時のみ最小修正。
 3. **安全性clusterの公開後データを観測** — query/page、landing、engagement、内部遷移を旧期間と分ける。未取得はunknown。
 4. **A8 3案件の状態変化待ち** — 最初に承認された1件だけ条件確認へ進める。安全性流入へ無関係な案件を接続しない。
 5. **最初の承認案件1件の最小収益テスト** — `@AI_erabi`、掲載host、PR、広告URL仕様を再確認し、対象ページ・有効化・本番・Distributionを別々に人間判断する。
