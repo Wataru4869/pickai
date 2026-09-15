@@ -332,3 +332,10 @@ GSCの/safetyとChatGPTモデル比較はpage単位でposition6〜20の範囲。
 - 既存ドメイン・環境変数・DNSを変更せず、main merge、SNS投稿、affiliate申請・有効化、課金、credential操作を行わない。
 - 公開後確認は安全性ハブと6記事、canonical、favicon、www redirect、sitemap、内部リンク、affiliate無効状態に限定した。sitemap 80 URL／ブログ47件、全80 URLと内部リンク93件は400以上0件。
 - 安全性clusterは既存GSC需要に応える仮説であり、公開をSEO・内部遷移・CV・売上改善の実績とは扱わない。公開前後を分け、28日を暫定観測枠に次の1テーマを判断する。
+
+## D40 — 情報を増やさず、選択サービスとしての視覚的焦点を強める（2026-09-16）
+
+- ユーザーが現状の第一印象を弱いと評価したため、記事・機能追加ではなく、ブランド、hero、sidebar、用途・AI・比較カード、共通page headerの視覚設計を大幅に改める。
+- 深緑を信頼・現在情報、朱色を次の判断の焦点として使う。派手なAI風グラデーションや根拠のない順位を使わず、`用途 → 候補 → 比較 → 料金` を視覚的に表す。
+- URL、metadata、canonical、schema、Current Facts、独自評価、recommendロジック、UTM/event、affiliateは変更しない。UI公開時は前後を別コホートとして扱う。
+- Revenue Impactは間接2、Time to Learningは公開後数日、Cost 0円、EvidenceはUI QA E2・効果E0、Riskは中。Previewで390px/320pxを人間確認し、Productionは別承認とする。

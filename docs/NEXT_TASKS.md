@@ -1,5 +1,13 @@
 # NEXT TASKS
 
+## 現行優先キュー — 2026-09-16 Visual Identity RC後
+
+1. **Visual Identity RCをPreviewで実機確認** — `/`、`/compare`、`/model/chatgpt`、`/categories`、`/cost`、`/safety`、安全性記事をdesktop/390px/320pxで確認。完了条件: 横あふれ、文字切れ、drawer、CTA、長文可読性にrelease blockerがない。Productionは別承認。
+2. **公開する場合はUI変更時点を計測境界にする** — 公開前後のlanding、engagement、internal CTAを混ぜない。見た目の改善をCV改善と推定しない。
+3. **安全性clusterの公開後データを観測** — query/page、landing、engagement、内部遷移を旧期間と分ける。未取得はunknown。
+4. **A8 3案件の状態変化待ち** — 最初に承認された1件だけ条件確認へ進める。安全性流入へ無関係な案件を接続しない。
+5. **最初の承認案件1件の最小収益テスト** — `@AI_erabi`、掲載host、PR、広告URL仕様を再確認し、対象ページ・有効化・本番・Distributionを別々に人間判断する。
+
 ## 現行優先キュー — 2026-09-16 安全性コンテンツProduction後
 
 1. **安全性clusterの公開後データを観測** — `/safety` と新4記事のquery/page、landing、engagement、`internal_cta_click`を2026-09-16 01:39 JSTより前と分ける。未取得はunknown。完了条件: 28日を暫定枠に記事別のContinue / Modify / Consolidateを判断できる。

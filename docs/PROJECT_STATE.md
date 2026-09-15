@@ -1,5 +1,14 @@
 # PROJECT STATE
 
+## 現行サマリー — 2026-09-16 Visual Identity RC
+
+- branch上で、aierabiを一目で「用途からAIを選ぶサービス」と認識できるよう、ブランド、sidebar、トップhero、選択フロー、用途・AI・比較・記事カードを大幅に再設計した。
+- 深緑を信頼、朱色を判断の焦点として使用し、2色のブランドマーク、選び方の具体例UI、`用途 → 候補 → 比較 → 料金` の4段階ナビを追加。情報量やURLは増やしていない。
+- compare / model / category / cost / safety / articleの共通header・card・CTAも同じ視覚体系へ統一。Current Facts、料金、スコア、順位、recommendロジック、UTM、計測、affiliateは変更していない。
+- `npm run check`成功（79 sources / 102 pages）。local sitemap 80 URL／ブログ47件、全80 URLは400以上0、canonical欠損0、local GA 0。affiliate active 0 / URL 0。
+- desktopで `/`、`/compare`、`/model/chatgpt`、安全性記事を実画面確認。390px/320pxはCSS breakpointと1列化を確認したが、独立viewportの実画面撮影は環境上未完了のためPreview実機確認へ残す。
+- Productionは安全性コンテンツ版 `6pjgVamH71GspwiGXkRvhGtKrkDm` のまま。今回RCは未commit・未push・未deploy。効果はunknown。
+
 ## 現行サマリー — 2026-09-16 安全性コンテンツ Production
 
 - 人間の明示承認により、Preview `2sJys8uwgFE2bqTApoF2ZCTBHwjD`（source commit `1cd9e41`）を既存Vercel構成のままProductionへ昇格した。Production deploymentは `6pjgVamH71GspwiGXkRvhGtKrkDm`、2026-09-16 01:38:21 JST開始、43秒でReady。
