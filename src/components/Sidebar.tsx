@@ -5,9 +5,9 @@ import { usePathname } from "next/navigation";
 import { isNavigationLinkActive, navigationGroups } from "@/lib/site-navigation";
 
 function Brand({ onNavigate }: { onNavigate?: () => void }) {
-  return <a href="/" className="site-brand" onClick={onNavigate} aria-label="AI選び トップページ">
-    <span className="site-brand__mark" aria-hidden="true"><b>AI</b><i>選</i></span>
-    <span><strong>AI選び</strong><small>迷わないためのAI比較</small></span>
+  return <a href="/" className="site-brand" onClick={onNavigate} aria-label="AI erabi トップページ">
+    <span className="site-brand__wordmark" aria-hidden="true"><b>AI</b><i>erabi</i><em>●</em></span>
+    <small>用途から選べるAI比較</small>
   </a>;
 }
 
