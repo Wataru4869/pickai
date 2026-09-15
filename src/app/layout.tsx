@@ -63,7 +63,7 @@ export default function RootLayout({
   const enableProductionAnalytics = process.env.VERCEL_ENV === "production";
 
   return (
-    <html lang="ja">
+    <html lang="ja" data-scroll-behavior="smooth">
       <body>
         {enableProductionAnalytics && (
           <>

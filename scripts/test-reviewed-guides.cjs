@@ -129,7 +129,7 @@ assert.ok(currentHomeHtml.includes('href="/evaluations/2026-03"'));
 console.log('Passed: nine public-fact candidates, unknown preserved, official source links, no score inheritance on home.');
 
 assert.equal(catalog.catalogProduct('copilot').facts.provider.text,'未確認');
-assert.equal(catalog.catalogProduct('grok').facts.current_price.text,'未確認');
+assert.ok(catalog.catalogProduct('grok').facts.current_price.text.includes('SuperGrok: US$30/month'));
 assert.equal(catalog.catalogProduct('grok').facts.free_trial.text,'未確認');
 assert.ok(catalog.catalogProduct('perplexity').facts.current_price.text.includes('未確認'));
 assert.equal(catalog.catalogProduct('perplexity').facts.current_price.text.includes('null'),false);
@@ -160,6 +160,11 @@ const legacyCategorySource=fs.readFileSync(path+'src/app/category/[id]/page.tsx'
 assert.ok(legacyCategorySource.includes('robots:{index:false,follow:true}'));
 const pairPageSource=fs.readFileSync(path+'src/app/compare/[slug]/page.tsx','utf8');
 assert.ok(pairPageSource.includes('robots:slug===canonical?undefined:{index:false,follow:true}'));
+const compareLandingSource=fs.readFileSync(path+'src/app/compare/page.tsx','utf8');
+for(const text of ['何に使いたいですか？','迷ったときに確認しやすい3組','ComparePicker','すべての比較組み合わせを見る']) assert.ok(compareLandingSource.includes(text));
+const pickerSource=fs.readFileSync(path+'src/components/ComparePicker.tsx','utf8');
+assert.ok(pickerSource.includes('異なるAIを2つ選んでください'));
+assert.ok(pickerSource.includes('disabled={!destination}'));
 console.log('Passed: legacy category and reverse-order comparison duplicates are noindex/follow.');
 console.log('Passed: current decision pages exclude historical score calculations, unknown stays unknown, facts carry September sources.');
 
