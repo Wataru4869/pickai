@@ -4,7 +4,7 @@
 
 記事本数をKPIにせず、以下を最大5件として順に扱う。
 
-1. **6記事の差分レビューとPreview判断** — 完了条件: commit後、人間承認があればbranchへpushし、6記事・ブログ一覧をdesktop/390px/320pxで確認。production deployは別承認。寄与: 高意図検索の受け皿を公開可能にする。
+1. **6記事のPreview判断** — ローカルcommit `7b294c9`。完了条件: 人間承認があればbranchへpushし、6記事・ブログ一覧をdesktop/390px/320pxで確認。production deployは別承認。寄与: 高意図検索の受け皿を公開可能にする。
 2. **A8 3案件の状態変化待ち** — DMM、Win、デジLIGの最終確認値は申込中。承認等の変化時だけ確認日時付きで更新。寄与: 最初の実affiliate CV経路を開く。
 3. **最初の承認案件1件だけ条件確認** — `@AI_erabi`名義、掲載host、PR文言、禁止表現、広告URL仕様を確認し、人間activation approval直前まで準備。旧X承認を流用しない。
 4. **公開した記事を28日観測** — page/query別impressions、clicks、CTR、position、sessions、内部CTA遷移を記録。未取得はunknown。完了条件: Continue / Modify / Consolidateを記事別に判断できる。
