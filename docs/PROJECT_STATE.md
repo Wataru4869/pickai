@@ -1,5 +1,14 @@
 # PROJECT STATE
 
+## 現行サマリー — 2026-09-16 SEO流入→判断導線 Production
+
+- 人間の明示承認により、Preview `AecwyZeBcP1fkAc4G3NM1NTXrYiB`（source commit `6f5b450`）を既存VercelプロジェクトでPromote to Productionした。Production deploymentは `9EyjyEj2AV1DpgmE5nnHM4obuiSn`、2026-09-16 01:07:29 JST開始、43秒でReady。
+- 本番の `/`、`/blog`、比較記事、比較詳細、`/model/grok`、`/recommend` はすべて200。`aierabi.jp` は `www.aierabi.jp` へ308。主要canonical、favicon、production-only GA tagを確認した。
+- sitemapは76 URL／ブログ43件／重複0／lastmod 0。build時刻だけで全ページを更新扱いにする処理はない。
+- affiliate active 0 / URL 0を維持。`/go/dmm-generative-ai-camp` は200の保留画面で外部redirectなし。SNS投稿、affiliate有効化、追加申請、main merge、環境変数・DNS変更は行っていない。
+- 公開した内部CTA/recommend eventのGA4受信とSEO/CV効果は未確認で、実績扱いしない。通常AI Distributionは `@AI_erabi`。旧Xの数値・UTM・承認を流用しない。
+- 最大Revenueボトルネックは承認済みaffiliate案件0件。次は実CVを生成せずGA4の新event受信を確認し、A8 3案件は状態変化時だけ最初の1件を収益テストへ進める。
+
 ## 現行サマリー — 2026-09-15 SEO流入→判断導線RC（branchのみ）
 
 - GSCで既存上位候補を追加確認した。`/blog/chatgpt-models-comparison-2026` は直近28日で 4 clicks / 62 impressions / CTR 6.5% / 平均7.2位、`/categories/ai-agents` は 1 / 23 / 4.3% / 8.7位。表示されたquery内訳は匿名化・少数で、本文を特定queryへ書き換える根拠には不足していた。

@@ -1,5 +1,12 @@
 # DECISIONS
 
+## D37 — SEO流入→判断導線RCをProductionへ昇格（2026-09-16）
+
+- 人間の「反映して」および端末解除後の明示指示に基づき、commit `6f5b450` のReadyなPreviewをVercelのPromote to Productionで昇格した。
+- Production deployment `9EyjyEj2AV1DpgmE5nnHM4obuiSn` はReady。本番主要6ページ200、裸ドメインからwwwへ308、canonical、favicon、GA tag、sitemap 76 URL／ブログ43件／重複0／lastmod 0を確認した。
+- affiliate active 0 / URL 0を維持し、未承認DMMの `/go` は外部転送しない。環境変数、DNS、ドメイン設定、main、SNS、affiliate設定は変更していない。
+- 公開は内部導線と計測を観測可能にしただけで、GA4受信、SEO効果、CV、売上は未実測。旧Xの実績・UTM・承認を `@AI_erabi` へ移植しない。
+
 ## D33 — 全面UX/UI RCをProductionへ昇格（2026-09-15）
 
 - 人間がPreviewへ入れない状況を確認後、「一旦もう反映していい」と明示承認。commit `399de3c` のReadyなPreviewをVercelのPromote to Productionで昇格した。
