@@ -12,11 +12,11 @@ export function dateValue(value) {
 export function classifyFact(fact, asOf, days = 30) {
   const now = dateValue(asOf);
   if (now === null || !Number.isInteger(days) || days < 1) throw new Error('Use a valid YYYY-MM-DD and positive integer days');
-  if (fact?.value === null || fact?.value === undefined) return 'unknown';
+  if (fact?.value === null || fact?.value === undefined) return 'UNVERIFIED';
   const verified = dateValue(fact.verified_at);
-  if (verified === null || !fact.source_id) return 'missing_evidence';
-  if (verified > now) return 'future_date';
-  return (now - verified) / day > days ? 'review_due' : 'within_review_window';
+  if (verified === null || !fact.source_id) return 'UNVERIFIED';
+  if (verified > now) return 'CONFLICT';
+  return (now - verified) / day > days ? 'STALE' : 'CURRENT';
 }
 export function audit(asOf, days = 30) {
   classifyFact(null, asOf, days);
@@ -28,9 +28,11 @@ export function audit(asOf, days = 30) {
   const articles = fs.readdirSync(path.join(root, 'src/data/blog')).filter(f => f.endsWith('.json')).sort().map(file => {
     const a = JSON.parse(fs.readFileSync(path.join(root, 'src/data/blog', file), 'utf8'));
     const updated = dateValue(a.updatedAt);
-    return { slug: a.slug, updated_at: a.updatedAt, status: updated === null ? 'invalid_date' : updated > dateValue(asOf) ? 'future_date' : (dateValue(asOf) - updated) / day > days ? 'review_due' : 'within_review_window' };
+    return { slug: a.slug, updated_at: a.updatedAt, status: updated === null || updated > dateValue(asOf) ? 'CONFLICT' : (dateValue(asOf) - updated) / day > days ? 'HISTORICAL' : 'CURRENT' };
   });
-  return { as_of: asOf, review_window_days: days, warning: 'Age is a review signal, not proof of truth or freshness. Unknown is not zero. This reads public JSON only; no network, writes, publishing, or account access.', facts: rows, articles };
+  const all = [...rows, ...articles];
+  const status_counts = Object.fromEntries(['CURRENT','STALE','UNVERIFIED','HISTORICAL','CONFLICT'].map(status => [status, all.filter(row => row.status === status).length]));
+  return { as_of: asOf, review_window_days: days, warning: 'CURRENT means source and verification date are present within the review window; it does not independently prove the source still says the same thing. UNVERIFIED is not zero or false. HISTORICAL articles remain published as dated records.', status_counts, facts: rows, articles };
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   try {

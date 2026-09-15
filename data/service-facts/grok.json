@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "service_id": "grok",
-  "last_verified_at": "2026-09-13",
-  "source_url": "https://x.ai/grok",
+  "last_verified_at": "2026-09-15",
+  "source_url": "https://x.ai/pricing",
   "facts": {
     "service_name": {
       "value": "Grok",
@@ -20,9 +20,9 @@
       "verified_at": "2026-09-13"
     },
     "current_product": {
-      "value": "Grok（個人向けサービス。モデル識別子は未確認）",
-      "source_id": "grok-product-20260913",
-      "verified_at": "2026-09-13"
+      "value": "Grok（公式料金ページ掲載モデル：Grok 4.6）",
+      "source_id": "grok-pricing-20260915",
+      "verified_at": "2026-09-15"
     },
     "major_features": {
       "value": [
@@ -38,19 +38,33 @@
       "verified_at": "2026-09-13"
     },
     "current_plan": {
-      "value": null,
-      "source_id": null,
-      "verified_at": null
+      "value": [
+        "Free",
+        "SuperGrok Lite",
+        "SuperGrok",
+        "SuperGrok Plus",
+        "SuperGrok Heavy",
+        "Business",
+        "Enterprise"
+      ],
+      "source_id": "grok-pricing-20260915",
+      "verified_at": "2026-09-15"
     },
     "current_price": {
-      "value": null,
-      "source_id": null,
-      "verified_at": null
+      "value": {
+        "Free": "US$0/month",
+        "SuperGrok": "US$30/month",
+        "SuperGrok Plus": "US$100/month",
+        "other plans": null,
+        "region_note": "公式USD表示。日本の税込最終価格、Lite・Heavy・法人プランの金額は未確認。"
+      },
+      "source_id": "grok-pricing-20260915",
+      "verified_at": "2026-09-15"
     },
     "free_plan": {
       "value": true,
-      "source_id": "grok-product-20260913",
-      "verified_at": "2026-09-13"
+      "source_id": "grok-pricing-20260915",
+      "verified_at": "2026-09-15"
     },
     "free_trial": {
       "value": null,

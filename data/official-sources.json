@@ -1,6 +1,7 @@
 {
   "schema_version": 1,
   "sources": [
+    {"source_id":"grok-pricing-20260915","provider":"SpaceXAI","title":"Grok individual plans, prices, features and model availability","url":"https://x.ai/pricing","source_type":"official","verified_at":"2026-09-15"},
     {"source_id":"openai-agents-api-20260910","provider":"OpenAI","title":"Introducing the Agents API — public beta, environments and billing scope","url":"https://openai.com/index/introducing-the-agents-api/","source_type":"official","verified_at":"2026-09-14"},
     {"source_id":"heygen-august-release-20260909","provider":"HeyGen","title":"August product roundup published September 9: Edit Look and Real Estate; not September launch dates","url":"https://www.heygen.com/blog/heygen-august-2026-release","source_type":"official","verified_at":"2026-09-13"},
     {"source_id":"claude-free-limits-20260913","provider":"Anthropic","title":"Get started with Claude: Free session limits and model display","url":"https://support.claude.com/en/articles/8114491-get-started-with-claude","source_type":"official","verified_at":"2026-09-13"},
