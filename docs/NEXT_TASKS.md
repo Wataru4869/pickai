@@ -1,5 +1,13 @@
 # NEXT TASKS
 
+## 現行優先キュー — 2026-09-15 Analytics Review後
+
+1. **A8 3案件の状態変化待ち** — 最初の承認案件だけ、`@AI_erabi`・掲載host・PR・URL条件を再確認して最小収益テストへ。完了条件: 人間activation approval直前の安全な構成。
+2. **次回traffic実験前の最小ファネル計測** — 内部CTA、recommend開始・結果表示、affiliate clickを固定IDで区別。完了条件: Preview/localは本番GAへ送らず、欠損をnullで保持する回帰テスト成功。
+3. **404の正確なpathを特定** — GA4で過去7日6 viewsの404をpage path/queryで確認。完了条件: 内部リンク、旧URL、botのいずれかを根拠付き分類し、必要な場合だけ局所修正。
+4. **query→pageを確認して既存1ページだけCTR改善** — `ai 正確性 ランキング`、ChatGPTモデル比較、Grok評判/評価から1件。完了条件: GSC filterで帰属確認後、title/description/冒頭だけを変更し、HistoricalをCurrentへ偽装しない。
+5. **9月15日以降を別コホートで観測** — 28日後にGSC page/queryとGA4 landing/channel/CTAを再取得。完了条件: 旧UI・QA混入期間と合算せず、Continue / Modify / Holdを判断。
+
 ## 現行優先キュー — 2026-09-15 SEO比較コラム batch後
 
 記事本数をKPIにせず、以下を最大5件として順に扱う。

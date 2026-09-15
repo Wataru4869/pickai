@@ -1,5 +1,14 @@
 # PROJECT STATE
 
+## 現行サマリー — 2026-09-15 Analytics Review
+
+- GSC実測（8/16〜9/12）: 76 clicks / 1,610 impressions / CTR 4.7% / 平均17.2位。`/safety` 42/702/8.0、安全性過去記事19/178/5.3で、両入口が全clickの約80%。
+- GA4実測（8/18〜9/14）: 295 sessions / 148 engaged / engagement rate 50.17% / 平均41秒。Organic Search 175 sessions、AI Assistant 15 sessions。AI Assistantは11 engaged・73.33%・平均4分17秒だが小標本。
+- key events 0、GA revenue ¥0。affiliate active 0のため収益導線の失敗率ではない。affiliate click・内部CTA・recommend開始/結果は未取得。
+- Direct 86 sessionsのengagement rate 15.12%、landing `(not set)` 14、Unassigned 11、過去7日404 title 6 views。原因は未確認。9/15 production-only GA化より前のQA混入可能性も残る。
+- query→page対応と404 pathを確定後、既存1ページ目のCTR、Grok既存ページ、最小ファネル計測を優先する。新UI・新6記事の効果は観測期間外でunknown。
+- Google設定、コード、本番、SNS、affiliateを変更していない。詳細: [ANALYTICS_REVIEW_2026-09-15.md](ANALYTICS_REVIEW_2026-09-15.md)。
+
 ## 現行サマリー — 2026-09-15 SEO比較コラム batch（branchのみ）
 
 - 高意図の比較クラスターを6本追加: ChatGPT/Perplexity、Cursor/GitHub Copilot、Cursor/Windsurf（現Devin Desktop）、HeyGen/Synthesia、Runway/Pika、Midjourney/Adobe Firefly。
