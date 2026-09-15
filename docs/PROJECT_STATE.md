@@ -1,5 +1,18 @@
 # PROJECT STATE
 
+## 現行サマリー — 2026-09-15 全面UX/UI・情報設計RC
+
+- branch上で、初訪問者が `用途 → 候補 → 比較 → 料金・注意点 → 試す` の順で進める日本語AI選択サービスへ改修。ナビを「はじめる / 比較する / 目的から探す / 知る / 信頼情報」に再編した。
+- トップ、用途一覧、個別AI、比較、料金、記事の共通表示を結論先行へ変更。文章・資料の正規用途 `/categories/writing` を追加。英語装飾ラベルを日本語化し、日本語font stack、本文16px/1.75、共通カード/CTA/focusを整備。
+- public factsは25サービス、公式根拠付き196項目、unknown 49項目、確認済みで30日超0。記事37件中13件は9月再確認済み、24件はHistorical表示を維持。新しいスコア・順位・料金の推測更新なし。
+- 実ブラウザでdesktop/tablet/390px/320pxを確認。主要8画面に全体横あふれなし。モバイルメニュー、Esc、トップ比較選択、UTM付きrecommend完了と下流3リンクへの伝播を確認。
+- sitemap期待値70 URL／ブログ37件／lastmodなし。最終production buildは92ページを生成し、sitemap 70 URLとそこから抽出した内部リンク83件で400以上0件。affiliate active 0 / URL 0。
+- `npm run check`、競合停止後の再`npm run build`、`git diff --check`は成功。canonical、正規ページのindex可否、x-exp-01 UTM付きURLの200応答をproduction-modeのlocal serverで確認した。
+- x-exp-01の投稿・UTM名・計測実装・CTAリンク・queueは無変更。recommendの可視スタイル変更はbranchのみ。本番条件を維持するため、公開する場合は現行実験の区切り後に別コホートとして扱う。
+- 本番deploy、main merge、push、SNS投稿、affiliate有効化、課金、credential操作なし。未追跡 `docs/REVENUE_ENGINE_2_OPPORTUNITY.md` は別作業として保持。
+- 実装と管理文書はローカル作業branchへ2つの論理commitとして整理済み。remote push・Preview作成は未実施。
+- 詳細: [UX_UI_REDESIGN_2026-09-15.md](UX_UI_REDESIGN_2026-09-15.md)。最大ボトルネックは承認済みaffiliate案件0件で、UX改善の売上効果も未実測。
+
 ## 現行サマリー — 2026-09-15 UI / SEO Upgrade RC
 
 - 作業branchだけで、検索・SNSから入った利用者が現行factsを確認し、比較・診断・料金・安全性へ進める導線を改善。`/model/*` と `/compare/*` は、表示項目の公式根拠数・最新確認日と、判断を続ける4つの内部導線を表示する。順位・推奨・新スコアは追加していない。
