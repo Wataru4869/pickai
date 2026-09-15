@@ -97,6 +97,7 @@
 .filters button[aria-pressed="true"] { background: #205e4d; color: white; border-color: #205e4d; }
 .count { margin-bottom: 20px; font-size: 13px; color: #55665e; }
 .articleSearch { display: grid; gap: 10px; font-size: 14px; font-weight: 650; margin-bottom: 22px; max-width: 600px; }
+.guideRoutes{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:28px;align-items:center;margin:0 0 30px;padding:24px;border:1px solid #d4e0d9;border-radius:14px;background:#edf4ef}.guideRoutes h2{margin:0 0 5px!important;font-size:22px!important}.guideRoutes p{margin:0;color:#52665d;font-size:13px;line-height:1.8}.guideRoutes>div:last-child{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.guideRoutes a{display:flex;align-items:center;justify-content:space-between;min-height:48px;padding:10px 13px;border:1px solid #c9d9d0;border-radius:8px;background:#fff;color:#234f43;font-size:13px;font-weight:700;text-decoration:none}.guideRoutes a:hover{border-color:#518369}.guideRoutes a span{margin-left:8px}
 .articleSearch input { width: 100%; min-width: 0; min-height: 48px; border: 1px solid #bed0c4; border-radius: 8px; background: white; padding: 12px; font: inherit; }
 .articleSearch input:focus-visible { outline: 3px solid #17685c; outline-offset: 3px; }
 .articleScope { align-self: flex-start; font-size: 11px; line-height: 1.7; padding: 5px 8px; margin-bottom: 12px; border: 1px solid #d8e2dc; border-radius: 4px; color: #466355; }
@@ -105,7 +106,8 @@
 @media(max-width:1000px){.choiceHeroGrid{grid-template-columns:1fr}.howToChoose{max-width:680px}.toolGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.choiceGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.pairGrid{grid-template-columns:1fr 1fr}}
 @media(max-width:640px) {
   .container { padding: 0 18px; } .hero { padding: 32px 0; } .hero h1 { font-size: 30px; } .lead { font-size: 15px; }
-  .section { padding: 30px 0; } .purposeGrid, .articleGrid, .helpPanel { grid-template-columns: 1fr; }
+  .section { padding: 30px 0; } .purposeGrid, .articleGrid, .helpPanel, .guideRoutes { grid-template-columns: 1fr; }
+  .guideRoutes{padding:19px;gap:17px}.guideRoutes>div:last-child{grid-template-columns:1fr 1fr}
   .purpose { padding: 18px; } .articleCard { padding: 22px; } .articleCard h3 { font-size: 19px; }
   .helpPanel { padding: 22px; gap: 4px; } .archive { padding: 16px; }
   .actions { flex-direction: column; align-items: stretch; } .primary, .secondary { justify-content: center; }

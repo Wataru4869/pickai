@@ -33,7 +33,8 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
     ? "Grokの評判は利用場所や目的で変わります。口コミだけで決めず、X版・単体版の違い、現在の機能・料金・無料条件、入力情報の扱いを公式情報から確認します。"
     : "どんな作業の候補になるかを先に確認し、その後で機能・料金・提供条件を見ます。表示モデルや地域・契約による違いは公式情報をご確認ください。";
 
-  return <FactsLayout title={id === "grok" ? "Grokの評判・機能・料金を確認" : modelNames[id]} intro={intro} eyebrow="AIの特徴と利用条件">
+  const title = id === "grok" ? "Grokの評判・機能・料金を確認" : modelNames[id];
+  return <FactsLayout title={title} intro={intro} eyebrow="AIの特徴と利用条件" breadcrumbs={[{label:"トップ",href:"/"},{label:"AIを比較",href:"/compare"},{label:title}]}>
     <ToolSummary id={id} />
     <FactCards ids={[id]} />
     {id === "grok" && <section className="rounded-2xl border border-[#d7e1dc] bg-white p-5 sm:p-7 mb-8">

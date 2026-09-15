@@ -19,6 +19,7 @@
 .article .byline { font-size: 12px; color: #526962; padding-bottom: 16px; border-bottom: 1px solid #e4ebe7; }
 .sectionLink { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; margin-left: 6px; font-size: 16px; text-decoration: none; }
 .choices { padding: 40px 0; }
+.decisionRoutes{display:grid;grid-template-columns:minmax(180px,.45fr) minmax(0,1.55fr);gap:24px;align-items:center;margin-top:30px;padding:22px 24px;border:1px solid #d5e1dc;border-radius:14px;background:#fff}.decisionRoutes h2{margin:0;font-size:21px;line-height:1.55}.decisionRoutes>div:last-child{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.decisionRoutes a{display:flex;flex-direction:column;justify-content:center;min-height:86px;padding:13px 14px;border:1px solid #d7e2dd;border-radius:9px;background:#f6f9f7;text-decoration:none}.decisionRoutes a:hover{border-color:#548478;background:#eef5f1}.decisionRoutes strong{font-size:13px}.decisionRoutes span{margin-top:4px;color:#526760;font-size:11px;line-height:1.6}.decisionRoutes b{color:#17635d}
 .choices h2 { font-size: 24px; font-weight: 700; }
 .choices > p:not(.eyebrow) { font-size: 13px; margin: 10px 0 20px; color: #536567; }
 .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
@@ -61,6 +62,7 @@
   .tableHint { display: block; margin-top: 4px; font-weight: 700; }
   .container { padding: 0 18px; } .hero { padding: 22px 0 28px; } .hero nav { margin-bottom: 24px; }
   .lead { font-size: 15px; } .cards { grid-template-columns: 1fr; gap: 12px; } .card { padding: 20px; }
+  .decisionRoutes{grid-template-columns:1fr;margin-top:18px;padding:18px;gap:15px}.decisionRoutes>div:last-child{grid-template-columns:1fr}.decisionRoutes a{min-height:72px}
   .choices { padding: 28px 0; } .choices h2 { font-size: 21px; } .article { padding: 22px 18px; }
   .article h2 { font-size: 21px; } .article p, .article li { font-size: 15px; } .next { padding: 14px; }
 }

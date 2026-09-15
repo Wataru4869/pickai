@@ -10,12 +10,13 @@ const reviewed = new Set([
   "cursor-projects-2026", "copilot-model-retirement-2026-09", "chatgpt-models-comparison-2026",
   "ai-image-generation-2026", "ai-video-generation-2026",
   "ai-free-tier-comparison-2026",
+  "openai-agents-api-guide-2026",
   "chatgpt-vs-perplexity-2026", "cursor-vs-github-copilot-2026", "cursor-vs-windsurf-2026",
   "heygen-vs-synthesia-2026", "runway-vs-pika-2026", "midjourney-vs-adobe-firefly-2026",
 ]);
 export default function BlogList({ articles }: { articles: BlogArticle[] }) {
   const [filter, setFilter] = useState("all");
-  const [scope, setScope] = useState("all");
+  const [scope, setScope] = useState("reviewed");
   const [query, setQuery] = useState("");
   const term = query.trim().toLocaleLowerCase("ja");
   const filtered = articles.filter(a => (filter === "all" || a.category === filter)
@@ -23,11 +24,20 @@ export default function BlogList({ articles }: { articles: BlogArticle[] }) {
     && (!term || [a.title, a.description, ...a.tags].join(" ").toLocaleLowerCase("ja").includes(term)));
   return <section className={styles.container} aria-label="記事一覧">
     <div className={styles.section}>
+      <nav className={styles.guideRoutes} aria-labelledby="guide-routes-title">
+        <div><p className={styles.japaneseEyebrow}>記事の前に候補を見たい方へ</p><h2 id="guide-routes-title">作りたいものから、AIを探す</h2><p>解説を読むだけでなく、用途ごとの候補・料金・比較へ進めます。</p></div>
+        <div>{[
+          ["調査・検索", "/categories/ai-search"],
+          ["コーディング", "/categories/coding-tools"],
+          ["画像生成", "/categories/image-generation"],
+          ["動画生成", "/categories/video-generation"],
+        ].map(([label, href], index) => <a key={href} href={href} data-analytics-event="internal_cta_click" data-source-page="/blog" data-cta-type="purpose" data-cta-position={`blog_route_${index + 1}`} data-destination-id={href}>{label}<span aria-hidden="true">→</span></a>)}</div>
+      </nav>
       <label className={styles.articleSearch}>サービス名・用途で探す
         <input type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="例：ChatGPT、料金、安全性" maxLength={100} />
       </label>
       <div className={styles.filters} role="group" aria-label="記事の確認状態">
-        {[["all", "全ての記録"], ["reviewed", "内容を再確認した記事"], ["archive", "過去・未再確認"]].map(([id, label]) => <button type="button" key={id} aria-pressed={scope === id} onClick={() => setScope(id)}>{label}</button>)}
+        {[["reviewed", "現在の選び方"], ["all", "全ての記事"], ["archive", "過去・未再確認"]].map(([id, label]) => <button type="button" key={id} aria-pressed={scope === id} onClick={() => setScope(id)}>{label}</button>)}
       </div>
       <p className={styles.note}>「再確認」は本文に明記した範囲です。掲載された全サービスの現行性や、独自スコアの再測定を保証するものではありません。</p>
       <div className={styles.filters} role="group" aria-label="記事の種類">

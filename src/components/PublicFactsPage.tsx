@@ -3,9 +3,23 @@ import { Header, Footer } from "@/components/ui";
 import { catalogProduct, editorialProfiles, fields, modelNames, purposes, type Purpose } from "@/lib/public-catalog";
 import styles from "./PublicFactsPage.module.css";
 
-export function FactsLayout({ title, intro, children, eyebrow = "選ぶための確認ガイド" }: { title: string; intro: string; children: ReactNode; eyebrow?: string }) {
+type BreadcrumbItem = { label: string; href?: string };
+
+export function FactsLayout({ title, intro, children, eyebrow = "選ぶための確認ガイド", breadcrumbs }: { title: string; intro: string; children: ReactNode; eyebrow?: string; breadcrumbs?: BreadcrumbItem[] }) {
+  const items = breadcrumbs ?? [{ label: "トップ", href: "/" }, { label: title }];
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.label,
+      ...(item.href ? { item: `https://www.aierabi.jp${item.href}` } : {}),
+    })),
+  };
   return <div className={styles.page}><Header /><div className={styles.main}>
-    <nav className={styles.breadcrumbs} aria-label="パンくず"><a href="/">トップ</a><span aria-hidden="true">›</span><a href="/categories">用途から探す</a><span aria-hidden="true">›</span><a href="/compare">比較する</a></nav>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c") }} />
+    <nav className={styles.breadcrumbs} aria-label="パンくず">{items.map((item, index) => <span key={`${item.label}-${index}`}>{index > 0 && <b aria-hidden="true">›</b>}{item.href ? <a href={item.href}>{item.label}</a> : <span aria-current="page">{item.label}</span>}</span>)}</nav>
     <header className={styles.pageHeader}><p className={styles.label}>{eyebrow}</p><h1>{title}</h1><p>{intro}</p>
       <div className={styles.headerTrust}><span>公式情報は出典付き</span><span>未確認は未確認と表示</span><span>過去の採点と分離</span></div>
     </header>
@@ -65,7 +79,8 @@ export function NextActions({ title, intro, links, sourcePage }: { title: string
 
 export function PurposePage({ purpose }: { purpose: Purpose }) {
   const p = purposes[purpose];
-  return <FactsLayout title={`${p.title}を用途から選ぶ`} intro="最初に必要な作業を決め、候補と利用条件を同じ順序で確認します。掲載順は性能順位ではありません。" eyebrow="用途からAIを探す">
+  const title = `${p.title}を用途から選ぶ`;
+  return <FactsLayout title={title} intro="最初に必要な作業を決め、候補と利用条件を同じ順序で確認します。掲載順は性能順位ではありません。" eyebrow="用途からAIを探す" breadcrumbs={[{label:"トップ",href:"/"},{label:"用途からAIを探す",href:"/categories"},{label:title}]}>
     <section className={styles.decisionSummary} aria-labelledby="purpose-start"><p className={styles.label}>最初の3ステップ</p><h2 id="purpose-start">選ぶ前に、条件をそろえる</h2><ol className={styles.steps}><li><span>1</span><div><strong>成果物を決める</strong><p>何を作り、誰が使うかを1つに絞る</p></div></li><li><span>2</span><div><strong>候補を2つに絞る</strong><p>必要な機能と無料条件を公式情報で確認</p></div></li><li><span>3</span><div><strong>同じ作業で試す</strong><p>出力だけでなく手直し時間まで比べる</p></div></li></ol></section>
     <section className={styles.checks}><h2>この用途で確認すること</h2><ul>{p.checks.map(c => <li key={c}>{c}</li>)}</ul>{purpose !== "writing" && <a href={`/blog/${p.guide}`}>詳しい選び方と注意点を読む</a>}</section>
     {purpose === "ai-agents" && <section className={styles.summary}><h2>完成した製品と開発用APIは分けて選ぶ</h2><p>AIエージェントという名前だけでは、相談する製品、外部サービスを操作する製品、開発者が組み込むAPIを区別できません。誰が設定し、どこまで操作を許可し、実行前に人が承認するかを先に決めてください。</p></section>}

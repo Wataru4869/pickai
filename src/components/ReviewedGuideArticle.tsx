@@ -79,6 +79,35 @@ export default function ReviewedGuideArticle({ article, attribution }: {
     { label: "調べた内容を文章にしたい", name: "ChatGPT / Claude / Gemini", text: "普段使う対話AIを候補に。検索から要約・文章化までの手間を確認する。" },
     { label: "X上の話題を確認したい", name: "Grok", text: "公開投稿を調べる入口に。投稿の拡散と、事実の裏付けは分けて確認する。" },
   ];
+  const decisionRoutes = safety ? [
+    { href: "/compare", label: "主要AIを比較", detail: "機能・料金・提供条件を同じ順で確認" },
+    { href: "/recommend", label: "用途から候補を絞る", detail: "3つの質問から確認の入口へ" },
+    { href: "/methodology", label: "評価方法を見る", detail: "現在情報と過去の検証を区別" },
+  ] : (search || grok || article.slug.includes("perplexity")) ? [
+    { href: "/categories/ai-search", label: "調査・検索AIを探す", detail: "出典確認を含む候補を見る" },
+    { href: "/compare/chatgpt-vs-perplexity", label: "2つを比較する", detail: "検索と文章化の違いを確認" },
+    { href: "/cost", label: "料金条件を見る", detail: "無料枠・上限・契約周期を確認" },
+  ] : (coding || article.slug.includes("cursor") || article.slug.includes("copilot")) ? [
+    { href: "/categories/coding-tools", label: "開発支援AIを探す", detail: "環境・権限・確認手順から選ぶ" },
+    { href: "/blog/cursor-vs-github-copilot-2026", label: "代表候補を比較", detail: "エディタ中心の違いを整理" },
+    { href: "/cost", label: "料金条件を見る", detail: "無料枠・上限・契約周期を確認" },
+  ] : (article.slug.includes("image") || article.slug.includes("midjourney") || article.slug.includes("firefly")) ? [
+    { href: "/categories/image-generation", label: "画像生成AIを探す", detail: "素材・編集・利用条件から選ぶ" },
+    { href: "/blog/midjourney-vs-adobe-firefly-2026", label: "代表候補を比較", detail: "制作目的と公開条件を確認" },
+    { href: "/cost", label: "料金条件を見る", detail: "生成枠・契約周期を確認" },
+  ] : (article.slug.includes("video") || article.slug.includes("heygen") || article.slug.includes("synthesia") || article.slug.includes("runway") || article.slug.includes("pika")) ? [
+    { href: "/categories/video-generation", label: "動画生成AIを探す", detail: "尺・人物表現・用途から選ぶ" },
+    { href: "/blog/heygen-vs-synthesia-2026", label: "代表候補を比較", detail: "人物動画の条件を整理" },
+    { href: "/cost", label: "料金条件を見る", detail: "生成枠・契約周期を確認" },
+  ] : agents ? [
+    { href: "/categories/ai-agents", label: "AIエージェントを探す", detail: "製品と開発用APIを分ける" },
+    { href: "/safety", label: "権限と安全性を見る", detail: "入力・操作・公開条件を確認" },
+    { href: "/cost", label: "料金条件を見る", detail: "実行量と追加費用を確認" },
+  ] : [
+    { href: "/categories", label: "用途からAIを探す", detail: "やりたい作業から候補を見る" },
+    { href: "/compare", label: "2つを比較する", detail: "機能・料金・条件を並べる" },
+    { href: "/recommend", label: "候補を確認する", detail: "3つの質問から入口を絞る" },
+  ];
   return <div className={styles.page}>
     <Header />
     <main>
@@ -109,6 +138,10 @@ export default function ReviewedGuideArticle({ article, attribution }: {
         </div>
       </header>
       <div className={styles.container}>
+        <nav className={styles.decisionRoutes} aria-labelledby="article-next-step">
+          <div><p className={styles.eyebrow}>読むだけで終わらせない</p><h2 id="article-next-step">次に確認すること</h2></div>
+          <div>{decisionRoutes.map((route, index) => <a key={route.href} href={route.href} data-analytics-event="internal_cta_click" data-source-page={`/blog/${article.slug}`} data-cta-type="decision_route" data-cta-position={`article_top_${index + 1}`} data-destination-id={route.href}><strong>{route.label}</strong><span>{route.detail}<b aria-hidden="true"> →</b></span></a>)}</div>
+        </nav>
         {(safety || search) && <section className={styles.choices} aria-labelledby="quick-choice">
           <p className={styles.eyebrow}>{safety ? "まず、どこが心配？" : "まず、何を調べたい？"}</p>
           <h2 id="quick-choice">{safety ? "不安を分けると、確認先が見えてくる" : "用途から、比較の入口を絞る"}</h2>

@@ -30,7 +30,8 @@ const faqSchema = {
 };
 
 export default function Page() {
-  return <FactsLayout title="AIの正確性・安全性は、3つに分けて比較する" intro="回答の間違いを減らしたいのか、社内資料を守りたいのか、成果物を安心して公開したいのか。同じ「安全性」でも確認先は違います。現在の全サービスを同条件で再測定していないため、一律の安全性順位は掲載しません。">
+  const title = "AIの正確性・安全性は、3つに分けて比較する";
+  return <FactsLayout title={title} intro="回答の間違いを減らしたいのか、社内資料を守りたいのか、成果物を安心して公開したいのか。同じ「安全性」でも確認先は違います。現在の全サービスを同条件で再測定していないため、一律の安全性順位は掲載しません。" breadcrumbs={[{label:"トップ",href:"/"},{label:"安全に使うための確認"}]}>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }} />
     <section className="rounded-2xl border border-[#cbdad2] bg-[#eef4f0] p-5 sm:p-7 mb-8">
       <p className="text-[12px] font-bold text-[var(--accent)] mb-2">まず結論</p>

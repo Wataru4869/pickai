@@ -38,4 +38,15 @@ for (const event of ["recommend_start", "recommend_complete", "recommend_result_
 const articleCta = fs.readFileSync(path + "src/components/ArticleCTA.tsx", "utf8");
 assert.ok(articleCta.includes('data-analytics-event={!useSponsoredRel ? "internal_cta_click"'));
 
-console.log("Passed: analytics values are allowlisted, unsafe values are omitted, and the minimum funnel events are wired.");
+const home = fs.readFileSync(path + "src/app/page.tsx", "utf8");
+assert.ok(home.includes('data-cta-position="hero_primary"'));
+assert.ok(home.includes('comparisonTarget'));
+const reviewedGuide = fs.readFileSync(path + "src/components/ReviewedGuideArticle.tsx", "utf8");
+assert.ok(reviewedGuide.includes('data-cta-type="decision_route"'));
+const blogList = fs.readFileSync(path + "src/app/blog/BlogList.tsx", "utf8");
+assert.ok(blogList.includes('useState("reviewed")'));
+assert.ok(blogList.includes('"openai-agents-api-guide-2026"'));
+const factsPage = fs.readFileSync(path + "src/components/PublicFactsPage.tsx", "utf8");
+assert.ok(factsPage.includes('"@type": "BreadcrumbList"'));
+
+console.log("Passed: analytics values are allowlisted, unsafe values are omitted, and decision-funnel links and events are wired.");
