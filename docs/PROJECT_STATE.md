@@ -8,7 +8,7 @@
 - `npm run check`成功（79 sources / 102 pages）。sitemap 80 URL／ブログ47件／重複0／lastmod 0。390px・320pxで安全性7画面の全体横あふれ0。表は局所スクロール。
 - 全URL・内部リンク巡回で既存 `/model/cursor` 404を1件発見し、実在するcoding categoryへ訂正。修正後の再巡回待ち。
 - affiliate active 0 / URL 0。新記事は内部CTAのみ。通常AI Distributionは `@AI_erabi`。公開・SEO・CV効果は未実測。
-- ユーザーは今回RCのサイト本番反映を明示承認。check・再巡回・commit・push・Preview/Production確認後に反映する。main、SNS、affiliate、課金、credential、環境・DNSは変更しない。
+- ユーザーは今回RCのサイト本番反映を明示承認。check・再巡回・2commitは完了したが、作業branchへのpushが過去のpush禁止指示との競合として安全審査で停止した。feature branch pushの再承認後、Preview/Production確認へ進む。main、SNS、affiliate、課金、credential、環境・DNSは変更しない。
 
 ## 現行サマリー — 2026-09-16 SEO流入→判断導線 Production
 

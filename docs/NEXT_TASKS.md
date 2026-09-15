@@ -2,7 +2,7 @@
 
 ## 現行優先キュー — 2026-09-16 安全性コンテンツRC
 
-1. **RCの最終QAと本番反映** — check、全URL、desktop/390/320、canonical、sitemap 80、広告無効を確認し、今回の明示承認範囲で既存Vercel PreviewをProductionへ昇格する。環境・DNSは不変。
+1. **feature branch pushの明示再承認→本番反映** — 最終QAと2commitは完了。過去のpush禁止指示との競合で安全審査が停止したため、`work/aierabi-revenue-engine` へのpushを人間が再承認後、Preview確認とProduction昇格を行う。main・環境・DNSは不変。
 2. **公開後のindexと内部遷移を観測** — `/safety` と新4記事のquery/page、landing、engagement、`internal_cta_click`を旧期間と分ける。未取得はunknown。
 3. **A8 3案件の状態変化待ち** — 最初に承認された1件だけ条件確認へ。安全性流入から無関係な高額案件へCTAを接続しない。
 4. **最初の承認案件1件の最小収益テスト** — 対象ページ、PR、広告URL、CTA、公開、Distributionを別々に確認。旧Xの承認・実績を流用しない。
