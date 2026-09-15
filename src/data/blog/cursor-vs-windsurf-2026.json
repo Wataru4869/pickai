@@ -1,0 +1,45 @@
+{
+  "slug": "cursor-vs-windsurf-2026",
+  "title": "CursorとWindsurfを比較｜Devin Desktopへの名称変更後はどう選ぶ？",
+  "description": "Cursorと旧Windsurf（現Devin Desktop）の違いを、現在の製品名、開発環境、エージェント管理、料金、移行時の確認点で整理します。",
+  "publishedAt": "2026-09-15",
+  "updatedAt": "2026-09-15",
+  "category": "comparison",
+  "tags": ["Cursor", "Windsurf", "Devin Desktop", "AIコーディング", "比較"],
+  "readingTime": "7分",
+  "sections": [
+    {
+      "heading": "結論：Windsurfという旧名称のまま比較しない",
+      "content": "2026年9月11日の公式確認では、旧WindsurfはDevin Desktopとして案内されています。現在比較するべき対象は、CursorとDevin Desktopです。\n\nCursorはエディタ・CLI・クラウドエージェントをまとめた開発環境、Devin DesktopはIDE上の開発に加えてSpacesやKanbanでエージェントを管理する製品として比較できます。旧Windsurfの記事にある価格や機能を、現在の契約条件へそのまま使わないでください。"
+    },
+    {
+      "heading": "CursorとDevin Desktopの比較表",
+      "content": "| 比較する点 | Cursor | Devin Desktop（旧Windsurf） |\n| --- | --- | --- |\n| 現在の製品名 | Cursor | Devin Desktop |\n| 公式に確認した範囲 | エディタ、CLI、クラウドエージェント、Projects | IDE、Spaces、Kanbanによるエージェント管理 |\n| 無料プラン | Hobby | Free |\n| 個人向け価格 | Pro US$20/月、Pro+ US$60/月、Ultra US$200/月 | Pro US$20/月、Max US$200/月 |\n| チーム料金 | 未確認 | Teams US$80/月＋フルシートUS$40/月 |\n\nいずれも公式USD表示です。税、日本での請求額、既存プランの引継ぎ、利用上限は契約前に確認してください。"
+    },
+    {
+      "heading": "Cursorは作業環境とクラウド作業をまとめたい場合に確認",
+      "content": "Cursorの公式案内は、エディタだけでなくCLIとクラウドエージェントを含みます。Projectsでは複数作業の計画、委任、継続作業が案内されています。\n\n比較時は、エディタ内の短い修正と、時間のかかる別作業を分けてください。両方を同じ画面で扱えることが、自分のレビュー負担を本当に減らすかを確認します。"
+    },
+    {
+      "heading": "Devin Desktopは複数エージェントの管理方法を確認",
+      "content": "Devin Desktopの公式ページは、IDEに加えてSpacesとKanbanによるエージェント管理を掲げています。複数の作業を並行させたい場合は、作業状況、成果物、停止条件を人間が追えるかが判断点です。\n\n名称変更だけを性能向上の証拠にはできません。また、旧プラン利用者の引継ぎ条件は個別契約で異なる可能性があるため、公式FAQとアカウント画面を確認してください。"
+    },
+    {
+      "heading": "移行前に確認するチェックリスト",
+      "content": "- 現在使っている拡張、ターミナル、ショートカットを移せるか\n- GitHubなど外部サービスへ与える権限を把握できるか\n- 生成差分をコミット前にレビューできるか\n- 自動実行するコマンドと停止条件を制限できるか\n- 無料枠で日常の課題を一つ完了できるか\n\n旧製品名で検索した場合も、契約画面の正式名称と提供元を照合してください。"
+    },
+    {
+      "heading": "公式情報と確認日",
+      "content": "- [Cursor製品ページ](https://cursor.com/en-US)（2026年9月11日確認）\n- [Cursor料金ページ](https://cursor.com/pricing)（2026年9月13日確認）\n- [Devin Desktop公式ページ](https://devin.ai/desktop)（2026年9月11日確認）\n\nこの記事は公式に確認できた製品範囲の比較です。生成品質や作業速度の順位は測定していません。"
+    }
+  ],
+  "cta": {
+    "type": "internal",
+    "title": "現在の開発支援AIを確認する",
+    "description": "旧名称ではなく、現在の製品と利用条件から候補を選びます。",
+    "links": [
+      {"label": "AIコーディングツールの選び方", "url": "/categories/coding-tools", "ctaType": "compare", "ctaPosition": "article_end"},
+      {"label": "開発支援AIの比較ガイド", "url": "/blog/ai-coding-tools-2026", "ctaType": "compare", "ctaPosition": "article_end"}
+    ]
+  }
+}

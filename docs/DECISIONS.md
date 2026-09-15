@@ -288,3 +288,11 @@ GSCの/safetyとChatGPTモデル比較はpage単位でposition6〜20の範囲。
 - 既存ドメイン・環境変数・DNSを変更せず、main merge、SNS投稿、affiliate申請・有効化、課金、credential操作を行わない。
 - 公開後確認は主要ページ、canonical、www redirect、sitemap件数、Grok表示、affiliate無効状態に限定する。UI公開をCTR・CV・売上改善の証拠とは扱わない。
 - 通常AI Distributionは `@AI_erabi` を新母集団として扱う。旧 `@tetoteto_ai` の実験値・UTM・媒体承認を新実験へ流用しない。
+
+## D34 — SEO量産は高意図の比較クラスター6本に限定する（2026-09-15）
+
+- ユーザーのコラム量産指示に基づき、薄い一般論や既存安全性記事とのカニバリゼーションを避け、購入・契約前に2候補を比較する6テーマだけを実装した。
+- 選定根拠は既存GSCで確認済みのカテゴリ需要と比較意図。各完全一致queryの需要、順位、CVは未取得のE0仮説であり、成果を先取りしない。
+- 公式情報で確認できた機能・料金・提供範囲だけを掲載し、性能順位・人気・報酬都合の推奨は追加しない。未確認の地域価格、税、上位プラン額、無料体験は補完しない。
+- 新記事は内部CTAのみ。affiliate active 0 / URL 0、recommend、UTM、計測、X queueを維持。通常AIの配信候補は `@AI_erabi` で別baselineを取るまで自動投稿しない。
+- 公開は別承認。公開した場合は28日を暫定観測枠にpage/queryと内部遷移を確認し、反応のないテーマを本数目的で追加しない。Revenue Impact 1 / Time to Revenue unknown / Cost 0円 / Evidence facts E1・需要仮説E0 / Risk 中 / Learning 2。

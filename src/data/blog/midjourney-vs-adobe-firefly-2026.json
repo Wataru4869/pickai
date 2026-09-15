@@ -1,0 +1,45 @@
+{
+  "slug": "midjourney-vs-adobe-firefly-2026",
+  "title": "MidjourneyとAdobe Fireflyを比較｜画像生成・編集・料金の違い",
+  "description": "MidjourneyとAdobe Fireflyの違いを、画像生成、編集、Adobe連携、無料プラン、料金から比較。制作フローに合う選び方を整理します。",
+  "publishedAt": "2026-09-15",
+  "updatedAt": "2026-09-15",
+  "category": "comparison",
+  "tags": ["Midjourney", "Adobe Firefly", "画像生成AI", "画像編集", "比較"],
+  "readingTime": "7分",
+  "sections": [
+    {
+      "heading": "結論：画像を作った後の工程まで考えて選ぶ",
+      "content": "MidjourneyとAdobe Fireflyは、どちらも画像生成の候補ですが、比較は作った後の工程まで含める必要があります。MidjourneyはWebやDiscordからの画像生成とパーソナライズ、Fireflyは画像に加えて動画・音声・ベクターやAdobe製品との制作フローを確認できます。\n\nこれは画質や表現力の順位ではありません。同じ用途、比率、参照素材で試し、修正と書き出しまでの手間を比べてください。"
+    },
+    {
+      "heading": "MidjourneyとAdobe Fireflyの違いを早見表で確認",
+      "content": "| 比較する点 | Midjourney | Adobe Firefly |\n| --- | --- | --- |\n| 現行モデル・製品 | V8.2 | Firefly |\n| 公式に確認した範囲 | Web・Discord、画像生成、パーソナライズ | 画像・動画・音声・ベクター、Adobe製品と外部モデル |\n| 無料プラン | 未確認 | Free US$0 |\n| 確認した月額 | Basic US$10、Standard US$30、Pro US$60、Mega US$120 | Standard US$9.99、Pro US$19.99、Pro Plus US$49.99、Premium US$199.99 |\n\n料金は2026年9月15日時点の公式ページ表示です。Fireflyは米国向け表示を含み、日本の税込最終額は未確認です。請求周期や生成クレジットも契約画面で確認してください。"
+    },
+    {
+      "heading": "Midjourneyは生成方法と利用量を確認する",
+      "content": "Midjourneyの公式ドキュメントではV8.2と、Basic、Standard、Pro、Megaの月額プランが案内されています。WebとDiscordを利用でき、パーソナライズに関する説明もあります。\n\n無料プランの有無は今回確認できた公式情報では確定していません。利用量、同時生成、公開範囲、商用利用に関わる条件は契約前に公式プランと規約を確認してください。"
+    },
+    {
+      "heading": "FireflyはAdobe製品を含む制作フローを確認する",
+      "content": "Adobeの公式ページではFirefly Freeと複数の有料プランが案内され、画像だけでなく動画、音声、ベクター、Adobe製および外部モデルの利用が説明されています。\n\nPhotoshopなど別製品の契約に含まれる範囲と、Firefly単体プランは混同しないでください。使いたいモデル、生成クレジット、プレミアム機能、地域別価格を契約画面で再確認します。"
+    },
+    {
+      "heading": "用途別に同じ完成条件で試す",
+      "content": "1. アイキャッチ、商品イメージ、資料図解など用途を一つ決める\n2. 同じ指示と参照素材で生成する\n3. 文字、人物、構図など修正点を記録する\n4. 外部編集を含め完成までの時間を測る\n5. 必要な利用量と料金を照らし合わせる\n\n生成できることと、第三者の権利を侵害せず公開・販売できることは別です。素材、肖像、商標、利用規約を確認してください。"
+    },
+    {
+      "heading": "公式情報と確認日",
+      "content": "- [Midjourneyのモデルバージョン](https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version)（2026年9月15日確認）\n- [Midjourneyのプラン](https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans)（2026年9月15日確認）\n- [Adobe Fireflyのプラン](https://www.adobe.com/products/firefly/plans.html)（2026年9月15日確認）\n\nこの記事は公式情報で確認できた現行条件の整理です。同条件の画像品質テストや順位ではありません。"
+    }
+  ],
+  "cta": {
+    "type": "internal",
+    "title": "画像生成AIを用途から比較する",
+    "description": "制作物と修正工程を決めてから、候補を絞れます。",
+    "links": [
+      {"label": "画像生成AIを比較", "url": "/categories/image-generation", "ctaType": "compare", "ctaPosition": "article_end"},
+      {"label": "画像生成AIの選び方", "url": "/blog/ai-image-generation-2026", "ctaType": "guide", "ctaPosition": "article_end"}
+    ]
+  }
+}

@@ -358,6 +358,13 @@ export default async function BlogArticlePage({
   const allArticles = getAllArticles();
   const related = allArticles
     .filter((a) => a.slug !== article.slug)
+    .map((candidate) => ({
+      candidate,
+      score: (candidate.category === article.category ? 2 : 0)
+        + candidate.tags.filter((tag) => article.tags.includes(tag)).length * 3,
+    }))
+    .filter(({ score }) => score > 0)
+    .sort((a, b) => b.score - a.score || b.candidate.updatedAt.localeCompare(a.candidate.updatedAt))
     .slice(0, 3);
 
   // Derive compare page link from slug if it's a comparison
@@ -371,7 +378,7 @@ export default async function BlogArticlePage({
   const showAffiliateDisclosure = hasActiveAffiliateLink(article.cta, contentId);
 
   // Explicitly reviewed guides only. Affiliate content retains the disclosure renderer.
-  if (["ai-search-engines-comparison-2026", "ai-safety-ranking-2026", "ai-agents-comparison-2026", "ai-tools-2026-trends", "ai-coding-tools-2026", "grok-review-2026", "cursor-projects-2026", "copilot-model-retirement-2026-09", "chatgpt-models-comparison-2026", "ai-free-tier-comparison-2026", "openai-agents-api-guide-2026"].includes(article.slug) && !showAffiliateDisclosure && article.cta?.type === "internal") {
+  if (["ai-search-engines-comparison-2026", "ai-safety-ranking-2026", "ai-agents-comparison-2026", "ai-tools-2026-trends", "ai-coding-tools-2026", "grok-review-2026", "cursor-projects-2026", "copilot-model-retirement-2026-09", "chatgpt-models-comparison-2026", "ai-free-tier-comparison-2026", "openai-agents-api-guide-2026", "chatgpt-vs-perplexity-2026", "cursor-vs-github-copilot-2026", "cursor-vs-windsurf-2026", "heygen-vs-synthesia-2026", "runway-vs-pika-2026", "midjourney-vs-adobe-firefly-2026"].includes(article.slug) && !showAffiliateDisclosure && article.cta?.type === "internal") {
     return <ReviewedGuideArticle article={article} attribution={{
       postId: safeAttribution(searchParams?.utm_content),
       campaignId: safeAttribution(searchParams?.utm_campaign),
@@ -497,7 +504,7 @@ export default async function BlogArticlePage({
             <div className="mt-6">
               <div className="text-[14px] font-semibold text-[#1d1d1f] mb-3">関連記事</div>
               <div className="space-y-2">
-                {related.map((r) => (
+                {related.map(({ candidate: r }) => (
                   <a
                     key={r.slug}
                     href={`/blog/${r.slug}`}

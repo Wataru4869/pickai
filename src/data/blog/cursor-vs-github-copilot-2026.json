@@ -1,0 +1,45 @@
+{
+  "slug": "cursor-vs-github-copilot-2026",
+  "title": "CursorとGitHub Copilotを比較｜料金・開発環境・AIエージェントの違い",
+  "description": "CursorとGitHub Copilotを、開発環境、補完、チャット、エージェント、料金、無料プランで比較。今の作業環境を変えるべきか判断できます。",
+  "publishedAt": "2026-09-15",
+  "updatedAt": "2026-09-15",
+  "category": "comparison",
+  "tags": ["Cursor", "GitHub Copilot", "AIコーディング", "比較", "料金"],
+  "readingTime": "8分",
+  "sections": [
+    {
+      "heading": "結論：エディタごと選ぶか、今の環境に追加するか",
+      "content": "Cursorはエディタ、CLI、クラウドエージェントを一つの製品として比較したい人向けの候補です。GitHub Copilotは、IDE、CLI、GitHub上のレビューやエージェントを、既存のGitHub運用へ追加したい人向けの候補です。\n\n優劣ではなく、現在のリポジトリ、レビュー方法、チーム権限を変えずに導入できるかで選んでください。個人の短い試用では、普段の小さな修正を一つ完了し、差分確認とテストまで進められるかを見るのが先です。"
+    },
+    {
+      "heading": "CursorとGitHub Copilotの比較表",
+      "content": "| 比較する点 | Cursor | GitHub Copilot |\n| --- | --- | --- |\n| 製品の中心 | エディタ / CLI / クラウドエージェント | IDE / CLI / GitHub |\n| 公式に確認した主な機能 | Projects、複数作業の計画、エージェントへの委任 | コード補完、チャット、クラウドエージェント、コードレビュー |\n| 無料プラン | Hobby | Free |\n| 個人向け確認済み価格 | Pro US$20/月、Pro+ US$60/月、Ultra US$200/月 | Pro US$10/月、Pro+ US$39/月、Max US$100/月 |\n| チーム条件 | Teamsの価格は未確認 | Business US$19/ユーザー/月、Enterprise US$39/ユーザー/月 |\n\n価格は公式USD表示で、税や日本での最終請求額は別確認が必要です。利用できるモデルと上限も契約・管理設定で変わります。"
+    },
+    {
+      "heading": "Cursorが候補になる使い方",
+      "content": "作業の起点をAI対応エディタへ寄せ、エディタ内の修正だけでなくCLIやクラウド側の継続作業までまとめたい場合はCursorを試す理由があります。公式はProjectsを、複数作業の計画と委任を扱う機能として案内しています。\n\n既存エディタからの移行コストは機能表に出ません。拡張、キーバインド、ターミナル、レビュー手順が保てるかを、日常のリポジトリ一つで確認してください。"
+    },
+    {
+      "heading": "GitHub Copilotが候補になる使い方",
+      "content": "既存IDEとGitHubを維持し、補完やチャットから段階的に使いたい場合はGitHub Copilotが比較しやすい候補です。プランによってCLI、クラウドエージェント、コードレビューの利用条件が異なるため、必要な機能を先に決めます。\n\n2026年9月にはMAI-Code-1-Flashの終了が公式発表されています。特定モデル名を前提に契約せず、利用可能モデルと代替モデルを現在の管理画面で確認してください。"
+    },
+    {
+      "heading": "契約前に同じ課題で比較する5項目",
+      "content": "1. 既存コードを読み、変更範囲を説明できるか\n2. 生成前に作業計画と対象ファイルを確認できるか\n3. 差分を人間がレビューしやすいか\n4. 既存テストを実行し、失敗理由を区別できるか\n5. リポジトリ権限と外部送信範囲を管理できるか\n\n速度や生成量だけでなく、誤変更を戻せることを含めて比較してください。"
+    },
+    {
+      "heading": "公式情報と確認日",
+      "content": "- [Cursorの製品案内](https://cursor.com/en-US)（2026年9月11日確認）\n- [Cursorの料金](https://cursor.com/pricing)（2026年9月13日確認）\n- [GitHub Copilot](https://github.com/features/copilot)（2026年9月11日確認）\n- [MAI-Code-1-Flash終了案内](https://github.blog/changelog/2026-09-10-mai-code-1-flash-deprecated/)（2026年9月13日確認）"
+    }
+  ],
+  "cta": {
+    "type": "internal",
+    "title": "開発支援AIの候補を整理する",
+    "description": "エディタ、GitHub、エージェントのどこを変えたいかから選びます。",
+    "links": [
+      {"label": "AIコーディングツールの選び方", "url": "/categories/coding-tools", "ctaType": "compare", "ctaPosition": "article_end"},
+      {"label": "Cursorの現在情報", "url": "/model/cursor", "ctaType": "official", "ctaPosition": "article_end"}
+    ]
+  }
+}

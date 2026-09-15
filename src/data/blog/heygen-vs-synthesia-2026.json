@@ -1,0 +1,45 @@
+{
+  "slug": "heygen-vs-synthesia-2026",
+  "title": "HeyGenとSynthesiaを比較｜AIアバター動画・翻訳・料金の違い",
+  "description": "HeyGenとSynthesiaの違いを、AIアバター、動画翻訳、編集工程、無料プラン、料金から比較。用途に合う選び方を公式情報ベースで整理します。",
+  "publishedAt": "2026-09-15",
+  "updatedAt": "2026-09-15",
+  "category": "comparison",
+  "tags": ["HeyGen", "Synthesia", "AI動画", "AIアバター", "比較"],
+  "readingTime": "7分",
+  "sections": [
+    {
+      "heading": "結論：完成させたい動画の工程から選ぶ",
+      "content": "HeyGenとSynthesiaは、どちらもAIアバターを使った説明動画の候補です。アバター、音声クローン、翻訳を含む制作を試したい場合はHeyGen、テンプレートと吹き替えを使って研修・説明動画を組み立てたい場合はSynthesiaを比較候補にできます。\n\nこれは画質や性能の順位ではありません。無料プランで短い同一台本を作り、発音修正、字幕、書き出しまでに必要な手数を比べてください。"
+    },
+    {
+      "heading": "HeyGenとSynthesiaの違いを早見表で確認",
+      "content": "| 比較する点 | HeyGen | Synthesia |\n| --- | --- | --- |\n| 公式に確認した主な機能 | AIアバター、動画翻訳、音声クローン、Video Agent | AIアバター、テンプレート、AI Dubbing、動画アシスタント |\n| 無料プラン | Free US$0 | Basic US$0 |\n| 確認した月額 | Creator US$29、Pro US$49、Business US$149から | Starter US$29、Creator US$89 |\n| 先に試す工程 | 翻訳や音声を含む短い動画 | テンプレートから説明動画を構成 |\n\n料金は2026年9月15日時点の公式ページ表示です。税、請求周期、追加席、利用上限、日本での最終請求額は契約画面で再確認してください。"
+    },
+    {
+      "heading": "HeyGenは翻訳や音声を含む制作フローを確認する",
+      "content": "HeyGenの公式料金ページでは、Free、Creator、Pro、Businessなどのプランと、AIアバター、動画翻訳、音声クローンが案内されています。Freeでは作成本数などに上限があります。\n\n比較するときは、元の台本を日本語で読み上げる場合と、既存動画を別言語へ翻訳する場合を分けてください。使いたいアバターや音声が対象プランに含まれるか、透かしや書き出し条件も契約前に確認します。"
+    },
+    {
+      "heading": "Synthesiaは説明・研修動画の組み立て方を確認する",
+      "content": "Synthesiaの公式料金ページでは、Basic、Starter、Creator、Enterpriseと、AIアバター、テンプレート、AI Dubbingなどが案内されています。スライド型の説明や研修動画では、台本変更後にどこまで直しやすいかが判断材料です。\n\n年払い・月払いの条件や、日本での税込最終額は今回の確認範囲では確定していません。表示価格だけで決めず、必要な動画時間と共同作業機能を契約画面で確認してください。"
+    },
+    {
+      "heading": "同じ短い台本で無料プランを比較する",
+      "content": "1. 30〜60秒の同一台本を用意する\n2. 日本語の固有名詞を2つ入れる\n3. 字幕と発音を修正する\n4. 書き出しまでの時間と修正回数を記録する\n5. 必要な機能が有料の場合だけ料金を比較する\n\n無料プランの存在と、すべての有料機能を試せる無料体験は同じではありません。商用利用、音声・顔素材の権利、同意要件も用途ごとに確認してください。"
+    },
+    {
+      "heading": "公式情報と確認日",
+      "content": "- [HeyGenの料金](https://www.heygen.com/ja-jp/pricing)（2026年9月15日確認）\n- [HeyGenの料金・機能](https://www.heygen.com/pricing)（2026年9月15日確認）\n- [Synthesiaの料金](https://www.synthesia.io/pricing)（2026年9月15日確認）\n\nこの記事は公式ページで確認できた機能と契約条件の整理です。同条件の生成テストや品質順位ではありません。"
+    }
+  ],
+  "cta": {
+    "type": "internal",
+    "title": "AI動画の用途を決めて比較する",
+    "description": "映像素材と説明動画を分けると、比較する条件を絞れます。",
+    "links": [
+      {"label": "動画生成AIを用途から比較", "url": "/categories/video-generation", "ctaType": "compare", "ctaPosition": "article_end"},
+      {"label": "動画生成AIの選び方", "url": "/blog/ai-video-generation-2026", "ctaType": "guide", "ctaPosition": "article_end"}
+    ]
+  }
+}

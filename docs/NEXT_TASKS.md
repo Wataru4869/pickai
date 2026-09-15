@@ -1,5 +1,15 @@
 # NEXT TASKS
 
+## 現行優先キュー — 2026-09-15 SEO比較コラム batch後
+
+記事本数をKPIにせず、以下を最大5件として順に扱う。
+
+1. **6記事の差分レビューとPreview判断** — 完了条件: commit後、人間承認があればbranchへpushし、6記事・ブログ一覧をdesktop/390px/320pxで確認。production deployは別承認。寄与: 高意図検索の受け皿を公開可能にする。
+2. **A8 3案件の状態変化待ち** — DMM、Win、デジLIGの最終確認値は申込中。承認等の変化時だけ確認日時付きで更新。寄与: 最初の実affiliate CV経路を開く。
+3. **最初の承認案件1件だけ条件確認** — `@AI_erabi`名義、掲載host、PR文言、禁止表現、広告URL仕様を確認し、人間activation approval直前まで準備。旧X承認を流用しない。
+4. **公開した記事を28日観測** — page/query別impressions、clicks、CTR、position、sessions、内部CTA遷移を記録。未取得はunknown。完了条件: Continue / Modify / Consolidateを記事別に判断できる。
+5. **次の制作は観測後に決める** — GSCのposition 6〜20、CTR、比較意図、既存記事との重複を確認し、反応のあるclusterだけ拡張。低品質な本数消化はしない。
+
 ## 現行優先キュー — 2026-09-15 本番反映後
 
 同時着手は1件。旧X実験を新アカウントへ流用せず、公開済みUIの効果を未実測のまま成功扱いしない。

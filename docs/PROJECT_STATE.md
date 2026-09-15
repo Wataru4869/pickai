@@ -1,5 +1,15 @@
 # PROJECT STATE
 
+## 現行サマリー — 2026-09-15 SEO比較コラム batch（branchのみ）
+
+- 高意図の比較クラスターを6本追加: ChatGPT/Perplexity、Cursor/GitHub Copilot、Cursor/Windsurf（現Devin Desktop）、HeyGen/Synthesia、Runway/Pika、Midjourney/Adobe Firefly。
+- 各記事は結論→早見表→用途別判断→同条件の試し方→公式情報の順。性能順位・人気・体験談・CVを作らず、日本税込額や未確認料金はunknownとして本文に明記した。
+- CTAは既存の比較・カテゴリ・ガイドへの内部リンクだけ。affiliate active 0 / URL 0。`/recommend`、UTM、計測、X queue、既存実験には差分なし。
+- exact queryのGSC需要は未確認。既存カテゴリ需要と購入前比較意図に基づくE0仮説であり、公開後28日を暫定枠にpage/query単位で評価する。
+- `npm run check`成功（79 sources / 98 pages）、`git diff --check`成功。sitemap期待値76 URL／ブログ43件／lastmod 0。local 76 URLは400以上0件。6記事を320px、代表記事を390pxで確認し全体横あふれ0。
+- 変更はbranchのみ。未commit・未push・未deploy。通常AI Distributionは `@AI_erabi`、旧 `@tetoteto_ai` の実績・UTMは流用しない。
+- 詳細: [SEO_CONTENT_BATCH_2026-09-15.md](SEO_CONTENT_BATCH_2026-09-15.md)。最大のRevenueボトルネックは承認済みaffiliate案件0件で変わらない。
+
 ## 現行サマリー — 2026-09-15 Compare UX / Current Data 本番反映
 
 - 人間の明示承認により、Preview `DvVsAdYfojrcXus1ydFroNm4SWxh`（commit `de2e3fe`）をVercelのPromote to Productionで昇格。Production deploymentは `9uptEPBk8aUtdSgzzjQfM39fc1Lp`、2026-09-15 21:10:56 JST、Ready。

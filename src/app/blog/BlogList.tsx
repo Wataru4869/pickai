@@ -10,6 +10,8 @@ const reviewed = new Set([
   "cursor-projects-2026", "copilot-model-retirement-2026-09", "chatgpt-models-comparison-2026",
   "ai-image-generation-2026", "ai-video-generation-2026",
   "ai-free-tier-comparison-2026",
+  "chatgpt-vs-perplexity-2026", "cursor-vs-github-copilot-2026", "cursor-vs-windsurf-2026",
+  "heygen-vs-synthesia-2026", "runway-vs-pika-2026", "midjourney-vs-adobe-firefly-2026",
 ]);
 export default function BlogList({ articles }: { articles: BlogArticle[] }) {
   const [filter, setFilter] = useState("all");

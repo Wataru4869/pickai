@@ -28,7 +28,7 @@ assert.equal(config.services.filter(s=>s.status==='active').length,0);
 assert.equal(config.services.filter(s=>s.affiliate_url).length,0);
 console.log('Passed: HTML escaping, official-host boundary, scheme/userinfo/port rejection, historical scores unchanged, affiliate active 0 / URLs 0.');
 
-for (const slug of ['ai-search-engines-comparison-2026','ai-safety-ranking-2026','ai-agents-comparison-2026','ai-tools-2026-trends','ai-coding-tools-2026','grok-review-2026','cursor-projects-2026','copilot-model-retirement-2026-09','chatgpt-models-comparison-2026','ai-free-tier-comparison-2026']) {
+for (const slug of ['ai-search-engines-comparison-2026','ai-safety-ranking-2026','ai-agents-comparison-2026','ai-tools-2026-trends','ai-coding-tools-2026','grok-review-2026','cursor-projects-2026','copilot-model-retirement-2026-09','chatgpt-models-comparison-2026','ai-free-tier-comparison-2026','chatgpt-vs-perplexity-2026','cursor-vs-github-copilot-2026','cursor-vs-windsurf-2026','heygen-vs-synthesia-2026','runway-vs-pika-2026','midjourney-vs-adobe-firefly-2026']) {
   const guide=JSON.parse(fs.readFileSync(path+'src/data/blog/'+slug+'.json'));
   assert.equal(guide.cta.type,'internal');
   assert.equal(guide.cta.links.length,2);
@@ -60,7 +60,7 @@ const freeGuide=JSON.parse(fs.readFileSync(path+'src/data/blog/ai-free-tier-comp
 assert.equal(freeGuide.publishedAt,'2026-03-23');
 const freeHistory=freeGuide.sections.find(s=>s.heading.includes('過去の掲載値'));
 for(const score of ['86.5','92.0','86.3','81.3','90.5','94.3','93.7','86.4','86.8'])assert.ok(freeHistory.content.includes(score));
-console.log('Passed: ten reviewed articles, internal-only CTA pairs, official links render, Article schema present, historical values preserved.');
+console.log('Passed: reviewed articles, internal-only CTA pairs, official links render, Article schema present, historical values preserved.');
 
 // Rendering the archive must preserve the original model-category values.
 const models=JSON.parse(fs.readFileSync(path+'src/data/models.json')).models;

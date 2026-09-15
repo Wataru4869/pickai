@@ -1,0 +1,45 @@
+{
+  "slug": "chatgpt-vs-perplexity-2026",
+  "title": "ChatGPTとPerplexityを比較｜検索・文章作成ならどちらを選ぶ？",
+  "description": "ChatGPTとPerplexityの違いを、検索、出典確認、文章作成、無料条件、料金の順で比較。どちらが上かではなく、作業に合う選び方を整理します。",
+  "publishedAt": "2026-09-15",
+  "updatedAt": "2026-09-15",
+  "category": "comparison",
+  "tags": ["ChatGPT", "Perplexity", "AI検索", "比較", "料金"],
+  "readingTime": "7分",
+  "sections": [
+    {
+      "heading": "結論：調べた後に何をするかで選ぶ",
+      "content": "ChatGPTとPerplexityは、どちらもWeb上の情報を扱えますが、選ぶ基準は同じではありません。出典へ戻りながら調査を進めたいならPerplexity、調査後の整理・文章化・ファイルを使う作業まで一つの対話で進めたいならChatGPTが比較候補です。\n\nこれは性能順位ではありません。回答の正確さは質問と参照先で変わるため、重要な判断では原文まで確認してください。最初は無料プランで同じ質問を試し、答えだけでなく、出典確認と仕上げにかかる手間を比べるのが安全です。"
+    },
+    {
+      "heading": "ChatGPTとPerplexityの違いを早見表で確認",
+      "content": "| 比較する点 | ChatGPT | Perplexity |\n| --- | --- | --- |\n| 主な入口 | 対話から検索・文章・ファイル作業へ進む | 検索結果と出典を起点に調べる |\n| 公式に確認した機能 | Web検索、画像入力、ファイル、プロジェクト | Basic Search、Pro Search、ファイル、複数モデル |\n| 無料プラン | あり | Standardが無料 |\n| 有料料金の確認範囲 | Plus US$20/月など。日本の税込最終額は未確認 | Education Pro US$10/月を確認。他の有料額は未確認 |\n| 向く確認方法 | 調査から成果物完成までの手数を測る | 主張と引用元の一致を測る |\n\n料金は2026年9月15日時点で登録済みの公式情報に基づきます。税、地域、アカウント別の提供機能は契約画面で再確認してください。"
+    },
+    {
+      "heading": "検索と出典確認を中心にするならPerplexityを試す",
+      "content": "Perplexityは公式プラン案内でBasic SearchとPro Searchを掲げています。検索結果から参照元へ移動し、情報の日付や原文を確かめる作業を中心にするなら、比較しやすい候補です。\n\nただし、引用が表示されることと、その引用が回答の主張を裏付けていることは別です。比較時は、同じ質問を入れ、主要な主張を3つ選び、出典の該当箇所まで戻れるかを確認してください。"
+    },
+    {
+      "heading": "調査後の文章・ファイル作業まで進めるならChatGPTを試す",
+      "content": "ChatGPTの公式機能案内では、Web検索に加えて画像入力、ファイル、プロジェクトを使う作業が案内されています。調べた内容からメール、要約、企画のたたき台へ進む場合は、作業を一つの流れにまとめられるかを確認できます。\n\nモデル名や利用上限はプランや画面で異なります。公式のWorkやCodex向けモデル案内を、通常チャットの全プランへ自動的に当てはめないでください。"
+    },
+    {
+      "heading": "無料版と有料版は同じ条件で比較しない",
+      "content": "両サービスに無料の入口がありますが、無料プランの回数、利用できる機能、混雑時の制限は同じではありません。無料体験の有無も、今回確認した公式情報だけでは確定できません。\n\n契約前は、1. 毎週行う質問を3件用意する、2. 原文確認までの時間を測る、3. 文章化まで必要なら完成まで進める、4. 上限に達した時だけ有料プランを検討する、の順で判断すると、機能表だけの比較を避けられます。"
+    },
+    {
+      "heading": "公式情報と確認日",
+      "content": "- [ChatGPTの料金](https://learn.chatgpt.com/docs/pricing)（2026年9月13日確認）\n- [ChatGPTの機能](https://learn.chatgpt.com/docs/features)（2026年9月11日確認）\n- [Perplexityのプラン案内](https://www.perplexity.ai/help-center/en/articles/11187416-which-perplexity-subscription-plan-is-right-for-you)（2026年9月10日確認）\n\nこの記事は公式の製品説明と料金条件を整理したもので、同条件の性能テストではありません。"
+    }
+  ],
+  "cta": {
+    "type": "internal",
+    "title": "検索AIを自分の用途で比べる",
+    "description": "現在の公式情報を確認してから、同じ質問で試してください。",
+    "links": [
+      {"label": "ChatGPTとPerplexityの比較ページ", "url": "/compare/chatgpt-vs-perplexity", "ctaType": "compare", "ctaPosition": "article_end"},
+      {"label": "AI検索の選び方", "url": "/categories/ai-search", "ctaType": "compare", "ctaPosition": "article_end"}
+    ]
+  }
+}

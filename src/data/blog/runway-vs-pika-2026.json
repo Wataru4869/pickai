@@ -1,0 +1,45 @@
+{
+  "slug": "runway-vs-pika-2026",
+  "title": "RunwayとPikaを比較｜AI動画生成の機能・無料プラン・料金の違い",
+  "description": "RunwayとPikaの違いを、動画生成、編集、無料プラン、クレジット、料金から比較。短い映像素材を作る人向けに確認手順を整理します。",
+  "publishedAt": "2026-09-15",
+  "updatedAt": "2026-09-15",
+  "category": "comparison",
+  "tags": ["Runway", "Pika", "動画生成AI", "画像から動画", "比較"],
+  "readingTime": "7分",
+  "sections": [
+    {
+      "heading": "結論：生成結果だけでなく修正工程で選ぶ",
+      "content": "RunwayとPikaは、文章や画像を起点に短い映像素材を作る候補です。Runwayは生成と素材管理を含む制作環境、Pikaは画像・動画への追加や入れ替えを含む生成機能を比較できます。\n\n優劣は一度の出力では決まりません。同じ画像と指示で、意図に近づくまでの生成回数、クレジット消費、書き出し条件を記録してください。"
+    },
+    {
+      "heading": "RunwayとPikaの違いを早見表で確認",
+      "content": "| 比較する点 | Runway | Pika |\n| --- | --- | --- |\n| 公式に確認した入口 | AI画像・動画生成、アセット保存 | Text/Image-to-Video、Pikascenes、Pikadditions、Pikaswaps |\n| 無料プラン | あり | Basic US$0 |\n| 確認した有料料金 | 現行額は未確認 | Standardは年払い換算US$8/月 |\n| 現行情報の確認範囲 | Freeプランと開発者向け更新情報 | Pika 2.5と料金ページ |\n\nRunwayのWeb版とAPI、Pikaの月払いと年払いは同じ条件とは限りません。解像度、生成秒数、透かし、商用利用を契約前に確認してください。"
+    },
+    {
+      "heading": "Runwayは制作環境とWeb版・APIの違いを確認",
+      "content": "Runwayの公式ヘルプではFreeプランが案内され、画像・動画生成とアセット保存が説明されています。開発者向け変更履歴もありますが、APIで追加されたモデルや機能をWeb版の全プランで使えるとみなすことはできません。\n\n料金の現行額は今回確認できた公式情報だけでは確定していません。契約前にWeb版の料金ページで対象プラン、クレジット、生成可能なモデルを再確認してください。"
+    },
+    {
+      "heading": "Pikaは編集系機能とクレジット消費を確認",
+      "content": "Pikaの公式料金ページではBasic US$0と、年払い換算でStandard US$8/月が表示されています。Pika 2.5のほか、シーン作成、要素追加、入れ替えなどの機能が案内されています。\n\nProやFancyの現行額、地域別税額は今回の確認範囲では未確認です。使いたい機能ごとのクレジット消費と、生成時間・解像度を契約画面で確認してください。"
+    },
+    {
+      "heading": "比較テストは同じ素材・同じ終了条件で行う",
+      "content": "1. 権利を確認できる同一画像を使う\n2. 動き、カメラ、尺を同じ指示にする\n3. 使える状態になるまでの再生成回数を数える\n4. 透かし、解像度、書き出し形式を確認する\n5. 1本完成させるクレジットと時間を比較する\n\n生成物を公開・販売する場合は、素材の権利と各サービスの利用条件を別に確認してください。"
+    },
+    {
+      "heading": "公式情報と確認日",
+      "content": "- [Runway Freeプラン](https://help.runwayml.com/hc/en-us/articles/50404627334547-Free-plan-details)（2026年9月15日確認）\n- [Runway API変更履歴](https://docs.dev.runwayml.com/api-details/api_changelog/)（2026年9月15日確認）\n- [Pikaの料金](https://pika.art/pricing)（2026年9月15日確認）\n\nこの記事は公式情報から確認できた範囲を整理したものです。映像品質の順位や、全機能の実測評価ではありません。"
+    }
+  ],
+  "cta": {
+    "type": "internal",
+    "title": "動画生成AIを用途から絞る",
+    "description": "映像素材と説明動画を分け、必要な機能を確認できます。",
+    "links": [
+      {"label": "動画生成AIを比較", "url": "/categories/video-generation", "ctaType": "compare", "ctaPosition": "article_end"},
+      {"label": "動画生成AIの選び方", "url": "/blog/ai-video-generation-2026", "ctaType": "guide", "ctaPosition": "article_end"}
+    ]
+  }
+}
