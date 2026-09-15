@@ -1,85 +1,60 @@
 import type { Metadata } from "next";
 import CurrentComparison from "@/components/CurrentComparison";
 import { currentProducts } from "@/lib/current-comparison";
+import { catalogProduct, editorialProfiles } from "@/lib/public-catalog";
 import { getAllArticles } from "@/lib/blog";
 import { Header, Footer } from "@/components/ui";
 import styles from "@/components/Discovery.module.css";
 
 export const metadata: Metadata = {
-  title: "AI選び｜AIツール・モデルを機能と公式情報で比較",
-  description: "ChatGPT・Claude・Gemini・DeepSeek・Qwen・Kimiなど9候補を、用途・機能・料金の公式情報で比較。出典と確認日を明示し、過去の独自スコアとは分けて掲載します。",
+  title: "AI選び｜用途から探して、料金・機能を比較できるAI選択サービス",
+  description: "文章、調査、画像、動画、開発など、やりたいことからAI候補を探せます。ChatGPT・Claude・Gemini等の機能・料金・無料条件を公式情報と確認日付きで比較。",
   alternates: { canonical: "/" },
-  openGraph: { title: "AI選び｜いまのAIを、自分の選択肢に", description: "9候補を用途・機能・提供条件と公式根拠で比較。", url: "/" },
-  twitter: { title: "AI選び｜いまのAIを、自分の選択肢に", description: "9候補を用途・機能・提供条件と公式根拠で比較。" },
+  openGraph: { title: "AI選び｜用途から自分に合うAIを探す", description: "目的から候補を知り、違いと料金を確認できる日本語AI選択サービス。", url: "/" },
 };
-const purposes = [
-  { mark: "01", name: "画像をつくる", detail: "作風・編集・利用条件から", slug: "ai-image-generation-2026" },
-  { mark: "02", name: "動画をつくる", detail: "素材・尺・制作の目的から", slug: "ai-video-generation-2026" },
-  { mark: "03", name: "調べて、確かめる", detail: "出典・検索・文章化から", slug: "ai-search-engines-comparison-2026" },
-  { mark: "04", name: "開発を手伝ってもらう", detail: "作業環境・レビュー方法から", slug: "ai-coding-tools-2026" },
-  { mark: "05", name: "作業を任せる", detail: "エージェントの役割と権限から", slug: "ai-agents-comparison-2026" },
-  { mark: "06", name: "安全に使う", detail: "入力データ・根拠・公開条件から", slug: "ai-safety-ranking-2026" },
+
+const purposeEntries = [
+  { mark: "文", name: "文章・資料作成", detail: "要約、構成、書き直し", href: "/categories/writing" },
+  { mark: "調", name: "調査・検索", detail: "出典を確認してまとめる", href: "/categories/ai-search" },
+  { mark: "画", name: "画像生成", detail: "素材、編集、利用条件", href: "/categories/image-generation" },
+  { mark: "動", name: "動画生成", detail: "素材、尺、人物表現", href: "/categories/video-generation" },
+  { mark: "開", name: "コーディング", detail: "作成、修正、レビュー", href: "/categories/coding-tools" },
+  { mark: "自", name: "自動化・AIエージェント", detail: "任せる範囲と承認条件", href: "/categories/ai-agents" },
 ];
+const toolIds = ["chatgpt", "claude", "gemini", "perplexity", "grok"];
+const comparisonPairs = [
+  { left: "ChatGPT", right: "Claude", href: "/compare/claude-vs-chatgpt" },
+  { left: "ChatGPT", right: "Gemini", href: "/compare/chatgpt-vs-gemini" },
+  { left: "ChatGPT", right: "Perplexity", href: "/compare/chatgpt-vs-perplexity" },
+] as const;
+
 export default function HomePage() {
   const articles = getAllArticles();
-  const featured = ["ai-tools-2026-trends", "ai-search-engines-comparison-2026", "ai-safety-ranking-2026", "ai-agents-comparison-2026"]
+  const featured = ["ai-search-engines-comparison-2026", "ai-coding-tools-2026", "ai-image-generation-2026"]
     .flatMap(slug => articles.filter(article => article.slug === slug));
-  return <div className={styles.page}>
-    <Header />
-    <main>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        "@context": "https://schema.org", "@type": "WebSite", name: "AI選び", url: "https://www.aierabi.jp",
-        description: "AIツールを用途・機能・料金・提供条件から比較し、公式情報の出典と確認日を示す選び方ガイド。",
-      }) }} />
-      <header className={styles.explorerHero}>
-        <div className={styles.container}>
-          <div className={styles.heroGrid}>
-            <div>
-              <p className={styles.edition}>AI選び / TOOL & MODEL GUIDE</p>
-              <h1>いまのAIを、<br /><em>自分の選択肢に。</em></h1>
-              <p className={styles.explorerLead}>モデルの名前は変わる。選ぶ理由は、自分の仕事から。<br />9つの候補を、機能・利用条件・公式根拠で比較できます。</p>
-              <div className={styles.heroActions}><a href="#current-comparison">ツール・モデルを比較する ↓</a><a href="#purposes">用途から選び方を読む ↗</a></div>
-              <div className={styles.heroMeta}><span>公式情報を項目別に確認</span><span>独自採点と分離</span><span>確認日は項目ごとに表示</span></div>
-            </div>
-            <aside className={styles.modelBrief} aria-label="確認したモデル更新">
-              <p className={styles.briefLabel}>MODEL WATCH <span>2026 / 09</span></p>
-              <h2>比較候補は、<br />定番だけではありません。</h2>
-              <a href="#current-comparison"><span>DeepSeek</span><strong>V4.1-Flash</strong><small>9月10日 API提供の発表</small></a>
-              <a href="#current-comparison"><span>Qwen</span><strong>3.8-Max-0902</strong><small>9月2日 APIスナップショット</small></a>
-              <a href="#current-comparison"><span>Kimi</span><strong>K3</strong><small>公式APIの提供案内を確認</small></a>
-              <p>性能順位ではなく、公式発表の確認記録です。</p>
-              <a className={styles.briefRead} href="/blog/ai-tools-2026-trends">更新の意味と確認ポイントを読む →</a>
-            </aside>
-          </div>
-        </div>
-      </header>
-      <nav className={styles.localNav} aria-label="トップページ内の案内"><div className={styles.container}><a href="#current-comparison">ツール比較</a><a href="#purposes">用途別ガイド</a><a href="#guides-title">コラム</a><a href="/evaluations/2026-03">過去の評価</a></div></nav>
-      <div className={styles.container}>
-        <CurrentComparison products={currentProducts} />
-        <section id="purposes" className={styles.section} aria-labelledby="purpose-title">
-          <p className={styles.eyebrow}>START WITH YOUR TASK</p><h2 id="purpose-title">今日は、何を進めたい？</h2>
-          <div className={styles.purposeGrid}>{purposes.map(p => <a key={p.slug} href={`/blog/${p.slug}`} className={styles.purpose}>
-            <span className={styles.number}>{p.mark}</span><div><h3>{p.name}</h3><p>{p.detail}</p></div><span aria-hidden="true">↗</span>
-          </a>)}</div>
-        </section>
-        <section className={styles.section} aria-labelledby="guides-title">
-          <div className={styles.sectionHeading}><div><p className={styles.eyebrow}>READ & DECIDE</p><h2 id="guides-title">選ぶ前に、読んでおきたい</h2></div><a href="/blog">コラム一覧 →</a></div>
-          <div className={styles.articleGrid}>{featured.map(article => <a className={styles.articleCard} key={article.slug} href={`/blog/${article.slug}`}>
-            <div className={styles.cardMeta}><span>内容更新 <time dateTime={article.updatedAt}>{article.updatedAt}</time></span><span>{article.readingTime}</span></div>
-            <h3>{article.title}</h3><p>{article.description}</p><span className={styles.read}>ガイドを読む →</span>
-          </a>)}</div>
-        </section>
-        <section className={styles.section} aria-labelledby="before-title">
-          <div className={styles.helpPanel}><div><p className={styles.eyebrow}>BEFORE YOU CHOOSE</p><h2 id="before-title">「使えそう」を、<br />「自分に合う」に近づける。</h2></div>
-            <div className={styles.helpLinks}>
-              <a href="/cost"><h3>契約する前に</h3><p>料金・無料条件・追加課金の確認ポイント →</p></a>
-              <a href="/methodology"><h3>点数を見る前に</h3><p>保存評価の根拠と、未検証の範囲 →</p></a>
-              <a href="/categories"><h3>比較対象を広げたいときに</h3><p>5カテゴリのガイドと保存済み比較 →</p></a>
-            </div>
-          </div>
-        </section>
-
-      </div>
-    </main><Footer />
-  </div>;
+  return <div className={styles.page}><Header /><main>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+      "@context": "https://schema.org", "@type": "WebSite", name: "AI選び", url: "https://www.aierabi.jp",
+      description: "AIツールを用途から探し、機能・料金・提供条件を公式情報と確認日付きで比較できるサービス。",
+    }) }} />
+    <header className={styles.choiceHero}><div className={styles.container}><div className={styles.choiceHeroGrid}><div>
+      <p className={styles.japaneseEyebrow}>AIに詳しくなくても、用途から選べます</p>
+      <h1>あなたに合うAIを、<br /><em>やりたいことから。</em></h1>
+      <p className={styles.choiceLead}>仕事、文章、調査、画像、動画、開発。目的から候補を知り、違い・料金・注意点まで順番に確認できます。</p>
+      <div className={styles.heroActions}><a className={styles.heroPrimary} href="#purpose-choice">用途からAIを選ぶ</a><a className={styles.heroSecondary} href="/recommend">3つの質問で候補を確認</a></div>
+      <p className={styles.heroFootnote}>順位だけで決めず、公式情報と過去の検証結果を分けて掲載しています。</p>
+    </div><aside className={styles.howToChoose} aria-label="AI選びの使い方"><h2>AI選びでできること</h2><ol><li><span>1</span><div><strong>目的を選ぶ</strong><small>まず、やりたい作業を1つ決める</small></div></li><li><span>2</span><div><strong>候補を知る</strong><small>特徴と利用条件から2つに絞る</small></div></li><li><span>3</span><div><strong>違いを比べる</strong><small>料金・機能・注意点を同じ順で見る</small></div></li><li><span>4</span><div><strong>自分で確かめる</strong><small>同じ小さな作業で試して判断する</small></div></li></ol></aside></div></div></header>
+    <div className={styles.container}>
+      <section id="purpose-choice" className={styles.section} aria-labelledby="purpose-title"><div className={styles.sectionIntro}><p className={styles.japaneseEyebrow}>最初の入口</p><h2 id="purpose-title">何に使いますか？</h2><p>サービス名を知らなくても大丈夫です。作りたいもの、進めたい仕事から選んでください。</p></div>
+        <div className={styles.choiceGrid}>{purposeEntries.map(item => <a key={item.href} href={item.href} className={styles.choiceCard}><span className={styles.choiceMark} aria-hidden="true">{item.mark}</span><div><h3>{item.name}</h3><p>{item.detail}</p></div><span aria-hidden="true">›</span></a>)}</div>
+      </section>
+      <section className={styles.section} aria-labelledby="tools-title"><div className={styles.sectionHeading}><div><p className={styles.japaneseEyebrow}>主要な候補</p><h2 id="tools-title">よく名前を聞くAIから確認する</h2><p>掲載順は性能順位ではありません。用途と、確認済みの公式情報から候補を見てください。</p></div><a href="/compare">一覧で比較する</a></div>
+        <div className={styles.toolGrid}>{toolIds.map(id => { const product = catalogProduct(id); const profile = editorialProfiles[id]; const free = product.facts.free_plan; const latest = Object.values(product.facts).map(fact=>fact.date).filter((date):date is string=>Boolean(date)).sort().at(-1); return <article className={styles.toolCard} key={id}><div className={styles.toolTop}><span className={styles.toolMark} aria-hidden="true">{product.name.slice(0,2)}</span><div><p>{profile.type}</p><h3>{product.name}</h3></div></div><p className={styles.toolSummary}>{profile.summary}</p><div className={styles.toolTags}>{profile.uses.slice(0,3).map(use => <span key={use}>{use}</span>)}</div><p className={styles.forWhom}><strong>こんな人に：</strong>{profile.suited}</p><p className={free.source ? styles.confirmed : styles.unconfirmed}>{free.source ? free.text : "無料条件は未確認"}{latest && <small>公式情報確認 <time dateTime={latest}>{latest}</time></small>}</p><div className={styles.toolActions}><a href={`/model/${id}`}>詳しく見る</a><a href="/compare">ほかと比較</a></div></article>; })}</div>
+      </section>
+      <section className={styles.section} aria-labelledby="pairs-title"><div className={styles.sectionIntro}><p className={styles.japaneseEyebrow}>2つに絞って比較</p><h2 id="pairs-title">候補が決まったら、違いを見る</h2><p>勝敗ではなく、どの作業と条件に合うかを同じ項目で確かめます。</p></div><div className={styles.pairGrid}>{comparisonPairs.map(pair => <a key={pair.href} href={pair.href}><strong>{pair.left}</strong><span>と</span><strong>{pair.right}</strong><small>機能・料金・無料条件を比較</small></a>)}</div></section>
+      <section className={styles.decisionBand} aria-label="料金と診断への案内"><div><p className={styles.japaneseEyebrow}>契約する前に</p><h2>料金と無料条件を、同じ見方で確認</h2><p>税、地域、契約周期、利用上限が違うため、表示額だけで比べません。</p></div><div><a href="/cost">料金・無料条件を見る</a><a href="/recommend">候補を確認する</a></div></section>
+      <section className={styles.section} aria-labelledby="guides-title"><div className={styles.sectionHeading}><div><p className={styles.japaneseEyebrow}>選び方と実務ガイド</p><h2 id="guides-title">使う場面まで理解して選ぶ</h2><p>単なるニュースではなく、何が変わり、選び方にどう影響するかを整理します。</p></div><a href="/blog">ガイド一覧</a></div><div className={styles.articleGrid}>{featured.map(article => <a className={styles.articleCard} key={article.slug} href={`/blog/${article.slug}`}><div className={styles.cardMeta}><span>内容更新 <time dateTime={article.updatedAt}>{article.updatedAt}</time></span><span>{article.readingTime}</span></div><h3>{article.title}</h3><p>{article.description}</p><span className={styles.read}>記事を読む →</span></a>)}</div></section>
+      <details className={styles.fullExplorer}><summary>掲載中のツール・モデルを詳しく絞り込む</summary><p>アプリ、API、開発ツールを分け、公式情報のある項目だけを表示します。</p><CurrentComparison products={currentProducts} /></details>
+    </div>
+  </main><Footer /></div>;
 }

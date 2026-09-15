@@ -1,4 +1,30 @@
 .page { background: #f7f8f6; color: #203537; }
+.choiceHero{padding:62px 0 52px;background:#f2f5f0;border-bottom:1px solid #dce4de}
+.choiceHeroGrid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr);gap:52px;align-items:center}
+.japaneseEyebrow{margin:0 0 12px;color:#477165;font-size:12px;font-weight:700;line-height:1.6}
+.choiceHero h1{margin:0;font-size:clamp(34px,4.5vw,56px);line-height:1.36;font-weight:750;letter-spacing:-.035em;color:#172522}
+.choiceHero h1 em{font-style:normal;color:#176653}
+.choiceLead{max-width:680px;margin:22px 0 0;color:#4f625c;font-size:17px;line-height:1.95}
+.choiceHero .heroActions{margin:28px 0 16px}
+.heroPrimary,.heroSecondary{display:inline-flex!important;align-items:center;justify-content:center;min-height:52px!important;padding:13px 22px!important;border-radius:9px!important;font-size:15px!important;text-decoration:none}
+.heroPrimary{background:#173f3a!important;border-color:#173f3a!important;color:white!important}.heroSecondary{background:white!important;border-color:#b9cbc4!important;color:#173f3a!important}
+.heroFootnote{margin:0;color:#67756f;font-size:12px;line-height:1.8}
+.howToChoose{padding:25px;border:1px solid #d3dfd8;border-radius:14px;background:white;box-shadow:0 10px 28px rgba(30,65,55,.07)}
+.howToChoose h2{margin:0 0 12px;font-size:18px}.howToChoose ol{display:grid;gap:0;margin:0;padding:0;list-style:none}
+.howToChoose li{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid #e6ece8}.howToChoose li>span{display:grid;place-items:center;flex:0 0 30px;width:30px;height:30px;border-radius:50%;background:#edf5f1;color:#176653;font-size:12px;font-weight:800}
+.howToChoose strong,.howToChoose small{display:block}.howToChoose strong{font-size:14px}.howToChoose small{margin-top:1px;color:#697872;font-size:11px;line-height:1.6}
+.sectionIntro{max-width:720px;margin-bottom:24px}.sectionIntro h2,.sectionHeading h2{margin:0 0 8px;font-size:clamp(24px,2.8vw,32px);line-height:1.5}.sectionIntro>p:last-child,.sectionHeading>div>p:last-child{margin:0;color:#5a6c65;font-size:14px;line-height:1.85}
+.choiceGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.choiceCard{display:flex;align-items:center;gap:13px;min-height:104px;padding:18px;border:1px solid #d8e2dc;border-radius:12px;background:white;text-decoration:none;box-shadow:0 5px 16px rgba(35,60,50,.03)}
+.choiceCard:hover{border-color:#5f8b7b;background:#fbfdfb}.choiceCard>div{flex:1}.choiceCard>span:last-child{color:#477165;font-size:24px}.choiceMark{display:grid;place-items:center;flex:0 0 40px;width:40px;height:40px;border-radius:11px;background:#edf5f1;color:#176653;font-size:14px;font-weight:800}
+.choiceCard h3{margin:0;font-size:16px}.choiceCard p{margin:4px 0 0;color:#68766f;font-size:11px;line-height:1.6}
+.toolGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.toolCard{display:flex;flex-direction:column;min-width:0;padding:22px;border:1px solid #d7e1dc;border-radius:14px;background:white;box-shadow:0 8px 24px rgba(22,49,42,.05)}
+.toolTop{display:flex;align-items:center;gap:11px}.toolMark{display:grid;place-items:center;flex:0 0 43px;width:43px;height:43px;border-radius:11px;background:#edf5f1;color:#176653;font-size:14px;font-weight:800}.toolTop p{margin:0;color:#71807a;font-size:10px}.toolTop h3{margin:1px 0 0;font-size:19px}
+.toolSummary{min-height:72px;margin:14px 0;color:#4f625b;font-size:13px;line-height:1.8}.toolTags{display:flex;flex-wrap:wrap;gap:5px}.toolTags span{padding:3px 8px;border-radius:999px;background:#f1f4f1;color:#50645d;font-size:10px}.forWhom{margin:14px 0 10px;padding-top:13px;border-top:1px solid #e5ebe7;color:#566861;font-size:12px;line-height:1.75}.forWhom strong{color:#273b35}.confirmed,.unconfirmed{margin:auto 0 0;padding:8px 10px;border-radius:7px;font-size:11px;line-height:1.65}.confirmed{background:#edf5f1;color:#285f51}.unconfirmed{background:#f5f0ec;color:#755b4d}.confirmed small,.unconfirmed small{display:block;margin-top:3px;opacity:.78;font-size:9px}
+.toolActions{display:flex;gap:8px;margin-top:12px}.toolActions a{display:grid;place-items:center;flex:1;min-height:44px;padding:7px;border:1px solid #b9cdc5;border-radius:7px;color:#176653;font-size:11px;font-weight:700;text-decoration:none}.toolActions a:first-child{background:#173f3a;color:white;border-color:#173f3a}
+.pairGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.pairGrid a{display:grid;grid-template-columns:auto 20px auto;align-items:center;justify-content:center;gap:4px;min-height:112px;padding:18px;border:1px solid #d7e1dc;border-radius:12px;background:white;text-decoration:none}.pairGrid strong{font-size:16px}.pairGrid>span{color:#78857f}.pairGrid small{grid-column:1/-1;text-align:center;color:#64736d;font-size:11px}
+.decisionBand{display:grid;grid-template-columns:1.35fr .65fr;gap:28px;align-items:center;margin:12px 0 24px;padding:30px;border-radius:15px;background:#173f3a;color:white}.decisionBand .japaneseEyebrow{color:#b9d1c8}.decisionBand h2{margin:0 0 6px;font-size:24px}.decisionBand p:last-child{margin:0;color:#d2e0da;font-size:13px}.decisionBand>div:last-child{display:grid;gap:8px}.decisionBand a{display:grid;place-items:center;min-height:46px;padding:10px 14px;border:1px solid #8ba99f;border-radius:8px;background:white;color:#173f3a;font-size:13px;font-weight:700;text-decoration:none}.decisionBand a:last-child{background:transparent;color:white}
+.fullExplorer{margin:18px 0 54px;border:1px solid #d7e1dc;border-radius:14px;background:white;padding:0 24px}.fullExplorer>summary{display:flex;align-items:center;min-height:64px;cursor:pointer;font-size:15px;font-weight:700}.fullExplorer>p{color:#5a6c65;font-size:13px}.fullExplorer :global(.CURRENT_TOOL_EXPLORER){display:none}
+.categoryGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.categoryCard{display:flex;flex-direction:column;padding:24px;border:1px solid #d7e1dc;border-radius:14px;background:#fff}.categoryHead{display:flex;align-items:flex-start;gap:14px}.categoryHead>span{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;border-radius:12px;background:#edf5f1;color:#176653;font-weight:800}.categoryHead h2{margin:0;font-size:20px}.categoryHead p{margin:4px 0 0;color:#5c6d66;font-size:13px}.categoryCard dl{margin:18px 0}.categoryCard dl>div{display:grid;grid-template-columns:88px 1fr;gap:10px;padding:9px 0;border-top:1px solid #e5ebe7}.categoryCard dt{color:#6b7a74;font-size:11px}.categoryCard dd{margin:0;font-size:12px;line-height:1.7}.categoryCard>a{display:grid;place-items:center;min-height:46px;margin-top:auto;border-radius:8px;background:#173f3a;color:white;font-size:13px;font-weight:700;text-decoration:none}
 .explorerHero { background:#14253e; color:#f5f7fc; padding:56px 0; }
 .heroGrid { display:grid; grid-template-columns:1.3fr 1fr; align-items:center; gap:48px; }
 .edition { font-size:11px; letter-spacing:.17em; font-weight:700; color:#a8b9d4; margin-bottom:28px; }
@@ -76,10 +102,12 @@
 .articleScope { align-self: flex-start; font-size: 11px; line-height: 1.7; padding: 5px 8px; margin-bottom: 12px; border: 1px solid #d8e2dc; border-radius: 4px; color: #466355; }
 .note button { display: inline-block; min-height: 44px; margin-left: 8px; text-decoration: underline; color: #205e4d; }
 @media(max-width:1000px) { .purposeGrid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media(max-width:1000px){.choiceHeroGrid{grid-template-columns:1fr}.howToChoose{max-width:680px}.toolGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.choiceGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.pairGrid{grid-template-columns:1fr 1fr}}
 @media(max-width:640px) {
   .container { padding: 0 18px; } .hero { padding: 32px 0; } .hero h1 { font-size: 30px; } .lead { font-size: 15px; }
   .section { padding: 30px 0; } .purposeGrid, .articleGrid, .helpPanel { grid-template-columns: 1fr; }
   .purpose { padding: 18px; } .articleCard { padding: 22px; } .articleCard h3 { font-size: 19px; }
   .helpPanel { padding: 22px; gap: 4px; } .archive { padding: 16px; }
   .actions { flex-direction: column; align-items: stretch; } .primary, .secondary { justify-content: center; }
+  .choiceHero{padding:34px 0 30px}.choiceHero h1{font-size:34px}.choiceLead{font-size:15px}.choiceHeroGrid{gap:26px}.howToChoose{padding:19px}.choiceGrid,.toolGrid,.pairGrid,.decisionBand,.categoryGrid{grid-template-columns:1fr}.choiceCard{min-height:88px;padding:15px}.toolCard,.categoryCard{padding:19px}.toolSummary{min-height:0}.decisionBand{padding:22px}.fullExplorer{padding:0 16px}.toolActions{flex-direction:column}
 }

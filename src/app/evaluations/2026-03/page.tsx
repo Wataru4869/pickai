@@ -17,7 +17,7 @@ export default function EvaluationArchive() {
   return <div className={styles.page}><Header /><main className={styles.container}>
     <p className={styles.note}><a href="/#current-comparison">← 現行のツール・モデル比較へ</a></p>
         <section className={styles.section} aria-labelledby="archive-title">
-          <p className={styles.eyebrow}>EVALUATION ARCHIVE</p><h1 id="archive-title" style={{fontSize:32,fontWeight:700}}>2026年3月の保存評価</h1>
+          <p className={styles.eyebrow}>過去の検証結果</p><h1 id="archive-title" style={{fontSize:32,fontWeight:700}}>2026年3月の保存評価</h1>
           <HistoricalScoreNotice />
           <p className={styles.note}>以下は当時の記録です。現在の性能順位・購入推奨ではありません。新しいモデル世代は再評価していません。</p>
           <details className={styles.archive} open><summary>保存スコアと履歴を開く</summary>

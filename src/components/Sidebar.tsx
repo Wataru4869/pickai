@@ -1,195 +1,54 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { isNavigationLinkActive, navigationGroups } from "@/lib/site-navigation";
 
-const MENU_ITEMS = [
-  // ランキング系
-  { href: "/", label: "ツール・モデル比較" },
-  { href: "/categories", label: "カテゴリ別", children: [
-    { href: "/categories/image-generation", label: "画像生成" },
-    { href: "/categories/video-generation", label: "動画生成" },
-    { href: "/categories/coding-tools", label: "コーディング" },
-    { href: "/categories/ai-agents", label: "AIエージェント" },
-    { href: "/categories/ai-search", label: "AI検索" },
-  ]},
-  { type: "separator" as const },
-  // ツール系
-  { href: "/recommend", label: "おすすめ診断" },
-  { href: "/switch", label: "乗り換えガイド" },
-  { type: "separator" as const },
-  // データ系
-  { href: "/safety", label: "安全性比較" },
-  { href: "/cost", label: "料金確認ガイド" },
-  { href: "/methodology", label: "評価方法論" },
-  { href: "/faq", label: "よくある質問" },
-  { href: "/blog", label: "コラム" },
-] as const;
+function Brand({ onNavigate }: { onNavigate?: () => void }) {
+  return <a href="/" className="site-brand" onClick={onNavigate} aria-label="AI選び トップページ">
+    <span className="site-brand__mark" aria-hidden="true">選</span>
+    <span><strong>AI選び</strong><small>用途から選べるAI比較</small></span>
+  </a>;
+}
 
-type MenuItem = {
-  href?: string;
-  label?: string;
-  type?: "separator";
-  children?: readonly { href: string; label: string }[];
-};
-
-function SidebarContent({ pathname, onNavigate }: { pathname: string; onNavigate?: () => void }) {
-  return (
-    <div className="flex flex-col h-full">
-      {/* Logo */}
-      <div className="px-4 py-4 border-b border-[#e8e8ed]">
-        <a href="/" className="flex items-baseline gap-0.5 no-underline" onClick={onNavigate}>
-          <span className="text-[18px] font-medium tracking-tight text-[#1d1d1f]">AI</span>
-          <span className="text-[18px] font-light text-[#d2d2d7]">|</span>
-          <span className="text-[18px] font-medium tracking-tight text-[#1d1d1f]">選び</span>
-        </a>
-      </div>
-
-      {/* Menu */}
-      <nav className="flex-1 overflow-y-auto py-2">
-        {(MENU_ITEMS as readonly MenuItem[]).map((item, i) => {
-          if (item.type === "separator") {
-            return <div key={`sep-${i}`} className="my-2 mx-3 border-t border-[#e8e8ed]" />;
-          }
-
-          const isActive = item.href === "/"
-            ? pathname === "/"
-            : pathname.startsWith(item.href!);
-
-          return (
-            <div key={item.href}>
-              <a
-                href={item.href}
-                onClick={onNavigate}
-                className={`block px-4 py-2 text-[12px] no-underline transition-colors border-l-2 ${
-                  isActive
-                    ? "bg-[#f5f5f7] text-[#1d1d1f] font-semibold border-[#4a7ab5]"
-                    : "text-[#6e6e73] hover:bg-[#f5f5f7] hover:text-[#1d1d1f] border-transparent"
-                }`}
-              >
-                {item.label}
-              </a>
-              {item.children && isActive && (
-                <div className="ml-4">
-                  {item.children.map((child) => {
-                    const childActive = pathname === child.href;
-                    return (
-                      <a
-                        key={child.href}
-                        href={child.href}
-                        onClick={onNavigate}
-                        className={`block pl-8 pr-4 py-1.5 text-[11px] no-underline transition-colors ${
-                          childActive
-                            ? "bg-[#f5f5f7] text-[#1d1d1f] font-medium"
-                            : "text-[#86868b] hover:bg-[#f5f5f7] hover:text-[#1d1d1f]"
-                        }`}
-                      >
-                        {child.label}
-                      </a>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </nav>
-
-      {/* Footer */}
-      <div className="px-4 py-3 border-t border-[#e8e8ed] text-[10px] text-[#86868b]">
-        © 2026 AI選び
-      </div>
-    </div>
-  );
+function Navigation({ pathname, onNavigate }: { pathname: string; onNavigate?: () => void }) {
+  return <nav className="site-navigation" aria-label="サイト内メニュー">
+    {navigationGroups.map(group => <section key={group.label} className="site-navigation__group" aria-labelledby={`nav-${group.label}`}>
+      <h2 id={`nav-${group.label}`}>{group.label}</h2>
+      <ul>{group.links.map(link => {
+        const active = isNavigationLinkActive(pathname, link.href);
+        return <li key={link.href}><a href={link.href} onClick={onNavigate} aria-current={active ? "page" : undefined}>
+          <span>{link.label}</span>{link.description && <small>{link.description}</small>}
+        </a></li>;
+      })}</ul>
+    </section>)}
+  </nav>;
 }
 
 export function Sidebar({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-
-  // Close on route change
+  useEffect(() => setOpen(false), [pathname]);
   useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
-
-  // Prevent body scroll when mobile menu open
-  useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => { document.body.style.overflow = ""; };
+    document.body.style.overflow = open ? "hidden" : "";
+    const closeOnEscape = (event: KeyboardEvent) => { if (event.key === "Escape") setOpen(false); };
+    document.addEventListener("keydown", closeOnEscape);
+    return () => { document.body.style.overflow = ""; document.removeEventListener("keydown", closeOnEscape); };
   }, [open]);
 
-  return (
-    <div className="min-h-screen">
-      {/* Desktop sidebar */}
-      <aside className="hidden sm:flex fixed top-0 left-0 w-[200px] h-screen bg-white border-r border-[#e8e8ed] z-40 flex-col">
-        <SidebarContent pathname={pathname} />
+  return <div className="site-shell">
+    <aside className="desktop-sidebar"><Brand /><Navigation pathname={pathname} /><div className="sidebar-foot">公式情報と過去の検証を分けて掲載</div></aside>
+    <header className="mobile-header">
+      <button type="button" onClick={() => setOpen(true)} aria-label="メニューを開く" aria-expanded={open} aria-controls="mobile-navigation"><span aria-hidden="true">☰</span></button>
+      <Brand />
+      <a href="/recommend" className="mobile-header__quick">診断</a>
+    </header>
+    {open && <div className="mobile-overlay" role="presentation" onClick={() => setOpen(false)}>
+      <aside id="mobile-navigation" className="mobile-drawer" role="dialog" aria-modal="true" aria-label="サイト内メニュー" onClick={event => event.stopPropagation()}>
+        <div className="mobile-drawer__head"><Brand onNavigate={() => setOpen(false)} /><button type="button" onClick={() => setOpen(false)} aria-label="メニューを閉じる">×</button></div>
+        <Navigation pathname={pathname} onNavigate={() => setOpen(false)} />
       </aside>
-
-      {/* Mobile header */}
-      <header className="sm:hidden sticky top-0 z-50 backdrop-blur-xl bg-white/80 border-b border-[#e8e8ed]">
-        <div className="flex items-center justify-between h-11 px-4">
-          <button
-            onClick={() => setOpen(true)}
-            className="w-8 h-8 flex items-center justify-center bg-transparent border-none cursor-pointer text-[#1d1d1f]"
-            aria-label="メニューを開く"
-          >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <line x1="3" y1="5" x2="17" y2="5" />
-              <line x1="3" y1="10" x2="17" y2="10" />
-              <line x1="3" y1="15" x2="17" y2="15" />
-            </svg>
-          </button>
-          <a href="/" className="flex items-baseline gap-0.5 no-underline">
-            <span className="text-[18px] font-medium tracking-tight text-[#1d1d1f]">AI</span>
-            <span className="text-[18px] font-light text-[#d2d2d7]">|</span>
-            <span className="text-[18px] font-medium tracking-tight text-[#1d1d1f]">選び</span>
-          </a>
-          <div className="w-8" /> {/* spacer for centering */}
-        </div>
-      </header>
-
-      {/* Mobile overlay */}
-      {open && (
-        <div
-          className="sm:hidden fixed inset-0 z-50 bg-black/40"
-          onClick={() => setOpen(false)}
-        >
-          <aside
-            className="absolute top-0 left-0 w-[260px] h-full bg-white shadow-lg"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center justify-between px-4 py-3 border-b border-[#e8e8ed]">
-              <a href="/" className="flex items-baseline gap-0.5 no-underline">
-                <span className="text-[18px] font-medium tracking-tight text-[#1d1d1f]">AI</span>
-                <span className="text-[18px] font-light text-[#d2d2d7]">|</span>
-                <span className="text-[18px] font-medium tracking-tight text-[#1d1d1f]">選び</span>
-              </a>
-              <button
-                onClick={() => setOpen(false)}
-                className="w-8 h-8 flex items-center justify-center bg-transparent border-none cursor-pointer text-[#6e6e73] hover:text-[#1d1d1f]"
-                aria-label="メニューを閉じる"
-              >
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <line x1="4" y1="4" x2="14" y2="14" />
-                  <line x1="14" y1="4" x2="4" y2="14" />
-                </svg>
-              </button>
-            </div>
-            <div className="h-[calc(100%-56px)] overflow-y-auto">
-              <SidebarContent pathname={pathname} onNavigate={() => setOpen(false)} />
-            </div>
-          </aside>
-        </div>
-      )}
-
-      {/* Main content */}
-      <main className="sm:ml-[200px] overflow-x-hidden">
-        {children}
-      </main>
-    </div>
-  );
+    </div>}
+    <main className="site-main">{children}</main>
+  </div>;
 }

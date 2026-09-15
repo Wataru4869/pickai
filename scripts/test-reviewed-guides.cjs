@@ -113,10 +113,12 @@ const currentHtml=renderToStaticMarkup(React.createElement(comp.default,{product
 assert.equal((currentHtml.match(/独自スコア：未評価/g)||[]).length,9);
 assert.equal((currentHtml.match(/<article /g)||[]).length,9);
 assert.ok(currentHtml.includes('3月の保存スコアを見る'));
+const catalog=loadTs('src/lib/public-catalog.ts',{'./current-comparison':current});
 const currentHome=loadTs('src/app/page.tsx',{
   '@/components/ui':{Header:()=>null,Footer:()=>null},
   '@/components/CurrentComparison':comp.default,
   '@/lib/current-comparison':current,
+  '@/lib/public-catalog':catalog,
   '@/lib/blog':{getAllArticles:()=>[]}
 });
 const currentHomeHtml=renderToStaticMarkup(React.createElement(currentHome.default));
@@ -126,7 +128,6 @@ assert.ok(currentHomeHtml.includes('V4.1-Flash'));
 assert.ok(currentHomeHtml.includes('href="/evaluations/2026-03"'));
 console.log('Passed: nine public-fact candidates, unknown preserved, official source links, no score inheritance on home.');
 
-const catalog=loadTs('src/lib/public-catalog.ts',{'./current-comparison':current});
 assert.equal(catalog.catalogProduct('copilot').facts.provider.text,'未確認');
 assert.equal(catalog.catalogProduct('grok').facts.current_price.text,'未確認');
 assert.equal(catalog.catalogProduct('grok').facts.free_trial.text,'未確認');
@@ -167,10 +168,12 @@ assert.ok(layoutSource.includes('process.env.VERCEL_ENV === "production"'));
 assert.ok(layoutSource.includes('{enableProductionAnalytics && ('));
 const sidebarSource=fs.readFileSync(path+'src/components/Sidebar.tsx','utf8');
 const sharedUiSource=fs.readFileSync(path+'src/components/ui.tsx','utf8');
+const navigationSource=fs.readFileSync(path+'src/lib/site-navigation.ts','utf8');
 assert.equal(sidebarSource.includes('label: "総合の保存評価"'),false);
 assert.equal(sharedUiSource.includes('label: "総合の保存評価"'),false);
-assert.ok(sidebarSource.includes('label: "ツール・モデル比較"'));
-assert.ok(sharedUiSource.includes('label: "ツール・モデル比較"'));
+assert.equal(navigationSource.includes('label: "総合の保存評価"'),false);
+assert.ok(navigationSource.includes('label: "AI同士を比較"'));
+assert.ok(sharedUiSource.includes('label: "AI同士を比較"'));
 assert.ok(layoutSource.includes('verification:'));
 assert.equal(layoutSource.includes('fonts.googleapis.com'),false);
 console.log('Passed: analytics is production-only and root navigation describes the current comparison page.');
@@ -180,7 +183,7 @@ assert.ok(layoutSource.includes('AIツール比較・選び方｜公式情報と
 const blogLayoutSource=fs.readFileSync(path+'src/app/blog/layout.tsx','utf8');
 assert.equal(blogLayoutSource.includes('最新情報をお届けします'),false);
 assert.ok(blogLayoutSource.includes('公式情報の確認範囲と過去記録を分けて掲載'));
-assert.ok(fs.readFileSync(path+'src/app/page.tsx','utf8').includes('公式情報の出典と確認日を示す選び方ガイド'));
+assert.ok(fs.readFileSync(path+'src/app/page.tsx','utf8').includes('公式情報と確認日付きで比較'));
 console.log('Passed: global and blog metadata describe current facts without promoting the March archive as current.');
 
 const blogPageSource=fs.readFileSync(path+'src/app/blog/[slug]/page.tsx','utf8');

@@ -1,61 +1,75 @@
 import type { ReactNode } from "react";
 import { Header, Footer } from "@/components/ui";
-import { catalogProduct, fields, purposes, type Purpose } from "@/lib/public-catalog";
+import { catalogProduct, editorialProfiles, fields, modelNames, purposes, type Purpose } from "@/lib/public-catalog";
 import styles from "./PublicFactsPage.module.css";
 
-export function FactsLayout({ title, intro, children }: { title: string; intro: string; children: ReactNode }) {
+export function FactsLayout({ title, intro, children, eyebrow = "選ぶための確認ガイド" }: { title: string; intro: string; children: ReactNode; eyebrow?: string }) {
   return <div className={styles.page}><Header /><div className={styles.main}>
-    <nav aria-label="ページ案内"><a href="/">トップ</a><a href="/categories">用途から探す</a><a href="/compare">公式情報で比較</a></nav>
-    <header><p className={styles.label}>条件と根拠から選ぶ</p><h1>{title}</h1><p>{intro}</p></header>
+    <nav className={styles.breadcrumbs} aria-label="パンくず"><a href="/">トップ</a><span aria-hidden="true">›</span><a href="/categories">用途から探す</a><span aria-hidden="true">›</span><a href="/compare">比較する</a></nav>
+    <header className={styles.pageHeader}><p className={styles.label}>{eyebrow}</p><h1>{title}</h1><p>{intro}</p>
+      <div className={styles.headerTrust}><span>公式情報は出典付き</span><span>未確認は未確認と表示</span><span>過去の採点と分離</span></div>
+    </header>
     {children}
-    <aside className={styles.history}><h2>独自評価と公式情報は別です</h2><p>このページでは古い点数から順位・購入推奨を算出しません。未確認は低評価でもゼロでもありません。</p><a href="/evaluations/2026-03">2026年3月の保存評価を見る →</a><a href="/methodology">評価方法と限界 →</a></aside>
+    <aside className={styles.history}><div><span className={styles.historyMark} aria-hidden="true">履歴</span></div><div><h2>過去の評価と、現在の公式情報は別です</h2><p>このページでは古い点数から順位や契約推奨を算出しません。未確認は低評価でも0でもありません。</p><div className={styles.inlineLinks}><a href="/evaluations/2026-03">2026年3月の検証結果</a><a href="/methodology">評価方法と限界</a></div></div></aside>
   </div><Footer /></div>;
 }
-export function FactCards({ ids, compact = false }: { ids: string[]; compact?: boolean }) {
-  return <div className={styles.grid}>{ids.map(id => {
-    const product = catalogProduct(id);
-    const visibleFields = fields.filter(([key]) => !compact || ["major_features", "free_plan", "current_price"].includes(key));
-    const verified = visibleFields.filter(([key]) => Boolean(product.facts[key].source));
-    const latestVerifiedAt = verified.map(([key]) => product.facts[key].date).filter(Boolean).sort().at(-1);
-    return <section key={id} className={styles.card}><h2>{product.name}</h2>
-      <p className={styles.verification}>公式根拠 {verified.length}/{visibleFields.length}{latestVerifiedAt && <> · 確認 <time dateTime={latestVerifiedAt}>{latestVerifiedAt}</time></>}</p>
-      <p className={styles.note}>出典の確認時点の情報。現在の契約条件はリンク先で再確認してください。</p>
-      <dl>{visibleFields.map(([key, label]) => {
-        const fact = product.facts[key];
-        return <div key={key}><dt>{label}</dt><dd><p>{fact.text}</p>{fact.source && <a href={fact.source} rel="noopener noreferrer">公式根拠 <time dateTime={fact.date!}>{fact.date}</time>確認 ↗</a>}</dd></div>;
-      })}</dl>
-      {id === "copilot" && <p className={styles.note}>旧掲載名の対象製品を確定できていません。GitHub Copilotの情報を自動で当てはめていません。</p>}
-    </section>;
-  })}</div>;
-}
-export function NextActions({ title, intro, links }: { title: string; intro: string; links: { href: string; label: string; detail: string }[] }) {
-  return <section className={styles.next} aria-labelledby="next-actions-title">
-    <div><p className={styles.label}>NEXT STEP</p><h2 id="next-actions-title">{title}</h2><p>{intro}</p></div>
-    <div className={styles.actionGrid}>{links.map(link => <a key={link.href} href={link.href}><strong>{link.label}</strong><span>{link.detail} →</span></a>)}</div>
+
+export function ToolSummary({ id }: { id: string }) {
+  const product = catalogProduct(id);
+  const profile = editorialProfiles[id];
+  if (!profile) return null;
+  const confirmed = ["major_features", "current_price", "free_plan", "availability"].filter(key => product.facts[key as keyof typeof product.facts].source).length;
+  return <section className={styles.toolSummary} aria-labelledby="tool-summary-title">
+    <div className={styles.toolIdentity}><span className={styles.toolMark} aria-hidden="true">{product.name.slice(0, 2)}</span><div><p>{profile.type}</p><h2 id="tool-summary-title">{profile.summary}</h2></div></div>
+    <div className={styles.badges}>{profile.uses.map(use => <span key={use}>{use}</span>)}<span>{confirmed}/4項目に公式根拠</span></div>
+    <div className={styles.fitGrid}><div><h3>候補にしやすい人</h3><p>{profile.suited}</p></div><div><h3>先に確認すること</h3><p>{profile.check}</p></div></div>
+    <div className={styles.summaryActions}><a className={styles.primaryAction} href="#current-facts">料金・条件を見る</a><a href="/compare">ほかのAIと比較する</a></div>
   </section>;
 }
+
+export function ComparisonSummary({ ids }: { ids: string[] }) {
+  const profiles = ids.map(id => ({ id, name: modelNames[id], profile: editorialProfiles[id] }));
+  return <section className={styles.decisionSummary} aria-labelledby="comparison-conclusion">
+    <p className={styles.label}>まず結論</p><h2 id="comparison-conclusion">使いたい作業から候補を分ける</h2>
+    <div className={styles.choiceGrid}>{profiles.map(({id,name,profile}) => <div key={id}><h3>{name}を確認するなら</h3><p>{profile?.suited ?? "公式情報と自分の作業条件を確認したい場合"}</p><span>確認点：{profile?.check ?? "提供条件"}</span></div>)}</div>
+    <div className={styles.threeChecks}><strong>迷ったら、この3項目だけ先に比較</strong><ol><li>実際に使いたい作業</li><li>無料条件と必要な機能</li><li>出典確認と手直しの時間</li></ol></div>
+  </section>;
+}
+
+export function FactCards({ ids, compact = false }: { ids: string[]; compact?: boolean }) {
+  return <section id="current-facts" aria-labelledby="facts-title"><div className={styles.sectionHeading}><p className={styles.label}>現在の公式情報</p><h2 id="facts-title">契約前に確認する項目</h2><p>項目ごとに出典と確認日を表示しています。公式根拠がない値は補完しません。</p></div>
+    <div className={styles.grid}>{ids.map(id => {
+      const product = catalogProduct(id);
+      const profile = editorialProfiles[id];
+      const visibleFields = fields.filter(([key]) => !compact || ["major_features", "free_plan", "current_price"].includes(key));
+      const verified = visibleFields.filter(([key]) => Boolean(product.facts[key].source));
+      const latestVerifiedAt = verified.map(([key]) => product.facts[key].date).filter(Boolean).sort().at(-1);
+      return <article key={id} className={styles.card}>
+        <div className={styles.cardHeader}><span className={styles.cardMark} aria-hidden="true">{product.name.slice(0,2)}</span><div><p>{profile?.type ?? "AIサービス"}</p><h3>{product.name}</h3></div></div>
+        {profile && <p className={styles.cardSummary}>{profile.summary}</p>}
+        <p className={styles.verification}>公式根拠 {verified.length}/{visibleFields.length}{latestVerifiedAt && <> · <time dateTime={latestVerifiedAt}>{latestVerifiedAt}</time>確認</>}</p>
+        <dl>{visibleFields.map(([key, label]) => {
+          const fact = product.facts[key];
+          return <div key={key}><dt>{label}</dt><dd><p>{fact.text}</p>{fact.source ? <a href={fact.source} target="_blank" rel="noopener noreferrer">公式情報を確認 <time dateTime={fact.date!}>（{fact.date}確認）</time><span aria-hidden="true"> ↗</span></a> : <span className={styles.unknown}>公式根拠を未確認</span>}</dd></div>;
+        })}</dl>
+        {Object.hasOwn(modelNames, id) && id !== "copilot" && <div className={styles.cardActions}><a href={`/model/${id}`}>詳しい条件を見る</a><a href="/compare">比較候補にする</a></div>}
+        {id === "copilot" && <p className={styles.note}>旧掲載名の対象製品を確定できていません。GitHub Copilotの情報を自動で当てはめていません。</p>}
+      </article>;
+    })}</div>
+  </section>;
+}
+
+export function NextActions({ title, intro, links }: { title: string; intro: string; links: { href: string; label: string; detail: string }[] }) {
+  return <section className={styles.next} aria-labelledby="next-actions-title"><div><p className={styles.label}>次にすること</p><h2 id="next-actions-title">{title}</h2><p>{intro}</p></div><div className={styles.actionGrid}>{links.map(link => <a key={link.href} href={link.href}><strong>{link.label}</strong><span>{link.detail}<b aria-hidden="true"> →</b></span></a>)}</div></section>;
+}
+
 export function PurposePage({ purpose }: { purpose: Purpose }) {
   const p = purposes[purpose];
-  return <FactsLayout title={`${p.title}の選び方と公式情報`} intro="まず必要な作業と条件をそろえます。以下は確認済み項目がある候補で、網羅一覧や性能順位ではありません。">
-    {purpose === "ai-agents" && <section className={styles.summary} aria-labelledby="agent-summary-title">
-      <p className={styles.label}>先に分けること</p>
-      <h2 id="agent-summary-title">完成した製品と、開発用モデルAPIは別に選ぶ</h2>
-      <p>AIエージェントという名前だけでは、チャットで相談する製品、外部サービスを操作する製品、開発者が組み込むモデルAPIを区別できません。最初に「誰が設定するか」「どこまで操作を許可するか」「実行前に人が承認するか」を決めます。</p>
-      <ul>
-        <li><strong>完成した製品を使う：</strong>対応サービス、保存される情報、停止方法、月額と追加利用を確認する。</li>
-        <li><strong>APIで作る：</strong>モデル料金だけでなく、実行環境、外部ツール、監視と保守の費用を分ける。</li>
-        <li><strong>比較する：</strong>同じ小さな作業で、完了率だけでなく確認・手直し・失敗時の復旧を記録する。</li>
-      </ul>
-      <div className={styles.nextLinks} aria-label="AIエージェントの次の確認">
-        <a href="/blog/openai-agents-api-guide-2026">Agents APIの変更点を読む →</a>
-        <a href="/blog/ai-agents-comparison-2026">用途別の選び方を読む →</a>
-        <a href="/cost">料金と追加利用の見方 →</a>
-        <a href="/safety">外部操作とデータを確認 →</a>
-      </div>
-    </section>}
-    <section className={styles.checks}><h2>比較前に決めること</h2><ul>{p.checks.map(c=><li key={c}>{c}</li>)}</ul>
-      {purpose === "ai-agents" && <p>下の4候補は開発者が組み込むAPIです。OpenAI Agents APIはエージェント実行基盤、ほか3候補はモデルAPIとして確認しており、完成したエージェント製品の代替とは限りません。</p>}
-      <a href={`/blog/${p.guide}`}>詳しい選び方を読む →</a>
-    </section><FactCards ids={p.ids} compact />
+  return <FactsLayout title={`${p.title}を用途から選ぶ`} intro="最初に必要な作業を決め、候補と利用条件を同じ順序で確認します。掲載順は性能順位ではありません。" eyebrow="用途からAIを探す">
+    <section className={styles.decisionSummary} aria-labelledby="purpose-start"><p className={styles.label}>最初の3ステップ</p><h2 id="purpose-start">選ぶ前に、条件をそろえる</h2><ol className={styles.steps}><li><span>1</span><div><strong>成果物を決める</strong><p>何を作り、誰が使うかを1つに絞る</p></div></li><li><span>2</span><div><strong>候補を2つに絞る</strong><p>必要な機能と無料条件を公式情報で確認</p></div></li><li><span>3</span><div><strong>同じ作業で試す</strong><p>出力だけでなく手直し時間まで比べる</p></div></li></ol></section>
+    <section className={styles.checks}><h2>この用途で確認すること</h2><ul>{p.checks.map(c => <li key={c}>{c}</li>)}</ul>{purpose !== "writing" && <a href={`/blog/${p.guide}`}>詳しい選び方と注意点を読む</a>}</section>
+    {purpose === "ai-agents" && <section className={styles.summary}><h2>完成した製品と開発用APIは分けて選ぶ</h2><p>AIエージェントという名前だけでは、相談する製品、外部サービスを操作する製品、開発者が組み込むAPIを区別できません。誰が設定し、どこまで操作を許可し、実行前に人が承認するかを先に決めてください。</p></section>}
+    <FactCards ids={p.ids} compact />
+    <NextActions title="候補を絞ったら、次の確認へ" intro="料金、入力情報、ほかの候補を確認してから、小さな作業で試してください。" links={[{href:"/compare",label:"主要AIを比較",detail:"同じ項目で違いを見る"},{href:"/cost",label:"料金条件を確認",detail:"無料枠・税・契約周期を見る"},{href:"/safety",label:"安全に使う",detail:"入力と公開の条件を見る"},{href:"/recommend",label:"候補を確認",detail:"3つの質問から入口を絞る"}]} />
   </FactsLayout>;
 }

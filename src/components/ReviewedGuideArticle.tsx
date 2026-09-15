@@ -88,7 +88,7 @@ export default function ReviewedGuideArticle({ article, attribution }: {
       <header className={styles.hero}>
         <div className={styles.container}>
           <nav aria-label="パンくず"><a href="/blog">コラム</a><span> / {label}</span></nav>
-          <p className={styles.eyebrow}>{safety ? "AI SAFETY · 判断の根拠を知る" : search ? "AI SEARCH · 選ぶための比較" : "AI GUIDE · 変化を、使い方につなぐ"}</p>
+          <p className={styles.eyebrow}>{safety ? "安全性を判断するための根拠" : search ? "調査・検索AIを選ぶための比較" : "AIの変化を、実際の使い方につなぐ"}</p>
           <h1>{article.title}</h1>
           <p className={styles.lead}>{freeGuide ? <>まずは、ひとつの作業が終わるか。<br />無料枠と期間限定体験を分け、足りない条件を確かめます。</> : chatgpt ? <>モデル名と、契約プランは別のもの。<br />使う画面と任せたい作業から、確認する順番を整理します。</> : safety ? <>「何位か」の前に、<strong>何を守りたいか。</strong><br />回答の正確さ、入力データ、公開時の権利を分けて考えます。</> : search ? <>答えのうまさより、<strong>根拠まで戻れるか。</strong><br />調べる・確かめる・まとめる。あなたの作業に合う入口を選びます。</> : (agents || coding) ? <>どこまで任せて、どこで確かめるか。<br />作業環境と権限から、使うツールを選びます。</> : <>新しい名前を追うだけで終わらせない。<br />公式の更新内容と、自分の作業への影響を分けて読みます。</>}</p>
           <div className={styles.meta}><span>公開 <time dateTime={article.publishedAt}>{article.publishedAt}</time></span><span>内容確認 <time dateTime={article.updatedAt}>{article.updatedAt}</time></span><span>読了目安 {article.readingTime}</span></div>

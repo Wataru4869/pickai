@@ -19,7 +19,7 @@ export default function CurrentComparison({ products }: { products: CurrentProdu
     else if (selected.length < 3 && (!chosen.length || chosen[0].group === p.group)) setSelected([...selected, p.id]);
   }
   return <section id="current-comparison" className={styles.section} aria-labelledby="current-title">
-    <div className={styles.heading}><div><p className={styles.eyebrow}>CURRENT TOOL EXPLORER</p><h2 id="current-title">名前だけでなく、<br />使い方まで比べる。</h2></div><p>アプリ・API・開発ツールを分けて比較。<br />並び順は性能順位ではありません。</p></div>
+    <div className={styles.heading}><div><p className={styles.eyebrow}>掲載ツールを絞り込む</p><h2 id="current-title">種類と用途から、<br />候補を探す。</h2></div><p>アプリ・API・開発ツールを分けて比較。<br />並び順は性能順位ではありません。</p></div>
     <div className={styles.toolbar}>
       <div className={styles.filters} role="group" aria-label="比較対象の種類">
         {(["all", "chat", "api", "coding"] as const).map(g => <button key={g} type="button" aria-pressed={group === g} onClick={() => setGroup(g)}>{g === "all" ? "すべて" : labels[g]} <span>{products.filter(p => g === "all" || p.group === g).length}</span></button>)}

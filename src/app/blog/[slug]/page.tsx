@@ -379,7 +379,7 @@ export default async function BlogArticlePage({
   }
 
   return (
-    <div className="min-h-screen bg-[#fbfbfd]">
+    <div className="min-h-screen bg-[var(--bg)]">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "Article", headline: article.title,
@@ -390,14 +390,14 @@ export default async function BlogArticlePage({
       }).replace(/</g, "\\u003c") }} />
 
       {/* Article Header */}
-      <div className="bg-white py-8">
-        <div className="max-w-full sm:max-w-[680px] mx-auto px-3 sm:px-4">
+      <div className="bg-[var(--bg-section)] py-8 sm:py-12 border-b border-[var(--border-light)]">
+        <div className="max-w-[760px] mx-auto px-4 sm:px-7">
           <div className="text-[12px] text-[#86868b] mb-3">
             <a href="/blog" className="text-[#4a7ab5] hover:underline no-underline">コラム</a>
             {" > "}
             <span>{CATEGORY_LABELS[article.category] || article.category}</span>
           </div>
-          <h1 className="text-[22px] font-bold text-[#1d1d1f] leading-tight mb-4">
+          <h1 className="text-[30px] sm:text-[38px] font-bold text-[var(--text)] leading-[1.5] mb-5">
             {article.title}
           </h1>
           <div className="flex items-center gap-3 text-[12px] text-[#86868b]">
@@ -413,9 +413,9 @@ export default async function BlogArticlePage({
         </div>
       </div>
 
-      <div className="bg-white">
-        <div className="max-w-full sm:max-w-[680px] mx-auto px-3 sm:px-4">
-          <div className="mb-6 rounded border border-[#d2d2d7] bg-[#fafafa] p-3 text-[11px] leading-relaxed text-[#6e6e73]">
+      <div className="bg-white pt-6">
+        <div className="max-w-[760px] mx-auto px-4 sm:px-7">
+          <div className="mb-6 rounded-lg border border-[var(--border)] bg-[var(--warm)] p-4 text-[12px] leading-[1.8] text-[var(--text-sub)]">
             {article.updatedAt < "2026-09-01" && <p className="mb-2 font-semibold">過去記事：本文の「最新」「おすすめ」や料金・順位は当時の記述であり、現在の購入判断には使わないでください。内容の現行性は未再確認です。</p>}
             記事中のモデル名・料金・無料条件・評価は、明記がない限り最終更新日（{article.updatedAt}）時点の記録です。現在の契約条件は各社公式サイトで確認してください。独自スコアは現在性能を保証しません。
           </div>
@@ -424,7 +424,7 @@ export default async function BlogArticlePage({
 
       {showAffiliateDisclosure && (
         <div className="bg-white">
-          <div className="max-w-full sm:max-w-[680px] mx-auto px-3 sm:px-4">
+          <div className="max-w-[760px] mx-auto px-4 sm:px-7">
             <div className="mb-6 rounded border border-[#e5e5e5] bg-[#fafafa] p-3 text-[12px] leading-relaxed text-[#555]">
               <span className="font-semibold">PR：</span>
               {affiliateConfig.default_disclosure}
@@ -436,14 +436,14 @@ export default async function BlogArticlePage({
       {/* Article Sections */}
       {article.sections.map((section, i) => (
         <div key={i} className="bg-white">
-          <div className="max-w-full sm:max-w-[680px] mx-auto px-3 sm:px-4">
+          <div className="max-w-[760px] mx-auto px-4 sm:px-7">
             {i > 0 && (
-              <h2 className="text-[17px] font-semibold text-[#1d1d1f] mt-10 mb-4 pb-2 border-b border-[#f0f0f0]">
+              <h2 className="text-[23px] font-bold text-[var(--text)] mt-12 mb-5 pb-3 border-b border-[var(--border-light)] leading-[1.6]">
                 {section.heading}
               </h2>
             )}
             {i === 0 && (
-              <h2 className="text-[17px] font-semibold text-[#1d1d1f] mb-4 pb-2 border-b border-[#f0f0f0]">
+              <h2 className="text-[23px] font-bold text-[var(--text)] mb-5 pb-3 border-b border-[var(--border-light)] leading-[1.6]">
                 {section.heading}
               </h2>
             )}
@@ -454,7 +454,7 @@ export default async function BlogArticlePage({
 
       {/* Article Footer */}
       <div className="bg-white py-8">
-        <div className="max-w-full sm:max-w-[680px] mx-auto px-3 sm:px-4">
+        <div className="max-w-[760px] mx-auto px-4 sm:px-7">
           {/* Tags */}
           {article.tags.length > 0 && (
             <div className="flex items-center gap-2 flex-wrap mb-6 pt-6 border-t border-[#f0f0f0]">

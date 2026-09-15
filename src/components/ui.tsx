@@ -4,7 +4,7 @@ import { scoreColorHex } from "@/lib/data";
 
 export function SectionHeader({ title }: { title: string }) {
   return (
-    <h2 className="text-[17px] font-bold text-[#1d1d1f] pl-3 border-l-[3px] border-[#1d1d1f] mb-4">
+    <h2 className="text-[22px] sm:text-[24px] leading-[1.55] font-bold text-[var(--text)] pl-4 border-l-4 border-[var(--accent)] mb-5">
       {title}
     </h2>
   );
@@ -12,14 +12,14 @@ export function SectionHeader({ title }: { title: string }) {
 
 export function Block({ children, alt }: { children: React.ReactNode; alt?: boolean }) {
   return (
-    <div className={`${alt ? "bg-[#fafafa]" : "bg-white"} py-4`}>
-      <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">{children}</div>
-    </div>
+    <section className={`${alt ? "bg-[var(--bg-section)]" : "bg-white"} py-7 sm:py-10 border-b border-[var(--border-light)]`}>
+      <div className="max-w-[960px] mx-auto px-4 sm:px-7">{children}</div>
+    </section>
   );
 }
 
 export function Container({ children }: { children: React.ReactNode }) {
-  return <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">{children}</div>;
+  return <div className="max-w-[1120px] mx-auto px-4 sm:px-8">{children}</div>;
 }
 
 export function RankBadge({ rank }: { rank: number }) {
@@ -80,10 +80,10 @@ export function CategoryScoreBar({
 
 export function TrustBadges() {
   return (
-    <div className="flex items-center gap-2 mt-3 text-[10px]">
-      <span className="inline-flex items-center px-2 py-0.5 rounded bg-[#f5f5f7] text-[#6e6e73] border border-[#e8e8ed] font-medium">独自30テスト</span>
-      <span className="inline-flex items-center px-2 py-0.5 rounded bg-[#f5f5f7] text-[#6e6e73] border border-[#e8e8ed] font-medium">採点基準公開</span>
-      <span className="inline-flex items-center px-2 py-0.5 rounded bg-[#f5f5f7] text-[#6e6e73] border border-[#e8e8ed] font-medium">2026.03測定</span>
+    <div className="flex flex-wrap items-center gap-2 mt-4 text-[11px]">
+      <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-[var(--accent-pale)] text-[var(--accent)] border border-[var(--border)] font-medium">過去の独自30テスト</span>
+      <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-white text-[var(--text-sub)] border border-[var(--border)] font-medium">採点基準を公開</span>
+      <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-[var(--warm)] text-[var(--text-sub)] border border-[#e3d9c7] font-medium">2026年3月時点の履歴</span>
     </div>
   );
 }
@@ -131,44 +131,46 @@ export function ShareButton({ text }: { text: string }) {
 export function Footer() {
   const groups: { heading: string; links: { href: string; label: string }[] }[] = [
     {
-      heading: "比較・診断",
+      heading: "AIを選ぶ",
       links: [
-        { href: "/", label: "ツール・モデル比較" },
-        { href: "/recommend", label: "おすすめ診断" },
+        { href: "/categories", label: "用途から探す" },
+        { href: "/recommend", label: "おすすめ候補を確認" },
+        { href: "/compare", label: "AI同士を比較" },
         { href: "/switch", label: "乗り換えガイド" },
         { href: "/cost", label: "料金確認ガイド" },
       ],
     },
     {
-      heading: "カテゴリ",
+      heading: "目的から探す",
       links: [
-        { href: "/categories", label: "全カテゴリ" },
+        { href: "/categories/writing", label: "文章・資料" },
+        { href: "/categories/ai-search", label: "調査・検索" },
         { href: "/categories/coding-tools", label: "コーディング" },
-        { href: "/categories/ai-search", label: "AI検索" },
         { href: "/categories/image-generation", label: "画像生成" },
+        { href: "/categories/video-generation", label: "動画生成" },
       ],
     },
     {
-      heading: "サイト情報",
+      heading: "信頼情報",
       links: [
-        { href: "/methodology", label: "評価方法論" },
-        { href: "/safety", label: "安全性比較" },
+        { href: "/methodology", label: "評価方法と更新方針" },
+        { href: "/safety", label: "安全に使うための確認" },
         { href: "/faq", label: "FAQ" },
         { href: "/blog", label: "コラム" },
       ],
     },
   ];
   return (
-    <footer className="border-t border-[#f0f0f0] bg-[#fafafa] py-8 text-[11px] text-[#999999]">
+    <footer className="border-t border-[var(--border-light)] bg-[#f2f5f2] py-10 text-[12px] text-[var(--text-light)]">
       <Container>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
           {groups.map((g) => (
             <div key={g.heading}>
-              <div className="text-[11px] font-semibold text-[#666666] mb-2">{g.heading}</div>
-              <ul className="space-y-1.5 list-none p-0 m-0">
+              <div className="text-[13px] font-bold text-[var(--text)] mb-3">{g.heading}</div>
+              <ul className="space-y-1 list-none p-0 m-0">
                 {g.links.map((l) => (
                   <li key={l.href}>
-                    <a href={l.href} className="text-[#999999] hover:text-[#333333] no-underline">
+                    <a href={l.href} className="inline-flex items-center min-h-10 text-[var(--text-sub)] hover:text-[var(--accent)] no-underline">
                       {l.label}
                     </a>
                   </li>
@@ -177,12 +179,12 @@ export function Footer() {
             </div>
           ))}
         </div>
-        <div className="mt-6 pt-4 border-t border-[#e8e8ed] flex items-center gap-4 flex-wrap text-[10px]">
-          <span className="font-medium text-[12px] text-[#666666]">AI選び</span>
+        <div className="mt-8 pt-5 border-t border-[var(--border)] flex items-center gap-4 flex-wrap text-[11px]">
+          <span className="font-bold text-[14px] text-[var(--text)]">AI選び</span>
           <span>© 2026 AI選び</span>
-          <a href="/privacy" className="text-[#999999] hover:text-[#666666] no-underline">プライバシーポリシー</a>
-          <a href="/about" className="text-[#999999] hover:text-[#666666] no-underline">運営者情報</a>
-          <span className="ml-auto text-[#999999]">評価履歴: 2026.03</span>
+          <a href="/privacy" className="text-[var(--text-sub)] hover:text-[var(--accent)] no-underline">プライバシーポリシー</a>
+          <a href="/about" className="text-[var(--text-sub)] hover:text-[var(--accent)] no-underline">運営者情報</a>
+          <span className="ml-auto">過去の評価：2026年3月時点</span>
         </div>
       </Container>
     </footer>

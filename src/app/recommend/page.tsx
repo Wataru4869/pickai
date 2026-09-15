@@ -67,12 +67,13 @@ export default function RecommendPage() {
     <div className="min-h-screen bg-white">
       <Header />
 
-      <div className="bg-white border-b border-[#e8e8ed] py-6">
-        <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
-          <h1 className="text-[20px] font-bold mb-1">
+      <div className="bg-[var(--bg-section)] border-b border-[var(--border-light)] py-8 sm:py-10">
+        <div className="max-w-[960px] mx-auto px-4 sm:px-7">
+          <p className="text-[12px] font-bold text-[var(--accent)] mb-2">迷っている人向け</p>
+          <h1 className="text-[30px] sm:text-[38px] leading-[1.45] font-bold mb-2">
             用途に合うAI候補を絞る
           </h1>
-          <p className="text-[12px] text-[#6e6e73]">
+          <p className="text-[15px] leading-[1.8] text-[var(--text-sub)] max-w-[720px]">
             3つの質問から、保存済みの選定ルールに沿って候補とプロンプト例を表示します。現在の性能や料金を保証する診断ではありません。
           </p>
           <TrustBadges />
@@ -80,7 +81,7 @@ export default function RecommendPage() {
       </div>
 
       <div className="bg-white border-b border-[#d2d2d7]">
-        <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4 py-2">
+        <div className="max-w-[960px] mx-auto px-4 sm:px-7 py-3">
           <div className="flex items-center gap-1">
             {steps.map((s, i) => {
               const isActive = s.key === step;
@@ -128,9 +129,9 @@ export default function RecommendPage() {
                   setSelectedRole(role.id);
                   setStep("useCase");
                 }}
-                className="flex items-center gap-2 p-3 border border-[#d2d2d7] rounded hover:border-[#1d1d1f] hover:bg-[#f5f5f7] transition-colors text-left cursor-pointer bg-white"
+              className="flex items-center gap-3 min-h-14 p-4 border border-[var(--border)] rounded-lg hover:border-[var(--accent)] hover:bg-[var(--accent-pale)] transition-colors text-left cursor-pointer bg-white"
               >
-                <span className="text-[12px] font-bold">{role.label}</span>
+                <span className="text-[15px] font-bold">{role.label}</span>
               </button>
             ))}
           </div>
@@ -157,9 +158,9 @@ export default function RecommendPage() {
                   setSelectedUseCase(uc.id);
                   setStep("budget");
                 }}
-                className="flex items-center gap-2 p-3 border border-[#d2d2d7] rounded hover:border-[#1d1d1f] hover:bg-[#f5f5f7] transition-colors text-left cursor-pointer bg-white"
+                className="flex items-center gap-3 min-h-14 p-4 border border-[var(--border)] rounded-lg hover:border-[var(--accent)] hover:bg-[var(--accent-pale)] transition-colors text-left cursor-pointer bg-white"
               >
-                <span className="text-[12px] font-bold">{uc.label}</span>
+                <span className="text-[15px] font-bold">{uc.label}</span>
               </button>
             ))}
           </div>
@@ -186,9 +187,9 @@ export default function RecommendPage() {
                   setSelectedBudget(b.id);
                   setStep("result");
                 }}
-                className="w-full flex items-center justify-between p-3 border border-[#d2d2d7] rounded hover:border-[#1d1d1f] hover:bg-[#f5f5f7] transition-colors text-left cursor-pointer bg-white"
+                className="w-full min-h-14 flex items-center justify-between p-4 border border-[var(--border)] rounded-lg hover:border-[var(--accent)] hover:bg-[var(--accent-pale)] transition-colors text-left cursor-pointer bg-white"
               >
-                <span className="text-[13px] font-bold">{b.label}</span>
+                <span className="text-[15px] font-bold">{b.label}</span>
                 <span className="text-[11px] text-[#86868b]">
                   {b.priceMax === 0
                     ? "¥0"
