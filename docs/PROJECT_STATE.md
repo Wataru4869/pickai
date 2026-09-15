@@ -1,12 +1,14 @@
 # PROJECT STATE
 
-## 現行サマリー — 2026-09-16 Model Detail Use-case Table RC
+## 現行サマリー — 2026-09-16 Model Detail Use-case Table Production
 
 - 25サービスすべての `/model/[id]` に、サービス固有の利用シーンを各3件、合計75件追加した。各例は「こんなとき／用意するもの／AIに任せる範囲／得られるもの／人が確認すること」の5列で、入力から確認までを同じ粒度で比較できる。
 - desktopは日本の比較サービスに近い高密度な早見表、760px以下は3枚の縦カードへ変換する。深緑を見出し、淡い緑を用途、淡い橙を人の確認に限定し、派手なAI風装飾や外部ロゴ素材は追加していない。
 - 利用シーンは性能実測・成果保証ではない編集例と明示。Current Facts、公式source、料金・無料条件、3月の独自スコアは変更せず、未確認機能や順位を追加していない。
 - ChatGPT詳細をクリーンなproduction buildで実画面確認。初回はdev/build同時実行で `.next` chunk競合を検出したため生成物を退避し、クリーンbuild後にsitemap全100 URLを再巡回して400以上0件を確認した。
-- `npm run check`成功（79 sources / 122 static pages）、`git diff --check`成功。sitemapは100 URL／model 25件／ブログ47件。affiliate active 0 / URL 0。branch RCのみで未push・未deploy。
+- `npm run check`成功（79 sources / 122 static pages）、`git diff --check`成功。実装 `5cde5ca`、文書 `0bd4209` を作業branchへpushした。
+- Preview `AJfoNLPBjpeKAkkcxixVYqnQD61o` がReadyであることを確認し、人間の明示承認により既存Vercel Productionへ昇格。Production deployment `HFNYzJjzoejCrcXinnJRWQewCrZp` はReady。環境変数・DNS・mainは変更していない。
+- 本番sitemapは100 URL／model 25件／ブログ47件。全100 URLは400以上0件。代表7詳細で利用シーン表・人の確認欄・canonicalを確認。裸ドメインはwwwへ308。affiliate active 0 / URL 0、SNS投稿なし。
 
 ## 現行サマリー — 2026-09-16 Logo / Card / Sidebar refinement Production
 

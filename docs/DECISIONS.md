@@ -368,3 +368,10 @@ GSCの/safetyとChatGPTモデル比較はpage単位でposition6〜20の範囲。
 - desktopは一覧性を優先して表、760px以下は横スクロールへ逃がさず1シーン1カードに変換する。日本語の可読性と比較サービスとしての情報密度を優先し、イラストのための外部assetや装飾過多は追加しない。
 - 利用シーンは編集上の試し方であり、対応機能・性能・成果の事実主張ではない。公式機能と料金は既存Current Factsを正本にし、利用例から未確認機能を昇格させない。
 - Revenue Impactは間接2、Time to Learningは公開後数日〜28日、Cost 0円、EvidenceはUI/route QA E2・滞在/SEO/CV効果E0、Risk低〜中。push、Preview、Productionは別判断とする。
+
+## D45 — Model Detail Use-case TableをProductionへ昇格する（2026-09-16）
+
+- 人間の明示承認を受け、commit `0bd4209` のReadyなPreview `AJfoNLPBjpeKAkkcxixVYqnQD61o` を既存Vercel Productionへ昇格した。Production deploymentは `HFNYzJjzoejCrcXinnJRWQewCrZp`。
+- 既存ドメイン・環境変数・DNSを変更せず、main merge、SNS投稿、affiliate申請・有効化、課金、credential操作を行わない。
+- 本番sitemap 100 URLを巡回して400以上0件。代表7詳細で新しい早見表、canonical、Current/Historical分離を確認し、affiliate active 0 / URL 0を維持した。
+- 利用シーン表の公開はSEO・滞在・CV改善の実績ではない。2026-09-16 08:05 JSTを境界に、詳細landingと内部遷移を旧期間と分けて評価する。

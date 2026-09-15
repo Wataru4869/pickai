@@ -1,10 +1,10 @@
 # NEXT TASKS
 
-## 現行優先キュー — 2026-09-16 Model Detail Use-case Table RC後
+## 現行優先キュー — 2026-09-16 Model Detail Use-case Table Production後
 
-1. **25詳細ページをPreviewへ渡す** — desktopでは5列早見表、390px/320pxでは3枚のカード表示を代表7ページで人間確認。完了条件: 読み順、文字切れ、横あふれ、5項目の対応関係にrelease blockerがない。push / Productionは別承認。
-2. **公開する場合はindex境界を記録** — sitemap 100 URL／model 25件を基準にcanonical・noindex・404を本番再確認。完了条件: 100 URL 200、canonical欠損0。利用シーン追加をSEO・滞在改善の実績とは扱わない。
-3. **詳細ページの実測を観測** — landing、engagement、`internal_cta_click` のsource/destinationで、詳細から比較・カテゴリ・料金へ進む割合を確認。未取得はunknown。
+1. **詳細ページの実測を観測** — 2026-09-16 08:05 JSTを公開境界にlanding、engagement、`internal_cta_click` のsource/destinationを確認。詳細から比較・カテゴリ・料金へ進む割合を旧期間と混ぜず記録し、未取得はunknown。
+2. **Search Consoleのindex推移を確認** — sitemap 100 URL／model 25件を基準に、新20 URLの検出・index・canonicalを観測。公開完了を順位・滞在改善の証拠にしない。
+3. **実機mobileを補足確認** — 390px/320pxで利用シーンが横表ではなく3枚のカードとなり、文字切れ・横あふれがないことを確認。blocker時だけ局所修正。
 4. **A8 3案件の状態変化待ち** — 最初に承認された1件だけ条件確認へ進める。詳細ページへ無関係な広告CTAを接続しない。
 5. **最初の承認案件1件の最小収益テスト** — `@AI_erabi`、掲載host、PR、広告URL仕様を再確認し、対象ページ・有効化・本番・Distributionを別々に人間判断する。
 
