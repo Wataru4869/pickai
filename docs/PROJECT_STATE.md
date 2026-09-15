@@ -1,5 +1,14 @@
 # PROJECT STATE
 
+## 現行サマリー — 2026-09-15 全面UX/UI RC本番反映
+
+- 人間の明示承認により、Preview `BBwNktAaXncBcCB1NkJdJtwcE9Hu`（commit `399de3c`）をVercelのPromote to Productionで昇格。Production deploymentは `FDMbSRzaPmG143qBHp3i93NrksXS`、2026-09-15 14:18:32 JST、Ready。
+- 既存のProduction環境・ドメイン・環境変数・DNSは変更していない。main merge、SNS投稿、affiliate有効化、追加申請、課金、credential操作なし。
+- 本番sitemap 70 URLを巡回し全件200。ブログ37件、重複0、lastmod 0。`aierabi.jp` → `www.aierabi.jp` は308。主要10ページのcanonical、新トップ文言、favicon、`/categories/writing`を確認。
+- affiliate active 0 / URL 0。本番HTMLのaffiliate系外部URL 0。`/go/dmm-generative-ai-camp`は200の保留画面でLocationなし。
+- x-exp-01のUTM付き `/recommend` は200でqueryを保持。投稿・UTM・CTA・計測コードは不変だが、14:18:32 JST以降はサイトUIが変わったため、前後データを同一条件として混ぜない。
+- 現在の最大ボトルネックは承認済みaffiliate案件0件。UX改善によるCTR/CV効果は未計測で、売上実績とは扱わない。
+
 ## 現行サマリー — 2026-09-15 全面UX/UI・情報設計RC
 
 - branch上で、初訪問者が `用途 → 候補 → 比較 → 料金・注意点 → 試す` の順で進める日本語AI選択サービスへ改修。ナビを「はじめる / 比較する / 目的から探す / 知る / 信頼情報」に再編した。

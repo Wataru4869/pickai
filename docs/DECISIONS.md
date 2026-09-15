@@ -1,5 +1,12 @@
 # DECISIONS
 
+## D33 — 全面UX/UI RCをProductionへ昇格（2026-09-15）
+
+- 人間がPreviewへ入れない状況を確認後、「一旦もう反映していい」と明示承認。commit `399de3c` のReadyなPreviewをVercelのPromote to Productionで昇格した。
+- Production deployment `FDMbSRzaPmG143qBHp3i93NrksXS` は2026-09-15 14:18:32 JSTにReady。本番70 URL、主要canonical、www 308、favicon、sitemap 70/ブログ37、affiliate active0/URL0、x-exp-01 UTM 200を確認。
+- 環境変数、DNS、ドメイン構成、main、SNS、affiliate設定は変更していない。公開後の実測がないためRevenue ImpactはE0の仮説のまま。
+- 投稿・UTM・CTA・計測コードは変えていないが、UIは変化した。したがって同時刻を実験境界とし、前後の下流行動を同一条件として集計しない。
+
 ## D32 — サイト機能ではなく利用者の判断順序で全面再編（2026-09-15）
 
 - ユーザーの明示指示により、局所改善ではなくトップ・ナビ・用途・個別・比較・料金・記事表示を共通IAへ再構成する。主導線は `用途 → 候補 → 比較 → 料金・注意点 → 実作業で確認`。
