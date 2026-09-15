@@ -1,0 +1,45 @@
+{
+  "slug": "ai-training-retention-review-2026",
+  "title": "生成AIの「学習しない」は安全？保存・人の確認との違い",
+  "description": "モデル学習、会話保存、人による確認、メモリ、共有、接続アプリは別の設定です。ChatGPT・Claude・Geminiの公式説明を基に確認点を整理します。",
+  "publishedAt": "2026-09-16",
+  "updatedAt": "2026-09-16",
+  "category": "guide",
+  "tags": ["AI安全", "プライバシー", "学習オプトアウト", "データ保存", "ChatGPT安全性"],
+  "readingTime": "9分",
+  "sections": [
+    {
+      "heading": "結論：「学習しない」は、保存も閲覧も送信もゼロという意味ではない",
+      "content": "生成AIのデータ条件は、少なくともモデル改善への利用、サービス提供のための保存、安全対策での確認、会話履歴・メモリ、共有リンク、接続アプリへの送信に分けて確認します。1つの設定をオフにしても、他の扱いが自動的に変わるとは限りません。\n\n安全性をサービス名だけで決めず、個人向けか法人向けか、WebアプリかAPIか、どの機能を使うかまで特定します。"
+    },
+    {
+      "heading": "混同しやすい6項目",
+      "content": "| 項目 | 確認する質問 |\n| --- | --- |\n| モデル改善 | 入力と出力を将来のモデル改善に使うか |\n| 保存 | 会話やファイルをどこに何日保持するか |\n| 人による確認 | 品質・安全・フィードバック対応で誰が見得るか |\n| 履歴・メモリ | 次の会話や個人設定に内容が残るか |\n| 共有 | URL、共同スペース、管理者から誰が見られるか |\n| 接続アプリ | メール、Drive、外部Actionなど別サービスへ何を送るか |\n\n「暗号化」「認証取得」「学習不使用」も、それぞれ別の保護策です。どれか1つで、入力内容の適切性や契約上の権限まで保証されるわけではありません。"
+    },
+    {
+      "heading": "ChatGPTで確認する場所",
+      "content": "OpenAIのData Controlsでは、個人向けChatGPTで「Improve the model for everyone」をオフにすると、新しい会話をモデル改善に使わないと説明しています。履歴は残せます。Temporary Chatはモデル改善に使われず、履歴やメモリを作りませんが、安全目的でコピーを最大30日保持し得ます。\n\nChatGPT Business、Enterprise、Edu、APIは、入力・出力をデフォルトでモデル改善に使わないと公式に説明されています。共有リンク、接続アプリ、組織管理者の権限は別に確認します。\n\n[OpenAI：Data Controls FAQ](https://help.openai.com/en/articles/7730893-how-can-i-trust-the-answers-provided-by-chatgpt)\n[OpenAI：Temporary Chat FAQ](https://help.openai.com/en/articles/8914046-temporary-chat-faq)\n[OpenAI：Businessのデータ管理](https://help.openai.com/en/articles/8798634)"
+    },
+    {
+      "heading": "Claudeで確認する場所",
+      "content": "Anthropicは、Claude Free・Pro・Maxなどの消費者向け製品と、Claude for Work・APIなどの商用製品を分けて案内しています。消費者向けでは、ユーザーが許可した場合に会話やClaude Codeのセッションを改善へ利用し得ます。削除した消費者向け会話は履歴から直ちに消え、通常30日以内にバックエンドから削除されると説明されています。\n\n商用製品の入力・出力はデフォルトでモデル学習に使わないという説明がありますが、保持期間、例外、対象モデル、契約ごとの条件は別に確認します。\n\n[Anthropic：モデル学習での個人データ利用](https://privacy.claude.com/en/articles/7996885-how-do-you-use-personal-data-in-model-training)\n[Anthropic：Claudeへ送ったデータの削除](https://privacy.claude.com/en/articles/7996878-can-you-delete-data-sent-via-claude)"
+    },
+    {
+      "heading": "Geminiで確認する場所",
+      "content": "Gemini Appsでは、Keep Activityがオンの場合、会話や共有したファイル等が保存され、サービス改善や生成AIモデルの学習に使われ得ると案内されています。一部は人による確認の対象になり、確認されたデータはアカウントから切り離された状態で最大3年保持される場合があります。\n\nKeep Activityをオフにした将来の会話は、フィードバックを送らない限りAIモデルの学習に使われませんが、応答と安全確保のため72時間保存されます。他のGoogleサービスに保存されたデータや公開リンクは別に管理します。\n\n[Google：Gemini Apps Privacy Hub](https://support.google.com/gemini/answer/13594961)\n[Google：Gemini Apps Activityの管理](https://support.google.com/gemini/answer/13278892)"
+    },
+    {
+      "heading": "契約前に比較するチェック欄",
+      "content": "- 対象は個人プラン、法人プラン、APIのどれか\n- モデル改善は初期状態でオンかオフか\n- 会話・ファイル・ログの標準保持期間\n- 安全対策、違反調査、法的義務による例外\n- 人による確認と、フィードバック送信時の扱い\n- 削除操作の対象と、バックエンド削除までの期間\n- 共有リンク、管理者、接続アプリ、外部Actionの範囲\n- データ処理地域や追加契約が必要か\n\n確認日：2026-09-16。公式ページは更新されます。この記事の比較を契約条件の代わりにせず、利用直前に対象プランの表示と規約を確認してください。"
+    }
+  ],
+  "cta": {
+    "type": "internal",
+    "title": "設定だけでなく、入力内容も確認する",
+    "description": "学習設定を確認した後も、個人情報や機密情報をそのまま送らない判断が必要です。",
+    "links": [
+      {"label": "入力してはいけない情報を見る", "url": "/blog/ai-what-not-to-enter-2026", "ctaPosition": "training-retention-input"},
+      {"label": "用途別の線引きを見る", "url": "/blog/ai-privacy-by-usecase-2026", "ctaPosition": "training-retention-usecase"}
+    ]
+  }
+}

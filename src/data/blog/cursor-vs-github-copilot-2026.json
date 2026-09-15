@@ -39,7 +39,7 @@
     "description": "エディタ、GitHub、エージェントのどこを変えたいかから選びます。",
     "links": [
       {"label": "AIコーディングツールの選び方", "url": "/categories/coding-tools", "ctaType": "compare", "ctaPosition": "article_end"},
-      {"label": "Cursorの現在情報", "url": "/model/cursor", "ctaType": "official", "ctaPosition": "article_end"}
+      {"label": "開発支援AIを用途から見る", "url": "/categories/coding-tools", "ctaType": "compare", "ctaPosition": "article_end"}
     ]
   }
 }

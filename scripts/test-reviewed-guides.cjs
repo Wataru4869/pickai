@@ -28,7 +28,7 @@ assert.equal(config.services.filter(s=>s.status==='active').length,0);
 assert.equal(config.services.filter(s=>s.affiliate_url).length,0);
 console.log('Passed: HTML escaping, official-host boundary, scheme/userinfo/port rejection, historical scores unchanged, affiliate active 0 / URLs 0.');
 
-for (const slug of ['ai-search-engines-comparison-2026','ai-safety-ranking-2026','ai-agents-comparison-2026','ai-tools-2026-trends','ai-coding-tools-2026','grok-review-2026','cursor-projects-2026','copilot-model-retirement-2026-09','chatgpt-models-comparison-2026','ai-free-tier-comparison-2026','chatgpt-vs-perplexity-2026','cursor-vs-github-copilot-2026','cursor-vs-windsurf-2026','heygen-vs-synthesia-2026','runway-vs-pika-2026','midjourney-vs-adobe-firefly-2026']) {
+for (const slug of ['ai-search-engines-comparison-2026','ai-safety-ranking-2026','ai-agents-comparison-2026','ai-tools-2026-trends','ai-coding-tools-2026','grok-review-2026','cursor-projects-2026','copilot-model-retirement-2026-09','chatgpt-models-comparison-2026','ai-free-tier-comparison-2026','chatgpt-vs-perplexity-2026','cursor-vs-github-copilot-2026','cursor-vs-windsurf-2026','heygen-vs-synthesia-2026','runway-vs-pika-2026','midjourney-vs-adobe-firefly-2026','ai-privacy-by-usecase-2026','ai-what-not-to-enter-2026','ai-data-entered-response-2026','ai-training-retention-review-2026','ai-business-security-checklist-2026','ai-safety-mythos-2026']) {
   const guide=JSON.parse(fs.readFileSync(path+'src/data/blog/'+slug+'.json'));
   assert.equal(guide.cta.type,'internal');
   assert.equal(guide.cta.links.length,2);
@@ -45,6 +45,12 @@ for (const slug of ['ai-search-engines-comparison-2026','ai-safety-ranking-2026'
   for(const match of rendered.matchAll(/href="#([^"]+)"/g)) assert.ok(rendered.includes(`id="${match[1]}"`),slug+' missing anchor');
   const external=guide.sections.flatMap(s=>[...s.content.matchAll(/\[[^\]]+\]\((https:\/\/[^\s)]+)\)/g)]).map(m=>m[1]);
   for(const url of external) assert.ok(rendered.includes('href="'+new URL(url).href+'"'),slug+' source not linked: '+url);
+}
+for (const slug of ['ai-privacy-by-usecase-2026','ai-what-not-to-enter-2026','ai-data-entered-response-2026','ai-training-retention-review-2026','ai-business-security-checklist-2026','ai-safety-mythos-2026']) {
+  const guide=JSON.parse(fs.readFileSync(path+'src/data/blog/'+slug+'.json'));
+  assert.equal(guide.updatedAt,'2026-09-16');
+  const text=guide.title+guide.description+guide.sections.map(section=>section.content).join('\n');
+  for (const unsafe of ['漏洩するリスクをゼロ','最も安全なのはClaude','月額25ドル/約3,750円','Claudeが93.7点で1位']) assert.equal(text.includes(unsafe),false,slug+' retained unsafe legacy claim');
 }
 const grok=JSON.parse(fs.readFileSync(path+'src/data/blog/grok-review-2026.json'));
 assert.equal(grok.updatedAt,'2026-09-13');

@@ -15,6 +15,7 @@ const sourceHosts = new Set([
   "devin.ai", "cursor.com", "github.com", "github.blog", "learn.chatgpt.com",
   "www.heygen.com", "www.synthesia.io", "help.runwayml.com", "docs.dev.runwayml.com",
   "pika.art", "docs.midjourney.com", "www.adobe.com",
+  "privacy.claude.com", "www.anthropic.com", "www.ppc.go.jp", "www.meti.go.jp",
 ]);
 
 function inline(text: string): ReactNode[] {
@@ -52,7 +53,7 @@ export default function ReviewedGuideArticle({ article, attribution }: {
   article: BlogArticle;
   attribution: { postId?: string; campaignId?: string };
 }) {
-  const safety = article.slug === "ai-safety-ranking-2026";
+  const safety = article.slug === "ai-safety-ranking-2026" || article.tags.some(tag => ["AI安全", "AI安全性", "プライバシー", "情報漏洩対策"].includes(tag));
   const search = article.slug === "ai-search-engines-comparison-2026";
   const agents = article.slug === "ai-agents-comparison-2026";
   const coding = article.slug === "ai-coding-tools-2026";
@@ -69,7 +70,7 @@ export default function ReviewedGuideArticle({ article, attribution }: {
     : comparison ? article.description
     : "モデルの更新は、公式発表の内容と自分の作業への影響を分けて確認します。APIと個人向けアプリの提供条件、メーカーの説明と独自の実測評価を混同しないことが大切です。";
   const sourceIndex = article.sections.findLastIndex(section => /公式情報|出典/.test(section.heading));
-  const label = freeGuide ? "無料AIの選び方" : chatgpt ? "ChatGPTのモデル・プラン" : grok ? "Grokの利用ガイド" : safety ? "AI安全性の確認ガイド" : search ? "AI検索の比較ガイド" : agents ? "AIエージェントの選び方" : coding ? "開発支援の選び方" : comparison ? "AIツール比較" : "AIモデルの更新を読む";
+  const label = freeGuide ? "無料AIの選び方" : chatgpt ? "ChatGPTのモデル・プラン" : grok ? "Grokの利用ガイド" : safety ? "AIを安全に使うためのガイド" : search ? "AI検索の比較ガイド" : agents ? "AIエージェントの選び方" : coding ? "開発支援の選び方" : comparison ? "AIツール比較" : "AIモデルの更新を読む";
   const choices = safety ? [
     { label: "回答の誤りが心配", name: "原文で確かめる", text: "出典の有無だけでなく、主張と原文が一致しているか。同じ質問で比較する手順を整理します。" },
     { label: "社内資料を扱いたい", name: "入力先を確かめる", text: "モデル名ではなく、プラン・保存・学習利用・共有範囲を確認します。" },
@@ -80,9 +81,9 @@ export default function ReviewedGuideArticle({ article, attribution }: {
     { label: "X上の話題を確認したい", name: "Grok", text: "公開投稿を調べる入口に。投稿の拡散と、事実の裏付けは分けて確認する。" },
   ];
   const decisionRoutes = safety ? [
-    { href: "/compare", label: "主要AIを比較", detail: "機能・料金・提供条件を同じ順で確認" },
-    { href: "/recommend", label: "用途から候補を絞る", detail: "3つの質問から確認の入口へ" },
-    { href: "/methodology", label: "評価方法を見る", detail: "現在情報と過去の検証を区別" },
+    { href: "/safety", label: "安全性の悩みから探す", detail: "入力・設定・会社利用・回答確認を整理" },
+    { href: "/blog/ai-what-not-to-enter-2026", label: "入力してはいけない情報", detail: "そのまま使う・加工する・入力しないを判断" },
+    { href: "/blog/ai-data-entered-response-2026", label: "入力後の対処を確認", detail: "削除・共有解除・秘密情報の失効を順に確認" },
   ] : (search || grok || article.slug.includes("perplexity")) ? [
     { href: "/categories/ai-search", label: "調査・検索AIを探す", detail: "出典確認を含む候補を見る" },
     { href: "/compare/chatgpt-vs-perplexity", label: "2つを比較する", detail: "検索と文章化の違いを確認" },
