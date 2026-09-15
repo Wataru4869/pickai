@@ -8,7 +8,7 @@
 - model / compare / safety / 用途ページに可視パンくずと `BreadcrumbList` schemaを追加。比較詳細の最初の次行動は、無関係な検索AI記事ではなく比較選択画面へ戻すよう訂正した。
 - 主要modelページの上部CTAを汎用 `/compare` だけにせず、ChatGPT↔Claude、ChatGPT↔Gemini、ChatGPT↔Grok、ChatGPT↔Perplexityの既存比較へ直接進めるようにした。別候補を選ぶ入口も残し、人気・勝敗の主張は追加していない。
 - `npm run check` 成功（79 sources / 98 pages）、sitemap 76 URL・lastmod 0。ローカルproduction buildの全76 URLは200。`git diff --check` 成功。affiliate active 0 / URL 0、ランキング・Current Facts・`/recommend`・UTM・X queueは変更していない。
-- SEO/CV効果は未計測。前段の累積8 commitsは `work/aierabi-revenue-engine` へpush済み。model直通比較の追加差分はlocalでcheck済み・未push。Vercel Previewの生成・表示状態はブラウザ権限で確認できずunknown。本番未deploy。最大Revenueボトルネックは承認済みaffiliate案件0件のまま。
+- SEO/CV効果は未計測。model直通比較を含むcommit `eb3ed21` まで `work/aierabi-revenue-engine` へpush済み。Vercel Previewの生成・表示状態はブラウザ権限で確認できずunknown。本番未deploy。最大Revenueボトルネックは承認済みaffiliate案件0件のまま。
 
 ## 現行サマリー — 2026-09-15 Analytics改善RC（branchのみ）
 
