@@ -1,14 +1,23 @@
 # PROJECT STATE
 
+## 現行サマリー — 2026-09-16 安全性コンテンツ Production
+
+- 人間の明示承認により、Preview `2sJys8uwgFE2bqTApoF2ZCTBHwjD`（source commit `1cd9e41`）を既存Vercel構成のままProductionへ昇格した。Production deploymentは `6pjgVamH71GspwiGXkRvhGtKrkDm`、2026-09-16 01:38:21 JST開始、43秒でReady。
+- 本番の `/safety` と安全性6記事はすべて200。安全性ハブの6つの悩み別入口、公式根拠、最終確認日、Current/Historical分離を実画面で確認した。`aierabi.jp` は `www.aierabi.jp` へ308。
+- 本番sitemapは80 URL／ブログ47件／重複0／lastmod 0。全80 URLと内部リンク93件は400以上0件。主要ページのcanonical、favicon、production GA tagを確認した。
+- affiliate設定はactive 0 / URL 0。本番HTMLの外部affiliate URLも0件。`/go/dmm-generative-ai-camp` は200の保留画面で外部redirectなし。
+- main merge、SNS投稿、affiliate申請・有効化、課金、credential、環境変数、DNSは変更していない。SEO・内部遷移・CV・売上効果は未実測で、公開完了を成果値として扱わない。
+- 次は安全性clusterのquery/page/内部遷移を公開前期間と分けて観測する。初売上の最大ボトルネックは承認済みaffiliate案件0件のまま。
+
 ## 現行サマリー — 2026-09-16 安全性コンテンツRC
 
 - GSC実測で `/safety` 42 clicks / 702 impressions / 平均8.0位、安全性記事19 / 178 / 5.3位の既存需要があるため、安全性を悩み別の中核クラスターへ拡張した。
 - `/safety` に入力禁止、誤入力後、学習・保存、会社利用、用途別、回答確認の6入口を追加。新規4記事、既存2記事の全面再確認、共通rendererと内部導線を実装した。
 - 旧記事の古い料金、リスクゼロ、無料版で十分、特定AIが最も安全、3月スコアを現在推奨に使う表現を除去。Mythos記事は公式時系列へ訂正した。
 - `npm run check`成功（79 sources / 102 pages）。sitemap 80 URL／ブログ47件／重複0／lastmod 0。390px・320pxで安全性7画面の全体横あふれ0。表は局所スクロール。
-- 全URL・内部リンク巡回で既存 `/model/cursor` 404を1件発見し、実在するcoding categoryへ訂正。修正後の再巡回待ち。
+- 全URL・内部リンク巡回で既存 `/model/cursor` 404を1件発見し、実在するcoding categoryへ訂正。Production再巡回でも400以上0件を確認した。
 - affiliate active 0 / URL 0。新記事は内部CTAのみ。通常AI Distributionは `@AI_erabi`。公開・SEO・CV効果は未実測。
-- ユーザーは今回RCのサイト本番反映を明示承認。check・再巡回・2commitは完了したが、作業branchへのpushが過去のpush禁止指示との競合として安全審査で停止した。feature branch pushの再承認後、Preview/Production確認へ進む。main、SNS、affiliate、課金、credential、環境・DNSは変更しない。
+- ユーザーの再承認後にfeature branchへpushし、Preview確認とProduction昇格を完了した。main、SNS、affiliate、課金、credential、環境・DNSは変更していない。
 
 ## 現行サマリー — 2026-09-16 SEO流入→判断導線 Production
 

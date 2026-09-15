@@ -325,3 +325,10 @@ GSCの/safetyとChatGPTモデル比較はpage単位でposition6〜20の範囲。
 - 今回は記事数を増やさず、再確認済み記事の冒頭から用途・具体比較・料金へ進む経路、ブログ一覧の用途入口、トップの具体的比較相手、パンくずschemaを整える。過去記事は削除せずCurrentと分ける。
 - 内部遷移は既存の許可形式だけを送る `internal_cta_click` を再利用し、新しい分析基盤を増やさない。SEO/CV改善はE0仮説で、公開後のpage/queryと内部遷移がE2になってから次の制作を決める。
 - Current Facts、歴史スコア、ランキング、affiliate、`/recommend`、UTM、X queueは変更しない。Revenue Impact 2 / Time to Learning 公開後数日 / Cost 0円 / Evidence GSCページ実測E2・改善効果E0 / Risk低〜中。
+
+## D39 — 安全性コンテンツRCをProductionへ昇格する（2026-09-16）
+
+- 人間の明示承認を受け、source commit `1cd9e41` のReadyなPreview `2sJys8uwgFE2bqTApoF2ZCTBHwjD` を既存Vercel Productionへ昇格した。Production deploymentは `6pjgVamH71GspwiGXkRvhGtKrkDm`。
+- 既存ドメイン・環境変数・DNSを変更せず、main merge、SNS投稿、affiliate申請・有効化、課金、credential操作を行わない。
+- 公開後確認は安全性ハブと6記事、canonical、favicon、www redirect、sitemap、内部リンク、affiliate無効状態に限定した。sitemap 80 URL／ブログ47件、全80 URLと内部リンク93件は400以上0件。
+- 安全性clusterは既存GSC需要に応える仮説であり、公開をSEO・内部遷移・CV・売上改善の実績とは扱わない。公開前後を分け、28日を暫定観測枠に次の1テーマを判断する。

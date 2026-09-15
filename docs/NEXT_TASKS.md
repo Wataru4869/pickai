@@ -1,12 +1,12 @@
 # NEXT TASKS
 
-## 現行優先キュー — 2026-09-16 安全性コンテンツRC
+## 現行優先キュー — 2026-09-16 安全性コンテンツProduction後
 
-1. **feature branch pushの明示再承認→本番反映** — 最終QAと2commitは完了。過去のpush禁止指示との競合で安全審査が停止したため、`work/aierabi-revenue-engine` へのpushを人間が再承認後、Preview確認とProduction昇格を行う。main・環境・DNSは不変。
-2. **公開後のindexと内部遷移を観測** — `/safety` と新4記事のquery/page、landing、engagement、`internal_cta_click`を旧期間と分ける。未取得はunknown。
-3. **A8 3案件の状態変化待ち** — 最初に承認された1件だけ条件確認へ。安全性流入から無関係な高額案件へCTAを接続しない。
-4. **最初の承認案件1件の最小収益テスト** — 対象ページ、PR、広告URL、CTA、公開、Distributionを別々に確認。旧Xの承認・実績を流用しない。
-5. **安全性clusterは実測queryで次を決める** — 28日を暫定枠に、重複・CTR・position・内部遷移からContinue / Modify / Consolidate。恐怖訴求や記事本数をKPIにしない。
+1. **安全性clusterの公開後データを観測** — `/safety` と新4記事のquery/page、landing、engagement、`internal_cta_click`を2026-09-16 01:39 JSTより前と分ける。未取得はunknown。完了条件: 28日を暫定枠に記事別のContinue / Modify / Consolidateを判断できる。
+2. **A8 3案件の状態変化待ち** — DMM、Win、デジLIGで承認・否認・追加対応が確認できた時だけ日時付きで更新する。安全性流入から無関係な案件へCTAを接続しない。
+3. **最初の承認案件1件だけ条件確認** — `@AI_erabi`、掲載host、PR、禁止表現、広告URL仕様を再確認し、人間activation approval直前まで準備する。旧Xの媒体承認・実績を流用しない。
+4. **承認案件1件の最小収益テスト** — 対象ページ、CTA、広告有効化、本番、Distributionを別々に人間承認する。明示許可なしで `/go`、UTM、subIDを使わない。
+5. **安全性clusterの次記事は実測queryで決める** — 重複、CTR、position、内部遷移から不足1テーマだけを選ぶ。恐怖訴求や記事本数をKPIにせず、実測前の追加量産はしない。
 
 ## 現行優先キュー — 2026-09-16 Production反映後
 
