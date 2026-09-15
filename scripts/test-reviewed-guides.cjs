@@ -147,6 +147,17 @@ for(const id of Object.keys(catalog.modelNames)) {
   assert.equal(/総合スコア|[0-9]位|乗り換え推奨|\/ 100/.test(html),false);
   for(const fact of Object.values(catalog.catalogProduct(id).facts))if(fact.source){assert.ok(fact.date>='2026-09-01');assert.ok(html.includes(fact.source.replace(/&/g,'&amp;')));}
 }
+const publicServiceIds=fs.readdirSync(path+'data/service-facts').filter(file=>file.endsWith('.json')).map(file=>JSON.parse(fs.readFileSync(path+'data/service-facts/'+file)).service_id);
+assert.equal(publicServiceIds.length,25);
+for(const id of publicServiceIds){
+  assert.ok(catalog.editorialProfiles[id],id+' requires an editorial profile');
+  const html=renderToStaticMarkup(React.createElement(factsUi.ServiceExperience,{id}));
+  for(const anchor of ['what-it-can-do','usage-example','comparison-points','current-facts']) assert.ok(html.includes(`href="#${anchor}"`),id+' missing page guide anchor');
+  assert.ok(html.includes('10〜15分で確かめる手順'),id);
+  assert.ok(html.includes('type="application/ld+json"'),id);
+  assert.equal(/総合スコア|[0-9]位|\/ 100/.test(html),false,id+' must not claim a current score or rank');
+}
+console.log('Passed: 25 public services have content-rich examples, comparison axes, FAQ schema, and no current score claims.');
 const compactFactsHtml=renderToStaticMarkup(React.createElement(factsUi.FactCards,{ids:['chatgpt'],compact:true}));
 assert.ok(compactFactsHtml.includes('公式根拠 3/3'));
 assert.ok(compactFactsHtml.includes('確認 <time'));

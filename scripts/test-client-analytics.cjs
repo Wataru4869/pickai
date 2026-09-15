@@ -49,6 +49,7 @@ assert.ok(blogList.includes('"openai-agents-api-guide-2026"'));
 const factsPage = fs.readFileSync(path + "src/components/PublicFactsPage.tsx", "utf8");
 assert.ok(factsPage.includes('"@type": "BreadcrumbList"'));
 assert.ok(factsPage.includes('/compare/chatgpt-vs-grok'));
-assert.ok(factsPage.includes('data-cta-type="compare_picker"'));
+assert.ok(factsPage.includes('data-cta-type={comparisonTarget ? "compare_picker" : "category"}'));
+assert.ok(factsPage.includes('data-destination-id={comparisonTarget ? "/compare" : (category?.href ?? "/categories")}'));
 
 console.log("Passed: analytics values are allowlisted, unsafe values are omitted, and decision-funnel links and events are wired.");
