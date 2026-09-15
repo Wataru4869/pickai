@@ -26,3 +26,17 @@
 .history{display:grid;grid-template-columns:auto 1fr;gap:16px;margin:42px 0 0;background:#f0f1ef;border-color:#daddd9}.historyMark{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:#e1e3df;color:#59625e;font-size:12px;font-weight:700}.history h2{margin:0 0 5px;font-size:18px}.history p{margin:0;color:var(--text-sub);font-size:13px;line-height:1.8}.history .inlineLinks{margin-top:8px}
 @media(max-width:760px){.next{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.fitGrid,.choiceGrid{grid-template-columns:1fr}}
 @media(max-width:640px){.main{padding:18px 17px 48px}.pageHeader{padding:27px 0 24px}.pageHeader h1{font-size:30px}.pageHeader>p:not(.label){font-size:15px}.toolSummary,.decisionSummary,.summary,.checks,.history,.next{padding:20px;border-radius:12px}.toolIdentity{align-items:flex-start}.toolIdentity h2{font-size:20px}.toolMark{width:44px;height:44px}.grid{grid-template-columns:1fr}.card{padding:20px}.cardSummary{min-height:0}.sectionHeading{margin-top:32px}.sectionHeading h2{font-size:23px}.actionGrid{grid-template-columns:1fr}.history{grid-template-columns:1fr}.threeChecks ol{display:block}.threeChecks li+li{margin-top:5px}}
+
+/* Shared decision-page identity */
+.page{background:linear-gradient(180deg,#f2f5f0 0,#f7f8f4 330px)}
+.main{padding-top:24px}
+.pageHeader{position:relative;max-width:none;margin:8px 0 32px;padding:42px 46px;border:1px solid #d5dfd9;border-radius:22px;background:linear-gradient(130deg,#fff 0%,#f0f5f1 72%,#fff0e9 100%);box-shadow:0 15px 38px rgba(22,49,42,.065);overflow:hidden}
+.pageHeader::after{content:"";position:absolute;right:-80px;bottom:-150px;width:280px;height:280px;border:52px solid rgba(217,95,63,.06);border-radius:50%}
+.pageHeader>*{position:relative;z-index:1}.pageHeader .label{color:var(--accent-bright);font-weight:800;letter-spacing:.08em}.pageHeader h1{max-width:820px;font-size:clamp(34px,4.4vw,52px);letter-spacing:-.045em}.headerTrust span{background:rgba(255,255,255,.8);font-weight:700}
+.toolSummary,.decisionSummary,.summary,.checks,.history,.next{border-radius:20px;box-shadow:0 10px 28px rgba(22,49,42,.055)}
+.toolSummary{border-top:0;border-left:7px solid var(--accent);padding:32px}.decisionSummary{background:linear-gradient(135deg,#e7f2ed,#f4f3e9)}
+.card{position:relative;border-radius:18px;box-shadow:0 12px 32px rgba(22,49,42,.07);overflow:hidden;transition:transform .18s,box-shadow .18s}.card::before{content:"";position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,var(--accent),#66a18f)}.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift)}
+.toolMark,.cardMark{background:linear-gradient(135deg,var(--accent),#347c6d);color:#fff;box-shadow:0 8px 20px rgba(15,81,72,.16)}
+.next{background:linear-gradient(130deg,#0a3d37,#175b50);box-shadow:0 18px 42px rgba(15,63,56,.16)}
+.actionGrid a{border:1px solid rgba(255,255,255,.24);box-shadow:0 8px 18px rgba(0,0,0,.08)}
+@media(max-width:640px){.pageHeader{margin:3px 0 22px;padding:28px 22px;border-radius:16px}.pageHeader h1{font-size:32px}.toolSummary{padding:22px;border-left-width:5px}.card:hover{transform:none}}

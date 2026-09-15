@@ -6,19 +6,20 @@ import { isNavigationLinkActive, navigationGroups } from "@/lib/site-navigation"
 
 function Brand({ onNavigate }: { onNavigate?: () => void }) {
   return <a href="/" className="site-brand" onClick={onNavigate} aria-label="AI選び トップページ">
-    <span className="site-brand__mark" aria-hidden="true">選</span>
-    <span><strong>AI選び</strong><small>用途から選べるAI比較</small></span>
+    <span className="site-brand__mark" aria-hidden="true"><b>AI</b><i>選</i></span>
+    <span><strong>AI選び</strong><small>迷わないためのAI比較</small></span>
   </a>;
 }
 
 function Navigation({ pathname, onNavigate }: { pathname: string; onNavigate?: () => void }) {
+  const marks: Record<string, string> = { "/categories":"目", "/recommend":"診", "/compare":"比", "/cost":"￥", "/categories/writing":"文", "/categories/ai-search":"調", "/categories/image-generation":"画", "/categories/video-generation":"動", "/categories/coding-tools":"開", "/categories/ai-agents":"自", "/blog":"読", "/switch":"替", "/evaluations/2026-03":"歴", "/methodology":"方", "/safety":"安", "/faq":"問" };
   return <nav className="site-navigation" aria-label="サイト内メニュー">
     {navigationGroups.map(group => <section key={group.label} className="site-navigation__group" aria-labelledby={`nav-${group.label}`}>
       <h2 id={`nav-${group.label}`}>{group.label}</h2>
       <ul>{group.links.map(link => {
         const active = isNavigationLinkActive(pathname, link.href);
         return <li key={link.href}><a href={link.href} onClick={onNavigate} aria-current={active ? "page" : undefined}>
-          <span>{link.label}</span>{link.description && <small>{link.description}</small>}
+          <b aria-hidden="true">{marks[link.href] ?? "・"}</b><span>{link.label}{link.description && <small>{link.description}</small>}</span>
         </a></li>;
       })}</ul>
     </section>)}
@@ -37,7 +38,7 @@ export function Sidebar({ children }: { children: React.ReactNode }) {
   }, [open]);
 
   return <div className="site-shell">
-    <aside className="desktop-sidebar"><Brand /><Navigation pathname={pathname} /><div className="sidebar-foot">公式情報と過去の検証を分けて掲載</div></aside>
+    <aside className="desktop-sidebar"><Brand /><a className="sidebar-start" href="/recommend"><span>3つの質問で確認</span><strong>自分に合うAIを選ぶ</strong></a><Navigation pathname={pathname} /><div className="sidebar-foot"><span>情報の見方</span><strong>公式情報と過去の検証を分けて掲載</strong></div></aside>
     <header className="mobile-header">
       <button type="button" onClick={() => setOpen(true)} aria-label="メニューを開く" aria-expanded={open} aria-controls="mobile-navigation"><span aria-hidden="true">☰</span></button>
       <Brand />
