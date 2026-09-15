@@ -23,6 +23,8 @@ aierabiには検索流入があるが、安全性テーマへの依存が大き�
 
 安全性関連2ページで61 clicks、全体76 clicksの約80%を占める。これは強みであると同時に、単一テーマ依存である。`ai 正確性 ランキング` は54 impressions・9.5位・0 clicksで、GSCのquery filterから `/safety` が54 impressions・9.6位・0 clicksと確認できた。`grok 評判` は13 impressions・13.3位・0 clicksで、全13 impressionsが `/model/grok` に帰属した。`grok 評価` は11・10.3位・0 clicksだが、今回のquery→page確認対象外。
 
+追加のpage filterでは、ChatGPTモデル比較が4 clicks / 62 impressions / CTR 6.5% / 平均7.2位、AIエージェントカテゴリが1 / 23 / 4.3% / 8.7位だった。画面に表示されたqueryは前者が最大2 impressions、後者が1 impressionのみで、大部分は匿名化されている。このため、特定queryを根拠に本文やfactsを変更せず、既存入口から用途・比較・料金へ進む共通導線を優先した。
+
 ### GA4
 
 期間: 2026-08-18〜09-14（28日）。295 sessions、148 engaged sessions、engagement rate 50.17%、平均41秒、1,307 events。key events 0、売上 ¥0。
@@ -45,6 +47,8 @@ Google organicは89 sessions、Bing organicは65、Yahoo organicは16。ChatGPT�
 - `internal_cta_click`、`recommend_start`、`recommend_complete`、`recommend_result_view` を固定event名で実装した。値は固定ID・pathの許可形式だけを送信し、氏名・メール・自由入力は送信しない。既存UTMを下流URLへ引き継ぐ仕様は維持した。
 - 404専用画面を追加し、比較・用途・診断へ復帰できるようにした。現行sitemap 76 URLのローカル巡回は400以上0件。過去7日の404の正確なpathは標準レポート上でtitleとpathを結び付けられずunknownのまま。
 - プライバシーポリシーへサイト内操作と固定campaign/post IDの計測を追記した。独自イベントに個人識別子を送らない境界を明記した。
+- 再確認済み記事の冒頭に、テーマ別の用途・具体比較・料金導線を追加した。ブログ一覧はCurrentを初期表示し、用途から記事・カテゴリを探せる入口を追加。トップの主要AIは汎用比較画面ではなく具体的な比較相手へ進める。
+- model / compare / safety / 用途ページへ可視パンくずと `BreadcrumbList` を追加した。比較詳細の無関係な汎用CTAを比較選択へ訂正した。
 
 これらは未deployのbranch変更であり、GA4にイベントが届いた実績やCTR改善効果はまだ存在しない。
 

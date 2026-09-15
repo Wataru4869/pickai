@@ -303,3 +303,10 @@ GSCの/safetyとChatGPTモデル比較はpage単位でposition6〜20の範囲。
 - 次回traffic/収益実験前に、内部CTAとrecommend開始・完了・結果を固定eventで測る。既存UTMを維持し、許可形式の固定ID/pathだけを送信する。未取得値はunknownで、key eventやCVへ自動昇格しない。
 - 過去404は正確なpathが不明なため推測redirectを作らず、復帰画面と現行内部リンク巡回だけを実装する。正確なpathが取れた場合のみ原因別に修正する。
 - 実装はbranch/Previewまで。Google設定、本番deploy、SNS、affiliate有効化は別承認。Revenue Impact 2 / Time to Learning 公開後数日 / Cost 0円 / Evidence GSC・GA4 E2、改善効果E0 / Risk低〜中。
+
+## D36 — 新記事追加より既存検索流入を判断画面へ接続する（2026-09-15）
+
+- GSCでChatGPTモデル比較は4 clicks / 62 impressions / 平均7.2位、AIエージェントカテゴリは1 / 23 / 8.7位を確認したが、表示可能なqueryは匿名化・少数だった。特定query向けの事実改稿や追加記事を正当化する証拠ではない。
+- 今回は記事数を増やさず、再確認済み記事の冒頭から用途・具体比較・料金へ進む経路、ブログ一覧の用途入口、トップの具体的比較相手、パンくずschemaを整える。過去記事は削除せずCurrentと分ける。
+- 内部遷移は既存の許可形式だけを送る `internal_cta_click` を再利用し、新しい分析基盤を増やさない。SEO/CV改善はE0仮説で、公開後のpage/queryと内部遷移がE2になってから次の制作を決める。
+- Current Facts、歴史スコア、ランキング、affiliate、`/recommend`、UTM、X queueは変更しない。Revenue Impact 2 / Time to Learning 公開後数日 / Cost 0円 / Evidence GSCページ実測E2・改善効果E0 / Risk低〜中。

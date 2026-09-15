@@ -1,5 +1,15 @@
 # NEXT TASKS
 
+## 現行優先キュー — 2026-09-15 SEO流入→判断導線RC後
+
+同時着手は1件、最大5件。記事本数ではなく検索流入から次行動・収益までの距離で判断する。
+
+1. **累積RCをPreviewで確認** — Analytics改善と今回の内部導線を同じbranchで確認する。完了条件: `/`、`/blog`、比較記事1件、`/compare/claude-vs-chatgpt`、`/safety`、`/model/grok`、`/recommend`をdesktop/mobileで確認し、Previewが本番GAへ送信しない。production deployは別承認。
+2. **公開後に内部行動eventの受信を確認** — 実CVを作らず `internal_cta_click` とrecommend系eventがGA4へ届き、source/destination/post/campaignを識別できることを確認する。未取得を0にしない。
+3. **A8 3案件の状態変化待ち** — DMM、Win、デジLIGで最初に承認された1件だけ、`@AI_erabi`、掲載host、PR、広告URL仕様を再確認する。
+4. **最初の承認案件1件だけ最小収益テスト** — 対象ページ、CTA、広告有効化、本番、投稿を別々に人間承認する。明示許可なしで `/go`、UTM、subIDを使わない。
+5. **公開後データで次の1ページを決める** — 28日を暫定枠にpage/query、landing、内部遷移を旧期間と分けて比較する。反応のない記事を本数目的で追加せず、Continue / Modify / Consolidateを判断する。
+
 ## 現行優先キュー — 2026-09-15 Analytics改善RC後
 
 1. **Analytics改善RCをPreview確認** — `/safety`、`/model/grok`、`/recommend`、404、privacyを確認。完了条件: desktop/mobile、UTM保持、Previewから本番GAへ送信されないことを確認し、人間がdeploy可否を判断。production deployは別承認。
