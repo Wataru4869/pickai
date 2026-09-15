@@ -1,5 +1,13 @@
 # PROJECT STATE
 
+## 現行サマリー — 2026-09-16 Logo / Card / Sidebar refinement RC
+
+- ユーザー提供の本番スクリーンショット3点を基に、brandを旧「AI｜選」アイコン＋「AI選び」からCSS製の `AI erabi` wordmarkへ変更した。画像・外部font・商標ロゴassetは追加していない。
+- トップの主要AIカードから2文字アイコンを廃止し、製品名を主役に変更。影、境界、hover/focus、主CTAを強めた。掲載順、Current Facts、料金、スコア、リンク先、analytics属性は変更していない。
+- sidebarの5グループ見出しだけに淡い背景と左アクセントを付け、項目全体を騒がしくせずブロック境界を明示した。mobile drawerにも同じ見出しを適用。
+- desktopの実画面でbrand、sidebar、hero比較例、主要AIカードを確認。`npm run check`成功（79 sources / 102 pages）、`git diff --check`成功。affiliate active 0 / URL 0。
+- 現在はlocal RC。未push・未deploy。Productionはcommit `75442d2` / deployment `7PmxQhXbNzKWasx6FVNZpGYeNC2N` のまま。
+
 ## 現行サマリー — 2026-09-16 Visual Identity RC
 
 - branch上で、aierabiを一目で「用途からAIを選ぶサービス」と認識できるよう、ブランド、sidebar、トップhero、選択フロー、用途・AI・比較・記事カードを大幅に再設計した。
@@ -352,3 +360,10 @@ ASPの認証情報をエージェントへ渡す必要はない。会員限定�
 
 公式facts既存12件更新・4件新設、台帳71sources/24facts。新記事2本、旧10記事のtitle/description訂正と過去記事注意書き。全項目最新・日本提供確認済みとはしない。詳細はSITE_UPGRADE_REPORT_2026-09-13.md。
 本番はa363a09のまま。今回deploy/main merge/投稿/affiliate有効化なし。recommend・計測・UTM・queueは差分なし。第2商品はRevenue OS側HOLDを優先し、以下の旧試用優先指示では再開しない。
+
+## 2026-09-16 ビジュアル刷新 Production反映
+
+- source commit `75442d2` を既存Vercel PreviewからProductionへ昇格。deployment `7PmxQhXbNzKWasx6FVNZpGYeNC2N` はReady。
+- 本番トップで新しい日本語ヒーロー、用途起点の選択フロー、ブランド表現、ナビゲーション、ツールカードを実画面確認。
+- `https://aierabi.jp/` は `https://www.aierabi.jp/` へ308。`/`、`/recommend`、`/compare`、`/methodology`、favicon、sitemapは200。canonicalも正常。
+- sitemap indexは子1件、`sitemap-0.xml` は80 URL／ブログ47件。affiliate外部URL検出0。SNS投稿、affiliate有効化、環境変数・DNS・mainは変更していない。

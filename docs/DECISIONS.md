@@ -339,3 +339,11 @@ GSCの/safetyとChatGPTモデル比較はpage単位でposition6〜20の範囲。
 - 深緑を信頼・現在情報、朱色を次の判断の焦点として使う。派手なAI風グラデーションや根拠のない順位を使わず、`用途 → 候補 → 比較 → 料金` を視覚的に表す。
 - URL、metadata、canonical、schema、Current Facts、独自評価、recommendロジック、UTM/event、affiliateは変更しない。UI公開時は前後を別コホートとして扱う。
 - Revenue Impactは間接2、Time to Learningは公開後数日、Cost 0円、EvidenceはUI QA E2・効果E0、Riskは中。Previewで390px/320pxを人間確認し、Productionは別承認とする。
+
+## D41 — ブランド名と製品名を主役にし、補助アイコンを減らす（2026-09-16）
+
+- ユーザー提供の本番スクリーンショットでは、旧2色アイコンと日本語名より、ローマ字のdesign wordmark、製品名の強調、sidebarのブロック境界が求められた。
+- brandは外部画像に依存しない `AI erabi` wordmarkへ変更する。各社ロゴは公式brand asset・利用条件の確認なしに複製せず、今回の即時改善では2文字アイコンを廃止して製品名を24px前後へ拡大する。
+- カードは影だけでなく、色付き上辺、余白、主CTA、hover/focusを一体で強化する。カード全体をリンク化して既存2CTAを曖昧にせず、目的別の遷移先を維持する。
+- sidebarはグループ見出し部分だけを淡色背景にし、リンク項目全体への面塗りは避ける。情報、順位、料金、URL、event、affiliate設定は変更しない。
+- 効果はE0仮説。公開後のinternal CTA実測なしにクリック改善を成立扱いしない。Cost 0円、Risk低〜中、rollbackは4 UIファイルに限定可能。
