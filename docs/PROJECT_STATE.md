@@ -7,7 +7,7 @@
 - ブログ一覧の初期表示を「現在の選び方」に変更し、再確認済みのOpenAI Agents API記事が誤って対象外だった分類不具合を修正した。過去・未再確認記事は削除せず明示的な絞り込み内に保持する。
 - model / compare / safety / 用途ページに可視パンくずと `BreadcrumbList` schemaを追加。比較詳細の最初の次行動は、無関係な検索AI記事ではなく比較選択画面へ戻すよう訂正した。
 - `npm run check` 成功（79 sources / 98 pages）、sitemap 76 URL・lastmod 0。ローカルproduction buildの全76 URLは200。`git diff --check` 成功。affiliate active 0 / URL 0、ランキング・Current Facts・`/recommend`・UTM・X queueは変更していない。
-- SEO/CV効果は未計測。変更は未push・未deploy。最大Revenueボトルネックは承認済みaffiliate案件0件のまま。
+- SEO/CV効果は未計測。commit `11987e0` / `8bace4f` を含む累積8 commitsを `work/aierabi-revenue-engine` へpush済み。Vercel Previewの生成・表示状態はブラウザ権限で確認できずunknown。本番未deploy。最大Revenueボトルネックは承認済みaffiliate案件0件のまま。
 
 ## 現行サマリー — 2026-09-15 Analytics改善RC（branchのみ）
 

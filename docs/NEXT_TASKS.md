@@ -4,7 +4,7 @@
 
 同時着手は1件、最大5件。記事本数ではなく検索流入から次行動・収益までの距離で判断する。
 
-1. **累積RCをPreviewで確認** — Analytics改善と今回の内部導線を同じbranchで確認する。完了条件: `/`、`/blog`、比較記事1件、`/compare/claude-vs-chatgpt`、`/safety`、`/model/grok`、`/recommend`をdesktop/mobileで確認し、Previewが本番GAへ送信しない。production deployは別承認。
+1. **push済み累積RCをPreviewで確認** — `work/aierabi-revenue-engine` へのpushは完了。Analytics改善と今回の内部導線を同じPreviewで確認する。完了条件: `/`、`/blog`、比較記事1件、`/compare/claude-vs-chatgpt`、`/safety`、`/model/grok`、`/recommend`をdesktop/mobileで確認し、Previewが本番GAへ送信しない。production deployは別承認。
 2. **公開後に内部行動eventの受信を確認** — 実CVを作らず `internal_cta_click` とrecommend系eventがGA4へ届き、source/destination/post/campaignを識別できることを確認する。未取得を0にしない。
 3. **A8 3案件の状態変化待ち** — DMM、Win、デジLIGで最初に承認された1件だけ、`@AI_erabi`、掲載host、PR、広告URL仕様を再確認する。
 4. **最初の承認案件1件だけ最小収益テスト** — 対象ページ、CTA、広告有効化、本番、投稿を別々に人間承認する。明示許可なしで `/go`、UTM、subIDを使わない。
