@@ -105,12 +105,12 @@ export function ServiceExperience({ id }: { id: string }) {
   return <>
     <nav className={styles.pageGuide} aria-label="このページの内容"><strong>このページで分かること</strong><a href="#what-it-can-do">できること</a><a href="#use-cases">利用シーン</a><a href="#usage-example">使い方の流れ</a><a href="#comparison-points">比較ポイント</a><a href="#current-facts">料金・条件</a></nav>
     <section id="what-it-can-do" className={styles.experienceSection} aria-labelledby="capability-title">
-      <div className={styles.sectionHeading}><p className={styles.label}>できること</p><h2 id="capability-title">{product.name}で検討できる作業</h2><p>ここは公式の機能説明を、選ぶ人が理解しやすい単位に分けたものです。性能順位や利用保証ではありません。</p></div>
+      <div className={styles.sectionHeading}><p className={styles.label}>01　できること</p><h2 id="capability-title">{product.name}で検討できる作業</h2><p>ここは公式の機能説明を、選ぶ人が理解しやすい単位に分けたものです。性能順位や利用保証ではありません。</p></div>
       {features.length ? <div className={styles.capabilityGrid}>{features.map((feature, index) => <article key={feature}><span aria-hidden="true">{String(index + 1).padStart(2,"0")}</span><h3>{feature}</h3><p>この機能が自分のプラン・地域・利用画面で使えるか、契約前に公式ページで確認してください。</p></article>)}</div> : <div className={styles.unverifiedPanel}><strong>機能の公式根拠を確認中です</strong><p>別製品の説明や過去情報で補完せず、確認できるまで未確認として扱います。</p></div>}
       {featureFact.source && <p className={styles.sourceLine}>機能の出典：<a href={featureFact.source} target="_blank" rel="noopener noreferrer">公式情報を確認</a> <time dateTime={featureFact.date!}>（{featureFact.date}確認）</time></p>}
     </section>
     {useCases.length > 0 && <section id="use-cases" className={styles.experienceSection} aria-labelledby="use-cases-title">
-      <div className={styles.sectionHeading}><p className={styles.label}>利用シーン早見表</p><h2 id="use-cases-title">どんな作業で試せるか</h2><p>機能名だけでは選びにくいため、入力から人の確認までを作業単位で整理しました。利用例であり、成果や性能を保証するものではありません。</p></div>
+      <div className={styles.sectionHeading}><p className={styles.label}>02　利用シーン早見表</p><h2 id="use-cases-title">どんな作業で試せるか</h2><p>機能名だけでは選びにくいため、入力から人の確認までを作業単位で整理しました。利用例であり、成果や性能を保証するものではありません。</p></div>
       <div className={styles.useCaseTableWrap} tabIndex={0} role="region" aria-label={`${product.name}の利用シーン早見表`}>
         <table className={styles.useCaseTable}>
           <caption>{product.name}を小さな実務で試す3つの例</caption>
@@ -127,16 +127,16 @@ export function ServiceExperience({ id }: { id: string }) {
       <p className={styles.tableNote}>見る順番：自分の作業に近い行を選び、「人が確認すること」まで無理なく行えるかを確認します。</p>
     </section>}
     <section id="usage-example" className={styles.exampleSection} aria-labelledby="example-title">
-      <div className={styles.sectionHeading}><p className={styles.label}>1つの例を流れで見る</p><h2 id="example-title">{example.title}</h2><p>下記は機能の優劣を示す実測ではなく、無料枠などで自分に合うかを確かめるための試し方です。</p></div>
+      <div className={styles.sectionHeading}><p className={styles.label}>03　1つの例を流れで見る</p><h2 id="example-title">{example.title}</h2><p>下記は機能の優劣を示す実測ではなく、無料枠などで自分に合うかを確かめるための試し方です。</p></div>
       <div className={styles.workflow} aria-label="入力から確認までの流れ"><div><span>入力</span><strong>{example.input}</strong></div><b aria-hidden="true">→</b><div><span>AIで進める</span><strong>{example.work}</strong></div><b aria-hidden="true">→</b><div><span>得られるもの</span><strong>{example.output}</strong></div></div>
       <aside className={styles.humanCheck}><span aria-hidden="true">人</span><div><strong>最後は人が確認</strong><p>{example.review}</p></div></aside>
     </section>
     <section id="comparison-points" className={styles.experienceSection} aria-labelledby="axes-title">
-      <div className={styles.sectionHeading}><p className={styles.label}>比較ポイント</p><h2 id="axes-title">名前や評判より、この4点をそろえる</h2><p>{product.name}だけを見て決めず、同じ入力・同じ完成条件で別候補と比べます。</p></div>
+      <div className={styles.sectionHeading}><p className={styles.label}>04　比較ポイント</p><h2 id="axes-title">名前や評判より、この4点をそろえる</h2><p>{product.name}だけを見て決めず、同じ入力・同じ完成条件で別候補と比べます。</p></div>
       <div className={styles.axisGrid}>{axes[preset].map((axis, index) => <article key={axis.title}><span>{index + 1}</span><div><h3>{axis.title}</h3><p>{axis.detail}</p></div></article>)}</div>
       <div className={styles.trySteps}><h3>10〜15分で確かめる手順</h3><ol><li>実際に使う小さな作業を1つ選ぶ</li><li>候補2つへ同じ入力と完成条件を渡す</li><li>出力だけでなく、確認・修正時間も記録する</li></ol>{category && <a href={category.href}>{category.label}の候補を見る →</a>}</div>
     </section>
-    <section className={styles.faq} aria-labelledby="faq-title"><div className={styles.sectionHeading}><p className={styles.label}>よくある確認</p><h2 id="faq-title">{product.name}を選ぶ前の質問</h2></div>{faq.map(item => <details key={item.q}><summary>{item.q}</summary><p>{item.a}</p></details>)}</section>
+    <section className={styles.faq} aria-labelledby="faq-title"><div className={styles.sectionHeading}><p className={styles.label}>05　よくある確認</p><h2 id="faq-title">{product.name}を選ぶ前の質問</h2></div>{faq.map(item => <details key={item.q}><summary>{item.q}</summary><p>{item.a}</p></details>)}</section>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }} />
   </>;
 }
@@ -151,20 +151,27 @@ export function ComparisonSummary({ ids }: { ids: string[] }) {
 }
 
 export function FactCards({ ids, compact = false, showActions = true }: { ids: string[]; compact?: boolean; showActions?: boolean }) {
-  return <section id="current-facts" aria-labelledby="facts-title"><div className={styles.sectionHeading}><p className={styles.label}>現在の公式情報</p><h2 id="facts-title">契約前に確認する項目</h2><p>項目ごとに出典と確認日を表示しています。公式根拠がない値は補完しません。</p></div>
-    <div className={styles.grid}>{ids.map(id => {
+  const singleService = ids.length === 1 && !compact;
+  const fieldGroup: Record<string, string> = {
+    current_product: "製品", provider: "運営", major_features: "機能", current_plan: "契約",
+    current_price: "料金", free_plan: "無料", free_trial: "体験", availability: "提供",
+  };
+  return <section id="current-facts" className={singleService ? styles.factsSection : undefined} aria-labelledby="facts-title"><div className={styles.sectionHeading}><p className={styles.label}>{singleService ? "06　現在の公式情報" : "現在の公式情報"}</p><h2 id="facts-title">契約前に確認する項目</h2><p>{singleService ? "まず料金と無料条件を確認し、次に使いたい機能が対象プラン・地域で提供されるかを見てください。各カードから公式情報へ戻れます。" : "項目ごとに出典と確認日を表示しています。公式根拠がない値は補完しません。"}</p></div>
+    {singleService && <ol className={styles.factReadingOrder} aria-label="確認する順番"><li><span>1</span><strong>料金・無料条件</strong><small>試す費用を確認</small></li><li><span>2</span><strong>機能・プラン</strong><small>目的の作業が対象か</small></li><li><span>3</span><strong>提供状況</strong><small>地域と利用条件を確認</small></li></ol>}
+    <div className={`${styles.grid} ${singleService ? styles.singleFactsGrid : ""}`}>{ids.map(id => {
       const product = catalogProduct(id);
       const profile = editorialProfiles[id];
       const visibleFields = fields.filter(([key]) => !compact || ["major_features", "free_plan", "current_price"].includes(key));
       const verified = visibleFields.filter(([key]) => Boolean(product.facts[key].source));
       const latestVerifiedAt = verified.map(([key]) => product.facts[key].date).filter(Boolean).sort().at(-1);
-      return <article key={id} className={styles.card}>
-        <div className={styles.cardHeader}><div><p>{profile?.type ?? "AIサービス"}</p><h3>{product.name}</h3></div></div>
+      return <article key={id} className={`${styles.card} ${singleService ? styles.singleFactsCard : ""}`}>
+        <div className={styles.factCardLead}><div className={styles.cardHeader}><div><p>{profile?.type ?? "AIサービス"}</p><h3>{product.name}</h3></div></div>
         {profile && <p className={styles.cardSummary}>{profile.summary}</p>}
-        <p className={styles.verification}>公式根拠 {verified.length}/{visibleFields.length}{latestVerifiedAt && <> · <time dateTime={latestVerifiedAt}>{latestVerifiedAt}</time>確認</>}</p>
-        <dl>{visibleFields.map(([key, label]) => {
+        <p className={styles.verification}>公式根拠 {verified.length}/{visibleFields.length}{latestVerifiedAt && <> · <time dateTime={latestVerifiedAt}>{latestVerifiedAt}</time>確認</>}</p></div>
+        <dl className={singleService ? styles.factGrid : undefined}>{visibleFields.map(([key, label]) => {
           const fact = product.facts[key];
-          return <div key={key}><dt>{label}</dt><dd><p>{fact.text}</p>{fact.source ? <a href={fact.source} target="_blank" rel="noopener noreferrer">公式情報を確認 <time dateTime={fact.date!}>（{fact.date}確認）</time><span aria-hidden="true"> ↗</span></a> : <span className={styles.unknown}>公式根拠を未確認</span>}</dd></div>;
+          const important = ["current_price", "free_plan", "free_trial"].includes(key);
+          return <div key={key} className={`${singleService ? styles.factItem : ""} ${important ? styles.factItemImportant : ""}`}><dt>{singleService && <span aria-hidden="true">{fieldGroup[key]}</span>}{label}</dt><dd><p>{fact.text}</p>{fact.source ? <a href={fact.source} target="_blank" rel="noopener noreferrer">公式情報を確認 <time dateTime={fact.date!}>（{fact.date}確認）</time><span aria-hidden="true"> ↗</span></a> : <span className={styles.unknown}>公式根拠を未確認</span>}</dd></div>;
         })}</dl>
         {showActions && Object.hasOwn(modelNames, id) && id !== "copilot" && <div className={styles.cardActions}><a href={`/model/${id}`}>詳しい条件を見る</a><a href="/compare">比較候補にする</a></div>}
         {id === "copilot" && <p className={styles.note}>旧掲載名の対象製品を確定できていません。GitHub Copilotの情報を自動で当てはめていません。</p>}
