@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Header, Footer } from "@/components/ui";
 import { catalogProduct, categoryForService, editorialProfiles, experiencePreset, fields, modelNames, purposes, type ExperiencePreset, type Purpose } from "@/lib/public-catalog";
+import { serviceUseCases } from "@/lib/service-use-cases";
 import styles from "./PublicFactsPage.module.css";
 
 type BreadcrumbItem = { label: string; href?: string };
@@ -91,6 +92,7 @@ export function ServiceExperience({ id }: { id: string }) {
   if (!profile) return null;
   const preset = experiencePreset(id);
   const example = exampleById[id] ?? examples[preset];
+  const useCases = serviceUseCases[id] ?? [];
   const category = categoryForService[id];
   const featureFact = product.facts.major_features;
   const features = featureFact.source ? featureFact.text.split(" / ").filter(Boolean) : [];
@@ -101,14 +103,31 @@ export function ServiceExperience({ id }: { id: string }) {
   ];
   const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(item => ({ "@type": "Question", name: item.q, acceptedAnswer: { "@type": "Answer", text: item.a } })) };
   return <>
-    <nav className={styles.pageGuide} aria-label="このページの内容"><strong>このページで分かること</strong><a href="#what-it-can-do">できること</a><a href="#usage-example">使い方の例</a><a href="#comparison-points">比較ポイント</a><a href="#current-facts">料金・条件</a></nav>
+    <nav className={styles.pageGuide} aria-label="このページの内容"><strong>このページで分かること</strong><a href="#what-it-can-do">できること</a><a href="#use-cases">利用シーン</a><a href="#usage-example">使い方の流れ</a><a href="#comparison-points">比較ポイント</a><a href="#current-facts">料金・条件</a></nav>
     <section id="what-it-can-do" className={styles.experienceSection} aria-labelledby="capability-title">
       <div className={styles.sectionHeading}><p className={styles.label}>できること</p><h2 id="capability-title">{product.name}で検討できる作業</h2><p>ここは公式の機能説明を、選ぶ人が理解しやすい単位に分けたものです。性能順位や利用保証ではありません。</p></div>
       {features.length ? <div className={styles.capabilityGrid}>{features.map((feature, index) => <article key={feature}><span aria-hidden="true">{String(index + 1).padStart(2,"0")}</span><h3>{feature}</h3><p>この機能が自分のプラン・地域・利用画面で使えるか、契約前に公式ページで確認してください。</p></article>)}</div> : <div className={styles.unverifiedPanel}><strong>機能の公式根拠を確認中です</strong><p>別製品の説明や過去情報で補完せず、確認できるまで未確認として扱います。</p></div>}
       {featureFact.source && <p className={styles.sourceLine}>機能の出典：<a href={featureFact.source} target="_blank" rel="noopener noreferrer">公式情報を確認</a> <time dateTime={featureFact.date!}>（{featureFact.date}確認）</time></p>}
     </section>
+    {useCases.length > 0 && <section id="use-cases" className={styles.experienceSection} aria-labelledby="use-cases-title">
+      <div className={styles.sectionHeading}><p className={styles.label}>利用シーン早見表</p><h2 id="use-cases-title">どんな作業で試せるか</h2><p>機能名だけでは選びにくいため、入力から人の確認までを作業単位で整理しました。利用例であり、成果や性能を保証するものではありません。</p></div>
+      <div className={styles.useCaseTableWrap} tabIndex={0} role="region" aria-label={`${product.name}の利用シーン早見表`}>
+        <table className={styles.useCaseTable}>
+          <caption>{product.name}を小さな実務で試す3つの例</caption>
+          <thead><tr><th scope="col">こんなとき</th><th scope="col">用意するもの</th><th scope="col">AIに任せる範囲</th><th scope="col">得られるもの</th><th scope="col">人が確認すること</th></tr></thead>
+          <tbody>{useCases.map(item => <tr key={item.situation}>
+            <th scope="row">{item.situation}</th>
+            <td data-label="用意するもの">{item.prepare}</td>
+            <td data-label="AIに任せる範囲">{item.aiRole}</td>
+            <td data-label="得られるもの">{item.result}</td>
+            <td data-label="人が確認すること">{item.humanCheck}</td>
+          </tr>)}</tbody>
+        </table>
+      </div>
+      <p className={styles.tableNote}>見る順番：自分の作業に近い行を選び、「人が確認すること」まで無理なく行えるかを確認します。</p>
+    </section>}
     <section id="usage-example" className={styles.exampleSection} aria-labelledby="example-title">
-      <div className={styles.sectionHeading}><p className={styles.label}>使い方の例</p><h2 id="example-title">{example.title}</h2><p>下記は機能の優劣を示す実測ではなく、無料枠などで自分に合うかを確かめるための試し方です。</p></div>
+      <div className={styles.sectionHeading}><p className={styles.label}>1つの例を流れで見る</p><h2 id="example-title">{example.title}</h2><p>下記は機能の優劣を示す実測ではなく、無料枠などで自分に合うかを確かめるための試し方です。</p></div>
       <div className={styles.workflow} aria-label="入力から確認までの流れ"><div><span>入力</span><strong>{example.input}</strong></div><b aria-hidden="true">→</b><div><span>AIで進める</span><strong>{example.work}</strong></div><b aria-hidden="true">→</b><div><span>得られるもの</span><strong>{example.output}</strong></div></div>
       <aside className={styles.humanCheck}><span aria-hidden="true">人</span><div><strong>最後は人が確認</strong><p>{example.review}</p></div></aside>
     </section>

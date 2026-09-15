@@ -120,6 +120,7 @@ assert.equal((currentHtml.match(/独自スコア：未評価/g)||[]).length,9);
 assert.equal((currentHtml.match(/<article /g)||[]).length,9);
 assert.ok(currentHtml.includes('3月の保存スコアを見る'));
 const catalog=loadTs('src/lib/public-catalog.ts',{'./current-comparison':current});
+const useCaseCatalog=loadTs('src/lib/service-use-cases.ts');
 const currentHome=loadTs('src/app/page.tsx',{
   '@/components/ui':{Header:()=>null,Footer:()=>null},
   '@/components/CurrentComparison':comp.default,
@@ -141,7 +142,7 @@ assert.ok(catalog.catalogProduct('perplexity').facts.current_price.text.includes
 assert.equal(catalog.catalogProduct('perplexity').facts.current_price.text.includes('null'),false);
 assert.ok(catalog.catalogProduct('chatgpt').facts.current_price.text.includes('\nPlus: US$20/month'));
 assert.ok(catalog.catalogProduct('chatgpt').facts.current_price.text.includes('\n地域・税:'));
-const factsUi=loadTs('src/components/PublicFactsPage.tsx',{'@/components/ui':{Header:()=>null,Footer:()=>null},'@/lib/public-catalog':catalog});
+const factsUi=loadTs('src/components/PublicFactsPage.tsx',{'@/components/ui':{Header:()=>null,Footer:()=>null},'@/lib/public-catalog':catalog,'@/lib/service-use-cases':useCaseCatalog});
 for(const id of Object.keys(catalog.modelNames)) {
   const html=renderToStaticMarkup(React.createElement(factsUi.FactCards,{ids:[id]}));
   assert.equal(/総合スコア|[0-9]位|乗り換え推奨|\/ 100/.test(html),false);
@@ -151,13 +152,19 @@ const publicServiceIds=fs.readdirSync(path+'data/service-facts').filter(file=>fi
 assert.equal(publicServiceIds.length,25);
 for(const id of publicServiceIds){
   assert.ok(catalog.editorialProfiles[id],id+' requires an editorial profile');
+  assert.ok(useCaseCatalog.serviceUseCases[id],id+' requires service-specific use cases');
+  assert.ok(useCaseCatalog.serviceUseCases[id].length>=3,id+' requires at least three use cases');
+  for(const item of useCaseCatalog.serviceUseCases[id]) for(const key of ['situation','prepare','aiRole','result','humanCheck']) assert.ok(item[key].trim(),`${id} has an empty ${key}`);
   const html=renderToStaticMarkup(React.createElement(factsUi.ServiceExperience,{id}));
-  for(const anchor of ['what-it-can-do','usage-example','comparison-points','current-facts']) assert.ok(html.includes(`href="#${anchor}"`),id+' missing page guide anchor');
+  for(const anchor of ['what-it-can-do','use-cases','usage-example','comparison-points','current-facts']) assert.ok(html.includes(`href="#${anchor}"`),id+' missing page guide anchor');
+  assert.ok(html.includes('利用シーン早見表'),id);
+  assert.equal((html.match(/<tr>/g)||[]).length,4,id+' should render one header and three use-case rows');
+  assert.ok(html.includes('人が確認すること'),id);
   assert.ok(html.includes('10〜15分で確かめる手順'),id);
   assert.ok(html.includes('type="application/ld+json"'),id);
   assert.equal(/総合スコア|[0-9]位|\/ 100/.test(html),false,id+' must not claim a current score or rank');
 }
-console.log('Passed: 25 public services have content-rich examples, comparison axes, FAQ schema, and no current score claims.');
+console.log('Passed: 25 public services have three detailed use cases, comparison axes, FAQ schema, and no current score claims.');
 const compactFactsHtml=renderToStaticMarkup(React.createElement(factsUi.FactCards,{ids:['chatgpt'],compact:true}));
 assert.ok(compactFactsHtml.includes('公式根拠 3/3'));
 assert.ok(compactFactsHtml.includes('確認 <time'));
