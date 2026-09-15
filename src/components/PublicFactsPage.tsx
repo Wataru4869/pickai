@@ -32,12 +32,24 @@ export function ToolSummary({ id }: { id: string }) {
   const product = catalogProduct(id);
   const profile = editorialProfiles[id];
   if (!profile) return null;
+  const comparisonTargets: Record<string, { href: string; label: string }> = {
+    chatgpt: { href: "/compare/claude-vs-chatgpt", label: "Claudeと比較する" },
+    claude: { href: "/compare/claude-vs-chatgpt", label: "ChatGPTと比較する" },
+    gemini: { href: "/compare/chatgpt-vs-gemini", label: "ChatGPTと比較する" },
+    grok: { href: "/compare/chatgpt-vs-grok", label: "ChatGPTと比較する" },
+    perplexity: { href: "/compare/chatgpt-vs-perplexity", label: "ChatGPTと比較する" },
+  };
+  const comparisonTarget = comparisonTargets[id];
   const confirmed = ["major_features", "current_price", "free_plan", "availability"].filter(key => product.facts[key as keyof typeof product.facts].source).length;
   return <section className={styles.toolSummary} aria-labelledby="tool-summary-title">
     <div className={styles.toolIdentity}><span className={styles.toolMark} aria-hidden="true">{product.name.slice(0, 2)}</span><div><p>{profile.type}</p><h2 id="tool-summary-title">{profile.summary}</h2></div></div>
     <div className={styles.badges}>{profile.uses.map(use => <span key={use}>{use}</span>)}<span>{confirmed}/4項目に公式根拠</span></div>
     <div className={styles.fitGrid}><div><h3>候補にしやすい人</h3><p>{profile.suited}</p></div><div><h3>先に確認すること</h3><p>{profile.check}</p></div></div>
-    <div className={styles.summaryActions}><a className={styles.primaryAction} href="#current-facts" data-analytics-event="internal_cta_click" data-source-page={`/model/${id}`} data-cta-type="facts" data-cta-position="tool_summary" data-destination-id="current_facts">料金・条件を見る</a><a href="/compare" data-analytics-event="internal_cta_click" data-source-page={`/model/${id}`} data-cta-type="compare" data-cta-position="tool_summary" data-destination-id="/compare">ほかのAIと比較する</a></div>
+    <div className={styles.summaryActions}>
+      <a className={styles.primaryAction} href="#current-facts" data-analytics-event="internal_cta_click" data-source-page={`/model/${id}`} data-cta-type="facts" data-cta-position="tool_summary" data-destination-id="current_facts">料金・条件を見る</a>
+      {comparisonTarget && <a href={comparisonTarget.href} data-analytics-event="internal_cta_click" data-source-page={`/model/${id}`} data-cta-type="compare" data-cta-position="tool_summary" data-destination-id={comparisonTarget.href}>{comparisonTarget.label}</a>}
+      <a href="/compare" data-analytics-event="internal_cta_click" data-source-page={`/model/${id}`} data-cta-type="compare_picker" data-cta-position="tool_summary" data-destination-id="/compare">別のAIと比較する</a>
+    </div>
   </section>;
 }
 

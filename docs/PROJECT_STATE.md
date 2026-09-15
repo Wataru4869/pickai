@@ -6,8 +6,9 @@
 - 新記事は増やさず、検索・AI Assistant流入を用途・比較・料金へ接続する既存画面を改善した。再確認済み記事の冒頭にテーマ別の次行動、ブログ一覧に用途入口、トップの各AIに具体的な比較相手を表示し、既存 `internal_cta_click` で遷移を識別できる。
 - ブログ一覧の初期表示を「現在の選び方」に変更し、再確認済みのOpenAI Agents API記事が誤って対象外だった分類不具合を修正した。過去・未再確認記事は削除せず明示的な絞り込み内に保持する。
 - model / compare / safety / 用途ページに可視パンくずと `BreadcrumbList` schemaを追加。比較詳細の最初の次行動は、無関係な検索AI記事ではなく比較選択画面へ戻すよう訂正した。
+- 主要modelページの上部CTAを汎用 `/compare` だけにせず、ChatGPT↔Claude、ChatGPT↔Gemini、ChatGPT↔Grok、ChatGPT↔Perplexityの既存比較へ直接進めるようにした。別候補を選ぶ入口も残し、人気・勝敗の主張は追加していない。
 - `npm run check` 成功（79 sources / 98 pages）、sitemap 76 URL・lastmod 0。ローカルproduction buildの全76 URLは200。`git diff --check` 成功。affiliate active 0 / URL 0、ランキング・Current Facts・`/recommend`・UTM・X queueは変更していない。
-- SEO/CV効果は未計測。commit `11987e0` / `8bace4f` を含む累積8 commitsを `work/aierabi-revenue-engine` へpush済み。Vercel Previewの生成・表示状態はブラウザ権限で確認できずunknown。本番未deploy。最大Revenueボトルネックは承認済みaffiliate案件0件のまま。
+- SEO/CV効果は未計測。前段の累積8 commitsは `work/aierabi-revenue-engine` へpush済み。model直通比較の追加差分はlocalでcheck済み・未push。Vercel Previewの生成・表示状態はブラウザ権限で確認できずunknown。本番未deploy。最大Revenueボトルネックは承認済みaffiliate案件0件のまま。
 
 ## 現行サマリー — 2026-09-15 Analytics改善RC（branchのみ）
 
