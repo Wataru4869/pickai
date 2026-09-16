@@ -43,7 +43,7 @@ export const editorialProfiles: Record<string, EditorialProfile> = {
   kimi: { type: "開発用モデルAPI", summary: "長い文脈と画像理解を会話・エージェントへ組み込む候補", uses: ["API", "長文", "画像理解", "エージェント"], suited: "APIで長い資料や画像入力を試したい開発者", check: "日本向け条件と消費者向けアプリとの差" },
   genspark: { type: "プレゼン作成AI", summary: "プレゼンテーションの生成と編集を進める候補", uses: ["資料", "スライド", "編集", "構成"], suited: "たたき台からスライドの構成を整えたい人", check: "モデル・プラン・企業設定による違い" },
   writesonic: { type: "AI検索可視性", summary: "AI検索でのブランド表示状況を追跡する候補", uses: ["可視性", "検索", "計測", "改善"], suited: "AI回答内での自社の見え方を継続確認したい人", check: "取得範囲、計測定義、対象検索サービス" },
-  copilot: { type: "旧掲載名", summary: "対象製品を確定できていないため、現在の候補選びには使用しません", uses: ["未確認"], suited: "過去の掲載対象を確認する人", check: "対象製品の正式名称" },
+  copilot: { type: "旧掲載名", summary: "対象製品を確定できていないため、現在の候補選びには使用しません", uses: ["掲載停止"], suited: "過去の掲載対象を確認する人", check: "対象製品の正式名称" },
 };
 
 export type ExperiencePreset = "chat" | "search" | "coding" | "image" | "video" | "audio" | "agent" | "presentation" | "visibility" | "unknown";
@@ -68,9 +68,9 @@ export const categoryForService: Record<string, { href: string; label: string }>
 };
 export const fields = [["current_product", "製品・モデル"], ["provider", "提供元"], ["major_features", "機能"], ["current_plan", "プラン"], ["current_price", "料金・条件"], ["free_plan", "無料プラン"], ["free_trial", "無料体験"], ["availability", "提供状況"]] as const;
 function readable(value: unknown): string {
-  if (value == null) return "未確認";
+  if (value == null) return "—";
   if (Array.isArray(value)) return value.map(readable).join(" / ");
-  if (typeof value === "object") return Object.entries(value).map(([k,v]) => `${k === "region_note" ? "地域・税" : k}: ${readable(v)}`).join("\n");
+  if (typeof value === "object") return Object.entries(value).filter(([,v]) => v != null).map(([k,v]) => `${k === "region_note" ? "地域・税" : k}: ${readable(v)}`).join("\n");
   if (value === true) return "あり（対象範囲・上限は公式確認）";
   if (value === false) return "なし（確認時点）";
   return String(value);
@@ -82,7 +82,7 @@ export function catalogProduct(id: string) {
     const fact = r?.facts[key];
     // Do not reuse March/April facts on present-day decision pages.
     const displayed = fact?.verified_at && fact.verified_at >= "2026-09-01" ? displayFact(fact) : displayFact();
-    return [key, { ...displayed, text: displayed.source ? readable(fact?.value) : "未確認" }];
+    return [key, { ...displayed, text: displayed.source ? readable(fact?.value) : "—" }];
   })) as Record<(typeof fields)[number][0], DisplayFact>;
   return { id, name, facts };
 }

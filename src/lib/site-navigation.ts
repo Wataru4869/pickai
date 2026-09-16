@@ -4,6 +4,7 @@ export type NavigationGroup = { label: string; links: NavigationLink[] };
 export const navigationGroups: NavigationGroup[] = [
   { label: "はじめる", links: [
     { href: "/categories", label: "用途からAIを探す", description: "やりたいことから候補を知る" },
+    { href: "/models", label: "AIツール一覧", description: "掲載中のAIを用途別に見る" },
     { href: "/recommend", label: "おすすめ候補を確認", description: "3つの質問で入口を絞る" },
   ]},
   { label: "比較する", links: [

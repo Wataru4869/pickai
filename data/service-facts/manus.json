@@ -43,7 +43,7 @@
       "verified_at": null
     },
     "current_product": {
-      "value": "Manus AI（モデル世代は未確認）",
+      "value": "Manus AI",
       "source_id": "manus-overview-20260913",
       "verified_at": "2026-09-13"
     },
@@ -56,7 +56,7 @@
       "verified_at": "2026-09-13"
     },
     "availability": {
-      "value": "クレジット消費はタスクの複雑さに依存。日本向け条件・正確な無料クレジット数は未確認。",
+      "value": "クレジット消費はタスクの複雑さに依存。日本向け条件と利用可能な無料クレジット数は利用画面で確認してください。",
       "source_id": "manus-plans-20260913",
       "verified_at": "2026-09-13"
     }

@@ -16,7 +16,7 @@ function Brand({ onNavigate }: { onNavigate?: () => void }) {
 }
 
 function Navigation({ pathname, onNavigate }: { pathname: string; onNavigate?: () => void }) {
-  const marks: Record<string, string> = { "/categories":"目", "/recommend":"診", "/compare":"比", "/cost":"￥", "/categories/writing":"文", "/categories/ai-search":"調", "/categories/image-generation":"画", "/categories/video-generation":"動", "/categories/coding-tools":"開", "/categories/ai-agents":"自", "/blog":"読", "/switch":"替", "/evaluations/2026-03":"歴", "/methodology":"方", "/safety":"安", "/faq":"問" };
+  const marks: Record<string, string> = { "/categories":"目", "/models":"覧", "/recommend":"診", "/compare":"比", "/cost":"￥", "/categories/writing":"文", "/categories/ai-search":"調", "/categories/image-generation":"画", "/categories/video-generation":"動", "/categories/coding-tools":"開", "/categories/ai-agents":"自", "/blog":"読", "/switch":"替", "/evaluations/2026-03":"歴", "/methodology":"方", "/safety":"安", "/faq":"問" };
   return <nav className="site-navigation" aria-label="サイト内メニュー">
     {navigationGroups.map(group => <section key={group.label} className="site-navigation__group" aria-labelledby={`nav-${group.label}`}>
       <h2 id={`nav-${group.label}`}>{group.label}</h2>

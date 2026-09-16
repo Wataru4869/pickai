@@ -27,12 +27,12 @@ export const serviceUseCases: Record<string, ServiceUseCase[]> = {
   ],
   grok: [
     { situation: "公開情報の反応を調べる", prepare: "テーマ、期間、確認したい意見", aiRole: "Webや公開X投稿から論点を集める", result: "反応の分類と参照候補", humanCheck: "投稿日時・文脈・一次情報を確認" },
-    { situation: "最近の話題を説明文にする", prepare: "対象テーマ、読者、必要な根拠", aiRole: "情報を整理して下書きを作る", result: "説明文と未確認点", humanCheck: "速報と確定情報を分けて確認" },
+    { situation: "最近の話題を説明文にする", prepare: "対象テーマ、読者、必要な根拠", aiRole: "情報を整理して下書きを作る", result: "説明文と要確認点", humanCheck: "速報と確定情報を分けて確認" },
     { situation: "複数の見方を並べる", prepare: "問い、対象範囲、比較軸", aiRole: "賛否や論点を分類する", result: "比較用の論点表", humanCheck: "偏りと出典の信頼性を確認" },
   ],
   perplexity: [
     { situation: "出典から調査を始める", prepare: "質問、期間、対象地域", aiRole: "回答と参照元の候補をまとめる", result: "出典付きの調査メモ", humanCheck: "リンク先に主張の根拠があるか" },
-    { situation: "製品条件を比較する", prepare: "製品名、料金・機能などの確認項目", aiRole: "公式ページ候補と差分を整理する", result: "確認先と未確認項目の一覧", humanCheck: "公式料金・規約を直接確認" },
+    { situation: "製品条件を比較する", prepare: "製品名、料金・機能などの確認項目", aiRole: "公式ページ候補と差分を整理する", result: "確認先と要確認項目の一覧", humanCheck: "公式料金・規約を直接確認" },
     { situation: "短いブリーフを作る", prepare: "テーマ、対象者、締切", aiRole: "重要事項と追加調査を分ける", result: "要点と次の調査項目", humanCheck: "日付・引用・解釈を確認" },
   ],
   cursor: [

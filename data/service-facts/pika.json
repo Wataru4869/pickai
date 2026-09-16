@@ -35,7 +35,7 @@
         "Standard": "US$8/month equivalent, billed yearly",
         "Pro": null,
         "Fancy": null,
-        "region_note": "月払いタブと日本最終価格は未確認。未確認プラン額は補完しない。"
+        "region_note": "月払い条件と日本の決済額は契約画面で確認してください。表示のないプラン額は掲載していません。"
       },
       "source_id": "pika-plans-20260913",
       "verified_at": "2026-09-13"
@@ -67,7 +67,7 @@
       "verified_at": "2026-09-10"
     },
     "availability": {
-      "value": "BasicはPika 2.5の480p等に制限。機能・クレジットはプランと生成処理別。日本の利用条件は未確認。",
+      "value": "BasicはPika 2.5の480p等に制限。機能・クレジットはプランと生成処理別です。日本から利用する場合は契約条件を公式画面で確認してください。",
       "source_id": "pika-plans-20260913",
       "verified_at": "2026-09-13"
     }

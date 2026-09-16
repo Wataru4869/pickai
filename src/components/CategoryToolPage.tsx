@@ -204,7 +204,7 @@ export function CategoryToolPage({ data, relatedArticles, relatedNote }: {
             </div>
 
             <p className="text-[12px] text-[#6e6e73] mb-3 leading-relaxed">
-              【{data.lastUpdated}時点の掲載説明・現在未検証】
+              【{data.lastUpdated}時点の掲載説明・現在の選定には使用しません】
               {t.descriptionJapanese || t.bestFor}
             </p>
 
@@ -267,7 +267,7 @@ export function CategoryToolPage({ data, relatedArticles, relatedNote }: {
                   name: item.question,
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: `${data.lastUpdated}時点の保存回答で、現在の条件は未検証です。${item.answer}`,
+                    text: `${data.lastUpdated}時点の保存回答です。現在の料金・機能を示す情報ではありません。${item.answer}`,
                   },
                 })),
               }),
@@ -275,7 +275,7 @@ export function CategoryToolPage({ data, relatedArticles, relatedNote }: {
           />
           <Block>
             <SectionHeader title={`当時のよくある質問（${data.lastUpdated}）`} />
-            <p className="text-[12px] text-[#6e6e73] mb-4">保存回答です。現在の料金・無料枠・性能・提供条件は未検証です。</p>
+            <p className="text-[12px] text-[#6e6e73] mb-4">保存回答です。現在の料金・無料枠・性能・提供条件を示す情報ではありません。</p>
             <div className="space-y-4">
               {data.faq.map((item, i) => (
                 <div key={i}>

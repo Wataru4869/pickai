@@ -23,7 +23,7 @@ export default function EvaluationArchive() {
           <details className={styles.archive} open><summary>保存スコアと履歴を開く</summary>
             <div className={styles.tableScroll} tabIndex={0} role="region" aria-label="2026年3月の保存評価表（横スクロール可能）">
               <table><caption>総合の保存済み評価（2026年3月）。再現用raw dataは不足しています。</caption><thead><tr>{["保存順位", "サービス", "総合", "文章", "コード", "画像", "安全性"].map(h => <th key={h} scope="col">{h}</th>)}</tr></thead>
-                <tbody>{ranking.map((r: any, i: number) => <tr key={r.model}><td>{i + 1}</td><th scope="row"><a href={`/model/${r.model}`}>{models.find(m => m.id === r.model)?.name ?? r.model}</a></th><td>{r.score ?? "未確認"}</td>{["writing","coding","image","safety"].map(key => <td key={key}>{r.scores?.[key] ?? "未確認"}</td>)}</tr>)}</tbody>
+                <tbody>{ranking.map((r: any, i: number) => <tr key={r.model}><td>{i + 1}</td><th scope="row"><a href={`/model/${r.model}`}>{models.find(m => m.id === r.model)?.name ?? r.model}</a></th><td>{r.score ?? "—"}</td>{["writing","coding","image","safety"].map(key => <td key={key}>{r.scores?.[key] ?? "—"}</td>)}</tr>)}</tbody>
               </table>
             </div>
             <h3>保存済みの変化記録：{changes.period}</h3><p className={styles.note}>記録日 {changes.lastUpdated}。現在のアップデートニュースではありません。</p>

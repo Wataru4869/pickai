@@ -1,5 +1,12 @@
 # DECISIONS
 
+## D49 — 欠損factを公開ラベル化せず、indexableなAI一覧から確定情報へ導く（2026-09-16）
+
+- 「未確認」を大量に見せることは利用者の判断を助けないため、公開面は出典を確認できた項目だけを表示する。欠損値は内部ではunknownのまま保持し、0円・無料・非対応・低評価へ補完しない。
+- index未登録対策はURL量産や日付更新ではなく、25件のcanonicalな詳細URLを用途別の`/models`から辿れる構造、navigation、sitemap、canonical、200応答、内部リンク整合で行う。登録可否はGoogle判断なので、コード修正を登録完了と扱わない。
+- Current比較は候補間で共通して公式根拠がある行だけを表示する。2026年3月の保存スコアやaffiliate都合の順位は現在比較へ流用しない。
+- Revenue Impactは間接1〜2、Cost 0円、Evidenceはroute/link/build QA E2・index/SEO/CV効果E0、Risk低〜中。PreviewとProductionは別承認とし、公開後はSearch Consoleの実測で再判断する。
+
 ## D48 — AIえらびマップ Brand RenameをProductionへ昇格（2026-09-16）
 
 - 人間の明示承認に基づき、commit `63be00d` のReadyなPreviewをVercelのPromote to Productionで昇格した。

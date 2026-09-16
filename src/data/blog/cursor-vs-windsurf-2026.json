@@ -14,7 +14,7 @@
     },
     {
       "heading": "CursorとDevin Desktopの比較表",
-      "content": "| 比較する点 | Cursor | Devin Desktop（旧Windsurf） |\n| --- | --- | --- |\n| 現在の製品名 | Cursor | Devin Desktop |\n| 公式に確認した範囲 | エディタ、CLI、クラウドエージェント、Projects | IDE、Spaces、Kanbanによるエージェント管理 |\n| 無料プラン | Hobby | Free |\n| 個人向け価格 | Pro US$20/月、Pro+ US$60/月、Ultra US$200/月 | Pro US$20/月、Max US$200/月 |\n| チーム料金 | 未確認 | Teams US$80/月＋フルシートUS$40/月 |\n\nいずれも公式USD表示です。税、日本での請求額、既存プランの引継ぎ、利用上限は契約前に確認してください。"
+      "content": "| 比較する点 | Cursor | Devin Desktop（旧Windsurf） |\n| --- | --- | --- |\n| 現在の製品名 | Cursor | Devin Desktop |\n| 公式に確認した範囲 | エディタ、CLI、クラウドエージェント、Projects | IDE、Spaces、Kanbanによるエージェント管理 |\n| 無料プラン | Hobby | Free |\n| 個人向け価格 | Pro US$20/月、Pro+ US$60/月、Ultra US$200/月 | Pro US$20/月、Max US$200/月 |\n| チーム料金 | 契約画面で確認 | Teams US$80/月＋フルシートUS$40/月 |\n\nいずれも公式USD表示です。税、日本での請求額、既存プランの引継ぎ、利用上限は契約前に確認してください。"
     },
     {
       "heading": "Cursorは作業環境とクラウド作業をまとめたい場合に確認",

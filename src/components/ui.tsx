@@ -136,6 +136,7 @@ export function Footer() {
       heading: "AIを選ぶ",
       links: [
         { href: "/categories", label: "用途から探す" },
+        { href: "/models", label: "AIツール一覧" },
         { href: "/recommend", label: "おすすめ候補を確認" },
         { href: "/compare", label: "AI同士を比較" },
         { href: "/switch", label: "乗り換えガイド" },

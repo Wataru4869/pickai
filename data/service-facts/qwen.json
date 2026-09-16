@@ -53,7 +53,7 @@
       "verified_at": "2026-09-11"
     },
     "availability": {
-      "value": "9月2日付のAPIスナップショット。Qwenアプリの対象プラン・日本向け条件は未確認。",
+      "value": "9月2日付のAPIスナップショット。Qwenアプリを利用する場合は対象プランと日本向け条件を公式画面で確認してください。",
       "source_id": "qwencloud-model-releases",
       "verified_at": "2026-09-11"
     }

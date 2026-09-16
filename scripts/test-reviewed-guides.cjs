@@ -101,12 +101,12 @@ function loadTs(file, overrides={}) {
 const current=loadTs('src/lib/current-comparison.ts');
 assert.equal(current.currentProducts.length,9);
 assert.equal(new Set(current.currentProducts.map(p=>p.id)).size,9);
-assert.deepEqual(current.displayFact({value:null,source_id:null,verified_at:null}),{text:'未確認',date:null,source:null});
-assert.equal(current.displayFact({value:'unverified',source_id:'missing-source',verified_at:'2026-09-11'}).text,'未確認');
+assert.deepEqual(current.displayFact({value:null,source_id:null,verified_at:null}),{text:'—',date:null,source:null});
+assert.equal(current.displayFact({value:'unverified',source_id:'missing-source',verified_at:'2026-09-11'}).text,'—');
 for(const p of current.currentProducts) {
   assert.ok(['chat','api','coding'].includes(p.group));
   for (const key of ['product','features']) {
-    if (!p[key].source) assert.deepEqual(p[key], {text:'未確認',date:null,source:null});
+    if (!p[key].source) assert.deepEqual(p[key], {text:'—',date:null,source:null});
   }
   assert.equal('score' in p,false);
   assert.ok(p.guide.startsWith('/blog/'));
@@ -116,7 +116,7 @@ for(const p of current.currentProducts) {
 }
 const comp=loadTs('src/components/CurrentComparison.tsx');
 const currentHtml=renderToStaticMarkup(React.createElement(comp.default,{products:current.currentProducts}));
-assert.equal((currentHtml.match(/独自スコア：未評価/g)||[]).length,9);
+assert.equal((currentHtml.match(/公式情報で比較/g)||[]).length,9);
 assert.equal((currentHtml.match(/<article /g)||[]).length,9);
 assert.ok(currentHtml.includes('3月の保存スコアを見る'));
 const catalog=loadTs('src/lib/public-catalog.ts',{'./current-comparison':current});
@@ -133,12 +133,12 @@ assert.equal(currentHomeHtml.includes('保存順位'),false);
 assert.equal(currentHomeHtml.includes('<tbody>'),false);
 assert.ok(currentHomeHtml.includes('V4.1-Flash'));
 assert.ok(currentHomeHtml.includes('href="/evaluations/2026-03"'));
-console.log('Passed: nine public-fact candidates, unknown preserved, official source links, no score inheritance on home.');
+console.log('Passed: nine public-fact candidates, missing facts omitted from public cards, official source links, no score inheritance on home.');
 
-assert.equal(catalog.catalogProduct('copilot').facts.provider.text,'未確認');
+assert.equal(catalog.catalogProduct('copilot').facts.provider.text,'—');
 assert.ok(catalog.catalogProduct('grok').facts.current_price.text.includes('SuperGrok: US$30/month'));
-assert.equal(catalog.catalogProduct('grok').facts.free_trial.text,'未確認');
-assert.ok(catalog.catalogProduct('perplexity').facts.current_price.text.includes('未確認'));
+assert.equal(catalog.catalogProduct('grok').facts.free_trial.text,'—');
+assert.equal(catalog.catalogProduct('perplexity').facts.current_price.text.includes('未確認'),false);
 assert.equal(catalog.catalogProduct('perplexity').facts.current_price.text.includes('null'),false);
 assert.ok(catalog.catalogProduct('chatgpt').facts.current_price.text.includes('\nPlus: US$20/month'));
 assert.ok(catalog.catalogProduct('chatgpt').facts.current_price.text.includes('\n地域・税:'));
@@ -166,7 +166,7 @@ for(const id of publicServiceIds){
 }
 console.log('Passed: 25 public services have three detailed use cases, comparison axes, FAQ schema, and no current score claims.');
 const compactFactsHtml=renderToStaticMarkup(React.createElement(factsUi.FactCards,{ids:['chatgpt'],compact:true}));
-assert.ok(compactFactsHtml.includes('公式根拠 3/3'));
+assert.ok(compactFactsHtml.includes('出典付き 3項目'));
 assert.ok(compactFactsHtml.includes('確認 <time'));
 assert.ok(compactFactsHtml.includes('2026-09-13'));
 const nextActionsHtml=renderToStaticMarkup(React.createElement(factsUi.NextActions,{title:'次の確認',intro:'説明',links:[{href:'/cost',label:'料金',detail:'条件'}]}));
@@ -190,7 +190,7 @@ const pickerSource=fs.readFileSync(path+'src/components/ComparePicker.tsx','utf8
 assert.ok(pickerSource.includes('異なるAIを2つ選んでください'));
 assert.ok(pickerSource.includes('disabled={!destination}'));
 console.log('Passed: legacy category and reverse-order comparison duplicates are noindex/follow.');
-console.log('Passed: current decision pages exclude historical score calculations, unknown stays unknown, facts carry September sources.');
+console.log('Passed: current decision pages exclude historical score calculations, missing public rows are omitted, facts carry September sources.');
 
 const layoutSource=fs.readFileSync(path+'src/app/layout.tsx','utf8');
 assert.ok(layoutSource.includes('process.env.VERCEL_ENV === "production"'));

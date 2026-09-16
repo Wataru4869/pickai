@@ -14,7 +14,7 @@
     },
     {
       "heading": "MidjourneyとAdobe Fireflyの違いを早見表で確認",
-      "content": "| 比較する点 | Midjourney | Adobe Firefly |\n| --- | --- | --- |\n| 現行モデル・製品 | V8.2 | Firefly |\n| 公式に確認した範囲 | Web・Discord、画像生成、パーソナライズ | 画像・動画・音声・ベクター、Adobe製品と外部モデル |\n| 無料プラン | 未確認 | Free US$0 |\n| 確認した月額 | Basic US$10、Standard US$30、Pro US$60、Mega US$120 | Standard US$9.99、Pro US$19.99、Pro Plus US$49.99、Premium US$199.99 |\n\n料金は2026年9月15日時点の公式ページ表示です。Fireflyは米国向け表示を含み、日本の税込最終額は未確認です。請求周期や生成クレジットも契約画面で確認してください。"
+      "content": "| 比較する点 | Midjourney | Adobe Firefly |\n| --- | --- | --- |\n| 現行モデル・製品 | V8.2 | Firefly |\n| 公式に確認した範囲 | Web・Discord、画像生成、パーソナライズ | 画像・動画・音声・ベクター、Adobe製品と外部モデル |\n| 無料プラン | 公式プラン表に掲載なし | Free US$0 |\n| 確認した月額 | Basic US$10、Standard US$30、Pro US$60、Mega US$120 | Standard US$9.99、Pro US$19.99、Pro Plus US$49.99、Premium US$199.99 |\n\n料金は2026年9月15日時点の公式ページ表示です。Fireflyは米国向け表示を含み、日本の税込決済額は契約画面で確認してください。請求周期や生成クレジットも契約画面で確認してください。"
     },
     {
       "heading": "Midjourneyは生成方法と利用量を確認する",

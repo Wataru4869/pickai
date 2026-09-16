@@ -21,11 +21,11 @@ export type CurrentProduct = {
 };
 export const groupLabels = { chat: "文章・調査", api: "モデルAPI", coding: "開発ツール" };
 export function displayFact(fact?: Fact): DisplayFact {
-  if (fact?.value == null || !fact.source_id || !fact.verified_at) return { text: "未確認", date: null, source: null };
+  if (fact?.value == null || !fact.source_id || !fact.verified_at) return { text: "—", date: null, source: null };
   const source = sources.sources.find(s => s.source_id === fact.source_id);
-  if (!source) return { text: "未確認", date: null, source: null };
+  if (!source) return { text: "—", date: null, source: null };
   const url = new URL(source.url);
-  if (url.protocol !== "https:" || url.username || url.password || url.port) return { text: "未確認", date: null, source: null };
+  if (url.protocol !== "https:" || url.username || url.password || url.port) return { text: "—", date: null, source: null };
   const v = fact.value;
   const text = typeof v === "boolean" ? (v ? "無料プランあり（制限・対象条件は公式確認）" : "無料プランなし")
     : Array.isArray(v) ? v.join(" / ") : typeof v === "object" ? Object.entries(v).map(([k,v]) => `${k}: ${v}`).join(" / ") : String(v);

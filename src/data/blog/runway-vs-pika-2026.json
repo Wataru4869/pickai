@@ -14,7 +14,7 @@
     },
     {
       "heading": "RunwayとPikaの違いを早見表で確認",
-      "content": "| 比較する点 | Runway | Pika |\n| --- | --- | --- |\n| 公式に確認した入口 | AI画像・動画生成、アセット保存 | Text/Image-to-Video、Pikascenes、Pikadditions、Pikaswaps |\n| 無料プラン | あり | Basic US$0 |\n| 確認した有料料金 | 現行額は未確認 | Standardは年払い換算US$8/月 |\n| 現行情報の確認範囲 | Freeプランと開発者向け更新情報 | Pika 2.5と料金ページ |\n\nRunwayのWeb版とAPI、Pikaの月払いと年払いは同じ条件とは限りません。解像度、生成秒数、透かし、商用利用を契約前に確認してください。"
+      "content": "| 比較する点 | Runway | Pika |\n| --- | --- | --- |\n| 公式に確認した入口 | AI画像・動画生成、アセット保存 | Text/Image-to-Video、Pikascenes、Pikadditions、Pikaswaps |\n| 無料プラン | あり | Basic US$0 |\n| 掲載している有料料金 | 料金は契約画面で確認 | Standardは年払い換算US$8/月 |\n| 現行情報の確認範囲 | Freeプランと開発者向け更新情報 | Pika 2.5と料金ページ |\n\nRunwayのWeb版とAPI、Pikaの月払いと年払いは同じ条件とは限りません。解像度、生成秒数、透かし、商用利用を契約前に確認してください。"
     },
     {
       "heading": "Runwayは制作環境とWeb版・APIの違いを確認",
@@ -22,7 +22,7 @@
     },
     {
       "heading": "Pikaは編集系機能とクレジット消費を確認",
-      "content": "Pikaの公式料金ページではBasic US$0と、年払い換算でStandard US$8/月が表示されています。Pika 2.5のほか、シーン作成、要素追加、入れ替えなどの機能が案内されています。\n\nProやFancyの現行額、地域別税額は今回の確認範囲では未確認です。使いたい機能ごとのクレジット消費と、生成時間・解像度を契約画面で確認してください。"
+      "content": "Pikaの公式料金ページではBasic US$0と、年払い換算でStandard US$8/月が表示されています。Pika 2.5のほか、シーン作成、要素追加、入れ替えなどの機能が案内されています。\n\nProやFancyの現行額、地域別税額は掲載していません。使いたい機能ごとのクレジット消費と、生成時間・解像度を契約画面で確認してください。"
     },
     {
       "heading": "比較テストは同じ素材・同じ終了条件で行う",

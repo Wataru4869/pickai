@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     : `${modelNames[id]}とは？できること・使い方・料金を確認 | AIえらびマップ`;
   const description = id === "grok"
     ? "Grokの評判だけで決めず、X版・単体版の違い、公式の機能・料金・無料条件、注意点を確認日付きで整理。過去スコアとは分けて判断できます。"
-    : `${modelNames[id]}でできること、使い方の例、比較ポイント、料金・無料条件を整理。公式情報の確認日と出典を表示し、未確認情報と過去評価を分けて掲載します。`;
+    : `${modelNames[id]}でできること、使い方の例、比較ポイント、料金・無料条件を整理。出典を確認できた公式情報と、過去の評価を分けて掲載します。`;
   const url = `/model/${id}`;
   return {
     title,

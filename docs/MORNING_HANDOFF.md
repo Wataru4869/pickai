@@ -4,30 +4,29 @@
 
 ## 現在地
 
-- Phase: `AIえらびマップ` Production公開後の計測待ち
-- 正式名: `AIえらびマップ`
-- ロゴ表示: `AI erabi map`
-- Domain / URL: `aierabi.jp`を維持
-- Production: deployment `4yNy2h8jsY6bpBDcC7AQv2855NDM` がReady。source `63be00d`
+- Phase: Indexability / Public Facts RC（branchのみ、未push・未deploy）
+- Production: `AIえらびマップ`。現行本番構成は変更していない
+- 最大の未確認事項: Search ConsoleのURL別「未登録理由」はMacロックにより未取得
 
-## 完了
+## 今回完了
 
-- sidebar、mobile header/drawer、footer、トップ、metadata、schema、FAQ、運営者、privacy、記事署名を新名称へ統一
-- desktop / 390px / 320px / drawerをローカル実画面確認。320px横あふれ0
-- `npm run check` / `git diff --check` 成功
-- affiliate active 0 / URL 0、Current Facts・スコア・順位・計測・X queueは不変
-- 本番主要5 URLは200、裸ドメイン→wwwは308、canonical正常
-- sitemap 100 URL／ブログ47件／model 25件／lastmod 0
+- 25件のAI詳細を用途別に束ねる `/models`、navigation・footer・トップ・用途一覧からの内部リンク、`ItemList` schemaを追加
+- 公開UIと公開HTMLから「未確認」「未検証」「再現未確認」を除去。出典のないfactは表示せず、内部unknownは保持
+- Current比較は候補間で共通sourceがある行だけ表示。料金・性能・順位は補完していない
+- `npm run check`成功（79 sources / 123 pages）、`git diff --check`成功
+- sitemap 101 URL／ブログ47件／model 25件／`/models` 1件／lastmod 0
+- local production巡回: 101 URLすべて200、canonical欠損0、sitemap内noindex 0、対象語0、内部リンク115件の400以上0
+- affiliate active 0 / URL 0、recommend・UTM・計測・X queueは不変
 
-## 未完了 / 人間判断
+## 次の1手
 
-- Production反映は完了。効果測定は未実施で、SEO・CV改善を成立扱いしない
-- 13:16 JSTを計測境界として旧名称期間と分ける
-- 外部X表示名、Search Console、GA4、ドメインは今回の対象外
+1. Previewで `/models` と代表model/compare/cost/FAQを人間確認
+2. 端末利用可能時にSearch ConsoleでURL別除外理由を実測
+3. Production反映と再クロール依頼は別承認
 
 ## 参照
 
-- `docs/BRAND_TRADEMARK_RESEARCH_AI_ERABI_MAP.md`
+- `docs/INDEXABILITY_AND_PUBLIC_FACTS_RC_2026-09-16.md`
 - `docs/PROJECT_STATE.md`
 - `docs/NEXT_TASKS.md`
-- `docs/DECISIONS.md` D47
+- `docs/DECISIONS.md` D49

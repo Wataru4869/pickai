@@ -14,7 +14,7 @@
     },
     {
       "heading": "CursorとGitHub Copilotの比較表",
-      "content": "| 比較する点 | Cursor | GitHub Copilot |\n| --- | --- | --- |\n| 製品の中心 | エディタ / CLI / クラウドエージェント | IDE / CLI / GitHub |\n| 公式に確認した主な機能 | Projects、複数作業の計画、エージェントへの委任 | コード補完、チャット、クラウドエージェント、コードレビュー |\n| 無料プラン | Hobby | Free |\n| 個人向け確認済み価格 | Pro US$20/月、Pro+ US$60/月、Ultra US$200/月 | Pro US$10/月、Pro+ US$39/月、Max US$100/月 |\n| チーム条件 | Teamsの価格は未確認 | Business US$19/ユーザー/月、Enterprise US$39/ユーザー/月 |\n\n価格は公式USD表示で、税や日本での最終請求額は別確認が必要です。利用できるモデルと上限も契約・管理設定で変わります。"
+      "content": "| 比較する点 | Cursor | GitHub Copilot |\n| --- | --- | --- |\n| 製品の中心 | エディタ / CLI / クラウドエージェント | IDE / CLI / GitHub |\n| 公式に確認した主な機能 | Projects、複数作業の計画、エージェントへの委任 | コード補完、チャット、クラウドエージェント、コードレビュー |\n| 無料プラン | Hobby | Free |\n| 個人向け確認済み価格 | Pro US$20/月、Pro+ US$60/月、Ultra US$200/月 | Pro US$10/月、Pro+ US$39/月、Max US$100/月 |\n| チーム条件 | Teamsは契約画面で確認 | Business US$19/ユーザー/月、Enterprise US$39/ユーザー/月 |\n\n価格は公式USD表示で、税や日本での最終請求額は別確認が必要です。利用できるモデルと上限も契約・管理設定で変わります。"
     },
     {
       "heading": "Cursorが候補になる使い方",

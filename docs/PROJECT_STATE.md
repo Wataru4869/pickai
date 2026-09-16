@@ -1,5 +1,14 @@
 # PROJECT STATE
 
+## 現行サマリー — 2026-09-16 Indexability / Public Facts RC（branchのみ）
+
+- 25件の公開AI詳細を用途別に辿れるcanonicalな `/models` を追加し、sidebar・footer・トップ・用途一覧から内部リンクした。`ItemList` schemaを持ち、旧対象不明の`copilot`は掲載しない。
+- 公開UIの「未確認」「未検証」「再現未確認」を除去した。出典のないfactは0・無料・非対応へ補完せず、その項目自体を表示しない。必要な注意は「契約画面で確認」「公式に記載なし」など、利用者が次に取る行動へ言い換えた。
+- Current比較は選択した候補すべてで出典がある行だけ表示する。過去スコアは現在比較へ流用せず、公式情報と同一作業での試用を分ける方針を維持した。
+- `npm run check`成功（79 sources / 123 static pages）。sitemapは101 URL／ブログ47件／model 25件／`/models` 1件／重複0／lastmod 0。ローカル本番巡回で101 URLすべて200、canonical欠損0、sitemap内noindex 0、公開HTMLの対象語0、内部リンク115件の400以上0。
+- Search Consoleの正確な除外URL・理由は、Chrome操作時にMacがロックされていたため今回未取得。公開Web検索では旧名称・旧snippetが残っており、Googleの再クロール完了は確認できない。コード側の発見性・canonical・sitemap・リンク切れは検証済みだが、index登録そのものはGoogle判断であり未完了。
+- affiliate active 0 / URL 0、`/recommend`、UTM、計測、X queue、ランキング、独自スコアは変更していない。未push・未deploy。
+
 ## 現行サマリー — 2026-09-16 AIえらびマップ Production
 
 - ユーザー判断により、正式な日本語サイト名を `AIえらびマップ`、ロゴ表示を `AI erabi map` としてbranch上に反映した。現行ドメイン `aierabi.jp`、URL構造、canonical、計測IDは変更していない。

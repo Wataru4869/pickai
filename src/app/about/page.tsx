@@ -37,7 +37,7 @@ export default function AboutPage() {
             <ul className="space-y-1 text-[#6e6e73]">
               <li className="pl-3 border-l-2 border-[#0066cc]">保存資料の評価構成と限界を公開しています。全回答・採点ログは揃っていません</li>
               <li className="pl-3 border-l-2 border-[#0066cc]">広告リンクを掲載する場合は開示し、報酬条件を評価点や順位へ反映しません</li>
-              <li className="pl-3 border-l-2 border-[#0066cc]">未確認の性能・料金を推測で補わず、読者が根拠を確認できる情報を提供します</li>
+              <li className="pl-3 border-l-2 border-[#0066cc]">性能・料金は出典を確認できた項目だけを掲載し、読者が根拠へ戻れるようにします</li>
             </ul>
           </div>
 

@@ -126,7 +126,7 @@ export default function ReviewedGuideArticle({ article, attribution }: {
           <h1>{article.title}</h1>
           <p className={styles.lead}>{freeGuide ? <>まずは、ひとつの作業が終わるか。<br />無料枠と期間限定体験を分け、足りない条件を確かめます。</> : chatgpt ? <>モデル名と、契約プランは別のもの。<br />使う画面と任せたい作業から、確認する順番を整理します。</> : safety ? <>「何位か」の前に、<strong>何を守りたいか。</strong><br />回答の正確さ、入力データ、公開時の権利を分けて考えます。</> : search ? <>答えのうまさより、<strong>根拠まで戻れるか。</strong><br />調べる・確かめる・まとめる。あなたの作業に合う入口を選びます。</> : (agents || coding) ? <>どこまで任せて、どこで確かめるか。<br />作業環境と権限から、使うツールを選びます。</> : comparison ? article.description : <>新しい名前を追うだけで終わらせない。<br />公式の更新内容と、自分の作業への影響を分けて読みます。</>}</p>
           <div className={styles.meta}><span>公開 <time dateTime={article.publishedAt}>{article.publishedAt}</time></span><span>内容確認 <time dateTime={article.updatedAt}>{article.updatedAt}</time></span><span>読了目安 {article.readingTime}</span></div>
-          <div className={styles.scope}>{safety ? "掲載スコアは2026年3月の保存値で、再現未確認です。現在の安全性順位や企業利用の適合を保証するものではありません。" : "公式情報に基づく機能比較です。実測ランキングではありません。料金・利用上限は契約前に公式ページで確認してください。"}</div>
+          <div className={styles.scope}>{safety ? "掲載スコアは2026年3月の保存値です。現在の安全性順位や企業利用の適合を示す情報ではありません。" : "公式情報に基づく機能比較です。実測ランキングではありません。料金・利用上限は契約前に公式ページで確認してください。"}</div>
           <section className={styles.summary} aria-labelledby="article-summary">
             <h2 id="article-summary">この記事の要点</h2>
             <p>{news || chatgpt || freeGuide || comparison ? article.description : takeaway}</p>
