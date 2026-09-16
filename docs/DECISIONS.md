@@ -1,5 +1,12 @@
 # DECISIONS
 
+## D48 — AIえらびマップ Brand RenameをProductionへ昇格（2026-09-16）
+
+- 人間の明示承認に基づき、commit `63be00d` のReadyなPreviewをVercelのPromote to Productionで昇格した。
+- Production deployment `4yNy2h8jsY6bpBDcC7AQv2855NDM` はReady。本番主要5 URLは200、裸ドメインからwwwへ308、canonical、sitemap 100 URL／ブログ47件／model 25件／lastmod 0を確認した。
+- 正式名を `AIえらびマップ`、ロゴ表示を `AI erabi map` とする。現行ドメイン、URL、環境変数、DNS、main、SNS、affiliate設定は変更しない。
+- affiliate active 0 / URL 0、Current Facts・料金・スコア・順位・recommendロジック・UTM・event・X queueを維持。公開完了はSEO、回遊、CV、売上改善の証拠ではないため、13:16 JSTを計測境界として実測する。
+
 ## D38 — 安全性の既存需要を、悩み別の判断クラスターへ拡張（2026-09-16）
 
 - GSC実測で安全性2入口が全clickの約80%を占めるため、需要未確認の横展開より、入力前・誤入力後・学習/保存・会社利用・用途別・回答検証へ検索意図を分ける。
