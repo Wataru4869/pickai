@@ -29,7 +29,8 @@
 - 公開HTML: 「未確認」「未検証」「再現未確認」0
 - 内部リンク: 115件、HTTP 400以上0
 
-## BLOCKED / 人間確認
+## Production / 残確認
 
-- Search ConsoleのPage indexing / URL inspectionは端末ロックにより未確認。未登録URLと理由は推測しない。
-- PreviewおよびProductionは未実施。公開後にsitemap再読込・代表URLのinspectionを行う場合は外部操作として別承認する。
+- commit `ead215d` をProduction deployment `EhXsKbnA4iTzdHZrqJAY9ke6NUyN` として公開。既存ドメイン・環境変数・DNSは変更していない。
+- 本番でもsitemap 101 URL、全URL 200、canonical欠損0、noindex 0、対象語0、内部リンク115件の400以上0を確認した。
+- Search ConsoleのPage indexing / URL inspectionは未確認。未登録URLと理由は推測せず、次回Google画面で実測する。

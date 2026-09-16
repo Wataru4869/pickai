@@ -1,5 +1,12 @@
 # DECISIONS
 
+## D50 — Indexability / Public Facts RCをProductionへ昇格（2026-09-16）
+
+- 人間の「反映して」という明示承認に基づき、commit `ead215d` のReadyなPreviewをVercel Productionへ昇格した。Production deploymentは `EhXsKbnA4iTzdHZrqJAY9ke6NUyN`。
+- 既存ドメイン・環境変数・DNSを変更せず、main merge、SNS投稿、affiliate申請・有効化、課金、credential操作を行わない。
+- 公開後にsitemap 101 URL、canonical、noindex、公開文言、内部リンク115件、www redirect、favicon、UTM付きrecommend、未承認`/go`を確認した。
+- 公開は発見性と表示品質の改善であり、index登録・検索順位・回遊・CV・売上の改善実績ではない。15:44 JSTを公開境界とし、Search Consoleの実測で再判断する。
+
 ## D49 — 欠損factを公開ラベル化せず、indexableなAI一覧から確定情報へ導く（2026-09-16）
 
 - 「未確認」を大量に見せることは利用者の判断を助けないため、公開面は出典を確認できた項目だけを表示する。欠損値は内部ではunknownのまま保持し、0円・無料・非対応・低評価へ補完しない。

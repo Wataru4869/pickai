@@ -1,5 +1,13 @@
 # NEXT TASKS
 
+## 現行優先キュー — 2026-09-16 Indexability / Public Facts Production後
+
+1. **Search Consoleで未登録理由を実測** — Page indexingと代表URLのURL inspectionから対象URL・理由・最終クロール日を保存する。`検出 - インデックス未登録`、`クロール済み - 未登録`、重複、robots等を推測せず区別する。
+2. **必要なURLだけ再クロールを依頼** — sitemap再読込と `/models`、主要model詳細のinspectionを行う場合は対象を限定し、外部操作日時を記録する。登録成功を保証・推定しない。
+3. **index推移を観測** — 101 URLを基準に、検出・クロール・登録・canonicalを同じ期間で比較する。公開直後の欠測や旧snippetを0件・失敗扱いしない。
+4. **出典不足は需要順に補う** — 表示から省いたfactはGSC流入・比較意図があるサービスから公式一次情報で確認する。確認不能は内部nullのままにする。
+5. **Revenue接続待ちを維持** — A8で最初に承認された1案件だけ条件確認へ進み、index改善を理由にaffiliateを有効化しない。
+
 ## 現行優先キュー — 2026-09-16 Indexability / Public Facts RC後
 
 1. **Previewで公開表示を確認** — `/models`、`/model/chatgpt`、`/model/claude`、`/compare`、`/cost`、`/faq`、代表記事をdesktop/mobileで確認。完了条件: 公開面に「未確認」等がなく、空欄・横崩れ・誤認がない。Productionは別承認。

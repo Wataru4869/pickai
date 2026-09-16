@@ -1,5 +1,13 @@
 # PROJECT STATE
 
+## 現行サマリー — 2026-09-16 Indexability / Public Facts Production
+
+- 人間の明示承認により、commit `ead215d` のPreview `pTWtzJPMXxy9emVqisQVp6NP9ZNt` を既存Vercel Productionへ昇格した。Production deployment `EhXsKbnA4iTzdHZrqJAY9ke6NUyN` は2026-09-16 15:44 JSTにReady。
+- 本番 `/models` と公開中25サービスの詳細導線を公開。sidebar・footer・トップ・用途一覧から辿れ、`ItemList` schemaとcanonicalを持つ。
+- 本番sitemapは101 URL／ブログ47件／model 25件／`/models` 1件／重複0／lastmod 0。全101 URLは200、canonical欠損0、sitemap内noindex 0、公開HTMLの「未確認」「未検証」「再現未確認」0、内部リンク115件の400以上0。
+- `aierabi.jp` は `www.aierabi.jp` へ308。主要ページ、UTM付き`/recommend`、faviconは200。未承認DMMの`/go`は200の保留画面で外部redirectなし。
+- affiliate active 0 / URL 0、環境変数・DNS・main・SNS・recommendロジック・UTM・計測・X queueは変更していない。Search ConsoleのURL別未登録理由と再クロール後の登録結果は未確認で、公開完了をindex登録成功やSEO改善の実績とは扱わない。
+
 ## 現行サマリー — 2026-09-16 Indexability / Public Facts RC（branchのみ）
 
 - 25件の公開AI詳細を用途別に辿れるcanonicalな `/models` を追加し、sidebar・footer・トップ・用途一覧から内部リンクした。`ItemList` schemaを持ち、旧対象不明の`copilot`は掲載しない。
