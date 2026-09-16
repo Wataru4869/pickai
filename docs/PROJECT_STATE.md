@@ -1,12 +1,15 @@
 # PROJECT STATE
 
-## 現行サマリー — 2026-09-16 Model Detail Hierarchy RC
+## 現行サマリー — 2026-09-16 Model Detail Hierarchy Production
 
 - ユーザーの本番スクリーンショットで、個別AIページの「契約前に確認する項目」が8項目の縦積みとなり、読む順序と情報の強弱が不足していることを確認した。
 - 個別 `/model/[id]` の公式情報を2列カードへ再編。製品・運営・機能・契約・料金・無料・体験・提供を小分けにし、料金／無料条件だけを暖色で強調した。モバイルは1列カードへ切り替える。
 - 「料金・無料条件 → 機能・プラン → 提供状況」の確認順を追加し、本文の主要6セクションに01〜06を付与。できること・利用シーン・比較・FAQも独立した面として区切り、読む位置を判別しやすくした。
 - 公式facts、料金値、URL、確認日、スコア、順位、affiliate、計測仕様は変更していない。カテゴリ一覧の複数サービスカードも従来密度を維持する。
-- `npm run check`成功（79 sources / 122 static pages）、`git diff --check`成功。Claudeのdesktop表示と狭幅レイアウトをローカル実画面で確認。branch RCとしてcommitし、未push・未deploy。
+- `npm run check`成功（79 sources / 122 static pages）、`git diff --check`成功。Claudeのdesktop表示と狭幅レイアウトをローカル実画面で確認した。
+- 実装commit `5777ec7` を `work/aierabi-revenue-engine` へpush。Preview `Hb8oxpAjLPitAFwDtKpcwYYpjqGo` を確認し、人間の明示承認後に既存Vercel Productionへ昇格した。Production deployment `BJ7h249XNTLn8eDyqMU3Yxb6MfrJ` はReady、sourceは`5777ec7`。
+- 本番のトップ、ChatGPT、Claude、Gemini、Runway、Adobe Firefly、favicon、sitemapは200。Claude実画面で章番号・確認順・公式情報カードを確認。裸ドメインはwwwへ308、canonical正常。sitemapは100 URL／ブログ47件／model 25件／重複0／lastmod 0。
+- affiliate active 0 / URL 0を維持。環境変数、DNS、main、SNS、料金・facts・スコア・順位・計測は変更していない。UI効果は未実測で、公開完了を滞在・SEO・CV改善の実績とは扱わない。
 
 ## 現行サマリー — 2026-09-16 Model Detail Use-case Table Production
 

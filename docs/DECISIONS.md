@@ -375,3 +375,11 @@ GSCの/safetyとChatGPTモデル比較はpage単位でposition6〜20の範囲。
 - 既存ドメイン・環境変数・DNSを変更せず、main merge、SNS投稿、affiliate申請・有効化、課金、credential操作を行わない。
 - 本番sitemap 100 URLを巡回して400以上0件。代表7詳細で新しい早見表、canonical、Current/Historical分離を確認し、affiliate active 0 / URL 0を維持した。
 - 利用シーン表の公開はSEO・滞在・CV改善の実績ではない。2026-09-16 08:05 JSTを境界に、詳細landingと内部遷移を旧期間と分けて評価する。
+
+## D46 — Model Detail HierarchyをProductionへ昇格する（2026-09-16）
+
+- 人間の明示承認を受け、source commit `5777ec7` のReadyなPreview `Hb8oxpAjLPitAFwDtKpcwYYpjqGo` を既存Vercel Productionへ昇格した。Production deploymentは `BJ7h249XNTLn8eDyqMU3Yxb6MfrJ`。
+- 変更対象は個別model詳細の情報階層のみ。公式factsを2列カード（mobileは1列）へ分割し、確認順と01〜06の章番号を追加した。料金値、source、順位、スコア、計測、affiliate設定は変更しない。
+- 既存ドメイン・環境変数・DNSを変更せず、main merge、SNS投稿、affiliate申請・有効化、課金、credential操作を行わない。
+- 本番代表5モデルとClaude実画面、canonical、favicon、www redirect、sitemapを確認。sitemapは100 URL／ブログ47件／model 25件、affiliate active 0 / URL 0。
+- 視認性・滞在・内部遷移・SEO・CVへの効果は未実測のE0仮説。2026-09-16 10:57 JSTを公開境界として、旧期間と混ぜずに評価する。

@@ -1,10 +1,10 @@
 # NEXT TASKS
 
-## 現行優先キュー — 2026-09-16 Model Detail Hierarchy RC後
+## 現行優先キュー — 2026-09-16 Model Detail Hierarchy Production後
 
-1. **Previewで代表ページを確認** — ChatGPT / Claude / Gemini / Runway / Fireflyをdesktop・390px・320pxで確認。完了条件: 公式情報カード、セクション番号、長い料金文の文字切れ・横あふれが0件。
-2. **公開判断** — Previewにblockerがなければ、人間の明示承認後のみProductionへ反映。公開時刻を新しいUI計測境界として記録する。
-3. **詳細ページの行動を観測** — model landingから比較・カテゴリ・料金への`internal_cta_click`を公開前後で混ぜず確認。未取得はunknown。
+1. **詳細ページの行動を観測** — 2026-09-16 10:57 JSTを境界に、model landing、engagement、比較・カテゴリ・料金への`internal_cta_click`を旧期間と混ぜず確認。未取得はunknown。
+2. **実機mobileを補足確認** — ChatGPT / Claude / Gemini / Runway / Fireflyを390px・320px相当で確認。完了条件: 公式情報カード、章番号、長い料金文の文字切れ・全体横あふれが0件。blocker時だけ局所修正。
+3. **Search Consoleのindex推移を確認** — sitemap 100 URL／model 25件を基準に、model詳細の検出・index・canonicalを観測。公開完了を順位改善の証拠にしない。
 4. **A8 3案件の状態変化待ち** — 最初に承認された1件だけ条件確認へ進め、無関係なAI詳細へ広告CTAを大量追加しない。
 5. **次のUI変更は実測で決める** — カード化後のscroll・engagement・内部遷移を基準にし、装飾目的の全面変更は行わない。
 
