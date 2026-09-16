@@ -1,14 +1,14 @@
 import { Header, Footer, Block, Breadcrumb } from "@/components/ui";
 
 export const metadata = {
-  title: "よくある質問（FAQ） | AI選び",
+  title: "よくある質問（FAQ） | AIえらびマップ",
   description:
-    "AI選びの評価方法、おすすめAIの選び方、料金比較、安全性などに関するよくある質問をまとめています。",
+    "AIえらびマップの評価方法、おすすめAIの選び方、料金比較、安全性などに関するよくある質問をまとめています。",
   alternates: { canonical: "/faq" },
   openGraph: {
-    title: "よくある質問（FAQ） | AI選び",
+    title: "よくある質問（FAQ） | AIえらびマップ",
     description:
-      "AI選びの評価方法、おすすめAIの選び方、料金比較、安全性などに関するよくある質問をまとめています。",
+      "AIえらびマップの評価方法、おすすめAIの選び方、料金比較、安全性などに関するよくある質問をまとめています。",
     url: "/faq",
   },
 };
@@ -18,8 +18,8 @@ const FAQ_ITEMS = [
     category: "サイトについて",
     questions: [
       {
-        q: "AI選びとは何ですか？",
-        a: "AI選びは、AIツールの保存済み評価と、公式情報から確認した料金・機能などの客観情報を分けて掲載する比較サイトです。現在公開中の独自スコアは2026年3月時点の履歴値です。",
+        q: "AIえらびマップとは何ですか？",
+        a: "AIえらびマップは、AIツールの保存済み評価と、公式情報から確認した料金・機能などの客観情報を分けて掲載する比較サイトです。現在公開中の独自スコアは2026年3月時点の履歴値です。",
       },
       {
         q: "評価方法はどのようなものですか？",
@@ -146,7 +146,7 @@ export default function FaqPage() {
             よくある質問（FAQ）
           </h1>
           <p className="text-[12px] text-[var(--text-sub)] leading-relaxed">
-            AI選びの使い方、AIツールの選び方、料金、安全性に関するよくある質問
+            AIえらびマップの使い方、AIツールの選び方、料金、安全性に関するよくある質問
           </p>
         </div>
       </div>

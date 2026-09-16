@@ -2,11 +2,11 @@ import { Header, Footer, Block, SectionHeader, TrustBadges } from "@/components/
 import { PromptAccordion } from "@/components/PromptAccordion";
 
 export const metadata = {
-  title: "評価方法論・採点基準 | AI選び",
+  title: "評価方法論・採点基準 | AIえらびマップ",
   description: "保存されている30項目の評価構成、採点方針、現在確認できる根拠と再現性の限界を説明します。",
   alternates: { canonical: "/methodology" },
   openGraph: {
-    title: "評価方法論・採点基準 | AI選び",
+    title: "評価方法論・採点基準 | AIえらびマップ",
     description: "保存されている30項目の評価構成、採点方針、現在確認できる根拠と再現性の限界を説明します。",
     url: "/methodology",
   },

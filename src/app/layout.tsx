@@ -4,10 +4,13 @@ import { Sidebar } from "@/components/Sidebar";
 import AnalyticsListener from "@/components/AnalyticsListener";
 import "./globals.css";
 
+const SITE_NAME = "AIえらびマップ";
+const SITE_URL = "https://www.aierabi.jp";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.aierabi.jp"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "AIツール比較・選び方｜公式情報と用途で探す | AI選び",
+    default: `AIツール比較・選び方｜公式情報と用途で探す | ${SITE_NAME}`,
     template: "%s",
   },
   description:
@@ -28,17 +31,17 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "AI選び｜AIツールを用途と公式情報で比較",
+    title: `${SITE_NAME}｜AIツールを用途と公式情報で比較`,
     description:
       "AIツールを用途・機能・料金・提供条件から比較。公式情報の出典と確認日を示します。",
     url: "https://www.aierabi.jp",
-    siteName: "AI選び",
+    siteName: SITE_NAME,
     images: [
       {
         url: "/ogp.png",
         width: 1200,
         height: 630,
-        alt: "AI選び｜AIツールを用途と公式情報で比較",
+        alt: `${SITE_NAME}｜AIツールを用途と公式情報で比較`,
       },
     ],
     locale: "ja_JP",
@@ -46,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI選び｜AIツールを用途と公式情報で比較",
+    title: `${SITE_NAME}｜AIツールを用途と公式情報で比較`,
     description:
       "AIツールを用途・機能・料金・提供条件から比較。公式情報の出典と確認日を示します。",
     images: ["/ogp.png"],

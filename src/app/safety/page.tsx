@@ -1,7 +1,7 @@
 import { FactsLayout, NextActions } from "@/components/PublicFactsPage";
 
 export const metadata = {
-  title: "生成AIの安全な使い方｜個人情報・情報漏洩・正確性を確認 | AI選び",
+  title: "生成AIの安全な使い方｜個人情報・情報漏洩・正確性を確認 | AIえらびマップ",
   description: "生成AIに入力してはいけない情報、入力してしまった時の対処、学習・保存・人の確認、会社利用、ハルシネーションを悩み別に整理します。",
   alternates: { canonical: "/safety" },
 };

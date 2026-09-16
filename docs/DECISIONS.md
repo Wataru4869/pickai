@@ -383,3 +383,11 @@ GSCの/safetyとChatGPTモデル比較はpage単位でposition6〜20の範囲。
 - 既存ドメイン・環境変数・DNSを変更せず、main merge、SNS投稿、affiliate申請・有効化、課金、credential操作を行わない。
 - 本番代表5モデルとClaude実画面、canonical、favicon、www redirect、sitemapを確認。sitemapは100 URL／ブログ47件／model 25件、affiliate active 0 / URL 0。
 - 視認性・滞在・内部遷移・SEO・CVへの効果は未実測のE0仮説。2026-09-16 10:57 JSTを公開境界として、旧期間と混ぜずに評価する。
+
+## D47 — 正式サイト名を「AIえらびマップ」、ロゴを「AI erabi map」とする（2026-09-16）
+
+- ユーザーが一般語的で安価に見える旧表示「AI選び」からの変更を決定した。日本語で役割が伝わる正式名を `AIえらびマップ`、視覚上のwordmarkを `AI erabi map` とする。
+- 事前の無料調査では、J-PlatPatの文字・称呼検索で完全一致0件を確認した。一方 `えらび / 選び` は一般的・記述的な要素であり、強い独占性や法的安全性は断定しない。常にフルネームを使い、`ERABI` 単独ブランドとして扱わない。
+- 現行 `aierabi.jp`、全URL、canonical、analytics、UTM、X実験、affiliate設定は維持する。外部アカウント名、Search Console、GA4、ドメインは自動変更しない。
+- サイト内はmetadata、schema、編集主体、FAQ、footer、記事署名まで統一する。過去の公開履歴だけは前身名として残す。検索上の一般表現「AIの選び方」はブランド名へ機械置換しない。
+- 本変更はbrand clarityのE0仮説。公開後の検索・回遊・CV効果は未実測で、Production反映はPreview確認後の別承認とする。

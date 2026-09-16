@@ -4,10 +4,10 @@ import BlogList from "./BlogList";
 import styles from "@/components/Discovery.module.css";
 
 export const metadata = {
-  title: "AI比較・活用コラム｜用途から選ぶガイド | AI選び",
+  title: "AI比較・活用コラム｜用途から選ぶガイド | AIえらびマップ",
   description: "AI検索、画像・動画生成、エージェント、安全性。更新日を確認しながら、用途に合う比較記事を探せます。",
   alternates: { canonical: "/blog" },
-  openGraph: { title: "AI比較・活用コラム | AI選び", url: "/blog" },
+  openGraph: { title: "AI比較・活用コラム | AIえらびマップ", url: "/blog" },
 };
 
 export default function BlogIndexPage() {

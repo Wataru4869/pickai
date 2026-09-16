@@ -1,5 +1,13 @@
 # NEXT TASKS
 
+## 現行優先キュー — 2026-09-16 AIえらびマップ Brand Rename RC後
+
+1. **人間Preview確認** — トップ、mobile header/drawer、FAQ、運営者情報、記事1件、SNS共有画像で `AI erabi map` / `AIえらびマップ` の読みやすさと旧ブランド残存を確認。Productionは別承認。
+2. **ブランド差分だけをcommit / push** — 既存の別作業差分を混ぜず、商標調査文書とサイト内表記変更を論理単位で整理する。完了条件: `work/aierabi-revenue-engine` のPreviewがReady。
+3. **公開する場合は計測境界を分ける** — 本番反映時刻を記録し、旧名称期間と新名称期間のCTR・回遊を混ぜない。名称変更だけでSEO/CV改善を成立扱いしない。
+4. **外部名称は別承認で同期** — X表示名、Search Console、GA4、ドメイン、外部プロフィールは今回変更しない。必要時に対象ごとに人間確認する。
+5. **Revenue接続待ちを維持** — A8 3案件で最初に承認された1件だけ条件確認へ進み、ブランド変更を理由にaffiliateを有効化しない。
+
 ## 現行優先キュー — 2026-09-16 Model Detail Hierarchy Production後
 
 1. **詳細ページの行動を観測** — 2026-09-16 10:57 JSTを境界に、model landing、engagement、比較・カテゴリ・料金への`internal_cta_click`を旧期間と混ぜず確認。未取得はunknown。

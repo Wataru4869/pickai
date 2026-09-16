@@ -1,5 +1,14 @@
 # PROJECT STATE
 
+## 現行サマリー — 2026-09-16 AIえらびマップ Brand Rename RC
+
+- ユーザー判断により、正式な日本語サイト名を `AIえらびマップ`、ロゴ表示を `AI erabi map` としてbranch上に反映した。現行ドメイン `aierabi.jp`、URL構造、canonical、計測IDは変更していない。
+- sidebar / mobile header / footer / トップ / metadata / OGP・Twitter metadata / WebSite・Article schema / FAQ / 運営者・プライバシー / 記事内の編集主体表記を新名称へ統一した。2026-03-22の公開履歴だけは「前身サイト『AI選び』」と明示して履歴を保持した。
+- 直前のJ-PlatPat調査では `AIえらびマップ`、`AI選びマップ`、`AIエラビマップ`、`AIERABIMAP`、主要称呼の完全一致は0件。これは法的安全性や登録可能性の保証ではなく、必要なら出願前に弁理士確認を行う。
+- ロゴはCSS製の `AI erabi map`。外部フォント・第三者ロゴ・画像assetを追加せず、既存の深緑と朱色で `map` を判断の目印として表示する。
+- `npm run check`成功（79 sources / 122 static pages）、`git diff --check`成功。ローカル実画面でdesktop / 390px / 320px / mobile drawerを確認し、320pxの全体横あふれ0を確認した。
+- Current Facts、料金、独自スコア、順位、affiliate設定、`/recommend`ロジック、UTM、event、X投稿queueは変更していない。affiliate active 0 / URL 0をテストで確認。未commit・未push・未deployで、Productionは旧名称のまま。
+
 ## 現行サマリー — 2026-09-16 Model Detail Hierarchy Production
 
 - ユーザーの本番スクリーンショットで、個別AIページの「契約前に確認する項目」が8項目の縦積みとなり、読む順序と情報の強弱が不足していることを確認した。

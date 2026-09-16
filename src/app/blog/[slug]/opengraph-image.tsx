@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "AI選び コラム";
+export const alt = "AIえらびマップ コラム";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -46,10 +46,10 @@ export default async function Image({ params: pendingParams }: { params: Promise
         <div style={{ fontSize: "14px", fontWeight: 600, color: "#0066cc", backgroundColor: "#f0f3f7", padding: "4px 16px", borderRadius: "4px", marginBottom: "24px" }}>AI比較コラム</div>
         <div style={{ fontSize: title.length > 20 ? "36px" : "44px", fontWeight: 700, color: "#1d1d1f", textAlign: "center", lineHeight: 1.4, maxWidth: "900px" }}>{title}</div>
         <div style={{ position: "absolute", bottom: "32px", display: "flex", alignItems: "center", gap: "8px" }}>
-          <div style={{ display: "flex", alignItems: "baseline", gap: "2px" }}>
-            <span style={{ fontSize: "20px", fontWeight: 700, color: "#1d1d1f" }}>AI</span>
-            <span style={{ fontSize: "20px", fontWeight: 300, color: "#d2d2d7" }}>|</span>
-            <span style={{ fontSize: "20px", fontWeight: 700, color: "#1d1d1f" }}>選び</span>
+          <div style={{ display: "flex", alignItems: "baseline", gap: "6px" }}>
+            <span style={{ fontSize: "21px", fontWeight: 800, color: "#14564b" }}>AI</span>
+            <span style={{ fontSize: "20px", fontWeight: 700, color: "#1d1d1f" }}>erabi</span>
+            <span style={{ fontSize: "12px", fontWeight: 700, color: "#ffffff", backgroundColor: "#d9603b", padding: "3px 7px", borderRadius: "5px" }}>map</span>
           </div>
           <span style={{ fontSize: "14px", color: "#86868b", marginLeft: "8px" }}>aierabi.jp</span>
         </div>

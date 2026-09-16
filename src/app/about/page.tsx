@@ -1,9 +1,9 @@
 import { Header, Footer, Block, SectionHeader } from "@/components/ui";
 
 export const metadata = {
-  title: "運営者情報 | AI選び",
+  title: "運営者情報 | AIえらびマップ",
   alternates: { canonical: "/about" },
-  openGraph: { title: "運営者情報 | AI選び", url: "/about" },
+  openGraph: { title: "運営者情報 | AIえらびマップ", url: "/about" },
 };
 
 export default function AboutPage() {
@@ -13,7 +13,7 @@ export default function AboutPage() {
 
       <div className="bg-white py-6">
         <div className="max-w-full sm:max-w-[860px] mx-auto px-3 sm:px-4">
-          <h1 className="text-[20px] font-bold text-[#1d1d1f] mb-1">AI選び について</h1>
+          <h1 className="text-[20px] font-bold text-[#1d1d1f] mb-1">AIえらびマップ について</h1>
         </div>
       </div>
 
@@ -22,13 +22,13 @@ export default function AboutPage() {
 
           <div>
             <h2 className="text-[14px] font-semibold mb-1.5">運営</h2>
-            <p className="text-[#6e6e73]">AI選び編集部</p>
+            <p className="text-[#6e6e73]">AIえらびマップ編集部</p>
           </div>
 
           <div>
             <h2 className="text-[14px] font-semibold mb-1.5">サイト概要</h2>
             <p className="text-[#6e6e73]">
-              AI選びは、AIツールの用途・機能・利用条件を公式情報から整理する比較サイトです。確認した項目には出典と確認日を付け、過去の独自評価とは分けて掲載します。
+              AIえらびマップは、AIツールの用途・機能・利用条件を公式情報から整理する比較サイトです。確認した項目には出典と確認日を付け、過去の独自評価とは分けて掲載します。
             </p>
           </div>
 

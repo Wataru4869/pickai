@@ -6,11 +6,15 @@ import { getAllArticles } from "@/lib/blog";
 import { Header, Footer } from "@/components/ui";
 import styles from "@/components/Discovery.module.css";
 
+const SITE_NAME = "AIえらびマップ";
+const SITE_WORDMARK = "AI erabi map";
+const SITE_URL = "https://www.aierabi.jp";
+
 export const metadata: Metadata = {
-  title: "AI選び｜用途から探して、料金・機能を比較できるAI選択サービス",
+  title: `${SITE_NAME}｜用途から探して、料金・機能を比較できるAI選択サービス`,
   description: "文章、調査、画像、動画、開発など、やりたいことからAI候補を探せます。ChatGPT・Claude・Gemini等の機能・料金・無料条件を公式情報と確認日付きで比較。",
   alternates: { canonical: "/" },
-  openGraph: { title: "AI選び｜用途から自分に合うAIを探す", description: "目的から候補を知り、違いと料金を確認できる日本語AI選択サービス。", url: "/" },
+  openGraph: { title: `${SITE_NAME}｜用途から自分に合うAIを探す`, description: "目的から候補を知り、違いと料金を確認できる日本語AI選択サービス。", url: "/" },
 };
 
 const purposeEntries = [
@@ -41,17 +45,17 @@ export default function HomePage() {
     .flatMap(slug => articles.filter(article => article.slug === slug));
   return <div className={styles.page}><Header /><main>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-      "@context": "https://schema.org", "@type": "WebSite", name: "AI選び", url: "https://www.aierabi.jp",
+      "@context": "https://schema.org", "@type": "WebSite", name: SITE_NAME, alternateName: SITE_WORDMARK, url: SITE_URL,
       description: "AIツールを用途から探し、機能・料金・提供条件を公式情報と確認日付きで比較できるサービス。",
     }) }} />
     <header className={styles.choiceHero}><div className={styles.container}><div className={styles.choiceHeroGrid}><div>
-      <p className={styles.japaneseEyebrow}><span>AI選び</span> AIに詳しくなくても、用途から選べます</p>
+      <p className={styles.japaneseEyebrow}><span>{SITE_NAME}</span> AIに詳しくなくても、用途から選べます</p>
       <h1>やりたいことから、<br /><em>使うAIが見えてくる。</em></h1>
       <p className={styles.choiceLead}>仕事、文章、調査、画像、動画、開発。名前や話題性ではなく、<strong>あなたの目的に合う候補</strong>を見つけ、料金と注意点まで確認できます。</p>
       <div className={styles.heroActions}><a className={styles.heroPrimary} href="#purpose-choice" data-analytics-event="internal_cta_click" data-source-page="/" data-cta-type="purpose" data-cta-position="hero_primary" data-destination-id="purpose_choice">用途からAIを選ぶ</a><a className={styles.heroSecondary} href="/recommend" data-analytics-event="internal_cta_click" data-source-page="/" data-cta-type="diagnosis" data-cta-position="hero_secondary" data-destination-id="/recommend">3つの質問で候補を確認</a></div>
       <div className={styles.heroTrust}><span>公式情報に出典</span><span>確認日を表示</span><span>未確認は推測しない</span></div>
       <p className={styles.heroFootnote}>順位だけで決めず、現在の公式情報と過去の検証結果を分けて掲載しています。</p>
-    </div><aside className={styles.choiceBoard} aria-label="AI選びの利用イメージ"><div className={styles.boardHead}><span>選び方の例</span><small>文章・資料を作りたい</small></div><div className={styles.boardQuestion}><span aria-hidden="true">01</span><div><small>やりたいこと</small><strong>長い資料を読み、要点を整える</strong></div></div><div className={styles.boardCandidates}><p>比較候補</p><div><span>ChatGPT</span><span>Claude</span></div></div><div className={styles.boardChecks}><span>機能</span><span>料金</span><span>入力データ</span></div><a href="/compare/claude-vs-chatgpt">この2つの違いを見る <b aria-hidden="true">→</b></a></aside></div></div></header>
+    </div><aside className={styles.choiceBoard} aria-label={`${SITE_NAME}の利用イメージ`}><div className={styles.boardHead}><span>選び方の例</span><small>文章・資料を作りたい</small></div><div className={styles.boardQuestion}><span aria-hidden="true">01</span><div><small>やりたいこと</small><strong>長い資料を読み、要点を整える</strong></div></div><div className={styles.boardCandidates}><p>比較候補</p><div><span>ChatGPT</span><span>Claude</span></div></div><div className={styles.boardChecks}><span>機能</span><span>料金</span><span>入力データ</span></div><a href="/compare/claude-vs-chatgpt">この2つの違いを見る <b aria-hidden="true">→</b></a></aside></div></div></header>
     <nav className={styles.journeyNav} aria-label="AIを選ぶ流れ"><div className={styles.container}><a href="#purpose-choice"><b>1</b><span><small>まずは</small>用途を選ぶ</span></a><a href="/recommend"><b>2</b><span><small>迷ったら</small>候補を絞る</span></a><a href="/compare"><b>3</b><span><small>2つに絞って</small>違いを比べる</span></a><a href="/cost"><b>4</b><span><small>最後に</small>料金を確認</span></a></div></nav>
     <div className={styles.container}>
       <section id="purpose-choice" className={styles.section} aria-labelledby="purpose-title"><div className={styles.sectionIntro}><p className={styles.japaneseEyebrow}>最初の入口</p><h2 id="purpose-title">何に使いますか？</h2><p>サービス名を知らなくても大丈夫です。作りたいもの、進めたい仕事から選んでください。</p></div>

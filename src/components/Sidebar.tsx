@@ -4,10 +4,14 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { isNavigationLinkActive, navigationGroups } from "@/lib/site-navigation";
 
+const SITE_NAME = "AIえらびマップ";
+const SITE_WORDMARK = "AI erabi map";
+const SITE_TAGLINE = "用途から選ぶ、AI比較ガイド";
+
 function Brand({ onNavigate }: { onNavigate?: () => void }) {
-  return <a href="/" className="site-brand" onClick={onNavigate} aria-label="AI erabi トップページ">
-    <span className="site-brand__wordmark" aria-hidden="true"><b>AI</b><i>erabi</i><em>●</em></span>
-    <small>用途から選べるAI比較</small>
+  return <a href="/" className="site-brand" onClick={onNavigate} aria-label={`${SITE_NAME}（${SITE_WORDMARK}）トップページ`}>
+    <span className="site-brand__wordmark" aria-hidden="true"><b>AI</b><i>erabi</i><em>map</em></span>
+    <small>{SITE_TAGLINE}</small>
   </a>;
 }
 

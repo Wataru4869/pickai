@@ -1,7 +1,7 @@
 import { Header, Footer } from "@/components/ui";
 
 export const metadata = {
-  title: "ページが見つかりません | AI選び",
+  title: "ページが見つかりません | AIえらびマップ",
   robots: { index: false, follow: true },
 };
 

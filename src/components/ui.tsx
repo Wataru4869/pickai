@@ -2,6 +2,8 @@
 
 import { scoreColorHex } from "@/lib/data";
 
+const SITE_NAME = "AIえらびマップ";
+
 export function SectionHeader({ title }: { title: string }) {
   return (
     <h2 className="text-[22px] sm:text-[24px] leading-[1.55] font-bold text-[var(--text)] pl-4 border-l-4 border-[var(--accent)] mb-5">
@@ -180,8 +182,8 @@ export function Footer() {
           ))}
         </div>
         <div className="mt-8 pt-5 border-t border-[var(--border)] flex items-center gap-4 flex-wrap text-[11px]">
-          <span className="font-bold text-[14px] text-[var(--text)]">AI選び</span>
-          <span>© 2026 AI選び</span>
+          <span className="font-bold text-[14px] text-[var(--text)]">{SITE_NAME}</span>
+          <span>© 2026 {SITE_NAME}</span>
           <a href="/privacy" className="text-[var(--text-sub)] hover:text-[var(--accent)] no-underline">プライバシーポリシー</a>
           <a href="/about" className="text-[var(--text-sub)] hover:text-[var(--accent)] no-underline">運営者情報</a>
           <span className="ml-auto">過去の評価：2026年3月時点</span>

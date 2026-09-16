@@ -27,8 +27,8 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const { id } = await params;
   if (!Object.hasOwn(modelNames, id)) return {};
   const title = id === "grok"
-    ? "Grokの評判を確かめる｜機能・料金・注意点 | AI選び"
-    : `${modelNames[id]}とは？できること・使い方・料金を確認 | AI選び`;
+    ? "Grokの評判を確かめる｜機能・料金・注意点 | AIえらびマップ"
+    : `${modelNames[id]}とは？できること・使い方・料金を確認 | AIえらびマップ`;
   const description = id === "grok"
     ? "Grokの評判だけで決めず、X版・単体版の違い、公式の機能・料金・無料条件、注意点を確認日付きで整理。過去スコアとは分けて判断できます。"
     : `${modelNames[id]}でできること、使い方の例、比較ポイント、料金・無料条件を整理。公式情報の確認日と出典を表示し、未確認情報と過去評価を分けて掲載します。`;

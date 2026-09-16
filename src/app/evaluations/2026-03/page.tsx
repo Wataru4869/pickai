@@ -3,12 +3,12 @@ import { getModels, getOverallRanking, getChanges } from "@/lib/data";
 import { Header, Footer, HistoricalScoreNotice } from "@/components/ui";
 import styles from "@/components/Discovery.module.css";
 export const metadata: Metadata = {
-  title: "2026年3月の保存評価・スコア履歴 | AI選び",
+  title: "2026年3月の保存評価・スコア履歴 | AIえらびマップ",
   description: "再現用raw dataが不足する過去の保存評価。現在のモデル性能・購入推奨とは区別します。",
   alternates: { canonical: "/evaluations/2026-03" },
   robots: { index: false, follow: true },
-  openGraph: { title: "2026年3月の保存評価 | AI選び", description: "現在の性能順位ではない保存記録。", url: "/evaluations/2026-03" },
-  twitter: { title: "2026年3月の保存評価 | AI選び", description: "現在の性能順位ではない保存記録。" },
+  openGraph: { title: "2026年3月の保存評価 | AIえらびマップ", description: "現在の性能順位ではない保存記録。", url: "/evaluations/2026-03" },
+  twitter: { title: "2026年3月の保存評価 | AIえらびマップ", description: "現在の性能順位ではない保存記録。" },
 };
 export default function EvaluationArchive() {
   const models = getModels();

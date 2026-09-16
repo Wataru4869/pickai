@@ -3,7 +3,7 @@ import { FactsLayout, FactCards } from "@/components/PublicFactsPage";
 import { pairIds, modelNames } from "@/lib/public-catalog";
 import styles from "./page.module.css";
 
-export const metadata = { title: "AI比較｜用途から2つを選び、料金・機能を確認 | AI選び", description: "やりたいことから比較候補を選び、主要AIの料金・無料条件・機能を公式情報で確認。過去の点数や順位とは分けて掲載します。", alternates: { canonical: "/compare" } };
+export const metadata = { title: "AI比較｜用途から2つを選び、料金・機能を確認 | AIえらびマップ", description: "やりたいことから比較候補を選び、主要AIの料金・無料条件・機能を公式情報で確認。過去の点数や順位とは分けて掲載します。", alternates: { canonical: "/compare" } };
 const purposeLinks = [
   { label: "文章・資料", detail: "文章作成や資料整理の候補を比べる", href: "/compare/claude-vs-chatgpt" },
   { label: "調査・検索", detail: "出典確認を含む調べ方を比べる", href: "/compare/chatgpt-vs-perplexity" },

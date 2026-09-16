@@ -15,7 +15,7 @@ export async function generateMetadata({ params: pendingParams }: { params: Prom
   const article = getArticleBySlug(params.slug);
   if (!article) return {};
   const isArchive = article.updatedAt < "2026-09-01";
-  const title = `${isArchive ? "【過去記事】" : ""}${article.title} | AI選び`;
+  const title = `${isArchive ? "【過去記事】" : ""}${article.title} | AIえらびマップ`;
   const description = isArchive
     ? `${article.updatedAt}最終更新の過去記事。保存スコア・当時の料金・モデル情報を履歴として掲載し、現在の順位・購入判断には使用しません。`
     : article.description;
@@ -393,7 +393,7 @@ export default async function BlogArticlePage({
         description: article.description, datePublished: article.publishedAt, dateModified: article.updatedAt,
         mainEntityOfPage: `https://www.aierabi.jp/blog/${article.slug}`,
         "@id": `https://www.aierabi.jp/blog/${article.slug}#article`, inLanguage: "ja",
-        author: { "@type": "Organization", name: "AI選び", url: "https://www.aierabi.jp/about" },
+        author: { "@type": "Organization", name: "AIえらびマップ", url: "https://www.aierabi.jp/about" },
       }).replace(/</g, "\\u003c") }} />
 
       {/* Article Header */}

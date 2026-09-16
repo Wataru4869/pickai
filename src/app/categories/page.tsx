@@ -2,10 +2,10 @@ import { Header, Footer } from "@/components/ui";
 import styles from "@/components/Discovery.module.css";
 
 export const metadata = {
-  title: "用途からAIを探す｜文章・検索・画像・動画・開発 | AI選び",
+  title: "用途からAIを探す｜文章・検索・画像・動画・開発 | AIえらびマップ",
   description: "文章、調査、画像、動画、コーディング、自動化。やりたいことからAI候補を探し、機能・料金・注意点を確認できます。",
   alternates: { canonical: "/categories" },
-  openGraph: { title: "用途からAIを探す | AI選び", url: "/categories" },
+  openGraph: { title: "用途からAIを探す | AIえらびマップ", url: "/categories" },
 };
 const categories = [
   { mark:"文", id:"writing", name:"文章・資料作成", result:"要約、構成、書き直し、資料の下書き", check:"読み手・参照資料・手直し時間", candidates:"ChatGPT / Claude / Gemini" },

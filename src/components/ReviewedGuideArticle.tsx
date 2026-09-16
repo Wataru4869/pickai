@@ -117,7 +117,7 @@ export default function ReviewedGuideArticle({ article, attribution }: {
         description: article.description, datePublished: article.publishedAt, dateModified: article.updatedAt,
         mainEntityOfPage: `https://www.aierabi.jp/blog/${article.slug}`,
         "@id": `https://www.aierabi.jp/blog/${article.slug}#article`, inLanguage: "ja",
-        author: { "@type": "Organization", name: "AI選び", url: "https://www.aierabi.jp/about" },
+        author: { "@type": "Organization", name: "AIえらびマップ", url: "https://www.aierabi.jp/about" },
       }).replace(/</g, "\\u003c") }} />
       <header className={styles.hero}>
         <div className={styles.container}>
@@ -154,7 +154,7 @@ export default function ReviewedGuideArticle({ article, attribution }: {
         <div className={styles.layout}>
           <aside className={styles.contents}><nav aria-label="この記事の目次"><details open><summary>この記事でわかること</summary><ol>{article.sections.map((section, i) => <li key={section.heading}><a href={`#section-${i}`}>{section.heading}</a></li>)}</ol></details></nav></aside>
           <article id="article" className={styles.article} aria-label={article.title}>
-            <p className={styles.byline}>編集：<a href="/about">AI選び</a> · 事実の確認時点・対象範囲は本文の記載を参照してください。</p>
+            <p className={styles.byline}>編集：<a href="/about">AIえらびマップ</a> · 事実の確認時点・対象範囲は本文の記載を参照してください。</p>
             {article.sections.map((section, i) => <section id={`section-${i}`} key={section.heading}>
               <span className={styles.number} aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
               <h2>{section.heading}<a className={styles.sectionLink} href={`#section-${i}`} aria-label={`「${section.heading}」へのリンク`}>#</a></h2><Content text={section.content} heading={section.heading} />
