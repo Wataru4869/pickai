@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="500" viewBox="0 0 1500 500" role="img" aria-labelledby="title desc">
+  <title id="title">AIえらびマップ Xヘッダー</title>
+  <desc id="desc">自分に合うAIを用途から探せる比較サービスのブランドヘッダー</desc>
+  <rect width="1500" height="500" fill="#0F4F46"/>
+  <rect y="0" width="1500" height="12" fill="#E3663E"/>
+  <path d="M1140 88c86 0 150 54 150 128 0 68-47 98-105 123-55 24-84 43-84 91" fill="none" stroke="#F7F4ED" stroke-width="24" stroke-linecap="round" opacity=".18"/>
+  <path d="M1101 430c0-83-70-113-127-137-50-21-94-48-94-107 0-53 40-98 98-98" fill="none" stroke="#F7F4ED" stroke-width="24" stroke-linecap="round" opacity=".18"/>
+  <circle cx="1140" cy="88" r="24" fill="#E3663E"/>
+  <circle cx="978" cy="88" r="18" fill="#F7F4ED" opacity=".72"/>
+  <g transform="translate(350 74)">
+    <rect width="96" height="96" rx="25" fill="#F7F4ED"/>
+    <path d="M48 81V55c0-15-9-20-21-31" fill="none" stroke="#0F4F46" stroke-width="10" stroke-linecap="round"/>
+    <path d="M48 55c0-15 10-19 22-31" fill="none" stroke="#0F4F46" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="25" cy="22" r="8" fill="#0F4F46"/>
+    <circle cx="72" cy="20" r="12" fill="#E3663E" stroke="#F7F4ED" stroke-width="5"/>
+  </g>
+  <text x="470" y="135" fill="#F7F4ED" font-family="'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif" font-size="34" font-weight="700">AIえらびマップ</text>
+  <text x="350" y="285" fill="#F7F4ED" font-family="'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif" font-size="66" font-weight="700" letter-spacing="1">自分に合うAIを、用途から。</text>
+  <text x="354" y="348" fill="#DDEAE5" font-family="'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif" font-size="29" font-weight="500">料金・機能・安全性まで、公式情報で比較</text>
+  <g transform="translate(354 392)" font-family="'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif" font-size="20" font-weight="600">
+    <rect width="148" height="48" rx="24" fill="#F7F4ED"/><text x="74" y="32" text-anchor="middle" fill="#0F4F46">用途から探す</text>
+    <rect x="164" width="124" height="48" rx="24" fill="#F7F4ED" opacity=".9"/><text x="226" y="32" text-anchor="middle" fill="#0F4F46">料金を比較</text>
+    <rect x="304" width="124" height="48" rx="24" fill="#F7F4ED" opacity=".9"/><text x="366" y="32" text-anchor="middle" fill="#0F4F46">安全に使う</text>
+  </g>
+</svg>

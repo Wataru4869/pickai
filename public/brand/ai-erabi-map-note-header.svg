@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1006" viewBox="0 0 1920 1006" role="img" aria-labelledby="title desc">
+  <title id="title">AIえらびマップ noteヘッダー</title>
+  <desc id="desc">自分に合うAIを用途から探せる比較サービスのブランドヘッダー</desc>
+  <rect width="1920" height="1006" fill="#F7F4ED"/>
+  <rect x="0" y="0" width="620" height="1006" fill="#0F4F46"/>
+  <rect x="0" y="0" width="24" height="1006" fill="#E3663E"/>
+  <g transform="translate(186 198)">
+    <rect width="250" height="250" rx="62" fill="#F7F4ED"/>
+    <path d="M125 215v-70c0-36-24-52-58-69" fill="none" stroke="#0F4F46" stroke-width="27" stroke-linecap="round"/>
+    <path d="M125 145c0-38 27-49 61-70" fill="none" stroke="#0F4F46" stroke-width="27" stroke-linecap="round"/>
+    <circle cx="61" cy="72" r="22" fill="#0F4F46"/>
+    <circle cx="191" cy="68" r="30" fill="#E3663E" stroke="#F7F4ED" stroke-width="13"/>
+  </g>
+  <text x="310" y="520" text-anchor="middle" fill="#F7F4ED" font-family="'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif" font-size="42" font-weight="700">AIえらびマップ</text>
+  <text x="310" y="580" text-anchor="middle" fill="#DDEAE5" font-family="'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif" font-size="25" font-weight="500">用途から選ぶ、AI比較ガイド</text>
+  <g transform="translate(770 220)">
+    <circle cx="968" cy="92" r="29" fill="#E3663E"/>
+    <path d="M968 92c-132 0-176 93-176 190 0 110-69 154-172 197" fill="none" stroke="#0F4F46" stroke-width="30" stroke-linecap="round" opacity=".12"/>
+    <path d="M620 479c-113 48-227 94-227 224" fill="none" stroke="#0F4F46" stroke-width="30" stroke-linecap="round" opacity=".12"/>
+    <path d="M620 479c-100 40-220 11-286-83" fill="none" stroke="#0F4F46" stroke-width="30" stroke-linecap="round" opacity=".12"/>
+    <circle cx="334" cy="396" r="22" fill="#0F4F46" opacity=".35"/>
+    <circle cx="393" cy="703" r="22" fill="#0F4F46" opacity=".35"/>
+  </g>
+  <text x="770" y="342" fill="#173B37" font-family="'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif" font-size="38" font-weight="700">名前や話題性ではなく、やりたいことから。</text>
+  <text x="770" y="490" fill="#173B37" font-family="'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif" font-size="78" font-weight="700" letter-spacing="1">自分に合うAIを、</text>
+  <text x="770" y="594" fill="#173B37" font-family="'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif" font-size="78" font-weight="700" letter-spacing="1">用途から選べる。</text>
+  <text x="774" y="683" fill="#55706B" font-family="'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif" font-size="34" font-weight="500">料金・機能・安全性を、公式情報と実例で整理</text>
+  <g transform="translate(774 745)" font-family="'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif" font-size="25" font-weight="600">
+    <rect width="184" height="62" rx="31" fill="#0F4F46"/><text x="92" y="41" text-anchor="middle" fill="#F7F4ED">用途から探す</text>
+    <rect x="202" width="162" height="62" rx="31" fill="#E9F0ED"/><text x="283" y="41" text-anchor="middle" fill="#0F4F46">料金を比較</text>
+    <rect x="382" width="162" height="62" rx="31" fill="#FCE9E1"/><text x="463" y="41" text-anchor="middle" fill="#A63F23">安全に使う</text>
+  </g>
+  <text x="774" y="887" fill="#0F4F46" font-family="'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif" font-size="31" font-weight="700">aierabi.jp</text>
+</svg>
