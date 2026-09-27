@@ -412,3 +412,11 @@ GSCの/safetyとChatGPTモデル比較はpage単位でposition6〜20の範囲。
 - 現行 `aierabi.jp`、全URL、canonical、analytics、UTM、X実験、affiliate設定は維持する。外部アカウント名、Search Console、GA4、ドメインは自動変更しない。
 - サイト内はmetadata、schema、編集主体、FAQ、footer、記事署名まで統一する。過去の公開履歴だけは前身名として残す。検索上の一般表現「AIの選び方」はブランド名へ機械置換しない。
 - 本変更はbrand clarityのE0仮説。公開後の検索・回遊・CV効果は未実測で、Production反映はPreview確認後の別承認とする。
+
+## D48 — 最初の収益テストはWinスクール専用記事1ページに限定する（2026-09-27）
+
+- 最初の実収益テストは、公式情報だけで作成した専用記事`/blog/ai-python-learning-path-2026`に限定する。既存ランキング、比較順位、無関係な記事、トップ、診断には広告CTAを追加しない。
+- 人間確認後に発行された広告URLを改変せず直接掲載し、`/go`、UTM、subIDを付与しない。リンク先host、対象ページ、承認日、active状態の固定条件を満たす場合だけ表示する。
+- 広告を含むページはファーストビューでPR表示し、CTAは`rel="sponsored nofollow noopener"`とする。外部遷移は個人情報を含まない`affiliate_click`で計測するが、発行URLをテストクリックしてA8実績を汚さない。
+- 会員限定の条件・実績値は`data/private/`のignored local recordだけに置き、追跡文書へ複製しない。新しい通常AI Distributionは`@AI_erabi`として別判定し、旧`@tetoteto_ai`の実績・許可・UTMを流用しない。
+- branch上のRC完成とProduction公開は分ける。公開には別の人間承認が必要で、公開後も成果発生・成果確定・売上を混同しない。

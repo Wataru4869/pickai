@@ -1,5 +1,61 @@
 # PROJECT STATE
 
+## 現行サマリー — 2026-09-27 Winスクール最小テストRC
+
+- Winスクール用の最小収益テスト候補をbranch上に準備した。対象は新規1記事`/blog/ai-python-learning-path-2026`のみで、生成AIを使う学習とPython・機械学習を作る学習を分け、独学・教材・スクールの判断順を示す。公開公式4 sourceを2026-09-27確認として登録した。
+- 人間承認後、公式無料相談ページ向けに発行された商品リンクを改変せず、`win-school`を専用記事だけでactiveにした。direct link、`px.a8.net` host allowlist、承認日、対象ページの4条件を満たさない場合は表示しない。
+- ファーストビューにPR表示、記事末に`rel="sponsored nofollow noopener"`付きCTAを出す。`/go`、UTM、subIDは使わず、外部クリックは個人情報を含まない`affiliate_click`（service / source page / CTA type / position）として送信する。
+- branch上はaffiliate active 1 / URL 1。本番はactive 0 / URL 0のまま。発行URLはテストクリックせず、A8実績を汚していない。sitemap期待値は新記事追加により102 URL。
+- 会員画面で確認した審査状態、成果条件、運用条件はGitへ複製せず、`data/private/`のignored local recordだけを正本とする。追跡対象には公開公式情報と安全ゲートのみを保存する。
+- 本番CTA、SNS投稿、deployは変更していない。branchの実画面をdesktop / 390px / 320pxで確認し、全幅で横あふれ0、affiliate link 1件、`/go` 0件、ファーストビューPR、未改変URL、`affiliate_click`属性を確認した。
+- `npm run check`成功（83 sources / 124 static pages）、`git diff --check`成功。sitemapは102 URL／lastmod 0。最小収益テストRCは完成し、Production反映は別の人間承認待ち。
+
+## 現行サマリー — 2026-09-27 GA4最新実績
+
+- GA4 `pickAI` の過去28日（2026-08-30〜09-26）は、262 sessions、137 engaged sessions、engagement rate 52.29%、平均engagement 50秒、event 1,312。key event 0、revenue ¥0。
+- 流入はOrganic Search 156 sessions（59.54%、engagement rate 63.46%）が中心。Direct 72、AI Assistant 12、Unassigned 10、Referral 7、Organic Social 5。
+- AI Assistantは母数12 sessionsと小さいが、平均engagement 5分04秒、8.58 events/session。流入品質の可能性はあるが、7 engaged sessionsのみのため拡大可能性は未確定。
+- landing上位は `/` 66 sessions、`/safety` 49、`/blog/ai-safety-ranking-2026` 16、`/blog/ai-free-tier-comparison-2026` 12。安全性clusterは合計65 sessionsで主要入口を維持している。
+- 過去7日（2026-09-20〜09-26）は23 sessions（Organic Search 8 / Direct 14 / AI Assistant 1 / その他0）で、前期間比のカードでは流入減少。active users 22、views 41、events 131、key events 0。短期変動か継続減かは次の7日で再確認する。
+- 前回28日（2026-08-18〜09-14、295 sessions）とは16日重複するため、単純差の262 sessions（-33）を改修効果や悪化の因果として扱わない。
+- key event / revenueは実測0。affiliate active 0件のため売上0は想定どおりで、サイト内行動の成否や収益導線の失敗を単独では示さない。
+- Page and screenの同期間実測は408 views / 200 active users / 1.05平均engagement。`/safety`は61 views / 52 active users / 1.17 views per active user / 35秒で、サイト平均より回遊・滞在が浅い。
+- `internal_cta_click`は全サイト14件。内訳上位はトップ6件、`/safety` 4件、`/compare` 2件、`/model/claude` 1件、`/model/microsoft_copilot` 1件。`/safety`の計測受信は確認でき、表示61件に対する単純比は約6.6%だが、CTA表示回数・ユニーククリックではないためCTRとは呼ばない。
+- `/safety`のCTAは壊れておらず、14件という小標本では配置・文言変更の優位性を判断できない。安全性ページだけを先に改修せず、次回も同一定義で観測する。現在の最大収益blockerはaffiliate active 0件のままである。
+
+## 現行サマリー — 2026-09-27 Search Console再処理結果
+
+- GSC Page indexingの最新表示（レポート最終更新2026-09-21）は、登録済み67件／未登録93件／理由6件。2026-09-18時点の登録58件／未登録92件／理由7件から、登録済みは`+9`、未登録は`+1`、理由は`-1`。未登録の増加は新たに認識した履歴URLを含むため、登録悪化とは断定しない。
+- 正規`https://www.aierabi.jp/sitemap.xml`は成功・検出101件へ更新。旧裸ドメインsitemapも2026-09-24に再読込され、検出101件。前回の70件から現行Productionの101件へ追いついた。
+- `クロール済み - インデックス未登録`は28→26、`検出 - インデックス未登録`は18→17。`/compare`の重複canonical理由は1→0となり、GSC検証は合格。
+- 代表URLは`/models`、`/compare`、`/blog/ai-privacy-by-usecase-2026`、`/blog/chatgpt-vs-claude-2026`が登録済みへ変化。`/blog/ai-video-generation-2026`のみ、公開テスト合格・登録依頼済みだが、依然として`検出 - インデックス未登録`。
+- noindexは1→4。内訳は非正規順の比較URL3件とHistorical評価`/evaluations/2026-03`で、コード上の意図的noindexと一致する。
+- 404は1→3。追加2件は旧`microsoft_copilot`比較URL、既存1件は`/月`。いずれも現行repo、sitemap、内部リンクに参照がなく、正しい404として維持する。リダイレクトエラーは1件のまま検証中。
+- GSC値は実測だが2026-09-21更新の遅延レポートであり、9月27日のリアルタイム総数ではない。サイトコード、Production、DNS、計測、affiliate、SNSは変更していない。
+
+## 現行サマリー — 2026-09-21 Search Console再送信・代表URL登録
+
+- Search Consoleの追加権限反映後、正規`https://www.aierabi.jp/sitemap.xml`を再送信した。画面で「サイトマップを送信しました」を確認し、送信日・最終読込日は2026-09-21へ更新。検出URLは処理直後の表示では70件のままで、現行101 URLへの更新は再処理待ち。
+- 代表5 URLを検査。`/model/chatgpt`、`/model/claude`、`/safety`は登録済み。未登録・未認識だった`/models`は公開テスト合格後、優先クロールキューへ追加した。
+- `/compare`は2026-08-25の旧クロールで、ユーザー指定canonicalなし・Google選択canonicalが無関係な外部ドメインとなっていた。2026-09-21の公開テストでは取得成功、index許可、ユーザー指定canonical=`https://www.aierabi.jp/compare`、パンくず有効を確認し、優先クロールキューへ追加した。
+- GSCの該当reason「重複しています。ユーザーにより、正規ページとして選択されていません」は対象1 URLのみで、例は`/compare`。2026-09-21に「修正を検証」を開始し、画面で`検証: 開始`を確認した。
+- Page indexingの2026-09-18時点集計は登録済み58件、未登録92件、理由7件。これは2026-09-16公開の101 URL版を完全に再処理した値ではないため、現行URL数との単純比較はしない。
+- `リダイレクト エラー`は旧クロールの`https://aierabi.jp/blog` 1件。2026-09-21の公開テストではwwwの`/blog`を取得でき、自己canonicalも正常だったため修正検証を開始した。
+- `クロール済み - インデックス未登録`は28件。代表の安全性2記事はURL検査時点で登録済みに変わっており、レポート遅延を確認したためグループ検証を開始した。
+- `検出 - インデックス未登録`は18件。代表として`/blog/ai-privacy-by-usecase-2026`、`/blog/ai-video-generation-2026`、`/blog/chatgpt-vs-claude-2026`を公開テストし、3件とも登録可能・取得正常を確認して優先クロールキューへ追加。18件グループの修正検証も2026-09-21に開始した。
+- `noindex` 1件は非正規順の`/compare/perplexity-vs-claude`で、正規順URLへcanonicalする意図的な除外。`見つかりませんでした（404）` 1件は不正な`/月`で、sitemap外かつ404が正しいため、いずれも修正対象にしない。
+- 旧`/compare`判定は過去のクロール結果であり、現在の本番が外部へredirectまたは外部canonicalを出している状態ではない。旧誤認の原因はこの確認だけでは断定しない。GSC検証完了後にGoogle選択canonicalが正規URLへ変わるか観測する。
+- サイトコード、Production、DNS、環境変数、計測、affiliate、SNSは変更していない。登録リクエストは成功を保証せず、実際のindex更新はGoogle再処理待ち。
+
+## 現行サマリー — 2026-09-21 Search Console Indexability確認
+
+- Search Consoleの`aierabi.jp`ドメインプロパティを専用Googleアカウントで再確認した。親`https://www.aierabi.jp/sitemap.xml`の最終読込は2026-09-10、子`https://www.aierabi.jp/sitemap-0.xml`は2026-09-15で、いずれも2026-09-16の101 URL版Production公開前の取得。GSC表示は70 URLのまま。
+- `/models`はGoogleインデックス上で未登録・URL未認識だが、2026-09-21 00:31 JSTの公開URLテストでは「URLはGoogleに登録できます」を確認した。robots、取得可否、canonical等の公開側blockerはこのテストでは検出されていない。
+- 現在の専用GoogleアカウントはSearch Console上で「所有者から権限を付与されています」が「確認済みの所有者ではありません」。利用可能なプロパティは`aierabi.jp`ドメインプロパティ1件のみ。新規sitemap送信欄が表示されず、`インデックス登録をリクエスト`も無効で、再送信・登録依頼は実行できなかった。
+- 所有権確認画面はDNSレコードによる確認を提示したが、verification値の保存・出力、DNS変更、確認ボタン操作は行っていない。既存の確認済み所有者による権限付与または所有者自身の実行が必要。
+- サイト本体、`/recommend`、UTM、CTA、計測、affiliate設定、Productionは変更していない。index登録成功やSEO改善は未確認。
+- 次の最小人間操作は、既存の確認済み所有者または十分な権限を持つSearch Consoleユーザーで、正規sitemapの再送信と代表URLの登録依頼を行うこと。権限変更自体は別判断。
+
 ## 現行サマリー — 2026-09-16 Indexability / Public Facts Production
 
 - 人間の明示承認により、commit `ead215d` のPreview `pTWtzJPMXxy9emVqisQVp6NP9ZNt` を既存Vercel Productionへ昇格した。Production deployment `EhXsKbnA4iTzdHZrqJAY9ke6NUyN` は2026-09-16 15:44 JSTにReady。
