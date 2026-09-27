@@ -1,11 +1,11 @@
 # MORNING HANDOFF
 
-最終同期: 2026-09-27 JST
+最終同期: 2026-09-28 JST
 
 ## 現在地
 
-- Phase: Winスクール最小収益テストRC完成 / Production承認待ち
-- Production deployment: `EhXsKbnA4iTzdHZrqJAY9ke6NUyN`（source `ead215d`、15:44 JST Ready）
+- Phase: Winスクール最小収益テスト公開 / 初回実クリック・CV観測
+- Production deployment: `9PZSSPfV5CFbgUZCeqrYNdmp32y3`（source `d8e480e`、2026-09-28 00:02 JST Ready）
 - 正式名: `AIえらびマップ` / Domain: `aierabi.jp`を維持
 
 ## 完了
@@ -42,20 +42,21 @@
 - 会員画面で確認した審査状態・成果条件・運用条件は`data/private/`のignored local recordだけに保存し、Git管理文書へ具体値を複製していない
 - Winスクール専用の`/blog/ai-python-learning-path-2026`をbranch上に作成。公式4 source、目的別比較表、独学・教材・スクール比較、相談前チェックを掲載し、無関係な既存ページへCTAを追加していない
 - 人間承認後、公式無料相談ページ向けに発行された未改変商品リンクを専用記事だけでactive化。`/go`、UTM、subIDは不使用
-- branchはaffiliate active 1 / URL 1。本番はactive 0 / URL 0。ファーストビューPRと記事末sponsored CTA、`affiliate_click`を実装し、発行URLはテストクリックしていない
+- branch・本番ともWinスクール専用記事だけaffiliate active 1 / URL 1。ファーストビューPRと記事末sponsored CTA、`affiliate_click`を実装し、発行URLはテストクリックしていない
 - desktop / 390px / 320pxで専用記事を確認。全幅で横あふれ0、affiliate link 1件、`/go` 0件、PR・CTA・計測属性を確認
 - `npm run check`成功（83 sources / 124 static pages）、`git diff --check`成功。sitemapは102 URL／lastmod 0
+- 人間承認によりPreview `rt6RkJcC7U2hCtxYQJFwCdjr3Kmw`をProductionへ昇格。専用記事・主要ページ・favicon・sitemapは200、裸ドメイン→wwwは308、自己canonical正常、ホームに広告表示なし
 
 ## BLOCKED
 
-- Winスクールを本番接続するには、完成済みRCのProduction反映について別の人間承認が必要
+- Winスクールの初回`affiliate_click`、成果発生、成果確定は未取得。テストアクセスで補完しない
 - 他候補の状態と条件はlocal-only記録を正本とし、状態変化時だけ再確認する
 - `/compare`の旧外部canonical誤認原因は未断定。現行本番は正常で、GSC修正検証後も誤認が残る場合だけ追加調査
 - 動画AI記事1件と旧裸ドメイン`/blog`のリダイレクトエラー検証はGoogle再処理待ち。登録リクエストは登録成功の保証ではない
 
 ## 次の1手
 
-1. Winスクール最小テストRCをProductionへ反映するか人間判断する
+1. Winスクール専用記事の実流入と`affiliate_click`を観測し、A8側の成果発生・確定と分けて記録する
 2. 新名義`@AI_erabi`での案件固有X掲載可否を確認し、不明ならサイト内SEO導線のみを候補にする
 3. 次の7日を同一定義で再取得し、安全性CTAは変更せず観測する
 
@@ -64,4 +65,4 @@
 - `docs/INDEXABILITY_AND_PUBLIC_FACTS_RC_2026-09-16.md`
 - `docs/PROJECT_STATE.md`
 - `docs/NEXT_TASKS.md`
-- `docs/DECISIONS.md` D48
+- `docs/DECISIONS.md` D49

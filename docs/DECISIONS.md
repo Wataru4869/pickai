@@ -420,3 +420,11 @@ GSCの/safetyとChatGPTモデル比較はpage単位でposition6〜20の範囲。
 - 広告を含むページはファーストビューでPR表示し、CTAは`rel="sponsored nofollow noopener"`とする。外部遷移は個人情報を含まない`affiliate_click`で計測するが、発行URLをテストクリックしてA8実績を汚さない。
 - 会員限定の条件・実績値は`data/private/`のignored local recordだけに置き、追跡文書へ複製しない。新しい通常AI Distributionは`@AI_erabi`として別判定し、旧`@tetoteto_ai`の実績・許可・UTMを流用しない。
 - branch上のRC完成とProduction公開は分ける。公開には別の人間承認が必要で、公開後も成果発生・成果確定・売上を混同しない。
+
+## D49 — Winスクール専用記事の最小収益テストをProduction公開する（2026-09-28）
+
+- 人間の明示承認を受け、source commit `d8e480e` のReadyなPreview `rt6RkJcC7U2hCtxYQJFwCdjr3Kmw`を既存Vercel Productionへ昇格した。Production deploymentは`9PZSSPfV5CFbgUZCeqrYNdmp32y3`。
+- 公開対象は専用記事`/blog/ai-python-learning-path-2026`と、その記事だけに限定したWinスクール直接広告リンク。トップ、既存ランキング、比較、診断、他記事には広告CTAを追加しない。
+- 発行URLは改変せず、`/go`、UTM、subIDを使用しない。ファーストビューPR、sponsored属性、`affiliate_click`計測を維持し、内部QAでは広告リンクをクリックしない。
+- 本番確認は主要ページ・専用記事・canonical・favicon・www redirect・sitemap・広告表示範囲に限定した。sitemapは102 URL／lastmod 0、ホームに広告表示なし。
+- SNS投稿、他案件有効化、追加申請、環境変数、DNS、mainは変更しない。公開をクリック・CV・売上の実績とは扱わず、実測後にContinue / Modify / Stopを判断する。

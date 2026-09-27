@@ -1,14 +1,15 @@
 # PROJECT STATE
 
-## 現行サマリー — 2026-09-27 Winスクール最小テストRC
+## 現行サマリー — 2026-09-28 Winスクール最小収益テストProduction
 
 - Winスクール用の最小収益テスト候補をbranch上に準備した。対象は新規1記事`/blog/ai-python-learning-path-2026`のみで、生成AIを使う学習とPython・機械学習を作る学習を分け、独学・教材・スクールの判断順を示す。公開公式4 sourceを2026-09-27確認として登録した。
 - 人間承認後、公式無料相談ページ向けに発行された商品リンクを改変せず、`win-school`を専用記事だけでactiveにした。direct link、`px.a8.net` host allowlist、承認日、対象ページの4条件を満たさない場合は表示しない。
 - ファーストビューにPR表示、記事末に`rel="sponsored nofollow noopener"`付きCTAを出す。`/go`、UTM、subIDは使わず、外部クリックは個人情報を含まない`affiliate_click`（service / source page / CTA type / position）として送信する。
-- branch上はaffiliate active 1 / URL 1。本番はactive 0 / URL 0のまま。発行URLはテストクリックせず、A8実績を汚していない。sitemap期待値は新記事追加により102 URL。
+- branch・本番ともにWinスクール専用記事だけaffiliate active 1 / URL 1。発行URLはテストクリックせず、A8実績を汚していない。sitemapは102 URL。
 - 会員画面で確認した審査状態、成果条件、運用条件はGitへ複製せず、`data/private/`のignored local recordだけを正本とする。追跡対象には公開公式情報と安全ゲートのみを保存する。
-- 本番CTA、SNS投稿、deployは変更していない。branchの実画面をdesktop / 390px / 320pxで確認し、全幅で横あふれ0、affiliate link 1件、`/go` 0件、ファーストビューPR、未改変URL、`affiliate_click`属性を確認した。
-- `npm run check`成功（83 sources / 124 static pages）、`git diff --check`成功。sitemapは102 URL／lastmod 0。最小収益テストRCは完成し、Production反映は別の人間承認待ち。
+- 人間承認によりPreview deployment `rt6RkJcC7U2hCtxYQJFwCdjr3Kmw`を既存Productionへ昇格。Production deployment `9PZSSPfV5CFbgUZCeqrYNdmp32y3`は2026-09-28 00:02 JSTにReady、sourceは`d8e480e`。
+- 本番専用記事でファーストビューPRと広告CTAを確認。ホームはPR表示0・affiliate host 0、専用記事は`/go` 0、自己canonical正常。主要ページ・favicon・sitemapは200、裸ドメインはwwwへ308、sitemapは102 URL／lastmod 0。
+- `npm run check`成功（83 sources / 124 static pages）、`git diff --check`成功。SNS投稿、追加案件有効化、環境変数、DNS、mainは変更していない。
 
 ## 現行サマリー — 2026-09-27 GA4最新実績
 
