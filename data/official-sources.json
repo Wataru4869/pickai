@@ -79,6 +79,10 @@
     { "source_id": "anthropic-claude-web-search", "provider": "Anthropic", "title": "Enabling and using web search", "url": "https://support.anthropic.com/en/articles/10684626-enabling-and-using-web-search", "source_type": "official", "verified_at": "2026-09-11" },
     { "source_id": "perplexity-search-overview", "provider": "Perplexity AI", "title": "How does Perplexity work?", "url": "https://www.perplexity.ai/help-center/en/articles/10352895-how-does-perplexity-work", "source_type": "official", "verified_at": "2026-09-11" },
     { "source_id": "google-gemini-sources", "provider": "Google", "title": "View related sources and double-check responses from Gemini Apps", "url": "https://support.google.com/gemini/answer/14143489", "source_type": "official", "verified_at": "2026-09-11" },
-    { "source_id": "x-grok-overview", "provider": "X", "title": "About Grok", "url": "https://help.x.com/en/using-x/about-grok", "source_type": "official", "verified_at": "2026-09-11" }
+    { "source_id": "x-grok-overview", "provider": "X", "title": "About Grok", "url": "https://help.x.com/en/using-x/about-grok", "source_type": "official", "verified_at": "2026-09-11" },
+    { "source_id": "win-school-ai-programming", "provider": "Winスクール", "title": "AIプログラミング実習（機械学習＆Deep Learning）", "url": "https://www.winschool.jp/guidance/program/ai.html", "source_type": "official", "verified_at": "2026-09-27" },
+    { "source_id": "win-school-python", "provider": "Winスクール", "title": "Pythonプログラミング", "url": "https://www.winschool.jp/guidance/program/python.html", "source_type": "official", "verified_at": "2026-09-27" },
+    { "source_id": "win-school-counseling", "provider": "Winスクール", "title": "無料カウンセリング・受講相談のご案内", "url": "https://www.winschool.jp/about/counseling.html", "source_type": "official", "verified_at": "2026-09-27" },
+    { "source_id": "win-school-faq", "provider": "Winスクール", "title": "よくあるご質問（FAQ）", "url": "https://www.winschool.jp/info/faq.html", "source_type": "official", "verified_at": "2026-09-27" }
   ]
 }

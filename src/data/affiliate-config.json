@@ -115,6 +115,26 @@
       "priority_score": null,
       "target_content": ["/blog/dmm-generative-ai-camp-review"],
       "notes": "Partnership application submitted 2026-09-11 and under review. Keep inactive and URL-null until approval, exact A8-issued URL review, page review, and separate human activation approval. Direct link only; do not use /go or append parameters."
+    },
+    {
+      "service_id": "win-school",
+      "service_name": "Winスクール",
+      "category": "ai-learning",
+      "official_url": "https://www.winschool.jp/",
+      "affiliate_url": "https://px.a8.net/svt/ejp?a8mat=4BC8N2+CMV7Q2+529E+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.winschool.jp%2Ftrial_lesson%2F",
+      "affiliate_network": "A8.net",
+      "reward_type": "private-program-terms",
+      "reward_amount": null,
+      "cookie_days": null,
+      "status": "active",
+      "activation_approved": true,
+      "approved_at": "2026-09-27",
+      "allowed_destination_hosts": ["px.a8.net"],
+      "attribution_query_parameter": null,
+      "link_mode": "direct",
+      "priority_score": null,
+      "target_content": ["/blog/ai-python-learning-path-2026"],
+      "notes": "Human-approved direct-link test for the dedicated learning-path article only. Use the exact issued URL without /go, UTM, subID, or other query changes."
     }
   ]
 }

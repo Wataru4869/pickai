@@ -8,6 +8,7 @@ declare global {
 
 export type AnalyticsEventName =
   | "internal_cta_click"
+  | "affiliate_click"
   | "recommend_start"
   | "recommend_complete"
   | "recommend_result_view";

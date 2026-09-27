@@ -9,6 +9,7 @@
 .lead { font-size: 17px; line-height: 2; margin: 24px 0; color: #45605b; }
 .lead strong { color: #203537; }
 .meta { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 12px; color: #526962; }
+.disclosure { max-width: 850px; margin-top: 18px; padding: 12px 16px; border: 1px solid #d9c9ae; border-radius: 10px; background: #fffaf0; color: #554a38; font-size: 12px; line-height: 1.8; }
 .scope { border-left: 3px solid #5a877c; padding: 10px 16px; margin-top: 20px; max-width: 850px; font-size: 13px; line-height: 1.9; }
 .summary { max-width: 880px; margin-top: 28px; padding: 24px; background: white; border: 1px solid #ceded8; border-radius: 14px; }
 .summary h2 { font-size: 14px; font-weight: 700; color: #17635d; }

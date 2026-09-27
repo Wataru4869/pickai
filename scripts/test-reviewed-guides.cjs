@@ -10,7 +10,8 @@ const code = ts.transpileModule(fs.readFileSync(path+'src/components/ReviewedGui
 const result={exports:{}};
 new Function('require','module','exports',code)(name=>{
   if(name==='@/components/ui') return {Header:()=>null,Footer:()=>null};
-  if(name==='@/components/ArticleCTA') return ()=>null;
+  if(name==='@/components/ArticleCTA') return {__esModule:true,default:()=>null,hasActiveAffiliateLink:(_cta,contentId)=>contentId==='/blog/ai-python-learning-path-2026'};
+  if(name==='@/data/affiliate-config.json') return JSON.parse(fs.readFileSync(path+'src/data/affiliate-config.json'));
   if(name.endsWith('.module.css')) return {};
   return repoRequire(name);
 },result,result.exports);
@@ -24,9 +25,42 @@ assert.ok(html.includes('&lt;script&gt;'));
 assert.equal(html.includes('<script>'),false);
 for(const bad of ['https://evil.example','https://user@','https://www.nist.gov:444','https://www.nist.gov.evil','javascript:']) assert.equal(html.includes('href="'+bad),false);
 const config=JSON.parse(fs.readFileSync(path+'src/data/affiliate-config.json'));
-assert.equal(config.services.filter(s=>s.status==='active').length,0);
-assert.equal(config.services.filter(s=>s.affiliate_url).length,0);
-console.log('Passed: HTML escaping, official-host boundary, scheme/userinfo/port rejection, historical scores unchanged, affiliate active 0 / URLs 0.');
+assert.deepEqual(config.services.filter(s=>s.status==='active').map(s=>s.service_id),['win-school']);
+assert.deepEqual(config.services.filter(s=>s.affiliate_url).map(s=>s.service_id),['win-school']);
+console.log('Passed: HTML escaping, official-host boundary, scheme/userinfo/port rejection, historical scores unchanged, one scoped affiliate URL.');
+
+const learningGuide=JSON.parse(fs.readFileSync(path+'src/data/blog/ai-python-learning-path-2026.json'));
+const winSchool=config.services.find(service=>service.service_id==='win-school');
+assert.equal(learningGuide.cta.type,'affiliate');
+assert.equal(learningGuide.cta.links.length,1);
+assert.equal(learningGuide.cta.links[0].serviceId,'win-school');
+assert.equal(winSchool.status,'active');
+assert.equal(winSchool.activation_approved,true);
+assert.equal(winSchool.approved_at,'2026-09-27');
+assert.equal(winSchool.link_mode,'direct');
+assert.deepEqual(winSchool.target_content,['/blog/ai-python-learning-path-2026']);
+const winUrl=new URL(winSchool.affiliate_url);
+assert.equal(winUrl.protocol,'https:');
+assert.equal(winUrl.hostname,'px.a8.net');
+assert.deepEqual([...winUrl.searchParams.keys()],['a8mat','a8ejpredirect']);
+assert.equal(winUrl.searchParams.get('a8ejpredirect'),'https://www.winschool.jp/trial_lesson/');
+assert.deepEqual(winSchool.allowed_destination_hosts,['px.a8.net']);
+const learningHtml=renderToStaticMarkup(React.createElement(result.exports.default,{article:learningGuide,attribution:{}}));
+assert.ok(learningHtml.includes('PR：'));
+assert.ok(learningHtml.includes('href="https://www.winschool.jp/guidance/program/ai.html"'));
+assert.ok(learningHtml.includes('href="https://www.winschool.jp/about/counseling.html"'));
+assert.ok(learningHtml.includes('AIを使いたいのか'));
+const ctaCode=ts.transpileModule(fs.readFileSync(path+'src/components/ArticleCTA.tsx','utf8'),{compilerOptions:{jsx:ts.JsxEmit.ReactJSX,module:ts.ModuleKind.CommonJS,esModuleInterop:true}}).outputText;
+const ctaModule={exports:{}};
+new Function('require','module','exports',ctaCode)(name=>name==='@/data/affiliate-config.json'?config:repoRequire(name),ctaModule,ctaModule.exports);
+const ctaHtml=renderToStaticMarkup(React.createElement(ctaModule.exports.default,{cta:learningGuide.cta,contentId:'/blog/ai-python-learning-path-2026',attribution:{}}));
+assert.ok(ctaHtml.includes(`href="${winUrl.href.replace(/&/g,'&amp;')}"`));
+assert.ok(ctaHtml.includes('rel="sponsored nofollow noopener"'));
+assert.ok(ctaHtml.includes('target="_blank"'));
+assert.ok(ctaHtml.includes('data-analytics-event="affiliate_click"'));
+assert.ok(ctaHtml.includes('data-service-id="win-school"'));
+assert.ok(ctaHtml.includes('data-source-page="/blog/ai-python-learning-path-2026"'));
+console.log('Passed: Win School guide uses one approved direct affiliate URL and renders the first-view disclosure.');
 
 for (const slug of ['ai-search-engines-comparison-2026','ai-safety-ranking-2026','ai-agents-comparison-2026','ai-tools-2026-trends','ai-coding-tools-2026','grok-review-2026','cursor-projects-2026','copilot-model-retirement-2026-09','chatgpt-models-comparison-2026','ai-free-tier-comparison-2026','chatgpt-vs-perplexity-2026','cursor-vs-github-copilot-2026','cursor-vs-windsurf-2026','heygen-vs-synthesia-2026','runway-vs-pika-2026','midjourney-vs-adobe-firefly-2026','ai-privacy-by-usecase-2026','ai-what-not-to-enter-2026','ai-data-entered-response-2026','ai-training-retention-review-2026','ai-business-security-checklist-2026','ai-safety-mythos-2026']) {
   const guide=JSON.parse(fs.readFileSync(path+'src/data/blog/'+slug+'.json'));

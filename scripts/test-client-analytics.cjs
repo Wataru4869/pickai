@@ -36,7 +36,11 @@ for (const event of ["recommend_start", "recommend_complete", "recommend_result_
   assert.ok(recommend.includes(`sendAnalyticsEvent(\"${event}\"`), `${event} is not emitted`);
 }
 const articleCta = fs.readFileSync(path + "src/components/ArticleCTA.tsx", "utf8");
-assert.ok(articleCta.includes('data-analytics-event={!useSponsoredRel ? "internal_cta_click"'));
+assert.ok(articleCta.includes('data-analytics-event={useSponsoredRel ? "affiliate_click" : "internal_cta_click"'));
+assert.ok(articleCta.includes('data-service-id={useSponsoredRel ? service?.service_id : undefined}'));
+const listener = fs.readFileSync(path + "src/components/AnalyticsListener.tsx", "utf8");
+assert.ok(listener.includes("[data-analytics-event='affiliate_click']"));
+assert.ok(listener.includes('service_id: safeAnalyticsValue(target.dataset.serviceId)'));
 
 const home = fs.readFileSync(path + "src/app/page.tsx", "utf8");
 assert.ok(home.includes('data-cta-position="hero_primary"'));

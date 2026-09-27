@@ -1,7 +1,8 @@
 import type { ReactNode } from "react";
 import type { BlogArticle } from "@/lib/blog";
 import { Header, Footer } from "@/components/ui";
-import ArticleCTA from "@/components/ArticleCTA";
+import ArticleCTA, { hasActiveAffiliateLink } from "@/components/ArticleCTA";
+import affiliateConfig from "@/data/affiliate-config.json";
 import styles from "./ReviewedGuideArticle.module.css";
 
 // Only explicitly reviewed guides use this renderer; it never executes raw HTML.
@@ -15,6 +16,7 @@ const sourceHosts = new Set([
   "devin.ai", "cursor.com", "github.com", "github.blog", "learn.chatgpt.com",
   "www.heygen.com", "www.synthesia.io", "help.runwayml.com", "docs.dev.runwayml.com",
   "pika.art", "docs.midjourney.com", "www.adobe.com",
+  "www.winschool.jp",
   "privacy.claude.com", "www.anthropic.com", "www.ppc.go.jp", "www.meti.go.jp",
 ]);
 
@@ -62,15 +64,19 @@ export default function ReviewedGuideArticle({ article, attribution }: {
   const chatgpt = article.slug === "chatgpt-models-comparison-2026";
   const freeGuide = article.slug === "ai-free-tier-comparison-2026";
   const comparison = article.category === "comparison";
+  const learning = article.slug === "ai-python-learning-path-2026";
+  const contentId = `/blog/${article.slug}`;
+  const showAffiliateDisclosure = hasActiveAffiliateLink(article.cta, contentId);
   const takeaway = grok ? "Grokは、X内と単体版で利用条件の確認先が異なります。使いたい作業を決め、プラン・出典・入力データの扱いを確認してください。旧スコアから現在の性能は判断できません。" : safety
     ? "AIの安全性は、回答の正確さ・入力データの扱い・成果物の権利を分けて確認します。保存スコアだけでは、現在の業務への適合は判断できません。"
     : search ? "AI検索は、答えだけでなく出典まで確認して選びます。同じ質問で、原文との一致・情報の日付・確認にかかる手間を比較してください。"
     : agents ? "AIエージェントは、任せる作業・操作の権限・成果物の確認方法で選びます。完成した製品を使う場合と、自分で仕組みを組む場合は分けて比較します。"
     : coding ? "開発支援AIは、コード補完・修正・別環境での作業のどれが必要かを先に決めます。対応環境だけでなく、差分とテストを確認できるかも選定条件です。"
+    : learning ? "生成AIを仕事で使う学習と、Python・機械学習を使って仕組みを作る学習は別です。作りたいもの、前提知識、使える時間と費用から選びます。"
     : comparison ? article.description
     : "モデルの更新は、公式発表の内容と自分の作業への影響を分けて確認します。APIと個人向けアプリの提供条件、メーカーの説明と独自の実測評価を混同しないことが大切です。";
   const sourceIndex = article.sections.findLastIndex(section => /公式情報|出典/.test(section.heading));
-  const label = freeGuide ? "無料AIの選び方" : chatgpt ? "ChatGPTのモデル・プラン" : grok ? "Grokの利用ガイド" : safety ? "AIを安全に使うためのガイド" : search ? "AI検索の比較ガイド" : agents ? "AIエージェントの選び方" : coding ? "開発支援の選び方" : comparison ? "AIツール比較" : "AIモデルの更新を読む";
+  const label = learning ? "AI学習の選び方" : freeGuide ? "無料AIの選び方" : chatgpt ? "ChatGPTのモデル・プラン" : grok ? "Grokの利用ガイド" : safety ? "AIを安全に使うためのガイド" : search ? "AI検索の比較ガイド" : agents ? "AIエージェントの選び方" : coding ? "開発支援の選び方" : comparison ? "AIツール比較" : "AIモデルの更新を読む";
   const choices = safety ? [
     { label: "回答の誤りが心配", name: "原文で確かめる", text: "出典の有無だけでなく、主張と原文が一致しているか。同じ質問で比較する手順を整理します。" },
     { label: "社内資料を扱いたい", name: "入力先を確かめる", text: "モデル名ではなく、プラン・保存・学習利用・共有範囲を確認します。" },
@@ -80,7 +86,11 @@ export default function ReviewedGuideArticle({ article, attribution }: {
     { label: "調べた内容を文章にしたい", name: "ChatGPT / Claude / Gemini", text: "普段使う対話AIを候補に。検索から要約・文章化までの手間を確認する。" },
     { label: "X上の話題を確認したい", name: "Grok", text: "公開投稿を調べる入口に。投稿の拡散と、事実の裏付けは分けて確認する。" },
   ];
-  const decisionRoutes = safety ? [
+  const decisionRoutes = learning ? [
+    { href: "/blog/ai-for-non-engineers-2026", label: "まずAIを仕事で使う", detail: "文章・調査など、コード不要の用途を確認" },
+    { href: "/categories/coding-tools", label: "開発支援AIを比較", detail: "学習前に、現在のツールでできる範囲を見る" },
+    { href: "/cost", label: "費用の見方を確認", detail: "月額、受講料、追加費用を分ける" },
+  ] : safety ? [
     { href: "/safety", label: "安全性の悩みから探す", detail: "入力・設定・会社利用・回答確認を整理" },
     { href: "/blog/ai-what-not-to-enter-2026", label: "入力してはいけない情報", detail: "そのまま使う・加工する・入力しないを判断" },
     { href: "/blog/ai-data-entered-response-2026", label: "入力後の対処を確認", detail: "削除・共有解除・秘密情報の失効を順に確認" },
@@ -122,10 +132,11 @@ export default function ReviewedGuideArticle({ article, attribution }: {
       <header className={styles.hero}>
         <div className={styles.container}>
           <nav aria-label="パンくず"><a href="/blog">コラム</a><span> / {label}</span></nav>
-          <p className={styles.eyebrow}>{safety ? "安全性を判断するための根拠" : search ? "調査・検索AIを選ぶための比較" : comparison ? "用途と契約条件から選ぶ比較" : "AIの変化を、実際の使い方につなぐ"}</p>
+          <p className={styles.eyebrow}>{learning ? "使う学習と、作る学習を分ける" : safety ? "安全性を判断するための根拠" : search ? "調査・検索AIを選ぶための比較" : comparison ? "用途と契約条件から選ぶ比較" : "AIの変化を、実際の使い方につなぐ"}</p>
           <h1>{article.title}</h1>
-          <p className={styles.lead}>{freeGuide ? <>まずは、ひとつの作業が終わるか。<br />無料枠と期間限定体験を分け、足りない条件を確かめます。</> : chatgpt ? <>モデル名と、契約プランは別のもの。<br />使う画面と任せたい作業から、確認する順番を整理します。</> : safety ? <>「何位か」の前に、<strong>何を守りたいか。</strong><br />回答の正確さ、入力データ、公開時の権利を分けて考えます。</> : search ? <>答えのうまさより、<strong>根拠まで戻れるか。</strong><br />調べる・確かめる・まとめる。あなたの作業に合う入口を選びます。</> : (agents || coding) ? <>どこまで任せて、どこで確かめるか。<br />作業環境と権限から、使うツールを選びます。</> : comparison ? article.description : <>新しい名前を追うだけで終わらせない。<br />公式の更新内容と、自分の作業への影響を分けて読みます。</>}</p>
+          <p className={styles.lead}>{learning ? <>AIを使いたいのか、<strong>AIを作る側へ進みたいのか。</strong><br />目的を分けてから、独学・講座・スクールを選びます。</> : freeGuide ? <>まずは、ひとつの作業が終わるか。<br />無料枠と期間限定体験を分け、足りない条件を確かめます。</> : chatgpt ? <>モデル名と、契約プランは別のもの。<br />使う画面と任せたい作業から、確認する順番を整理します。</> : safety ? <>「何位か」の前に、<strong>何を守りたいか。</strong><br />回答の正確さ、入力データ、公開時の権利を分けて考えます。</> : search ? <>答えのうまさより、<strong>根拠まで戻れるか。</strong><br />調べる・確かめる・まとめる。あなたの作業に合う入口を選びます。</> : (agents || coding) ? <>どこまで任せて、どこで確かめるか。<br />作業環境と権限から、使うツールを選びます。</> : comparison ? article.description : <>新しい名前を追うだけで終わらせない。<br />公式の更新内容と、自分の作業への影響を分けて読みます。</>}</p>
           <div className={styles.meta}><span>公開 <time dateTime={article.publishedAt}>{article.publishedAt}</time></span><span>内容確認 <time dateTime={article.updatedAt}>{article.updatedAt}</time></span><span>読了目安 {article.readingTime}</span></div>
+          {showAffiliateDisclosure && <div className={styles.disclosure}><strong>PR：</strong>{affiliateConfig.default_disclosure}</div>}
           <div className={styles.scope}>{safety ? "掲載スコアは2026年3月の保存値です。現在の安全性順位や企業利用の適合を示す情報ではありません。" : "公式情報に基づく機能比較です。実測ランキングではありません。料金・利用上限は契約前に公式ページで確認してください。"}</div>
           <section className={styles.summary} aria-labelledby="article-summary">
             <h2 id="article-summary">この記事の要点</h2>
@@ -160,7 +171,7 @@ export default function ReviewedGuideArticle({ article, attribution }: {
               <h2>{section.heading}<a className={styles.sectionLink} href={`#section-${i}`} aria-label={`「${section.heading}」へのリンク`}>#</a></h2><Content text={section.content} heading={section.heading} />
             </section>)}
             <div className={styles.next}><p className={styles.eyebrow}>次は、選び方を整理する</p>
-              <ArticleCTA cta={article.cta} contentId={`/blog/${article.slug}`} attribution={attribution} />
+              <ArticleCTA cta={article.cta} contentId={contentId} attribution={attribution} />
             </div>
             <a className={styles.back} href="/blog">← コラム一覧へ</a>
           </article>

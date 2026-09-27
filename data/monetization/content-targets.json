@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "status": "proposal",
-  "last_reviewed_at": "2026-09-10",
+  "last_reviewed_at": "2026-09-27",
   "rules": {
     "max_cta_blocks_per_page": 1,
     "requires_editorial_relevance": true,
@@ -26,6 +26,7 @@
     { "source_page": "/blog/perplexity-review-2026", "service_id": "perplexity", "cta_type": "free_plan", "position": "article-end", "rationale": "単独レビューから無料検索体験へ接続", "status": "proposed" },
     { "source_page": "/blog/chatgpt-review-2026", "service_id": "chatgpt", "cta_type": "free_plan", "position": "article-end", "rationale": "単独レビューから無料プランへ接続", "status": "proposed" },
     { "source_page": "/blog/claude-review-2026", "service_id": "claude", "cta_type": "free_plan", "position": "article-end", "rationale": "単独レビューから無料プランへ接続", "status": "proposed" },
-    { "source_page": "/blog/gemini-review-2026", "service_id": "gemini", "cta_type": "free_plan", "position": "article-end", "rationale": "単独レビューから無料利用へ接続", "status": "proposed" }
+    { "source_page": "/blog/gemini-review-2026", "service_id": "gemini", "cta_type": "free_plan", "position": "article-end", "rationale": "単独レビューから無料利用へ接続", "status": "proposed" },
+    { "source_page": "/blog/ai-python-learning-path-2026", "service_id": "win-school", "cta_type": "official", "position": "article-end", "rationale": "生成AIの利用ではなくPython・機械学習を体系的に学びたい読者だけに無料相談の確認先を示す", "status": "proposed" }
   ]
 }
