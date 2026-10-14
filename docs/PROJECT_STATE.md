@@ -1,5 +1,14 @@
 # PROJECT STATE
 
+## 現行サマリー — 2026-10-14 個人情報漏洩・AI危険性記事 Production
+
+- 新規記事 `/blog/ai-personal-data-leak-cases-2026` をProduction公開した。AIへの入力、共有、外部連携、サービス・委託先、AIアプリ設計の5経路を分け、個人・会社・事故後の対策を表と手順で掲載した。
+- 個人情報保護委員会、IPA、OpenAI、NIST、OWASPの一次情報を2026-10-14に確認。2023年ChatGPT障害、2025年Mixpanel事案、DeepSeekの保存場所・適用法注意を、漏洩事例・委託先事故・漏洩ではない注意情報に分けて記載した。
+- SEO対象語は「AI 個人情報 漏洩」「生成AI 危険性」「ChatGPT 個人情報」「情報漏洩 事例」「AI セキュリティ」。既存の入力前・入力後記事と検索意図を分け、安全性ハブ、記事一覧、関連記事から内部リンクした。
+- commit `093d05c` をbranchへpushし、ReadyなPreview `A5X8sCov6tGWK7m9HNehSeQ5jMMv`をProductionへ昇格。本番記事200、自己canonical、Article schema、一覧・安全性ハブ・sitemap接続を確認した。本番sitemapは103 URL、裸ドメインはwwwへ308。
+- `npm run check`成功（90 official sources / 125 static pages）、`git diff --check`成功。desktop / 390pxで見出し・表・目次・CTAを確認し、横崩れなし。環境変数、DNS、広告URL、affiliate範囲、SNS、mainは変更していない。
+- 公開は検索流入改善の実績ではない。新URLのindex、query、impressions、CTR、内部遷移は未計測で、公開後7日または50 impressionsを目安に評価する。
+
 ## 現行サマリー — 2026-10-14 Traffic Recovery RC push
 
 - Traffic Recovery RCをcommit `5840da5`として`work/aierabi-revenue-engine`へpushした。対象は検索表示済み2記事のCTR改善、コーディング記事から既存収益記事への内部リンク、関連テスト・状態文書のみ。

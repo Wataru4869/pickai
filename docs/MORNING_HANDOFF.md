@@ -1,5 +1,12 @@
 # MORNING HANDOFF
 
+## 2026-10-14 個人情報漏洩記事 Production
+
+- `/blog/ai-personal-data-leak-cases-2026`をProduction公開済み。commit `093d05c`、Preview `A5X8sCov6tGWK7m9HNehSeQ5jMMv`。
+- PPC・IPA・OpenAI・NIST・OWASPの一次情報で、5つの漏洩経路、3公表例、個人／会社／初動対策を整理。漏洩事例と保存場所注意を明確に分離した。
+- `npm run check`成功（90 sources / 125 pages）。本番記事200、canonical、Article schema、記事一覧・安全性ハブ・関連記事・sitemap接続を確認。sitemap 103 URL、裸ドメイン→www 308。
+- 次は公開後7日または50 impressionsでindex / query / CTRを確認。公開をSEO成果とは扱わない。広告・SNS・環境変数・DNS・mainは不変。
+
 ## 2026-10-14 更新
 
 - Traffic Recovery RCは`5840da5`として`work/aierabi-revenue-engine`へpush済み。

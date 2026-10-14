@@ -1,5 +1,13 @@
 # NEXT TASKS
 
+## 現行優先キュー — 2026-10-14 個人情報漏洩記事公開後
+
+1. **新記事のindexと検索語を観測** — `/blog/ai-personal-data-leak-cases-2026` のGSC index、query、impressions、clicks、CTR、average positionを公開後7日または50 impressionsで確認する。公開だけでSEO成功と判定しない。
+2. **安全性cluster内の回遊を観測** — 新記事から入力前・入力後記事への`internal_cta_click`と、安全性ハブから新記事への遷移を確認する。CTA表示回数なしにCTRとは呼ばない。
+3. **Traffic Recovery RCの効果を分離観測** — 既存2記事のCTR改善と新記事流入を混ぜず、ページ別に同じ期間幅で確認する。
+4. **収益記事への適格遷移を継続観測** — Winスクール記事のviews / active users / engagement / `affiliate_click`を安全性流入と分離する。広告リンクを安全性記事へ追加しない。
+5. **X・affiliateの既存ゲートを維持** — 未承認投稿・追加申請・広告URL改変を行わず、旧Xの実績を`@AI_erabi`へ流用しない。
+
 ## 現行優先キュー — 2026-10-07 Traffic Recovery RC後
 
 1. **Traffic Recovery RCをPreview確認** — 個人情報入力後記事、Cursor Projects記事、AIコーディング選び記事、Winスクール記事をdesktop / 390px / 320pxで確認する。完了条件: 横あふれ0、自己リンク0、内部導線正常、既存広告URL・PR範囲不変。Productionは別承認。
