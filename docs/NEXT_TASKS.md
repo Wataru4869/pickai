@@ -1,5 +1,21 @@
 # NEXT TASKS
 
+## 現行優先キュー — 2026-10-07 Traffic Recovery RC後
+
+1. **Traffic Recovery RCをPreview確認** — 個人情報入力後記事、Cursor Projects記事、AIコーディング選び記事、Winスクール記事をdesktop / 390px / 320pxで確認する。完了条件: 横あふれ0、自己リンク0、内部導線正常、既存広告URL・PR範囲不変。Productionは別承認。
+2. **公開後7日を同一定義で観測** — 対象2記事のimpressions / clicks / CTR / average positionを再取得する。最低50 impressionsまでは成功・失敗を断定しない。
+3. **収益記事への適格遷移を観測** — Winスクール記事のviews / active users / engagement / `affiliate_click`を分ける。A8成果発生・確定は別記録とし、テストクリックを混ぜない。
+4. **次のSEO変更は実測1ページだけ** — ChatGPTモデル比較（75 impressions / CTR 1.33% / 8.40位）を次候補とし、今回2記事の公開・観測前に改修を広げない。
+5. **X・affiliateの既存ゲートを維持** — `@AI_erabi`の新baselineを旧Xと混ぜず、未承認投稿・追加申請・広告URL改変を行わない。
+
+## 現行優先キュー — 2026-10-04 初回実測後
+
+1. **専用記事への適格流入を作る** — 記事の1 view / active users 0ではCTAを評価できない。Winスクールと内容が自然につながる既存の学習・コーディング系ページを1〜2件だけ選び、広告リンクではなく専用記事への内部リンク候補を設計する。無関係な安全性流入には接続しない。
+2. **GA4の同一定義観測を継続する** — 専用記事のviews / active users / engagementと`affiliate_click`を次の7日も確認する。affiliate click 0は計測済み、A8側の成果は再認証完了までunknownとして分離する。
+3. **A8成果レポートを人間再認証後に確認する** — クリック、成果発生、成果確定を区別して確認する。credentialは扱わず、会員限定情報は公開文書やGitへ保存しない。
+4. **CTA改修は到達母数ができるまで保留する** — 現行direct link、PR表示、対象ページ制限、`/go`・UTM・subID不使用を維持する。1 viewを根拠に文言や位置を変更しない。
+5. **X配信は別ゲートを維持する** — `@AI_erabi`の案件固有SNS条件とX Paid Partnerships適格性が確認できるまでaffiliate投稿を行わない。旧`@tetoteto_ai`の実績・許可を流用しない。
+
 ## 現行優先キュー — 2026-09-28 Winスクール最小収益テスト公開後
 
 1. **最初の実クリックを汚さず観測する** — 専用記事1ページをProduction公開済み。内部テストで広告リンクをクリックせず、GA4の`affiliate_click`とA8側の成果発生を別々に確認する。未取得は0にしない。

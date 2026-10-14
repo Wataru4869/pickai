@@ -48,8 +48,10 @@
         "url": "/blog/ai-agents-comparison-2026"
       },
       {
-        "label": "料金・無料条件の確認ポイントを見る",
-        "url": "/cost"
+        "label": "Python・AI開発を学ぶべきか確認する",
+        "url": "/blog/ai-python-learning-path-2026",
+        "ctaType": "guide",
+        "ctaPosition": "coding-guide-learning-path"
       }
     ]
   }

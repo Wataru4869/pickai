@@ -56,6 +56,7 @@ export default function ReviewedGuideArticle({ article, attribution }: {
   attribution: { postId?: string; campaignId?: string };
 }) {
   const safety = article.slug === "ai-safety-ranking-2026" || article.tags.some(tag => ["AI安全", "AI安全性", "プライバシー", "情報漏洩対策"].includes(tag));
+  const incident = article.slug === "ai-data-entered-response-2026";
   const search = article.slug === "ai-search-engines-comparison-2026";
   const agents = article.slug === "ai-agents-comparison-2026";
   const coding = article.slug === "ai-coding-tools-2026";
@@ -90,6 +91,10 @@ export default function ReviewedGuideArticle({ article, attribution }: {
     { href: "/blog/ai-for-non-engineers-2026", label: "まずAIを仕事で使う", detail: "文章・調査など、コード不要の用途を確認" },
     { href: "/categories/coding-tools", label: "開発支援AIを比較", detail: "学習前に、現在のツールでできる範囲を見る" },
     { href: "/cost", label: "費用の見方を確認", detail: "月額、受講料、追加費用を分ける" },
+  ] : incident ? [
+    { href: "/blog/ai-what-not-to-enter-2026", label: "次回の入力前に確認", detail: "そのまま使う・加工する・入力しないを判断" },
+    { href: "/blog/ai-business-security-checklist-2026", label: "会社利用の手順を確認", detail: "報告先・契約・権限を整理" },
+    { href: "/safety", label: "安全性の悩みから探す", detail: "入力・設定・回答確認を悩み別に見る" },
   ] : safety ? [
     { href: "/safety", label: "安全性の悩みから探す", detail: "入力・設定・会社利用・回答確認を整理" },
     { href: "/blog/ai-what-not-to-enter-2026", label: "入力してはいけない情報", detail: "そのまま使う・加工する・入力しないを判断" },
@@ -134,16 +139,16 @@ export default function ReviewedGuideArticle({ article, attribution }: {
           <nav aria-label="パンくず"><a href="/blog">コラム</a><span> / {label}</span></nav>
           <p className={styles.eyebrow}>{learning ? "使う学習と、作る学習を分ける" : safety ? "安全性を判断するための根拠" : search ? "調査・検索AIを選ぶための比較" : comparison ? "用途と契約条件から選ぶ比較" : "AIの変化を、実際の使い方につなぐ"}</p>
           <h1>{article.title}</h1>
-          <p className={styles.lead}>{learning ? <>AIを使いたいのか、<strong>AIを作る側へ進みたいのか。</strong><br />目的を分けてから、独学・講座・スクールを選びます。</> : freeGuide ? <>まずは、ひとつの作業が終わるか。<br />無料枠と期間限定体験を分け、足りない条件を確かめます。</> : chatgpt ? <>モデル名と、契約プランは別のもの。<br />使う画面と任せたい作業から、確認する順番を整理します。</> : safety ? <>「何位か」の前に、<strong>何を守りたいか。</strong><br />回答の正確さ、入力データ、公開時の権利を分けて考えます。</> : search ? <>答えのうまさより、<strong>根拠まで戻れるか。</strong><br />調べる・確かめる・まとめる。あなたの作業に合う入口を選びます。</> : (agents || coding) ? <>どこまで任せて、どこで確かめるか。<br />作業環境と権限から、使うツールを選びます。</> : comparison ? article.description : <>新しい名前を追うだけで終わらせない。<br />公式の更新内容と、自分の作業への影響を分けて読みます。</>}</p>
+          <p className={styles.lead}>{learning ? <>AIを使いたいのか、<strong>AIを作る側へ進みたいのか。</strong><br />目的を分けてから、独学・講座・スクールを選びます。</> : freeGuide ? <>まずは、ひとつの作業が終わるか。<br />無料枠と期間限定体験を分け、足りない条件を確かめます。</> : chatgpt ? <>モデル名と、契約プランは別のもの。<br />使う画面と任せたい作業から、確認する順番を整理します。</> : incident ? <>まず追加送信を止める。<br /><strong>入力した情報に合わせて、削除・変更・報告を分けます。</strong></> : safety ? <>「何位か」の前に、<strong>何を守りたいか。</strong><br />回答の正確さ、入力データ、公開時の権利を分けて考えます。</> : search ? <>答えのうまさより、<strong>根拠まで戻れるか。</strong><br />調べる・確かめる・まとめる。あなたの作業に合う入口を選びます。</> : (agents || coding) ? <>どこまで任せて、どこで確かめるか。<br />作業環境と権限から、使うツールを選びます。</> : comparison ? article.description : <>新しい名前を追うだけで終わらせない。<br />公式の更新内容と、自分の作業への影響を分けて読みます。</>}</p>
           <div className={styles.meta}><span>公開 <time dateTime={article.publishedAt}>{article.publishedAt}</time></span><span>内容確認 <time dateTime={article.updatedAt}>{article.updatedAt}</time></span><span>読了目安 {article.readingTime}</span></div>
           {showAffiliateDisclosure && <div className={styles.disclosure}><strong>PR：</strong>{affiliateConfig.default_disclosure}</div>}
-          <div className={styles.scope}>{safety ? "掲載スコアは2026年3月の保存値です。現在の安全性順位や企業利用の適合を示す情報ではありません。" : "公式情報に基づく機能比較です。実測ランキングではありません。料金・利用上限は契約前に公式ページで確認してください。"}</div>
+          <div className={styles.scope}>{incident ? "入力しただけで一般公開・漏洩と断定はできません。秘密情報の失効や組織への報告が必要な場合は、記事を読み終える前に対応してください。" : safety ? "掲載スコアは2026年3月の保存値です。現在の安全性順位や企業利用の適合を示す情報ではありません。" : "公式情報に基づく機能比較です。実測ランキングではありません。料金・利用上限は契約前に公式ページで確認してください。"}</div>
           <section className={styles.summary} aria-labelledby="article-summary">
             <h2 id="article-summary">この記事の要点</h2>
-            <p>{news || chatgpt || freeGuide || comparison ? article.description : takeaway}</p>
+            <p>{incident || news || chatgpt || freeGuide || comparison ? article.description : takeaway}</p>
             <div className={styles.summaryLinks}>
-              <a href="#section-0">本文を読む ↓</a>
-              <a href="#section-1">{news ? "変更点と影響を見る ↓" : "比較表を見る ↓"}</a>
+              <a href="#section-0">{incident ? "最初の行動を見る ↓" : "本文を読む ↓"}</a>
+              <a href="#section-1">{incident ? "5つの対処手順を見る ↓" : news ? "変更点と影響を見る ↓" : "比較表を見る ↓"}</a>
               {sourceIndex >= 0 && <a href={`#section-${sourceIndex}`}>公式情報を確認 ↓</a>}
             </div>
           </section>

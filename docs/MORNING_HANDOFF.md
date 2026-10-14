@@ -1,5 +1,22 @@
 # MORNING HANDOFF
 
+## 2026-10-07 更新
+
+- 最新7日は39 sessions（前期間比+69.6%）で短期は回復。28日は約216 sessionsで、中期はOrganic Search 115・AI Assistant 6へ減少が残る。
+- GSC連携実測の最優先は個人情報入力後記事（188 impressions / CTR 0.53% / 9.78位）とCursor Projects記事（164 / 1.83% / 6.89位）。branch上でtitle・description・冒頭回答・表・FAQを改善済み。
+- Cursor ProjectsとAIコーディング選びからWinスクール専用記事へ内部リンクを追加。広告URL・PR・対象ページ・`/go`/UTM/subIDは不変。
+- 判定はModify / Continue。全面改修・記事量産はせず、既に表示されている検索結果のCTRと適格内部遷移を回収する。
+- `npm run check`、`git diff --check`成功。390px / 320px横あふれ0、広告表示範囲不変を確認。Production未反映。次の人間判断はTraffic Recovery RCのPreview確認とdeploy可否の1件。
+- 詳細: `docs/TRAFFIC_RECOVERY_REPORT_2026-10-07.md`
+
+## 2026-10-04 更新
+
+- Winスクール専用記事はProduction稼働中。GA4過去28日（09-06〜10-03）で記事1 view / active users 0 / engagement 0秒、`affiliate_click` 0。まだCTA/CV評価に必要な到達母数がない。
+- GA4過去7日（09-27〜10-03）は29 sessions（Direct 16 / Organic Search 12 / Unassigned 1）、前期間比`+26.1%`、key events 0。
+- A8詳細レポートは再認証が必要。credentialへ触れず停止したため、A8 click / 成果発生 / 成果確定はunknown。
+- 判断: `Continue with modification`。CTA・広告URLは維持し、次は関連する学習・コーディングページから専用記事への適格流入だけを増やす。X affiliate投稿は適格性確認までHOLD。
+- 最大ボトルネック: CVRではなく専用記事への流入不足。売上・成果発生・確定・入金は未確認。
+
 最終同期: 2026-09-28 JST
 
 ## 現在地

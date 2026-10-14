@@ -1,5 +1,24 @@
 # PROJECT STATE
 
+## 現行サマリー — 2026-10-07 Traffic Recovery RC
+
+- GA4直近7日（2026-09-30〜10-06）は39 sessions、前期間比`+69.6%`で、直近も連続する急落ではなく回復を確認した。events 131、events/session 3.4、key events 0。
+- 直近28日（2026-09-09〜10-06）のchannel合計は約216 sessions。前回記録262 sessionsとは18日重複するため厳密な前後比較ではないが、Organic Search 156→115、AI Assistant 12→6で中期の流入減が残る。
+- Search Console連携のlanding page集計は45 clicks / 1,808 impressions / CTR 2.49% / 平均16.85位。`/safety`は15 clicks / 310 impressions / CTR 4.84% / 8.71位で維持対象。
+- 最優先機会は`/blog/ai-data-entered-response-2026`（1 / 188 / 0.53% / 9.78位）と`/blog/cursor-projects-2026`（3 / 164 / 1.83% / 6.89位）。検索意図に合わせたtitle・description・冒頭表・FAQを局所更新した。
+- Cursor Projects記事とAIコーディング選び記事から、Winスクール専用記事への自然な内部リンクを追加。広告URL、広告CTA、PR条件、`/go`、UTM、subIDは変更していない。
+- branch上のRCまで完了。`npm run check`成功（124 static pages）、`git diff --check`成功。390px / 320px横あふれ0、内部リンク、canonical、広告表示範囲を実画面確認済み。Production deploy、SNS、外部申請は未実施で、人間がPreview / 公開可否を判断する。
+- 最大ボトルネックは、既に表示されている検索結果の低CTRと、収益記事への適格流入不足。新規記事量産ではなく、実表示ページからクリックと内部遷移を回収する。
+
+## 現行サマリー — 2026-10-04 Winスクール公開後の初回実測
+
+- GA4 `pickAI` の過去7日（画面上の2026-09-27〜10-03）は29 sessions。前期間比`+26.1%`。内訳はDirect 16、Organic Search 12、Unassigned 1で、key eventsは0。
+- 過去28日（2026-09-06〜10-03）は359 views / 169 active users / 1,139 events / revenue ¥0。`affiliate_click`はイベント全10種の一覧に存在せず、同期間の記録値は0。
+- Winスクール専用記事`/blog/ai-python-learning-path-2026`は同28日窓で1 view / active users 0 / engagement 0秒 / events 2。実ユーザー到達を確認できる母数ではなく、CTA・案件・記事品質の成否はまだ判定不能。
+- A8の広告リンク発行・提携状態は既存画面で維持されていることを確認した。成果・クリック詳細レポートは再認証を要求したため、credentialへ触れず停止。A8側のクリック、成果発生、成果確定は`unknown`のまま。
+- 現在の最大ボトルネックは広告CTAではなく、専用記事への適格流入がほぼないこと。発行URLやCTA条件を変えず、関連する既存ページからの自然な内部導線またはindex/検索露出を先に作る。
+- 売上・成果発生・成果確定・入金はいずれも確認できていない。GA4 revenue ¥0とA8側unknownを混同しない。
+
 ## 現行サマリー — 2026-09-28 Winスクール最小収益テストProduction
 
 - Winスクール用の最小収益テスト候補をbranch上に準備した。対象は新規1記事`/blog/ai-python-learning-path-2026`のみで、生成AIを使う学習とPython・機械学習を作る学習を分け、独学・教材・スクールの判断順を示す。公開公式4 sourceを2026-09-27確認として登録した。

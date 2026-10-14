@@ -82,7 +82,8 @@ for (const slug of ['ai-search-engines-comparison-2026','ai-safety-ranking-2026'
 }
 for (const slug of ['ai-privacy-by-usecase-2026','ai-what-not-to-enter-2026','ai-data-entered-response-2026','ai-training-retention-review-2026','ai-business-security-checklist-2026','ai-safety-mythos-2026']) {
   const guide=JSON.parse(fs.readFileSync(path+'src/data/blog/'+slug+'.json'));
-  assert.equal(guide.updatedAt,'2026-09-16');
+  assert.match(guide.updatedAt,/^\d{4}-\d{2}-\d{2}$/);
+  assert.ok(guide.updatedAt >= '2026-09-16',slug+' regressed to a date before the reviewed safety refresh');
   const text=guide.title+guide.description+guide.sections.map(section=>section.content).join('\n');
   for (const unsafe of ['漏洩するリスクをゼロ','最も安全なのはClaude','月額25ドル/約3,750円','Claudeが93.7点で1位']) assert.equal(text.includes(unsafe),false,slug+' retained unsafe legacy claim');
 }
