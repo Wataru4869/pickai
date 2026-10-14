@@ -15,6 +15,7 @@ const reviewed = new Set([
   "heygen-vs-synthesia-2026", "runway-vs-pika-2026", "midjourney-vs-adobe-firefly-2026",
   "ai-privacy-by-usecase-2026", "ai-what-not-to-enter-2026", "ai-data-entered-response-2026",
   "ai-training-retention-review-2026", "ai-business-security-checklist-2026", "ai-safety-mythos-2026",
+  "ai-personal-data-leak-cases-2026",
 ]);
 export default function BlogList({ articles }: { articles: BlogArticle[] }) {
   const [filter, setFilter] = useState("all");

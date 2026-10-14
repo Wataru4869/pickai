@@ -18,12 +18,14 @@ const sourceHosts = new Set([
   "pika.art", "docs.midjourney.com", "www.adobe.com",
   "www.winschool.jp",
   "privacy.claude.com", "www.anthropic.com", "www.ppc.go.jp", "www.meti.go.jp",
+  "www.ipa.go.jp", "genai.owasp.org", "owasp.org",
 ]);
 
 function inline(text: string): ReactNode[] {
-  return text.split(/(\[[^\]]+\]\(https:\/\/[^\s)]+\))/g).map((part, i) => {
-    const match = part.match(/^\[([^\]]+)\]\((https:\/\/[^\s)]+)\)$/);
+  return text.split(/(\[[^\]]+\]\((?:https:\/\/[^\s)]+|\/[a-z0-9/_-]+)\))/g).map((part, i) => {
+    const match = part.match(/^\[([^\]]+)\]\((https:\/\/[^\s)]+|\/[a-z0-9/_-]+)\)$/);
     if (!match) return part;
+    if (match[2].startsWith("/")) return <a key={i} href={match[2]}>{match[1]}</a>;
     try {
       const url = new URL(match[2]);
       if (!sourceHosts.has(url.hostname) || url.username || url.password || url.port) return part;
@@ -55,7 +57,8 @@ export default function ReviewedGuideArticle({ article, attribution }: {
   article: BlogArticle;
   attribution: { postId?: string; campaignId?: string };
 }) {
-  const safety = article.slug === "ai-safety-ranking-2026" || article.tags.some(tag => ["AI安全", "AI安全性", "プライバシー", "情報漏洩対策"].includes(tag));
+  const breachCases = article.slug === "ai-personal-data-leak-cases-2026";
+  const safety = breachCases || article.slug === "ai-safety-ranking-2026" || article.tags.some(tag => ["AI安全", "AI安全性", "プライバシー", "情報漏洩対策", "AIセキュリティ"].includes(tag));
   const incident = article.slug === "ai-data-entered-response-2026";
   const search = article.slug === "ai-search-engines-comparison-2026";
   const agents = article.slug === "ai-agents-comparison-2026";
@@ -139,13 +142,13 @@ export default function ReviewedGuideArticle({ article, attribution }: {
           <nav aria-label="パンくず"><a href="/blog">コラム</a><span> / {label}</span></nav>
           <p className={styles.eyebrow}>{learning ? "使う学習と、作る学習を分ける" : safety ? "安全性を判断するための根拠" : search ? "調査・検索AIを選ぶための比較" : comparison ? "用途と契約条件から選ぶ比較" : "AIの変化を、実際の使い方につなぐ"}</p>
           <h1>{article.title}</h1>
-          <p className={styles.lead}>{learning ? <>AIを使いたいのか、<strong>AIを作る側へ進みたいのか。</strong><br />目的を分けてから、独学・講座・スクールを選びます。</> : freeGuide ? <>まずは、ひとつの作業が終わるか。<br />無料枠と期間限定体験を分け、足りない条件を確かめます。</> : chatgpt ? <>モデル名と、契約プランは別のもの。<br />使う画面と任せたい作業から、確認する順番を整理します。</> : incident ? <>まず追加送信を止める。<br /><strong>入力した情報に合わせて、削除・変更・報告を分けます。</strong></> : safety ? <>「何位か」の前に、<strong>何を守りたいか。</strong><br />回答の正確さ、入力データ、公開時の権利を分けて考えます。</> : search ? <>答えのうまさより、<strong>根拠まで戻れるか。</strong><br />調べる・確かめる・まとめる。あなたの作業に合う入口を選びます。</> : (agents || coding) ? <>どこまで任せて、どこで確かめるか。<br />作業環境と権限から、使うツールを選びます。</> : comparison ? article.description : <>新しい名前を追うだけで終わらせない。<br />公式の更新内容と、自分の作業への影響を分けて読みます。</>}</p>
+          <p className={styles.lead}>{learning ? <>AIを使いたいのか、<strong>AIを作る側へ進みたいのか。</strong><br />目的を分けてから、独学・講座・スクールを選びます。</> : freeGuide ? <>まずは、ひとつの作業が終わるか。<br />無料枠と期間限定体験を分け、足りない条件を確かめます。</> : chatgpt ? <>モデル名と、契約プランは別のもの。<br />使う画面と任せたい作業から、確認する順番を整理します。</> : breachCases ? <>AIだから危険、学習オフなら安全。<br /><strong>その二択をやめて、漏洩経路と対策を分けます。</strong></> : incident ? <>まず追加送信を止める。<br /><strong>入力した情報に合わせて、削除・変更・報告を分けます。</strong></> : safety ? <>「何位か」の前に、<strong>何を守りたいか。</strong><br />回答の正確さ、入力データ、公開時の権利を分けて考えます。</> : search ? <>答えのうまさより、<strong>根拠まで戻れるか。</strong><br />調べる・確かめる・まとめる。あなたの作業に合う入口を選びます。</> : (agents || coding) ? <>どこまで任せて、どこで確かめるか。<br />作業環境と権限から、使うツールを選びます。</> : comparison ? article.description : <>新しい名前を追うだけで終わらせない。<br />公式の更新内容と、自分の作業への影響を分けて読みます。</>}</p>
           <div className={styles.meta}><span>公開 <time dateTime={article.publishedAt}>{article.publishedAt}</time></span><span>内容確認 <time dateTime={article.updatedAt}>{article.updatedAt}</time></span><span>読了目安 {article.readingTime}</span></div>
           {showAffiliateDisclosure && <div className={styles.disclosure}><strong>PR：</strong>{affiliateConfig.default_disclosure}</div>}
-          <div className={styles.scope}>{incident ? "入力しただけで一般公開・漏洩と断定はできません。秘密情報の失効や組織への報告が必要な場合は、記事を読み終える前に対応してください。" : safety ? "掲載スコアは2026年3月の保存値です。現在の安全性順位や企業利用の適合を示す情報ではありません。" : "公式情報に基づく機能比較です。実測ランキングではありません。料金・利用上限は契約前に公式ページで確認してください。"}</div>
+          <div className={styles.scope}>{breachCases ? "公表された漏洩事例、保存場所の注意情報、一般的なリスクを区別しています。全ての情報漏洩がAI原因という意味ではありません。" : incident ? "入力しただけで一般公開・漏洩と断定はできません。秘密情報の失効や組織への報告が必要な場合は、記事を読み終える前に対応してください。" : safety ? "掲載スコアは2026年3月の保存値です。現在の安全性順位や企業利用の適合を示す情報ではありません。" : "公式情報に基づく機能比較です。実測ランキングではありません。料金・利用上限は契約前に公式ページで確認してください。"}</div>
           <section className={styles.summary} aria-labelledby="article-summary">
             <h2 id="article-summary">この記事の要点</h2>
-            <p>{incident || news || chatgpt || freeGuide || comparison ? article.description : takeaway}</p>
+            <p>{breachCases || incident || news || chatgpt || freeGuide || comparison ? article.description : takeaway}</p>
             <div className={styles.summaryLinks}>
               <a href="#section-0">{incident ? "最初の行動を見る ↓" : "本文を読む ↓"}</a>
               <a href="#section-1">{incident ? "5つの対処手順を見る ↓" : news ? "変更点と影響を見る ↓" : "比較表を見る ↓"}</a>

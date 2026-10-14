@@ -24,6 +24,10 @@ assert.ok(html.includes('href="https://www.nist.gov/test"'));
 assert.ok(html.includes('&lt;script&gt;'));
 assert.equal(html.includes('<script>'),false);
 for(const bad of ['https://evil.example','https://user@','https://www.nist.gov:444','https://www.nist.gov.evil','javascript:']) assert.equal(html.includes('href="'+bad),false);
+const internalHtml=renderToStaticMarkup(React.createElement(result.exports.default,{article:{...article,sections:[{heading:'Internal link boundary',content:'[valid](/blog/ai-data-entered-response-2026) [query](/blog/test?x=1) [protocol](//evil.example)'}]},attribution:{}}));
+assert.ok(internalHtml.includes('href="/blog/ai-data-entered-response-2026"'));
+assert.equal(internalHtml.includes('href="/blog/test?x=1"'),false);
+assert.equal(internalHtml.includes('href="//evil.example"'),false);
 const config=JSON.parse(fs.readFileSync(path+'src/data/affiliate-config.json'));
 assert.deepEqual(config.services.filter(s=>s.status==='active').map(s=>s.service_id),['win-school']);
 assert.deepEqual(config.services.filter(s=>s.affiliate_url).map(s=>s.service_id),['win-school']);
@@ -62,7 +66,7 @@ assert.ok(ctaHtml.includes('data-service-id="win-school"'));
 assert.ok(ctaHtml.includes('data-source-page="/blog/ai-python-learning-path-2026"'));
 console.log('Passed: Win School guide uses one approved direct affiliate URL and renders the first-view disclosure.');
 
-for (const slug of ['ai-search-engines-comparison-2026','ai-safety-ranking-2026','ai-agents-comparison-2026','ai-tools-2026-trends','ai-coding-tools-2026','grok-review-2026','cursor-projects-2026','copilot-model-retirement-2026-09','chatgpt-models-comparison-2026','ai-free-tier-comparison-2026','chatgpt-vs-perplexity-2026','cursor-vs-github-copilot-2026','cursor-vs-windsurf-2026','heygen-vs-synthesia-2026','runway-vs-pika-2026','midjourney-vs-adobe-firefly-2026','ai-privacy-by-usecase-2026','ai-what-not-to-enter-2026','ai-data-entered-response-2026','ai-training-retention-review-2026','ai-business-security-checklist-2026','ai-safety-mythos-2026']) {
+for (const slug of ['ai-search-engines-comparison-2026','ai-safety-ranking-2026','ai-agents-comparison-2026','ai-tools-2026-trends','ai-coding-tools-2026','grok-review-2026','cursor-projects-2026','copilot-model-retirement-2026-09','chatgpt-models-comparison-2026','ai-free-tier-comparison-2026','chatgpt-vs-perplexity-2026','cursor-vs-github-copilot-2026','cursor-vs-windsurf-2026','heygen-vs-synthesia-2026','runway-vs-pika-2026','midjourney-vs-adobe-firefly-2026','ai-privacy-by-usecase-2026','ai-what-not-to-enter-2026','ai-data-entered-response-2026','ai-personal-data-leak-cases-2026','ai-training-retention-review-2026','ai-business-security-checklist-2026','ai-safety-mythos-2026']) {
   const guide=JSON.parse(fs.readFileSync(path+'src/data/blog/'+slug+'.json'));
   assert.equal(guide.cta.type,'internal');
   assert.equal(guide.cta.links.length,2);
@@ -80,13 +84,20 @@ for (const slug of ['ai-search-engines-comparison-2026','ai-safety-ranking-2026'
   const external=guide.sections.flatMap(s=>[...s.content.matchAll(/\[[^\]]+\]\((https:\/\/[^\s)]+)\)/g)]).map(m=>m[1]);
   for(const url of external) assert.ok(rendered.includes('href="'+new URL(url).href+'"'),slug+' source not linked: '+url);
 }
-for (const slug of ['ai-privacy-by-usecase-2026','ai-what-not-to-enter-2026','ai-data-entered-response-2026','ai-training-retention-review-2026','ai-business-security-checklist-2026','ai-safety-mythos-2026']) {
+for (const slug of ['ai-privacy-by-usecase-2026','ai-what-not-to-enter-2026','ai-data-entered-response-2026','ai-personal-data-leak-cases-2026','ai-training-retention-review-2026','ai-business-security-checklist-2026','ai-safety-mythos-2026']) {
   const guide=JSON.parse(fs.readFileSync(path+'src/data/blog/'+slug+'.json'));
   assert.match(guide.updatedAt,/^\d{4}-\d{2}-\d{2}$/);
   assert.ok(guide.updatedAt >= '2026-09-16',slug+' regressed to a date before the reviewed safety refresh');
   const text=guide.title+guide.description+guide.sections.map(section=>section.content).join('\n');
   for (const unsafe of ['漏洩するリスクをゼロ','最も安全なのはClaude','月額25ドル/約3,750円','Claudeが93.7点で1位']) assert.equal(text.includes(unsafe),false,slug+' retained unsafe legacy claim');
 }
+const breachGuide=JSON.parse(fs.readFileSync(path+'src/data/blog/ai-personal-data-leak-cases-2026.json'));
+const breachText=breachGuide.title+'\n'+breachGuide.description+'\n'+breachGuide.sections.map(section=>section.content).join('\n');
+for(const keyword of ['AIで個人情報は漏洩する？','生成AIの危険性','ChatGPT','情報漏洩','シャドーAI']) assert.ok(breachText.includes(keyword),`missing search-intent term: ${keyword}`);
+for(const distinction of ['全ての事故原因だという発表ではありません','漏洩発生の公表ではなく','影響していないと説明']) assert.ok(breachText.includes(distinction),`missing incident distinction: ${distinction}`);
+for(const host of ['www.ppc.go.jp','www.ipa.go.jp','openai.com','www.nist.gov','genai.owasp.org']) assert.ok(breachText.includes(`https://${host}/`),`missing primary source: ${host}`);
+const safetyHubSource=fs.readFileSync(path+'src/app/safety/page.tsx','utf8');
+assert.ok(safetyHubSource.includes('/blog/ai-personal-data-leak-cases-2026'));
 const grok=JSON.parse(fs.readFileSync(path+'src/data/blog/grok-review-2026.json'));
 assert.equal(grok.updatedAt,'2026-09-13');
 assert.equal(/1位|独自テストで検証/.test(grok.title+grok.description),false);
