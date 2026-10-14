@@ -33,8 +33,10 @@ module.exports = {
       .readdirSync(blogDir)
       .filter((file) => file.endsWith('.json'))
       .map((file) => file.replace(/\.json$/, ''));
+    const clusterSource = fs.readFileSync(path.join(process.cwd(), 'src/data/safety-cluster-articles.ts'), 'utf8');
+    const clusterSlugs = [...clusterSource.matchAll(/slug: "([a-z0-9-]+)"/g)].map((match) => match[1]);
     return Promise.all(
-      slugs.map((slug) => config.transform(config, `/blog/${slug}`))
+      [...new Set([...slugs, ...clusterSlugs])].map((slug) => config.transform(config, `/blog/${slug}`))
     );
   },
   transform: async (config, path) => {

@@ -1,5 +1,13 @@
 # DECISIONS
 
+## D53 — AI個人情報・安全性は24テーマの検索意図別クラスターで公開する（2026-10-14）
+
+- ユーザーの「全て」実装指示を、同一内容の記事量産ではなく、入力物・立場・製品設定・事故対応の検索意図へ分割して実装する。既存の入力前、入力後、学習・保存、会社利用、用途別、漏洩事例記事は再利用し、新24記事と競合させない。
+- 各記事は結論、危険場面、5ステップ、判断表、FAQ、一次情報を必須とする。法的安全性、完全匿名化、絶対安全、製品の安全順位を断定しない。製品・プラン・設定・接続先・組織規程で条件が変わることを示す。
+- 発見経路は `/safety/topics` の4分類、`/safety`、親記事、記事一覧、各記事の親・次記事CTAとする。24件をフラットに並べるだけにせず、利用者が現在の悩みから選ぶ構造を優先する。
+- 新記事にはaffiliateリンクを置かず、安全性の不安を無関係な案件へ接続しない。公開効果はE0で、index、query、CTR、滞在、内部遷移、Revenueはいずれも公開後に測る。
+- Revenue Impactは間接1、Time to Learningは公開後7〜28日または50 impressions、Cost 0円、Evidenceは既存GSC需要E2・一次情報E1・UI/build QA E2・SEO/CV効果E0、Risk中。
+
 ## D50 — Indexability / Public Facts RCをProductionへ昇格（2026-09-16）
 
 - 人間の「反映して」という明示承認に基づき、commit `ead215d` のReadyなPreviewをVercel Productionへ昇格した。Production deploymentは `EhXsKbnA4iTzdHZrqJAY9ke6NUyN`。

@@ -71,6 +71,12 @@ export default function Page() {
         </a>)}
       </div>
     </section>
+    <section className="mt-8 rounded-2xl border border-[#d9c79f] bg-[#fff9eb] p-5 sm:p-7" aria-labelledby="safety-topic-library">
+      <p className="text-[12px] font-bold text-[#8a5b12] mb-2">写真・PDF・仕事・事故対応まで</p>
+      <h2 id="safety-topic-library" className="mb-3">安全性の記事を24テーマから探す</h2>
+      <p className="text-[15px] leading-[1.85] text-[var(--text-sub)]">履歴書、議事録、写真、Excel、共有リンク、ブラウザ拡張、AIエージェント、シャドーAIなど、具体的な場面ごとに判断表と手順を用意しました。</p>
+      <a href="/safety/topics" className="inline-flex min-h-11 items-center rounded-lg bg-[var(--accent)] px-5 py-3 font-bold text-white no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">悩み別の記事一覧を見る →</a>
+    </section>
     <div className="grid gap-5 md:grid-cols-3">{[["回答の正確性","重要な主張の原文・日付・対象範囲を確認する。"],["入力データ","プランごとの学習利用・保存・共有範囲・社内ルールを確認する。"],["成果物の公開","素材の権利・引用・公開先の条件を確認する。"]].map(([title,text])=><section className="rounded-xl border bg-white p-6" key={title}><h2>{title}</h2><p>{text}</p></section>)}</div>
     <section className="mt-8"><h2>ハルシネーションが心配なら、同じ資料で確かめる</h2><p>以下は実測済みの順位ではなく、比較手順の提案です。公開資料を使い、正解を確認できる小さな質問から始めます。</p><ol className="list-decimal pl-6 space-y-3"><li>公開資料を1つ決め、答えが本文にある質問と、本文だけでは答えられない質問を用意する。</li><li>同じ資料・質問を各候補へ渡し、回答の根拠となる箇所を示してもらう。</li><li>原文との一致と、不明なことを不明と扱えるかを確認する。1回の結果を全用途の順位にしない。</li></ol><p>出典リンクがあるだけでは、主張が原文と一致しているとは限りません。重要な判断に使う箇所は原文まで戻って確認します。</p></section>
     <section className="mt-8"><h2>社内資料を使う前に確認すること</h2><p>モデル名だけでなく、契約プラン・保存・学習利用・人による確認・共有・接続アプリを確認してください。確認できない条件は「安全」とも「危険」とも断定せず、入力を保留します。まず機密情報を含まない検証用資料で作業を試します。</p></section>

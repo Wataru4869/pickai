@@ -42,7 +42,7 @@
     },
     {
       "heading": "確認した公式情報と記事の範囲",
-      "content": "この記事は2026年10月14日に、個人情報保護委員会、IPA、NIST、OpenAI、OWASPの公開情報を確認して作成しました。公表された事例の影響範囲を広げて解釈せず、漏洩事例、保存場所の注意情報、一般的なリスクを区別しています。新たな調査結果や訂正が公表された場合は内容を更新します。\n\n[個人情報保護委員会：大規模な漏えい等事案を踏まえた対応](https://www.ppc.go.jp/news/careful_information/261007_alert/)\n[IPA：不正アクセスによる漏えい等を踏まえた対策](https://www.ipa.go.jp/security/security-alert/2026/alert20261009.html)\n[OpenAI：Mixpanelセキュリティ事案](https://openai.com/index/mixpanel-incident/)\n[OpenAI：2023年3月のChatGPT障害](https://openai.com/index/march-20-chatgpt-outage/)\n[NIST：生成AIリスクマネジメントプロファイル](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence)\n[OWASP：Sensitive Information Disclosure](https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/)"
+      "content": "この記事は2026年10月14日に、個人情報保護委員会、IPA、NIST、OpenAI、OWASPの公開情報を確認して作成しました。公表された事例の影響範囲を広げて解釈せず、漏洩事例、保存場所の注意情報、一般的なリスクを区別しています。新たな調査結果や訂正が公表された場合は内容を更新します。写真、PDF、議事録、会社利用、共有リンクなど個別の悩みは[安全性の記事を24テーマから探す](/safety/topics)で確認できます。\n\n[個人情報保護委員会：大規模な漏えい等事案を踏まえた対応](https://www.ppc.go.jp/news/careful_information/261007_alert/)\n[IPA：不正アクセスによる漏えい等を踏まえた対策](https://www.ipa.go.jp/security/security-alert/2026/alert20261009.html)\n[OpenAI：Mixpanelセキュリティ事案](https://openai.com/index/mixpanel-incident/)\n[OpenAI：2023年3月のChatGPT障害](https://openai.com/index/march-20-chatgpt-outage/)\n[NIST：生成AIリスクマネジメントプロファイル](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence)\n[OWASP：Sensitive Information Disclosure](https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/)"
     }
   ],
   "cta": {

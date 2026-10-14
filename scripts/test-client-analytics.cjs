@@ -49,7 +49,9 @@ const reviewedGuide = fs.readFileSync(path + "src/components/ReviewedGuideArticl
 assert.ok(reviewedGuide.includes('data-cta-type="decision_route"'));
 const blogList = fs.readFileSync(path + "src/app/blog/BlogList.tsx", "utf8");
 assert.ok(blogList.includes('useState("reviewed")'));
-assert.ok(blogList.includes('"openai-agents-api-guide-2026"'));
+assert.ok(blogList.includes('reviewedGuideSet.has'));
+const reviewedSlugs = fs.readFileSync(path + "src/lib/reviewed-guides.ts", "utf8");
+assert.ok(reviewedSlugs.includes('"openai-agents-api-guide-2026"'));
 const factsPage = fs.readFileSync(path + "src/components/PublicFactsPage.tsx", "utf8");
 assert.ok(factsPage.includes('"@type": "BreadcrumbList"'));
 assert.ok(factsPage.includes('/compare/chatgpt-vs-grok'));

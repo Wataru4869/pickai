@@ -1,29 +1,16 @@
 "use client";
 import { useState } from "react";
 import type { BlogArticle } from "@/lib/blog";
+import { reviewedGuideSet } from "@/lib/reviewed-guides";
 import styles from "@/components/Discovery.module.css";
 const labels: Record<string, string> = { all: "全て", comparison: "比較", guide: "選び方", analysis: "分析", news: "ニュース" };
-// Explicit editorial review scope, not a date-based promise that every fact is current.
-const reviewed = new Set([
-  "ai-search-engines-comparison-2026", "ai-safety-ranking-2026", "ai-agents-comparison-2026",
-  "ai-tools-2026-trends", "ai-coding-tools-2026", "grok-review-2026",
-  "cursor-projects-2026", "copilot-model-retirement-2026-09", "chatgpt-models-comparison-2026",
-  "ai-image-generation-2026", "ai-video-generation-2026",
-  "ai-free-tier-comparison-2026",
-  "openai-agents-api-guide-2026",
-  "chatgpt-vs-perplexity-2026", "cursor-vs-github-copilot-2026", "cursor-vs-windsurf-2026",
-  "heygen-vs-synthesia-2026", "runway-vs-pika-2026", "midjourney-vs-adobe-firefly-2026",
-  "ai-privacy-by-usecase-2026", "ai-what-not-to-enter-2026", "ai-data-entered-response-2026",
-  "ai-training-retention-review-2026", "ai-business-security-checklist-2026", "ai-safety-mythos-2026",
-  "ai-personal-data-leak-cases-2026",
-]);
 export default function BlogList({ articles }: { articles: BlogArticle[] }) {
   const [filter, setFilter] = useState("all");
   const [scope, setScope] = useState("reviewed");
   const [query, setQuery] = useState("");
   const term = query.trim().toLocaleLowerCase("ja");
   const filtered = articles.filter(a => (filter === "all" || a.category === filter)
-    && (scope === "all" || reviewed.has(a.slug) === (scope === "reviewed"))
+    && (scope === "all" || reviewedGuideSet.has(a.slug) === (scope === "reviewed"))
     && (!term || [a.title, a.description, ...a.tags].join(" ").toLocaleLowerCase("ja").includes(term)));
   return <section className={styles.container} aria-label="記事一覧">
     <div className={styles.section}>
@@ -51,7 +38,7 @@ export default function BlogList({ articles }: { articles: BlogArticle[] }) {
       <div className={styles.articleGrid}>{filtered.map(article =>
         <a className={styles.articleCard} key={article.slug} href={`/blog/${article.slug}`}>
           <div className={styles.cardMeta}><span>{labels[article.category] || article.category}</span><span>{article.readingTime}</span><span>内容更新 <time dateTime={article.updatedAt}>{article.updatedAt}</time></span></div>
-          <span className={styles.articleScope}>{reviewed.has(article.slug) ? "内容を再確認 · 対象範囲は本文へ" : "過去の記録 · 内容の現行性は未再確認"}</span>
+          <span className={styles.articleScope}>{reviewedGuideSet.has(article.slug) ? "内容を再確認 · 対象範囲は本文へ" : "過去の記録 · 内容の現行性は未再確認"}</span>
           <h2 className="!text-[19px] !mb-0">{article.title}</h2><p>{article.description}</p>
           <span className={styles.read}>記事を読む →</span>
         </a>)}</div>
