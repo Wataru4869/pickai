@@ -1,5 +1,11 @@
 # PROJECT STATE
 
+## 現行サマリー — 2026-10-14 Traffic Recovery RC push
+
+- Traffic Recovery RCをcommit `5840da5`として`work/aierabi-revenue-engine`へpushした。対象は検索表示済み2記事のCTR改善、コーディング記事から既存収益記事への内部リンク、関連テスト・状態文書のみ。
+- Vercel Previewは保護されたログイン画面へ遷移し、自動ブラウザ確認は安全制約で停止した。既知のbranch Preview URLを人間がログイン済み環境で開き、対象4ページを確認する必要がある。
+- Production deploy、main merge、SNS投稿、追加affiliate有効化は未実施。無関係な`AGENTS.md`と別案件の未追跡文書はcommitへ含めていない。
+
 ## 現行サマリー — 2026-10-07 Traffic Recovery RC
 
 - GA4直近7日（2026-09-30〜10-06）は39 sessions、前期間比`+69.6%`で、直近も連続する急落ではなく回復を確認した。events 131、events/session 3.4、key events 0。

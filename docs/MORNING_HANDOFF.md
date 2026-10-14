@@ -1,5 +1,12 @@
 # MORNING HANDOFF
 
+## 2026-10-14 更新
+
+- Traffic Recovery RCは`5840da5`として`work/aierabi-revenue-engine`へpush済み。
+- Vercel Previewはログイン保護のため自動確認できず、人間確認待ち。Productionは未反映。
+- 確認対象: 個人情報入力後記事、Cursor Projects、AIコーディング選び、Winスクール専用記事。広告は最後の1ページだけであることを確認する。
+- 他作業の`AGENTS.md`と未追跡文書は保持し、今回commitへ含めていない。
+
 ## 2026-10-07 更新
 
 - 最新7日は39 sessions（前期間比+69.6%）で短期は回復。28日は約216 sessionsで、中期はOrganic Search 115・AI Assistant 6へ減少が残る。
