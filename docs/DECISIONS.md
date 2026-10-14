@@ -1,5 +1,12 @@
 # DECISIONS
 
+## D54 — AI個人情報・安全性24記事クラスターをProduction公開する（2026-10-14）
+
+- ユーザーの公開承認に基づき、source commit `592c54b`のReadyなPreview `BfMvkF6wD7q58hQXMQDt7mD7jTid`からVercel Production deploymentを作成した。Vercel画面で作成成功を2026-10-14 23:10 JSTに確認した。
+- 本番で新24記事を全件巡回し24/24が200。`/safety/topics`、`/safety`、`/blog`、親記事、`robots.txt`、`sitemap-0.xml`も200で、新記事とハブのsitemap掲載を確認した。
+- 公開対象は安全性記事群、選択ハブ、内部リンク、公式source、回帰テスト、sitemap。広告URL、affiliate表示範囲、SNS、環境変数、DNS、main、外部アカウントは変更していない。
+- 公開完了はindex、検索順位、CTR、滞在、内部回遊、CV、売上の改善実績ではない。公開後28日または各記事50 impressionsを目安に、記事別にContinue / Rewrite / Consolidateを判断する。
+
 ## D53 — AI個人情報・安全性は24テーマの検索意図別クラスターで公開する（2026-10-14）
 
 - ユーザーの「全て」実装指示を、同一内容の記事量産ではなく、入力物・立場・製品設定・事故対応の検索意図へ分割して実装する。既存の入力前、入力後、学習・保存、会社利用、用途別、漏洩事例記事は再利用し、新24記事と競合させない。

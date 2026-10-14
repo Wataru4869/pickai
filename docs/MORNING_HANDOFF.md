@@ -1,11 +1,12 @@
 # MORNING HANDOFF
 
-## 2026-10-14 AI個人情報・安全性24記事クラスター RC
+## 2026-10-14 AI個人情報・安全性24記事クラスター Production
 
 - `src/data/safety-cluster-articles.ts`に検索意図別24記事を追加。写真、PDF/Excel、履歴書、議事録、社内ルール、シャドーAI、3製品プライバシー比較、共有リンク、拡張機能、AIエージェント、prompt injection、医療、学校、採用、退会後削除等を個別化。
 - `/safety/topics`で「入力・ファイル／会社・仕事／製品・設定／攻撃・事故対応」から選択可能。`/safety`、親記事、記事一覧、各記事CTAを相互接続。
 - `npm run check`成功（99 sources / 150 pages）、型検査・diff check成功。desktop / 390px QAで横あふれ0、console error/warn 0。sitemapへ新URL追加済み。
-- 現時点は作業branch RC。Production、index、SEO・滞在・回遊効果は未確認。広告、SNS、環境変数、DNS、main、既存affiliate条件は不変。
+- commit `592c54b`、Preview `BfMvkF6wD7q58hQXMQDt7mD7jTid`からProduction作成成功を確認。本番24記事は24/24で200、ハブ・親記事・安全性・ブログ・robots・sitemapも200。
+- Production公開は完了。index、SEO・滞在・回遊効果は未実測。広告、SNS、環境変数、DNS、main、既存affiliate条件は不変。
 
 ## 2026-10-14 個人情報漏洩記事 Production
 

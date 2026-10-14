@@ -1,10 +1,10 @@
 # NEXT TASKS
 
-## 現行優先キュー — 2026-10-14 安全性24記事クラスター RC後
+## 現行優先キュー — 2026-10-14 安全性24記事クラスター Production後
 
-1. **RCをProductionへ反映して公開QA** — branchへpush後、`/safety/topics`、代表4記事、親記事、`/safety`、`/blog`、sitemap、canonical、Article/ItemList schemaを確認する。公開をindex・SEO成果と扱わない。
-2. **indexはハブと代表URLから観測** — 24件を手動一括申請せず、sitemap再読込とハブ、各分類の代表URLの発見・クロール・indexを確認する。未登録理由を推測しない。
-3. **記事別の検索意図を統合判断** — 公開後28日または各記事50 impressionsを目安に、query重複、CTR、position、内部遷移を確認し、Continue / Rewrite / Consolidateを記事別に判断する。
+1. **indexはハブと代表URLから観測** — 24件を手動一括申請せず、sitemap再読込とハブ、各分類の代表URLの発見・クロール・indexを確認する。未登録理由を推測しない。
+2. **記事別の検索意図を統合判断** — 公開後28日または各記事50 impressionsを目安に、query重複、CTR、position、内部遷移を確認し、Continue / Rewrite / Consolidateを記事別に判断する。
+3. **安全性ハブの回遊を観測** — `/safety/topics`から各分類・記事への`internal_cta_click`と、親記事・`/safety`からハブへの遷移を確認する。CTA表示回数なしにCTRとは呼ばない。
 4. **安全性流入と広告を分離** — 新24記事へaffiliateリンクを追加せず、Winスクール記事のviews / `affiliate_click` / 成果発生・確定を別に観測する。
 5. **一次情報の鮮度を保つ** — 製品別の保存・学習・削除条件は変更候補を監査し、日付だけを更新しない。変更が確認できた記事だけ公式sourceと本文を同期する。
 

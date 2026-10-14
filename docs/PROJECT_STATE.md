@@ -1,13 +1,14 @@
 # PROJECT STATE
 
-## 現行サマリー — 2026-10-14 AI個人情報・安全性24記事クラスター RC
+## 現行サマリー — 2026-10-14 AI個人情報・安全性24記事クラスター Production
 
 - ユーザーの全テーマ実装指示に基づき、既存6記事と検索意図が重ならない24記事を追加した。分類は「入力・ファイル」6件、「会社・仕事」7件、「製品・設定」4件、「攻撃・事故対応」7件。
 - 全記事に固有の結論、危険場面3件、5ステップ、判断表、FAQ、一次情報、親記事と次記事へのCTAを実装。薄い言い換え記事、恐怖訴求、安全順位、法的安全の断定は作っていない。
 - `/safety/topics` を新設し、24テーマを4分類から選べるようにした。`/safety` と親記事 `/blog/ai-personal-data-leak-cases-2026` から接続し、記事一覧の「現在の選び方」に全記事を含めた。
 - 公式source台帳は99件。OpenAI、Anthropic、Google、Microsoft、PPC、IPA、NIST、OWASP、文科省、厚労省の公開情報を2026-10-14確認分として利用。製品・設定は個人向け／組織向けや接続先で条件が変わることを明示した。
 - `npm run check`成功（24記事専用回帰テスト、99 sources、150 static pages）、`npx tsc --noEmit`、`git diff --check`成功。ローカル本番ビルドで一覧・個別記事をdesktop / 390px確認し、横あふれ0、h1・要約幅354px、console warning/error 0。
-- sitemapは新24記事と`/safety/topics`を含む。Production公開、検索index、impressions、click、内部遷移、SEO効果はこの時点では未実測。広告、affiliate範囲、SNS、環境変数、DNS、mainは変更していない。
+- source commit `592c54b`をbranchへpushし、ReadyなPreview `BfMvkF6wD7q58hQXMQDt7mD7jTid`からVercel Production deploymentの作成成功を2026-10-14 23:10 JSTに確認した。本番24記事は24/24で200、`/safety/topics`、`/safety`、`/blog`、親記事、`robots.txt`、`sitemap-0.xml`も200。sitemapは新24記事とハブを含み、canonicalと公開HTMLを確認した。
+- Production公開は完了したが、検索index、impressions、click、内部遷移、SEO効果は未実測。広告、affiliate範囲、SNS、環境変数、DNS、mainは変更していない。
 
 ## 現行サマリー — 2026-10-14 個人情報漏洩・AI危険性記事 Production
 
