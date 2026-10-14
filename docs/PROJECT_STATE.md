@@ -1,5 +1,15 @@
 # PROJECT STATE
 
+## 現行サマリー — 2026-10-14 最新アクセス実測（集計は10月13日まで）
+
+- GA4直近7日（2026-10-07〜10-13）は37 sessions、前期間39比`-5.1%`。active users 36（`+5.9%`）、events 134（`-2.9%`）、key events 0。全体は急落継続ではなく、ほぼ横ばい圏。
+- 7日channelはDirect 26（`+30.0%`）、Organic Search 11（`-35.3%`）。全体をDirectが支え、検索流入は減少が継続している。
+- GA4直近28日（2026-09-16〜10-13）は151 sessions、前期間309比`-51.13%`。Organic Search 67（187比`-64.17%`）、Direct 78（86比`-9.3%`）、AI Assistant 1（17比`-94.12%`）。engaged sessions 48、engagement rate 31.79%、平均engagement 31秒、revenue ¥0。
+- Search Console連携の同28日は26 clicks / 1,690 impressions / CTR 1.54% / 平均20.21位。前期間82 / 1,817 / 4.51% / 16.23位比で、impressionsは`-6.99%`に対しclicks`-68.29%`、CTR`-65.91%`。露出消失だけでなくCTRと順位悪化が主要因。
+- 直近7日のGoogle検索も3 clicks / 280 impressions / CTR 1.07% / 平均27.96位で、前週9 / 402 / 2.24% / 26.05位より弱い。`/safety`は28日で2 clicks / 125 impressions / CTR 1.6% / 11.46位となり、前期間42 / 721 / 5.83% / 7.67位から大幅減。
+- 一方、`/blog/midjourney-vs-adobe-firefly-2026`は3 clicks / 15 impressions / CTR 20% / 6.07位、`/blog/cursor-projects-2026`は3 / 164 / 1.83% / 6.89位、`/blog/ai-data-entered-response-2026`は2 / 208 / 0.96% / 9.73位。小標本だが、表示済みページのCTR改善余地が明確。
+- 今日公開した個人情報・安全性24記事クラスターとTraffic Recovery変更は集計終了後の反映であり、この実測に効果は含まれない。公開後7日と28日を別窓で観測し、旧期間と混ぜない。
+
 ## 現行サマリー — 2026-10-14 AI個人情報・安全性24記事クラスター Production
 
 - ユーザーの全テーマ実装指示に基づき、既存6記事と検索意図が重ならない24記事を追加した。分類は「入力・ファイル」6件、「会社・仕事」7件、「製品・設定」4件、「攻撃・事故対応」7件。

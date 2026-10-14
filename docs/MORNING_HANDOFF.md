@@ -1,5 +1,13 @@
 # MORNING HANDOFF
 
+## 2026-10-14 最新アクセス実測
+
+- GA4 10/07〜10/13は37 sessions（前週比`-5.1%`）。Direct 26（`+30%`）が支える一方、Organic Search 11（`-35.3%`）。全体は横ばい圏だが検索は弱い。
+- GA4 09/16〜10/13は151 sessions（前28日309比`-51.13%`）。Organic 67（187比`-64.17%`）、Direct 78（86比`-9.3%`）、AI Assistant 1（17比`-94.12%`）、revenue ¥0。
+- GSC同28日は26 clicks / 1,690 impressions / CTR 1.54% / 20.21位。前期間82 / 1,817 / 4.51% / 16.23位で、impressionsの減少よりCTR・順位悪化の影響が大きい。
+- `/safety`は2 clicks / 125 impressions / CTR 1.6% / 11.46位。前期間42 / 721 / 5.83% / 7.67位から大幅減。直近7日のGoogle検索も3 clicks / 280 impressions / CTR 1.07%。
+- 24記事クラスターとTraffic Recovery変更は10/14公開で、集計は10/13まで。今回値を新施策の成否に使わず、公開後7日・28日を別窓で再測定する。
+
 ## 2026-10-14 AI個人情報・安全性24記事クラスター Production
 
 - `src/data/safety-cluster-articles.ts`に検索意図別24記事を追加。写真、PDF/Excel、履歴書、議事録、社内ルール、シャドーAI、3製品プライバシー比較、共有リンク、拡張機能、AIエージェント、prompt injection、医療、学校、採用、退会後削除等を個別化。
