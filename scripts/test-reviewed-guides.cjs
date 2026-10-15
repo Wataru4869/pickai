@@ -16,10 +16,14 @@ new Function('require','module','exports',code)(name=>{
   return repoRequire(name);
 },result,result.exports);
 const article=JSON.parse(fs.readFileSync(path+'src/data/blog/ai-safety-ranking-2026.json'));
+assert.equal(article.updatedAt,'2026-10-15');
+assert.match(article.title,/ハルシネーションが少ないAI/);
+assert.match(article.description,/AI安全性ランキング/);
 for(const [name,score] of [['Claude','93.7'],['ChatGPT','90.5'],['Gemini','78.4'],['Grok','69.3'],['Perplexity','69.1']]) {
   assert.ok(article.sections[4].content.includes(`| ${name} | ${score} |`));
 }
 const html=renderToStaticMarkup(React.createElement(result.exports.default,{article:{...article,sections:[{heading:'URL boundary tests',content:'<script>alert(1)</script> [valid](https://www.nist.gov/test) [unknown](https://evil.example/path) [userinfo](https://user@www.nist.gov/path) [port](https://www.nist.gov:444/path) [lookalike](https://www.nist.gov.evil.example/path) [script](javascript:alert(1))'}]},attribution:{}}));
+for (const route of ['/compare','/recommend','/safety/topics']) assert.ok(html.includes(`href="${route}"`),`safety ranking needs decision route ${route}`);
 assert.ok(html.includes('href="https://www.nist.gov/test"'));
 assert.ok(html.includes('&lt;script&gt;'));
 assert.equal(html.includes('<script>'),false);
@@ -98,6 +102,8 @@ for(const distinction of ['全ての事故原因だという発表ではあり�
 for(const host of ['www.ppc.go.jp','www.ipa.go.jp','openai.com','www.nist.gov','genai.owasp.org']) assert.ok(breachText.includes(`https://${host}/`),`missing primary source: ${host}`);
 const safetyHubSource=fs.readFileSync(path+'src/app/safety/page.tsx','utf8');
 assert.ok(safetyHubSource.includes('/blog/ai-personal-data-leak-cases-2026'));
+for (const phrase of ['安全なAIの選び方','安全性の高いAI','ハルシネーションが少ない','安全性を3つに分ける']) assert.ok(safetyHubSource.includes(phrase),`safety hub missing recovery phrase: ${phrase}`);
+for (const route of ['/blog/ai-safety-ranking-2026','/blog/ai-what-not-to-enter-2026','/compare','/recommend']) assert.ok(safetyHubSource.includes(route),`safety hub missing route: ${route}`);
 const grok=JSON.parse(fs.readFileSync(path+'src/data/blog/grok-review-2026.json'));
 assert.equal(grok.updatedAt,'2026-09-13');
 assert.equal(/1位|独自テストで検証/.test(grok.title+grok.description),false);

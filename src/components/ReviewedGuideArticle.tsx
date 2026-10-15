@@ -59,7 +59,8 @@ export default function ReviewedGuideArticle({ article, attribution }: {
   attribution: { postId?: string; campaignId?: string };
 }) {
   const breachCases = article.slug === "ai-personal-data-leak-cases-2026";
-  const safety = breachCases || article.slug === "ai-safety-ranking-2026" || article.tags.some(tag => ["AI安全", "AI安全性", "プライバシー", "情報漏洩対策", "AIセキュリティ"].includes(tag));
+  const safetyRanking = article.slug === "ai-safety-ranking-2026";
+  const safety = breachCases || safetyRanking || article.tags.some(tag => ["AI安全", "AI安全性", "プライバシー", "情報漏洩対策", "AIセキュリティ"].includes(tag));
   const safetyTopic = article.tags.some(tag => ["入力・ファイル", "会社・仕事", "製品・設定", "攻撃・事故対応"].includes(tag));
   const incident = article.slug === "ai-data-entered-response-2026";
   const search = article.slug === "ai-search-engines-comparison-2026";
@@ -100,6 +101,10 @@ export default function ReviewedGuideArticle({ article, attribution }: {
     { href: "/blog/ai-what-not-to-enter-2026", label: "次回の入力前に確認", detail: "そのまま使う・加工する・入力しないを判断" },
     { href: "/blog/ai-business-security-checklist-2026", label: "会社利用の手順を確認", detail: "報告先・契約・権限を整理" },
     { href: "/safety", label: "安全性の悩みから探す", detail: "入力・設定・回答確認を悩み別に見る" },
+  ] : safetyRanking ? [
+    { href: "/compare", label: "主要AIを比較する", detail: "機能・料金・提供条件を同じ順序で見る" },
+    { href: "/recommend", label: "用途から候補を絞る", detail: "3つの質問で比較する候補を確認" },
+    { href: "/safety/topics", label: "安全性の悩み別に調べる", detail: "個人情報・仕事・設定・事故対応から選ぶ" },
   ] : safety ? [
     { href: "/safety", label: "安全性の悩みから探す", detail: "入力・設定・会社利用・回答確認を整理" },
     { href: "/safety/topics", label: "安全性の記事をテーマ別に見る", detail: "写真・ファイル・仕事・事故対応から選ぶ" },
