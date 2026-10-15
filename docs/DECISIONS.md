@@ -466,3 +466,11 @@ GSCの/safetyとChatGPTモデル比較はpage単位でposition6〜20の範囲。
 - SEO語は自然なtitle・description・見出し・FAQへ配置し、不安を煽る断定や「学習オフなら安全」という単純化を避ける。安全性ハブ、入力前、入力後の記事と双方向接続する。
 - 人間の公開依頼に基づきcommit `093d05c`のPreview `A5X8sCov6tGWK7m9HNehSeQ5jMMv`をProductionへ昇格。本番200、canonical、Article schema、sitemap 103 URLを確認した。広告、SNS、環境変数、DNS、mainは変更しない。
 - 公開効果はE0。公開後7日または50 impressionsでGSCと内部遷移を確認し、index・CTR・滞在の改善を未実測のまま成立扱いしない。
+
+## D53 — 安全性検索の回復は既存canonical 2本で行う（2026-10-15）
+
+- 実測で落ち幅の大きい`安全なai`、`安全性の高いai`、`ハルシネーション ランキング`は、新規記事を増やさず既存の`/safety`と`/blog/ai-safety-ranking-2026`で回収する。検索語を使うために根拠のない順位や安全認定を復活させない。
+- `/safety`は「回答の誤り／個人情報・社内資料／成果物の公開」を最初の3軸にし、悩み別記事から`/compare`と`/recommend`へ進める。ランキング記事は、同じ公開資料・質問・条件で比較する手順を主題にする。
+- 2026年3月の保存スコアはHistoricalのまま保持し、現在ランキング・事故確率・業務適合へ使用しない。新しい実測がない項目を順位化しない。
+- Revenue Impactは間接2、Time to Learningは公開後7日または50 impressions、Cost 0円、EvidenceはGSC原因診断E2・route/UI QA E2・改善効果E0、Risk低〜中。安全性流入へ無関係なaffiliateを接続しない。
+- source `85c4b91`のPreviewはReadyだが、Production昇格にはVercel認証が必要。device login・credential・2FAは人間が扱い、AIは認証情報を取得・保存しない。公開後は旧queryと内部選択行動を同じ定義で観測する。

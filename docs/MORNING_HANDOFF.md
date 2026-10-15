@@ -1,11 +1,23 @@
 # MORNING HANDOFF
 
+## 2026-10-15 Safety Search Recovery RC
+
+- 旧検索需要の`安全なai`、`安全性の高いai`、`ハルシネーション ランキング`を、虚偽の安全順位へ戻さず`/safety`と`/blog/ai-safety-ranking-2026`で回収する局所改修を実装。
+- `/safety`に3軸判断表を追加し、悩み別記事→比較→診断へ接続。安全性ランキング記事は同じ資料・質問での比較手順を主題にし、保存スコアはHistoricalのまま維持した。
+- commit `85c4b91`はbranchへpush済み。Vercel Preview `5YmUt4htmNrenQxhxahgeiEbFKci`はReadyだがAuthentication保護下。
+- `npm run check`（150 pages）、型検査、diff check成功。desktop / 390pxで2ページ横あふれ0、表・導線・更新日・console error/warn 0を確認。
+- Production未反映。Vercel CLIがdevice loginを要求したためcredentialへ触れず停止。人間がVercel認証後、同Previewの昇格と本番2 URL確認から再開する。
+- 公開後7日または50 impressionsで旧3 query、2ページ、比較・診断への内部遷移を分離観測。安全性記事へ無関係なaffiliateは追加しない。
+
 ## 2026-10-14 最新アクセス実測
 
 - GA4 10/07〜10/13は37 sessions（前週比`-5.1%`）。Direct 26（`+30%`）が支える一方、Organic Search 11（`-35.3%`）。全体は横ばい圏だが検索は弱い。
 - GA4 09/16〜10/13は151 sessions（前28日309比`-51.13%`）。Organic 67（187比`-64.17%`）、Direct 78（86比`-9.3%`）、AI Assistant 1（17比`-94.12%`）、revenue ¥0。
 - GSC同28日は26 clicks / 1,690 impressions / CTR 1.54% / 20.21位。前期間82 / 1,817 / 4.51% / 16.23位で、impressionsの減少よりCTR・順位悪化の影響が大きい。
 - `/safety`は2 clicks / 125 impressions / CTR 1.6% / 11.46位。前期間42 / 721 / 5.83% / 7.67位から大幅減。直近7日のGoogle検索も3 clicks / 280 impressions / CTR 1.07%。
+- 表示可能queryの旧14 clicks中13 clicksが安全性系。`ハルシネーション ランキング`7→1、`安全性の高いai`3→0、`安全なai`1→0。安全性入口の表示機会・CTR・一部順位が同時に落ちたことが主因。
+- 9/14〜9/16の正確性監査で、無料AI比較と`/safety`のtitle・本文を古いランキング/断定型から公式条件・確認手順型へ変更した。是正自体は必要だが、旧queryとの一致が弱くなった時期と9/20以降の下落が一致する。旧の不正確な断定は戻さず、旧検索意図を現行の根拠付きページで回収する。
+- 本番URL・robots・sitemapは正常。過去サーバー停止の寄与はunknownで、現時点の主因とは断定しない。
 - 24記事クラスターとTraffic Recovery変更は10/14公開で、集計は10/13まで。今回値を新施策の成否に使わず、公開後7日・28日を別窓で再測定する。
 
 ## 2026-10-14 AI個人情報・安全性24記事クラスター Production
@@ -26,7 +38,7 @@
 ## 2026-10-14 更新
 
 - Traffic Recovery RCは`5840da5`として`work/aierabi-revenue-engine`へpush済み。
-- Vercel Previewはログイン保護のため自動確認できず、人間確認待ち。Productionは未反映。
+- 当初のPreviewはログイン保護で自動確認できなかったが、後続`592c54b`のProduction deploymentに祖先commitとして含まれたため、Traffic Recovery変更も本番反映済み。
 - 確認対象: 個人情報入力後記事、Cursor Projects、AIコーディング選び、Winスクール専用記事。広告は最後の1ページだけであることを確認する。
 - 他作業の`AGENTS.md`と未追跡文書は保持し、今回commitへ含めていない。
 

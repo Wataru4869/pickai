@@ -1,5 +1,16 @@
 # PROJECT STATE
 
+## 現行サマリー — 2026-10-15 Safety Search Recovery RC
+
+- 最新GSCで減少幅が大きかった`安全なai`、`安全性の高いai`、`ハルシネーション ランキング`を、根拠のない順位へ戻さず既存canonical 2本で回収する局所変更を実装した。新規URLや新しい採点は追加していない。
+- `/safety`はtitle・description・H1・冒頭結論を検索意図へ合わせ、「回答の誤り／個人情報・社内資料／成果物の公開」の3軸表を追加。既存の悩み別記事、`/compare`、`/recommend`へ接続した。
+- `/blog/ai-safety-ranking-2026`は「ハルシネーションが少ないAIの選び方」を主題に、同じ公開資料・質問で比較する手順を冒頭で回答。2026年3月の保存スコアは履歴として維持し、2026年10月の再テストや現在ランキングではないことを明示した。
+- 安全性ランキング記事の上部・末尾から`/compare`、`/recommend`、`/safety/topics`へ進める。安全性流入へWinスクール等の無関係な広告は追加していない。
+- commit `85c4b91`を`work/aierabi-revenue-engine`へpush。GitHub/Vercel Preview deployment `5YmUt4htmNrenQxhxahgeiEbFKci`、公開URL `pickai-b9vrh22dl-wataru4869s-projects.vercel.app`はReady。ただしPreviewはVercel Authentication保護下。
+- `npm run check`成功（99 official sources / 150 static pages）、`npx tsc --noEmit`、`git diff --check`成功。ローカル本番をdesktop / 390pxで確認し、2ページとも横あふれ0、比較・診断・悩み別導線、更新日、表、console error/warn 0を確認した。
+- Production昇格は未完了。Vercel CLIに既存credentialがなくdevice loginを要求したため、認証情報へ触れず停止した。本番の旧表示は変更されていない。認証完了後は同Previewを昇格し、本番2 URL・canonical・sitemap・mobileを確認する。
+- 効果は未実測。公開できた時点を境界に、7日または各ページ50 impressionsでquery/pageのclicks・impressions・CTR・positionと、`/compare`・`/recommend`への`internal_cta_click`を分離観測する。
+
 ## 現行サマリー — 2026-10-14 最新アクセス実測（集計は10月13日まで）
 
 - GA4直近7日（2026-10-07〜10-13）は37 sessions、前期間39比`-5.1%`。active users 36（`+5.9%`）、events 134（`-2.9%`）、key events 0。全体は急落継続ではなく、ほぼ横ばい圏。
@@ -7,6 +18,9 @@
 - GA4直近28日（2026-09-16〜10-13）は151 sessions、前期間309比`-51.13%`。Organic Search 67（187比`-64.17%`）、Direct 78（86比`-9.3%`）、AI Assistant 1（17比`-94.12%`）。engaged sessions 48、engagement rate 31.79%、平均engagement 31秒、revenue ¥0。
 - Search Console連携の同28日は26 clicks / 1,690 impressions / CTR 1.54% / 平均20.21位。前期間82 / 1,817 / 4.51% / 16.23位比で、impressionsは`-6.99%`に対しclicks`-68.29%`、CTR`-65.91%`。露出消失だけでなくCTRと順位悪化が主要因。
 - 直近7日のGoogle検索も3 clicks / 280 impressions / CTR 1.07% / 平均27.96位で、前週9 / 402 / 2.24% / 26.05位より弱い。`/safety`は28日で2 clicks / 125 impressions / CTR 1.6% / 11.46位となり、前期間42 / 721 / 5.83% / 7.67位から大幅減。
+- Search Consoleの表示可能queryでは、旧click 14件のうち安全性系が13件を占めていた。`ハルシネーション ランキング`は7→1 clicks（CTR 28%→6.25%、2.68→4.38位）、`安全性の高いai`は3→0（20→4 impressions）、`安全なai`は1→0（68→3 impressions、7.01→16.67位）。安全性clusterへの依存と、その表示機会・CTR・一部順位の同時低下が全体減の中心。
+- 期間境界の2026-09-16に`/safety`のtitleが「AIの正確性・安全性を比較｜ハルシネーションを減らす選び方」から「生成AIの安全な使い方｜個人情報・情報漏洩・正確性を確認」へ変更され、無料AI比較も9/14に旧「無料で使えるAIツール比較」から公式条件中心へ全面更新された。誤情報是正は必要だったが、旧検索意図との一致と強い結論表現が弱くなったことは減少と時系列が一致する。因果の単独断定はせず、過去の不正確な断定を戻さずに旧queryを明示的に回収する。
+- GA4 Insightsも2026-09-20〜09-26のusers 22（予測27〜113）・sessions 23（予測31〜134）を大幅下落として検出。現在の本番URL、robots、sitemapは正常で、全体障害を示す証拠はない。過去のサーバー停止が影響した可能性は未確認で、今回のデータだけでは主因にしない。
 - 一方、`/blog/midjourney-vs-adobe-firefly-2026`は3 clicks / 15 impressions / CTR 20% / 6.07位、`/blog/cursor-projects-2026`は3 / 164 / 1.83% / 6.89位、`/blog/ai-data-entered-response-2026`は2 / 208 / 0.96% / 9.73位。小標本だが、表示済みページのCTR改善余地が明確。
 - 今日公開した個人情報・安全性24記事クラスターとTraffic Recovery変更は集計終了後の反映であり、この実測に効果は含まれない。公開後7日と28日を別窓で観測し、旧期間と混ぜない。
 
@@ -32,8 +46,8 @@
 ## 現行サマリー — 2026-10-14 Traffic Recovery RC push
 
 - Traffic Recovery RCをcommit `5840da5`として`work/aierabi-revenue-engine`へpushした。対象は検索表示済み2記事のCTR改善、コーディング記事から既存収益記事への内部リンク、関連テスト・状態文書のみ。
-- Vercel Previewは保護されたログイン画面へ遷移し、自動ブラウザ確認は安全制約で停止した。既知のbranch Preview URLを人間がログイン済み環境で開き、対象4ページを確認する必要がある。
-- Production deploy、main merge、SNS投稿、追加affiliate有効化は未実施。無関係な`AGENTS.md`と別案件の未追跡文書はcommitへ含めていない。
+- 当初のVercel Previewは保護されたログイン画面へ遷移したが、後続source commit `592c54b`のProduction deploymentに`5840da5`が祖先commitとして含まれたため、Traffic Recovery変更も2026-10-14に本番反映済み。
+- main merge、SNS投稿、追加affiliate有効化は未実施。無関係な`AGENTS.md`と別案件の未追跡文書はcommitへ含めていない。
 
 ## 現行サマリー — 2026-10-07 Traffic Recovery RC
 
