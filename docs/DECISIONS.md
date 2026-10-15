@@ -1,5 +1,12 @@
 # DECISIONS
 
+## D55 — Safety Search RecoveryをProduction公開する（2026-10-15）
+
+- ユーザーの公開承認に基づき、source `85c4b91`と管理文書 `31f2548`を含むReady Preview `4ciHp69jMZGbfLJnsu7RCuHXgkj2`をVercelのPromote to Productionで昇格した。
+- Production deployment `6KGoyiTQKFExsnnWgv4B2Eh2onTv`は2026-10-15 22:00:46 JSTにReady。本番`/safety`と`/blog/ai-safety-ranking-2026`で、検索意図を回収するtitle・H1、3軸表、比較手順、更新日、内部導線を確認した。
+- 根拠のない現在ランキングや新スコアは作らず、2026年3月の保存値をHistoricalとして維持した。環境変数、DNS、main、affiliate、SNS、外部アカウント設定は変更していない。
+- 公開完了は検索回復、index、CTR、内部遷移、CV、売上の改善実績ではない。22:00:46 JSTを境界に、7日または各ページ50 impressionsで旧3 queryと2ページを同一定義で再測定する。
+
 ## D54 — AI個人情報・安全性24記事クラスターをProduction公開する（2026-10-14）
 
 - ユーザーの公開承認に基づき、source commit `592c54b`のReadyなPreview `BfMvkF6wD7q58hQXMQDt7mD7jTid`からVercel Production deploymentを作成した。Vercel画面で作成成功を2026-10-14 23:10 JSTに確認した。

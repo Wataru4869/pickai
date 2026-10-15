@@ -1,13 +1,13 @@
 # MORNING HANDOFF
 
-## 2026-10-15 Safety Search Recovery RC
+## 2026-10-15 Safety Search Recovery Production
 
 - 旧検索需要の`安全なai`、`安全性の高いai`、`ハルシネーション ランキング`を、虚偽の安全順位へ戻さず`/safety`と`/blog/ai-safety-ranking-2026`で回収する局所改修を実装。
 - `/safety`に3軸判断表を追加し、悩み別記事→比較→診断へ接続。安全性ランキング記事は同じ資料・質問での比較手順を主題にし、保存スコアはHistoricalのまま維持した。
-- commit `85c4b91`はbranchへpush済み。Vercel Preview `5YmUt4htmNrenQxhxahgeiEbFKci`はReadyだがAuthentication保護下。
+- source `85c4b91`とdocs `31f2548`はbranchへpush済み。Ready Preview `4ciHp69jMZGbfLJnsu7RCuHXgkj2`を公開承認後にProductionへ昇格した。
 - `npm run check`（150 pages）、型検査、diff check成功。desktop / 390pxで2ページ横あふれ0、表・導線・更新日・console error/warn 0を確認。
-- Production未反映。Vercel CLIがdevice loginを要求したためcredentialへ触れず停止。人間がVercel認証後、同Previewの昇格と本番2 URL確認から再開する。
-- 公開後7日または50 impressionsで旧3 query、2ページ、比較・診断への内部遷移を分離観測。安全性記事へ無関係なaffiliateは追加しない。
+- Production `6KGoyiTQKFExsnnWgv4B2Eh2onTv`は2026-10-15 22:00:46 JSTにReady。本番2 URLで新title、H1、表、更新日、比較・診断・悩み別導線を確認。環境変数、DNS、main、affiliate、SNSは変更なし。
+- 22:00:46 JSTを公開境界に、7日または50 impressionsで旧3 query、2ページ、比較・診断への内部遷移を分離観測。安全性記事へ無関係なaffiliateは追加しない。
 
 ## 2026-10-14 最新アクセス実測
 

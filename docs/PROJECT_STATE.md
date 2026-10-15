@@ -1,15 +1,15 @@
 # PROJECT STATE
 
-## 現行サマリー — 2026-10-15 Safety Search Recovery RC
+## 現行サマリー — 2026-10-15 Safety Search Recovery Production
 
 - 最新GSCで減少幅が大きかった`安全なai`、`安全性の高いai`、`ハルシネーション ランキング`を、根拠のない順位へ戻さず既存canonical 2本で回収する局所変更を実装した。新規URLや新しい採点は追加していない。
 - `/safety`はtitle・description・H1・冒頭結論を検索意図へ合わせ、「回答の誤り／個人情報・社内資料／成果物の公開」の3軸表を追加。既存の悩み別記事、`/compare`、`/recommend`へ接続した。
 - `/blog/ai-safety-ranking-2026`は「ハルシネーションが少ないAIの選び方」を主題に、同じ公開資料・質問で比較する手順を冒頭で回答。2026年3月の保存スコアは履歴として維持し、2026年10月の再テストや現在ランキングではないことを明示した。
 - 安全性ランキング記事の上部・末尾から`/compare`、`/recommend`、`/safety/topics`へ進める。安全性流入へWinスクール等の無関係な広告は追加していない。
-- commit `85c4b91`を`work/aierabi-revenue-engine`へpush。GitHub/Vercel Preview deployment `5YmUt4htmNrenQxhxahgeiEbFKci`、公開URL `pickai-b9vrh22dl-wataru4869s-projects.vercel.app`はReady。ただしPreviewはVercel Authentication保護下。
+- source commit `85c4b91`と管理文書commit `31f2548`を`work/aierabi-revenue-engine`へpush。ReadyなPreview deployment `4ciHp69jMZGbfLJnsu7RCuHXgkj2`を人間の公開承認後にProductionへ昇格した。
 - `npm run check`成功（99 official sources / 150 static pages）、`npx tsc --noEmit`、`git diff --check`成功。ローカル本番をdesktop / 390pxで確認し、2ページとも横あふれ0、比較・診断・悩み別導線、更新日、表、console error/warn 0を確認した。
-- Production昇格は未完了。Vercel CLIに既存credentialがなくdevice loginを要求したため、認証情報へ触れず停止した。本番の旧表示は変更されていない。認証完了後は同Previewを昇格し、本番2 URL・canonical・sitemap・mobileを確認する。
-- 効果は未実測。公開できた時点を境界に、7日または各ページ50 impressionsでquery/pageのclicks・impressions・CTR・positionと、`/compare`・`/recommend`への`internal_cta_click`を分離観測する。
+- Production deployment `6KGoyiTQKFExsnnWgv4B2Eh2onTv`は2026-10-15 22:00:46 JSTにReady。`https://www.aierabi.jp/safety`と`https://www.aierabi.jp/blog/ai-safety-ranking-2026`で新title、H1、3軸表、更新日、比較・診断・悩み別導線を公開画面で確認した。環境変数、DNS、main、affiliate、SNSは変更していない。
+- 効果は未実測。2026-10-15 22:00:46 JSTを公開境界に、7日または各ページ50 impressionsでquery/pageのclicks・impressions・CTR・positionと、`/compare`・`/recommend`への`internal_cta_click`を分離観測する。
 
 ## 現行サマリー — 2026-10-14 最新アクセス実測（集計は10月13日まで）
 

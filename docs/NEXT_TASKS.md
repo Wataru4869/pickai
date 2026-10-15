@@ -1,12 +1,12 @@
 # NEXT TASKS
 
-## 現行優先キュー — 2026-10-15 Safety Search Recovery RC後
+## 現行優先キュー — 2026-10-15 Safety Search Recovery Production後
 
-1. **Vercel認証後にReady PreviewをProductionへ昇格** — source `85c4b91`、Preview deployment `5YmUt4htmNrenQxhxahgeiEbFKci`を対象にする。CLI device loginまたはVercel画面の既存認証は人間が行い、credential・2FAをAIへ渡さない。環境変数、DNS、main、affiliate、SNSは変更しない。
-2. **本番2 URLを公開確認** — `/safety`と`/blog/ai-safety-ranking-2026`のHTTP 200、自己canonical、title、更新日、比較・診断・悩み別導線、390px横あふれ0、console error 0を確認する。sitemap件数と対象URLも確認する。
-3. **旧queryを同一定義で観測** — 公開後7日または各ページ50 impressionsで`安全なai`、`安全性の高いai`、`ハルシネーション ランキング`のclicks / impressions / CTR / positionを公開前28日値と分けて保存する。小標本だけで再変更しない。
-4. **安全性→選択行動を観測** — `/safety`と安全性ランキング記事から`/compare`、`/recommend`、`/safety/topics`への`internal_cta_click`を確認する。CTA表示回数がないためCTRとは呼ばない。
-5. **収益導線は適合を維持** — 安全性流入へ無関係なWinスクール広告を追加しない。検索回復後の用途・比較行動を先に観測し、適合する商品・成果地点が確認できた時だけ別実験として接続する。
+1. **旧queryを同一定義で観測** — 2026-10-15 22:00:46 JSTの公開後7日または各ページ50 impressionsで`安全なai`、`安全性の高いai`、`ハルシネーション ランキング`のclicks / impressions / CTR / positionを公開前28日値と分けて保存する。小標本だけで再変更しない。
+2. **安全性→選択行動を観測** — `/safety`と安全性ランキング記事から`/compare`、`/recommend`、`/safety/topics`への`internal_cta_click`を確認する。CTA表示回数がないためCTRとは呼ばない。
+3. **indexとsitemapを別指標で確認** — sitemap掲載、クロール、index、query表示を混同しない。Search Consoleで対象2 URLを観測し、未登録理由を推測で補完しない。
+4. **収益導線は適合を維持** — 安全性流入へ無関係なWinスクール広告を追加しない。検索回復後の用途・比較行動を先に観測し、適合する商品・成果地点が確認できた時だけ別実験として接続する。
+5. **安全性24記事を記事別に判断** — 公開後28日または各記事50 impressionsでquery重複、CTR、position、内部遷移を確認し、Continue / Rewrite / Consolidateを記事別に判断する。
 
 ## 現行優先キュー — 2026-10-14 安全性24記事クラスター Production後
 
